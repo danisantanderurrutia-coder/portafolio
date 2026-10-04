@@ -28,6 +28,16 @@ import { ModalViewer } from './components/ModalViewer';
 
 type ProfileMode = 'comms' | 'science';
 
+export function resolveAsset(path?: string): string {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
+    return path;
+  }
+  // Strip leading slash if present
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${import.meta.env.BASE_URL}${cleanPath}`;
+}
+
 export function App() {
   const [currentLang, setCurrentLang] = useState<Language>('es');
   const [profileMode, setProfileMode] = useState<ProfileMode>('comms');
@@ -414,13 +424,13 @@ export function App() {
                 <div className="relative group">
                   <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-neutral-600 shadow-2xl p-0.5 bg-neutral-900">
                     <img
-                      src="/profile.jpg"
+                      src={resolveAsset('/profile.jpg')}
                       alt="Daniel Santander Urrutia"
                       className="w-full h-full object-cover object-center rounded-full"
                     />
                   </div>
                   <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-neutral-900 border border-neutral-600 p-1 flex items-center justify-center shadow-lg">
-                    <img src="/favicon.svg" alt="DS" className="w-full h-full object-contain" />
+                    <img src={resolveAsset('/favicon.svg')} alt="DS" className="w-full h-full object-contain" />
                   </div>
                 </div>
 
@@ -584,7 +594,7 @@ export function App() {
                 {/* Screenshot Display: 100% visible, completely uncropped, readable from the start */}
                 <div className="relative w-full p-2 sm:p-5 bg-[#0a0805] flex items-center justify-center min-h-[360px]">
                   <img
-                    src={currentItem.src}
+                    src={resolveAsset(currentItem.src)}
                     alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
                     className="w-full h-auto max-h-[72vh] object-contain rounded-lg shadow-2xl"
                   />
@@ -744,7 +754,7 @@ export function App() {
                 ) : (
                   <div className="relative w-full h-full flex items-center justify-center bg-[#110e08]">
                     <img
-                      src={(currentLang === 'en' && currentItem.srcEn) ? currentItem.srcEn : currentItem.src}
+                      src={resolveAsset((currentLang === 'en' && currentItem.srcEn) ? currentItem.srcEn : currentItem.src)}
                       alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
                       className="max-w-full max-h-[480px] w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-[1.01] rounded-lg shadow-lg"
                     />
@@ -846,7 +856,7 @@ export function App() {
             <div className="relative w-full rounded-2xl bg-[#ede5d6]/70 border border-[#d8cdb9] shadow-xl overflow-hidden p-2 sm:p-4 flex flex-col items-center justify-center">
               <div className="relative w-full flex items-center justify-center rounded-xl overflow-hidden bg-white/40">
                 <img
-                  src={(currentLang === 'en' && currentItem.srcEn) ? currentItem.srcEn : currentItem.src}
+                  src={resolveAsset((currentLang === 'en' && currentItem.srcEn) ? currentItem.srcEn : currentItem.src)}
                   alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
                   className="w-full h-auto max-h-[68vh] object-contain rounded-lg shadow-sm"
                 />

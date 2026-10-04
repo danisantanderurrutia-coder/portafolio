@@ -9,6 +9,7 @@ import {
   TreePine
 } from 'lucide-react';
 import { MediaItem, Language } from '../types';
+import { resolveAsset } from '../App';
 
 interface ModalViewerProps {
   item: MediaItem | null;
@@ -94,7 +95,7 @@ export const ModalViewer: React.FC<ModalViewerProps> = ({ item, currentLang, onC
             ) : item.type === 'image' && (item.src || item.srcEn) ? (
               <div className="relative group max-h-[60vh] flex items-center justify-center bg-black/50 p-2">
                 <img
-                  src={(currentLang === 'en' && item.srcEn) ? item.srcEn : item.src}
+                  src={resolveAsset((currentLang === 'en' && item.srcEn) ? item.srcEn : item.src)}
                   alt={currentLang === 'es' ? item.titleEs : item.titleEn}
                   className="max-h-[58vh] w-auto object-contain rounded-lg shadow-2xl"
                 />
@@ -125,7 +126,7 @@ export const ModalViewer: React.FC<ModalViewerProps> = ({ item, currentLang, onC
                 {item.src && (
                   <div className="relative w-full max-h-[75vh] flex items-center justify-center overflow-hidden rounded-xl bg-black/50">
                     <img
-                      src={item.src}
+                      src={resolveAsset(item.src)}
                       alt={currentLang === 'es' ? item.titleEs : item.titleEn}
                       className="max-h-[72vh] w-auto object-contain rounded-lg shadow-xl"
                     />
