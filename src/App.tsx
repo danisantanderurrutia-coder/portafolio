@@ -39,7 +39,7 @@ export function resolveAsset(path?: string): string {
 }
 
 export function App() {
-  const [currentLang, setCurrentLang] = useState<Language>('es');
+  const [currentLang, setCurrentLang] = useState<Language>('en');
   const [profileMode, setProfileMode] = useState<ProfileMode>('comms');
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
