@@ -251,18 +251,18 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 2: EXPOSICIÓN PÚBLICA & INCIDENCIA EN EL CONGRESO
+  // SECTION 2: INTERVENCIÓN & INCIDENCIA EN EL CONGRESO
   {
-    id: 'exposicion-publica',
-    tabKey: '02. EXPOSICIÓN PÚBLICA',
-    tabTitleEn: 'Public Testimony',
-    tabTitleEs: 'Exposición Pública',
-    badgeEn: 'PARLIAMENTARY TESTIMONY & PUBLIC ADVOCACY',
-    badgeEs: 'TESTIMONIO PARLAMENTARIO E INCIDENCIA PÚBLICA',
+    id: 'intervencion',
+    tabKey: '02. INTERVENCIÓN',
+    tabTitleEn: 'Intervention',
+    tabTitleEs: 'Intervención',
+    badgeEn: 'PARLIAMENTARY INTERVENTION & PUBLIC ADVOCACY',
+    badgeEs: 'INTERVENCIÓN PARLAMENTARIA E INCIDENCIA PÚBLICA',
     roleEn: 'Technical Spokesperson & Grassroots Environmental Delegate',
     roleEs: 'Vocero Técnico y Delegado Ambiental Comunitario',
     titleEn: 'Parliamentary Hearings & Public Policy Advocacy',
-    titleEs: 'Exposición en el Congreso Nacional e Incidencia Pública',
+    titleEs: 'Intervención en el Congreso Nacional e Incidencia Pública',
     headlineEn: 'Elevating Grassroots Ecological Evidence into Legislative Oversight and State Accountability',
     headlineEs: 'Llevando la Evidencia Territorial y Científica a la Fiscalización Legislativa del Estado',
     narrativeEn: 'Representing frontline communities and environmental federations directly within parliamentary commissions, public hearings, and state investigative committees. Translates on-the-ground ecological degradation and community testimonies into rigorous, evidence-backed legislative presentations that challenge industrial monopolies and state negligence.',
