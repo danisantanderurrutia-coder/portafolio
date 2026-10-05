@@ -265,9 +265,9 @@ export const communicationsSections: SectionData[] = [
   // SECTION 2: PRIMERA LÍNEA PRENSA & RED MAULE SUR
   {
     id: 'primera-linea-prensa',
-    tabKey: '02. PERIODISMO (+700K)',
-    tabTitleEn: 'Citizen Journalism (+700k)',
-    tabTitleEs: 'Periodismo Ciudadano (+700k)',
+    tabKey: '02. PERIODISMO',
+    tabTitleEn: 'Citizen Journalism',
+    tabTitleEs: 'Periodismo Ciudadano',
     badgeEn: 'CITIZEN JOURNALISM & MASS REACH (+700K)',
     badgeEs: 'PERIODISMO CIUDADANO Y ALCANCE MASIVO (+700K)',
     roleEn: 'Founder & Executive Director | Broadcast Panellist | Grassroots Network Architect',
@@ -301,8 +301,8 @@ export const communicationsSections: SectionData[] = [
         titleEs: 'Panel de Analítica y Alcance Digital en Tiempo Real',
         subtitleEn: 'Metrics Breakdown: +700k Active Network Followers',
         subtitleEs: 'Desglose de Métricas: Red de +700k Seguidores Activos',
-        captionEn: 'Organic reach metrics overview showing virality spikes during frontline human rights alerts and constitutional debate broadcasts.',
-        captionEs: 'Resumen de métricas de alcance orgánico con picos de viralidad durante coberturas de derechos humanos y debates constituyentes.',
+        captionEn: 'Organic reach metrics overview showing virality spikes during frontline human rights alerts and constitutional debate broadcasts (+700,000 organic followers).',
+        captionEs: 'Resumen de métricas de alcance orgánico con picos de viralidad durante coberturas de derechos humanos y debates constituyentes (+700.000 seguidores orgánicos).',
         authorOrSource: 'Meta Business Insights & CrowdTangle',
         date: '2020-2022',
         metrics: [
@@ -329,12 +329,12 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 3: APRUEBO RURAL
+  // SECTION 3: APRUEBO RURAL / NATIONAL CAMPAIGN
   {
     id: 'apruebo-rural',
-    tabKey: '03. APRUEBO RURAL',
-    tabTitleEn: 'Apruebo Rural',
-    tabTitleEs: 'Apruebo Rural',
+    tabKey: '03. CAMPAÑA NACIONAL',
+    tabTitleEn: 'National Campaign',
+    tabTitleEs: 'Campaña Nacional',
     badgeEn: 'NATIONAL CAMPAIGN & PEASANT FRONTLINE',
     badgeEs: 'CAMPAÑA NACIONAL Y FRENTE CAMPESINO',
     roleEn: 'Lead Campaign Coordinator & National Press Director',
