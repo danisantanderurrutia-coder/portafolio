@@ -237,8 +237,8 @@ export function App() {
                     : 'Professional Portfolio • Dual Edition'
                   : isComms
                   ? currentLang === 'es'
-                    ? 'Comunicaciones Estratégicas & Campañas (+700k)'
-                    : 'Strategic Communications & Campaigns (+700k)'
+                    ? 'Comunicaciones Estratégicas & Campañas'
+                    : 'Strategic Communications & Campaigns'
                   : currentLang === 'es'
                   ? 'Científico Ambiental (Dual M.Sc.)'
                   : 'Environmental Scientist (Dual M.Sc.)'}
@@ -494,7 +494,7 @@ export function App() {
               {/* DUAL MODE MINIMALIST PORTALS (SIDE-BY-SIDE EQUILIBRADO) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-2xl px-2">
                 
-                {/* 1. PUERTA COMUNICACIONES (Cálido / Ámbar sutil) */}
+                {/* 1. PUERTA COMUNICACIONES (Cálido / Ámbar y Grafito Editorial) */}
                 <div 
                   onClick={() => {
                     handleToggleProfile('comms');
@@ -503,7 +503,7 @@ export function App() {
                     setCurrentSlideIndex(0);
                     window.location.hash = '#intervencion';
                   }}
-                  className="group relative cursor-pointer rounded-2xl border border-neutral-800 hover:border-amber-500/50 bg-neutral-900/90 hover:bg-[#1a1610] p-6 text-left transition-all duration-300 hover:scale-[1.02] shadow-xl hover:shadow-amber-500/10 flex flex-col justify-between"
+                  className="group relative cursor-pointer rounded-2xl border border-slate-800 hover:border-amber-500/50 bg-slate-900/90 hover:bg-[#1a1d26] p-6 text-left transition-all duration-300 hover:scale-[1.02] shadow-xl hover:shadow-amber-500/10 flex flex-col justify-between"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
@@ -511,7 +511,7 @@ export function App() {
                         <Moon className="w-5 h-5" />
                       </div>
                       <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400/90 font-bold px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
-                        +700k Reach
+                        {currentLang === 'es' ? 'Campañas & Medios' : 'Campaigns & Media'}
                       </span>
                     </div>
 
@@ -521,13 +521,13 @@ export function App() {
                       </h3>
                       <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
                         {currentLang === 'es'
-                          ? 'Dirección de campañas territoriales masivas, cultura comunitaria, artivismo táctico y periodismo de investigación.'
-                          : 'Mass communication campaigns, community culture, tactical artivism, and investigative reporting.'}
+                          ? 'Intervención pública, periodismo ciudadano, campañas territoriales, arte y cultura comunitaria, prensa de investigación y publicaciones.'
+                          : 'Public intervention, citizen journalism, territorial campaigns, art & community culture, investigative press, and analytical essays.'}
                       </p>
                     </div>
                   </div>
 
-                  <div className="mt-5 pt-3 border-t border-neutral-800 group-hover:border-amber-500/20 flex items-center justify-between text-xs font-serif font-bold text-neutral-400 group-hover:text-amber-400 transition-colors">
+                  <div className="mt-5 pt-3 border-t border-slate-800 group-hover:border-amber-500/20 flex items-center justify-between text-xs font-serif font-bold text-neutral-400 group-hover:text-amber-400 transition-colors">
                     <span>{currentLang === 'es' ? 'Entrar a Comunicaciones' : 'Enter Communications'}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
