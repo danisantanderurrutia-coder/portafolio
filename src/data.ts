@@ -507,451 +507,305 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 4: CULTURA & ESPACIOS COMUNITARIOS (SOLO HIP-HOP & FREESTYLE)
+  // SECTION 4: ARTE Y CULTURA (PROPAGANDA, RAP BEAUCHEF, RAP LIBRE)
   {
-    id: 'rap-beauchef',
-    tabKey: '04. CULTURA',
-    tabTitleEn: 'Culture & Rap',
-    tabTitleEs: 'Cultura & Rap',
-    badgeEn: 'YOUTH CULTURE & ARTISTIC PRODUCTION',
-    badgeEs: 'CULTURA JUVENIL Y PRODUCCIÓN ARTÍSTICA',
-    roleEn: 'Artistic Director, Live Producer & Community Architect',
-    roleEs: 'Director Artístico, Productor en Vivo y Arquitecto Comunitario',
-    titleEn: 'Rap Beauchef, Cuarentena Rap & Rap Libre',
-    titleEs: 'Rap Beauchef, Cuarentena Rap & Rap Libre',
-    headlineEn: 'Scaling Youth Freestyle Counter-Culture into Civic Ecology and Human Rights Advocacy',
-    headlineEs: 'Transformando la Contracultura del Freestyle Juvenil en Incidencia Ecológica y Derechos Humanos',
-    narrativeEn: 'Engineered cross-platform youth mobilization from university amphitheaters (Beauchef - FCFM Universidad de Chile) to national pandemic leagues (Cuarentena Rap) and massive live urban arenas (Rap Libre). Designed decentralized governance structures on Discord, livestreamed broadcasts, and forged alliances between lyricists and frontline environmental causes.',
-    narrativeEs: 'Diseñó la movilización juvenil multiplataforma desde anfiteatros universitarios (Beauchef - FCFM Universidad de Chile) hasta ligas online nacionales en pandemia (Cuarentena Rap) y masivas arenas urbanas (Rap Libre). Creó estructuras de gobernanza descentralizada en Discord, transmisiones multimedia en vivo y alianzas estratégicas entre letristas y causas territoriales.',
+    id: 'arte-y-cultura',
+    tabKey: '04. ARTE Y CULTURA',
+    tabTitleEn: 'Art & Culture',
+    tabTitleEs: 'Arte y Cultura',
+    badgeEn: 'ARTIVISM, YOUTH CULTURE & COMMUNITY SPACES',
+    badgeEs: 'ARTIVISMO, CULTURA JUVENIL & ESPACIOS COMUNITARIOS',
+    roleEn: 'Artistic Director, Tactical Artivist & Cultural Producer',
+    roleEs: 'Director Artístico, Artivista Táctico y Productor Cultural',
+    titleEn: 'Arte y Cultura: Propaganda, Rap Beauchef & Rap Libre',
+    titleEs: 'Arte y Cultura: Propaganda, Rap Beauchef & Rap Libre',
+    headlineEn: 'Deploying Tactical Visual Artivism, Street Murals and Youth Spoken-Word Counter-Culture',
+    headlineEs: 'Desplegando Artivismo Visual Táctico, Muralismo Monumental y la Contracultura Lírica Juvenil',
+    narrativeEn: 'Directed and coordinated frontline cultural architectures across Santiago and regional hubs: from monumental street murals and iconic protest silkscreens with Brigada Paulina Aguirre to mass university amphitheaters (Rap Beauchef), international online streaming leagues, and urban public square cyphers (Rap Libre). Uniting artistic agitation, youth free expression, and social-ecological justice.',
+    narrativeEs: 'Dirección y articulación de dispositivos culturales de base: desde la afichería política callejera, serigrafías y megamurales monumentales con la Brigada de Propaganda Paulina Aguirre, hasta la contracultura del freestyle juvenil en anfiteatros universitarios (Rap Beauchef), ligas internacionales en streaming y reapropiación de plazas y parques urbanos (Rap Libre). Una síntesis de agitación visual, libre expresión y memoria popular.',
     keyOutcomesEn: [
-      'Orchestrated 40+ high-intensity live tournaments and pandemic streaming leagues with 50,000+ total views.',
-      'Constructed a 12,000+ member Discord server with automated role permissions and community pipelines.',
-      'Positioned environmental defense, territorial sovereignty, and human rights into competitive spoken-word improvisation.'
+      'Painted 35+ monumental street and university murals, producing iconic protest graphics and political silk-screens.',
+      'Produced 40+ high-intensity live tournaments and pandemic streaming leagues with 50,000+ views.',
+      'Constructed a 12,000+ member Discord community for international cyphers and youth free expression.',
+      'Integrated socio-environmental defense, territorial memory, and human rights into visual and lyric counter-culture.'
     ],
     keyOutcomesEs: [
+      'Pintura de más de 35 murales monumentales en ejes viales y universidades, con afiches icónicos de serigrafía y agitación.',
       'Producción de más de 40 torneos en vivo y ligas de streaming pandémicas con más de 50.000 visualizaciones acumuladas.',
-      'Diseño y gestión de servidor Discord con más de 12.000 miembros, roles automatizados y moderación comunitaria.',
-      'Integración sistemática de temáticas socioambientales, defensa de la tierra y derechos humanos en la improvisación lírica.'
+      'Construcción de una comunidad de más de 12.000 miembros en Discord para cyphers internacionales y libre expresión juvenil.',
+      'Integración sistemática de la defensa socioambiental, memoria territorial y derechos humanos en la contracultura visual y lírica.'
     ],
     stats: [
-      { value: '40+', labelEn: 'Tournaments Produced', labelEs: 'Torneos Producidos' },
+      { value: '35+', labelEn: 'Monumental Murals Executed', labelEs: 'Murales Monumentales Pintados' },
+      { value: '40+', labelEn: 'Tournaments & Arenas', labelEs: 'Torneos y Arenas Producidos' },
       { value: '12K+', labelEn: 'Discord Community Members', labelEs: 'Miembros en Discord' },
       { value: '100%', labelEn: 'Grassroots Self-Funded', labelEs: 'Autogestión de Base' }
     ],
     subSections: [
       {
+        id: 'propaganda',
+        titleEn: 'Propaganda',
+        titleEs: 'Propaganda',
+        badgeEn: 'Tactical Artivism & Street Propaganda',
+        badgeEs: 'Artivismo Táctico y Propaganda Callejera',
+        mediaItems: [
+          {
+            id: 'brigada-protesta-fotografia',
+            type: 'image',
+            titleEn: 'Protest Photography: Popular Street Mobilization & Banners',
+            titleEs: 'Fotografía de Protesta: Movilización Popular en las Calles',
+            subtitleEn: 'Frontline Street Demonstration // Leftwing Youth & People\'s Resistance',
+            subtitleEs: 'Marcha y Resistencia Popular // Juventud y Banderas en la Alameda',
+            src: '/brigada/brigada_protesta.png',
+            captionEn: 'Direct frontline photography capturing the intense energy, crimson-and-black banners, and massive street mobilization in downtown Santiago during national days of protest for social and structural change.',
+            captionEs: 'Fotografía directa de movilización callejera: banderas rojinegras y multitudinaria columna juvenil marchando por el centro de Santiago durante jornadas de protesta y reivindicación popular.',
+            authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Registro de Campo',
+            date: '2019-2020',
+            tags: ['Fotografía de Protesta', 'Movilización Callejera', 'Juventud', 'Alameda']
+          },
+          {
+            id: 'brigada-afiche-evadir',
+            type: 'image',
+            titleEn: 'Political Poster: "Evadir, No Pagar: Otra Forma de Luchar"',
+            titleEs: 'Afiche Político: "Evadir, No Pagar: Otra Forma de Luchar"',
+            subtitleEn: 'Iconic Silkscreen & Digital Agitation Poster // Fare Evasion Movement',
+            subtitleEs: 'Afiche Ícono de Agitación Callejera // Movimiento de Evasión Masiva',
+            src: '/brigada/brigada_afiche_evadir.png',
+            captionEn: 'Historical agitation poster created by Brigada Paulina Aguirre during the inception of the October 2019 Chilean uprising: "Evadir, No Pagar: Otra Forma de Luchar", illustrating civil disobedience over metro turnstiles that triggered the nationwide constitutional cycle.',
+            captionEs: 'Emblemático afiche de agitación política y serigrafía callejera creado por la Brigada Paulina Aguirre en los albores del estallido social de octubre de 2019: "Evadir, No Pagar: Otra Forma de Luchar", inmortalizando el salto de torniquetes que desató el ciclo de revuelta nacional.',
+            authorOrSource: 'Brigada Paulina Aguirre // Propaganda Callejera',
+            date: 'Octubre 2019',
+            tags: ['Afiche Político', 'Evadir No Pagar', 'Estallido Social', 'Serigrafía Callejera']
+          },
+          {
+            id: 'brigada-graficas-digitales',
+            type: 'image',
+            titleEn: 'Digital Graphics: Territorial Agitation & Political Propaganda',
+            titleEs: 'Gráficas Digitales: Agitación Territorial y Propaganda Política',
+            subtitleEn: 'Digital Design // Propaganda Visuals & Social Media Campaign',
+            subtitleEs: 'Diseño Digital // Gráficas de Propaganda y Difusión en Redes',
+            src: '/brigada/brigada_grafica_digital.jpg',
+            url: 'https://www.facebook.com/photo.php?fbid=418738228474147&set=pb.100067890108840.-2207520000&type=3',
+            captionEn: 'High-contrast graphic designed for cross-platform distribution across social media channels, combining radical typography, socialist iconography, and direct calls to territorial mobilization.',
+            captionEs: 'Gráfica digital de alto contraste concebida para redes sociales y plataformas de contra-información: composición visual que articula tipografía de combate, memoria revolucionaria y convocatoria a la huelga popular.',
+            authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Archivo Digital',
+            date: '2019-2021',
+            tags: ['Gráficas Digitales', 'Propaganda', 'Redes Sociales', 'Agitación Visual']
+          },
+          {
+            id: 'brigada-mural-no-afp',
+            type: 'image',
+            titleEn: 'Community Muralism: "No + AFP" & Popular Working-Class Unity',
+            titleEs: 'Muralismo Comunitario: "No + AFP" y Rostros del Pueblo Trabajador',
+            subtitleEn: 'Large-Scale Facade Mural // Social Security & Class Solidarity',
+            subtitleEs: 'Mural Monumental en Fachada Barrial // Unidad y Seguridad Social',
+            src: '/brigada/brigada_mural_no_afp.png',
+            captionEn: 'Monumental facade mural painted in a popular working-class neighborhood portraying the diverse faces of working people (construction workers, students, indigenous peoples, elders) united under the banner "No + AFP: El Paro Va".',
+            captionEs: 'Mural monumental de fachada barrial pintado por la brigada que retrata los rostros y miradas del pueblo trabajador (obreros, estudiantes, pueblos originarios, pobladores) bajo la consigna central "No + AFP: El Paro Va", resignificando el espacio público.',
+            authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Producción Mural',
+            date: '2019-2020',
+            tags: ['Muralismo', 'No Más AFP', 'Espacio Público', 'Población Barrial']
+          }
+        ]
+      },
+      {
         id: 'rap-beauchef',
-        titleEn: 'Rap Beauchef (En Vivo & Online)',
-        titleEs: 'Rap Beauchef (En Vivo & Online)',
+        titleEn: 'Rap Beauchef',
+        titleEs: 'Rap Beauchef',
         badgeEn: 'University Arena & Digital League',
         badgeEs: 'Arena Universitaria & Liga Digital',
         mediaItems: [
-      {
-        id: 'rap-beauchef-batallas-vivo',
-        type: 'instagram',
-        instagramId: 'B9ljgLMngum',
-        src: '/instagram_covers/B9ljgLMngum.jpg',
-        url: 'https://www.instagram.com/p/B9ljgLMngum/',
-        titleEn: 'Rap Beauchef: Live Arena Tournaments & University Cyphers',
-        titleEs: 'Rap Beauchef: Torneos en Vivo & Cyphers Universitarios',
-        subtitleEn: 'Beauchef Amphitheater (FCFM Universidad de Chile) // Live Freestyle Circuit',
-        subtitleEs: 'Anfiteatro Beauchef (FCFM U. de Chile) // Circuito en Vivo de Freestyle',
-        captionEn: 'Live university arena competitions convening thousands of students, underground emcees, and local beatmakers. High-level freestyle battles organized with self-managed stage sound, multi-camera crews, and strict community ethics.',
-        captionEs: 'Competencias en arena universitaria que convocaron a miles de estudiantes, emcees de la escena underground y beatmakers. Batallas de freestyle de alto nivel con producción técnica autogestionada, registro audiovisual y ética comunitaria.',
-        authorOrSource: '@rapbeauchef // Producción en Vivo',
-        date: '2019-2020',
-        tags: ['Rap Beauchef', 'Batallas en Vivo', 'FCFM', 'Cultura Hip-Hop'],
-        subLinks: [
           {
-            titleEn: 'Stage & Emcees (Gallery I)',
-            titleEs: 'Escenario & Emcees (Galería I)',
-            url: 'https://www.instagram.com/p/B3ZZ8sGgaJX/',
-            src: '/instagram_covers/B3ZZ8sGgaJX.jpg'
+            id: 'rap-beauchef-batallas-vivo',
+            type: 'instagram',
+            instagramId: 'B9ljgLMngum',
+            src: '/instagram_covers/B9ljgLMngum.jpg',
+            url: 'https://www.instagram.com/p/B9ljgLMngum/',
+            titleEn: 'Rap Beauchef: Live Arena Tournaments & University Cyphers',
+            titleEs: 'Rap Beauchef: Torneos en Vivo & Cyphers Universitarios',
+            subtitleEn: 'Beauchef Amphitheater (FCFM Universidad de Chile) // Live Freestyle Circuit',
+            subtitleEs: 'Anfiteatro Beauchef (FCFM U. de Chile) // Circuito en Vivo de Freestyle',
+            captionEn: 'Live university arena competitions convening thousands of students, underground emcees, and local beatmakers. High-level freestyle battles organized with self-managed stage sound, multi-camera crews, and strict community ethics.',
+            captionEs: 'Competencias en arena universitaria que convocaron a miles de estudiantes, emcees de la escena underground y beatmakers. Batallas de freestyle de alto nivel con producción técnica autogestionada, registro audiovisual y ética comunitaria.',
+            authorOrSource: '@rapbeauchef // Producción en Vivo',
+            date: '2019-2020',
+            tags: ['Rap Beauchef', 'Batallas en Vivo', 'FCFM', 'Cultura Hip-Hop'],
+            subLinks: [
+              {
+                titleEn: 'Stage & Emcees (Gallery I)',
+                titleEs: 'Escenario & Emcees (Galería I)',
+                url: 'https://www.instagram.com/p/B3ZZ8sGgaJX/',
+                src: '/instagram_covers/B3ZZ8sGgaJX.jpg'
+              },
+              {
+                titleEn: 'Crowd & Cyphers (Gallery II)',
+                titleEs: 'Público & Cyphers (Galería II)',
+                url: 'https://www.instagram.com/p/B3ZZb3BgR1R/?img_index=1',
+                src: '/instagram_covers/B3ZZb3BgR1R.jpg'
+              },
+              {
+                titleEn: 'Freestyle Rounds (Gallery III)',
+                titleEs: 'Rondas de Freestyle (Galería III)',
+                url: 'https://www.instagram.com/p/B3Yig7mg_02/?img_index=1',
+                src: '/instagram_covers/B3Yig7mg_02.jpg'
+              },
+              {
+                titleEn: 'Judges & Flow (Gallery IV)',
+                titleEs: 'Jueces & Flow (Galería IV)',
+                url: 'https://www.instagram.com/p/B3YgyJxgiBS/?img_index=1',
+                src: '/instagram_covers/B3YgyJxgiBS.jpg'
+              },
+              {
+                titleEn: 'Amphitheater Arena (Gallery V)',
+                titleEs: 'Anfiteatro Lleno (Galería V)',
+                url: 'https://www.instagram.com/p/B3VfufbAH6A/?img_index=1',
+                src: '/instagram_covers/B3VfufbAH6A.jpg'
+              },
+              {
+                titleEn: 'Mic & Energy (Gallery VI)',
+                titleEs: 'Micrófono & Energía (Galería VI)',
+                url: 'https://www.instagram.com/p/B3VR8cqABYU/?img_index=1',
+                src: '/instagram_covers/B3VR8cqABYU.jpg'
+              },
+              {
+                titleEn: 'Championship Stage (Gallery VII)',
+                titleEs: 'Etapa Final (Galería VII)',
+                url: 'https://www.instagram.com/p/B3VO-R7Akr3/?img_index=1',
+                src: '/instagram_covers/B3VO-R7Akr3.jpg'
+              },
+              {
+                titleEn: 'Champions & Ceremony (Gallery VIII)',
+                titleEs: 'Premiación & Cierre (Galería VIII)',
+                url: 'https://www.instagram.com/p/B3VMAN1gh9R/?img_index=5',
+                src: '/instagram_covers/B3VMAN1gh9R.jpg'
+              }
+            ]
           },
           {
-            titleEn: 'Crowd & Cyphers (Gallery II)',
-            titleEs: 'Público & Cyphers (Galería II)',
-            url: 'https://www.instagram.com/p/B3ZZb3BgR1R/?img_index=1',
-            src: '/instagram_covers/B3ZZb3BgR1R.jpg'
+            id: 'rap-beauchef-shows-duenas',
+            type: 'instagram',
+            instagramId: 'B3SOa_YgJ5j',
+            src: '/instagram_covers/B3SOa_YgJ5j.jpg',
+            url: 'https://www.instagram.com/p/B3SOa_YgJ5j/?img_index=1',
+            titleEn: 'Rap Beauchef: Live Concerts & "Dueñas de la Voz" Female Tournament',
+            titleEs: 'Rap Beauchef: Shows en Vivo & "Dueñas de la Voz" (Encuentro Femenino)',
+            subtitleEn: 'Live Hip-Hop Showcase & Women\'s Spoken-Word Leadership',
+            subtitleEs: 'Conciertos en Vivo y Liderazgo de Mujeres en la Escena del Rap',
+            captionEn: 'Expanding beyond battles into live musical concerts and specialized events like "Dueñas de la Voz", a landmark female tournament celebrating women rap artists, lyricism, and vocal sovereignty in university cultural spaces.',
+            captionEs: 'Expansión hacia conciertos y eventos temáticos de gran impacto como "Dueñas de la Voz", certamen y encuentro femenino pionero que visibilizó y potenció a mujeres músicas, freestylers y poetas en la escena universitaria.',
+            authorOrSource: '@rapbeauchef // Producción Artística',
+            date: '2019-2020',
+            tags: ['Dueñas de la Voz', 'Shows en Vivo', 'Mujeres en Hip-Hop', 'Gestión Cultural'],
+            subLinks: [
+              {
+                titleEn: 'Official Poster Launch',
+                titleEs: 'Afiche Oficial de Lanzamiento',
+                url: 'https://www.instagram.com/p/B1k2tdFgYoK/',
+                src: '/instagram_covers/B1k2tdFgYoK.jpg'
+              },
+              {
+                titleEn: 'Tournament Photo Gallery',
+                titleEs: 'Galería Fotográfica del Torneo',
+                url: 'https://www.instagram.com/p/B2O_yRGgRmY/?img_index=4',
+                src: '/instagram_covers/B2O_yRGgRmY.jpg'
+              }
+            ]
           },
           {
-            titleEn: 'Freestyle Rounds (Gallery III)',
-            titleEs: 'Rondas de Freestyle (Galería III)',
-            url: 'https://www.instagram.com/p/B3Yig7mg_02/?img_index=1',
-            src: '/instagram_covers/B3Yig7mg_02.jpg'
-          },
-          {
-            titleEn: 'Judges & Flow (Gallery IV)',
-            titleEs: 'Jueces & Flow (Galería IV)',
-            url: 'https://www.instagram.com/p/B3YgyJxgiBS/?img_index=1',
-            src: '/instagram_covers/B3YgyJxgiBS.jpg'
-          },
-          {
-            titleEn: 'Amphitheater Arena (Gallery V)',
-            titleEs: 'Anfiteatro Lleno (Galería V)',
-            url: 'https://www.instagram.com/p/B3VfufbAH6A/?img_index=1',
-            src: '/instagram_covers/B3VfufbAH6A.jpg'
-          },
-          {
-            titleEn: 'Mic & Energy (Gallery VI)',
-            titleEs: 'Micrófono & Energía (Galería VI)',
-            url: 'https://www.instagram.com/p/B3VR8cqABYU/?img_index=1',
-            src: '/instagram_covers/B3VR8cqABYU.jpg'
-          },
-          {
-            titleEn: 'Championship Stage (Gallery VII)',
-            titleEs: 'Etapa Final (Galería VII)',
-            url: 'https://www.instagram.com/p/B3VO-R7Akr3/?img_index=1',
-            src: '/instagram_covers/B3VO-R7Akr3.jpg'
-          },
-          {
-            titleEn: 'Champions & Ceremony (Gallery VIII)',
-            titleEs: 'Premiación & Cierre (Galería VIII)',
-            url: 'https://www.instagram.com/p/B3VMAN1gh9R/?img_index=5',
-            src: '/instagram_covers/B3VMAN1gh9R.jpg'
+            id: 'rap-beauchef-online-discord',
+            type: 'instagram',
+            instagramId: 'CCPVa5elGhn',
+            src: '/instagram_covers/CCPVa5elGhn.jpg',
+            url: 'https://www.instagram.com/p/CCPVa5elGhn/',
+            titleEn: 'Rap Beauchef Online: Discord Leagues & International Community',
+            titleEs: 'Rap Beauchef Online: Ligas en Discord & Red Internacional',
+            subtitleEn: 'Pandemic Streaming Ecosystem // Cross-Border Latin American Cyphers',
+            subtitleEs: 'Ecosistema de Streaming en Pandemia // Red Latinoamericana de Freestyle',
+            captionEn: 'Pioneered online rap tournaments during global lockdowns by architecting an automated Discord server (+12,000 users) with low-latency audio rooms, international participation across Latin America and Spain, video cyphers, and live Twitch/YouTube broadcasts.',
+            captionEs: 'Pioneros en la adaptación online durante los confinamientos: creación de una comunidad de +12.000 usuarios en Discord con salas de audio optimizadas, jueces internacionales, competidores de Chile, Argentina, Perú, Colombia y España, y streaming en directo.',
+            authorOrSource: '@rapbeauchef // Comunidad Digital',
+            date: '2020-2021',
+            tags: ['Discord', 'Online League', 'Comunidad Internacional', 'Streaming'],
+            subLinks: [
+              {
+                titleEn: 'Online Concurrence & Voice Rooms',
+                titleEs: 'Concurrencia en Salas de Discord',
+                url: 'https://www.instagram.com/p/CBCA5DGFBwO/?img_index=1',
+                src: '/instagram_covers/CBCA5DGFBwO.jpg'
+              },
+              {
+                titleEn: 'Official Tournament Fixture',
+                titleEs: 'Afiche y Fixture del Torneo',
+                url: 'https://www.instagram.com/p/CBV5veZFbFw/',
+                src: '/instagram_covers/CBV5veZFbFw.jpg'
+              },
+              {
+                titleEn: 'Season Grand Final',
+                titleEs: 'Gran Final de la Temporada',
+                url: 'https://www.instagram.com/p/CEsyoUSln0c/',
+                src: '/instagram_covers/CEsyoUSln0c.jpg'
+              },
+              {
+                titleEn: 'International Jury & Community',
+                titleEs: 'Jurado y Red Internacional',
+                url: 'https://www.instagram.com/p/CDMWyFale-C/',
+                src: '/instagram_covers/CDMWyFale-C.jpg'
+              },
+              {
+                titleEn: 'International Match Poster',
+                titleEs: 'Afiche Encuentro Internacional',
+                url: 'https://www.instagram.com/p/CDwWpGOF6N5/',
+                src: '/instagram_covers/CDwWpGOF6N5.jpg'
+              },
+              {
+                titleEn: 'Announcement & Guidelines',
+                titleEs: 'Convocatoria y Bases Online',
+                url: 'https://www.instagram.com/p/CCKc5F1F-bq/',
+                src: '/instagram_covers/CCKc5F1F-bq.jpg'
+              }
+            ]
           }
-        ]
-      },
-      {
-        id: 'rap-beauchef-shows-duenas',
-        type: 'instagram',
-        instagramId: 'B3SOa_YgJ5j',
-        src: '/instagram_covers/B3SOa_YgJ5j.jpg',
-        url: 'https://www.instagram.com/p/B3SOa_YgJ5j/?img_index=1',
-        titleEn: 'Rap Beauchef: Live Concerts & "Dueñas de la Voz" Female Tournament',
-        titleEs: 'Rap Beauchef: Shows en Vivo & "Dueñas de la Voz" (Encuentro Femenino)',
-        subtitleEn: 'Live Hip-Hop Showcase & Women\'s Spoken-Word Leadership',
-        subtitleEs: 'Conciertos en Vivo y Liderazgo de Mujeres en la Escena del Rap',
-        captionEn: 'Expanding beyond battles into live musical concerts and specialized events like "Dueñas de la Voz", a landmark female tournament celebrating women rap artists, lyricism, and vocal sovereignty in university cultural spaces.',
-        captionEs: 'Expansión hacia conciertos y eventos temáticos de gran impacto como "Dueñas de la Voz", certamen y encuentro femenino pionero que visibilizó y potenció a mujeres músicas, freestylers y poetas en la escena universitaria.',
-        authorOrSource: '@rapbeauchef // Producción Artística',
-        date: '2019-2020',
-        tags: ['Dueñas de la Voz', 'Shows en Vivo', 'Mujeres en Hip-Hop', 'Gestión Cultural'],
-        subLinks: [
-          {
-            titleEn: 'Official Poster Launch',
-            titleEs: 'Afiche Oficial de Lanzamiento',
-            url: 'https://www.instagram.com/p/B1k2tdFgYoK/',
-            src: '/instagram_covers/B1k2tdFgYoK.jpg'
-          },
-          {
-            titleEn: 'Tournament Photo Gallery',
-            titleEs: 'Galería Fotográfica del Torneo',
-            url: 'https://www.instagram.com/p/B2O_yRGgRmY/?img_index=4',
-            src: '/instagram_covers/B2O_yRGgRmY.jpg'
-          }
-        ]
-      },
-      {
-        id: 'rap-beauchef-online-discord',
-        type: 'instagram',
-        instagramId: 'CCPVa5elGhn',
-        src: '/instagram_covers/CCPVa5elGhn.jpg',
-        url: 'https://www.instagram.com/p/CCPVa5elGhn/',
-        titleEn: 'Rap Beauchef Online: Discord Leagues & International Community',
-        titleEs: 'Rap Beauchef Online: Ligas en Discord & Red Internacional',
-        subtitleEn: 'Pandemic Streaming Ecosystem // Cross-Border Latin American Cyphers',
-        subtitleEs: 'Ecosistema de Streaming en Pandemia // Red Latinoamericana de Freestyle',
-        captionEn: 'Pioneered online rap tournaments during global lockdowns by architecting an automated Discord server (+12,000 users) with low-latency audio rooms, international participation across Latin America and Spain, video cyphers, and live Twitch/YouTube broadcasts.',
-        captionEs: 'Pioneros en la adaptación online durante los confinamientos: creación de una comunidad de +12.000 usuarios en Discord con salas de audio optimizadas, jueces internacionales, competidores de Chile, Argentina, Perú, Colombia y España, y streaming en directo.',
-        authorOrSource: '@rapbeauchef // Comunidad Digital',
-        date: '2020-2021',
-        tags: ['Discord', 'Online League', 'Comunidad Internacional', 'Streaming'],
-        subLinks: [
-          {
-            titleEn: 'Online Concurrence & Voice Rooms',
-            titleEs: 'Concurrencia en Salas de Discord',
-            url: 'https://www.instagram.com/p/CBCA5DGFBwO/?img_index=1',
-            src: '/instagram_covers/CBCA5DGFBwO.jpg'
-          },
-          {
-            titleEn: 'Official Tournament Fixture',
-            titleEs: 'Afiche y Fixture del Torneo',
-            url: 'https://www.instagram.com/p/CBV5veZFbFw/',
-            src: '/instagram_covers/CBV5veZFbFw.jpg'
-          },
-          {
-            titleEn: 'Season Grand Final',
-            titleEs: 'Gran Final de la Temporada',
-            url: 'https://www.instagram.com/p/CEsyoUSln0c/',
-            src: '/instagram_covers/CEsyoUSln0c.jpg'
-          },
-          {
-            titleEn: 'International Jury & Community',
-            titleEs: 'Jurado y Red Internacional',
-            url: 'https://www.instagram.com/p/CDMWyFale-C/',
-            src: '/instagram_covers/CDMWyFale-C.jpg'
-          },
-          {
-            titleEn: 'International Match Poster',
-            titleEs: 'Afiche Encuentro Internacional',
-            url: 'https://www.instagram.com/p/CDwWpGOF6N5/',
-            src: '/instagram_covers/CDwWpGOF6N5.jpg'
-          },
-          {
-            titleEn: 'Announcement & Guidelines',
-            titleEs: 'Convocatoria y Bases Online',
-            url: 'https://www.instagram.com/p/CCKc5F1F-bq/',
-            src: '/instagram_covers/CCKc5F1F-bq.jpg'
-          }
-        ]
-      }
         ]
       },
       {
         id: 'rap-libre',
-        titleEn: 'Rap Libre (Espacio Público)',
-        titleEs: 'Rap Libre (Espacio Público)',
+        titleEn: 'Rap Libre',
+        titleEs: 'Rap Libre',
         badgeEn: 'Urban Parks & Public Squares',
         badgeEs: 'Parques Urbanos & Plazas Públicas',
         mediaItems: [
-    {
-        id: 'rap-libre-urbano',
-        type: 'instagram',
-        instagramId: 'B42bAbtnntp',
-        src: '/instagram_covers/B42bAbtnntp.jpg',
-        url: 'https://www.instagram.com/p/B42bAbtnntp/',
-        titleEn: 'Rap Libre: Urban Public Space & Civic Freestyle Arena',
-        titleEs: 'Rap Libre: Conquista del Espacio Público & Escena Urbana',
-        subtitleEn: 'Massive Urban Gathering // Free Expression & Independent Art',
-        subtitleEs: 'Encuentro Urbano Masivo // Expresión Libre & Cultura Independiente',
-        captionEn: 'Rap Libre brought high-octane freestyle culture directly into major public urban spaces. A movement founded on grassroots independence, civic youth assembly, free expression, and the defense of public parks and squares for artistic performance.',
-        captionEs: 'Rap Libre expandió la energía del freestyle directamente a los espacios públicos urbanos de alta concurrencia. Un movimiento fundado en la autogestión territorial, la libre expresión juvenil y la reapropiación del espacio público para el arte y la comunidad.',
-        authorOrSource: 'Rap Libre // Producción Urbana',
-        date: '2019-2020',
-        tags: ['Rap Libre', 'Espacio Público', 'Cultura Urbana', 'Autogestión'],
-        subLinks: [
           {
-            titleEn: 'Official Event Launch Poster',
-            titleEs: 'Afiche Oficial de Convocatoria',
+            id: 'rap-libre-urbano',
+            type: 'instagram',
+            instagramId: 'B42bAbtnntp',
+            src: '/instagram_covers/B42bAbtnntp.jpg',
             url: 'https://www.instagram.com/p/B42bAbtnntp/',
-            src: '/instagram_covers/B42bAbtnntp.jpg'
-          },
-          {
-            titleEn: 'Live Event Photo Gallery & Massive Crowd',
-            titleEs: 'Galería Fotográfica & Multitud Urbana',
-            url: 'https://www.instagram.com/p/B46IqYzHJkB/?img_index=1',
-            src: '/instagram_covers/B46IqYzHJkB.jpg'
+            titleEn: 'Rap Libre: Urban Public Space & Civic Freestyle Arena',
+            titleEs: 'Rap Libre: Conquista del Espacio Público & Escena Urbana',
+            subtitleEn: 'Massive Urban Gathering // Free Expression & Independent Art',
+            subtitleEs: 'Encuentro Urbano Masivo // Expresión Libre & Cultura Independiente',
+            captionEn: 'Rap Libre brought high-octane freestyle culture directly into major public urban spaces. A movement founded on grassroots independence, civic youth assembly, free expression, and the defense of public parks and squares for artistic performance.',
+            captionEs: 'Rap Libre expandió la energía del freestyle directamente a los espacios públicos urbanos de alta concurrencia. Un movimiento fundado en la autogestión territorial, la libre expresión juvenil y la reapropiación del espacio público para el arte y la comunidad.',
+            authorOrSource: 'Rap Libre // Producción Urbana',
+            date: '2019-2020',
+            tags: ['Rap Libre', 'Espacio Público', 'Cultura Urbana', 'Autogestión'],
+            subLinks: [
+              {
+                titleEn: 'Official Event Launch Poster',
+                titleEs: 'Afiche Oficial de Convocatoria',
+                url: 'https://www.instagram.com/p/B42bAbtnntp/',
+                src: '/instagram_covers/B42bAbtnntp.jpg'
+              },
+              {
+                titleEn: 'Live Event Photo Gallery & Massive Crowd',
+                titleEs: 'Galería Fotográfica & Multitud Urbana',
+                url: 'https://www.instagram.com/p/B46IqYzHJkB/?img_index=1',
+                src: '/instagram_covers/B46IqYzHJkB.jpg'
+              }
+            ]
           }
         ]
       }
-        ]
-      }
-    ],
-  mediaItems: [
-      {
-        id: 'rap-beauchef-batallas-vivo',
-        type: 'instagram',
-        instagramId: 'B9ljgLMngum',
-        src: '/instagram_covers/B9ljgLMngum.jpg',
-        url: 'https://www.instagram.com/p/B9ljgLMngum/',
-        titleEn: 'Rap Beauchef: Live Arena Tournaments & University Cyphers',
-        titleEs: 'Rap Beauchef: Torneos en Vivo & Cyphers Universitarios',
-        subtitleEn: 'Beauchef Amphitheater (FCFM Universidad de Chile) // Live Freestyle Circuit',
-        subtitleEs: 'Anfiteatro Beauchef (FCFM U. de Chile) // Circuito en Vivo de Freestyle',
-        captionEn: 'Live university arena competitions convening thousands of students, underground emcees, and local beatmakers. High-level freestyle battles organized with self-managed stage sound, multi-camera crews, and strict community ethics.',
-        captionEs: 'Competencias en arena universitaria que convocaron a miles de estudiantes, emcees de la escena underground y beatmakers. Batallas de freestyle de alto nivel con producción técnica autogestionada, registro audiovisual y ética comunitaria.',
-        authorOrSource: '@rapbeauchef // Producción en Vivo',
-        date: '2019-2020',
-        tags: ['Rap Beauchef', 'Batallas en Vivo', 'FCFM', 'Cultura Hip-Hop'],
-        subLinks: [
-          {
-            titleEn: 'Stage & Emcees (Gallery I)',
-            titleEs: 'Escenario & Emcees (Galería I)',
-            url: 'https://www.instagram.com/p/B3ZZ8sGgaJX/',
-            src: '/instagram_covers/B3ZZ8sGgaJX.jpg'
-          },
-          {
-            titleEn: 'Crowd & Cyphers (Gallery II)',
-            titleEs: 'Público & Cyphers (Galería II)',
-            url: 'https://www.instagram.com/p/B3ZZb3BgR1R/?img_index=1',
-            src: '/instagram_covers/B3ZZb3BgR1R.jpg'
-          },
-          {
-            titleEn: 'Freestyle Rounds (Gallery III)',
-            titleEs: 'Rondas de Freestyle (Galería III)',
-            url: 'https://www.instagram.com/p/B3Yig7mg_02/?img_index=1',
-            src: '/instagram_covers/B3Yig7mg_02.jpg'
-          },
-          {
-            titleEn: 'Judges & Flow (Gallery IV)',
-            titleEs: 'Jueces & Flow (Galería IV)',
-            url: 'https://www.instagram.com/p/B3YgyJxgiBS/?img_index=1',
-            src: '/instagram_covers/B3YgyJxgiBS.jpg'
-          },
-          {
-            titleEn: 'Amphitheater Arena (Gallery V)',
-            titleEs: 'Anfiteatro Lleno (Galería V)',
-            url: 'https://www.instagram.com/p/B3VfufbAH6A/?img_index=1',
-            src: '/instagram_covers/B3VfufbAH6A.jpg'
-          },
-          {
-            titleEn: 'Mic & Energy (Gallery VI)',
-            titleEs: 'Micrófono & Energía (Galería VI)',
-            url: 'https://www.instagram.com/p/B3VR8cqABYU/?img_index=1',
-            src: '/instagram_covers/B3VR8cqABYU.jpg'
-          },
-          {
-            titleEn: 'Championship Stage (Gallery VII)',
-            titleEs: 'Etapa Final (Galería VII)',
-            url: 'https://www.instagram.com/p/B3VO-R7Akr3/?img_index=1',
-            src: '/instagram_covers/B3VO-R7Akr3.jpg'
-          },
-          {
-            titleEn: 'Champions & Ceremony (Gallery VIII)',
-            titleEs: 'Premiación & Cierre (Galería VIII)',
-            url: 'https://www.instagram.com/p/B3VMAN1gh9R/?img_index=5',
-            src: '/instagram_covers/B3VMAN1gh9R.jpg'
-          }
-        ]
-      },
-      {
-        id: 'rap-beauchef-shows-duenas',
-        type: 'instagram',
-        instagramId: 'B3SOa_YgJ5j',
-        src: '/instagram_covers/B3SOa_YgJ5j.jpg',
-        url: 'https://www.instagram.com/p/B3SOa_YgJ5j/?img_index=1',
-        titleEn: 'Rap Beauchef: Live Concerts & "Dueñas de la Voz" Female Tournament',
-        titleEs: 'Rap Beauchef: Shows en Vivo & "Dueñas de la Voz" (Encuentro Femenino)',
-        subtitleEn: 'Live Hip-Hop Showcase & Women\'s Spoken-Word Leadership',
-        subtitleEs: 'Conciertos en Vivo y Liderazgo de Mujeres en la Escena del Rap',
-        captionEn: 'Expanding beyond battles into live musical concerts and specialized events like "Dueñas de la Voz", a landmark female tournament celebrating women rap artists, lyricism, and vocal sovereignty in university cultural spaces.',
-        captionEs: 'Expansión hacia conciertos y eventos temáticos de gran impacto como "Dueñas de la Voz", certamen y encuentro femenino pionero que visibilizó y potenció a mujeres músicas, freestylers y poetas en la escena universitaria.',
-        authorOrSource: '@rapbeauchef // Producción Artística',
-        date: '2019-2020',
-        tags: ['Dueñas de la Voz', 'Shows en Vivo', 'Mujeres en Hip-Hop', 'Gestión Cultural'],
-        subLinks: [
-          {
-            titleEn: 'Official Poster Launch',
-            titleEs: 'Afiche Oficial de Lanzamiento',
-            url: 'https://www.instagram.com/p/B1k2tdFgYoK/',
-            src: '/instagram_covers/B1k2tdFgYoK.jpg'
-          },
-          {
-            titleEn: 'Tournament Photo Gallery',
-            titleEs: 'Galería Fotográfica del Torneo',
-            url: 'https://www.instagram.com/p/B2O_yRGgRmY/?img_index=4',
-            src: '/instagram_covers/B2O_yRGgRmY.jpg'
-          }
-        ]
-      },
-      {
-        id: 'rap-beauchef-online-discord',
-        type: 'instagram',
-        instagramId: 'CCPVa5elGhn',
-        src: '/instagram_covers/CCPVa5elGhn.jpg',
-        url: 'https://www.instagram.com/p/CCPVa5elGhn/',
-        titleEn: 'Rap Beauchef Online: Discord Leagues & International Community',
-        titleEs: 'Rap Beauchef Online: Ligas en Discord & Red Internacional',
-        subtitleEn: 'Pandemic Streaming Ecosystem // Cross-Border Latin American Cyphers',
-        subtitleEs: 'Ecosistema de Streaming en Pandemia // Red Latinoamericana de Freestyle',
-        captionEn: 'Pioneered online rap tournaments during global lockdowns by architecting an automated Discord server (+12,000 users) with low-latency audio rooms, international participation across Latin America and Spain, video cyphers, and live Twitch/YouTube broadcasts.',
-        captionEs: 'Pioneros en la adaptación online durante los confinamientos: creación de una comunidad de +12.000 usuarios en Discord con salas de audio optimizadas, jueces internacionales, competidores de Chile, Argentina, Perú, Colombia y España, y streaming en directo.',
-        authorOrSource: '@rapbeauchef // Comunidad Digital',
-        date: '2020-2021',
-        tags: ['Discord', 'Online League', 'Comunidad Internacional', 'Streaming'],
-        subLinks: [
-          {
-            titleEn: 'Online Concurrence & Voice Rooms',
-            titleEs: 'Concurrencia en Salas de Discord',
-            url: 'https://www.instagram.com/p/CBCA5DGFBwO/?img_index=1',
-            src: '/instagram_covers/CBCA5DGFBwO.jpg'
-          },
-          {
-            titleEn: 'Official Tournament Fixture',
-            titleEs: 'Afiche y Fixture del Torneo',
-            url: 'https://www.instagram.com/p/CBV5veZFbFw/',
-            src: '/instagram_covers/CBV5veZFbFw.jpg'
-          },
-          {
-            titleEn: 'Season Grand Final',
-            titleEs: 'Gran Final de la Temporada',
-            url: 'https://www.instagram.com/p/CEsyoUSln0c/',
-            src: '/instagram_covers/CEsyoUSln0c.jpg'
-          },
-          {
-            titleEn: 'International Jury & Community',
-            titleEs: 'Jurado y Red Internacional',
-            url: 'https://www.instagram.com/p/CDMWyFale-C/',
-            src: '/instagram_covers/CDMWyFale-C.jpg'
-          },
-          {
-            titleEn: 'International Match Poster',
-            titleEs: 'Afiche Encuentro Internacional',
-            url: 'https://www.instagram.com/p/CDwWpGOF6N5/',
-            src: '/instagram_covers/CDwWpGOF6N5.jpg'
-          },
-          {
-            titleEn: 'Announcement & Guidelines',
-            titleEs: 'Convocatoria y Bases Online',
-            url: 'https://www.instagram.com/p/CCKc5F1F-bq/',
-            src: '/instagram_covers/CCKc5F1F-bq.jpg'
-          }
-        ]
-      },
-    {
-        id: 'rap-libre-urbano',
-        type: 'instagram',
-        instagramId: 'B42bAbtnntp',
-        src: '/instagram_covers/B42bAbtnntp.jpg',
-        url: 'https://www.instagram.com/p/B42bAbtnntp/',
-        titleEn: 'Rap Libre: Urban Public Space & Civic Freestyle Arena',
-        titleEs: 'Rap Libre: Conquista del Espacio Público & Escena Urbana',
-        subtitleEn: 'Massive Urban Gathering // Free Expression & Independent Art',
-        subtitleEs: 'Encuentro Urbano Masivo // Expresión Libre & Cultura Independiente',
-        captionEn: 'Rap Libre brought high-octane freestyle culture directly into major public urban spaces. A movement founded on grassroots independence, civic youth assembly, free expression, and the defense of public parks and squares for artistic performance.',
-        captionEs: 'Rap Libre expandió la energía del freestyle directamente a los espacios públicos urbanos de alta concurrencia. Un movimiento fundado en la autogestión territorial, la libre expresión juvenil y la reapropiación del espacio público para el arte y la comunidad.',
-        authorOrSource: 'Rap Libre // Producción Urbana',
-        date: '2019-2020',
-        tags: ['Rap Libre', 'Espacio Público', 'Cultura Urbana', 'Autogestión'],
-        subLinks: [
-          {
-            titleEn: 'Official Event Launch Poster',
-            titleEs: 'Afiche Oficial de Convocatoria',
-            url: 'https://www.instagram.com/p/B42bAbtnntp/',
-            src: '/instagram_covers/B42bAbtnntp.jpg'
-          },
-          {
-            titleEn: 'Live Event Photo Gallery & Massive Crowd',
-            titleEs: 'Galería Fotográfica & Multitud Urbana',
-            url: 'https://www.instagram.com/p/B46IqYzHJkB/?img_index=1',
-            src: '/instagram_covers/B46IqYzHJkB.jpg'
-          }
-        ]
-      }
-    ]
-  },
-
-  // SECTION 5: BRIGADA DE PROPAGANDA PAULINA AGUIRRE
-  {
-    id: 'brigada-paulina-aguirre',
-    tabKey: '05. ARTIVISMO',
-    tabTitleEn: 'Artivism & Murals',
-    tabTitleEs: 'Artivismo & Murales',
-    badgeEn: 'TACTICAL ARTIVISM & PROPAGANDA BRIGADE',
-    badgeEs: 'ARTIVISMO TÁCTICO & BRIGADA DE PROPAGANDA',
-    roleEn: 'Co-Founder, Visual Strategist & Mural Crew Leader',
-    roleEs: 'Cofundador, Estratega Visual y Jefe de Cuadrilla Muralista',
-    titleEn: 'Brigada de Propaganda Paulina Aguirre',
-    titleEs: 'Brigada de Propaganda Paulina Aguirre',
-    headlineEn: 'Designing High-Contrast Street Artivism, Megamurals & Transit Hub Interventions for Viral Amplification',
-    headlineEs: 'Diseño de Muralismo de Alto Contraste, Propaganda Callejera e Intervenciones Urbanas para Movilización Popular',
-    narrativeEn: 'Co-founded the renowned artistic collective "Brigada de Propaganda Paulina Aguirre", translating historical memory, anti-extractivism, student movement struggles, and territorial defense into public spaces. Engineered rapid-deployment stenciling, graphic silkscreens, political agitation posters, and large-scale monumental murals situated at strategic urban points.',
-    narrativeEs: 'Cofundador del emblemático colectivo "Brigada de Propaganda Paulina Aguirre", transformando la memoria histórica, la lucha estudiantil, la defensa territorial y la agitación social en intervenciones monumentales en el espacio público. Desarrolló metodologías de despliegue rápido de serigrafía, afichería política callejera, gráficas digitales y megamurales comunitarios.',
-    keyOutcomesEn: [
-      'Painted 35+ high-impact murals across Santiago metropolitan avenues, university walls, and regional community hubs.',
-      'Designed iconic political agitation posters and digital graphics supporting mass student and workers strikes.',
-      'Documented frontline popular protests, building an archive of street resistance and visual counter-hegemony.'
-    ],
-    keyOutcomesEs: [
-      'Pintura de más de 35 murales de gran formato en ejes viales metropolitanos, recintos universitarios y centros comunitarios regionales.',
-      'Creación de afiches políticos y gráficas digitales de agitación y desobediencia civil que circularon masivamente en redes y muros.',
-      'Registro fotográfico de movilizaciones populares, consolidando un archivo gráfico de resistencia callejera y contracultura visual.'
-    ],
-    stats: [
-      { value: '35+', labelEn: 'Monumental Murals Executed', labelEs: 'Murales Monumentales Pintados' },
-      { value: '100%', labelEn: 'Grassroots Direct Action', labelEs: 'Autogestión y Acción Directa' },
-      { value: '500K+', labelEn: 'Photographic Social Shares', labelEs: 'Compartidos en Redes Sociales' }
     ],
     mediaItems: [
       {
@@ -967,57 +821,14 @@ export const communicationsSections: SectionData[] = [
         authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Registro de Campo',
         date: '2019-2020',
         tags: ['Fotografía de Protesta', 'Movilización Callejera', 'Juventud', 'Alameda']
-      },
-      {
-        id: 'brigada-afiche-evadir',
-        type: 'image',
-        titleEn: 'Political Poster: "Evadir, No Pagar: Otra Forma de Luchar"',
-        titleEs: 'Afiche Político: "Evadir, No Pagar: Otra Forma de Luchar"',
-        subtitleEn: 'Iconic Silkscreen & Digital Agitation Poster // Fare Evasion Movement',
-        subtitleEs: 'Afiche Ícono de Agitación Callejera // Movimiento de Evasión Masiva',
-        src: '/brigada/brigada_afiche_evadir.png',
-        captionEn: 'Historical agitation poster created by Brigada Paulina Aguirre during the inception of the October 2019 Chilean uprising: "Evadir, No Pagar: Otra Forma de Luchar", illustrating civil disobedience over metro turnstiles that triggered the nationwide constitutional cycle.',
-        captionEs: 'Emblemático afiche de agitación política y serigrafía callejera creado por la Brigada Paulina Aguirre en los albores del estallido social de octubre de 2019: "Evadir, No Pagar: Otra Forma de Luchar", inmortalizando el salto de torniquetes que desató el ciclo de revuelta nacional.',
-        authorOrSource: 'Brigada Paulina Aguirre // Propaganda Callejera',
-        date: 'Octubre 2019',
-        tags: ['Afiche Político', 'Evadir No Pagar', 'Estallido Social', 'Serigrafía Callejera']
-      },
-      {
-        id: 'brigada-graficas-digitales',
-        type: 'image',
-        titleEn: 'Digital Graphics: Territorial Agitation & Political Propaganda',
-        titleEs: 'Gráficas Digitales: Agitación Territorial y Propaganda Política',
-        subtitleEn: 'Digital Design // Propaganda Visuals & Social Media Campaign',
-        subtitleEs: 'Diseño Digital // Gráficas de Propaganda y Difusión en Redes',
-        src: '/brigada/brigada_grafica_digital.jpg',
-        url: 'https://www.facebook.com/photo.php?fbid=418738228474147&set=pb.100067890108840.-2207520000&type=3',
-        captionEn: 'High-contrast graphic designed for cross-platform distribution across social media channels, combining radical typography, socialist iconography, and direct calls to territorial mobilization.',
-        captionEs: 'Gráfica digital de alto contraste concebida para redes sociales y plataformas de contra-información: composición visual que articula tipografía de combate, memoria revolucionaria y convocatoria a la huelga popular.',
-        authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Archivo Digital',
-        date: '2019-2021',
-        tags: ['Gráficas Digitales', 'Propaganda', 'Redes Sociales', 'Agitación Visual']
-      },
-      {
-        id: 'brigada-mural-no-afp',
-        type: 'image',
-        titleEn: 'Community Muralism: "No + AFP" & Popular Working-Class Unity',
-        titleEs: 'Muralismo Comunitario: "No + AFP" y Rostros del Pueblo Trabajador',
-        subtitleEn: 'Large-Scale Facade Mural // Social Security & Class Solidarity',
-        subtitleEs: 'Mural Monumental en Fachada Barrial // Unidad y Seguridad Social',
-        src: '/brigada/brigada_mural_no_afp.png',
-        captionEn: 'Monumental facade mural painted in a popular working-class neighborhood portraying the diverse faces of working people (construction workers, students, indigenous peoples, elders) united under the banner "No + AFP: El Paro Va".',
-        captionEs: 'Mural monumental de fachada barrial pintado por la brigada que retrata los rostros y miradas del pueblo trabajador (obreros, estudiantes, pueblos originarios, pobladores) bajo la consigna central "No + AFP: El Paro Va", resignificando el espacio público.',
-        authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Producción Mural',
-        date: '2019-2020',
-        tags: ['Muralismo', 'No Más AFP', 'Espacio Público', 'Población Barrial']
       }
     ]
   },
 
-  // SECTION 6: PRENSA & MEDIOS NACIONALES
+  // SECTION 5: PRENSA & MEDIOS NACIONALES
   {
     id: 'prensa-medios',
-    tabKey: '06. PRENSA',
+    tabKey: '05. PRENSA',
     tabTitleEn: 'Investigative Press',
     tabTitleEs: 'Prensa & Medios',
     badgeEn: 'NATIONAL & INTERNATIONAL INVESTIGATIVE PRESS',
@@ -1171,10 +982,10 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 7: PUBLICACIONES & ENSAYOS DE FONDO
+  // SECTION 6: PUBLICACIONES & ENSAYOS DE FONDO
   {
     id: 'publicaciones-ensayos',
-    tabKey: '07. PUBLICACIONES',
+    tabKey: '06. PUBLICACIONES',
     tabTitleEn: 'Publications & Essays',
     tabTitleEs: 'Publicaciones & Ensayos',
     badgeEn: 'INTERNATIONAL REPORTS, MONOGRAPHS & POLITICAL ECOLOGY',

@@ -70,8 +70,8 @@ export function App() {
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase().replace(/^#/, '');
-      if (hash === 'acceso' || hash === 'portada' || hash === '' || hash === '/') {
-        // Stay on welcome screen or tab 0
+      if (hash === 'acceso' || hash === '' || hash === '/') {
+        // Stay on welcome entrance screen
         setHasEntered(false);
         setActiveTabIndex(0);
       } else if (hash.length > 1) {
@@ -101,16 +101,16 @@ export function App() {
   const items = currentSubSection ? currentSubSection.mediaItems : activeSection.mediaItems;
   const currentItem = items[currentSlideIndex] || items[0];
 
-  // Switch between nocturnal comms and diurnal science
+  // Switch between nocturnal comms and diurnal science (Direct shortcut)
   const handleToggleProfile = (mode: ProfileMode) => {
     setProfileMode(mode);
-    if (hasEntered) {
-      // In comms, tab 0 is the welcome entrance gate, so we activate tab 1 (01. Intervención) directly
-      // In science, tab 0 is the scientific dossier cover (00. Portada), so we activate tab 0 directly
-      setActiveTabIndex(mode === 'comms' ? 1 : 0);
-      window.location.hash = mode === 'comms' ? '#intervencion' : '#portada';
+    setHasEntered(true); // Actúa como shortcut directo dentro del visor
+    if (mode === 'comms') {
+      setActiveTabIndex(1); // 01. Intervención
+      window.location.hash = '#intervencion';
     } else {
-      setActiveTabIndex(0);
+      setActiveTabIndex(0); // 00. Portada del Expediente Científico
+      window.location.hash = '#portada-cientifica';
     }
     setActiveSubSectionIndex(0);
     setCurrentSlideIndex(0);
