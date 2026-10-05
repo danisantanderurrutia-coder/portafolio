@@ -819,24 +819,24 @@ export const communicationsSections: SectionData[] = [
           {
             id: 'cr-gran-final',
             type: 'instagram',
-            instagramId: 'CKu4MLTAQO_',
-            src: '/instagram_covers/CKu4MLTAQO_.jpg',
-            url: 'https://www.instagram.com/p/CKu4MLTAQO_/',
-            titleEn: 'Gran Final: The Champion\'s Rebirth & Climax',
-            titleEs: 'Gran Final: Culminación y Coronación de Campeones',
+            instagramId: 'CKu2R9qgy3Q',
+            src: '/instagram_covers/CKu2R9qgy3Q.jpg',
+            url: 'https://www.instagram.com/p/CKu2R9qgy3Q/',
+            titleEn: 'Grand Final: Crizzo — Coronation & Final Matchup',
+            titleEs: 'Gran Final: Crizzo — Coronación y Duelo Decisivo',
             subtitleEn: 'Season Finale // Liberation & Highest Competitive Expression',
             subtitleEs: 'Final de Temporada // Liberación y Máxima Expresión Competitiva',
-            captionEn: 'The monumental climax of Cuarentena Rap: the final face-off where lyricists complete their symbolic journey from the crypts of isolation to collective liberation. Reached thousands of simultaneous viewers across streaming channels.',
-            captionEs: 'El clímax de Cuarentena Rap: la batalla decisiva donde los finalistas completan el viaje simbólico desde el encierro hasta la liberación lírica, coronando a los campeones con miles de espectadores conectados en simultáneo.',
+            captionEn: 'The monumental climax of Cuarentena Rap: Crizzo takes center stage in the championship showdown, concluding the symbolic journey from pandemic isolation to collective liberation. Reached thousands of simultaneous viewers across streaming channels.',
+            captionEs: 'El clímax de Cuarentena Rap: Crizzo en el duelo final por el campeonato, culminando el viaje simbólico desde el encierro hasta la liberación lírica colectiva ante miles de espectadores conectados en simultáneo.',
             authorOrSource: 'Cuarentena Rap // Temporada 2020-2021',
             date: '2021',
-            tags: ['Gran Final', 'Campeón', 'Liberación Lírica', 'Streaming'],
+            tags: ['Gran Final', 'Crizzo', 'Campeón', 'Liberación Lírica', 'Streaming'],
             subLinks: [
               {
-                titleEn: 'Final Match Showcase (Parte II)',
-                titleEs: 'Duelo Final (Parte II)',
-                url: 'https://www.instagram.com/p/CKu2R9qgy3Q/',
-                src: '/instagram_covers/CKu2R9qgy3Q.jpg'
+                titleEn: 'Grand Final: Final Matchup (Part II)',
+                titleEs: 'Gran Final: Duelo Decisivo (Parte II)',
+                url: 'https://www.instagram.com/p/CKu4MLTAQO_/',
+                src: '/instagram_covers/CKu4MLTAQO_.jpg'
               }
             ]
           },
@@ -846,7 +846,7 @@ export const communicationsSections: SectionData[] = [
             embedUrl: 'https://www.youtube.com/embed/l2PwaGDStx8',
             url: 'https://www.youtube.com/watch?v=l2PwaGDStx8',
             src: '/youtube_covers/l2PwaGDStx8.jpg',
-            titleEn: 'Semifinales: The Path to Liberation (High-Tension Battles)',
+            titleEn: 'Semifinals: The Path to Liberation (High-Tension Battles)',
             titleEs: 'Semifinales: La antesala de la Liberación (Batallas Decisivas)',
             subtitleEn: 'YouTube Broadcast // Top-Tier Latin American Written Cyphers',
             subtitleEs: 'Transmisión en YouTube // Duelos de Alto Calibre Lírico',
@@ -857,20 +857,20 @@ export const communicationsSections: SectionData[] = [
             tags: ['Semifinal', 'YouTube', 'Batallas Escritas', 'Freestyle'],
             subLinks: [
               {
-                titleEn: 'Semifinal Duelo 2',
-                titleEs: 'Semifinal Duelo 2',
+                titleEn: 'Semifinal Match 2: Chologuapo vs Crizzo',
+                titleEs: 'Semifinal Duelo 2: Chologuapo vs Crizzo',
                 url: 'https://www.youtube.com/watch?v=eQ8o4xRh2cI',
                 src: '/youtube_covers/eQ8o4xRh2cI.jpg'
               },
               {
-                titleEn: 'Semifinal Duelo 3',
-                titleEs: 'Semifinal Duelo 3',
+                titleEn: 'Semifinal Match 3: Crizzo vs Chologuapo',
+                titleEs: 'Semifinal Duelo 3: Crizzo vs Chologuapo',
                 url: 'https://www.youtube.com/watch?v=k5gCKdOxmYU',
                 src: '/youtube_covers/k5gCKdOxmYU.jpg'
               },
               {
-                titleEn: 'Semifinal Duelo 4',
-                titleEs: 'Semifinal Duelo 4',
+                titleEn: 'Semifinal Match 4: Niggy vs Pimc',
+                titleEs: 'Semifinal Duelo 4: Niggy vs Pimc',
                 url: 'https://www.youtube.com/watch?v=x_M7yiXcSAg',
                 src: '/youtube_covers/x_M7yiXcSAg.jpg'
               }
@@ -879,36 +879,36 @@ export const communicationsSections: SectionData[] = [
           {
             id: 'cr-cuartos-de-final',
             type: 'video',
-            embedUrl: 'https://www.youtube.com/embed/gD-IergtRag',
-            url: 'https://www.youtube.com/watch?v=gD-IergtRag',
-            src: '/youtube_covers/gD-IergtRag.jpg',
-            titleEn: 'Cuartos de Final: Tactical Wordplay & Live Confrontation',
-            titleEs: 'Cuartos de Final: Confrontación Conceptual y Métricas en Vivo',
+            embedUrl: 'https://www.youtube.com/embed/YZhhS7l_04Q',
+            url: 'https://www.youtube.com/watch?v=YZhhS7l_04Q',
+            src: '/youtube_covers/YZhhS7l_04Q.jpg',
+            titleEn: 'Quarterfinals: Chologuapo — Tactical Wordplay & Live Confrontation',
+            titleEs: 'Cuartos de Final: Chologuapo — Confrontación Conceptual y Métricas en Vivo',
             subtitleEn: 'Broadcast Series // The Elite 8 Contenders',
             subtitleEs: 'Serie de Cuartos de Final // Los 8 Mejores Letristas',
-            captionEn: 'Quarterfinal matches where competitors deployed intricate literary techniques, metaphoric depth, and technical rhyme schemes, evaluated with professional rubrics by international juries.',
-            captionEs: 'Ronda de cuartos de final donde los ocho mejores competidores desplegaron recursos literarios, ingenio y métricas avanzadas, calificados rigurosamente bajo rúbricas profesionales por el jurado internacional.',
+            captionEn: 'Chologuapo opens the quarterfinal clashes with sharp rhyme schemes and conceptual depth, setting the standard for the elite eight contenders evaluated under transparent scoring criteria.',
+            captionEs: 'Chologuapo abre la ronda de cuartos de final con métricas punzantes y despliegue conceptual frente a Johatsu, marcando el nivel de los ocho mejores clasificados bajo el sistema de rúbricas.',
             authorOrSource: 'Cuarentena Rap // Cuartos de Final',
             date: '2020',
-            tags: ['Cuartos de Final', 'YouTube', 'Ingenio Lírico'],
+            tags: ['Cuartos de Final', 'Chologuapo', 'YouTube', 'Ingenio Lírico'],
             subLinks: [
               {
-                titleEn: 'Cuartos de Final: Llave 2',
-                titleEs: 'Cuartos de Final: Llave 2',
+                titleEn: 'Quarterfinals: Pimc vs Pronoia',
+                titleEs: 'Cuartos de Final: Pimc vs Pronoia',
+                url: 'https://www.youtube.com/watch?v=gD-IergtRag',
+                src: '/youtube_covers/gD-IergtRag.jpg'
+              },
+              {
+                titleEn: 'Quarterfinals: Johatsu vs Chologuapo',
+                titleEs: 'Cuartos de Final: Johatsu vs Chologuapo',
                 url: 'https://www.youtube.com/watch?v=QcHRipCLj_0',
                 src: '/youtube_covers/QcHRipCLj_0.jpg'
               },
               {
-                titleEn: 'Cuartos de Final: Llave 3',
-                titleEs: 'Cuartos de Final: Llave 3',
+                titleEn: 'Quarterfinals: Pronoia vs Pimc',
+                titleEs: 'Cuartos de Final: Pronoia vs Pimc',
                 url: 'https://www.youtube.com/watch?v=bIAlFlbqG4o',
                 src: '/youtube_covers/bIAlFlbqG4o.jpg'
-              },
-              {
-                titleEn: 'Cuartos de Final: Llave 4',
-                titleEs: 'Cuartos de Final: Llave 4',
-                url: 'https://www.youtube.com/watch?v=YZhhS7l_04Q',
-                src: '/youtube_covers/YZhhS7l_04Q.jpg'
               }
             ]
           },
@@ -918,24 +918,24 @@ export const communicationsSections: SectionData[] = [
             embedUrl: 'https://www.youtube.com/embed/I7Kiv8B5-8I',
             url: 'https://www.youtube.com/watch?v=I7Kiv8B5-8I',
             src: '/youtube_covers/I7Kiv8B5-8I.jpg',
-            titleEn: 'Segunda Ronda: "Fase de Karmas" (Confrontando la Crisis)',
+            titleEn: 'Second Round: "Karma Phase" (Confronting the Crisis)',
             titleEs: 'Segunda Ronda: "Fase de Karmas" (Confrontando la Crisis)',
             subtitleEn: 'Conceptual Round // Purging Personal Conflicts & Structural Woes',
             subtitleEs: 'Ronda Conceptual // Purgando Conflictos Personales y Estructurales',
-            captionEn: 'The "Fase de Karmas" represents the narrative turning point of the tournament: emcees explicitly address their inner dilemmas, social grief, and the collective crisis of the lockdown, using poetry as a vehicle of emotional transmutation.',
+            captionEn: 'The "Karma Phase" represents the narrative turning point of the tournament: emcees explicitly address their inner dilemmas, social grief, and the collective crisis of the lockdown, using poetry as a vehicle of emotional transmutation.',
             captionEs: 'La "Fase de Karmas" constituyó el corazón narrativo del certamen: los freestylers abordaron de frente sus cargas personales, el duelo social y la asfixia del encierro, transformando el dolor en lucidez poética y fuerza comunitaria.',
             authorOrSource: 'Cuarentena Rap // Fase de Karmas',
             date: '2020',
             tags: ['Fase de Karmas', 'Segunda Ronda', 'Narrativa Conceptual', 'Catarsis'],
             subLinks: [
               {
-                titleEn: 'Fase de Karmas: Entrega 2',
+                titleEn: 'Karma Phase: Match 2',
                 titleEs: 'Fase de Karmas: Entrega 2',
                 url: 'https://www.youtube.com/watch?v=G1LEt3FDWBY',
                 src: '/youtube_covers/G1LEt3FDWBY.jpg'
               },
               {
-                titleEn: 'Fase de Karmas: Entrega 3',
+                titleEn: 'Karma Phase: Match 3',
                 titleEs: 'Fase de Karmas: Entrega 3',
                 url: 'https://www.youtube.com/watch?v=OBdrOnFkQTU',
                 src: '/youtube_covers/OBdrOnFkQTU.jpg'
@@ -948,24 +948,24 @@ export const communicationsSections: SectionData[] = [
             instagramId: 'CGln20TAcaU',
             src: '/instagram_covers/CGln20TAcaU.jpg',
             url: 'https://www.instagram.com/p/CGln20TAcaU/',
-            titleEn: 'Primera Ronda: "Fase de Tumbas" (Saliendo del Aislamiento)',
+            titleEn: 'First Round: "Crypt Phase" (Emerging from Isolation)',
             titleEs: 'Primera Ronda: "Fase de Tumbas" (Saliendo del Aislamiento)',
             subtitleEn: 'First Main Round // Awakening from Inactivity',
             subtitleEs: 'Primera Ronda // Despertando de la Inactividad y el Encierro',
-            captionEn: 'The competition opens with the "Fase de Tumbas". Emcees break through the static of confinement, stepping onto the digital arena to reignite their voices and challenge isolation.',
+            captionEn: 'The competition opens with the "Crypt Phase". Emcees break through the static of confinement, stepping onto the digital arena to reignite their voices and challenge isolation.',
             captionEs: 'Apertura competitiva con la "Fase de Tumbas". Los emcees rompen el letargo y la quietud del confinamiento, entrando al cuadrilátero virtual para devolverle el pulso y la vitalidad a la palabra.',
             authorOrSource: 'Cuarentena Rap // Fase de Tumbas',
             date: 'Octubre 2020',
             tags: ['Fase de Tumbas', 'Primera Ronda', 'Renacimiento', 'Comunidad Digital'],
             subLinks: [
               {
-                titleEn: 'Fase de Tumbas: Llaves y Cruces II',
+                titleEn: 'Crypt Phase: Matchups & Brackets II',
                 titleEs: 'Fase de Tumbas: Llaves y Cruces II',
                 url: 'https://www.instagram.com/p/CGjb8FRAGms/',
                 src: '/instagram_covers/CGjb8FRAGms.jpg'
               },
               {
-                titleEn: 'Fase de Tumbas: Llaves y Cruces III',
+                titleEn: 'Crypt Phase: Matchups & Brackets III',
                 titleEs: 'Fase de Tumbas: Llaves y Cruces III',
                 url: 'https://www.instagram.com/p/CGn0FyxlLWR/',
                 src: '/instagram_covers/CGn0FyxlLWR.jpg'
@@ -978,7 +978,7 @@ export const communicationsSections: SectionData[] = [
             instagramId: 'CGOFGuQAFll',
             src: '/instagram_covers/CGOFGuQAFll.jpg',
             url: 'https://www.instagram.com/p/CGOFGuQAFll/',
-            titleEn: 'Filtros Clasificatorios: Massive Auditions Across Latin America',
+            titleEn: 'Qualifying Filters: Open Auditions Across Latin America',
             titleEs: 'Filtros Clasificatorios: Audiciones Masivas en América Latina',
             subtitleEn: 'Open Qualifiers // Selecting the Defining Voices',
             subtitleEs: 'Fase Clasificatoria // Selección Abierta de Letristas',
@@ -989,13 +989,13 @@ export const communicationsSections: SectionData[] = [
             tags: ['Filtros', 'Audiciones', 'Clasificatorias', 'Escena Internacional'],
             subLinks: [
               {
-                titleEn: 'Filtros: Segunda Selección',
+                titleEn: 'Qualifying Filters: Second Selection',
                 titleEs: 'Filtros: Segunda Selección',
                 url: 'https://www.instagram.com/p/CGRbq6vAJLe/',
                 src: '/instagram_covers/CGRbq6vAJLe.jpg'
               },
               {
-                titleEn: 'Filtros: Tercera Selección',
+                titleEn: 'Qualifying Filters: Third Selection',
                 titleEs: 'Filtros: Tercera Selección',
                 url: 'https://www.instagram.com/p/CGLyvsDgcjn/',
                 src: '/instagram_covers/CGLyvsDgcjn.jpg'
@@ -1008,7 +1008,7 @@ export const communicationsSections: SectionData[] = [
             instagramId: 'CGBmYuIjBck',
             src: '/instagram_covers/CGBmYuIjBck.jpg',
             url: 'https://www.instagram.com/p/CGBmYuIjBck/',
-            titleEn: 'Ligas Confirmadas: National & International Underground Network',
+            titleEn: 'Federated Leagues: National & International Underground Network',
             titleEs: 'Ligas Confirmadas: Red de Colectivos y Plazas Federadas',
             subtitleEn: 'Ecosystem Alliance // Uniting Regional Underground Hubs',
             subtitleEs: 'Alianza de Ecosistemas // Uniendo Plazas y Colectivos Regionales',
@@ -1019,13 +1019,13 @@ export const communicationsSections: SectionData[] = [
             tags: ['Ligas Confirmadas', 'Red Federal', 'Underground', 'América Latina'],
             subLinks: [
               {
-                titleEn: 'Ligas Asociadas: Segunda Nómina',
+                titleEn: 'Federated Leagues: Second Roster',
                 titleEs: 'Ligas Asociadas: Segunda Nómina',
                 url: 'https://www.instagram.com/p/CGBmexDDQFE/',
                 src: '/instagram_covers/CGBmexDDQFE.jpg'
               },
               {
-                titleEn: 'Ligas Asociadas: Tercera Nómina',
+                titleEn: 'Federated Leagues: Third Roster',
                 titleEs: 'Ligas Asociadas: Tercera Nómina',
                 url: 'https://www.instagram.com/p/CGBmg2-jwqm/',
                 src: '/instagram_covers/CGBmg2-jwqm.jpg'
@@ -1038,7 +1038,7 @@ export const communicationsSections: SectionData[] = [
             instagramId: 'CGBm-SCDajg',
             src: '/instagram_covers/CGBm-SCDajg.jpg',
             url: 'https://www.instagram.com/p/CGBm-SCDajg/?img_index=1',
-            titleEn: 'Cuerpo de Jueces: International Jury & Ethical Rigor',
+            titleEn: 'Jury Panel: International Referees & Ethical Rigor',
             titleEs: 'Cuerpo de Jueces: Jurado Internacional y Criterio Ético',
             subtitleEn: 'Jury Panel // Evaluation Standards, Coherence & Flow Analysis',
             subtitleEs: 'Panel de Jurados // Estándares de Rúbrica, Coherencia y Contenido',
@@ -1049,25 +1049,25 @@ export const communicationsSections: SectionData[] = [
             tags: ['Jueces', 'Jurado Internacional', 'Rúbricas', 'Ética Competitiva'],
             subLinks: [
               {
-                titleEn: 'Panel de Jueces: Bloque II',
+                titleEn: 'Jury Panel: Block II',
                 titleEs: 'Panel de Jueces: Bloque II',
                 url: 'https://www.instagram.com/p/CGBnI06jRLK/?img_index=1',
                 src: '/instagram_covers/CGBnI06jRLK.jpg'
               },
               {
-                titleEn: 'Panel de Jueces: Bloque III',
+                titleEn: 'Jury Panel: Block III',
                 titleEs: 'Panel de Jueces: Bloque III',
                 url: 'https://www.instagram.com/p/CGBnB36jLL8/?img_index=1',
                 src: '/instagram_covers/CGBnB36jLL8.jpg'
               },
               {
-                titleEn: 'Panel de Jueces: Bloque IV',
+                titleEn: 'Jury Panel: Block IV',
                 titleEs: 'Panel de Jueces: Bloque IV',
                 url: 'https://www.instagram.com/p/CIgkc-Fl5Mz/',
                 src: '/instagram_covers/CIgkc-Fl5Mz.jpg'
               },
               {
-                titleEn: 'Panel de Jueces: Bloque V',
+                titleEn: 'Jury Panel: Block V',
                 titleEs: 'Panel de Jueces: Bloque V',
                 url: 'https://www.instagram.com/p/CIgn8K0lOfY/',
                 src: '/instagram_covers/CIgn8K0lOfY.jpg'
@@ -1080,10 +1080,10 @@ export const communicationsSections: SectionData[] = [
             instagramId: 'CHwWP8Wlq0u',
             src: '/instagram_covers/CHwWP8Wlq0u.jpg',
             url: 'https://www.instagram.com/p/CHwWP8Wlq0u/?img_index=1',
-            titleEn: 'Disciplina Breakdance: B-Boys & B-Girls Virtual Battles',
-            titleEs: 'Disciplina Breaking: Batallas Virtuales de B-Boys y B-Girls',
-            subtitleEn: 'The Element of Body Movement // Street Dance Resiliency',
-            subtitleEs: 'El Elemento de la Danza y el Cuerpo // Resiliencia del Breaking',
+            titleEn: 'Breaking: B-Boys & B-Girls Virtual Battles',
+            titleEs: 'Breaking: Batallas Virtuales de B-Boys y B-Girls',
+            subtitleEn: 'Body Movement // Street Dance Resiliency in Lockdowns',
+            subtitleEs: 'Danza y Cuerpo // Resiliencia del Breaking en Confinamiento',
             captionEn: 'Breaking formed an essential pillar of Cuarentena Rap, giving dancers space to compete via high-framerate video recordings and live cyphers, overcoming physical confinement with athletic and artistic excellence.',
             captionEs: 'El breaking fue un pilar fundamental de Cuarentena Rap: B-Boys y B-Girls de toda la región se batieron en rondas virtuales, llevando el arte del cuerpo y la danza urbana a los hogares en pleno confinamiento.',
             authorOrSource: 'Cuarentena Rap // Breaking Championship',
@@ -1091,13 +1091,13 @@ export const communicationsSections: SectionData[] = [
             tags: ['Breaking', 'Breakdance', 'B-Boys', 'B-Girls', 'Danza Urbana'],
             subLinks: [
               {
-                titleEn: 'Breaking Showcase: Rondas y Cruces I',
+                titleEn: 'Breaking Showcase: Rounds & Matchups I',
                 titleEs: 'Breaking Showcase: Rondas y Cruces I',
                 url: 'https://www.instagram.com/p/CHwXUDll83G/?img_index=1',
                 src: '/instagram_covers/CHwXUDll83G.jpg'
               },
               {
-                titleEn: 'Breaking Showcase: Rondas y Cruces II',
+                titleEn: 'Breaking Showcase: Rounds & Matchups II',
                 titleEs: 'Breaking Showcase: Rondas y Cruces II',
                 url: 'https://www.instagram.com/p/CHwYsrQFfgx/?img_index=1',
                 src: '/instagram_covers/CHwYsrQFfgx.jpg'
@@ -1110,9 +1110,9 @@ export const communicationsSections: SectionData[] = [
             instagramId: 'CIOORNBA_Pg',
             src: '/instagram_covers/CIOORNBA_Pg.jpg',
             url: 'https://www.instagram.com/p/CIOORNBA_Pg/',
-            titleEn: 'Disciplina Beatmaking: Sound Producers & Instrumental Battles',
-            titleEs: 'Disciplina Beatmaking: Productores de Sonido y Batallas de Beats',
-            subtitleEn: 'The Sonic Architecture // Original Instrumentals & Boom-Bap',
+            titleEn: 'Beatmakers: Sound Producers & Instrumental Battles',
+            titleEs: 'Beatmakers: Productores de Sonido y Batallas de Beats',
+            subtitleEn: 'Sonic Architecture // Original Instrumentals & Boom-Bap',
             subtitleEs: 'Arquitectura Sonora // Instrumentales Originales y Texturas Urbanas',
             captionEn: 'Beatmakers were the musical heartbeat of the tournament, composing exclusive soundscapes, sampled loops, and boom-bap rhythms that fueled each battle and gave distinct sonic identity to every tier.',
             captionEs: 'Los beatmakers fueron el motor sonoro del torneo, produciendo instrumentales exclusivas, samples y texturas que le dieron identidad musical a cada fase y protagonizaron su propia competencia de producción.',
@@ -1121,7 +1121,7 @@ export const communicationsSections: SectionData[] = [
             tags: ['Beatmakers', 'Producción Musical', 'Instrumentales', 'Boom-Bap'],
             subLinks: [
               {
-                titleEn: 'Beatmakers Showcase: Selección II',
+                titleEn: 'Beatmakers Showcase: Selection II',
                 titleEs: 'Beatmakers Showcase: Selección II',
                 url: 'https://www.instagram.com/p/CIQceC8AMHl/',
                 src: '/instagram_covers/CIQceC8AMHl.jpg'
@@ -1134,8 +1134,8 @@ export const communicationsSections: SectionData[] = [
             instagramId: 'CIoysLgg1c5',
             src: '/instagram_covers/CIoysLgg1c5.jpg',
             url: 'https://www.instagram.com/p/CIoysLgg1c5/',
-            titleEn: 'Disciplina Beatboxing: Vocal Percussion & Acoustic Innovation',
-            titleEs: 'Disciplina Beatboxing: Percusión Vocal e Innovación Acústica',
+            titleEn: 'Beatboxers: Vocal Percussion & Acoustic Innovation',
+            titleEs: 'Beatboxers: Percusión Vocal e Innovación Acústica',
             subtitleEn: 'Human Acoustic Power // Virtual Beatbox Tournament',
             subtitleEs: 'Poder Acústico Humano // Torneo Virtual de Beatbox',
             captionEn: 'Beatboxers brought acoustic ingenuity to the league, transforming microphones into full drum machines and synthesizers in high-energy virtual matchups.',
@@ -1145,13 +1145,13 @@ export const communicationsSections: SectionData[] = [
             tags: ['Beatbox', 'Percusión Vocal', 'Acústica', 'Cultura Hip-Hop'],
             subLinks: [
               {
-                titleEn: 'Beatbox Showcase: Selección II',
+                titleEn: 'Beatbox Showcase: Selection II',
                 titleEs: 'Beatbox Showcase: Selección II',
                 url: 'https://www.instagram.com/p/CIoyYTyAoDT/',
                 src: '/instagram_covers/CIoyYTyAoDT.jpg'
               },
               {
-                titleEn: 'Beatbox Showcase: Selección III',
+                titleEn: 'Beatbox Showcase: Selection III',
                 titleEs: 'Beatbox Showcase: Selección III',
                 url: 'https://www.instagram.com/p/CKG52rRgeLo/',
                 src: '/instagram_covers/CKG52rRgeLo.jpg'
