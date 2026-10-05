@@ -820,9 +820,37 @@ export function App() {
                 )}
 
                 {/* Badge Indicator */}
-                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full border text-[11px] font-mono font-medium shadow-lg backdrop-blur-sm bg-[#18130c]/85 border-amber-500/30 text-amber-300">
+                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full border text-[11px] font-mono font-medium shadow-lg backdrop-blur-sm bg-[#18130c]/85 border-amber-500/30 text-amber-300 pointer-events-none z-10">
                   {currentSlideIndex + 1} / {items.length}
                 </div>
+
+                {/* Always visible Floating Navigation Arrows over media viewport */}
+                {items.length > 1 && (
+                  <>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePrevSlide();
+                      }}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#18130c]/90 hover:bg-amber-400 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-black flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/70 hover:scale-110 active:scale-95"
+                      title={currentLang === 'es' ? 'Ficha anterior (←)' : 'Previous item (←)'}
+                      aria-label="Previous item"
+                    >
+                      <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNextSlide();
+                      }}
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#18130c]/90 hover:bg-amber-400 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-black flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/70 hover:scale-110 active:scale-95"
+                      title={currentLang === 'es' ? 'Ficha siguiente (→)' : 'Next item (→)'}
+                      aria-label="Next item"
+                    >
+                      <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </button>
+                  </>
+                )}
               </div>
 
               {/* RIGHT: Fluid Editorial Description */}
