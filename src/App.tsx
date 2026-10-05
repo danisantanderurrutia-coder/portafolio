@@ -159,7 +159,7 @@ export function App() {
         !hasEntered
           ? 'bg-[#121214] text-[#f4f4f5]' // Estética neutra, minimalista y equilibrada para el menú de entrada
           : isComms
-          ? 'bg-[#0c0a07] text-[#fefce8]' // Fondo cálido noche café-negro profundo con tintes ámbar
+          ? 'bg-[#15171e] text-[#f8fafc]' // Estética editorial luminosa: Grafito / Pizarra profunda con sutil calidez
           : 'bg-[#faf8f4] text-[#1c1917]' // Fondo diurno papel crema / beige claro (científico y biofísico)
       }`}
     >
@@ -173,9 +173,9 @@ export function App() {
           </>
         ) : isComms ? (
           <>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-amber-500/15 via-amber-950/25 to-transparent blur-[150px] rounded-full" />
-            <div className="absolute bottom-10 right-10 w-[550px] h-[450px] bg-yellow-500/10 blur-[140px] rounded-full" />
-            <div className="absolute top-1/3 left-10 w-[450px] h-[350px] bg-orange-600/10 blur-[130px] rounded-full" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-amber-500/20 via-orange-500/10 to-transparent blur-[140px] rounded-full" />
+            <div className="absolute bottom-10 right-10 w-[550px] h-[450px] bg-blue-500/10 blur-[150px] rounded-full" />
+            <div className="absolute top-1/3 left-10 w-[450px] h-[350px] bg-amber-500/10 blur-[130px] rounded-full" />
           </>
         ) : (
           <>
@@ -191,7 +191,7 @@ export function App() {
           !hasEntered
             ? 'border-neutral-800'
             : isComms
-            ? 'border-amber-500/20'
+            ? 'border-slate-800/80 bg-[#15171e]/70 backdrop-blur-md'
             : 'border-[#e4dcce]'
         }`}
       >
@@ -210,7 +210,7 @@ export function App() {
               !hasEntered
                 ? 'bg-neutral-900 border border-neutral-700 text-neutral-300 p-1'
                 : isComms
-                ? 'bg-[#18130c] border border-amber-500/40 text-amber-400 p-1 shadow-amber-500/10'
+                ? 'bg-slate-900 border border-amber-500/50 text-amber-400 p-1 shadow-amber-500/15'
                 : 'bg-[#eae3d5] border border-[#d0c4b0] text-[#2d5a3c] p-1'
             }`}
           >
@@ -221,7 +221,7 @@ export function App() {
               <span className={!hasEntered ? 'text-white group-hover:text-amber-300 transition-colors' : isComms ? 'group-hover:text-amber-300 transition-colors' : 'group-hover:text-[#2d5a3c] transition-colors'}>
                 DANIEL SANTANDER URRUTIA
               </span>
-              <span className={!hasEntered ? 'text-neutral-600' : isComms ? 'text-amber-600/60' : 'text-neutral-400'}>//</span>
+              <span className={!hasEntered ? 'text-neutral-600' : isComms ? 'text-amber-500/60' : 'text-neutral-400'}>//</span>
               <span
                 className={`text-xs font-sans font-medium hidden md:inline ${
                   !hasEntered
@@ -254,7 +254,7 @@ export function App() {
             <div
               className={`p-1 rounded-full border flex items-center shadow-sm backdrop-blur-md transition-colors ${
                 isComms
-                  ? 'bg-[#19140e]/90 border-amber-500/35'
+                  ? 'bg-slate-900/90 border-slate-700/80 shadow-md shadow-black/30'
                   : 'bg-[#ede5d6]/90 border-[#d0c4b0]'
               }`}
             >
@@ -262,7 +262,7 @@ export function App() {
                 onClick={() => handleToggleProfile('comms')}
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 ${
                   isComms
-                    ? 'bg-amber-400 text-[#0c0a07] font-bold shadow-md shadow-amber-500/30'
+                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/30'
                     : 'text-neutral-600 hover:text-black'
                 }`}
                 title="Modo Nocturno Cálido: Comunicaciones y Campañas"
@@ -276,7 +276,7 @@ export function App() {
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 ${
                   !isComms
                     ? 'bg-[#2d5a3c] text-white font-bold shadow-md'
-                    : 'text-amber-200/60 hover:text-amber-100'
+                    : 'text-slate-300 hover:text-white'
                 }`}
                 title="Modo Diurno: Científico y Biofísica"
               >
@@ -293,7 +293,7 @@ export function App() {
               !hasEntered
                 ? 'border-neutral-700 bg-neutral-900/80 text-neutral-200 hover:bg-neutral-800'
                 : isComms
-                ? 'border-amber-500/30 bg-[#18130c]/80 text-amber-300 hover:bg-amber-500/10'
+                ? 'border-slate-700/80 bg-slate-900/80 text-amber-300 hover:bg-slate-800 hover:border-amber-500/40'
                 : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-800 hover:bg-[#e4dcce]'
             }`}
           >
@@ -310,7 +310,7 @@ export function App() {
               !hasEntered
                 ? 'border-neutral-700 bg-neutral-900/80 text-neutral-300 hover:bg-neutral-800 hover:text-white'
                 : isComms
-                ? 'border-amber-500/30 bg-[#18130c]/80 text-amber-200 hover:bg-amber-500/10 hover:text-white'
+                ? 'border-slate-700/80 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:text-white hover:border-amber-500/40'
                 : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-700 hover:bg-[#e4dcce] hover:text-black'
             }`}
             title="Copiar enlace"
@@ -326,7 +326,7 @@ export function App() {
           <nav
             className={`inline-flex items-center border backdrop-blur-xl shadow-xl overflow-x-auto max-w-[98vw] no-scrollbar transition-all duration-300 ${
               isComms
-                ? 'p-1 rounded-full bg-[#18130d]/95 border-amber-500/30'
+                ? 'p-1 rounded-full bg-slate-900/90 border-slate-700/80 shadow-2xl'
                 : 'p-1 rounded-full bg-[#ede5d6]/95 border-[#d0c4b0] shadow-md'
             }`}
           >
@@ -351,8 +351,8 @@ export function App() {
                     isComms
                       ? `px-3.5 py-1.5 sm:px-4 sm:py-1.5 text-xs ${
                           isActive
-                            ? 'bg-amber-400 text-[#0c0a07] font-bold shadow-md shadow-amber-500/25 scale-[1.02]'
-                            : 'text-amber-100/70 hover:text-white hover:bg-amber-500/10'
+                            ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/25 scale-[1.02]'
+                            : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
                         }`
                       : `px-3 py-1 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs ${
                           isActive
@@ -390,7 +390,7 @@ export function App() {
             <div
               className={`inline-flex items-center space-x-2 px-3 py-0.5 rounded-full border text-[11px] font-sans uppercase shadow-sm transition-colors ${
                 isComms
-                  ? 'bg-[#18130c] border-amber-500/35 text-amber-400'
+                  ? 'bg-slate-900/90 border-slate-700/80 text-amber-400 shadow-md'
                   : 'bg-[#eae3d5] border-[#d0c4b0] text-[#2d5a3c]'
               }`}
             >
@@ -418,7 +418,7 @@ export function App() {
             </h2>
             <p
               className={`text-[11px] sm:text-xs font-medium mt-0.5 transition-colors ${
-                isComms ? 'text-amber-300/90' : 'text-[#3c6e4e]'
+                isComms ? 'text-slate-300' : 'text-[#3c6e4e]'
               }`}
             >
               {currentLang === 'es' ? activeSection.roleEs : activeSection.roleEn}
@@ -427,7 +427,7 @@ export function App() {
             {/* Sub-Section Switcher (e.g. Primera Línea Prensa vs Red Comunitaria Maule Sur) */}
             {activeSection.subSections && activeSection.subSections.length > 1 && (
               <div className="mt-3 flex items-center justify-center">
-                <div className="inline-flex p-1 rounded-full bg-[#18130c]/90 border border-amber-500/30 shadow-lg backdrop-blur-md">
+                <div className="inline-flex p-1 rounded-full bg-slate-900/90 border border-slate-700/80 shadow-xl backdrop-blur-md">
                   {activeSection.subSections.map((subSec, sIdx) => {
                     const isSubActive = sIdx === activeSubSectionIndex;
                     return (
@@ -439,8 +439,8 @@ export function App() {
                         }}
                         className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 flex items-center space-x-1.5 ${
                           isSubActive
-                            ? 'bg-amber-400 text-black font-bold shadow-md shadow-amber-500/25 scale-[1.02]'
-                            : 'text-amber-200/70 hover:text-white hover:bg-amber-500/10'
+                            ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/25 scale-[1.02]'
+                            : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
                         }`}
                       >
                         <span>{currentLang === 'es' ? subSec.titleEs : subSec.titleEn}</span>
@@ -596,14 +596,14 @@ export function App() {
               /* MODO NOCTURNO: VISOR DE PRENSA Y ARTÍCULOS WEB COMPLETO (100% VISIBLE SIN ZOOM) */
               <div className="relative w-full flex flex-col space-y-5 animate-fadeIn">
               {/* 1. NAVEGADOR WEB / PANTALLAZO DEL MEDIO COMPLETO Y LEGIBLE */}
-              <div className="relative w-full rounded-2xl bg-[#140f09] border border-amber-500/30 shadow-2xl overflow-hidden flex flex-col">
+              <div className="relative w-full rounded-2xl bg-slate-900 border border-slate-700/80 shadow-2xl overflow-hidden flex flex-col">
                 {/* Browser Mockup Top Bar */}
-                <div className="w-full px-4 py-2.5 bg-[#1b150d] border-b border-amber-500/20 flex flex-wrap items-center justify-between gap-2">
+                <div className="w-full px-4 py-2.5 bg-slate-800/90 border-b border-slate-700/80 flex flex-wrap items-center justify-between gap-2">
                   <div className="flex items-center space-x-2">
-                    <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-                    <span className="ml-2 font-mono text-[11px] text-amber-200/70 hidden sm:inline">
+                    <span className="w-3 h-3 rounded-full bg-rose-500 inline-block" />
+                    <span className="w-3 h-3 rounded-full bg-amber-500 inline-block" />
+                    <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
+                    <span className="ml-2 font-mono text-[11px] text-slate-300 hidden sm:inline">
                       {currentItem.authorOrSource}
                     </span>
                   </div>
@@ -614,7 +614,7 @@ export function App() {
                       href={currentItem.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-black/60 border border-amber-500/30 text-amber-300 hover:text-amber-100 hover:border-amber-400 text-xs font-mono transition"
+                      className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-slate-700 text-amber-300 hover:text-white hover:border-amber-400 text-xs font-mono transition shadow-inner"
                       title={currentLang === 'es' ? 'Abrir publicación original' : 'Open original article'}
                     >
                       <span className="truncate max-w-[200px] sm:max-w-[340px]">
@@ -631,7 +631,7 @@ export function App() {
                 </div>
 
                 {/* Screenshot Display: 100% visible, completely uncropped, readable from the start */}
-                <div className="relative w-full p-2 sm:p-5 bg-[#0a0805] flex items-center justify-center min-h-[360px]">
+                <div className="relative w-full p-2 sm:p-5 bg-slate-950/60 flex items-center justify-center min-h-[360px]">
                   <img
                     src={resolveAsset(currentItem.src)}
                     alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
@@ -641,7 +641,7 @@ export function App() {
 
                 {/* Navigation controls inside the visor */}
                 {items.length > 1 && (
-                  <div className="w-full flex items-center justify-between px-4 py-2.5 bg-[#18130c] border-t border-amber-500/20">
+                  <div className="w-full flex items-center justify-between px-4 py-2.5 bg-slate-900 border-t border-slate-800">
                     <div className="flex items-center space-x-1.5">
                       {items.map((_, dotIdx) => (
                         <button
@@ -650,7 +650,7 @@ export function App() {
                           className={`h-2.5 rounded-full transition-all duration-300 ${
                             dotIdx === currentSlideIndex
                               ? 'w-7 bg-amber-400 shadow-sm shadow-amber-400/50'
-                              : 'w-2 bg-neutral-700 hover:bg-neutral-600'
+                              : 'w-2 bg-slate-700 hover:bg-slate-600'
                           }`}
                           title={`Ver nota ${dotIdx + 1}`}
                         />
@@ -660,7 +660,7 @@ export function App() {
                     <div className="flex items-center space-x-2">
                       <button
                         onClick={handlePrevSlide}
-                        className="px-3 py-1.5 rounded-full bg-[#1e170e] border border-amber-500/30 hover:border-amber-400 text-xs font-sans text-amber-200 hover:text-white transition flex items-center space-x-1 shadow-sm"
+                        className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 hover:border-amber-400 text-xs font-sans text-slate-200 hover:text-white transition flex items-center space-x-1 shadow-sm"
                         title="Anterior (←)"
                       >
                         <ChevronLeft className="w-3.5 h-3.5" />
@@ -668,7 +668,7 @@ export function App() {
                       </button>
                       <button
                         onClick={handleNextSlide}
-                        className="px-3 py-1.5 rounded-full bg-[#1e170e] border border-amber-500/30 hover:border-amber-400 text-xs font-sans text-amber-200 hover:text-white transition flex items-center space-x-1 shadow-sm"
+                        className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 hover:border-amber-400 text-xs font-sans text-slate-200 hover:text-white transition flex items-center space-x-1 shadow-sm"
                         title="Siguiente (→)"
                       >
                         <span>{currentLang === 'es' ? 'Siguiente' : 'Next'}</span>
@@ -680,7 +680,7 @@ export function App() {
               </div>
 
               {/* 2. CONTEXTO EDITORIAL Y RIGOR PERIODÍSTICO DIRECTO ABAJO */}
-              <div className="w-full rounded-2xl bg-[#16120b] border border-amber-500/25 p-5 sm:p-7 shadow-xl">
+              <div className="w-full rounded-2xl bg-slate-900/90 border border-slate-700/80 p-5 sm:p-7 shadow-xl">
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-amber-500/20 pb-4 mb-4">
                   <div>
                     <div className="flex items-center space-x-2 text-xs font-serif font-bold text-amber-400 uppercase tracking-wider mb-1">
@@ -758,11 +758,11 @@ export function App() {
               </div>
             </div>
           ) : (
-            /* MODO NOCTURNO: TARJETA PANORÁMICA DE CAMPAÑA CÁLIDA (AMBAR & ORO) */
-            <div className="relative w-full rounded-2xl sm:rounded-3xl border backdrop-blur-md shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[420px] lg:h-[470px] transition-all duration-300 bg-[#16120b]/95 border-amber-500/25">
+            /* MODO NOCTURNO: TARJETA PANORÁMICA DE CAMPAÑA CÁLIDA (SLATE & ORO) */
+            <div className="relative w-full rounded-2xl sm:rounded-3xl border backdrop-blur-md shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[420px] lg:h-[470px] transition-all duration-300 bg-slate-900/90 border-slate-700/80">
               {/* LEFT: Media Viewport */}
               <div
-                className="relative lg:w-[56%] flex items-center justify-center overflow-hidden group min-h-[260px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-amber-500/15 bg-black/75 p-2 sm:p-3"
+                className="relative lg:w-[56%] flex items-center justify-center overflow-hidden group min-h-[260px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-slate-800 bg-slate-950/80 p-2 sm:p-3"
               >
                 {currentItem.type === 'video' && currentItem.embedUrl ? (
                   <div className="relative w-full h-full aspect-video bg-black/70 flex items-center justify-center rounded-xl overflow-hidden shadow-2xl">
@@ -777,7 +777,7 @@ export function App() {
                 ) : currentItem.type === 'audio' ? (
                   <div 
                     onClick={() => setSelectedMedia(currentItem)}
-                    className="w-full h-full p-6 flex flex-col items-center justify-center text-center space-y-3 bg-[#18130c] cursor-pointer"
+                    className="w-full h-full p-6 flex flex-col items-center justify-center text-center space-y-3 bg-slate-900 cursor-pointer"
                   >
                     <div className="w-14 h-14 rounded-full flex items-center justify-center bg-amber-500/20 border border-amber-500/40 text-amber-400 group-hover:scale-110 transition shadow-xl">
                       <Volume2 className="w-7 h-7" />
@@ -786,7 +786,7 @@ export function App() {
                       <span className="text-xs font-serif uppercase tracking-wider font-bold text-amber-300">
                         {currentLang === 'es' ? 'CÁPSULA RADIAL COMUNITARIA' : 'COMMUNITY RADIO CAPSULE'}
                       </span>
-                      <p className="text-xs opacity-80 mt-1 text-neutral-300">{currentItem.authorOrSource}</p>
+                      <p className="text-xs opacity-80 mt-1 text-slate-300">{currentItem.authorOrSource}</p>
                     </div>
                   </div>
                 ) : currentItem.type === 'instagram' ? (
@@ -795,7 +795,7 @@ export function App() {
                       if (currentItem.url) window.open(currentItem.url, '_blank');
                       else setSelectedMedia(currentItem);
                     }}
-                    className="relative w-full h-full min-h-[300px] flex items-center justify-center p-2 bg-[#0d0a07] cursor-pointer group/ig"
+                    className="relative w-full h-full min-h-[300px] flex items-center justify-center p-2 bg-slate-950 cursor-pointer group/ig"
                   >
                     {currentItem.src ? (
                       <div className="relative w-full max-h-[440px] flex items-center justify-center overflow-hidden rounded-xl shadow-2xl bg-black">
@@ -818,14 +818,14 @@ export function App() {
                         </div>
                       </div>
                     ) : (
-                      <div className="w-full max-w-[340px] p-5 rounded-2xl bg-[#1a140d] border border-amber-500/30 flex flex-col items-center text-center space-y-2.5">
+                      <div className="w-full max-w-[340px] p-5 rounded-2xl bg-slate-900 border border-slate-700 flex flex-col items-center text-center space-y-2.5">
                         <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-xl">
                           <InstagramIcon className="w-6 h-6" />
                         </div>
                         <h4 className="text-white font-serif font-bold text-sm">
                           {currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
                         </h4>
-                        <p className="text-[11px] text-neutral-300 font-sans">
+                        <p className="text-[11px] text-slate-300 font-sans">
                           {currentItem.captionEs || currentItem.captionEn}
                         </p>
                         <a
@@ -844,7 +844,7 @@ export function App() {
                 ) : (
                   <div 
                     onClick={() => setSelectedMedia(currentItem)}
-                    className="relative w-full h-full flex items-center justify-center bg-[#110e08] cursor-pointer"
+                    className="relative w-full h-full flex items-center justify-center bg-slate-950/60 cursor-pointer"
                   >
                     <img
                       src={resolveAsset((currentLang === 'en' && currentItem.srcEn) ? currentItem.srcEn : currentItem.src)}
@@ -855,7 +855,7 @@ export function App() {
                 )}
 
                 {/* Badge Indicator */}
-                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full border text-[11px] font-mono font-medium shadow-lg backdrop-blur-sm bg-[#18130c]/85 border-amber-500/30 text-amber-300 pointer-events-none z-10">
+                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full border text-[11px] font-mono font-medium shadow-lg backdrop-blur-sm bg-slate-900/90 border-slate-700 text-amber-300 pointer-events-none z-10">
                   {currentSlideIndex + 1} / {items.length}
                 </div>
 
@@ -867,7 +867,7 @@ export function App() {
                         e.stopPropagation();
                         handlePrevSlide();
                       }}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#18130c]/90 hover:bg-amber-400 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-black flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/70 hover:scale-110 active:scale-95"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-900/95 hover:bg-amber-400 border border-slate-700 hover:border-amber-400 text-amber-300 hover:text-slate-950 flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/70 hover:scale-110 active:scale-95"
                       title={currentLang === 'es' ? 'Ficha anterior (←)' : 'Previous item (←)'}
                       aria-label="Previous item"
                     >
@@ -878,7 +878,7 @@ export function App() {
                         e.stopPropagation();
                         handleNextSlide();
                       }}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#18130c]/90 hover:bg-amber-400 border border-amber-500/40 hover:border-amber-400 text-amber-300 hover:text-black flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/70 hover:scale-110 active:scale-95"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-900/95 hover:bg-amber-400 border border-slate-700 hover:border-amber-400 text-amber-300 hover:text-slate-950 flex items-center justify-center transition-all duration-200 shadow-xl shadow-black/70 hover:scale-110 active:scale-95"
                       title={currentLang === 'es' ? 'Ficha siguiente (→)' : 'Next item (→)'}
                       aria-label="Next item"
                     >
@@ -889,10 +889,10 @@ export function App() {
               </div>
 
               {/* RIGHT: Fluid Editorial Description */}
-              <div className="lg:w-[44%] p-4 sm:p-5 lg:p-6 flex flex-col justify-between space-y-3 bg-[#1b150c]/80 overflow-y-auto max-h-[470px] no-scrollbar">
+              <div className="lg:w-[44%] p-4 sm:p-5 lg:p-6 flex flex-col justify-between space-y-3 bg-slate-900/70 overflow-y-auto max-h-[470px] no-scrollbar">
                 <div>
                   {/* TOP NAVIGATION & SLIDER CONTROLS (ALWAYS VISIBLE AT TOP WITHOUT SCROLLING) */}
-                  <div className="pb-2.5 mb-2.5 border-b border-amber-500/20 flex items-center justify-between">
+                  <div className="pb-2.5 mb-2.5 border-b border-slate-800 flex items-center justify-between">
                     <div className="flex items-center space-x-1.5">
                       {items.map((_, dotIdx) => (
                         <button
@@ -901,7 +901,7 @@ export function App() {
                           className={`h-2 rounded-full transition-all duration-300 ${
                             dotIdx === currentSlideIndex
                               ? 'w-6 bg-amber-400'
-                              : 'w-2 bg-neutral-700 hover:bg-neutral-600'
+                              : 'w-2 bg-slate-700 hover:bg-slate-600'
                           }`}
                           title={`Ir a ficha ${dotIdx + 1}`}
                         />
@@ -911,21 +911,21 @@ export function App() {
                     <div className="flex items-center space-x-1.5">
                       <button
                         onClick={handlePrevSlide}
-                        className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm hover:scale-105 active:scale-95"
+                        className="p-1.5 sm:p-2 rounded-full border border-slate-700 hover:border-amber-400 text-slate-200 hover:text-white bg-slate-800 transition shadow-sm hover:scale-105 active:scale-95"
                         title="Anterior (←)"
                       >
                         <ChevronLeft className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={handleNextSlide}
-                        className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm hover:scale-105 active:scale-95"
+                        className="p-1.5 sm:p-2 rounded-full border border-slate-700 hover:border-amber-400 text-slate-200 hover:text-white bg-slate-800 transition shadow-sm hover:scale-105 active:scale-95"
                         title="Siguiente (→)"
                       >
                         <ChevronRight className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => setSelectedMedia(currentItem)}
-                        className="ml-1 px-3 py-1.5 rounded-full font-serif font-bold text-xs bg-amber-400 hover:bg-amber-300 text-black transition shadow-md flex items-center space-x-1 hover:scale-105 active:scale-95"
+                        className="ml-1 px-3 py-1.5 rounded-full font-serif font-bold text-xs bg-amber-400 hover:bg-amber-300 text-slate-950 transition shadow-md flex items-center space-x-1 hover:scale-105 active:scale-95"
                         title="Expandir modal"
                       >
                         <span>{currentLang === 'es' ? 'Ver Full' : 'Full View'}</span>
@@ -936,7 +936,7 @@ export function App() {
 
                   <div className="flex items-center justify-between text-[11px] mb-1.5 font-serif font-semibold tracking-wider uppercase text-amber-400">
                     <span>{currentItem.authorOrSource || 'Archivo de Campo'}</span>
-                    {currentItem.date && <span className="font-mono opacity-60">{currentItem.date}</span>}
+                    {currentItem.date && <span className="font-mono opacity-60 text-slate-400">{currentItem.date}</span>}
                   </div>
 
                   <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-white">
@@ -944,23 +944,23 @@ export function App() {
                   </h3>
 
                   {(currentItem.subtitleEn || currentItem.subtitleEs) && (
-                    <p className="text-xs font-medium mt-1 text-amber-300">
+                    <p className="text-xs font-medium mt-1 text-slate-300">
                       {currentLang === 'es' ? currentItem.subtitleEs : currentItem.subtitleEn}
                     </p>
                   )}
 
-                  <p className="text-xs leading-relaxed mt-2.5 font-sans text-neutral-300">
+                  <p className="text-xs leading-relaxed mt-2.5 font-sans text-slate-300">
                     {currentLang === 'es' ? currentItem.captionEs : currentItem.captionEn}
                   </p>
 
                   {/* Series / Event Gallery Links (Visual Thumbnails Mosaic) */}
                   {currentItem.subLinks && currentItem.subLinks.length > 0 && (
-                    <div className="mt-3 pt-2.5 border-t border-amber-500/20">
+                    <div className="mt-3 pt-2.5 border-t border-slate-800">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold">
                           {currentLang === 'es' ? 'Galerías & Entregas Relacionadas:' : 'Related Galleries & Releases:'}
                         </span>
-                        <span className="text-[10px] font-mono text-amber-300/70">
+                        <span className="text-[10px] font-mono text-slate-400">
                           {currentItem.subLinks.length} {currentLang === 'es' ? 'registros' : 'items'}
                         </span>
                       </div>
@@ -971,7 +971,7 @@ export function App() {
                             href={sub.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="group relative rounded-lg overflow-hidden border border-amber-500/25 bg-[#0f0c08] hover:border-amber-400/80 transition shadow-sm flex flex-col"
+                            className="group relative rounded-lg overflow-hidden border border-slate-800 bg-slate-950 hover:border-amber-400/80 transition shadow-sm flex flex-col"
                             title={currentLang === 'es' ? sub.titleEs : sub.titleEn}
                           >
                             {sub.src ? (
@@ -987,12 +987,12 @@ export function App() {
                                 </div>
                               </div>
                             ) : (
-                              <div className="w-full h-10 bg-amber-500/10 flex items-center justify-center">
+                              <div className="w-full h-10 bg-slate-800 flex items-center justify-center">
                                 <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
                               </div>
                             )}
-                            <div className="p-1.5 bg-[#14100a] flex-1 flex items-center">
-                              <span className="text-[10px] leading-tight font-sans font-medium text-amber-200 group-hover:text-white line-clamp-2">
+                            <div className="p-1.5 bg-slate-900 flex-1 flex items-center">
+                              <span className="text-[10px] leading-tight font-sans font-medium text-slate-300 group-hover:text-white line-clamp-2">
                                 {currentLang === 'es' ? sub.titleEs : sub.titleEn}
                               </span>
                             </div>
@@ -1003,7 +1003,7 @@ export function App() {
                   )}
 
                   {currentItem.url && (
-                    <div className="mt-3 pt-2 border-t border-amber-500/20">
+                    <div className="mt-3 pt-2 border-t border-slate-800">
                       <a
                         href={currentItem.url}
                         target="_blank"
