@@ -319,7 +319,7 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 3: PRIMERA LÍNEA PRENSA & RED MAULE SUR
+  // SECTION 3: PERIODISMO CIUDADANO (PRIMERA LÍNEA PRENSA & RED COMUNITARIA MAULE SUR)
   {
     id: 'primera-linea-prensa',
     tabKey: '03. PERIODISMO',
@@ -329,12 +329,12 @@ export const communicationsSections: SectionData[] = [
     badgeEs: 'PERIODISMO CIUDADANO Y ALCANCE MASIVO (+700K)',
     roleEn: 'Founder & Executive Director | Broadcast Panellist | Grassroots Network Architect',
     roleEs: 'Fundador y Director Ejecutivo | Panelista de Radio | Arquitecto de Redes Comunitarias',
-    titleEn: 'Primera Línea Prensa & Maule Regional Media',
-    titleEs: 'Primera Línea Prensa & Red de Medios del Maule',
+    titleEn: 'Citizen Journalism: Primera Línea Prensa & Red Maule Sur',
+    titleEs: 'Periodismo Ciudadano: Primera Línea Prensa & Red Maule Sur',
     headlineEn: 'Building an Independent +700k Audience Outlet & Training Rural Territorial Correspondents',
     headlineEs: 'Construyendo un Medio Independiente de +700k Seguidores y Capacitando Corresponsales Rurales',
-    narrativeEn: 'Co-founded and scaled "Primera Línea Prensa" into one of Chile’s most influential independent digital news feeds during the historic 2019-2022 civic cycle, reaching over 700,000 organic followers. Transitioned this mass communication engine into regional territorial empowerment in Maule Sur, co-hosting regional radio broadcasts and authoring an investigative journalism syllabus.',
-    narrativeEs: 'Cofundó y dirigió "Primera Línea Prensa", posicionándola como una de las plataformas de noticias independientes más influyentes de Chile durante el ciclo 2019-2022, superando los 700.000 seguidores orgánicos. Trasladó este músculo comunicacional a la Región del Maule, co-conduciendo el programa radial "El Maule Sur También Existe" y formando corresponsales populares.',
+    narrativeEn: 'Founded and scaled "Primera Línea Prensa" into one of Chile’s most influential independent digital news feeds during the historic 2019-2022 civic cycle, reaching over 700,000 organic followers. Transitioned this mass communication engine into regional territorial empowerment in Maule Sur, co-hosting regional radio broadcasts and authoring an investigative journalism syllabus.',
+    narrativeEs: 'Fundó y dirigió "Primera Línea Prensa", posicionándola como una de las plataformas de noticias independientes más influyentes de Chile durante el ciclo 2019-2022, superando los 700.000 seguidores orgánicos. Trasladó este músculo comunicacional a la Región del Maule, co-conduciendo el programa radial "El Maule Sur También Existe" y formando corresponsales populares.',
     keyOutcomesEn: [
       'Grew digital audience from zero to +700,000 verified followers across Instagram, Facebook & Twitter with millions of monthly impressions.',
       'Regular broadcast panellist on "El Maule Sur También Existe", dissecting agribusiness water monopolies and monoculture forestry.',
@@ -349,6 +349,174 @@ export const communicationsSections: SectionData[] = [
       { value: '+700K', labelEn: 'Direct Social Reach', labelEs: 'Audiencia Digital Directa' },
       { value: '45+', labelEn: 'Trained Rural Correspondents', labelEs: 'Corresponsales Capacitados' },
       { value: '180+', labelEn: 'Radio Capsules Broadcasted', labelEs: 'Cápsulas Radiales Emitidas' }
+    ],
+    subSections: [
+      {
+        id: 'plp',
+        titleEn: 'Primera Línea Prensa (+700k)',
+        titleEs: 'Primera Línea Prensa (+700k)',
+        badgeEn: 'Independent Digital Newsroom',
+        badgeEs: 'Redacción Digital Independiente',
+        mediaItems: [
+          {
+            id: 'plp-logo-oficial',
+            type: 'image',
+            titleEn: 'Official Profile & Media Brandmark: Primera Línea Prensa',
+            titleEs: 'Perfil Oficial & Identidad: Primera Línea Prensa',
+            subtitleEn: 'Independent Digital Media // +700k Verified Followers Network',
+            subtitleEs: 'Medio Digital Independiente // Red con +700k Seguidores',
+            src: '/plp/plp_logo.jpg',
+            captionEn: 'Official identity and profile of Primera Línea Prensa. Scaled into one of Chile’s most followed citizen journalism feeds with +700,000 active community members across Instagram and Facebook. Follow their official social platforms below:',
+            captionEs: 'Perfil e identidad oficial de Primera Línea Prensa. Medio de comunicación digital autogestionado que superó los 700.000 seguidores en sus canales oficiales de Instagram y Facebook, cubriendo de primera mano la contingencia social, política y de derechos humanos en Chile.',
+            authorOrSource: 'Primera Línea Prensa // Redes Oficiales',
+            date: '2019-2022',
+            metrics: [
+              { labelEn: 'Total Community', labelEs: 'Comunidad Total', value: '+700.000' },
+              { labelEn: 'Instagram Network', labelEs: 'Instagram Oficial', value: '+550k' },
+              { labelEn: 'Facebook Audience', labelEs: 'Página Facebook', value: '+160k' }
+            ],
+            tags: ['Perfil Oficial', '+700k Seguidores', 'Instagram', 'Facebook', 'Prensa Independiente'],
+            subLinks: [
+              {
+                titleEn: 'Instagram Oficial (@primeralineaprensa)',
+                titleEs: 'Instagram Oficial (@primeralineaprensa)',
+                url: 'https://www.instagram.com/primeralineaprensa/',
+                src: '/plp/plp_logo.jpg'
+              },
+              {
+                titleEn: 'Facebook Oficial (Primera Línea Prensa)',
+                titleEs: 'Facebook Oficial (Primera Línea Prensa)',
+                url: 'https://www.facebook.com/PrimeraLineaPrensa',
+                src: '/plp/plp_header_consigna.png'
+              }
+            ]
+          },
+          {
+            id: 'plp-afiche-inflacion',
+            type: 'image',
+            titleEn: 'Social Media Broadsheet: Economic Crisis & Popular Impact',
+            titleEs: 'Afiche de Difusión en Redes: Crisis Económica y Bolsillo del Pueblo',
+            subtitleEn: 'Digital News Feed Campaign // Street Reality & Inflation Dissection',
+            subtitleEs: 'Gráfica de Redes Sociales // Realidad Popular e Inflación',
+            src: '/plp/plp_afiche_inflacion.jpg',
+            captionEn: 'Viral social media broadsheet created for digital networks dissecting soaring fuel prices, cost-of-living spikes, and inflation impacts on working-class street markets and families. Demonstrates high-contrast investigative graphic design optimized for viral dissemination.',
+            captionEs: 'Afiche informativo de alto impacto diseñado para las redes de Primera Línea Prensa: desglose del encarecimiento de combustibles y la inflación que golpea las ferias libres y el bolsillo de los sectores populares. Gráfica de agitación y periodismo de datos al servicio del pueblo.',
+            authorOrSource: 'Primera Línea Prensa // Difusión en Redes Sociales',
+            date: '2021-2022',
+            tags: ['Difusión en Redes', 'Crisis Económica', 'Periodismo Popular', 'Gráfica Digital']
+          },
+          {
+            id: 'plp-header-consigna',
+            type: 'image',
+            titleEn: 'Editorial Hero Banner: "Informando desde las Trincheras del Pueblo"',
+            titleEs: 'Header Hero Editorial: "Informando desde las Trincheras del Pueblo"',
+            subtitleEn: 'Official Editorial Statement & Frontline Newsroom Identity',
+            subtitleEs: 'Declaración Editorial e Identidad de la Redacción Popular',
+            src: '/plp/plp_header_consigna.png',
+            captionEn: 'Official editorial hero banner and founding manifesto of Primera Línea Prensa: "Informando desde las trincheras del pueblo". Encapsulates the media outlet\'s core commitment to uncompromised grassroots news reporting from frontline communities and working-class territories.',
+            captionEs: 'Header oficial y lema editorial fundacional de Primera Línea Prensa: "Informando desde las trincheras del pueblo". Sintetiza la línea editorial de reportería directa, independiente y comprometida con las comunidades en resistencia y los territorios.',
+            authorOrSource: 'Primera Línea Prensa // Cabecera Oficial',
+            date: '2019-2022',
+            tags: ['Consigna Editorial', 'Trincheras del Pueblo', 'Identidad', 'primeralineaprensa.cl']
+          },
+          {
+            id: 'plp-articulo-revuelta',
+            type: 'press',
+            titleEn: 'PLP News Article: Independent Press & Street Literature',
+            titleEs: 'Noticia PLP: Prensa Independiente y Literatura Callejera',
+            subtitleEn: '"Relatos de la revuelta popular" // Book Release & Editorial Milestone',
+            subtitleEs: '“Relatos de la revuelta popular” // Lanzamiento Editorial y Éxito de Ventas',
+            url: 'https://www.primeralineaprensa.cl/?p=5542',
+            src: '/plp/plp_articulo_revuelta.png',
+            captionEn: 'Featured coverage and editorial milestone of Primera Línea Prensa: publishing and distributing the physical book "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising, self-distributed across Santiago public plazas and cultural centers.',
+            captionEs: 'Cuerpo y titular de la noticia en la plataforma oficial de Primera Línea Prensa: publicación y distribución del libro físico “Relatos de la revuelta popular”, una antología autogestionada de 44 microtextos sobre el estallido social en Chile, difundida directamente en las calles y centros culturales.',
+            authorOrSource: 'Primera Línea Prensa // primeralineaprensa.cl',
+            date: 'Noviembre 2020',
+            tags: ['Prensa Independiente', 'Relatos de la Revuelta', 'Editorial Popular', 'Estallido Social']
+          }
+        ]
+      },
+      {
+        id: 'red-comunitaria-maule',
+        titleEn: 'Red Comunitaria Maule Sur',
+        titleEs: 'Red Comunitaria Maule Sur',
+        badgeEn: 'Community Media & Broadcast Network',
+        badgeEs: 'Red de Comunicación Comunitaria y Radial',
+        mediaItems: [
+          {
+            id: 'maule-radio-broadcast',
+            type: 'image',
+            titleEn: 'Weekly Panellist on Regional Broadcast: "El Maule Sur También Existe"',
+            titleEs: 'Panelista Semanal en Programa Regional: "El Maule Sur También Existe"',
+            subtitleEn: 'Live Studio Transmission // Radio Cristalina 96.3 FM & Regional Transmitters',
+            subtitleEs: 'Transmisión en Vivo en Estudio // Radio Cristalina 96.3 FM y Emisoras Regionales',
+            src: '/maule_sur_radio.jpg',
+            captionEn: 'Weekly panellist on regional broadcast "El Maule Sur También Existe".\n\n• Creative & Strategic Execution: Directed editorial agendas, real-time crisis coverage, visual storytelling, and counter-disinformation frameworks against industry greenwashing.\n• Grassroots Network Architecture: Founded a decentralized community media network across the Maule region: trained local assembly members as active correspondents in citizen journalism and ethical reporting.',
+            captionEs: 'Panelista semanal en el programa radial regional "El Maule Sur También Existe".\n\n• Ejecución Creativa y Estratégica: Dirección de agendas editoriales, cobertura de crisis en tiempo real, narrativa visual y marcos contra la desinformación y el "greenwashing" corporativo e industrial.\n• Arquitectura de Red Comunitaria: Fundó una red descentralizada de medios comunitarios en toda la región del Maule: capacitó a miembros de asambleas locales y organizaciones de base como corresponsales activos en periodismo ciudadano y reportería ética.',
+            authorOrSource: 'Radio Cristalina 96.3 FM & Red Comunitaria Maule Sur',
+            date: '2022-Presente',
+            detailsEn: [
+              'Directed editorial agendas, real-time crisis coverage, visual storytelling, and counter-disinformation frameworks against industry greenwashing.',
+              'Founded a decentralized community media network across the Maule region: trained local assembly members as active correspondents in citizen journalism and ethical reporting.'
+            ],
+            detailsEs: [
+              'Dirección de agendas editoriales, cobertura de crisis en tiempo real, narrativa visual y marcos contra la desinformación y el lavado de imagen industrial.',
+              'Fundó una red descentralizada de medios comunitarios en la Región del Maule: formó a asambleístas locales como corresponsales activos en periodismo ciudadano.'
+            ],
+            tags: ['El Maule Sur También Existe', 'Radio Comunitaria', 'Periodismo Territorial', 'Corresponsales Populares'],
+            subLinks: [
+              {
+                titleEn: 'Web Oficial de la Red Comunitaria (En Desarrollo)',
+                titleEs: 'Web Oficial de la Red Comunitaria (En Desarrollo)',
+                url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
+                src: '/maulered_web.png'
+              }
+            ]
+          },
+          {
+            id: 'maule-red-platform',
+            type: 'image',
+            titleEn: 'Digital Community Platform: Red Comunitaria Maule Sur (In Development)',
+            titleEs: 'Plataforma Digital Territorial: Red Comunitaria Maule Sur (En Desarrollo)',
+            subtitleEn: 'Citizen Information Hub // Live Regional Radio & Rural Emergency Dispatcher',
+            subtitleEs: 'Centro de Información Ciudadana // Radio Comunitaria en Vivo y Avisador de Emergencias',
+            src: '/maulered_web.png',
+            captionEn: 'Official digital platform and citizen portal for Red de Noticias y Comunicación Popular del Maule Sur (currently in development). An open community infrastructure providing live regional radio streaming, rural APR potable water and blackout emergency alerts, territorial reporting, and citizen utility journalism.',
+            captionEs: 'Plataforma web oficial y portal ciudadano de la Red de Noticias y Comunicación Popular del Maule Sur (actualmente en desarrollo activo). Infraestructura comunitaria abierta que integra transmisión de radio comunitaria en vivo, avisador de emergencias de cortes de agua potable rural (APR) y electricidad, cartografía comunitaria y periodismo de utilidad cotidiana.',
+            authorOrSource: 'Red Maule Sur // Plataforma Web (En Desarrollo)',
+            date: '2024-En Desarrollo',
+            url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
+            tags: ['En Desarrollo', 'MauleRed', 'Radio en Vivo', 'Avisador de Emergencias APR', 'Periodismo Comunitario'],
+            subLinks: [
+              {
+                titleEn: 'Visitar Plataforma Web en Desarrollo',
+                titleEs: 'Visitar Plataforma Web en Desarrollo',
+                url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
+                src: '/maulered_web.png'
+              },
+              {
+                titleEn: 'Identidad Gráfica y Logotipo Oficial',
+                titleEs: 'Identidad Gráfica y Logotipo Oficial',
+                url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
+                src: '/maulered_logo.png'
+              }
+            ]
+          },
+          {
+            id: 'maule-radio-capsule',
+            type: 'audio',
+            titleEn: 'Broadcast Capsule: "El Maule Sur También Existe"',
+            titleEs: 'Cápsula Radial: "El Maule Sur También Existe"',
+            subtitleEn: 'Radio Ancoa & Community Transmitters // Regional Analysis',
+            subtitleEs: 'Radio Ancoa y Transmisores Comunitarios // Análisis Territorial',
+            captionEn: 'Studio panel recording exposing forestry monoculture fire risks, groundwater depletion in Linares/Parral, and peasant agriculture survival.',
+            captionEs: 'Grabación de panel en estudio que denuncia el riesgo de megaincendios por monocultivo de pino/eucalipto y la crisis hídrica en Linares/Parral.',
+            authorOrSource: 'Radio Ancoa 95.7 FM & Transmisoras Locales',
+            date: '2022',
+            tags: ['Broadcast Radio', 'Peasant Economy', 'Investigation']
+          }
+        ]
+      }
     ],
     mediaItems: [
       {
@@ -426,19 +594,6 @@ export const communicationsSections: SectionData[] = [
         authorOrSource: 'Primera Línea Prensa // primeralineaprensa.cl',
         date: 'Noviembre 2020',
         tags: ['Prensa Independiente', 'Relatos de la Revuelta', 'Editorial Popular', 'Estallido Social']
-      },
-      {
-        id: 'maule-radio-capsule',
-        type: 'audio',
-        titleEn: 'Broadcast Capsule: "El Maule Sur También Existe"',
-        titleEs: 'Cápsula Radial: "El Maule Sur También Existe"',
-        subtitleEn: 'Radio Ancoa & Community Transmitters // Regional Analysis',
-        subtitleEs: 'Radio Ancoa y Transmisores Comunitarios // Análisis Territorial',
-        captionEn: 'Studio panel recording exposing forestry monoculture fire risks, groundwater depletion in Linares/Parral, and peasant agriculture survival.',
-        captionEs: 'Grabación de panel en estudio que denuncia el riesgo de megaincendios por monocultivo de pino/eucalipto y la crisis hídrica en Linares/Parral.',
-        authorOrSource: 'Radio Ancoa 95.7 FM & Transmisoras Locales',
-        date: '2022',
-        tags: ['Broadcast Radio', 'Peasant Economy', 'Investigation']
       }
     ]
   },

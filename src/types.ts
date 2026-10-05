@@ -33,6 +33,15 @@ export interface MediaItem {
   }[];
 }
 
+export interface SubSectionData {
+  id: string;
+  titleEn: string;
+  titleEs: string;
+  badgeEn?: string;
+  badgeEs?: string;
+  mediaItems: MediaItem[];
+}
+
 export interface SectionData {
   id: string;
   tabKey: string;
@@ -55,5 +64,6 @@ export interface SectionData {
     labelEn: string;
     labelEs: string;
   }[];
+  subSections?: SubSectionData[];
   mediaItems: MediaItem[];
 }

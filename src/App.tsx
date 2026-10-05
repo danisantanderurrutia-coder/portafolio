@@ -60,6 +60,7 @@ export function App() {
   const [currentLang, setCurrentLang] = useState<Language>('en');
   const [profileMode, setProfileMode] = useState<ProfileMode>('comms');
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+  const [activeSubSectionIndex, setActiveSubSectionIndex] = useState<number>(0);
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
@@ -81,6 +82,8 @@ export function App() {
         );
         if (foundIdx >= 0) {
           setActiveTabIndex(foundIdx);
+          setActiveSubSectionIndex(0);
+          setCurrentSlideIndex(0);
         }
       }
     };
@@ -92,7 +95,10 @@ export function App() {
   // Pick dataset based on profile mode
   const activeSections: SectionData[] = profileMode === 'comms' ? communicationsSections : scientificSections;
   const activeSection: SectionData = activeSections[activeTabIndex] || activeSections[0];
-  const items = activeSection.mediaItems;
+
+  // Resolve media items taking into account subSections if present (e.g. Citizen Journalism)
+  const currentSubSection = activeSection.subSections ? activeSection.subSections[activeSubSectionIndex] : null;
+  const items = currentSubSection ? currentSubSection.mediaItems : activeSection.mediaItems;
   const currentItem = items[currentSlideIndex] || items[0];
 
   // Switch between nocturnal comms and diurnal science
@@ -106,11 +112,13 @@ export function App() {
     } else {
       setActiveTabIndex(0);
     }
+    setActiveSubSectionIndex(0);
     setCurrentSlideIndex(0);
   };
 
   const handleSelectTab = (index: number) => {
     setActiveTabIndex(index);
+    setActiveSubSectionIndex(0);
     setCurrentSlideIndex(0);
   };
 
@@ -415,6 +423,33 @@ export function App() {
             >
               {currentLang === 'es' ? activeSection.roleEs : activeSection.roleEn}
             </p>
+
+            {/* Sub-Section Switcher (e.g. Primera Línea Prensa vs Red Comunitaria Maule Sur) */}
+            {activeSection.subSections && activeSection.subSections.length > 1 && (
+              <div className="mt-3 flex items-center justify-center">
+                <div className="inline-flex p-1 rounded-full bg-[#18130c]/90 border border-amber-500/30 shadow-lg backdrop-blur-md">
+                  {activeSection.subSections.map((subSec, sIdx) => {
+                    const isSubActive = sIdx === activeSubSectionIndex;
+                    return (
+                      <button
+                        key={subSec.id}
+                        onClick={() => {
+                          setActiveSubSectionIndex(sIdx);
+                          setCurrentSlideIndex(0);
+                        }}
+                        className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 flex items-center space-x-1.5 ${
+                          isSubActive
+                            ? 'bg-amber-400 text-black font-bold shadow-md shadow-amber-500/25 scale-[1.02]'
+                            : 'text-amber-200/70 hover:text-white hover:bg-amber-500/10'
+                        }`}
+                      >
+                        <span>{currentLang === 'es' ? subSec.titleEs : subSec.titleEn}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         )}
 
