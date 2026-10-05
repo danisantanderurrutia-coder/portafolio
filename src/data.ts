@@ -768,6 +768,399 @@ export const communicationsSections: SectionData[] = [
         ]
       },
       {
+        id: 'cuarentena-rap',
+        titleEn: 'Cuarentena Rap',
+        titleEs: 'Cuarentena Rap',
+        badgeEn: 'Pandemic Streaming League & Socio-Artistic Concept',
+        badgeEs: 'Liga Online en Pandemia & Dispositivo Socio-Artístico',
+        mediaItems: [
+          {
+            id: 'cr-video-promocion',
+            type: 'video',
+            embedUrl: 'https://www.youtube.com/embed/B2XrNxHxwrA',
+            url: 'https://www.youtube.com/watch?v=B2XrNxHxwrA',
+            src: '/youtube_covers/B2XrNxHxwrA.jpg',
+            titleEn: 'Cuarentena Rap: Official Promotion Video & Creative Manifesto',
+            titleEs: 'Cuarentena Rap: Video Oficial de Promoción & Manifiesto Conceptual',
+            subtitleEn: 'Digital Counter-Culture in Lockdowns // Artistic Rebirth & Collective Catharsis',
+            subtitleEs: 'Contracultura Digital en Confinamiento // Renacer Artístico y Catarsis Colectiva',
+            captionEn: 'Conceived and directed by Daniel Santander during COVID-19 lockdowns, "Cuarentena Rap" turned global isolation into an innovative written and spoken-word digital league via Discord, YouTube, and Twitch.\n\nNarrative & Concept:\nDuring quarantine, society lived surrounded by death and isolation in the news, breaking vital community ties. Cuarentena Rap transformed this crisis through competitive hip-hop: participants enter the narrative "as if dead" (inactive, isolated), confront their personal and social struggles through each tier ("fase de karmas"), and achieve rebirth and liberation through art and collective expression.',
+            captionEs: 'Diseñado y dirigido por Daniel Santander durante los confinamientos de la pandemia, "Cuarentena Rap" transformó el aislamiento social en una liga de freestyle y batallas escritas multiplataforma (Discord, YouTube y Twitch).\n\nConcepto y Narrativa Central:\nEn plena crisis sanitaria, las personas vivían el encierro y la muerte constante en las noticias, perdiendo sus vínculos comunitarios. Cuarentena Rap abordó esta vivencia mediante un formato competitivo conceptual: los participantes parten simbólicamente "muertos" (confinados e inactivos), enfrentan y purgan sus problemas personales y sociales en las distintas etapas ("fase de karmas") y renacen y se liberan a través del arte, la rima y la expresión colectiva.',
+            authorOrSource: 'Cuarentena Rap // Dirección Creativa: Daniel Santander',
+            date: '2020-2021',
+            tags: ['Cuarentena Rap', 'Video Promocional', 'Manifiesto', 'Pandemia', 'Streaming'],
+            subLinks: [
+              {
+                titleEn: 'Bases & Protocolos Oficiales',
+                titleEs: 'Bases y Protocolos Oficiales',
+                url: 'https://www.instagram.com/p/CFqKMjHnKDc/?img_index=3',
+                src: '/instagram_covers/CFqKMjHnKDc.jpg'
+              },
+              {
+                titleEn: 'Rúbricas de Evaluación (Criterio Lírico)',
+                titleEs: 'Rúbricas de Evaluación (Criterio Lírico)',
+                url: 'https://www.instagram.com/p/CFv-xFUj3cP/?img_index=1',
+                src: '/instagram_covers/CFv-xFUj3cP.jpg'
+              },
+              {
+                titleEn: 'Rúbricas de Evaluación (Puntaje & Flow)',
+                titleEs: 'Rúbricas de Evaluación (Puntaje & Flow)',
+                url: 'https://www.instagram.com/p/CFwD6Nqjbrn/?img_index=1',
+                src: '/instagram_covers/CFwD6Nqjbrn.jpg'
+              },
+              {
+                titleEn: 'Rúbricas de Evaluación (Desempeño Global)',
+                titleEs: 'Rúbricas de Evaluación (Desempeño Global)',
+                url: 'https://www.instagram.com/p/CFwMfCCDvp5/?img_index=1',
+                src: '/instagram_covers/CFwMfCCDvp5.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-gran-final',
+            type: 'instagram',
+            instagramId: 'CKu4MLTAQO_',
+            src: '/instagram_covers/CKu4MLTAQO_.jpg',
+            url: 'https://www.instagram.com/p/CKu4MLTAQO_/',
+            titleEn: 'Gran Final: The Champion\'s Rebirth & Climax',
+            titleEs: 'Gran Final: Culminación y Coronación de Campeones',
+            subtitleEn: 'Season Finale // Liberation & Highest Competitive Expression',
+            subtitleEs: 'Final de Temporada // Liberación y Máxima Expresión Competitiva',
+            captionEn: 'The monumental climax of Cuarentena Rap: the final face-off where lyricists complete their symbolic journey from the crypts of isolation to collective liberation. Reached thousands of simultaneous viewers across streaming channels.',
+            captionEs: 'El clímax de Cuarentena Rap: la batalla decisiva donde los finalistas completan el viaje simbólico desde el encierro hasta la liberación lírica, coronando a los campeones con miles de espectadores conectados en simultáneo.',
+            authorOrSource: 'Cuarentena Rap // Temporada 2020-2021',
+            date: '2021',
+            tags: ['Gran Final', 'Campeón', 'Liberación Lírica', 'Streaming'],
+            subLinks: [
+              {
+                titleEn: 'Final Match Showcase (Parte II)',
+                titleEs: 'Duelo Final (Parte II)',
+                url: 'https://www.instagram.com/p/CKu2R9qgy3Q/',
+                src: '/instagram_covers/CKu2R9qgy3Q.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-semifinales',
+            type: 'video',
+            embedUrl: 'https://www.youtube.com/embed/l2PwaGDStx8',
+            url: 'https://www.youtube.com/watch?v=l2PwaGDStx8',
+            src: '/youtube_covers/l2PwaGDStx8.jpg',
+            titleEn: 'Semifinales: The Path to Liberation (High-Tension Battles)',
+            titleEs: 'Semifinales: La antesala de la Liberación (Batallas Decisivas)',
+            subtitleEn: 'YouTube Broadcast // Top-Tier Latin American Written Cyphers',
+            subtitleEs: 'Transmisión en YouTube // Duelos de Alto Calibre Lírico',
+            captionEn: 'High-intensity semifinal showdowns where the top four lyricists delivered masterclasses in conceptual writing, rhythmic delivery, and social critique over raw instrumentals.',
+            captionEs: 'Las semifinales de Cuarentena Rap: los cuatro mejores letristas del torneo enfrentándose con métricas complejas, dobles sentidos y narrativa profunda sobre las vivencias de la crisis.',
+            authorOrSource: 'Cuarentena Rap // Transmisión Oficial',
+            date: '2020-2021',
+            tags: ['Semifinal', 'YouTube', 'Batallas Escritas', 'Freestyle'],
+            subLinks: [
+              {
+                titleEn: 'Semifinal Duelo 2',
+                titleEs: 'Semifinal Duelo 2',
+                url: 'https://www.youtube.com/watch?v=eQ8o4xRh2cI',
+                src: '/youtube_covers/eQ8o4xRh2cI.jpg'
+              },
+              {
+                titleEn: 'Semifinal Duelo 3',
+                titleEs: 'Semifinal Duelo 3',
+                url: 'https://www.youtube.com/watch?v=k5gCKdOxmYU',
+                src: '/youtube_covers/k5gCKdOxmYU.jpg'
+              },
+              {
+                titleEn: 'Semifinal Duelo 4',
+                titleEs: 'Semifinal Duelo 4',
+                url: 'https://www.youtube.com/watch?v=x_M7yiXcSAg',
+                src: '/youtube_covers/x_M7yiXcSAg.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-cuartos-de-final',
+            type: 'video',
+            embedUrl: 'https://www.youtube.com/embed/gD-IergtRag',
+            url: 'https://www.youtube.com/watch?v=gD-IergtRag',
+            src: '/youtube_covers/gD-IergtRag.jpg',
+            titleEn: 'Cuartos de Final: Tactical Wordplay & Live Confrontation',
+            titleEs: 'Cuartos de Final: Confrontación Conceptual y Métricas en Vivo',
+            subtitleEn: 'Broadcast Series // The Elite 8 Contenders',
+            subtitleEs: 'Serie de Cuartos de Final // Los 8 Mejores Letristas',
+            captionEn: 'Quarterfinal matches where competitors deployed intricate literary techniques, metaphoric depth, and technical rhyme schemes, evaluated with professional rubrics by international juries.',
+            captionEs: 'Ronda de cuartos de final donde los ocho mejores competidores desplegaron recursos literarios, ingenio y métricas avanzadas, calificados rigurosamente bajo rúbricas profesionales por el jurado internacional.',
+            authorOrSource: 'Cuarentena Rap // Cuartos de Final',
+            date: '2020',
+            tags: ['Cuartos de Final', 'YouTube', 'Ingenio Lírico'],
+            subLinks: [
+              {
+                titleEn: 'Cuartos de Final: Llave 2',
+                titleEs: 'Cuartos de Final: Llave 2',
+                url: 'https://www.youtube.com/watch?v=QcHRipCLj_0',
+                src: '/youtube_covers/QcHRipCLj_0.jpg'
+              },
+              {
+                titleEn: 'Cuartos de Final: Llave 3',
+                titleEs: 'Cuartos de Final: Llave 3',
+                url: 'https://www.youtube.com/watch?v=bIAlFlbqG4o',
+                src: '/youtube_covers/bIAlFlbqG4o.jpg'
+              },
+              {
+                titleEn: 'Cuartos de Final: Llave 4',
+                titleEs: 'Cuartos de Final: Llave 4',
+                url: 'https://www.youtube.com/watch?v=YZhhS7l_04Q',
+                src: '/youtube_covers/YZhhS7l_04Q.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-ronda-dos-karmas',
+            type: 'video',
+            embedUrl: 'https://www.youtube.com/embed/I7Kiv8B5-8I',
+            url: 'https://www.youtube.com/watch?v=I7Kiv8B5-8I',
+            src: '/youtube_covers/I7Kiv8B5-8I.jpg',
+            titleEn: 'Segunda Ronda: "Fase de Karmas" (Confrontando la Crisis)',
+            titleEs: 'Segunda Ronda: "Fase de Karmas" (Confrontando la Crisis)',
+            subtitleEn: 'Conceptual Round // Purging Personal Conflicts & Structural Woes',
+            subtitleEs: 'Ronda Conceptual // Purgando Conflictos Personales y Estructurales',
+            captionEn: 'The "Fase de Karmas" represents the narrative turning point of the tournament: emcees explicitly address their inner dilemmas, social grief, and the collective crisis of the lockdown, using poetry as a vehicle of emotional transmutation.',
+            captionEs: 'La "Fase de Karmas" constituyó el corazón narrativo del certamen: los freestylers abordaron de frente sus cargas personales, el duelo social y la asfixia del encierro, transformando el dolor en lucidez poética y fuerza comunitaria.',
+            authorOrSource: 'Cuarentena Rap // Fase de Karmas',
+            date: '2020',
+            tags: ['Fase de Karmas', 'Segunda Ronda', 'Narrativa Conceptual', 'Catarsis'],
+            subLinks: [
+              {
+                titleEn: 'Fase de Karmas: Entrega 2',
+                titleEs: 'Fase de Karmas: Entrega 2',
+                url: 'https://www.youtube.com/watch?v=G1LEt3FDWBY',
+                src: '/youtube_covers/G1LEt3FDWBY.jpg'
+              },
+              {
+                titleEn: 'Fase de Karmas: Entrega 3',
+                titleEs: 'Fase de Karmas: Entrega 3',
+                url: 'https://www.youtube.com/watch?v=OBdrOnFkQTU',
+                src: '/youtube_covers/OBdrOnFkQTU.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-primera-ronda-tumbas',
+            type: 'instagram',
+            instagramId: 'CGln20TAcaU',
+            src: '/instagram_covers/CGln20TAcaU.jpg',
+            url: 'https://www.instagram.com/p/CGln20TAcaU/',
+            titleEn: 'Primera Ronda: "Fase de Tumbas" (Saliendo del Aislamiento)',
+            titleEs: 'Primera Ronda: "Fase de Tumbas" (Saliendo del Aislamiento)',
+            subtitleEn: 'First Main Round // Awakening from Inactivity',
+            subtitleEs: 'Primera Ronda // Despertando de la Inactividad y el Encierro',
+            captionEn: 'The competition opens with the "Fase de Tumbas". Emcees break through the static of confinement, stepping onto the digital arena to reignite their voices and challenge isolation.',
+            captionEs: 'Apertura competitiva con la "Fase de Tumbas". Los emcees rompen el letargo y la quietud del confinamiento, entrando al cuadrilátero virtual para devolverle el pulso y la vitalidad a la palabra.',
+            authorOrSource: 'Cuarentena Rap // Fase de Tumbas',
+            date: 'Octubre 2020',
+            tags: ['Fase de Tumbas', 'Primera Ronda', 'Renacimiento', 'Comunidad Digital'],
+            subLinks: [
+              {
+                titleEn: 'Fase de Tumbas: Llaves y Cruces II',
+                titleEs: 'Fase de Tumbas: Llaves y Cruces II',
+                url: 'https://www.instagram.com/p/CGjb8FRAGms/',
+                src: '/instagram_covers/CGjb8FRAGms.jpg'
+              },
+              {
+                titleEn: 'Fase de Tumbas: Llaves y Cruces III',
+                titleEs: 'Fase de Tumbas: Llaves y Cruces III',
+                url: 'https://www.instagram.com/p/CGn0FyxlLWR/',
+                src: '/instagram_covers/CGn0FyxlLWR.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-filtros-clasificatorios',
+            type: 'instagram',
+            instagramId: 'CGOFGuQAFll',
+            src: '/instagram_covers/CGOFGuQAFll.jpg',
+            url: 'https://www.instagram.com/p/CGOFGuQAFll/',
+            titleEn: 'Filtros Clasificatorios: Massive Auditions Across Latin America',
+            titleEs: 'Filtros Clasificatorios: Audiciones Masivas en América Latina',
+            subtitleEn: 'Open Qualifiers // Selecting the Defining Voices',
+            subtitleEs: 'Fase Clasificatoria // Selección Abierta de Letristas',
+            captionEn: 'Hundreds of applicants submitted recorded auditions evaluated blind by experienced lyricists to select the core bracket of contenders across multiple regional leagues.',
+            captionEs: 'Cientos de postulantes enviaron sus audiciones grabadas, las cuales fueron revisadas y puntuadas a ciegas por el comité para conformar el cuadro final de las ligas clasificadas.',
+            authorOrSource: 'Cuarentena Rap // Filtros Oficiales',
+            date: 'Octubre 2020',
+            tags: ['Filtros', 'Audiciones', 'Clasificatorias', 'Escena Internacional'],
+            subLinks: [
+              {
+                titleEn: 'Filtros: Segunda Selección',
+                titleEs: 'Filtros: Segunda Selección',
+                url: 'https://www.instagram.com/p/CGRbq6vAJLe/',
+                src: '/instagram_covers/CGRbq6vAJLe.jpg'
+              },
+              {
+                titleEn: 'Filtros: Tercera Selección',
+                titleEs: 'Filtros: Tercera Selección',
+                url: 'https://www.instagram.com/p/CGLyvsDgcjn/',
+                src: '/instagram_covers/CGLyvsDgcjn.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-ligas-confirmadas',
+            type: 'instagram',
+            instagramId: 'CGBmYuIjBck',
+            src: '/instagram_covers/CGBmYuIjBck.jpg',
+            url: 'https://www.instagram.com/p/CGBmYuIjBck/',
+            titleEn: 'Ligas Confirmadas: National & International Underground Network',
+            titleEs: 'Ligas Confirmadas: Red de Colectivos y Plazas Federadas',
+            subtitleEn: 'Ecosystem Alliance // Uniting Regional Underground Hubs',
+            subtitleEs: 'Alianza de Ecosistemas // Uniendo Plazas y Colectivos Regionales',
+            captionEn: 'Cuarentena Rap partnered with iconic underground leagues and regional freestyle collectives from Chile, Argentina, Colombia, Peru, and Mexico, building a federal digital championship.',
+            captionEs: 'Cuarentena Rap federó a destacadas competencias de plaza y ligas underground de Chile, Argentina, Colombia, Perú y México, construyendo una red asociativa que sostuvo la cultura viva durante la crisis.',
+            authorOrSource: 'Cuarentena Rap // Red de Ligas Asociadas',
+            date: '2020',
+            tags: ['Ligas Confirmadas', 'Red Federal', 'Underground', 'América Latina'],
+            subLinks: [
+              {
+                titleEn: 'Ligas Asociadas: Segunda Nómina',
+                titleEs: 'Ligas Asociadas: Segunda Nómina',
+                url: 'https://www.instagram.com/p/CGBmexDDQFE/',
+                src: '/instagram_covers/CGBmexDDQFE.jpg'
+              },
+              {
+                titleEn: 'Ligas Asociadas: Tercera Nómina',
+                titleEs: 'Ligas Asociadas: Tercera Nómina',
+                url: 'https://www.instagram.com/p/CGBmg2-jwqm/',
+                src: '/instagram_covers/CGBmg2-jwqm.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-cuerpo-jueces',
+            type: 'instagram',
+            instagramId: 'CGBm-SCDajg',
+            src: '/instagram_covers/CGBm-SCDajg.jpg',
+            url: 'https://www.instagram.com/p/CGBm-SCDajg/?img_index=1',
+            titleEn: 'Cuerpo de Jueces: International Jury & Ethical Rigor',
+            titleEs: 'Cuerpo de Jueces: Jurado Internacional y Criterio Ético',
+            subtitleEn: 'Jury Panel // Evaluation Standards, Coherence & Flow Analysis',
+            subtitleEs: 'Panel de Jurados // Estándares de Rúbrica, Coherencia y Contenido',
+            captionEn: 'Renowned freestyle veterans, writers, and cultural practitioners formed an impartial jury panel, applying transparent evaluation criteria to reward substance, flow, originality, and conceptual weight.',
+            captionEs: 'Referentes del freestyle, letristas y gestores culturales integraron el cuerpo oficial de jurados, evaluando cada enfrentamiento con rúbricas rigurosas que ponderaron coherencia lírica, flow y sustancia conceptual.',
+            authorOrSource: 'Cuarentena Rap // Jurados Oficiales',
+            date: '2020',
+            tags: ['Jueces', 'Jurado Internacional', 'Rúbricas', 'Ética Competitiva'],
+            subLinks: [
+              {
+                titleEn: 'Panel de Jueces: Bloque II',
+                titleEs: 'Panel de Jueces: Bloque II',
+                url: 'https://www.instagram.com/p/CGBnI06jRLK/?img_index=1',
+                src: '/instagram_covers/CGBnI06jRLK.jpg'
+              },
+              {
+                titleEn: 'Panel de Jueces: Bloque III',
+                titleEs: 'Panel de Jueces: Bloque III',
+                url: 'https://www.instagram.com/p/CGBnB36jLL8/?img_index=1',
+                src: '/instagram_covers/CGBnB36jLL8.jpg'
+              },
+              {
+                titleEn: 'Panel de Jueces: Bloque IV',
+                titleEs: 'Panel de Jueces: Bloque IV',
+                url: 'https://www.instagram.com/p/CIgkc-Fl5Mz/',
+                src: '/instagram_covers/CIgkc-Fl5Mz.jpg'
+              },
+              {
+                titleEn: 'Panel de Jueces: Bloque V',
+                titleEs: 'Panel de Jueces: Bloque V',
+                url: 'https://www.instagram.com/p/CIgn8K0lOfY/',
+                src: '/instagram_covers/CIgn8K0lOfY.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-breaking',
+            type: 'instagram',
+            instagramId: 'CHwWP8Wlq0u',
+            src: '/instagram_covers/CHwWP8Wlq0u.jpg',
+            url: 'https://www.instagram.com/p/CHwWP8Wlq0u/?img_index=1',
+            titleEn: 'Disciplina Breakdance: B-Boys & B-Girls Virtual Battles',
+            titleEs: 'Disciplina Breaking: Batallas Virtuales de B-Boys y B-Girls',
+            subtitleEn: 'The Element of Body Movement // Street Dance Resiliency',
+            subtitleEs: 'El Elemento de la Danza y el Cuerpo // Resiliencia del Breaking',
+            captionEn: 'Breaking formed an essential pillar of Cuarentena Rap, giving dancers space to compete via high-framerate video recordings and live cyphers, overcoming physical confinement with athletic and artistic excellence.',
+            captionEs: 'El breaking fue un pilar fundamental de Cuarentena Rap: B-Boys y B-Girls de toda la región se batieron en rondas virtuales, llevando el arte del cuerpo y la danza urbana a los hogares en pleno confinamiento.',
+            authorOrSource: 'Cuarentena Rap // Breaking Championship',
+            date: '2020',
+            tags: ['Breaking', 'Breakdance', 'B-Boys', 'B-Girls', 'Danza Urbana'],
+            subLinks: [
+              {
+                titleEn: 'Breaking Showcase: Rondas y Cruces I',
+                titleEs: 'Breaking Showcase: Rondas y Cruces I',
+                url: 'https://www.instagram.com/p/CHwXUDll83G/?img_index=1',
+                src: '/instagram_covers/CHwXUDll83G.jpg'
+              },
+              {
+                titleEn: 'Breaking Showcase: Rondas y Cruces II',
+                titleEs: 'Breaking Showcase: Rondas y Cruces II',
+                url: 'https://www.instagram.com/p/CHwYsrQFfgx/?img_index=1',
+                src: '/instagram_covers/CHwYsrQFfgx.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-beatmakers',
+            type: 'instagram',
+            instagramId: 'CIOORNBA_Pg',
+            src: '/instagram_covers/CIOORNBA_Pg.jpg',
+            url: 'https://www.instagram.com/p/CIOORNBA_Pg/',
+            titleEn: 'Disciplina Beatmaking: Sound Producers & Instrumental Battles',
+            titleEs: 'Disciplina Beatmaking: Productores de Sonido y Batallas de Beats',
+            subtitleEn: 'The Sonic Architecture // Original Instrumentals & Boom-Bap',
+            subtitleEs: 'Arquitectura Sonora // Instrumentales Originales y Texturas Urbanas',
+            captionEn: 'Beatmakers were the musical heartbeat of the tournament, composing exclusive soundscapes, sampled loops, and boom-bap rhythms that fueled each battle and gave distinct sonic identity to every tier.',
+            captionEs: 'Los beatmakers fueron el motor sonoro del torneo, produciendo instrumentales exclusivas, samples y texturas que le dieron identidad musical a cada fase y protagonizaron su propia competencia de producción.',
+            authorOrSource: 'Cuarentena Rap // Beatmaking League',
+            date: '2020',
+            tags: ['Beatmakers', 'Producción Musical', 'Instrumentales', 'Boom-Bap'],
+            subLinks: [
+              {
+                titleEn: 'Beatmakers Showcase: Selección II',
+                titleEs: 'Beatmakers Showcase: Selección II',
+                url: 'https://www.instagram.com/p/CIQceC8AMHl/',
+                src: '/instagram_covers/CIQceC8AMHl.jpg'
+              }
+            ]
+          },
+          {
+            id: 'cr-beatboxers',
+            type: 'instagram',
+            instagramId: 'CIoysLgg1c5',
+            src: '/instagram_covers/CIoysLgg1c5.jpg',
+            url: 'https://www.instagram.com/p/CIoysLgg1c5/',
+            titleEn: 'Disciplina Beatboxing: Vocal Percussion & Acoustic Innovation',
+            titleEs: 'Disciplina Beatboxing: Percusión Vocal e Innovación Acústica',
+            subtitleEn: 'Human Acoustic Power // Virtual Beatbox Tournament',
+            subtitleEs: 'Poder Acústico Humano // Torneo Virtual de Beatbox',
+            captionEn: 'Beatboxers brought acoustic ingenuity to the league, transforming microphones into full drum machines and synthesizers in high-energy virtual matchups.',
+            captionEs: 'La escena del beatbox demostró el poder de la percusión vocal en la liga, transformando sus micrófonos en baterías y sintetizadores en duelos de alta técnica y creatividad acústica.',
+            authorOrSource: 'Cuarentena Rap // Beatboxing Cup',
+            date: '2020-2021',
+            tags: ['Beatbox', 'Percusión Vocal', 'Acústica', 'Cultura Hip-Hop'],
+            subLinks: [
+              {
+                titleEn: 'Beatbox Showcase: Selección II',
+                titleEs: 'Beatbox Showcase: Selección II',
+                url: 'https://www.instagram.com/p/CIoyYTyAoDT/',
+                src: '/instagram_covers/CIoyYTyAoDT.jpg'
+              },
+              {
+                titleEn: 'Beatbox Showcase: Selección III',
+                titleEs: 'Beatbox Showcase: Selección III',
+                url: 'https://www.instagram.com/p/CKG52rRgeLo/',
+                src: '/instagram_covers/CKG52rRgeLo.jpg'
+              }
+            ]
+          }
+        ]
+      },
+      {
         id: 'rap-libre',
         titleEn: 'Rap Libre',
         titleEs: 'Rap Libre',
