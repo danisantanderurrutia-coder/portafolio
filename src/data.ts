@@ -352,19 +352,37 @@ export const communicationsSections: SectionData[] = [
     ],
     mediaItems: [
       {
-        id: 'plp-articulo-revuelta',
-        type: 'press',
-        titleEn: 'PLP News Article: Independent Press & Street Literature',
-        titleEs: 'Noticia PLP: Prensa Independiente y Literatura Callejera',
-        subtitleEn: '"Relatos de la revuelta popular" // Book Release & Editorial Milestone',
-        subtitleEs: '“Relatos de la revuelta popular” // Lanzamiento Editorial y Éxito de Ventas',
-        url: 'https://www.primeralineaprensa.cl/?p=5542',
-        src: '/plp/plp_articulo_revuelta.png',
-        captionEn: 'Featured coverage and editorial milestone of Primera Línea Prensa: publishing and distributing the physical book "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising, self-distributed across Santiago public plazas and cultural centers.',
-        captionEs: 'Cuerpo y titular de la noticia en la plataforma oficial de Primera Línea Prensa: publicación y distribución del libro físico “Relatos de la revuelta popular”, una antología autogestionada de 44 microtextos sobre el estallido social en Chile, difundida directamente en las calles y centros culturales.',
-        authorOrSource: 'Primera Línea Prensa // primeralineaprensa.cl',
-        date: 'Noviembre 2020',
-        tags: ['Prensa Independiente', 'Relatos de la Revuelta', 'Editorial Popular', 'Estallido Social']
+        id: 'plp-logo-oficial',
+        type: 'image',
+        titleEn: 'Official Profile & Media Brandmark: Primera Línea Prensa',
+        titleEs: 'Perfil Oficial & Identidad: Primera Línea Prensa',
+        subtitleEn: 'Independent Digital Media // +700k Verified Followers Network',
+        subtitleEs: 'Medio Digital Independiente // Red con +700k Seguidores',
+        src: '/plp/plp_logo.jpg',
+        captionEn: 'Official identity and profile of Primera Línea Prensa. Scaled into one of Chile’s most followed citizen journalism feeds with +700,000 active community members across Instagram and Facebook. Follow their official social platforms below:',
+        captionEs: 'Perfil e identidad oficial de Primera Línea Prensa. Medio de comunicación digital autogestionado que superó los 700.000 seguidores en sus canales oficiales de Instagram y Facebook, cubriendo de primera mano la contingencia social, política y de derechos humanos en Chile.',
+        authorOrSource: 'Primera Línea Prensa // Redes Oficiales',
+        date: '2019-2022',
+        metrics: [
+          { labelEn: 'Total Community', labelEs: 'Comunidad Total', value: '+700.000' },
+          { labelEn: 'Instagram Network', labelEs: 'Instagram Oficial', value: '+550k' },
+          { labelEn: 'Facebook Audience', labelEs: 'Página Facebook', value: '+160k' }
+        ],
+        tags: ['Perfil Oficial', '+700k Seguidores', 'Instagram', 'Facebook', 'Prensa Independiente'],
+        subLinks: [
+          {
+            titleEn: 'Instagram Oficial (@primeralineaprensa)',
+            titleEs: 'Instagram Oficial (@primeralineaprensa)',
+            url: 'https://www.instagram.com/primeralineaprensa/',
+            src: '/plp/plp_logo.jpg'
+          },
+          {
+            titleEn: 'Facebook Oficial (Primera Línea Prensa)',
+            titleEs: 'Facebook Oficial (Primera Línea Prensa)',
+            url: 'https://www.facebook.com/PrimeraLineaPrensa',
+            src: '/plp/plp_header_consigna.png'
+          }
+        ]
       },
       {
         id: 'plp-afiche-inflacion',
@@ -383,49 +401,31 @@ export const communicationsSections: SectionData[] = [
       {
         id: 'plp-header-consigna',
         type: 'image',
-        titleEn: 'Editorial Banner & Motto: "Informando desde las Trincheras del Pueblo"',
-        titleEs: 'Header Editorial & Consigna: "Informando desde las Trincheras del Pueblo"',
+        titleEn: 'Editorial Hero Banner: "Informando desde las Trincheras del Pueblo"',
+        titleEs: 'Header Hero Editorial: "Informando desde las Trincheras del Pueblo"',
         subtitleEn: 'Official Editorial Statement & Frontline Newsroom Identity',
         subtitleEs: 'Declaración Editorial e Identidad de la Redacción Popular',
         src: '/plp/plp_header_consigna.png',
-        captionEn: 'Official editorial banner and founding manifesto of Primera Línea Prensa: "Informando desde las trincheras del pueblo". Encapsulates the media outlet\'s core commitment to uncompromised grassroots news reporting from frontline communities and working-class territories.',
+        captionEn: 'Official editorial hero banner and founding manifesto of Primera Línea Prensa: "Informando desde las trincheras del pueblo". Encapsulates the media outlet\'s core commitment to uncompromised grassroots news reporting from frontline communities and working-class territories.',
         captionEs: 'Header oficial y lema editorial fundacional de Primera Línea Prensa: "Informando desde las trincheras del pueblo". Sintetiza la línea editorial de reportería directa, independiente y comprometida con las comunidades en resistencia y los territorios.',
         authorOrSource: 'Primera Línea Prensa // Cabecera Oficial',
         date: '2019-2022',
         tags: ['Consigna Editorial', 'Trincheras del Pueblo', 'Identidad', 'primeralineaprensa.cl']
       },
       {
-        id: 'plp-logo-oficial',
-        type: 'image',
-        titleEn: 'Official Identity & Brandmark: Primera Línea Prensa',
-        titleEs: 'Logotipo Oficial e Identidad: Primera Línea Prensa',
-        subtitleEn: 'Visual Emblem // Independent Media Brandmark (+700k Audience)',
-        subtitleEs: 'Emblema Visual // Marca de Medio Independiente (+700k Seguidores)',
-        src: '/plp/plp_logo.jpg',
-        captionEn: 'Official brand identity and trademark logo of Primera Línea Prensa. Recognized across Chile as a primary symbol of frontline citizen journalism and decentralized digital news during historic civic mobilizations.',
-        captionEs: 'Logotipo e identidad gráfica oficial de Primera Línea Prensa. Reconocido nacional e internacionalmente como uno de los símbolos centrales del periodismo ciudadano y la cobertura digital durante el ciclo histórico 2019-2022.',
-        authorOrSource: 'Primera Línea Prensa // Identidad Visual',
-        date: '2019-2022',
-        tags: ['Logotipo', 'Identidad Visual', 'Marca', 'Prensa Independiente']
-      },
-      {
-        id: 'plp-analytics',
-        type: 'social',
-        titleEn: 'Digital Reach Analytics & Real-Time Engagement Dashboard',
-        titleEs: 'Panel de Analítica y Alcance Digital en Tiempo Real',
-        subtitleEn: 'Metrics Breakdown: +700k Active Network Followers',
-        subtitleEs: 'Desglose de Métricas: Red de +700k Seguidores Activos',
-        captionEn: 'Organic reach metrics overview showing virality spikes during frontline human rights alerts and constitutional debate broadcasts (+700,000 organic followers).',
-        captionEs: 'Resumen de métricas de alcance orgánico con picos de viralidad durante coberturas de derechos humanos y debates constituyentes (+700.000 seguidores orgánicos).',
-        authorOrSource: 'Meta Business Insights & CrowdTangle',
-        date: '2020-2022',
-        metrics: [
-          { labelEn: 'Cumulative Followers', labelEs: 'Seguidores Acumulados', value: '714,000+' },
-          { labelEn: 'Peak 30-Day Impressions', labelEs: 'Impresiones pico en 30 días', value: '14.2M' },
-          { labelEn: 'Engagement Rate', labelEs: 'Tasa de Interacción', value: '8.4%' },
-          { labelEn: 'Citizen Reports Processed', labelEs: 'Reportes Ciudadanos Verificados', value: '2,400+' }
-        ],
-        tags: ['Social Strategy', 'Big Data', 'Crisis Comms']
+        id: 'plp-articulo-revuelta',
+        type: 'press',
+        titleEn: 'PLP News Article: Independent Press & Street Literature',
+        titleEs: 'Noticia PLP: Prensa Independiente y Literatura Callejera',
+        subtitleEn: '"Relatos de la revuelta popular" // Book Release & Editorial Milestone',
+        subtitleEs: '“Relatos de la revuelta popular” // Lanzamiento Editorial y Éxito de Ventas',
+        url: 'https://www.primeralineaprensa.cl/?p=5542',
+        src: '/plp/plp_articulo_revuelta.png',
+        captionEn: 'Featured coverage and editorial milestone of Primera Línea Prensa: publishing and distributing the physical book "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising, self-distributed across Santiago public plazas and cultural centers.',
+        captionEs: 'Cuerpo y titular de la noticia en la plataforma oficial de Primera Línea Prensa: publicación y distribución del libro físico “Relatos de la revuelta popular”, una antología autogestionada de 44 microtextos sobre el estallido social en Chile, difundida directamente en las calles y centros culturales.',
+        authorOrSource: 'Primera Línea Prensa // primeralineaprensa.cl',
+        date: 'Noviembre 2020',
+        tags: ['Prensa Independiente', 'Relatos de la Revuelta', 'Editorial Popular', 'Estallido Social']
       },
       {
         id: 'maule-radio-capsule',

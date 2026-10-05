@@ -856,6 +856,49 @@ export function App() {
               {/* RIGHT: Fluid Editorial Description */}
               <div className="lg:w-[44%] p-4 sm:p-5 lg:p-6 flex flex-col justify-between space-y-3 bg-[#1b150c]/80 overflow-y-auto max-h-[470px] no-scrollbar">
                 <div>
+                  {/* TOP NAVIGATION & SLIDER CONTROLS (ALWAYS VISIBLE AT TOP WITHOUT SCROLLING) */}
+                  <div className="pb-2.5 mb-2.5 border-b border-amber-500/20 flex items-center justify-between">
+                    <div className="flex items-center space-x-1.5">
+                      {items.map((_, dotIdx) => (
+                        <button
+                          key={dotIdx}
+                          onClick={() => setCurrentSlideIndex(dotIdx)}
+                          className={`h-2 rounded-full transition-all duration-300 ${
+                            dotIdx === currentSlideIndex
+                              ? 'w-6 bg-amber-400'
+                              : 'w-2 bg-neutral-700 hover:bg-neutral-600'
+                          }`}
+                          title={`Ir a ficha ${dotIdx + 1}`}
+                        />
+                      ))}
+                    </div>
+
+                    <div className="flex items-center space-x-1.5">
+                      <button
+                        onClick={handlePrevSlide}
+                        className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm hover:scale-105 active:scale-95"
+                        title="Anterior (←)"
+                      >
+                        <ChevronLeft className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={handleNextSlide}
+                        className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm hover:scale-105 active:scale-95"
+                        title="Siguiente (→)"
+                      >
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => setSelectedMedia(currentItem)}
+                        className="ml-1 px-3 py-1.5 rounded-full font-serif font-bold text-xs bg-amber-400 hover:bg-amber-300 text-black transition shadow-md flex items-center space-x-1 hover:scale-105 active:scale-95"
+                        title="Expandir modal"
+                      >
+                        <span>{currentLang === 'es' ? 'Ver Full' : 'Full View'}</span>
+                        <Maximize2 className="w-3 h-3" />
+                      </button>
+                    </div>
+                  </div>
+
                   <div className="flex items-center justify-between text-[11px] mb-1.5 font-serif font-semibold tracking-wider uppercase text-amber-400">
                     <span>{currentItem.authorOrSource || 'Archivo de Campo'}</span>
                     {currentItem.date && <span className="font-mono opacity-60">{currentItem.date}</span>}
@@ -937,49 +980,6 @@ export function App() {
                       </a>
                     </div>
                   )}
-                </div>
-
-                {/* Slider Controls */}
-                <div className="pt-2.5 border-t border-amber-500/20 flex items-center justify-between">
-                  <div className="flex items-center space-x-1.5">
-                    {items.map((_, dotIdx) => (
-                      <button
-                        key={dotIdx}
-                        onClick={() => setCurrentSlideIndex(dotIdx)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          dotIdx === currentSlideIndex
-                            ? 'w-6 bg-amber-400'
-                            : 'w-2 bg-neutral-700 hover:bg-neutral-600'
-                        }`}
-                        title={`Ir a ficha ${dotIdx + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="flex items-center space-x-1.5">
-                    <button
-                      onClick={handlePrevSlide}
-                      className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm"
-                      title="Anterior (←)"
-                    >
-                      <ChevronLeft className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={handleNextSlide}
-                      className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm"
-                      title="Siguiente (→)"
-                    >
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => setSelectedMedia(currentItem)}
-                      className="ml-1 px-3 py-1.5 rounded-full font-serif font-bold text-xs bg-amber-400 hover:bg-amber-300 text-black transition shadow-md flex items-center space-x-1"
-                      title="Expandir modal"
-                    >
-                      <span>{currentLang === 'es' ? 'Ver Full' : 'Full View'}</span>
-                      <Maximize2 className="w-3 h-3" />
-                    </button>
-                  </div>
                 </div>
               </div>
             </div>
