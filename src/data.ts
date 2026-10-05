@@ -54,12 +54,12 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 1: CULTURA & ESPACIOS COMUNITARIOS
+  // SECTION 1: CULTURA & ESPACIOS COMUNITARIOS (SOLO HIP-HOP & FREESTYLE)
   {
     id: 'rap-beauchef',
     tabKey: '01. CULTURA',
-    tabTitleEn: 'Culture',
-    tabTitleEs: 'Cultura',
+    tabTitleEn: 'Culture & Rap',
+    tabTitleEs: 'Cultura & Rap',
     badgeEn: 'YOUTH CULTURE & ARTISTIC PRODUCTION',
     badgeEs: 'CULTURA JUVENIL Y PRODUCCIÓN ARTÍSTICA',
     roleEn: 'Artistic Director, Live Producer & Community Architect',
@@ -87,24 +87,10 @@ export const communicationsSections: SectionData[] = [
     ],
     mediaItems: [
       {
-        id: 'camara-diputadas-forestal',
-        type: 'video',
-        titleEn: 'Testimony at Chile\'s Chamber of Deputies: Forestry Model & Wildfire Risk',
-        titleEs: 'Exposición en la Cámara de Diputadas y Diputados: Modelo Forestal y Riesgo de Incendios',
-        subtitleEn: 'Emergency, Disaster & Firefighter Commission // National Congress of Chile',
-        subtitleEs: 'Comisión de Emergencia, Desastres y Bomberos // Congreso Nacional de Chile',
-        embedUrl: 'https://www.youtube.com/embed/7eJ-pQ3qe8o',
-        url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
-        captionEn: 'The "Red por la Superación al modelo forestal" presents before the Emergency, Disaster and Firefighter Commission of Chile\'s Chamber of Deputies, detailing the direct correlation between massive tree monocultures (pine and eucalyptus plantations) and catastrophic wildfire hazards in central-southern Chile.',
-        captionEs: 'La Red por la Superación al modelo forestal expone ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile sobre la relación estructural entre los monocultivos forestales a gran escala y el riesgo crítico de megaincendios en el centro-sur de Chile.',
-        authorOrSource: 'Cámara de Diputadas y Diputados de Chile',
-        date: '2023',
-        tags: ['Incidencia Pública', 'Congreso Nacional', 'Riesgo de Incendios', 'Modelo Forestal']
-      },
-      {
         id: 'rap-beauchef-batallas-vivo',
         type: 'instagram',
         instagramId: 'B9ljgLMngum',
+        src: '/instagram_covers/B9ljgLMngum.jpg',
         url: 'https://www.instagram.com/p/B9ljgLMngum/',
         titleEn: 'Rap Beauchef: Live Arena Tournaments & University Cyphers',
         titleEs: 'Rap Beauchef: Torneos en Vivo & Cyphers Universitarios',
@@ -162,6 +148,7 @@ export const communicationsSections: SectionData[] = [
         id: 'rap-beauchef-shows-duenas',
         type: 'instagram',
         instagramId: 'B3SOa_YgJ5j',
+        src: '/instagram_covers/B3SOa_YgJ5j.jpg',
         url: 'https://www.instagram.com/p/B3SOa_YgJ5j/?img_index=1',
         titleEn: 'Rap Beauchef: Live Concerts & "Dueñas de la Voz" Female Tournament',
         titleEs: 'Rap Beauchef: Shows en Vivo & "Dueñas de la Voz" (Encuentro Femenino)',
@@ -189,6 +176,7 @@ export const communicationsSections: SectionData[] = [
         id: 'rap-beauchef-online-discord',
         type: 'instagram',
         instagramId: 'CCPVa5elGhn',
+        src: '/instagram_covers/CCPVa5elGhn.jpg',
         url: 'https://www.instagram.com/p/CCPVa5elGhn/',
         titleEn: 'Rap Beauchef Online: Discord Leagues & International Community',
         titleEs: 'Rap Beauchef Online: Ligas en Discord & Red Internacional',
@@ -236,6 +224,7 @@ export const communicationsSections: SectionData[] = [
         id: 'rap-libre-urbano',
         type: 'instagram',
         instagramId: 'B42bAbtnntp',
+        src: '/instagram_covers/B42bAbtnntp.jpg',
         url: 'https://www.instagram.com/p/B42bAbtnntp/',
         titleEn: 'Rap Libre: Urban Public Space & Civic Freestyle Arena',
         titleEs: 'Rap Libre: Conquista del Espacio Público & Escena Urbana',
@@ -262,10 +251,60 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 2: PRIMERA LÍNEA PRENSA & RED MAULE SUR
+  // SECTION 2: EXPOSICIÓN PÚBLICA & INCIDENCIA EN EL CONGRESO
+  {
+    id: 'exposicion-publica',
+    tabKey: '02. EXPOSICIÓN PÚBLICA',
+    tabTitleEn: 'Public Testimony',
+    tabTitleEs: 'Exposición Pública',
+    badgeEn: 'PARLIAMENTARY TESTIMONY & PUBLIC ADVOCACY',
+    badgeEs: 'TESTIMONIO PARLAMENTARIO E INCIDENCIA PÚBLICA',
+    roleEn: 'Technical Spokesperson & Grassroots Environmental Delegate',
+    roleEs: 'Vocero Técnico y Delegado Ambiental Comunitario',
+    titleEn: 'Parliamentary Hearings & Public Policy Advocacy',
+    titleEs: 'Exposición en el Congreso Nacional e Incidencia Pública',
+    headlineEn: 'Elevating Grassroots Ecological Evidence into Legislative Oversight and State Accountability',
+    headlineEs: 'Llevando la Evidencia Territorial y Científica a la Fiscalización Legislativa del Estado',
+    narrativeEn: 'Representing frontline communities and environmental federations directly within parliamentary commissions, public hearings, and state investigative committees. Translates on-the-ground ecological degradation and community testimonies into rigorous, evidence-backed legislative presentations that challenge industrial monopolies and state negligence.',
+    narrativeEs: 'Representación directa de comunidades afectadas y redes socioambientales en comisiones parlamentarias, audiencias públicas e instancias de fiscalización del Estado. Transforma la vivencia de los territorios en alegatos técnicos y políticos fundamentados para enfrentar la negligencia estatal y el modelo extractivo.',
+    keyOutcomesEn: [
+      'Official testimony before the Emergency, Disaster and Firefighter Commission of Chile’s Chamber of Deputies.',
+      'Established structural correlation between large-scale monoculture forestry and catastrophic wildfire spread.',
+      'Positioned peasant smallholders and water assemblies at the core of national civil protection reforms.'
+    ],
+    keyOutcomesEs: [
+      'Presentación oficial ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile.',
+      'Demostración técnica de la correlación estructural entre el modelo forestal de monocultivo y los megaincendios.',
+      'Incorporación de la voz de comités de agua potable rural y pequeños agricultores en el debate legislativo de prevención.'
+    ],
+    stats: [
+      { value: 'Congreso', labelEn: 'Chamber of Deputies', labelEs: 'Cámara de Diputadas/os' },
+      { value: 'Nacional', labelEn: 'Broadcast & Record', labelEs: 'Transmisión Oficial' },
+      { value: '100%', labelEn: 'Evidence-Based Advocacy', labelEs: 'Evidencia Territorial' }
+    ],
+    mediaItems: [
+      {
+        id: 'camara-diputadas-forestal',
+        type: 'video',
+        titleEn: 'Testimony at Chile\'s Chamber of Deputies: Forestry Model & Wildfire Risk',
+        titleEs: 'Exposición en la Cámara de Diputadas y Diputados: Modelo Forestal y Riesgo de Incendios',
+        subtitleEn: 'Emergency, Disaster & Firefighter Commission // National Congress of Chile',
+        subtitleEs: 'Comisión de Emergencia, Desastres y Bomberos // Congreso Nacional de Chile',
+        embedUrl: 'https://www.youtube.com/embed/7eJ-pQ3qe8o',
+        url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
+        captionEn: 'The "Red por la Superación al modelo forestal" presents before the Emergency, Disaster and Firefighter Commission of Chile\'s Chamber of Deputies, detailing the direct correlation between massive tree monocultures (pine and eucalyptus plantations) and catastrophic wildfire hazards in central-southern Chile.',
+        captionEs: 'La Red por la Superación al modelo forestal expone ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile sobre la relación estructural entre los monocultivos forestales a gran escala y el riesgo crítico de megaincendios en el centro-sur de Chile.',
+        authorOrSource: 'Cámara de Diputadas y Diputados de Chile',
+        date: '2023',
+        tags: ['Incidencia Pública', 'Congreso Nacional', 'Riesgo de Incendios', 'Modelo Forestal']
+      }
+    ]
+  },
+
+  // SECTION 3: PRIMERA LÍNEA PRENSA & RED MAULE SUR
   {
     id: 'primera-linea-prensa',
-    tabKey: '02. PERIODISMO',
+    tabKey: '03. PERIODISMO',
     tabTitleEn: 'Citizen Journalism',
     tabTitleEs: 'Periodismo Ciudadano',
     badgeEn: 'CITIZEN JOURNALISM & MASS REACH (+700K)',
@@ -329,10 +368,10 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 3: APRUEBO RURAL / NATIONAL CAMPAIGN
+  // SECTION 4: APRUEBO RURAL / NATIONAL CAMPAIGN
   {
     id: 'apruebo-rural',
-    tabKey: '03. CAMPAÑA NACIONAL',
+    tabKey: '04. CAMPAÑA NACIONAL',
     tabTitleEn: 'National Campaign',
     tabTitleEs: 'Campaña Nacional',
     badgeEn: 'NATIONAL CAMPAIGN & PEASANT FRONTLINE',
@@ -347,11 +386,13 @@ export const communicationsSections: SectionData[] = [
     narrativeEs: 'Lideró la coordinación general de la campaña comunicacional y despliegue territorial de "Apruebo Rural" (2020-2023). Articuló a pequeños agricultores familiares campesinos, comités de agua potable rural (APR) y poblados cercados por monocultivos forestales con las cadenas nacionales de TV, radios comunales y masivos actos públicos. Coordinó el histórico acto de cierre de campaña con miles de familias rurales.',
     keyOutcomesEn: [
       'Executed a 14-region rural communication tour across central and southern Chile with 80+ community assemblies.',
+      'Produced digital training academies and fact-checking webinars debunking rural constitutional misinformation.',
       'Placed 60+ op-eds, television interviews, and radio specials centering rural water sovereignty and agroecology.',
       'Organized the historic "Cierre de Campaña Apruebo Rural" assembling rural women, elders, and youth delegates.'
     ],
     keyOutcomesEs: [
       'Gira nacional por 14 regiones del centro y sur de Chile realizando más de 80 asambleas y encuentros comunales.',
+      'Creación de escuelas de formación digital y webinars de verificación de datos (fact-checking) para informar a comunidades rurales.',
       'Publicación de más de 60 columnas de opinión, notas en televisión y especiales radiales sobre soberanía del agua y agroecología.',
       'Organización y dirección del histórico acto de "Cierre de Campaña Apruebo Rural" con mujeres campesinas, delegaciones y familias.'
     ],
@@ -361,6 +402,60 @@ export const communicationsSections: SectionData[] = [
       { value: '500K+', labelEn: 'Print Leaflets & Field Kits', labelEs: 'Volantes y Kits Distribuidos' }
     ],
     mediaItems: [
+      {
+        id: 'apruebo-reel-apertura',
+        type: 'instagram',
+        instagramId: 'Ch3dEHRDp46',
+        src: '/instagram_covers/Ch3dEHRDp46.jpg',
+        url: 'https://www.instagram.com/reel/Ch3dEHRDp46/',
+        titleEn: 'National Campaign Video: Voice of Frontline Rural Communities',
+        titleEs: 'Video Central de Campaña: La Voz de las Comunidades Rurales',
+        subtitleEn: 'Official Campaign Broadcast // Peasant Water & Soil Defense',
+        subtitleEs: 'Transmisión Oficial de Campaña // Defensa del Agua Campesina y la Tierra',
+        captionEn: 'Viral campaign reel rallying rural communities, peasant farmers, and water defenders across Chile ahead of the historic constitutional vote. Highlighting agrarian sovereignty and intergenerational dignity.',
+        captionEs: 'Video oficial de convocatoria masiva a comunidades campesinas, pequeñas productoras y comités de agua potable rural de todo Chile. Un mensaje potente sobre soberanía territorial, dignidad campesina y futuro ecológico.',
+        authorOrSource: 'Apruebo Rural // Campaña Audiovisual',
+        date: 'Agosto 2022',
+        tags: ['Campaña Nacional', 'Video Central', 'Comunidades Rurales', 'Soberanía del Agua']
+      },
+      {
+        id: 'apruebo-escuela-webinars',
+        type: 'instagram',
+        instagramId: 'ChlR78pstEK',
+        src: '/instagram_covers/ChlR78pstEK.jpg',
+        url: 'https://www.instagram.com/p/ChlR78pstEK/',
+        titleEn: 'Online Training School: Fact-Checking & Civic Deliberation',
+        titleEs: 'Escuela de Formación Online: Fact-Checking & Educación Cívica',
+        subtitleEn: 'Digital Webinars // Debunking Misinformation on Peasant Rights',
+        subtitleEs: 'Ciclo de Conversatorios Digitales // Desmintiendo Fake News sobre el Agro',
+        captionEn: 'Pioneered popular online training webinars and rigorous fact-checking workshops designed to counter widespread fake news in rural territories. Addressed key agrarian concerns: hereditary land security, water distribution rights, and peasant family protection through clear pedagogical evidence.',
+        captionEs: 'Diseño y moderación de escuelas de formación ciudadana online y talleres de verificación de datos (fact-checking) para neutralizar campañas de desinformación en sectores rurales. Se abordaron temas críticos como propiedad de la tierra, comités de APR y derechos campesinos con pedagogía clara y directa.',
+        authorOrSource: 'Escuela Popular Apruebo Rural',
+        date: '2022',
+        tags: ['Escuela Online', 'Fact-Checking', 'Educación Popular', 'Webinars'],
+        subLinks: [
+          {
+            titleEn: 'Webinar Poster I: Rural Water & APR Rights',
+            titleEs: 'Afiche Conversatorio I: Agua Rural & Comités de APR',
+            url: 'https://www.instagram.com/p/ChDJ_fwO9Bl/'
+          },
+          {
+            titleEn: 'Webinar Poster II: Peasant Land & Heritage Security',
+            titleEs: 'Afiche Conversatorio II: Seguridad de Tierras y Herencia Campesina',
+            url: 'https://www.instagram.com/p/ChiMgLmv-AE/'
+          },
+          {
+            titleEn: 'Webinar Poster III: Popular Civic Assembly Broadcast',
+            titleEs: 'Afiche Conversatorio III: Encuentro Ciudadano Masivo',
+            url: 'https://www.instagram.com/p/ChlR78pstEK/'
+          },
+          {
+            titleEn: 'Civic Callout Poster: Countering Misinformation',
+            titleEs: 'Afiche Convocatoria: Enfrentando la Desinformación',
+            url: 'https://www.instagram.com/p/CgzOl5AOBe5/'
+          }
+        ]
+      },
       {
         id: 'apruebo-photo-stage',
         type: 'image',
@@ -406,10 +501,10 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 4: BRIGADA PAULINA AGUIRRE
+  // SECTION 5: BRIGADA PAULINA AGUIRRE
   {
     id: 'brigada-paulina-aguirre',
-    tabKey: '04. ARTIVISMO',
+    tabKey: '05. ARTIVISMO',
     tabTitleEn: 'Artivism & Murals',
     tabTitleEs: 'Artivismo & Murales',
     badgeEn: 'TACTICAL ARTIVISM & SPATIAL STUNTS',
@@ -477,10 +572,10 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 5: PRENSA & MEDIOS NACIONALES
+  // SECTION 6: PRENSA & MEDIOS NACIONALES
   {
     id: 'prensa-medios',
-    tabKey: '05. PRENSA',
+    tabKey: '06. PRENSA',
     tabTitleEn: 'Investigative Press',
     tabTitleEs: 'Prensa & Medios',
     badgeEn: 'NATIONAL & INTERNATIONAL INVESTIGATIVE PRESS',
@@ -634,10 +729,10 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 6: PUBLICACIONES & ENSAYOS DE FONDO
+  // SECTION 7: PUBLICACIONES & ENSAYOS DE FONDO
   {
     id: 'publicaciones-ensayos',
-    tabKey: '06. PUBLICACIONES',
+    tabKey: '07. PUBLICACIONES',
     tabTitleEn: 'Publications & Essays',
     tabTitleEs: 'Publicaciones & Ensayos',
     badgeEn: 'INTERNATIONAL REPORTS, MONOGRAPHS & POLITICAL ECOLOGY',

@@ -22,10 +22,27 @@ import {
   Microscope,
   FileCheck,
   Award,
-  ArrowRight,
-  Instagram
+  ArrowRight
 } from 'lucide-react';
 import { ModalViewer } from './components/ModalViewer';
+
+const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    width="24" 
+    height="24" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    fill="none" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
 
 type ProfileMode = 'comms' | 'science';
 
@@ -51,21 +68,25 @@ export function App() {
   // Sync tab and entered state with URL hash
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash.toLowerCase();
-      if (hash === '#acceso' || hash === '#portada' || hash === '' || hash === '#/') {
+      const hash = window.location.hash.toLowerCase().replace(/^#/, '');
+      if (hash === 'acceso' || hash === 'portada' || hash === '' || hash === '/') {
         // Stay on welcome screen or tab 0
         setActiveTabIndex(0);
-      } else if (hash.length > 2) {
+      } else if (hash.length > 1) {
         setHasEntered(true);
-        if (hash === '#cultura') setActiveTabIndex(1);
-        else if (hash === '#prensa') setActiveTabIndex(5);
-        else if (hash === '#publicaciones') setActiveTabIndex(6);
+        const sections = profileMode === 'comms' ? communicationsSections : scientificSections;
+        const foundIdx = sections.findIndex(
+          (s) => s.id.toLowerCase() === hash || s.tabKey.toLowerCase().includes(hash)
+        );
+        if (foundIdx > 0) {
+          setActiveTabIndex(foundIdx);
+        }
       }
     };
     handleHash();
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, []);
+  }, [profileMode]);
 
   // Pick dataset based on profile mode
   const activeSections: SectionData[] = profileMode === 'comms' ? communicationsSections : scientificSections;
@@ -751,22 +772,57 @@ export function App() {
                       <p className="text-xs opacity-80 mt-1 text-neutral-300">{currentItem.authorOrSource}</p>
                     </div>
                   </div>
-                ) : currentItem.type === 'instagram' && (currentItem.instagramId || currentItem.embedUrl || currentItem.url) ? (
-                  <div className="relative w-full h-full min-h-[380px] flex items-center justify-center p-2 bg-[#0d0a07]">
-                    <iframe
-                      src={
-                        currentItem.embedUrl ||
-                        (currentItem.instagramId
-                          ? `https://www.instagram.com/p/${currentItem.instagramId}/embed/captioned/`
-                          : currentItem.url?.includes('instagram.com')
-                          ? `${currentItem.url.replace(/\/$/, '')}/embed/captioned/`
-                          : '')
-                      }
-                      title={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
-                      className="w-full max-w-[420px] h-[460px] border-0 rounded-xl bg-black/40 shadow-xl"
-                      allowTransparency={true}
-                      allow="encrypted-media"
-                    />
+                ) : currentItem.type === 'instagram' ? (
+                  <div 
+                    onClick={() => {
+                      if (currentItem.url) window.open(currentItem.url, '_blank');
+                      else setSelectedMedia(currentItem);
+                    }}
+                    className="relative w-full h-full min-h-[360px] flex items-center justify-center p-3 bg-[#0d0a07] cursor-pointer group/ig"
+                  >
+                    {currentItem.src ? (
+                      <div className="relative w-full max-h-[480px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl bg-black">
+                        <img
+                          src={resolveAsset(currentItem.src)}
+                          alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
+                          className="max-w-full max-h-[460px] w-auto h-auto object-contain transition-transform duration-500 group-hover/ig:scale-[1.02]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-3 py-1.5 rounded-full font-sans font-semibold shadow-lg">
+                              <InstagramIcon className="w-3.5 h-3.5" />
+                              <span>{currentItem.tags?.[0] || 'Instagram'}</span>
+                            </div>
+                            <span className="text-[11px] font-mono text-white/90 bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-sm border border-white/10 flex items-center space-x-1">
+                              <span>{currentLang === 'es' ? 'Ver en Instagram' : 'View on Instagram'}</span>
+                              <ExternalLink className="w-3 h-3 text-pink-400" />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="w-full max-w-[360px] p-6 rounded-2xl bg-[#1a140d] border border-amber-500/30 flex flex-col items-center text-center space-y-3">
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-xl">
+                          <InstagramIcon className="w-7 h-7" />
+                        </div>
+                        <h4 className="text-white font-serif font-bold text-base">
+                          {currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
+                        </h4>
+                        <p className="text-xs text-neutral-300 font-sans">
+                          {currentItem.captionEs || currentItem.captionEn}
+                        </p>
+                        <a
+                          href={currentItem.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="mt-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-sans text-xs font-semibold flex items-center space-x-1.5 shadow-md hover:brightness-110 transition"
+                        >
+                          <span>{currentLang === 'es' ? 'Abrir publicación' : 'Open post'}</span>
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <div 

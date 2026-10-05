@@ -75,22 +75,28 @@ export const ModalViewer: React.FC<ModalViewerProps> = ({ item, currentLang, onC
                   allowFullScreen
                 />
               </div>
-            ) : item.type === 'instagram' && (item.embedUrl || item.instagramId || item.url) ? (
-              <div className="w-full flex justify-center p-3 bg-canopy-950">
-                <iframe
-                  src={
-                    item.embedUrl ||
-                    (item.instagramId
-                      ? `https://www.instagram.com/p/${item.instagramId}/embed/captioned/`
-                      : item.url?.includes('instagram.com')
-                      ? `${item.url.replace(/\/$/, '')}/embed/captioned/`
-                      : '')
-                  }
-                  title={currentLang === 'es' ? item.titleEs : item.titleEn}
-                  className="w-full max-w-[540px] h-[580px] border-0 rounded-xl bg-white/5"
-                  allowTransparency={true}
-                  allow="encrypted-media"
-                />
+            ) : item.type === 'instagram' ? (
+              <div className="w-full flex flex-col items-center justify-center p-4 bg-canopy-950 space-y-4">
+                {item.src && (
+                  <div className="relative max-h-[60vh] flex items-center justify-center bg-black/60 rounded-xl overflow-hidden shadow-2xl">
+                    <img
+                      src={resolveAsset(item.src)}
+                      alt={currentLang === 'es' ? item.titleEs : item.titleEn}
+                      className="max-h-[58vh] w-auto object-contain rounded-lg shadow-2xl"
+                    />
+                  </div>
+                )}
+                {item.url && (
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-rose-500 text-white font-sans text-xs font-bold flex items-center space-x-2 shadow-xl hover:brightness-110 transition"
+                  >
+                    <span>{currentLang === 'es' ? 'Ver Publicación Completa en Instagram' : 'View Full Post on Instagram'}</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
               </div>
             ) : item.type === 'image' && (item.src || item.srcEn) ? (
               <div className="relative group max-h-[60vh] flex items-center justify-center bg-black/50 p-2">
