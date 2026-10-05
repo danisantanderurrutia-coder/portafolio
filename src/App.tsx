@@ -322,16 +322,17 @@ export function App() {
                 : 'p-1 rounded-full bg-[#ede5d6]/95 border-[#d0c4b0] shadow-md'
             }`}
           >
-            {/* Content Section Tabs */}
-            {activeSections.slice(1).map((sec, originalIdx) => {
-              const idx = originalIdx + 1;
+            {/* In Comms mode: Sections 1+ (01. Intervención, 02. Cultura, etc. - no Cover).
+                In Science mode: All sections including 00. Portada (Cover sheet) */}
+            {(isComms ? activeSections.slice(1) : activeSections).map((sec, originalIdx) => {
+              const idx = isComms ? originalIdx + 1 : originalIdx;
               const isActive = activeTabIndex === idx;
               // Full title for tab
               const tabTitle = currentLang === 'es'
                 ? (sec.tabTitleEs || sec.tabKey.replace(/^\d+\.\s*/, ''))
                 : (sec.tabTitleEn || sec.tabKey.replace(/^\d+\.\s*/, ''));
               
-              // Tab index prefix: 01., 02., etc.
+              // Tab index prefix: 00., 01., 02., etc.
               const prefix = `0${idx}.`;
 
               return (
