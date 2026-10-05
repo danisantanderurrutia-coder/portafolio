@@ -22,7 +22,8 @@ import {
   Microscope,
   FileCheck,
   Award,
-  ArrowRight
+  ArrowRight,
+  Instagram
 } from 'lucide-react';
 import { ModalViewer } from './components/ModalViewer';
 
@@ -723,24 +724,23 @@ export function App() {
             <div className="relative w-full rounded-3xl sm:rounded-[32px] border backdrop-blur-md shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[440px] sm:min-h-[500px] lg:h-[530px] transition-all duration-300 bg-[#16120b]/95 border-amber-500/25">
               {/* LEFT: Media Viewport */}
               <div
-                onClick={() => setSelectedMedia(currentItem)}
-                className="relative lg:w-[58%] flex items-center justify-center cursor-pointer overflow-hidden group min-h-[280px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-amber-500/15 bg-black/75 p-3"
+                className="relative lg:w-[58%] flex items-center justify-center overflow-hidden group min-h-[280px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-amber-500/15 bg-black/75 p-3"
               >
                 {currentItem.type === 'video' && currentItem.embedUrl ? (
-                  <div className="relative w-full h-full aspect-video bg-black/70 flex items-center justify-center">
+                  <div className="relative w-full h-full aspect-video bg-black/70 flex items-center justify-center rounded-xl overflow-hidden shadow-2xl">
                     <iframe
                       src={currentItem.embedUrl}
                       title={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
-                      className="w-full h-full border-0 pointer-events-none"
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
                     />
-                    <div className="absolute inset-0 bg-black/35 group-hover:bg-black/15 transition flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-amber-400 text-black flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
-                        <Play className="w-7 h-7 fill-current ml-0.5" />
-                      </div>
-                    </div>
                   </div>
                 ) : currentItem.type === 'audio' ? (
-                  <div className="w-full h-full p-8 flex flex-col items-center justify-center text-center space-y-4 bg-[#18130c]">
+                  <div 
+                    onClick={() => setSelectedMedia(currentItem)}
+                    className="w-full h-full p-8 flex flex-col items-center justify-center text-center space-y-4 bg-[#18130c] cursor-pointer"
+                  >
                     <div className="w-16 h-16 rounded-full flex items-center justify-center bg-amber-500/20 border border-amber-500/40 text-amber-400 group-hover:scale-110 transition shadow-xl">
                       <Volume2 className="w-8 h-8" />
                     </div>
@@ -751,8 +751,28 @@ export function App() {
                       <p className="text-xs opacity-80 mt-1 text-neutral-300">{currentItem.authorOrSource}</p>
                     </div>
                   </div>
+                ) : currentItem.type === 'instagram' && (currentItem.instagramId || currentItem.embedUrl || currentItem.url) ? (
+                  <div className="relative w-full h-full min-h-[380px] flex items-center justify-center p-2 bg-[#0d0a07]">
+                    <iframe
+                      src={
+                        currentItem.embedUrl ||
+                        (currentItem.instagramId
+                          ? `https://www.instagram.com/p/${currentItem.instagramId}/embed/captioned/`
+                          : currentItem.url?.includes('instagram.com')
+                          ? `${currentItem.url.replace(/\/$/, '')}/embed/captioned/`
+                          : '')
+                      }
+                      title={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
+                      className="w-full max-w-[420px] h-[460px] border-0 rounded-xl bg-black/40 shadow-xl"
+                      allowTransparency={true}
+                      allow="encrypted-media"
+                    />
+                  </div>
                 ) : (
-                  <div className="relative w-full h-full flex items-center justify-center bg-[#110e08]">
+                  <div 
+                    onClick={() => setSelectedMedia(currentItem)}
+                    className="relative w-full h-full flex items-center justify-center bg-[#110e08] cursor-pointer"
+                  >
                     <img
                       src={resolveAsset((currentLang === 'en' && currentItem.srcEn) ? currentItem.srcEn : currentItem.src)}
                       alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
@@ -768,7 +788,7 @@ export function App() {
               </div>
 
               {/* RIGHT: Fluid Editorial Description */}
-              <div className="lg:w-[42%] p-6 sm:p-8 flex flex-col justify-between space-y-4 bg-[#1b150c]/80">
+              <div className="lg:w-[42%] p-6 sm:p-8 flex flex-col justify-between space-y-4 bg-[#1b150c]/80 overflow-y-auto max-h-[530px] no-scrollbar">
                 <div>
                   <div className="flex items-center justify-between text-xs mb-2 font-serif font-semibold tracking-wider uppercase text-amber-400">
                     <span>{currentItem.authorOrSource || 'Archivo de Campo'}</span>
@@ -789,6 +809,31 @@ export function App() {
                     {currentLang === 'es' ? currentItem.captionEs : currentItem.captionEn}
                   </p>
 
+                  {/* Series / Event Gallery Links (if available) */}
+                  {currentItem.subLinks && currentItem.subLinks.length > 0 && (
+                    <div className="mt-4 pt-3 border-t border-amber-500/20">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-bold block mb-2">
+                        {currentLang === 'es' ? 'Registros, afiches & galerías:' : 'Records, posters & galleries:'}
+                      </span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {currentItem.subLinks.map((sub, sIdx) => (
+                          <a
+                            key={sIdx}
+                            href={sub.url}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex items-center justify-between p-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/25 text-amber-200 hover:text-white text-xs font-sans transition group"
+                          >
+                            <span className="truncate pr-1.5 font-medium">
+                              {currentLang === 'es' ? sub.titleEs : sub.titleEn}
+                            </span>
+                            <ExternalLink className="w-3.5 h-3.5 text-amber-400 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                   {currentItem.url && (
                     <div className="mt-4 pt-3 border-t border-amber-500/20">
                       <a
@@ -797,7 +842,7 @@ export function App() {
                         rel="noreferrer"
                         className="inline-flex items-center space-x-1.5 text-xs font-mono text-amber-400 hover:text-amber-300 hover:underline"
                       >
-                        <span>{currentLang === 'es' ? 'Ver publicación original' : 'Open original article'}</span>
+                        <span>{currentLang === 'es' ? 'Ver publicación original' : 'Open original article / link'}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     </div>

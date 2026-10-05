@@ -87,54 +87,177 @@ export const communicationsSections: SectionData[] = [
     ],
     mediaItems: [
       {
-        id: 'rap-video-1',
+        id: 'camara-diputadas-forestal',
         type: 'video',
-        titleEn: 'Live Freestyle Battle Championship & Civic Showcase',
-        titleEs: 'Campeonato de Batalla de Freestyle en Vivo & Muestra Cívica',
-        subtitleEn: 'Live Stage Arena // Sound Engineering & Broadcast',
-        subtitleEs: 'Arena en Vivo // Ingeniería Sonora y Transmisión',
-        embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-        captionEn: 'Dynamic stage production featuring competitive cyphers addressing water rights, climate crisis, and social justice in Santiago.',
-        captionEs: 'Producción escénica dinámica que reúne cyphers competitivos sobre derechos de agua, crisis climática y justicia social en Santiago.',
-        authorOrSource: 'Rap Beauchef Live Stream',
-        date: '2021-2022',
-        tags: ['Live Production', 'Sound & Stage', 'Youth Organizing']
+        titleEn: 'Testimony at Chile\'s Chamber of Deputies: Forestry Model & Wildfire Risk',
+        titleEs: 'Exposición en la Cámara de Diputadas y Diputados: Modelo Forestal y Riesgo de Incendios',
+        subtitleEn: 'Emergency, Disaster & Firefighter Commission // National Congress of Chile',
+        subtitleEs: 'Comisión de Emergencia, Desastres y Bomberos // Congreso Nacional de Chile',
+        embedUrl: 'https://www.youtube.com/embed/7eJ-pQ3qe8o',
+        url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
+        captionEn: 'The "Red por la Superación al modelo forestal" presents before the Emergency, Disaster and Firefighter Commission of Chile\'s Chamber of Deputies, detailing the direct correlation between massive tree monocultures (pine and eucalyptus plantations) and catastrophic wildfire hazards in central-southern Chile.',
+        captionEs: 'La Red por la Superación al modelo forestal expone ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile sobre la relación estructural entre los monocultivos forestales a gran escala y el riesgo crítico de megaincendios en el centro-sur de Chile.',
+        authorOrSource: 'Cámara de Diputadas y Diputados de Chile',
+        date: '2023',
+        tags: ['Incidencia Pública', 'Congreso Nacional', 'Riesgo de Incendios', 'Modelo Forestal']
       },
       {
-        id: 'discord-architecture',
-        type: 'diagram',
-        titleEn: 'Discord Community & Governance Blueprint',
-        titleEs: 'Arquitectura de Comunidad & Gobernanza en Discord',
-        subtitleEn: 'System Topology: Roles, Bots, Voice Channels & Event Dispatch',
-        subtitleEs: 'Topología de Sistema: Roles, Bots, Canales de Voz y Despacho de Eventos',
-        captionEn: 'Schematic map of the 12,000+ member digital ecosystem: automated entry verification, tier-based lyricist leagues, and emergency broadcasts.',
-        captionEs: 'Esquema de arquitectura del ecosistema digital de +12k miembros: desde verificación automatizada de ingreso hasta ligas líricas por niveles y alertas.',
-        date: '2020-2022',
-        tags: ['Community Architecture', 'Discord API', 'Governance'],
-        detailsEn: [
-          'Role Hierarchy: Core Admin → Stage Marshalls → Certified Emcees → Community Advocates',
-          'Voice Bitrate Optimization: Dedicated low-latency audio channels configured for high-fidelity beat delivery',
-          'Event Dispatcher: Webhook integration to Twitter/IG/Twitch for synchronous live notification'
-        ],
-        detailsEs: [
-          'Jerarquía de Roles: Core Admin → Jueces de Escenario → Emcees Certificados → Activistas Comunitarios',
-          'Optimización de Voz: Canales de audio de baja latencia a 384kbps configurados para transmisión lírica de alta fidelidad',
-          'Despachador de Eventos: Integración de webhooks con Twitter/IG/Twitch para avisos sincronizados de batallas'
+        id: 'rap-beauchef-batallas-vivo',
+        type: 'instagram',
+        instagramId: 'B9ljgLMngum',
+        url: 'https://www.instagram.com/p/B9ljgLMngum/',
+        titleEn: 'Rap Beauchef: Live Arena Tournaments & University Cyphers',
+        titleEs: 'Rap Beauchef: Torneos en Vivo & Cyphers Universitarios',
+        subtitleEn: 'Beauchef Amphitheater (FCFM Universidad de Chile) // Live Freestyle Circuit',
+        subtitleEs: 'Anfiteatro Beauchef (FCFM U. de Chile) // Circuito en Vivo de Freestyle',
+        captionEn: 'Live university arena competitions convening thousands of students, underground emcees, and local beatmakers. High-level freestyle battles organized with self-managed stage sound, multi-camera crews, and strict community ethics.',
+        captionEs: 'Competencias en arena universitaria que convocaron a miles de estudiantes, emcees de la escena underground y beatmakers. Batallas de freestyle de alto nivel con producción técnica autogestionada, registro audiovisual y ética comunitaria.',
+        authorOrSource: '@rapbeauchef // Producción en Vivo',
+        date: '2019-2020',
+        tags: ['Rap Beauchef', 'Batallas en Vivo', 'FCFM', 'Cultura Hip-Hop'],
+        subLinks: [
+          {
+            titleEn: 'Live Battle Gallery I (Stage & Emcees)',
+            titleEs: 'Galería Batalla en Vivo I (Escenario & Emcees)',
+            url: 'https://www.instagram.com/p/B3ZZ8sGgaJX/'
+          },
+          {
+            titleEn: 'Live Battle Gallery II (Crowd & Cyphers)',
+            titleEs: 'Galería Batalla en Vivo II (Público & Cyphers)',
+            url: 'https://www.instagram.com/p/B3ZZb3BgR1R/?img_index=1'
+          },
+          {
+            titleEn: 'Live Battle Gallery III (Rounds)',
+            titleEs: 'Galería Batalla en Vivo III (Rondas)',
+            url: 'https://www.instagram.com/p/B3Yig7mg_02/?img_index=1'
+          },
+          {
+            titleEn: 'Live Battle Gallery IV (Judges & Flow)',
+            titleEs: 'Galería Batalla en Vivo IV (Jueces & Flow)',
+            url: 'https://www.instagram.com/p/B3YgyJxgiBS/?img_index=1'
+          },
+          {
+            titleEn: 'Live Battle Gallery V (Amphitheater)',
+            titleEs: 'Galería Batalla en Vivo V (Anfiteatro)',
+            url: 'https://www.instagram.com/p/B3VfufbAH6A/?img_index=1'
+          },
+          {
+            titleEn: 'Live Battle Gallery VI (Energy & Mic)',
+            titleEs: 'Galería Batalla en Vivo VI (Micrófono & Energía)',
+            url: 'https://www.instagram.com/p/B3VR8cqABYU/?img_index=1'
+          },
+          {
+            titleEn: 'Live Battle Gallery VII (Final Stage)',
+            titleEs: 'Galería Batalla en Vivo VII (Etapa Final)',
+            url: 'https://www.instagram.com/p/B3VO-R7Akr3/?img_index=1'
+          },
+          {
+            titleEn: 'Live Battle Gallery VIII (Champions)',
+            titleEs: 'Galería Batalla en Vivo VIII (Premiación & Cierre)',
+            url: 'https://www.instagram.com/p/B3VMAN1gh9R/?img_index=5'
+          }
         ]
       },
       {
-        id: 'rap-gallery-1',
-        type: 'image',
-        titleEn: 'Frontline Stage Lighting & Acoustic Rigging',
-        titleEs: 'Iluminación Escénica & Montaje Acústico',
-        subtitleEn: 'Beauchef Amphitheater & Urban Santiago Venues',
-        subtitleEs: 'Anfiteatro Beauchef y Espacios Urbanos de Santiago',
-        src: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1200&q=80',
-        captionEn: 'Managing high-energy live crowds, sound desks, and multi-camera live video recording rigs under rigorous safety protocols.',
-        captionEs: 'Gestión de audiencias masivas, consolas de sonido y despliegue de cámaras en directo bajo estrictos protocolos de producción.',
-        authorOrSource: 'Field Archive',
-        date: '2021',
-        tags: ['Stage Production', 'Sound Engineering']
+        id: 'rap-beauchef-shows-duenas',
+        type: 'instagram',
+        instagramId: 'B3SOa_YgJ5j',
+        url: 'https://www.instagram.com/p/B3SOa_YgJ5j/?img_index=1',
+        titleEn: 'Rap Beauchef: Live Concerts & "Dueñas de la Voz" Female Tournament',
+        titleEs: 'Rap Beauchef: Shows en Vivo & "Dueñas de la Voz" (Encuentro Femenino)',
+        subtitleEn: 'Live Hip-Hop Showcase & Women\'s Spoken-Word Leadership',
+        subtitleEs: 'Conciertos en Vivo y Liderazgo de Mujeres en la Escena del Rap',
+        captionEn: 'Expanding beyond battles into live musical concerts and specialized events like "Dueñas de la Voz", a landmark female tournament celebrating women rap artists, lyricism, and vocal sovereignty in university cultural spaces.',
+        captionEs: 'Expansión hacia conciertos y eventos temáticos de gran impacto como "Dueñas de la Voz", certamen y encuentro femenino pionero que visibilizó y potenció a mujeres músicas, freestylers y poetas en la escena universitaria.',
+        authorOrSource: '@rapbeauchef // Producción Artística',
+        date: '2019-2020',
+        tags: ['Dueñas de la Voz', 'Shows en Vivo', 'Mujeres en Hip-Hop', 'Gestión Cultural'],
+        subLinks: [
+          {
+            titleEn: 'Poster: Dueñas de la Voz (Official Launch)',
+            titleEs: 'Afiche Oficial: Dueñas de la Voz',
+            url: 'https://www.instagram.com/p/B1k2tdFgYoK/'
+          },
+          {
+            titleEn: 'Gallery: Dueñas de la Voz Tournament',
+            titleEs: 'Galería: Encuentro Dueñas de la Voz',
+            url: 'https://www.instagram.com/p/B2O_yRGgRmY/?img_index=4'
+          }
+        ]
+      },
+      {
+        id: 'rap-beauchef-online-discord',
+        type: 'instagram',
+        instagramId: 'CCPVa5elGhn',
+        url: 'https://www.instagram.com/p/CCPVa5elGhn/',
+        titleEn: 'Rap Beauchef Online: Discord Leagues & International Community',
+        titleEs: 'Rap Beauchef Online: Ligas en Discord & Red Internacional',
+        subtitleEn: 'Pandemic Streaming Ecosystem // Cross-Border Latin American Cyphers',
+        subtitleEs: 'Ecosistema de Streaming en Pandemia // Red Latinoamericana de Freestyle',
+        captionEn: 'Pioneered online rap tournaments during global lockdowns by architecting an automated Discord server (+12,000 users) with low-latency audio rooms, international participation across Latin America and Spain, video cyphers, and live Twitch/YouTube broadcasts.',
+        captionEs: 'Pioneros en la adaptación online durante los confinamientos: creación de una comunidad de +12.000 usuarios en Discord con salas de audio optimizadas, jueces internacionales, competidores de Chile, Argentina, Perú, Colombia y España, y streaming en directo.',
+        authorOrSource: '@rapbeauchef // Comunidad Digital',
+        date: '2020-2021',
+        tags: ['Discord', 'Online League', 'Comunidad Internacional', 'Streaming'],
+        subLinks: [
+          {
+            titleEn: 'Online Version Info & Announcement',
+            titleEs: 'Información y Convocatoria Versión Online',
+            url: 'https://www.instagram.com/p/CCKc5F1F-bq/'
+          },
+          {
+            titleEn: 'Discord Turnout & High-Concurrence Rounds',
+            titleEs: 'Concurrencia y Rondas en Salas de Discord',
+            url: 'https://www.instagram.com/p/CBCA5DGFBwO/?img_index=1'
+          },
+          {
+            titleEn: 'Official Tournament Fixture & Poster',
+            titleEs: 'Afiche Oficial y Cuadro del Torneo Online',
+            url: 'https://www.instagram.com/p/CBV5veZFbFw/'
+          },
+          {
+            titleEn: 'Grand Championship Online Final',
+            titleEs: 'Gran Final de la Temporada Online',
+            url: 'https://www.instagram.com/p/CEsyoUSln0c/'
+          },
+          {
+            titleEn: 'International Jury & Community Evaluation',
+            titleEs: 'Evaluación y Jurado Internacional',
+            url: 'https://www.instagram.com/p/CDMWyFale-C/'
+          },
+          {
+            titleEn: 'International Event Poster',
+            titleEs: 'Afiche Encuentro Internacional',
+            url: 'https://www.instagram.com/p/CDwWpGOF6N5/'
+          }
+        ]
+      },
+      {
+        id: 'rap-libre-urbano',
+        type: 'instagram',
+        instagramId: 'B42bAbtnntp',
+        url: 'https://www.instagram.com/p/B42bAbtnntp/',
+        titleEn: 'Rap Libre: Urban Public Space & Civic Freestyle Arena',
+        titleEs: 'Rap Libre: Conquista del Espacio Público & Escena Urbana',
+        subtitleEn: 'Massive Urban Gathering // Free Expression & Independent Art',
+        subtitleEs: 'Encuentro Urbano Masivo // Expresión Libre & Cultura Independiente',
+        captionEn: 'Rap Libre brought high-octane freestyle culture directly into major public urban spaces. A movement founded on grassroots independence, civic youth assembly, free expression, and the defense of public parks and squares for artistic performance.',
+        captionEs: 'Rap Libre expandió la energía del freestyle directamente a los espacios públicos urbanos de alta concurrencia. Un movimiento fundado en la autogestión territorial, la libre expresión juvenil y la reapropiación del espacio público para el arte y la comunidad.',
+        authorOrSource: 'Rap Libre // Producción Urbana',
+        date: '2019-2020',
+        tags: ['Rap Libre', 'Espacio Público', 'Cultura Urbana', 'Autogestión'],
+        subLinks: [
+          {
+            titleEn: 'Event Launch Poster: Rap Libre Official Fixture',
+            titleEs: 'Afiche Oficial del Evento: Rap Libre',
+            url: 'https://www.instagram.com/p/B42bAbtnntp/'
+          },
+          {
+            titleEn: 'Live Event Photo Gallery & Massive Crowd',
+            titleEs: 'Galería Fotográfica del Evento & Multitud Urbana',
+            url: 'https://www.instagram.com/p/B46IqYzHJkB/?img_index=1'
+          }
+        ]
       }
     ]
   },
