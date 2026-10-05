@@ -206,7 +206,7 @@ export function App() {
                 : 'bg-[#eae3d5] border border-[#d0c4b0] text-[#2d5a3c] p-1'
             }`}
           >
-            <img src="/favicon.svg" alt="DS Icon" className="w-full h-full object-contain" />
+            <img src={resolveAsset('/favicon.svg')} alt="DS Icon" className="w-full h-full object-contain" />
           </div>
           <div>
             <h1 className="text-sm sm:text-base font-serif font-bold tracking-wide flex items-center gap-2">

@@ -580,73 +580,94 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 5: BRIGADA PAULINA AGUIRRE
+  // SECTION 5: BRIGADA DE PROPAGANDA PAULINA AGUIRRE
   {
     id: 'brigada-paulina-aguirre',
     tabKey: '05. ARTIVISMO',
     tabTitleEn: 'Artivism & Murals',
     tabTitleEs: 'Artivismo & Murales',
-    badgeEn: 'TACTICAL ARTIVISM & SPATIAL STUNTS',
-    badgeEs: 'ARTIVISMO TÁCTICO E INTERVENCIONES ESPACIALES',
+    badgeEn: 'TACTICAL ARTIVISM & PROPAGANDA BRIGADE',
+    badgeEs: 'ARTIVISMO TÁCTICO & BRIGADA DE PROPAGANDA',
     roleEn: 'Co-Founder, Visual Strategist & Mural Crew Leader',
     roleEs: 'Cofundador, Estratega Visual y Jefe de Cuadrilla Muralista',
-    titleEn: 'Brigada de Arte Paulina Aguirre',
-    titleEs: 'Brigada de Arte Paulina Aguirre',
+    titleEn: 'Brigada de Propaganda Paulina Aguirre',
+    titleEs: 'Brigada de Propaganda Paulina Aguirre',
     headlineEn: 'Designing High-Contrast Street Artivism, Megamurals & Transit Hub Interventions for Viral Amplification',
-    headlineEs: 'Diseño de Muralismo de Alto Contraste e Intervenciones Urbanas para Máxima Viralización y Prensa',
-    narrativeEn: 'Co-founded the renowned artistic collective "Brigada de Arte Paulina Aguirre", translating historical memory, anti-extractivism, and feminist territorial defense into public spaces. Engineered rapid-deployment stenciling, typography, and large-scale murals situated at strategic transportation choke points, framed for viral photographic capture.',
-    narrativeEs: 'Cofundador de la emblemática "Brigada de Arte Paulina Aguirre", transformando la memoria histórica, el antiextractivismo y la defensa territorial ecofeminista en intervenciones monumentales en el espacio público. Desarrolló metodologías de despliegue rápido de serigrafía, tipografía mural y megamurales ubicados estratégicamente.',
+    headlineEs: 'Diseño de Muralismo de Alto Contraste, Propaganda Callejera e Intervenciones Urbanas para Movilización Popular',
+    narrativeEn: 'Co-founded the renowned artistic collective "Brigada de Propaganda Paulina Aguirre", translating historical memory, anti-extractivism, student movement struggles, and territorial defense into public spaces. Engineered rapid-deployment stenciling, graphic silkscreens, political agitation posters, and large-scale monumental murals situated at strategic urban points.',
+    narrativeEs: 'Cofundador del emblemático colectivo "Brigada de Propaganda Paulina Aguirre", transformando la memoria histórica, la lucha estudiantil, la defensa territorial y la agitación social en intervenciones monumentales en el espacio público. Desarrolló metodologías de despliegue rápido de serigrafía, afichería política callejera, gráficas digitales y megamurales comunitarios.',
     keyOutcomesEn: [
       'Painted 35+ high-impact murals across Santiago metropolitan avenues, university walls, and regional community hubs.',
-      'Developed "Tactical Spatial Stunting": mapping street corners with optimal natural sunlight and pedestrian flow for viral social pickups.',
-      'Collaborated directly with memorial human rights sites and environmental defense fronts.'
+      'Designed iconic political agitation posters and digital graphics supporting mass student and workers strikes.',
+      'Documented frontline popular protests, building an archive of street resistance and visual counter-hegemony.'
     ],
     keyOutcomesEs: [
       'Pintura de más de 35 murales de gran formato en ejes viales metropolitanos, recintos universitarios y centros comunitarios regionales.',
-      'Metodología de "Despliegue Espacial Táctico": mapeo de esquinas con iluminación cenital idónea y flujo peatonal para maximizar fotografías virales.',
-      'Articulación directa con sitios de memoria, organizaciones de DD.HH. y frentes de defensa del agua.'
+      'Creación de afiches políticos y gráficas digitales de agitación y desobediencia civil que circularon masivamente en redes y muros.',
+      'Registro fotográfico de movilizaciones populares, consolidando un archivo gráfico de resistencia callejera y contracultura visual.'
     ],
     stats: [
       { value: '35+', labelEn: 'Monumental Murals Executed', labelEs: 'Murales Monumentales Pintados' },
-      { value: '100%', labelEn: 'Night-Op Precision Deployment', labelEs: 'Despliegues Nocturnos de Precisión' },
+      { value: '100%', labelEn: 'Grassroots Direct Action', labelEs: 'Autogestión y Acción Directa' },
       { value: '500K+', labelEn: 'Photographic Social Shares', labelEs: 'Compartidos en Redes Sociales' }
     ],
     mediaItems: [
       {
-        id: 'brigada-mural-1',
+        id: 'brigada-protesta-fotografia',
         type: 'image',
-        titleEn: 'High-Contrast Memorial & Territorial Defense Megamural',
-        titleEs: 'Megamural de Memoria Histórica y Resistencia Territorial',
-        subtitleEn: 'Alameda / Vicuña Mackenna Transit Corridor // Santiago',
-        subtitleEs: 'Corredor Alameda / Vicuña Mackenna // Santiago',
-        src: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
-        captionEn: 'Gigantic typographic and figurative artwork executed in 48-hour sprints combining latex, acrylic spray, and stencil wheat-pasting.',
-        captionEs: 'Obra monumental tipográfica y figurativa ejecutada en jornadas continuas de 48 horas combinando esmalte al agua, aerosol y técnica mixta.',
-        authorOrSource: 'Brigada Paulina Aguirre Archive',
-        date: '2020',
-        tags: ['Public Artivism', 'Street Graphics', 'Typography']
+        titleEn: 'Protest Photography: Popular Street Mobilization & Banners',
+        titleEs: 'Fotografía de Protesta: Movilización Popular en las Calles',
+        subtitleEn: 'Frontline Street Demonstration // Leftwing Youth & People\'s Resistance',
+        subtitleEs: 'Marcha y Resistencia Popular // Juventud y Banderas en la Alameda',
+        src: '/brigada/brigada_protesta.png',
+        captionEn: 'Direct frontline photography capturing the intense energy, crimson-and-black banners, and massive street mobilization in downtown Santiago during national days of protest for social and structural change.',
+        captionEs: 'Fotografía directa de movilización callejera: banderas rojinegras y multitudinaria columna juvenil marchando por el centro de Santiago durante jornadas de protesta y reivindicación popular.',
+        authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Registro de Campo',
+        date: '2019-2020',
+        tags: ['Fotografía de Protesta', 'Movilización Callejera', 'Juventud', 'Alameda']
       },
       {
-        id: 'spatial-stunt-diagram',
-        type: 'diagram',
-        titleEn: 'Spatial Deployment & Viral Sightline Diagram',
-        titleEs: 'Diagrama de Despliegue Espacial y Líneas de Visión Viral',
-        subtitleEn: 'Tactical Geometry: Angle of View, Metro Exits & Drone Camera Paths',
-        subtitleEs: 'Geometría Táctica: Ángulo Visual, Salidas de Metro y Rutas de Drones',
-        captionEn: 'Technical blueprint mapping how murals were positioned relative to traffic signals, morning pedestrian flow, and press telephoto lenses.',
-        captionEs: 'Plano técnico que grafica la orientación de los murales respecto a semáforos, flujo de transeúntes matutino y ópticas de la prensa.',
-        date: '2021',
-        tags: ['Spatial Tactics', 'Visual Geometry', 'Urban Planning'],
-        detailsEn: [
-          'Choke Point Selection: Walls situated perpendicular to major bus corridors with minimum 45-second red light intervals.',
-          'High-Contrast Palette: Ultra-saturated red, black, and bone-white maximizing contrast under harsh midday direct sun.',
-          'Social Framing: Embedded hashtag stencils placed exactly at eye level for high-conversion selfie framing.'
-        ],
-        detailsEs: [
-          'Selección de Vértices: Muros perpendiculares a corredores de transporte con detención semafórica mínima de 45 segundos.',
-          'Paleta de Alto Contraste: Rojo bermellón, negro humo y blanco hueso para máxima visibilidad bajo sol directo.',
-          'Encuadre Social: Hashtags y sellos situados a la altura promedio de los ojos para fácil encuadre en retratos y selfies.'
-        ]
+        id: 'brigada-afiche-evadir',
+        type: 'image',
+        titleEn: 'Political Poster: "Evadir, No Pagar: Otra Forma de Luchar"',
+        titleEs: 'Afiche Político: "Evadir, No Pagar: Otra Forma de Luchar"',
+        subtitleEn: 'Iconic Silkscreen & Digital Agitation Poster // Fare Evasion Movement',
+        subtitleEs: 'Afiche Ícono de Agitación Callejera // Movimiento de Evasión Masiva',
+        src: '/brigada/brigada_afiche_evadir.png',
+        captionEn: 'Historical agitation poster created by Brigada Paulina Aguirre during the inception of the October 2019 Chilean uprising: "Evadir, No Pagar: Otra Forma de Luchar", illustrating civil disobedience over metro turnstiles that triggered the nationwide constitutional cycle.',
+        captionEs: 'Emblemático afiche de agitación política y serigrafía callejera creado por la Brigada Paulina Aguirre en los albores del estallido social de octubre de 2019: "Evadir, No Pagar: Otra Forma de Luchar", inmortalizando el salto de torniquetes que desató el ciclo de revuelta nacional.',
+        authorOrSource: 'Brigada Paulina Aguirre // Propaganda Callejera',
+        date: 'Octubre 2019',
+        tags: ['Afiche Político', 'Evadir No Pagar', 'Estallido Social', 'Serigrafía Callejera']
+      },
+      {
+        id: 'brigada-graficas-digitales',
+        type: 'image',
+        titleEn: 'Digital Graphics: Territorial Agitation & Political Propaganda',
+        titleEs: 'Gráficas Digitales: Agitación Territorial y Propaganda Política',
+        subtitleEn: 'Digital Design // Propaganda Visuals & Social Media Campaign',
+        subtitleEs: 'Diseño Digital // Gráficas de Propaganda y Difusión en Redes',
+        src: '/brigada/brigada_grafica_digital.jpg',
+        url: 'https://www.facebook.com/photo.php?fbid=418738228474147&set=pb.100067890108840.-2207520000&type=3',
+        captionEn: 'High-contrast graphic designed for cross-platform distribution across social media channels, combining radical typography, socialist iconography, and direct calls to territorial mobilization.',
+        captionEs: 'Gráfica digital de alto contraste concebida para redes sociales y plataformas de contra-información: composición visual que articula tipografía de combate, memoria revolucionaria y convocatoria a la huelga popular.',
+        authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Archivo Digital',
+        date: '2019-2021',
+        tags: ['Gráficas Digitales', 'Propaganda', 'Redes Sociales', 'Agitación Visual']
+      },
+      {
+        id: 'brigada-mural-no-afp',
+        type: 'image',
+        titleEn: 'Community Muralism: "No + AFP" & Popular Working-Class Unity',
+        titleEs: 'Muralismo Comunitario: "No + AFP" y Rostros del Pueblo Trabajador',
+        subtitleEn: 'Large-Scale Facade Mural // Social Security & Class Solidarity',
+        subtitleEs: 'Mural Monumental en Fachada Barrial // Unidad y Seguridad Social',
+        src: '/brigada/brigada_mural_no_afp.png',
+        captionEn: 'Monumental facade mural painted in a popular working-class neighborhood portraying the diverse faces of working people (construction workers, students, indigenous peoples, elders) united under the banner "No + AFP: El Paro Va".',
+        captionEs: 'Mural monumental de fachada barrial pintado por la brigada que retrata los rostros y miradas del pueblo trabajador (obreros, estudiantes, pueblos originarios, pobladores) bajo la consigna central "No + AFP: El Paro Va", resignificando el espacio público.',
+        authorOrSource: 'Brigada de Propaganda Paulina Aguirre // Producción Mural',
+        date: '2019-2020',
+        tags: ['Muralismo', 'No Más AFP', 'Espacio Público', 'Población Barrial']
       }
     ]
   },
