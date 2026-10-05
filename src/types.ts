@@ -29,6 +29,7 @@ export interface MediaItem {
     titleEs: string;
     url: string;
     tag?: string;
+    src?: string;
   }[];
 }
 

@@ -54,10 +54,60 @@ export const communicationsSections: SectionData[] = [
     ]
   },
 
-  // SECTION 1: CULTURA & ESPACIOS COMUNITARIOS (SOLO HIP-HOP & FREESTYLE)
+  // SECTION 1: INTERVENCIÓN & INCIDENCIA EN EL CONGRESO
+  {
+    id: 'intervencion',
+    tabKey: '01. INTERVENCIÓN',
+    tabTitleEn: 'Intervention',
+    tabTitleEs: 'Intervención',
+    badgeEn: 'PARLIAMENTARY INTERVENTION & PUBLIC ADVOCACY',
+    badgeEs: 'INTERVENCIÓN PARLAMENTARIA E INCIDENCIA PÚBLICA',
+    roleEn: 'Technical Spokesperson & Grassroots Environmental Delegate',
+    roleEs: 'Vocero Técnico y Delegado Ambiental Comunitario',
+    titleEn: 'Parliamentary Hearings & Public Policy Advocacy',
+    titleEs: 'Intervención en el Congreso Nacional e Incidencia Pública',
+    headlineEn: 'Elevating Grassroots Ecological Evidence into Legislative Oversight and State Accountability',
+    headlineEs: 'Llevando la Evidencia Territorial y Científica a la Fiscalización Legislativa del Estado',
+    narrativeEn: 'Representing frontline communities and environmental federations directly within parliamentary commissions, public hearings, and state investigative committees. Translates on-the-ground ecological degradation and community testimonies into rigorous, evidence-backed legislative presentations that challenge industrial monopolies and state negligence.',
+    narrativeEs: 'Representación directa de comunidades afectadas y redes socioambientales en comisiones parlamentarias, audiencias públicas e instancias de fiscalización del Estado. Transforma la vivencia de los territorios en alegatos técnicos y políticos fundamentados para enfrentar la negligencia estatal y el modelo extractivo.',
+    keyOutcomesEn: [
+      'Official testimony before the Emergency, Disaster and Firefighter Commission of Chile’s Chamber of Deputies.',
+      'Established structural correlation between large-scale monoculture forestry and catastrophic wildfire spread.',
+      'Positioned peasant smallholders and water assemblies at the core of national civil protection reforms.'
+    ],
+    keyOutcomesEs: [
+      'Presentación oficial ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile.',
+      'Demostración técnica de la correlación estructural entre el modelo forestal de monocultivo y los megaincendios.',
+      'Incorporación de la voz de comités de agua potable rural y pequeños agricultores en el debate legislativo de prevención.'
+    ],
+    stats: [
+      { value: 'Congreso', labelEn: 'Chamber of Deputies', labelEs: 'Cámara de Diputadas/os' },
+      { value: 'Nacional', labelEn: 'Broadcast & Record', labelEs: 'Transmisión Oficial' },
+      { value: '100%', labelEn: 'Evidence-Based Advocacy', labelEs: 'Evidencia Territorial' }
+    ],
+    mediaItems: [
+      {
+        id: 'camara-diputadas-forestal',
+        type: 'video',
+        titleEn: 'Testimony at Chile\'s Chamber of Deputies: Forestry Model & Wildfire Risk',
+        titleEs: 'Exposición en la Cámara de Diputadas y Diputados: Modelo Forestal y Riesgo de Incendios',
+        subtitleEn: 'Emergency, Disaster & Firefighter Commission // National Congress of Chile',
+        subtitleEs: 'Comisión de Emergencia, Desastres y Bomberos // Congreso Nacional de Chile',
+        embedUrl: 'https://www.youtube.com/embed/7eJ-pQ3qe8o',
+        url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
+        captionEn: 'The "Red por la Superación al modelo forestal" presents before the Emergency, Disaster and Firefighter Commission of Chile\'s Chamber of Deputies, detailing the direct correlation between massive tree monocultures (pine and eucalyptus plantations) and catastrophic wildfire hazards in central-southern Chile.',
+        captionEs: 'La Red por la Superación al modelo forestal expone ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile sobre la relación estructural entre los monocultivos forestales a gran escala y el riesgo crítico de megaincendios en el centro-sur de Chile.',
+        authorOrSource: 'Cámara de Diputadas y Diputados de Chile',
+        date: '2023',
+        tags: ['Incidencia Pública', 'Congreso Nacional', 'Riesgo de Incendios', 'Modelo Forestal']
+      }
+    ]
+  },
+
+  // SECTION 2: CULTURA & ESPACIOS COMUNITARIOS (SOLO HIP-HOP & FREESTYLE)
   {
     id: 'rap-beauchef',
-    tabKey: '01. CULTURA',
+    tabKey: '02. CULTURA',
     tabTitleEn: 'Culture & Rap',
     tabTitleEs: 'Cultura & Rap',
     badgeEn: 'YOUTH CULTURE & ARTISTIC PRODUCTION',
@@ -103,44 +153,52 @@ export const communicationsSections: SectionData[] = [
         tags: ['Rap Beauchef', 'Batallas en Vivo', 'FCFM', 'Cultura Hip-Hop'],
         subLinks: [
           {
-            titleEn: 'Live Battle Gallery I (Stage & Emcees)',
-            titleEs: 'Galería Batalla en Vivo I (Escenario & Emcees)',
-            url: 'https://www.instagram.com/p/B3ZZ8sGgaJX/'
+            titleEn: 'Stage & Emcees (Gallery I)',
+            titleEs: 'Escenario & Emcees (Galería I)',
+            url: 'https://www.instagram.com/p/B3ZZ8sGgaJX/',
+            src: '/instagram_covers/B3ZZ8sGgaJX.jpg'
           },
           {
-            titleEn: 'Live Battle Gallery II (Crowd & Cyphers)',
-            titleEs: 'Galería Batalla en Vivo II (Público & Cyphers)',
-            url: 'https://www.instagram.com/p/B3ZZb3BgR1R/?img_index=1'
+            titleEn: 'Crowd & Cyphers (Gallery II)',
+            titleEs: 'Público & Cyphers (Galería II)',
+            url: 'https://www.instagram.com/p/B3ZZb3BgR1R/?img_index=1',
+            src: '/instagram_covers/B3ZZb3BgR1R.jpg'
           },
           {
-            titleEn: 'Live Battle Gallery III (Rounds)',
-            titleEs: 'Galería Batalla en Vivo III (Rondas)',
-            url: 'https://www.instagram.com/p/B3Yig7mg_02/?img_index=1'
+            titleEn: 'Freestyle Rounds (Gallery III)',
+            titleEs: 'Rondas de Freestyle (Galería III)',
+            url: 'https://www.instagram.com/p/B3Yig7mg_02/?img_index=1',
+            src: '/instagram_covers/B3Yig7mg_02.jpg'
           },
           {
-            titleEn: 'Live Battle Gallery IV (Judges & Flow)',
-            titleEs: 'Galería Batalla en Vivo IV (Jueces & Flow)',
-            url: 'https://www.instagram.com/p/B3YgyJxgiBS/?img_index=1'
+            titleEn: 'Judges & Flow (Gallery IV)',
+            titleEs: 'Jueces & Flow (Galería IV)',
+            url: 'https://www.instagram.com/p/B3YgyJxgiBS/?img_index=1',
+            src: '/instagram_covers/B3YgyJxgiBS.jpg'
           },
           {
-            titleEn: 'Live Battle Gallery V (Amphitheater)',
-            titleEs: 'Galería Batalla en Vivo V (Anfiteatro)',
-            url: 'https://www.instagram.com/p/B3VfufbAH6A/?img_index=1'
+            titleEn: 'Amphitheater Arena (Gallery V)',
+            titleEs: 'Anfiteatro Lleno (Galería V)',
+            url: 'https://www.instagram.com/p/B3VfufbAH6A/?img_index=1',
+            src: '/instagram_covers/B3VfufbAH6A.jpg'
           },
           {
-            titleEn: 'Live Battle Gallery VI (Energy & Mic)',
-            titleEs: 'Galería Batalla en Vivo VI (Micrófono & Energía)',
-            url: 'https://www.instagram.com/p/B3VR8cqABYU/?img_index=1'
+            titleEn: 'Mic & Energy (Gallery VI)',
+            titleEs: 'Micrófono & Energía (Galería VI)',
+            url: 'https://www.instagram.com/p/B3VR8cqABYU/?img_index=1',
+            src: '/instagram_covers/B3VR8cqABYU.jpg'
           },
           {
-            titleEn: 'Live Battle Gallery VII (Final Stage)',
-            titleEs: 'Galería Batalla en Vivo VII (Etapa Final)',
-            url: 'https://www.instagram.com/p/B3VO-R7Akr3/?img_index=1'
+            titleEn: 'Championship Stage (Gallery VII)',
+            titleEs: 'Etapa Final (Galería VII)',
+            url: 'https://www.instagram.com/p/B3VO-R7Akr3/?img_index=1',
+            src: '/instagram_covers/B3VO-R7Akr3.jpg'
           },
           {
-            titleEn: 'Live Battle Gallery VIII (Champions)',
-            titleEs: 'Galería Batalla en Vivo VIII (Premiación & Cierre)',
-            url: 'https://www.instagram.com/p/B3VMAN1gh9R/?img_index=5'
+            titleEn: 'Champions & Ceremony (Gallery VIII)',
+            titleEs: 'Premiación & Cierre (Galería VIII)',
+            url: 'https://www.instagram.com/p/B3VMAN1gh9R/?img_index=5',
+            src: '/instagram_covers/B3VMAN1gh9R.jpg'
           }
         ]
       },
@@ -161,14 +219,16 @@ export const communicationsSections: SectionData[] = [
         tags: ['Dueñas de la Voz', 'Shows en Vivo', 'Mujeres en Hip-Hop', 'Gestión Cultural'],
         subLinks: [
           {
-            titleEn: 'Poster: Dueñas de la Voz (Official Launch)',
-            titleEs: 'Afiche Oficial: Dueñas de la Voz',
-            url: 'https://www.instagram.com/p/B1k2tdFgYoK/'
+            titleEn: 'Official Poster Launch',
+            titleEs: 'Afiche Oficial de Lanzamiento',
+            url: 'https://www.instagram.com/p/B1k2tdFgYoK/',
+            src: '/instagram_covers/B1k2tdFgYoK.jpg'
           },
           {
-            titleEn: 'Gallery: Dueñas de la Voz Tournament',
-            titleEs: 'Galería: Encuentro Dueñas de la Voz',
-            url: 'https://www.instagram.com/p/B2O_yRGgRmY/?img_index=4'
+            titleEn: 'Tournament Photo Gallery',
+            titleEs: 'Galería Fotográfica del Torneo',
+            url: 'https://www.instagram.com/p/B2O_yRGgRmY/?img_index=4',
+            src: '/instagram_covers/B2O_yRGgRmY.jpg'
           }
         ]
       },
@@ -189,34 +249,40 @@ export const communicationsSections: SectionData[] = [
         tags: ['Discord', 'Online League', 'Comunidad Internacional', 'Streaming'],
         subLinks: [
           {
-            titleEn: 'Online Version Info & Announcement',
-            titleEs: 'Información y Convocatoria Versión Online',
-            url: 'https://www.instagram.com/p/CCKc5F1F-bq/'
+            titleEn: 'Online Concurrence & Voice Rooms',
+            titleEs: 'Concurrencia en Salas de Discord',
+            url: 'https://www.instagram.com/p/CBCA5DGFBwO/?img_index=1',
+            src: '/instagram_covers/CBCA5DGFBwO.jpg'
           },
           {
-            titleEn: 'Discord Turnout & High-Concurrence Rounds',
-            titleEs: 'Concurrencia y Rondas en Salas de Discord',
-            url: 'https://www.instagram.com/p/CBCA5DGFBwO/?img_index=1'
+            titleEn: 'Official Tournament Fixture',
+            titleEs: 'Afiche y Fixture del Torneo',
+            url: 'https://www.instagram.com/p/CBV5veZFbFw/',
+            src: '/instagram_covers/CBV5veZFbFw.jpg'
           },
           {
-            titleEn: 'Official Tournament Fixture & Poster',
-            titleEs: 'Afiche Oficial y Cuadro del Torneo Online',
-            url: 'https://www.instagram.com/p/CBV5veZFbFw/'
+            titleEn: 'Season Grand Final',
+            titleEs: 'Gran Final de la Temporada',
+            url: 'https://www.instagram.com/p/CEsyoUSln0c/',
+            src: '/instagram_covers/CEsyoUSln0c.jpg'
           },
           {
-            titleEn: 'Grand Championship Online Final',
-            titleEs: 'Gran Final de la Temporada Online',
-            url: 'https://www.instagram.com/p/CEsyoUSln0c/'
+            titleEn: 'International Jury & Community',
+            titleEs: 'Jurado y Red Internacional',
+            url: 'https://www.instagram.com/p/CDMWyFale-C/',
+            src: '/instagram_covers/CDMWyFale-C.jpg'
           },
           {
-            titleEn: 'International Jury & Community Evaluation',
-            titleEs: 'Evaluación y Jurado Internacional',
-            url: 'https://www.instagram.com/p/CDMWyFale-C/'
-          },
-          {
-            titleEn: 'International Event Poster',
+            titleEn: 'International Match Poster',
             titleEs: 'Afiche Encuentro Internacional',
-            url: 'https://www.instagram.com/p/CDwWpGOF6N5/'
+            url: 'https://www.instagram.com/p/CDwWpGOF6N5/',
+            src: '/instagram_covers/CDwWpGOF6N5.jpg'
+          },
+          {
+            titleEn: 'Announcement & Guidelines',
+            titleEs: 'Convocatoria y Bases Online',
+            url: 'https://www.instagram.com/p/CCKc5F1F-bq/',
+            src: '/instagram_covers/CCKc5F1F-bq.jpg'
           }
         ]
       },
@@ -237,66 +303,18 @@ export const communicationsSections: SectionData[] = [
         tags: ['Rap Libre', 'Espacio Público', 'Cultura Urbana', 'Autogestión'],
         subLinks: [
           {
-            titleEn: 'Event Launch Poster: Rap Libre Official Fixture',
-            titleEs: 'Afiche Oficial del Evento: Rap Libre',
-            url: 'https://www.instagram.com/p/B42bAbtnntp/'
+            titleEn: 'Official Event Launch Poster',
+            titleEs: 'Afiche Oficial de Convocatoria',
+            url: 'https://www.instagram.com/p/B42bAbtnntp/',
+            src: '/instagram_covers/B42bAbtnntp.jpg'
           },
           {
             titleEn: 'Live Event Photo Gallery & Massive Crowd',
-            titleEs: 'Galería Fotográfica del Evento & Multitud Urbana',
-            url: 'https://www.instagram.com/p/B46IqYzHJkB/?img_index=1'
+            titleEs: 'Galería Fotográfica & Multitud Urbana',
+            url: 'https://www.instagram.com/p/B46IqYzHJkB/?img_index=1',
+            src: '/instagram_covers/B46IqYzHJkB.jpg'
           }
         ]
-      }
-    ]
-  },
-
-  // SECTION 2: INTERVENCIÓN & INCIDENCIA EN EL CONGRESO
-  {
-    id: 'intervencion',
-    tabKey: '02. INTERVENCIÓN',
-    tabTitleEn: 'Intervention',
-    tabTitleEs: 'Intervención',
-    badgeEn: 'PARLIAMENTARY INTERVENTION & PUBLIC ADVOCACY',
-    badgeEs: 'INTERVENCIÓN PARLAMENTARIA E INCIDENCIA PÚBLICA',
-    roleEn: 'Technical Spokesperson & Grassroots Environmental Delegate',
-    roleEs: 'Vocero Técnico y Delegado Ambiental Comunitario',
-    titleEn: 'Parliamentary Hearings & Public Policy Advocacy',
-    titleEs: 'Intervención en el Congreso Nacional e Incidencia Pública',
-    headlineEn: 'Elevating Grassroots Ecological Evidence into Legislative Oversight and State Accountability',
-    headlineEs: 'Llevando la Evidencia Territorial y Científica a la Fiscalización Legislativa del Estado',
-    narrativeEn: 'Representing frontline communities and environmental federations directly within parliamentary commissions, public hearings, and state investigative committees. Translates on-the-ground ecological degradation and community testimonies into rigorous, evidence-backed legislative presentations that challenge industrial monopolies and state negligence.',
-    narrativeEs: 'Representación directa de comunidades afectadas y redes socioambientales en comisiones parlamentarias, audiencias públicas e instancias de fiscalización del Estado. Transforma la vivencia de los territorios en alegatos técnicos y políticos fundamentados para enfrentar la negligencia estatal y el modelo extractivo.',
-    keyOutcomesEn: [
-      'Official testimony before the Emergency, Disaster and Firefighter Commission of Chile’s Chamber of Deputies.',
-      'Established structural correlation between large-scale monoculture forestry and catastrophic wildfire spread.',
-      'Positioned peasant smallholders and water assemblies at the core of national civil protection reforms.'
-    ],
-    keyOutcomesEs: [
-      'Presentación oficial ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile.',
-      'Demostración técnica de la correlación estructural entre el modelo forestal de monocultivo y los megaincendios.',
-      'Incorporación de la voz de comités de agua potable rural y pequeños agricultores en el debate legislativo de prevención.'
-    ],
-    stats: [
-      { value: 'Congreso', labelEn: 'Chamber of Deputies', labelEs: 'Cámara de Diputadas/os' },
-      { value: 'Nacional', labelEn: 'Broadcast & Record', labelEs: 'Transmisión Oficial' },
-      { value: '100%', labelEn: 'Evidence-Based Advocacy', labelEs: 'Evidencia Territorial' }
-    ],
-    mediaItems: [
-      {
-        id: 'camara-diputadas-forestal',
-        type: 'video',
-        titleEn: 'Testimony at Chile\'s Chamber of Deputies: Forestry Model & Wildfire Risk',
-        titleEs: 'Exposición en la Cámara de Diputadas y Diputados: Modelo Forestal y Riesgo de Incendios',
-        subtitleEn: 'Emergency, Disaster & Firefighter Commission // National Congress of Chile',
-        subtitleEs: 'Comisión de Emergencia, Desastres y Bomberos // Congreso Nacional de Chile',
-        embedUrl: 'https://www.youtube.com/embed/7eJ-pQ3qe8o',
-        url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
-        captionEn: 'The "Red por la Superación al modelo forestal" presents before the Emergency, Disaster and Firefighter Commission of Chile\'s Chamber of Deputies, detailing the direct correlation between massive tree monocultures (pine and eucalyptus plantations) and catastrophic wildfire hazards in central-southern Chile.',
-        captionEs: 'La Red por la Superación al modelo forestal expone ante la Comisión de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados de Chile sobre la relación estructural entre los monocultivos forestales a gran escala y el riesgo crítico de megaincendios en el centro-sur de Chile.',
-        authorOrSource: 'Cámara de Diputadas y Diputados de Chile',
-        date: '2023',
-        tags: ['Incidencia Pública', 'Congreso Nacional', 'Riesgo de Incendios', 'Modelo Forestal']
       }
     ]
   },
@@ -435,24 +453,28 @@ export const communicationsSections: SectionData[] = [
         tags: ['Escuela Online', 'Fact-Checking', 'Educación Popular', 'Webinars'],
         subLinks: [
           {
-            titleEn: 'Webinar Poster I: Rural Water & APR Rights',
-            titleEs: 'Afiche Conversatorio I: Agua Rural & Comités de APR',
-            url: 'https://www.instagram.com/p/ChDJ_fwO9Bl/'
+            titleEn: 'Rural Water & APR Rights',
+            titleEs: 'Agua Rural & Comités de APR',
+            url: 'https://www.instagram.com/p/ChDJ_fwO9Bl/',
+            src: '/instagram_covers/ChDJ_fwO9Bl.jpg'
           },
           {
-            titleEn: 'Webinar Poster II: Peasant Land & Heritage Security',
-            titleEs: 'Afiche Conversatorio II: Seguridad de Tierras y Herencia Campesina',
-            url: 'https://www.instagram.com/p/ChiMgLmv-AE/'
+            titleEn: 'Peasant Land & Heritage Security',
+            titleEs: 'Seguridad de Tierras y Herencia',
+            url: 'https://www.instagram.com/p/ChiMgLmv-AE/',
+            src: '/instagram_covers/ChiMgLmv-AE.jpg'
           },
           {
-            titleEn: 'Webinar Poster III: Popular Civic Assembly Broadcast',
-            titleEs: 'Afiche Conversatorio III: Encuentro Ciudadano Masivo',
-            url: 'https://www.instagram.com/p/ChlR78pstEK/'
+            titleEn: 'Popular Civic Assembly Broadcast',
+            titleEs: 'Encuentro Ciudadano Masivo',
+            url: 'https://www.instagram.com/p/ChlR78pstEK/',
+            src: '/instagram_covers/ChlR78pstEK.jpg'
           },
           {
-            titleEn: 'Civic Callout Poster: Countering Misinformation',
-            titleEs: 'Afiche Convocatoria: Enfrentando la Desinformación',
-            url: 'https://www.instagram.com/p/CgzOl5AOBe5/'
+            titleEn: 'Countering Misinformation Callout',
+            titleEs: 'Enfrentando la Desinformación',
+            url: 'https://www.instagram.com/p/CgzOl5AOBe5/',
+            src: '/instagram_covers/CgzOl5AOBe5.jpg'
           }
         ]
       },

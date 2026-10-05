@@ -71,6 +71,7 @@ export function App() {
       const hash = window.location.hash.toLowerCase().replace(/^#/, '');
       if (hash === 'acceso' || hash === 'portada' || hash === '' || hash === '/') {
         // Stay on welcome screen or tab 0
+        setHasEntered(false);
         setActiveTabIndex(0);
       } else if (hash.length > 1) {
         setHasEntered(true);
@@ -78,7 +79,7 @@ export function App() {
         const foundIdx = sections.findIndex(
           (s) => s.id.toLowerCase() === hash || s.tabKey.toLowerCase().includes(hash)
         );
-        if (foundIdx > 0) {
+        if (foundIdx >= 0) {
           setActiveTabIndex(foundIdx);
         }
       }
@@ -98,10 +99,10 @@ export function App() {
   const handleToggleProfile = (mode: ProfileMode) => {
     setProfileMode(mode);
     if (hasEntered) {
-      // In comms, tab 0 is the welcome entrance gate, so we activate tab 1 (01. Cultura) directly
+      // In comms, tab 0 is the welcome entrance gate, so we activate tab 1 (01. Intervención) directly
       // In science, tab 0 is the scientific dossier cover (00. Portada), so we activate tab 0 directly
       setActiveTabIndex(mode === 'comms' ? 1 : 0);
-      window.location.hash = mode === 'comms' ? '#cultura' : '#portada';
+      window.location.hash = mode === 'comms' ? '#intervencion' : '#portada';
     } else {
       setActiveTabIndex(0);
     }
@@ -178,7 +179,7 @@ export function App() {
 
       {/* 1. TOP HEADER: MODE TOGGLE & BRANDING */}
       <header
-        className={`relative z-40 w-full px-4 sm:px-8 py-4 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 border-b transition-colors duration-300 ${
+        className={`relative z-40 w-full px-4 sm:px-8 py-2.5 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 border-b transition-colors duration-300 ${
           !hasEntered
             ? 'border-neutral-800'
             : isComms
@@ -191,6 +192,7 @@ export function App() {
           onClick={() => {
             setHasEntered(false);
             setActiveTabIndex(0);
+            window.location.hash = '';
           }}
           className="flex items-center space-x-3.5 self-start sm:self-center cursor-pointer group"
           title={currentLang === 'es' ? 'Ir a portada de acceso // Go to Access & Intro' : 'Go to Access & Intro'}
@@ -310,37 +312,16 @@ export function App() {
         </div>
       </header>
 
-      {/* 2. FLOATING TAB PILLS (MENÚ FLOTANTE MÁS COMPACTO Y ELEGANTE EN MODO CIENTÍFICO) */}
+      {/* 2. FLOATING TAB PILLS (MENÚ FLOTANTE COMPACTO Y ELEGANTE) */}
       {hasEntered ? (
-        <div className={`sticky top-2.5 z-40 w-full px-3 flex justify-center ${isComms ? 'mb-3 sm:mb-4' : 'mb-2 sm:mb-3'}`}>
+        <div className="sticky top-2 z-40 w-full px-3 flex justify-center mb-2 sm:mb-2.5">
           <nav
             className={`inline-flex items-center border backdrop-blur-xl shadow-xl overflow-x-auto max-w-[98vw] no-scrollbar transition-all duration-300 ${
               isComms
-                ? 'p-1.5 rounded-full bg-[#18130d]/95 border-amber-500/30'
+                ? 'p-1 rounded-full bg-[#18130d]/95 border-amber-500/30'
                 : 'p-1 rounded-full bg-[#ede5d6]/95 border-[#d0c4b0] shadow-md'
             }`}
           >
-            {/* Always accessible Return to Welcome & Cover button */}
-            <button
-              onClick={() => {
-                setHasEntered(false);
-                setActiveTabIndex(0);
-                window.location.hash = '#portada';
-              }}
-              className={`relative rounded-full font-medium transition-all duration-300 shrink-0 flex items-center space-x-1.5 ${
-                isComms
-                  ? 'px-3 py-1.5 sm:px-4 sm:py-1.5 text-xs bg-amber-500/15 border border-amber-400/40 text-amber-300 hover:bg-amber-500/30'
-                  : 'px-3 py-1.5 text-[11px] sm:text-xs bg-[#2d5a3c]/15 border border-[#2d5a3c]/40 text-[#2d5a3c] hover:bg-[#2d5a3c]/25'
-              }`}
-              title={currentLang === 'es' ? 'Volver a la portada' : 'Return to Cover'}
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span className="font-mono text-[10px] opacity-75">00.</span>
-              <span className="font-serif tracking-tight whitespace-nowrap">
-                {currentLang === 'es' ? 'Portada' : 'Cover'}
-              </span>
-            </button>
-
             {/* Content Section Tabs */}
             {activeSections.slice(1).map((sec, originalIdx) => {
               const idx = originalIdx + 1;
@@ -359,12 +340,12 @@ export function App() {
                   onClick={() => handleSelectTab(idx)}
                   className={`relative rounded-full font-medium transition-all duration-300 shrink-0 flex items-center space-x-1.5 ${
                     isComms
-                      ? `px-4 py-2 sm:px-5 sm:py-2 text-xs ${
+                      ? `px-3.5 py-1.5 sm:px-4 sm:py-1.5 text-xs ${
                           isActive
-                            ? 'bg-amber-400 text-[#0c0a07] font-bold shadow-lg shadow-amber-500/25 scale-[1.02]'
+                            ? 'bg-amber-400 text-[#0c0a07] font-bold shadow-md shadow-amber-500/25 scale-[1.02]'
                             : 'text-amber-100/70 hover:text-white hover:bg-amber-500/10'
                         }`
-                      : `px-3 py-1.5 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs ${
+                      : `px-3 py-1 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs ${
                           isActive
                             ? 'bg-[#2d5a3c] text-white font-bold shadow-md scale-[1.02]'
                             : 'text-neutral-700 hover:text-black hover:bg-black/5'
@@ -393,12 +374,12 @@ export function App() {
       )}
 
       {/* 3. MAIN CENTRAL PANORAMIC STAGE */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full max-w-6xl mx-auto my-auto py-2">
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-3 sm:px-6 w-full max-w-6xl mx-auto my-auto py-1 sm:py-2">
         {/* Chapter Header Ribbon (Omit on dedicated Cover Gate to maintain clean heroic focus) */}
         {activeSection.id !== 'portada-portafolio' && (
-          <div className="w-full text-center max-w-3xl mb-4 animate-fadeIn">
+          <div className="w-full text-center max-w-3xl mb-2 sm:mb-3 animate-fadeIn">
             <div
-              className={`inline-flex items-center space-x-2 px-4 py-1 rounded-full border text-xs font-sans uppercase shadow-sm transition-colors ${
+              className={`inline-flex items-center space-x-2 px-3 py-0.5 rounded-full border text-[11px] font-sans uppercase shadow-sm transition-colors ${
                 isComms
                   ? 'bg-[#18130c] border-amber-500/35 text-amber-400'
                   : 'bg-[#eae3d5] border-[#d0c4b0] text-[#2d5a3c]'
@@ -420,14 +401,14 @@ export function App() {
             </div>
 
             <h2
-              className={`text-2xl sm:text-4xl font-serif font-bold tracking-tight mt-2 transition-colors ${
+              className={`text-xl sm:text-2xl lg:text-3xl font-serif font-bold tracking-tight mt-1 transition-colors ${
                 isComms ? 'text-white' : 'text-neutral-900'
               }`}
             >
               {currentLang === 'es' ? activeSection.titleEs : activeSection.titleEn}
             </h2>
             <p
-              className={`text-xs sm:text-sm font-medium mt-1 transition-colors ${
+              className={`text-[11px] sm:text-xs font-medium mt-0.5 transition-colors ${
                 isComms ? 'text-amber-300/90' : 'text-[#3c6e4e]'
               }`}
             >
@@ -484,7 +465,7 @@ export function App() {
                     setHasEntered(true);
                     setActiveTabIndex(1);
                     setCurrentSlideIndex(0);
-                    window.location.hash = '#cultura';
+                    window.location.hash = '#intervencion';
                   }}
                   className="group relative cursor-pointer rounded-2xl border border-neutral-800 hover:border-amber-500/50 bg-neutral-900/90 hover:bg-[#1a1610] p-6 text-left transition-all duration-300 hover:scale-[1.02] shadow-xl hover:shadow-amber-500/10 flex flex-col justify-between"
                 >
@@ -564,7 +545,7 @@ export function App() {
                     setHasEntered(true);
                     setActiveTabIndex(1);
                     setCurrentSlideIndex(0);
-                    window.location.hash = '#cultura';
+                    window.location.hash = '#intervencion';
                   }}
                   className="px-7 py-2.5 rounded-full border border-neutral-800 hover:border-neutral-700 text-neutral-400 hover:text-neutral-200 bg-neutral-900/60 hover:bg-neutral-900 font-sans text-xs font-medium transition-all flex items-center space-x-2 shadow-sm"
                 >
@@ -742,10 +723,10 @@ export function App() {
             </div>
           ) : (
             /* MODO NOCTURNO: TARJETA PANORÁMICA DE CAMPAÑA CÁLIDA (AMBAR & ORO) */
-            <div className="relative w-full rounded-3xl sm:rounded-[32px] border backdrop-blur-md shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[440px] sm:min-h-[500px] lg:h-[530px] transition-all duration-300 bg-[#16120b]/95 border-amber-500/25">
+            <div className="relative w-full rounded-2xl sm:rounded-3xl border backdrop-blur-md shadow-2xl overflow-hidden flex flex-col lg:flex-row min-h-[420px] lg:h-[470px] transition-all duration-300 bg-[#16120b]/95 border-amber-500/25">
               {/* LEFT: Media Viewport */}
               <div
-                className="relative lg:w-[58%] flex items-center justify-center overflow-hidden group min-h-[280px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-amber-500/15 bg-black/75 p-3"
+                className="relative lg:w-[56%] flex items-center justify-center overflow-hidden group min-h-[260px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-amber-500/15 bg-black/75 p-2 sm:p-3"
               >
                 {currentItem.type === 'video' && currentItem.embedUrl ? (
                   <div className="relative w-full h-full aspect-video bg-black/70 flex items-center justify-center rounded-xl overflow-hidden shadow-2xl">
@@ -760,10 +741,10 @@ export function App() {
                 ) : currentItem.type === 'audio' ? (
                   <div 
                     onClick={() => setSelectedMedia(currentItem)}
-                    className="w-full h-full p-8 flex flex-col items-center justify-center text-center space-y-4 bg-[#18130c] cursor-pointer"
+                    className="w-full h-full p-6 flex flex-col items-center justify-center text-center space-y-3 bg-[#18130c] cursor-pointer"
                   >
-                    <div className="w-16 h-16 rounded-full flex items-center justify-center bg-amber-500/20 border border-amber-500/40 text-amber-400 group-hover:scale-110 transition shadow-xl">
-                      <Volume2 className="w-8 h-8" />
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center bg-amber-500/20 border border-amber-500/40 text-amber-400 group-hover:scale-110 transition shadow-xl">
+                      <Volume2 className="w-7 h-7" />
                     </div>
                     <div>
                       <span className="text-xs font-serif uppercase tracking-wider font-bold text-amber-300">
@@ -778,22 +759,22 @@ export function App() {
                       if (currentItem.url) window.open(currentItem.url, '_blank');
                       else setSelectedMedia(currentItem);
                     }}
-                    className="relative w-full h-full min-h-[360px] flex items-center justify-center p-3 bg-[#0d0a07] cursor-pointer group/ig"
+                    className="relative w-full h-full min-h-[300px] flex items-center justify-center p-2 bg-[#0d0a07] cursor-pointer group/ig"
                   >
                     {currentItem.src ? (
-                      <div className="relative w-full max-h-[480px] flex items-center justify-center overflow-hidden rounded-2xl shadow-2xl bg-black">
+                      <div className="relative w-full max-h-[440px] flex items-center justify-center overflow-hidden rounded-xl shadow-2xl bg-black">
                         <img
                           src={resolveAsset(currentItem.src)}
                           alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
-                          className="max-w-full max-h-[460px] w-auto h-auto object-contain transition-transform duration-500 group-hover/ig:scale-[1.02]"
+                          className="max-w-full max-h-[430px] w-auto h-auto object-contain transition-transform duration-500 group-hover/ig:scale-[1.02]"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-4">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-3 py-1.5 rounded-full font-sans font-semibold shadow-lg">
-                              <InstagramIcon className="w-3.5 h-3.5" />
+                            <div className="flex items-center space-x-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs px-2.5 py-1 rounded-full font-sans font-semibold shadow-lg">
+                              <InstagramIcon className="w-3 h-3" />
                               <span>{currentItem.tags?.[0] || 'Instagram'}</span>
                             </div>
-                            <span className="text-[11px] font-mono text-white/90 bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-sm border border-white/10 flex items-center space-x-1">
+                            <span className="text-[10px] font-mono text-white/90 bg-black/60 px-2 py-0.5 rounded-full backdrop-blur-sm border border-white/10 flex items-center space-x-1">
                               <span>{currentLang === 'es' ? 'Ver en Instagram' : 'View on Instagram'}</span>
                               <ExternalLink className="w-3 h-3 text-pink-400" />
                             </span>
@@ -801,14 +782,14 @@ export function App() {
                         </div>
                       </div>
                     ) : (
-                      <div className="w-full max-w-[360px] p-6 rounded-2xl bg-[#1a140d] border border-amber-500/30 flex flex-col items-center text-center space-y-3">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-xl">
-                          <InstagramIcon className="w-7 h-7" />
+                      <div className="w-full max-w-[340px] p-5 rounded-2xl bg-[#1a140d] border border-amber-500/30 flex flex-col items-center text-center space-y-2.5">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 flex items-center justify-center text-white shadow-xl">
+                          <InstagramIcon className="w-6 h-6" />
                         </div>
-                        <h4 className="text-white font-serif font-bold text-base">
+                        <h4 className="text-white font-serif font-bold text-sm">
                           {currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
                         </h4>
-                        <p className="text-xs text-neutral-300 font-sans">
+                        <p className="text-[11px] text-neutral-300 font-sans">
                           {currentItem.captionEs || currentItem.captionEn}
                         </p>
                         <a
@@ -816,10 +797,10 @@ export function App() {
                           target="_blank"
                           rel="noreferrer"
                           onClick={(e) => e.stopPropagation()}
-                          className="mt-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-sans text-xs font-semibold flex items-center space-x-1.5 shadow-md hover:brightness-110 transition"
+                          className="mt-1 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-sans text-xs font-semibold flex items-center space-x-1.5 shadow-md hover:brightness-110 transition"
                         >
                           <span>{currentLang === 'es' ? 'Abrir publicación' : 'Open post'}</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
+                          <ExternalLink className="w-3 h-3" />
                         </a>
                       </div>
                     )}
@@ -832,58 +813,82 @@ export function App() {
                     <img
                       src={resolveAsset((currentLang === 'en' && currentItem.srcEn) ? currentItem.srcEn : currentItem.src)}
                       alt={currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
-                      className="max-w-full max-h-[480px] w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-[1.01] rounded-lg shadow-lg"
+                      className="max-w-full max-h-[440px] w-auto h-auto object-contain transition-transform duration-700 group-hover:scale-[1.01] rounded-lg shadow-lg"
                     />
                   </div>
                 )}
 
                 {/* Badge Indicator */}
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full border text-xs font-mono font-medium shadow-lg backdrop-blur-sm bg-[#18130c]/85 border-amber-500/30 text-amber-300">
+                <div className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full border text-[11px] font-mono font-medium shadow-lg backdrop-blur-sm bg-[#18130c]/85 border-amber-500/30 text-amber-300">
                   {currentSlideIndex + 1} / {items.length}
                 </div>
               </div>
 
               {/* RIGHT: Fluid Editorial Description */}
-              <div className="lg:w-[42%] p-6 sm:p-8 flex flex-col justify-between space-y-4 bg-[#1b150c]/80 overflow-y-auto max-h-[530px] no-scrollbar">
+              <div className="lg:w-[44%] p-4 sm:p-5 lg:p-6 flex flex-col justify-between space-y-3 bg-[#1b150c]/80 overflow-y-auto max-h-[470px] no-scrollbar">
                 <div>
-                  <div className="flex items-center justify-between text-xs mb-2 font-serif font-semibold tracking-wider uppercase text-amber-400">
+                  <div className="flex items-center justify-between text-[11px] mb-1.5 font-serif font-semibold tracking-wider uppercase text-amber-400">
                     <span>{currentItem.authorOrSource || 'Archivo de Campo'}</span>
                     {currentItem.date && <span className="font-mono opacity-60">{currentItem.date}</span>}
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold leading-tight text-white">
+                  <h3 className="text-lg sm:text-xl font-serif font-bold leading-tight text-white">
                     {currentLang === 'es' ? currentItem.titleEs : currentItem.titleEn}
                   </h3>
 
                   {(currentItem.subtitleEn || currentItem.subtitleEs) && (
-                    <p className="text-xs font-medium mt-1.5 text-amber-300">
+                    <p className="text-xs font-medium mt-1 text-amber-300">
                       {currentLang === 'es' ? currentItem.subtitleEs : currentItem.subtitleEn}
                     </p>
                   )}
 
-                  <p className="text-xs sm:text-sm leading-relaxed mt-4 font-sans text-neutral-300">
+                  <p className="text-xs leading-relaxed mt-2.5 font-sans text-neutral-300">
                     {currentLang === 'es' ? currentItem.captionEs : currentItem.captionEn}
                   </p>
 
-                  {/* Series / Event Gallery Links (if available) */}
+                  {/* Series / Event Gallery Links (Visual Thumbnails Mosaic) */}
                   {currentItem.subLinks && currentItem.subLinks.length > 0 && (
-                    <div className="mt-4 pt-3 border-t border-amber-500/20">
-                      <span className="text-[11px] font-mono uppercase tracking-wider text-amber-400 font-bold block mb-2">
-                        {currentLang === 'es' ? 'Registros, afiches & galerías:' : 'Records, posters & galleries:'}
-                      </span>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <div className="mt-3 pt-2.5 border-t border-amber-500/20">
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold">
+                          {currentLang === 'es' ? 'Galerías & Entregas Relacionadas:' : 'Related Galleries & Releases:'}
+                        </span>
+                        <span className="text-[10px] font-mono text-amber-300/70">
+                          {currentItem.subLinks.length} {currentLang === 'es' ? 'registros' : 'items'}
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-1.5">
                         {currentItem.subLinks.map((sub, sIdx) => (
                           <a
                             key={sIdx}
                             href={sub.url}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center justify-between p-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/25 text-amber-200 hover:text-white text-xs font-sans transition group"
+                            className="group relative rounded-lg overflow-hidden border border-amber-500/25 bg-[#0f0c08] hover:border-amber-400/80 transition shadow-sm flex flex-col"
+                            title={currentLang === 'es' ? sub.titleEs : sub.titleEn}
                           >
-                            <span className="truncate pr-1.5 font-medium">
-                              {currentLang === 'es' ? sub.titleEs : sub.titleEn}
-                            </span>
-                            <ExternalLink className="w-3.5 h-3.5 text-amber-400 shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                            {sub.src ? (
+                              <div className="relative w-full h-12 bg-black overflow-hidden">
+                                <img
+                                  src={resolveAsset(sub.src)}
+                                  alt={currentLang === 'es' ? sub.titleEs : sub.titleEn}
+                                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                                <div className="absolute top-1 right-1 w-4 h-4 rounded-full bg-black/70 flex items-center justify-center opacity-80 group-hover:opacity-100">
+                                  <ExternalLink className="w-2.5 h-2.5 text-amber-300" />
+                                </div>
+                              </div>
+                            ) : (
+                              <div className="w-full h-10 bg-amber-500/10 flex items-center justify-center">
+                                <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
+                              </div>
+                            )}
+                            <div className="p-1.5 bg-[#14100a] flex-1 flex items-center">
+                              <span className="text-[10px] leading-tight font-sans font-medium text-amber-200 group-hover:text-white line-clamp-2">
+                                {currentLang === 'es' ? sub.titleEs : sub.titleEn}
+                              </span>
+                            </div>
                           </a>
                         ))}
                       </div>
@@ -891,12 +896,12 @@ export function App() {
                   )}
 
                   {currentItem.url && (
-                    <div className="mt-4 pt-3 border-t border-amber-500/20">
+                    <div className="mt-3 pt-2 border-t border-amber-500/20">
                       <a
                         href={currentItem.url}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center space-x-1.5 text-xs font-mono text-amber-400 hover:text-amber-300 hover:underline"
+                        className="inline-flex items-center space-x-1 text-xs font-mono text-amber-400 hover:text-amber-300 hover:underline"
                       >
                         <span>{currentLang === 'es' ? 'Ver publicación original' : 'Open original article / link'}</span>
                         <ExternalLink className="w-3.5 h-3.5" />
@@ -906,7 +911,7 @@ export function App() {
                 </div>
 
                 {/* Slider Controls */}
-                <div className="pt-4 border-t border-amber-500/20 flex items-center justify-between">
+                <div className="pt-2.5 border-t border-amber-500/20 flex items-center justify-between">
                   <div className="flex items-center space-x-1.5">
                     {items.map((_, dotIdx) => (
                       <button
@@ -922,28 +927,28 @@ export function App() {
                     ))}
                   </div>
 
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-1.5">
                     <button
                       onClick={handlePrevSlide}
-                      className="p-2.5 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm"
+                      className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm"
                       title="Anterior (←)"
                     >
-                      <ChevronLeft className="w-4 h-4" />
+                      <ChevronLeft className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={handleNextSlide}
-                      className="p-2.5 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm"
+                      className="p-1.5 sm:p-2 rounded-full border border-amber-500/25 hover:border-amber-400 text-amber-200 bg-[#18130c] transition shadow-sm"
                       title="Siguiente (→)"
                     >
-                      <ChevronRight className="w-4 h-4" />
+                      <ChevronRight className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => setSelectedMedia(currentItem)}
-                      className="ml-2 px-4 py-2 rounded-full font-serif font-bold text-xs bg-amber-400 hover:bg-amber-300 text-black transition shadow-md flex items-center space-x-1.5"
+                      className="ml-1 px-3 py-1.5 rounded-full font-serif font-bold text-xs bg-amber-400 hover:bg-amber-300 text-black transition shadow-md flex items-center space-x-1"
                       title="Expandir modal"
                     >
                       <span>{currentLang === 'es' ? 'Ver Full' : 'Full View'}</span>
-                      <Maximize2 className="w-3.5 h-3.5" />
+                      <Maximize2 className="w-3 h-3" />
                     </button>
                   </div>
                 </div>
