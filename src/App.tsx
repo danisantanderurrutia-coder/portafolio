@@ -48,10 +48,12 @@ type ProfileMode = 'comms' | 'science';
 
 export { resolveAsset } from './utils';
 import { resolveAsset } from './utils';
-import { GameWorldView } from './components/GameWorldView';
+import { GameWorldView, MissionType } from './components/GameWorldView';
+import { PunkMainMenu } from './components/PunkMainMenu';
 
 export function App() {
-  const [viewMode, setViewMode] = useState<'game' | 'dossier'>('game');
+  const [viewMode, setViewMode] = useState<'punk' | 'game' | 'dossier'>('punk');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | MissionType>('all');
   const [currentLang, setCurrentLang] = useState<Language>('es');
   const [profileMode, setProfileMode] = useState<ProfileMode>('comms');
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
@@ -147,12 +149,28 @@ export function App() {
 
   const isComms = profileMode === 'comms';
 
+  if (viewMode === 'punk') {
+    return (
+      <PunkMainMenu
+        currentLang={currentLang}
+        onToggleLanguage={toggleLanguage}
+        onSelectCategory={(category) => {
+          setSelectedCategory(category);
+          setViewMode('game');
+        }}
+        onOpenDossier={() => setViewMode('dossier')}
+      />
+    );
+  }
+
   if (viewMode === 'game') {
     return (
       <GameWorldView
         currentLang={currentLang}
         onToggleLanguage={toggleLanguage}
         onExitToDossier={() => setViewMode('dossier')}
+        onBackToMenu={() => setViewMode('punk')}
+        initialFilter={selectedCategory}
       />
     );
   }
@@ -250,8 +268,17 @@ export function App() {
               </div>
             )}
 
-            {/* Language, 3D Game Switcher & Share Stamp Buttons */}
+            {/* Language, Punk Menu & 3D Game Switcher & Share Buttons */}
             <div className="flex items-center space-x-1.5">
+              <button
+                onClick={() => setViewMode('punk')}
+                className="px-2.5 py-1.5 rounded border border-black bg-black hover:bg-neutral-900 text-[#eab308] text-xs font-mono font-bold transition shadow-sm flex items-center space-x-1"
+                title="Volver al menú principal tipo punk"
+              >
+                <span>←</span>
+                <span>{currentLang === 'es' ? 'MENÚ PUNK' : 'PUNK MENU'}</span>
+              </button>
+
               <button
                 onClick={() => setViewMode('game')}
                 className="px-2.5 py-1.5 rounded border border-[#2d5a3c] bg-[#2d5a3c] hover:bg-[#23452e] text-[#f7f5ee] text-xs font-mono font-bold transition shadow-sm flex items-center space-x-1.5"

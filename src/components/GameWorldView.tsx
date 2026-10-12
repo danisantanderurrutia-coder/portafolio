@@ -550,49 +550,78 @@ export const GAME_MISSIONS: GameMission[] = [
   }
 ];
 
-// Simplified continent coordinates for lightweight, instantaneous 3D Canvas rendering
-const CONTINENT_POINTS: [number, number][] = [
-  // South America
-  [-12, -77], [-15, -70], [-23, -70], [-33, -71], [-42, -73], [-53, -71], [-54, -68],
-  [-45, -66], [-35, -57], [-23, -43], [-10, -36], [-3, -40], [2, -50], [7, -58],
-  [10, -66], [11, -72], [8, -77], [2, -80], [-2, -80], [-8, -79],
-  // North America
-  [25, -80], [30, -81], [35, -75], [42, -70], [45, -63], [52, -56], [60, -64],
-  [70, -70], [72, -100], [70, -130], [60, -140], [55, -132], [48, -124], [38, -122],
-  [30, -115], [20, -105], [16, -93], [15, -88], [20, -87], [26, -97],
-  // Europe
-  [36, -6], [43, -9], [48, -4], [54, 8], [55, 12], [58, 11], [62, 5], [70, 20],
-  [68, 30], [60, 30], [55, 21], [54, 18], [53, 14], [46, 14], [40, 18], [37, 15],
-  [38, 24], [42, 28], [46, 30], [44, 38], [42, 44],
-  // Africa
-  [35, -5], [37, 10], [32, 25], [31, 32], [22, 38], [12, 44], [12, 51], [0, 42],
-  [-12, 40], [-25, 33], [-34, 26], [-34, 18], [-23, 14], [-12, 13], [5, 1],
-  [5, -2], [4, -7], [10, -14], [15, -17], [22, -16], [32, -9],
-  // Asia
-  [40, 50], [42, 60], [45, 75], [52, 85], [58, 95], [65, 110], [70, 130], [72, 150],
-  [65, 175], [60, 165], [55, 160], [52, 140], [43, 132], [38, 128], [35, 120],
-  [30, 122], [22, 114], [21, 108], [10, 105], [5, 103], [8, 98], [15, 95],
-  [22, 90], [20, 85], [13, 80], [8, 77], [18, 73], [25, 68], [25, 60], [25, 55],
-  // Australia
-  [-15, 130], [-12, 136], [-12, 142], [-20, 148], [-28, 153], [-37, 150], [-38, 145],
-  [-35, 138], [-32, 132], [-35, 118], [-32, 115], [-22, 114], [-20, 118], [-15, 124]
-];
+import { ALL_COASTLINES, CONTINENT_LAND_MATRIX, LatLng } from '../continentsData';
+
+const drawCoastlinePath = (
+  ctx: CanvasRenderingContext2D,
+  coords: LatLng[],
+  project: (latDeg: number, lngDeg: number) => { x: number; y: number; visible: boolean }
+) => {
+  if (coords.length < 2) return;
+  for (let i = 0; i < coords.length - 1; i++) {
+    const p1 = coords[i];
+    const p2 = coords[i + 1];
+
+    const dLat = p2[0] - p1[0];
+    const dLng = p2[1] - p1[1];
+    const dist = Math.sqrt(dLat * dLat + dLng * dLng);
+    const steps = Math.max(1, Math.ceil(dist / 2.0));
+
+    let first = true;
+    for (let s = 0; s <= steps; s++) {
+      const lat = p1[0] + (dLat * s) / steps;
+      const lng = p1[1] + (dLng * s) / steps;
+      const pt = project(lat, lng);
+
+      if (pt.visible) {
+        if (first) {
+          ctx.moveTo(pt.x, pt.y);
+          first = false;
+        } else {
+          ctx.lineTo(pt.x, pt.y);
+        }
+      } else {
+        first = true;
+      }
+    }
+  }
+};
 
 interface GameWorldViewProps {
   currentLang: Language;
   onToggleLanguage: () => void;
   onExitToDossier?: () => void;
+  onBackToMenu?: () => void;
+  initialFilter?: 'all' | MissionType;
 }
 
 export const GameWorldView: React.FC<GameWorldViewProps> = ({
   currentLang,
   onToggleLanguage,
-  onExitToDossier
+  onExitToDossier,
+  onBackToMenu,
+  initialFilter = 'all'
 }) => {
-  const [activeFilter, setActiveFilter] = useState<'all' | MissionType>('all');
-  const [selectedMissionId, setSelectedMissionId] = useState<string>(GAME_MISSIONS[0].id);
+  const [activeFilter, setActiveFilter] = useState<'all' | MissionType>(initialFilter);
+  const [selectedMissionId, setSelectedMissionId] = useState<string>(() => {
+    if (initialFilter !== 'all') {
+      const found = GAME_MISSIONS.find((m) => m.type === initialFilter);
+      if (found) return found.id;
+    }
+    return GAME_MISSIONS[0].id;
+  });
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(true);
   const [selectedPlatePage, setSelectedPlatePage] = useState<number>(0);
+
+  useEffect(() => {
+    if (initialFilter) {
+      setActiveFilter(initialFilter);
+      if (initialFilter !== 'all') {
+        const found = GAME_MISSIONS.find((m) => m.type === initialFilter);
+        if (found) setSelectedMissionId(found.id);
+      }
+    }
+  }, [initialFilter]);
 
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -713,16 +742,44 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         ctx.stroke();
       }
 
-      // 5. Continents Reference Points (Landmass Points in Cyan-White)
-      ctx.fillStyle = 'rgba(180, 215, 235, 0.75)';
-      for (const [cLat, cLng] of CONTINENT_POINTS) {
-        const pt = project(cLat, cLng);
+      // 5. Continents: Luminous Vector Coastlines & Tactical Landmass Dot Grid
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+      ctx.clip(); // Keep inside the planetary sphere
+
+      // A. Outer Glow for Coastlines
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
+      ctx.lineWidth = 3.5;
+      ctx.lineJoin = 'round';
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ALL_COASTLINES.forEach((c) => {
+        drawCoastlinePath(ctx, c.coords, project);
+      });
+      ctx.stroke();
+
+      // B. Crisp Glowing Cyan Vector Coastline Core
+      ctx.strokeStyle = 'rgba(125, 211, 252, 0.9)';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ALL_COASTLINES.forEach((c) => {
+        drawCoastlinePath(ctx, c.coords, project);
+      });
+      ctx.stroke();
+
+      // C. Dense Tactical Halftone Landmass Dot Matrix
+      ctx.fillStyle = 'rgba(125, 211, 252, 0.65)';
+      for (const [lLat, lLng] of CONTINENT_LAND_MATRIX) {
+        const pt = project(lLat, lLng);
         if (pt.visible) {
           ctx.beginPath();
-          ctx.arc(pt.x, pt.y, 2.4, 0, Math.PI * 2);
+          ctx.arc(pt.x, pt.y, 2.5, 0, Math.PI * 2);
           ctx.fill();
         }
       }
+
+      ctx.restore();
 
       // 6. Color-Coded Mission Beacons:
       // Rojo = Ciencia (#ef4444)
@@ -838,8 +895,19 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       {/* 3. GAME HUD TOP BAR (ESTILO BATTLEFIELD / HALO INFINITE)        */}
       {/* ============================================================== */}
       <header className="relative z-30 w-full px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 bg-gradient-to-b from-black/80 to-transparent border-b border-white/10 backdrop-blur-sm">
-        {/* Call-Sign Identity */}
+        {/* Call-Sign Identity & Back to Punk Menu */}
         <div className="flex items-center space-x-3">
+          {onBackToMenu && (
+            <button
+              onClick={onBackToMenu}
+              className="px-3 py-1.5 rounded-xl bg-black/80 hover:bg-black text-[#eab308] hover:text-white border-2 border-[#eab308] hover:border-white font-mono text-xs font-black tracking-wider uppercase transition shadow-[3px_3px_0px_#ffffff] flex items-center space-x-1.5 active:scale-95"
+              title="Volver al menú punk inicial"
+            >
+              <span>←</span>
+              <span>{currentLang === 'es' ? 'MENÚ PRINCIPAL' : 'MAIN MENU'}</span>
+            </button>
+          )}
+
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 p-1 flex items-center justify-center shadow-lg border border-amber-300/40">
             <span className="font-serif font-black text-white text-base">DS</span>
           </div>
