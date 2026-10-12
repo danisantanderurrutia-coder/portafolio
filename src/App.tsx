@@ -25,6 +25,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { ModalViewer } from './components/ModalViewer';
+import { MesaDeLuz } from './components/MesaDeLuz';
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg 
@@ -65,16 +66,20 @@ export function App() {
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
   const [hasEntered, setHasEntered] = useState<boolean>(false);
+  const [viewFormat, setViewFormat] = useState<'mesa' | 'dossier'>('mesa');
 
-  // Sync tab and entered state with URL hash
+  // Sync tab, view format and entered state with URL hash
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase().replace(/^#/, '');
-      if (hash === 'acceso' || hash === '' || hash === '/') {
-        // Stay on welcome entrance screen
+      if (hash === 'mesa' || hash === '' || hash === '/') {
+        setViewFormat('mesa');
+      } else if (hash === 'dossier' || hash === 'acceso') {
+        setViewFormat('dossier');
         setHasEntered(false);
         setActiveTabIndex(0);
       } else if (hash.length > 1) {
+        setViewFormat('dossier');
         setHasEntered(true);
         const sections = profileMode === 'comms' ? communicationsSections : scientificSections;
         const foundIdx = sections.findIndex(
@@ -206,9 +211,45 @@ export function App() {
             </div>
           </div>
 
-          {/* DUAL TOMO RUBBER STAMPS (SELECTOR RADICAL DE EXPEDIENTE) */}
           <div className="flex flex-wrap items-center justify-end gap-2 w-full md:w-auto">
-            {hasEntered && (
+            {/* VIEW MODE TOGGLE: MESA DE LUZ VS DOSSIER */}
+            <div className="flex items-center p-0.5 rounded-lg bg-[#ded2be] border border-[#c4b39b] shadow-inner text-xs font-mono">
+              <button
+                onClick={() => {
+                  setViewFormat('mesa');
+                  window.location.hash = '#mesa';
+                }}
+                className={`px-3 py-1.5 rounded-md transition-all flex items-center space-x-1.5 ${
+                  viewFormat === 'mesa'
+                    ? 'bg-[#1c1917] text-[#fbf8f2] font-bold shadow-sm'
+                    : 'text-[#63584e] hover:text-[#1c1917]'
+                }`}
+                title={currentLang === 'es' ? 'Mesa de Luz: Tablero de Taller interactivo' : 'Light Table: Interactive Workshop drafting board'}
+              >
+                <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
+                <span className="font-serif tracking-tight font-bold">{currentLang === 'es' ? 'MESA DE LUZ' : 'LIGHT TABLE'}</span>
+                <span className="text-[9px] px-1 py-0.2 rounded bg-[#d97706]/20 text-[#d97706] font-mono font-bold">NUEVO</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setViewFormat('dossier');
+                  window.location.hash = '#dossier';
+                }}
+                className={`px-3 py-1.5 rounded-md transition-all flex items-center space-x-1.5 ${
+                  viewFormat === 'dossier'
+                    ? 'bg-[#1c1917] text-[#fbf8f2] font-bold shadow-sm'
+                    : 'text-[#63584e] hover:text-[#1c1917]'
+                }`}
+                title={currentLang === 'es' ? 'Dossier Clásico: Fichas y pestañas' : 'Classic Dossier: Tabs and file cards'}
+              >
+                <FileText className="w-3.5 h-3.5 opacity-80" />
+                <span className="font-serif tracking-tight">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
+              </button>
+            </div>
+
+            {/* DUAL TOMO RUBBER STAMPS (SOLO EN MODO DOSSIER CON ACCESO) */}
+            {viewFormat === 'dossier' && hasEntered && (
               <div className="flex items-center gap-1.5 sm:gap-2">
                 {/* Tomo I: Comunicaciones */}
                 <button
@@ -269,8 +310,13 @@ export function App() {
         </div>
       </header>
 
-      {/* 2. MANILA FOLDER INDEX TABS (PESTAÑAS ESCALONADAS FÍSICAS DE ARCHIVADOR) */}
-      <div className="relative z-30 w-full bg-[#eee5d5] border-b-2 border-[#cfc1a8] pt-2 px-3 sm:px-6 select-none">
+      {/* CONDITIONAL WORKSPACE VIEW: MESA DE LUZ VS DOSSIER CLÁSICO */}
+      {viewFormat === 'mesa' ? (
+        <MesaDeLuz currentLang={currentLang} />
+      ) : (
+        <>
+          {/* 2. MANILA FOLDER INDEX TABS (PESTAÑAS ESCALONADAS FÍSICAS DE ARCHIVADOR) */}
+          <div className="relative z-30 w-full bg-[#eee5d5] border-b-2 border-[#cfc1a8] pt-2 px-3 sm:px-6 select-none">
         <div className="max-w-6xl mx-auto flex items-end overflow-x-auto no-scrollbar gap-1 sm:gap-1.5">
           {hasEntered ? (
             (isComms ? activeSections.slice(1) : activeSections).map((sec, originalIdx) => {
@@ -499,8 +545,19 @@ export function App() {
 
               </div>
 
-              {/* Direct Full Access Button */}
-              <div className="pt-2">
+              {/* Direct Full Access & Mesa de Luz Shortcuts */}
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+                <button
+                  onClick={() => {
+                    setViewFormat('mesa');
+                    window.location.hash = '#mesa';
+                  }}
+                  className="px-6 py-2.5 rounded-full border-2 border-[#d97706] text-[#7f3419] bg-[#fbf5eb] hover:bg-[#faebd7] font-serif text-xs font-bold transition-all flex items-center space-x-2 shadow-sm"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
+                  <span>{currentLang === 'es' ? 'Abrir Mesa de Luz de Taller (Nuevo Formato)' : 'Open Workshop Light Table (New Format)'}</span>
+                </button>
+
                 <button
                   onClick={() => {
                     setHasEntered(true);
@@ -508,9 +565,9 @@ export function App() {
                     setCurrentSlideIndex(0);
                     window.location.hash = '#intervencion';
                   }}
-                  className="px-7 py-2.5 rounded-full border border-[#d6cab6] hover:border-[#b85d38] text-[#5c5247] hover:text-[#1c1917] bg-[#ede6d8]/70 hover:bg-[#ede6d8] font-serif text-xs font-medium transition-all flex items-center space-x-2 shadow-sm"
+                  className="px-6 py-2.5 rounded-full border border-[#d6cab6] hover:border-[#b85d38] text-[#5c5247] hover:text-[#1c1917] bg-[#ede6d8]/70 hover:bg-[#ede6d8] font-serif text-xs font-medium transition-all flex items-center space-x-2 shadow-sm"
                 >
-                  <span>{currentLang === 'es' ? 'O explorar todo el contenido directo' : 'Or explore all contents directly'}</span>
+                  <span>{currentLang === 'es' ? 'Explorar Dossier clásico' : 'Explore classic dossier'}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#786b5e]" />
                 </button>
               </div>
@@ -1055,11 +1112,15 @@ export function App() {
           </div>
         )}
       </main>
+        </>
+      )}
 
       {/* 4. FOOTER */}
       <footer className="relative z-20 w-full py-3.5 px-6 text-center text-xs font-serif border-t border-[#ded5c5] bg-[#f2ebdf] text-[#63584e] transition-colors">
         <span>
-          © {new Date().getFullYear()} Daniel Santander Urrutia • Dossier Editorial & Científico • Usa ← y →
+          {viewFormat === 'mesa'
+            ? `© ${new Date().getFullYear()} Daniel Santander Urrutia • Mesa de Luz de Taller & Geofísica Territorial • FCFM Universidad de Chile • Dual M.Sc. Kiel / Poznań`
+            : `© ${new Date().getFullYear()} Daniel Santander Urrutia • Dossier Editorial & Científico • Usa ← y →`}
         </span>
       </footer>
 
