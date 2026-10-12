@@ -20,19 +20,22 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden select-none bg-[#0a0d12] text-white font-sans flex flex-col justify-between">
       
-      {/* 1. HIGH-CONTRAST EDITORIAL / TECHNICAL BACKDROP */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Subtle technical coordinate grid */}
-        <div 
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
-          }}
-        />
-        {/* Ambient deep contrast gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0e131a] via-[#0a0d12] to-[#06080b]" />
-      </div>
+      {/* 1. ECO-URBAN SUSTAINABLE CITY BACKDROP (Calles estrechas, plantas, bicicletas, paneles solares) */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-40 filter contrast-110"
+        style={{ backgroundImage: `url('/eco_urban_bg.jpg')` }}
+      />
+      {/* Ambient deep contrast gradient to preserve razor-sharp readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0a0d12]/95 via-[#0a0d12]/80 to-[#0a0d12]/92 pointer-events-none z-0" />
+      
+      {/* Subtle architectural coordinate grid */}
+      <div 
+        className="absolute inset-0 opacity-[0.05] pointer-events-none z-0"
+        style={{
+          backgroundImage: `linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }}
+      />
 
       {/* 2. TOP TECHNICAL RULER & METRIC HEADER */}
       <header className="relative z-20 w-full px-4 sm:px-10 pt-5 pb-3 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
