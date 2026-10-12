@@ -251,8 +251,9 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Ponente Oficial / Investigador Expositor',
     roleEn: 'Official Speaker & Research Presenter',
-    mediaType: 'cv',
-    src: '/profile.jpg',
+    mediaType: 'press',
+    src: '/press_covers/desconcierto_noruega_screen.png',
+    url: 'https://eldesconcierto.cl/2025/07/06/paises-tan-ricos-que-no-quieren-crecer-mas-noruega-acoge-mayor-debate-mundial-sobre-alternativas-al-crecimiento-economico-infinito',
     code: 'OPS-GLO-01',
     source: 'International Degrowth Network // Oslo 2025',
     impactEs: 'Presentación en Oslo vinculando la degradación de cuencas en el Sur Global con la demanda de biomasa y celulosa del Norte Global, proponiendo marcos de transición poscapitalista.',
@@ -286,8 +287,9 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Investigador Certificado WSL',
     roleEn: 'Certified Researcher & Specialist',
-    mediaType: 'cv',
-    src: '/portfolio_pages/page_2.png',
+    mediaType: 'plate',
+    src: '/portfolio_pages/page_5.png',
+    srcEn: '/portfolio_pages_en/page_5.png',
     code: 'OPS-SCI-03',
     source: 'WSL Swiss Federal Research Institute // Davos',
     impactEs: 'Certificación e investigación de posgrado en Davos sobre la conectividad estructural y funcional entre sistemas hídricos riparios y cuencas terrestres frente a extremos climáticos.',
@@ -321,8 +323,9 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Especialista en Planificación Ecológica',
     roleEn: 'Ecological Planning Specialist',
-    mediaType: 'cv',
-    src: '/profile.jpg',
+    mediaType: 'plate',
+    src: '/portfolio_pages/page_6.png',
+    srcEn: '/portfolio_pages_en/page_6.png',
     code: 'OPS-GLO-02',
     source: 'DEAL // Copenhagen 2025',
     impactEs: 'Aplicación del marco de Kate Raworth a la escala de cuencas hidrográficas: garantizando bases sociales de acceso al agua potable sin rebasar los techos ecológicos de recarga.',
@@ -357,7 +360,8 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Investigador Asociado & Expositor',
     roleEn: 'Research Associate & Speaker',
     mediaType: 'press',
-    src: '/epn_cover.png',
+    src: '/press_covers/epn_screen.png',
+    url: 'https://environmentalpaper.org/2023/06/spotlight-on-burning-biomass-for-energy-in-south-america-community-opposition-to-a-power-plant-in-parral-chile/',
     code: 'OPS-GLO-03',
     source: 'Environmental Justice Summit // Bonn 2025',
     impactEs: 'Exposición en Bonn sobre la investigación internacional respecto a los pasivos socioambientales de las plantaciones de pino y eucalipto y las plantas de celulosa en América Latina.',
@@ -391,8 +395,9 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2022-2023',
     roleEs: 'Investigador & Delegado Técnico',
     roleEn: 'Researcher & Technical Delegate',
-    mediaType: 'cv',
-    src: '/profile.jpg',
+    mediaType: 'press',
+    src: '/press_covers/olca_screen.png',
+    url: 'https://olca.cl',
     code: 'OPS-GLO-04',
     source: 'CENSAT Agua Viva // Bogotá',
     impactEs: 'Estudio y desarticulación técnica de los mecanismos de especulación financiera sobre el agua y la biodiversidad, compartiendo aprendizajes de resistencia territorial entre Chile y Colombia.',
@@ -426,8 +431,9 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023',
     roleEs: 'Representante Internacional',
     roleEn: 'International Delegate',
-    mediaType: 'cv',
-    src: '/profile.jpg',
+    mediaType: 'press',
+    src: '/press_covers/delfino_screen.png',
+    url: 'https://delfino.cr/2023/04/jovenes-activistas-climaticos-de-latinoamerica-tuvieron-encuentro-de-trabajo-en-costa-rica',
     code: 'OPS-GLO-05',
     source: 'Cumbre Latinoamericana // San José',
     impactEs: 'Representación de organizaciones socioambientales en el foro regional de Costa Rica, posicionando la desprivatización del agua y la soberanía de semillas como referente latinoamericano.',
@@ -445,7 +451,78 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Costa Rica', 'San José', 'Justicia Climática', 'Derechos de la Naturaleza']
   },
 
-  // 12. COMUNICACIONES (VERDE): Radio Cristalina 96.3 FM - Maule Sur
+  // 12. CIENCIA (ROJO): Inversiones en Agroecología - Kiel / Schleswig-Holstein
+  {
+    id: 'comestible-kiel',
+    type: 'science',
+    titleEs: 'Inversiones para la Agroecología y Conservación de Suelos',
+    titleEn: 'Agroecological Transitions & Soil Conservation Policy',
+    subtitleEs: 'Conferencia & Policy Paper con el Diputado Alemán Dirk Kock-Rohwer (Verdes)',
+    subtitleEn: 'Conference & Policy Paper alongside German Green MP Dirk Kock-Rohwer',
+    country: 'Alemania',
+    city: 'Kiel',
+    flag: '🇩🇪',
+    lat: 54.34,
+    lng: 10.15,
+    date: '2024',
+    roleEs: 'Investigador & Co-autor Técnico',
+    roleEn: 'Researcher & Technical Co-Author',
+    mediaType: 'press',
+    src: '/press_covers/comestible_screen.png',
+    url: 'https://comestible.info/inversiones-para-la-agroecologia-ahora/',
+    code: 'OPS-SCI-04',
+    source: 'Comestible.info & Landtag Schleswig-Holstein',
+    impactEs: 'Investigación técnica sobre la urgencia de reorientar subsidios agrícolas de la UE hacia la agroecología y protección biológica de cuencas en el norte de Alemania.',
+    impactEn: 'Technical investigation on shifting EU agricultural subsidies toward agroecological soil conservation and watershed protection in Northern Germany.',
+    methodologyEs: [
+      'Análisis comparativo de balances de nutrientes y calidad del agua subterránea',
+      'Propuesta regulatoria de subsidios directos a suelos regenerativos',
+      'Traducción de ciencia del suelo a política parlamentaria alemana'
+    ],
+    methodologyEn: [
+      'Comparative nutrient balance analysis and groundwater quality tracking',
+      'Policy design redirecting direct farm subsidies toward regenerative soils',
+      'Translating soil physics into parliamentary legislative action'
+    ],
+    tags: ['Kiel', 'Alemania', 'Dirk Kock-Rohwer', 'Agroecología', 'Suelos']
+  },
+
+  // 13. CUMBRES & POLÍTICA (AMARILLO): Climate Coalition COP27 - Sharm El-Sheikh, Egipto
+  {
+    id: 'climatecc-cop27',
+    type: 'global',
+    titleEs: 'Dossier Internacional EPN & Coalición Climática (Julia Chuñil)',
+    titleEn: 'International EPN & Climate Coalition Dossier (Julia Chuñil)',
+    subtitleEs: 'Investigación Global sobre Monocultivos Forestales y Resistencia Territorial // COP27',
+    subtitleEn: 'Global Research on Tree Monocultures & Frontline Defense // COP27 Framework',
+    country: 'Egipto',
+    city: 'Sharm El-Sheikh',
+    flag: '🇪🇬',
+    lat: 27.91,
+    lng: 34.33,
+    date: '2022-2024',
+    roleEs: 'Autor Principal & Investigador Internacional',
+    roleEn: 'Lead Author & International Researcher',
+    mediaType: 'press',
+    src: '/press_covers/climatecc_screen.png',
+    code: 'OPS-GLO-06',
+    source: 'Climate Communications Coalition & EPN // COP27',
+    impactEs: 'Serie analítica de tres partes que evalúa los impactos de los monocultivos de biomasa en las comunidades y el clima, dedicada a la defensora ambiental Julia Chuñil.',
+    impactEn: 'Three-part analytical dossier assessing industrial biomass monoculture impacts on frontline communities, presented during global COP climate diplomacy.',
+    methodologyEs: [
+      'Evaluación de ciclo de vida de plantaciones forestales contra bosques nativos',
+      'Documentación de defensa territorial de liderazgos indígenas y campesinos',
+      'Incidencia en foros multilaterales de cambio climático'
+    ],
+    methodologyEn: [
+      'Life cycle assessment of industrial tree plantations versus native forest sinks',
+      'Documenting frontline territorial stewardship by Indigenous and rural leaders',
+      'Advocacy in multilateral climate governance summits'
+    ],
+    tags: ['COP27', 'Egipto', 'Julia Chuñil', 'EPN', 'Biomasa']
+  },
+
+  // 14. COMUNICACIONES (VERDE): Radio Cristalina 96.3 FM - Maule Sur
   {
     id: 'radio-cristalina-maule',
     type: 'comms',
@@ -983,7 +1060,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             }`}
           >
             <span className="w-2 h-2 rounded-full bg-purple-400" />
-            <span>I+D</span>
+            <span>{currentLang === 'es' ? 'I+D (MORADO)' : 'R&D (PURPLE)'}</span>
           </button>
         </div>
 
@@ -1128,7 +1205,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
                           }`}
                         >
-                          LÁMINA {pIdx + 1}
+                          {currentLang === 'es' ? 'LÁMINA' : 'PLATE'} {pIdx + 1}
                         </button>
                       ))}
                     </div>
@@ -1149,7 +1226,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               {/* Title & Metadata */}
               <div>
                 <div className="flex items-center space-x-2 font-mono text-[10px] text-amber-400 mb-1">
-                  <span>{currentMission.roleEs}</span>
+                  <span>{currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}</span>
                   <span>• {currentMission.date}</span>
                 </div>
 
@@ -1237,10 +1314,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </span>
           </div>
           <div className="flex items-center space-x-3 text-neutral-300">
-            <span>🔴 CIENCIA</span>
-            <span>🟢 COMUNICACIONES</span>
-            <span>🟡 CUMBRES</span>
-            <span>🟣 I+D</span>
+            <span>{currentLang === 'es' ? '🔴 CIENCIA' : '🔴 SCIENCE'}</span>
+            <span>{currentLang === 'es' ? '🟢 COMUNICACIONES' : '🟢 COMMS'}</span>
+            <span>{currentLang === 'es' ? '🟡 CUMBRES' : '🟡 SUMMITS'}</span>
+            <span>{currentLang === 'es' ? '🟣 I+D' : '🟣 R&D'}</span>
           </div>
         </div>
 
