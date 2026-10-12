@@ -8,7 +8,7 @@ import {
   Volume2
 } from 'lucide-react';
 import { MediaItem, Language } from '../types';
-import { resolveAsset } from '../App';
+import { resolveAsset } from '../utils';
 
 interface ModalViewerProps {
   item: MediaItem | null;

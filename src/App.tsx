@@ -47,15 +47,8 @@ const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 
 type ProfileMode = 'comms' | 'science';
 
-export function resolveAsset(path?: string): string {
-  if (!path) return '';
-  if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
-    return path;
-  }
-  // Strip leading slash if present
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${import.meta.env.BASE_URL}${cleanPath}`;
-}
+export { resolveAsset } from './utils';
+import { resolveAsset } from './utils';
 
 export function App() {
   const [currentLang, setCurrentLang] = useState<Language>('en');

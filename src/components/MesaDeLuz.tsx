@@ -17,7 +17,7 @@ import {
   Check
 } from 'lucide-react';
 import { Language, MediaItem } from '../types';
-import { resolveAsset } from '../App';
+import { resolveAsset } from '../utils';
 
 interface LightTableArtifact {
   id: string;
