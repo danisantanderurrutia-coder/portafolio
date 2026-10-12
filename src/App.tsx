@@ -161,181 +161,183 @@ export function App() {
         <div className="absolute bottom-0 right-0 w-[600px] h-[400px] bg-[#ebe2d0]/40 blur-3xl" />
       </div>
 
-      {/* 1. TOP HEADER: MODE TOGGLE & BRANDING */}
-      <header className="relative z-40 w-full px-4 sm:px-8 py-3 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-[#e2d8c7] bg-[#f7f5ee]/85 backdrop-blur-md transition-colors duration-300">
-        {/* Identity & Sub-brand (Clickable to Access & Intro) */}
-        <div 
-          onClick={() => {
-            setHasEntered(false);
-            setActiveTabIndex(0);
-            window.location.hash = '';
-          }}
-          className="flex items-center space-x-3.5 self-start sm:self-center cursor-pointer group"
-          title={currentLang === 'es' ? 'Ir a portada de acceso // Go to Access & Intro' : 'Go to Access & Intro'}
-        >
-          <div className="w-9 h-9 rounded-xl flex items-center justify-center shadow-sm overflow-hidden bg-[#ede6d8] border border-[#d6cab6] p-1 group-hover:scale-105 transition-transform">
-            <img src={resolveAsset('/favicon.svg')} alt="DS Icon" className="w-full h-full object-contain" />
-          </div>
-          <div>
-            <h1 className="text-sm sm:text-base font-serif font-bold tracking-wide flex items-center gap-2">
-              <span className="text-[#1c1917] group-hover:text-[#9c4928] transition-colors">
-                DANIEL SANTANDER URRUTIA
-              </span>
-              <span className="text-[#a39482] font-mono text-xs">//</span>
-              <span
-                className={`text-xs font-sans font-semibold hidden md:inline transition-colors ${
-                  !hasEntered
-                    ? 'text-[#63584e]'
-                    : isComms
-                    ? 'text-[#9c4928]'
-                    : 'text-[#2d5a3c]'
-                }`}
-              >
-                {!hasEntered
-                  ? currentLang === 'es'
-                    ? 'Dossier Profesional • Doble Vertiente Territorial'
-                    : 'Professional Dossier • Dual Territorial Edition'
-                  : isComms
-                  ? currentLang === 'es'
-                    ? 'Comunicaciones Estratégicas & Campañas (+700k)'
-                    : 'Strategic Communications & Campaigns (+700k)'
-                  : currentLang === 'es'
-                  ? 'Científico Ambiental & Biofísico (Dual M.Sc.)'
-                  : 'Environmental Scientist (Dual M.Sc.)'}
-              </span>
-            </h1>
-          </div>
+      {/* 0. TECHNICAL TOP RULER & EXPEDITION COORDINATES */}
+      <div className="relative z-50 w-full bg-[#eee5d5] border-b border-[#d8cdbc] px-3 sm:px-6 py-1 text-[10px] font-mono text-[#786b5e] flex items-center justify-between select-none overflow-x-auto no-scrollbar">
+        <div className="flex items-center space-x-2.5 sm:space-x-4 shrink-0">
+          <span className="font-bold text-[#2d5a3c] tracking-wider">ESTACIÓN: 35°42'S 71°35'W</span>
+          <span className="opacity-30">|</span>
+          <span className="tracking-tight">CUENCA DEL MAULE // TURBERAS BÁLTICAS</span>
+          <span className="opacity-30">|</span>
+          <span className="text-[#9c4928] font-bold tracking-wider">REGISTRO N° 2026-DSU</span>
         </div>
+        <div className="hidden lg:flex items-center space-x-3 font-mono text-[9px] opacity-70 shrink-0">
+          <span>ESCALA DOCUMENTAL 1:1</span>
+          <span className="tracking-widest">|||||'''|||||'''|||||'''|||||'''|||||</span>
+          <span>FCFM U. DE CHILE • CAU KIEL • AMU POZNAŃ</span>
+        </div>
+      </div>
 
-        {/* Action Controls: Profile Switcher + Language + Share */}
-        <div className="flex items-center space-x-2.5 self-end sm:self-center">
-          {/* DUAL PROFILE SWITCHER (UNIFICADO EN MISMO LIENZO EDITORIAL) */}
-          {hasEntered && (
-            <div className="p-1 rounded-full border border-[#d8cebd] bg-[#ede6d8]/90 flex items-center shadow-inner">
+      {/* 1. TOP MANILA HEADER: DOSSIER CEJA & RUBBER STAMP SWITCHER */}
+      <header className="relative z-40 w-full px-3 sm:px-6 py-2.5 border-b border-[#d5c7b0] bg-[#ede4d3] shadow-sm">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+          {/* Identity Stamp */}
+          <div 
+            onClick={() => {
+              setHasEntered(false);
+              setActiveTabIndex(0);
+              window.location.hash = '';
+            }}
+            className="flex items-center space-x-3 self-start md:self-center cursor-pointer group"
+            title={currentLang === 'es' ? 'Ir al índice del expediente' : 'Go to dossier cover'}
+          >
+            {/* Seal Box */}
+            <div className="p-1 rounded bg-[#fdfbf7] border-2 border-[#b85d38]/50 group-hover:border-[#9c4928] shadow-sm transition-all flex items-center space-x-2.5">
+              <div className="w-8 h-8 rounded bg-[#f6efe2] border border-[#d8cebd] p-0.5 flex items-center justify-center overflow-hidden">
+                <img src={resolveAsset('/favicon.svg')} alt="DS" className="w-full h-full object-contain" />
+              </div>
+              <div className="pr-1.5">
+                <div className="text-[9.5px] font-mono font-bold tracking-widest text-[#7f3419] uppercase leading-tight">
+                  EXPEDIENTE DE TERRENO
+                </div>
+                <div className="text-sm font-serif font-bold text-[#1c1917] tracking-tight group-hover:text-[#9c4928] transition-colors leading-none mt-0.5">
+                  DANIEL SANTANDER URRUTIA
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* DUAL TOMO RUBBER STAMPS (SELECTOR RADICAL DE EXPEDIENTE) */}
+          <div className="flex flex-wrap items-center justify-end gap-2 w-full md:w-auto">
+            {hasEntered && (
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                {/* Tomo I: Comunicaciones */}
+                <button
+                  onClick={() => handleToggleProfile('comms')}
+                  className={`px-3 py-1.5 rounded font-mono text-xs transition-all duration-200 flex items-center space-x-2 border-2 ${
+                    isComms
+                      ? 'bg-[#9c4928] text-white border-[#7f3419] shadow-sm font-bold scale-[1.02]'
+                      : 'bg-[#fdfbf7] text-[#63584e] border-dashed border-[#c5b59e] hover:border-[#9c4928] hover:text-[#9c4928]'
+                  }`}
+                  title="Tomo I: Campañas, Medios e Incidencia"
+                >
+                  <span className={`w-2 h-2 rounded-full ${isComms ? 'bg-white' : 'bg-[#9c4928]'}`} />
+                  <span className="font-serif tracking-wide text-xs">TOMO I // COMUNICACIONES</span>
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono ${isComms ? 'bg-black/25 text-white' : 'bg-[#f4ede0] text-[#7f3419]'}`}>
+                    +700K
+                  </span>
+                </button>
+
+                {/* Tomo II: Científico */}
+                <button
+                  onClick={() => handleToggleProfile('science')}
+                  className={`px-3 py-1.5 rounded font-mono text-xs transition-all duration-200 flex items-center space-x-2 border-2 ${
+                    !isComms
+                      ? 'bg-[#2d5a3c] text-white border-[#1e402a] shadow-sm font-bold scale-[1.02]'
+                      : 'bg-[#fdfbf7] text-[#63584e] border-dashed border-[#c5b59e] hover:border-[#2d5a3c] hover:text-[#2d5a3c]'
+                  }`}
+                  title="Tomo II: Cuencas, Geofísica y Sistemas Biofísicos"
+                >
+                  <span className={`w-2 h-2 rounded-full ${!isComms ? 'bg-white' : 'bg-[#2d5a3c]'}`} />
+                  <span className="font-serif tracking-wide text-xs">TOMO II // CIENTÍFICO</span>
+                  <span className={`text-[9px] px-1.5 py-0.5 rounded font-mono ${!isComms ? 'bg-black/25 text-white' : 'bg-[#e7eee8] text-[#2d5a3c]'}`}>
+                    DUAL M.SC.
+                  </span>
+                </button>
+              </div>
+            )}
+
+            {/* Language & Share Stamp Buttons */}
+            <div className="flex items-center space-x-1.5">
               <button
-                onClick={() => handleToggleProfile('comms')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-serif font-medium transition-all duration-200 ${
-                  isComms
-                    ? 'bg-[#9c4928] text-white font-bold shadow-sm'
-                    : 'text-[#63584e] hover:text-[#1c1917] hover:bg-[#e4dcce]'
-                }`}
-                title={currentLang === 'es' ? 'Vertiente: Comunicaciones y Campañas' : 'Edition: Communications & Campaigns'}
+                onClick={toggleLanguage}
+                className="px-2.5 py-1.5 rounded border border-[#cfc1a8] bg-[#fdfbf7] hover:bg-[#ede5d4] text-[#2c2620] text-xs font-mono transition shadow-sm flex items-center space-x-1"
+                title="Cambiar idioma // Switch language"
               >
-                <Moon className="w-3.5 h-3.5" />
-                <span>{currentLang === 'es' ? 'Comunicaciones' : 'Communications'}</span>
+                <Globe className={`w-3.5 h-3.5 ${isComms ? 'text-[#9c4928]' : 'text-[#2d5a3c]'}`} />
+                <span className="font-bold">{currentLang === 'es' ? 'ES' : 'EN'}</span>
               </button>
 
               <button
-                onClick={() => handleToggleProfile('science')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-serif font-medium transition-all duration-200 ${
-                  !isComms
-                    ? 'bg-[#2d5a3c] text-white font-bold shadow-sm'
-                    : 'text-[#63584e] hover:text-[#1c1917] hover:bg-[#e4dcce]'
-                }`}
-                title={currentLang === 'es' ? 'Vertiente: Científico y Biofísica' : 'Edition: Science & Biophysics'}
+                onClick={handleCopyLink}
+                className="p-1.5 rounded border border-[#cfc1a8] bg-[#fdfbf7] hover:bg-[#ede5d4] text-[#2c2620] text-xs transition shadow-sm"
+                title="Copiar enlace de esta ficha"
               >
-                <Sun className="w-3.5 h-3.5" />
-                <span>{currentLang === 'es' ? 'Científico' : 'Scientific'}</span>
+                {copied ? <Check className="w-3.5 h-3.5 text-[#2d5a3c]" /> : <Share2 className="w-3.5 h-3.5" />}
               </button>
             </div>
-          )}
-
-          {/* Language Switch */}
-          <button
-            onClick={toggleLanguage}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-[#d6cab6] bg-[#ede6d8]/80 text-[#2c2620] hover:bg-[#e3d8c5] text-xs font-serif transition shadow-sm"
-          >
-            <Globe className={`w-3.5 h-3.5 ${isComms ? 'text-[#9c4928]' : 'text-[#2d5a3c]'}`} />
-            <span className="font-bold">{currentLang === 'es' ? 'ES' : 'EN'}</span>
-            <span className="opacity-40">/</span>
-            <span className="opacity-70">{currentLang === 'es' ? 'EN' : 'ES'}</span>
-          </button>
-
-          {/* Share Link */}
-          <button
-            onClick={handleCopyLink}
-            className="p-2 rounded-full border border-[#d6cab6] bg-[#ede6d8]/80 text-[#2c2620] hover:bg-[#e3d8c5] text-xs transition shadow-sm"
-            title="Copiar enlace"
-          >
-            {copied ? <Check className="w-4 h-4 text-[#2d5a3c]" /> : <Share2 className="w-4 h-4" />}
-          </button>
+          </div>
         </div>
       </header>
 
-      {/* 2. FLOATING TAB PILLS (MENÚ FLOTANTE EDITORIAL COMPACTO) */}
-      {hasEntered ? (
-        <div className="sticky top-2 z-40 w-full px-3 flex justify-center mb-2 sm:mb-2.5">
-          <nav className="inline-flex items-center border border-[#dad0bf] bg-[#f5efe3]/95 backdrop-blur-md shadow-sm rounded-full p-1 overflow-x-auto max-w-[98vw] no-scrollbar">
-            {(isComms ? activeSections.slice(1) : activeSections).map((sec, originalIdx) => {
+      {/* 2. MANILA FOLDER INDEX TABS (PESTAÑAS ESCALONADAS FÍSICAS DE ARCHIVADOR) */}
+      <div className="relative z-30 w-full bg-[#eee5d5] border-b-2 border-[#cfc1a8] pt-2 px-3 sm:px-6 select-none">
+        <div className="max-w-6xl mx-auto flex items-end overflow-x-auto no-scrollbar gap-1 sm:gap-1.5">
+          {hasEntered ? (
+            (isComms ? activeSections.slice(1) : activeSections).map((sec, originalIdx) => {
               const idx = isComms ? originalIdx + 1 : originalIdx;
               const isActive = activeTabIndex === idx;
-              // Full title for tab
               const tabTitle = currentLang === 'es'
                 ? (sec.tabTitleEs || sec.tabKey.replace(/^\d+\.\s*/, ''))
                 : (sec.tabTitleEn || sec.tabKey.replace(/^\d+\.\s*/, ''));
-              
-              // Tab index prefix: 00., 01., 02., etc.
-              const prefix = `0${idx}.`;
+              const prefix = `§ 0${idx}`;
 
               return (
                 <button
                   key={sec.id}
                   onClick={() => handleSelectTab(idx)}
-                  className={`relative rounded-full font-serif font-medium transition-all duration-200 shrink-0 flex items-center space-x-1.5 px-3.5 py-1 sm:px-4 sm:py-1.5 text-xs ${
+                  className={`group relative px-3 sm:px-4 py-2 font-mono text-xs rounded-t-lg transition-all duration-150 shrink-0 flex items-center space-x-1.5 border-t-2 border-x-2 ${
                     isActive
                       ? isComms
-                        ? 'bg-[#9c4928] text-white font-bold shadow-sm'
-                        : 'bg-[#2d5a3c] text-white font-bold shadow-sm'
-                      : 'text-[#5c5247] hover:text-[#1c1917] hover:bg-[#eae1d0]'
+                        ? 'bg-[#fdfbf7] text-[#9c4928] border-[#9c4928] -mb-[2px] pb-[10px] z-10 font-bold shadow-[0_-2px_4px_rgba(0,0,0,0.04)]'
+                        : 'bg-[#fdfbf7] text-[#2d5a3c] border-[#2d5a3c] -mb-[2px] pb-[10px] z-10 font-bold shadow-[0_-2px_4px_rgba(0,0,0,0.04)]'
+                      : 'bg-[#e2d5bf] text-[#63584e] border-[#cfc1a8] hover:bg-[#eae0cf] hover:text-[#1c1917]'
                   }`}
                 >
-                  <span className="font-mono text-[10px] opacity-70">
+                  <span className={`text-[10px] ${isActive ? (isComms ? 'text-[#9c4928]' : 'text-[#2d5a3c]') : 'opacity-60'}`}>
                     {prefix}
                   </span>
-                  <span className="tracking-tight whitespace-nowrap">{tabTitle}</span>
+                  <span className="font-serif tracking-tight uppercase whitespace-nowrap">
+                    {tabTitle}
+                  </span>
                 </button>
               );
-            })}
-          </nav>
+            })
+          ) : (
+            <div className="px-4 py-2 font-mono text-xs rounded-t-lg bg-[#fdfbf7] text-[#7f3419] border-t-2 border-x-2 border-[#b85d38] -mb-[2px] pb-[10px] z-10 font-bold flex items-center space-x-2">
+              <span className="text-[10px]">§ 00</span>
+              <span className="font-serif uppercase tracking-tight">PORTADA GENERAL // EXPEDIENTE DE TERRENO</span>
+            </div>
+          )}
         </div>
-      ) : (
-        /* Top badge when in Welcome Gate view */
-        <div className="w-full flex justify-center py-2">
-          <div className="px-4 py-1.5 rounded-full border border-[#d6cab6] bg-[#ede6d8] text-[#5c5247] text-xs font-mono font-semibold flex items-center space-x-2 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-[#b85d38]" />
-            <span>{currentLang === 'es' ? 'PORTADA Y PRESENTACIÓN EJECUTIVA' : 'COVER & EXECUTIVE BRIEFING'}</span>
-          </div>
-        </div>
-      )}
+      </div>
 
       {/* 3. MAIN CENTRAL PANORAMIC STAGE */}
-      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-3 sm:px-6 w-full max-w-6xl mx-auto my-auto py-1 sm:py-2">
+      <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-3 sm:px-6 w-full max-w-6xl mx-auto my-auto py-2 sm:py-3">
         {/* Chapter Header Ribbon (Omit on dedicated Cover Gate to maintain clean heroic focus) */}
         {activeSection.id !== 'portada-portafolio' && (
-          <div className="w-full text-center max-w-3xl mb-3 sm:mb-4 animate-fadeIn">
-            <div
-              className={`inline-flex items-center space-x-2 px-3.5 py-1 rounded-full border text-[11px] font-mono uppercase shadow-sm transition-colors ${
-                isComms
-                  ? 'bg-[#f7ece5] border-[#e2a893] text-[#8a3315]'
-                  : 'bg-[#eaf1eb] border-[#a8c4a9] text-[#224830]'
-              }`}
-            >
-              <span>
-                {isComms
-                  ? currentLang === 'es'
-                    ? 'CAMPAÑAS & MEDIOS'
-                    : 'CAMPAIGNS & MEDIA'
-                  : currentLang === 'es'
-                  ? 'EXPEDIENTE CIENTÍFICO'
-                  : 'SCIENTIFIC DOSSIER'}
-              </span>
-              <span className="opacity-40">•</span>
-              <span className="font-bold">
-                {currentLang === 'es' ? activeSection.badgeEs : activeSection.badgeEn}
-              </span>
+          <div className="w-full text-center max-w-3xl mb-4 sm:mb-5 animate-fadeIn">
+            {/* Rubber Stamp Box */}
+            <div className="inline-block p-1 rounded border-2 border-dashed border-[#b85d38]/40 bg-[#fbf5eb]">
+              <div
+                className={`inline-flex items-center space-x-2 px-3 py-0.5 border text-[10px] font-mono uppercase tracking-widest ${
+                  isComms
+                    ? 'border-[#9c4928] text-[#9c4928] bg-[#fbf0eb]'
+                    : 'border-[#2d5a3c] text-[#2d5a3c] bg-[#eef4ef]'
+                }`}
+              >
+                <span className="font-bold">
+                  {isComms
+                    ? currentLang === 'es' ? 'TOMO I • INCIDENCIA & MEDIOS' : 'VOL I • ADVOCACY & MEDIA'
+                    : currentLang === 'es' ? 'TOMO II • EXPEDIENTE CIENTÍFICO' : 'VOL II • SCIENTIFIC DOSSIER'}
+                </span>
+                <span className="opacity-40">//</span>
+                <span>
+                  {currentLang === 'es' ? activeSection.badgeEs : activeSection.badgeEn}
+                </span>
+              </div>
             </div>
 
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold tracking-tight mt-1.5 text-[#1c1917]">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold tracking-tight mt-2 text-[#1c1917]">
               {currentLang === 'es' ? activeSection.titleEs : activeSection.titleEn}
             </h2>
             <p
@@ -346,10 +348,10 @@ export function App() {
               {currentLang === 'es' ? activeSection.roleEs : activeSection.roleEn}
             </p>
 
-            {/* Sub-Section Switcher (e.g. Primera Línea Prensa vs Red Comunitaria Maule Sur) */}
+            {/* Sub-Section Switcher: Manila Index Tags */}
             {activeSection.subSections && activeSection.subSections.length > 1 && (
-              <div className="mt-3 flex items-center justify-center">
-                <div className="inline-flex p-1 rounded-full bg-[#ede6d8] border border-[#d8cebd] shadow-inner">
+              <div className="mt-3.5 flex items-center justify-center">
+                <div className="inline-flex p-1 rounded border border-[#cfc1a8] bg-[#eee5d5] shadow-inner gap-1">
                   {activeSection.subSections.map((subSec, sIdx) => {
                     const isSubActive = sIdx === activeSubSectionIndex;
                     return (
@@ -359,13 +361,14 @@ export function App() {
                           setActiveSubSectionIndex(sIdx);
                           setCurrentSlideIndex(0);
                         }}
-                        className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-serif font-medium transition-all duration-200 flex items-center space-x-1.5 ${
+                        className={`px-3 sm:px-4 py-1 rounded font-mono text-xs transition-all duration-150 flex items-center space-x-1.5 ${
                           isSubActive
                             ? 'bg-[#9c4928] text-white font-bold shadow-sm'
-                            : 'text-[#63584e] hover:text-[#1c1917] hover:bg-[#e4dcce]'
+                            : 'bg-[#fdfbf7] text-[#63584e] hover:text-[#1c1917] hover:bg-[#f6efe2] border border-[#d8cebd]'
                         }`}
                       >
-                        <span>{currentLang === 'es' ? subSec.titleEs : subSec.titleEn}</span>
+                        <span className="text-[9px] opacity-70">#{sIdx + 1}</span>
+                        <span className="font-serif">{currentLang === 'es' ? subSec.titleEs : subSec.titleEn}</span>
                       </button>
                     );
                   })}
