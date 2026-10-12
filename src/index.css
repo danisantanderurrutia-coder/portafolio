@@ -3,36 +3,36 @@
 @tailwind utilities;
 
 body {
-  background-color: #120f0d;
-  color: #f5ede4;
+  background-color: #f7f5ee;
+  color: #1c1917;
   font-family: Inter, system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: rgba(200, 109, 81, 0.35);
-  color: #fdfbf7;
+  background-color: rgba(184, 93, 56, 0.22);
+  color: #1a1714;
 }
 
-/* Warm organic scrollbars */
+/* Warm organic parchment scrollbars */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #120f0d;
+  background: #f3ece0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #322a23;
+  background: #d6cab6;
   border-radius: 9999px;
-  border: 1px solid rgba(212, 140, 70, 0.25);
+  border: 1px solid rgba(184, 93, 56, 0.15);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #c86d51;
+  background: #b85d38;
 }
 
-/* Hide scrollbars for slick navigation */
+/* Hide scrollbars for horizontal navigation */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -41,10 +41,11 @@ body {
   scrollbar-width: none;
 }
 
-/* Warm sun-dappled canopy ambient texture */
-.warm-sunlight {
+/* Subtle organic paper texture */
+.paper-texture {
   background-image: 
-    radial-gradient(ellipse at 30% 10%, rgba(212, 140, 70, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 85%, rgba(200, 109, 81, 0.10) 0%, transparent 55%),
-    radial-gradient(ellipse at 50% 50%, rgba(107, 142, 35, 0.08) 0%, transparent 65%);
+    radial-gradient(ellipse at 20% 10%, rgba(184, 93, 56, 0.035) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(45, 90, 60, 0.03) 0%, transparent 55%),
+    radial-gradient(rgba(140, 105, 75, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 28px 28px;
 }

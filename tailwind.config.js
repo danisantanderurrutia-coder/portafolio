@@ -24,6 +24,21 @@ export default {
           sage: '#84a98c', // warm botanical foliage
           leaf: '#2d4a22', // deep forest green
         },
+        paper: {
+          50: '#fdfbf7', // warm handmade paper
+          100: '#f7f5ee', // primary canvas background
+          200: '#eee7db', // linen matting / board
+          300: '#e2d7c5', // hairline border
+          400: '#d5c7b0', // frame border
+          500: '#b8a68d',
+        },
+        terracotta: {
+          DEFAULT: '#b85d38',
+          dark: '#9c4928',
+          deep: '#7f3419',
+          light: '#df8261',
+          faint: '#fbf0eb',
+        },
         clay: {
           terracotta: '#c86d51', // natural terracotta clay
           rust: '#b85d38', // warm forest ember / rust
