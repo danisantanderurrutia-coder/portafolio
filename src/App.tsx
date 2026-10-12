@@ -48,9 +48,11 @@ type ProfileMode = 'comms' | 'science';
 
 export { resolveAsset } from './utils';
 import { resolveAsset } from './utils';
+import { GameWorldView } from './components/GameWorldView';
 
 export function App() {
-  const [currentLang, setCurrentLang] = useState<Language>('en');
+  const [viewMode, setViewMode] = useState<'game' | 'dossier'>('game');
+  const [currentLang, setCurrentLang] = useState<Language>('es');
   const [profileMode, setProfileMode] = useState<ProfileMode>('comms');
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
   const [activeSubSectionIndex, setActiveSubSectionIndex] = useState<number>(0);
@@ -145,6 +147,16 @@ export function App() {
 
   const isComms = profileMode === 'comms';
 
+  if (viewMode === 'game') {
+    return (
+      <GameWorldView
+        currentLang={currentLang}
+        onToggleLanguage={toggleLanguage}
+        onExitToDossier={() => setViewMode('dossier')}
+      />
+    );
+  }
+
   return (
     <div className="relative min-h-screen flex flex-col justify-between overflow-x-hidden select-none bg-[#f7f5ee] text-[#1c1917] paper-texture">
       {/* Background Subtle Ambient Paper Warmth */}
@@ -238,8 +250,17 @@ export function App() {
               </div>
             )}
 
-            {/* Language & Share Stamp Buttons */}
+            {/* Language, 3D Game Switcher & Share Stamp Buttons */}
             <div className="flex items-center space-x-1.5">
+              <button
+                onClick={() => setViewMode('game')}
+                className="px-2.5 py-1.5 rounded border border-[#2d5a3c] bg-[#2d5a3c] hover:bg-[#23452e] text-[#f7f5ee] text-xs font-mono font-bold transition shadow-sm flex items-center space-x-1.5"
+                title="Volver a la vista de juego 3D con planeta y cielo"
+              >
+                <span>🌐</span>
+                <span className="hidden sm:inline">{currentLang === 'es' ? 'PLANISFERIO 3D' : '3D GLOBE HUD'}</span>
+              </button>
+
               <button
                 onClick={toggleLanguage}
                 className="px-2.5 py-1.5 rounded border border-[#cfc1a8] bg-[#fdfbf7] hover:bg-[#ede5d4] text-[#2c2620] text-xs font-mono transition shadow-sm flex items-center space-x-1"
