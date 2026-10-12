@@ -22,10 +22,12 @@ import {
   Microscope,
   FileCheck,
   Award,
-  ArrowRight
+  ArrowRight,
+  Compass
 } from 'lucide-react';
 import { ModalViewer } from './components/ModalViewer';
 import { MesaDeLuz } from './components/MesaDeLuz';
+import { TacticalCommandView } from './components/TacticalCommandView';
 
 const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   <svg 
@@ -59,13 +61,15 @@ export function App() {
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
   const [hasEntered, setHasEntered] = useState<boolean>(false);
-  const [viewFormat, setViewFormat] = useState<'mesa' | 'dossier'>('mesa');
+  const [viewFormat, setViewFormat] = useState<'tactical' | 'mesa' | 'dossier'>('tactical');
 
   // Sync tab, view format and entered state with URL hash
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase().replace(/^#/, '');
-      if (hash === 'mesa' || hash === '' || hash === '/') {
+      if (hash === 'tactical' || hash === '' || hash === '/') {
+        setViewFormat('tactical');
+      } else if (hash === 'mesa') {
         setViewFormat('mesa');
       } else if (hash === 'dossier' || hash === 'acceso') {
         setViewFormat('dossier');
@@ -205,23 +209,39 @@ export function App() {
           </div>
 
           <div className="flex flex-wrap items-center justify-end gap-2 w-full md:w-auto">
-            {/* VIEW MODE TOGGLE: MESA DE LUZ VS DOSSIER */}
+            {/* VIEW MODE TOGGLE: FANZINE & GLOBO VS MESA DE LUZ VS DOSSIER */}
             <div className="flex items-center p-0.5 rounded-lg bg-[#ded2be] border border-[#c4b39b] shadow-inner text-xs font-mono">
+              <button
+                onClick={() => {
+                  setViewFormat('tactical');
+                  window.location.hash = '#tactical';
+                }}
+                className={`px-3 py-1.5 rounded-md transition-all flex items-center space-x-1.5 ${
+                  viewFormat === 'tactical'
+                    ? 'bg-[#1c1917] text-[#fbf8f2] font-bold shadow-sm'
+                    : 'text-[#63584e] hover:text-[#1c1917]'
+                }`}
+                title={currentLang === 'es' ? 'Menú Fanzine Cyberpunk + Globo Terráqueo 3D (8 Países)' : 'Cyberpunk Zine Menu + 3D Earth Globe (8 Countries)'}
+              >
+                <Compass className="w-3.5 h-3.5 text-amber-500" />
+                <span className="font-serif tracking-tight font-bold">{currentLang === 'es' ? 'FANZINE & GLOBO' : 'ZINE & GLOBE'}</span>
+                <span className="text-[9px] px-1 py-0.2 rounded bg-amber-500/20 text-amber-700 font-mono font-bold">NUEVO</span>
+              </button>
+
               <button
                 onClick={() => {
                   setViewFormat('mesa');
                   window.location.hash = '#mesa';
                 }}
-                className={`px-3 py-1.5 rounded-md transition-all flex items-center space-x-1.5 ${
+                className={`px-2.5 py-1.5 rounded-md transition-all flex items-center space-x-1.5 ${
                   viewFormat === 'mesa'
                     ? 'bg-[#1c1917] text-[#fbf8f2] font-bold shadow-sm'
                     : 'text-[#63584e] hover:text-[#1c1917]'
                 }`}
-                title={currentLang === 'es' ? 'Mesa de Luz: Tablero de Taller interactivo' : 'Light Table: Interactive Workshop drafting board'}
+                title={currentLang === 'es' ? 'Mesa de Luz de Taller' : 'Workshop Lightboard'}
               >
-                <Sparkles className="w-3.5 h-3.5 text-[#d97706]" />
-                <span className="font-serif tracking-tight font-bold">{currentLang === 'es' ? 'MESA DE LUZ' : 'LIGHT TABLE'}</span>
-                <span className="text-[9px] px-1 py-0.2 rounded bg-[#d97706]/20 text-[#d97706] font-mono font-bold">NUEVO</span>
+                <Sparkles className="w-3 h-3 text-[#d97706]" />
+                <span className="font-serif tracking-tight">{currentLang === 'es' ? 'MESA' : 'BOARD'}</span>
               </button>
 
               <button
@@ -229,14 +249,14 @@ export function App() {
                   setViewFormat('dossier');
                   window.location.hash = '#dossier';
                 }}
-                className={`px-3 py-1.5 rounded-md transition-all flex items-center space-x-1.5 ${
+                className={`px-2.5 py-1.5 rounded-md transition-all flex items-center space-x-1.5 ${
                   viewFormat === 'dossier'
                     ? 'bg-[#1c1917] text-[#fbf8f2] font-bold shadow-sm'
                     : 'text-[#63584e] hover:text-[#1c1917]'
                 }`}
-                title={currentLang === 'es' ? 'Dossier Clásico: Fichas y pestañas' : 'Classic Dossier: Tabs and file cards'}
+                title={currentLang === 'es' ? 'Dossier Clásico' : 'Classic Dossier'}
               >
-                <FileText className="w-3.5 h-3.5 opacity-80" />
+                <FileText className="w-3 h-3 opacity-80" />
                 <span className="font-serif tracking-tight">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
               </button>
             </div>
@@ -303,8 +323,10 @@ export function App() {
         </div>
       </header>
 
-      {/* CONDITIONAL WORKSPACE VIEW: MESA DE LUZ VS DOSSIER CLÁSICO */}
-      {viewFormat === 'mesa' ? (
+      {/* CONDITIONAL WORKSPACE VIEW: TACTICAL & GLOBO VS MESA DE LUZ VS DOSSIER */}
+      {viewFormat === 'tactical' ? (
+        <TacticalCommandView currentLang={currentLang} onToggleLanguage={toggleLanguage} />
+      ) : viewFormat === 'mesa' ? (
         <MesaDeLuz currentLang={currentLang} />
       ) : (
         <>
@@ -1111,7 +1133,9 @@ export function App() {
       {/* 4. FOOTER */}
       <footer className="relative z-20 w-full py-3.5 px-6 text-center text-xs font-serif border-t border-[#ded5c5] bg-[#f2ebdf] text-[#63584e] transition-colors">
         <span>
-          {viewFormat === 'mesa'
+          {viewFormat === 'tactical'
+            ? `© ${new Date().getFullYear()} Daniel Santander Urrutia • Comando Táctico & Expedición Global (8 Países) • FCFM Universidad de Chile • Dual M.Sc. Kiel / Poznań`
+            : viewFormat === 'mesa'
             ? `© ${new Date().getFullYear()} Daniel Santander Urrutia • Mesa de Luz de Taller & Geofísica Territorial • FCFM Universidad de Chile • Dual M.Sc. Kiel / Poznań`
             : `© ${new Date().getFullYear()} Daniel Santander Urrutia • Dossier Editorial & Científico • Usa ← y →`}
         </span>
