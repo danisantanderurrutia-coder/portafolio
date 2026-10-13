@@ -28,20 +28,20 @@ export function App() {
         <PunkMainMenu
           currentLang={currentLang}
           onToggleLanguage={toggleLanguage}
-          onSelectScience={() => {
-            setViewMode('dossier');
-          }}
           onSelectSummits={() => {
             setSelectedCategory('global');
             setViewMode('game');
           }}
           onSelectCommsArts={() => {
-            setCommsCultureMode('comms_arts');
-            setViewMode('comms_culture');
+            setSelectedCategory('culture');
+            setViewMode('game');
           }}
           onSelectGrassroots={() => {
-            setCommsCultureMode('grassroots');
-            setViewMode('comms_culture');
+            setSelectedCategory('comms');
+            setViewMode('game');
+          }}
+          onSelectScience={() => {
+            setViewMode('dossier');
           }}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}

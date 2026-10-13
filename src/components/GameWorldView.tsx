@@ -858,6 +858,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   // Filtered list for mission rail
   const filteredMissions = GAME_MISSIONS.filter((m) => {
     if (activeFilter === 'all') return true;
+    if (activeFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa';
     return m.type === activeFilter;
   });
 
@@ -1428,19 +1429,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('comms')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 ${
-              activeFilter === 'comms'
-                ? 'bg-emerald-600 text-white shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-emerald-500 hover:text-white'
-            }`}
-          >
-            {currentLang === 'es' ? '[MEDIOS]' : '[COMMS]'}
-          </button>
-
-          <button
             onClick={() => setActiveFilter('global')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-1 ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 ${
               activeFilter === 'global'
                 ? 'bg-[#facc15] text-black shadow-[2px_2px_0px_#000]'
                 : 'bg-white/10 text-neutral-300 hover:bg-[#facc15] hover:text-black'
@@ -1457,7 +1447,18 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 : 'bg-white/10 text-neutral-300 hover:bg-orange-500 hover:text-white'
             }`}
           >
-            {currentLang === 'es' ? '[CULTURA]' : '[CULTURE]'}
+            {currentLang === 'es' ? '[MEDIOS & ARTE]' : '[MEDIA & ARTS]'}
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('comms')}
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 ${
+              activeFilter === 'comms'
+                ? 'bg-emerald-600 text-white shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-emerald-500 hover:text-white'
+            }`}
+          >
+            {currentLang === 'es' ? '[COMUNIDADES]' : '[GRASSROOTS]'}
           </button>
 
           <button
