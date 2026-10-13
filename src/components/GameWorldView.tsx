@@ -1014,52 +1014,59 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       bGroup.position.copy(pos);
       bGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), norm);
 
-      // 1. Black outer sticker boundary (thick ink edge)
-      const blackBaseGeo = new THREE.RingGeometry(0.02, 0.046, 24);
-      const blackBaseMat = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide });
-      const blackBase = new THREE.Mesh(blackBaseGeo, blackBaseMat);
-      blackBase.rotation.x = Math.PI / 2;
-      bGroup.add(blackBase);
+      // 1. Base Grommet / Pinhole shadow on surface
+      const holeGeo = new THREE.RingGeometry(0.008, 0.028, 24);
+      const holeMat = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide });
+      const hole = new THREE.Mesh(holeGeo, holeMat);
+      hole.rotation.x = Math.PI / 2;
+      bGroup.add(hole);
 
-      // 2. Crisp White Cutout Border (signature comic sticker border)
-      const whiteBorderGeo = new THREE.RingGeometry(0.012, 0.038, 24);
-      const whiteBorderMat = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
-      const whiteBorder = new THREE.Mesh(whiteBorderGeo, whiteBorderMat);
-      whiteBorder.rotation.x = Math.PI / 2;
-      bGroup.add(whiteBorder);
+      // 2. Slender Metallic Steel Needle / Mast
+      const needleGeo = new THREE.CylinderGeometry(0.0035, 0.0035, 0.22, 8);
+      const needleMat = new THREE.MeshBasicMaterial({ color: 0xe2e8f0 });
+      const needle = new THREE.Mesh(needleGeo, needleMat);
+      needle.position.y = 0.11;
+      bGroup.add(needle);
 
-      // 3. Category Color Center Disc
-      const centerDiscGeo = new THREE.CircleGeometry(0.022, 24);
-      const centerDiscMat = new THREE.MeshBasicMaterial({ color: colorHex, side: THREE.DoubleSide });
-      const centerDisc = new THREE.Mesh(centerDiscGeo, centerDiscMat);
-      centerDisc.rotation.x = Math.PI / 2;
-      bGroup.add(centerDisc);
+      // 3. Round Ball Pinhead at top of needle (colored sphere)
+      const capGeo = new THREE.SphereGeometry(0.018, 16, 16);
+      const capMat = new THREE.MeshBasicMaterial({ color: colorHex });
+      const cap = new THREE.Mesh(capGeo, capMat);
+      cap.position.y = 0.225;
+      bGroup.add(cap);
 
-      // 4. Comic Stencil Pin Needle (Graphic white stem with colored pin-head)
-      const stemGeo = new THREE.CylinderGeometry(0.005, 0.005, 0.12, 8);
-      const stemMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-      const stem = new THREE.Mesh(stemGeo, stemMat);
-      stem.position.y = 0.06;
-      bGroup.add(stem);
+      // 4. Map Pushpin Flag Pennant (Banderita de tablero con bandera y ciudad)
+      const flagCanvas = document.createElement('canvas');
+      flagCanvas.width = 144;
+      flagCanvas.height = 84;
+      const fCtx = flagCanvas.getContext('2d')!;
+      fCtx.fillStyle = '#' + colorHex.toString(16).padStart(6, '0');
+      fCtx.fillRect(0, 0, 144, 84);
+      fCtx.fillStyle = 'rgba(255, 255, 255, 0.2)';
+      fCtx.fillRect(0, 0, 144, 42);
+      fCtx.lineWidth = 6;
+      fCtx.strokeStyle = '#000000';
+      fCtx.strokeRect(3, 3, 138, 78);
+      fCtx.font = '34px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      fCtx.textAlign = 'center';
+      fCtx.textBaseline = 'middle';
+      fCtx.fillText(m.flag, 42, 42);
+      fCtx.fillStyle = '#ffffff';
+      fCtx.font = 'bold 22px monospace';
+      fCtx.fillText(m.city.slice(0, 4).toUpperCase(), 102, 43);
 
-      // Graphic Pin Head with category color & black outline
-      const headGeo = new THREE.SphereGeometry(0.026, 16, 16);
-      const headMat = new THREE.MeshBasicMaterial({ color: colorHex });
-      const head = new THREE.Mesh(headGeo, headMat);
-      head.position.y = 0.12;
-      bGroup.add(head);
+      const flagTex = new THREE.CanvasTexture(flagCanvas);
+      const flagGeo = new THREE.PlaneGeometry(0.15, 0.088);
+      const flagMat = new THREE.MeshBasicMaterial({ map: flagTex, side: THREE.DoubleSide });
+      const flagMesh = new THREE.Mesh(flagGeo, flagMat);
+      flagMesh.position.set(0.075, 0.165, 0);
+      bGroup.add(flagMesh);
 
-      const headOutlineGeo = new THREE.SphereGeometry(0.03, 16, 16);
-      const headOutlineMat = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
-      const headOutline = new THREE.Mesh(headOutlineGeo, headOutlineMat);
-      headOutline.position.y = 0.12;
-      bGroup.add(headOutline);
-
-      // Invisible Hit-Test Sphere for mouse click detection
-      const hitGeo = new THREE.SphereGeometry(0.18, 8, 8);
+      // Invisible Hit-Test Sphere for easy mouse / touch click detection
+      const hitGeo = new THREE.SphereGeometry(0.2, 8, 8);
       const hitMat = new THREE.MeshBasicMaterial({ visible: false });
       const hitSphere = new THREE.Mesh(hitGeo, hitMat);
-      hitSphere.position.y = 0.08;
+      hitSphere.position.y = 0.14;
       hitSphere.userData = { missionId: m.id };
       bGroup.add(hitSphere);
       hitObjects.push(hitSphere);
