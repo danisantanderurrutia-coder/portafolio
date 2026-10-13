@@ -50,92 +50,91 @@ export interface GameMission {
 }
 
 export const GAME_MISSIONS: GameMission[] = [
-  // 1. COMUNICACIONES (VERDE): Cámara de Diputadas/os - Valparaíso
+  // 1. COMUNICACIONES: Cámara de Diputadas/os - Valparaíso
   {
     id: 'congreso-valparaiso',
     type: 'comms',
     titleEs: 'Intervención Oficial en Cámara de Diputadas/os: Megaincendios y Monocultivo',
     titleEn: 'Official Testimony at Chamber of Deputies: Wildfires & Forestry Monoculture',
-    subtitleEs: 'Comisión Especial de Emergencia, Desastres y Bomberos // Congreso Nacional de Chile',
-    subtitleEn: 'Special Commission on Emergencies, Disasters & Firefighting // National Congress',
+    subtitleEs: 'Comisión Especial de Emergencia, Desastres y Bomberos // Asesoría Parlamentaria',
+    subtitleEn: 'Special Commission on Emergencies, Disasters & Firefighting // Parliamentary Advisory',
     country: 'Chile',
     city: 'Valparaíso',
     flag: '🇨🇱',
     lat: -33.05,
     lng: -71.61,
     date: '2023',
-    roleEs: 'Vocero Técnico & Expositor Territorial',
-    roleEn: 'Technical Spokesperson & Grassroots Delegate',
+    roleEs: 'Asesor Técnico Parlamentario & Vocero',
+    roleEn: 'Parliamentary Technical Advisor & Spokesperson',
     mediaType: 'video',
     embedUrl: 'https://www.youtube.com/embed/7eJ-pQ3qe8o',
     url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
     code: 'OPS-COM-01',
     source: 'Cámara de Diputadas y Diputados de Chile',
-    impactEs: 'Exposición formal en el parlamento presentando la correlación empírica entre las plantaciones continuas de monocultivo forestal y la velocidad de avance de megaincendios, exigiendo fajas de amortiguación obligatorias.',
-    impactEn: 'Official legislative testimony presenting spatial and hydrological evidence on how timber monocultures accelerate catastrophic wildfire spread, demanding mandatory statutory buffer zones.',
+    impactEs: 'Asesoría técnica parlamentaria para coordinar políticas públicas sobre incendios, bosques y gestión del agua (según CV), exponiendo ante la Comisión Especial de Emergencia, Desastres y Bomberos.',
+    impactEn: 'Parliamentary technical advice to coordinate public policies on fires, forests, and water management (CV), presenting before the Special Emergency Commission.',
     methodologyEs: [
-      'Correlación espacial entre monocultivo forestal y focos de ignición',
-      'Análisis biofísico de estrés hídrico de cuenca y velocidad de frente de fuego',
-      'Propuesta regulatoria de cortafuegos y amortiguación agroecológica'
+      'Asesoría técnica parlamentaria en políticas de incendios, bosques y agua (CV)',
+      'Correlación empírica entre monocultivos forestales y avance de incendios',
+      'Propuesta de zonas de amortiguación y prevención civil'
     ],
     methodologyEn: [
-      'Spatial cross-correlation between industrial plantations and ignition points',
-      'Biophysical analysis of catchment moisture deficit and fire velocity',
-      'Regulatory proposal for agroecological buffer zones and firebreaks'
+      'Parliamentary technical advice on wildfire, forestry, and water policy (CV)',
+      'Empirical correlation between timber monocultures and wildfire progression',
+      'Civil protection and mandatory buffer zone proposals'
     ],
-    tags: ['Congreso Nacional', 'Fiscalización', 'Megaincendios', 'Evidencia Técnica']
+    tags: ['Congreso Nacional', 'Fiscalización', 'Megaincendios', 'Políticas Públicas']
   },
 
-  // 2. CIENCIA (ROJO): CAU Kiel - Modelación Hidrogeofísica de Cuencas
+  // 2. CIENCIA: CAU Kiel - Doble Maestría en Gestión Ambiental
   {
-    id: 'kiel-hidrogeofisica',
+    id: 'kiel-cau',
     type: 'science',
-    titleEs: 'Modelación Hidrogeofísica de Cuencas y Balances Ecohidrológicos',
-    titleEn: 'Hydrogeophysical Catchment Modeling & Ecohydrological Balances',
-    subtitleEs: 'Cuenca del Maule y Dinámica Hídrica Báltica • CAU Kiel / Poznań',
-    subtitleEn: 'Maule River Catchment & Baltic Peatlands • Kiel / Poznań',
+    titleEs: 'Doble Maestría en Gestión Ambiental // CAU Kiel',
+    titleEn: 'Dual Master’s Degree in Environmental Management // CAU Kiel',
+    subtitleEs: 'Christian Albrechts University (Kiel, Alemania) | 2023-2025',
+    subtitleEn: 'Christian Albrechts University (Kiel, Germany) | 2023-2025',
     country: 'Alemania',
     city: 'Kiel',
     flag: '🇩🇪',
     lat: 54.32,
     lng: 10.13,
     date: '2023-2025',
-    roleEs: 'Modelador Hidrogeofísico de Cuencas',
-    roleEn: 'Catchment Modeler & Soil Physicist',
+    roleEs: 'Estudiante de Maestría & Investigador',
+    roleEn: 'Master’s Student & Researcher',
     mediaType: 'plate',
     src: '/portfolio_pages/page_3.png',
     srcEn: '/portfolio_pages_en/page_3.png',
     code: 'OPS-SCI-01',
-    source: 'CAU Kiel // Instituto de Ciencias de la Tierra',
-    impactEs: 'Simulaciones empíricas de balance hídrico que cuantifican cómo el reemplazo de bosque nativo por monocultivos forestales provoca abatimiento de napas y reduce el caudal base en cuencas de drenaje.',
-    impactEn: 'Empirical hydrological balance simulations quantifying how replacing native forests with tree plantations draws down water tables and reduces streamflow across catchments.',
+    source: 'Christian Albrechts University (CAU Kiel)',
+    impactEs: 'Investigación en balance hídrico y dinámica de suelos integrando sistemas acuáticos y terrestres, y modelación del impacto de incendios forestales en ecosistemas de cuencas (según CV).',
+    impactEn: 'Research on water balance and soil dynamics integrating aquatic and terrestrial systems, and modeling forest fire impacts on watershed ecosystems (from CV).',
     availablePages: [
       { titleEs: 'Lámina 1: Perfil y Trayectoria Geofísica', titleEn: 'Page 1: Profile & Geophysics Track', pageSrc: '/portfolio_pages/page_1.png', pageSrcEn: '/portfolio_pages_en/page_1.png' },
       { titleEs: 'Lámina 2: Balances Ecohidrológicos', titleEn: 'Page 2: Ecohydrological Balances', pageSrc: '/portfolio_pages/page_2.png', pageSrcEn: '/portfolio_pages_en/page_2.png' },
-      { titleEs: 'Lámina 3: Modelación Maule / Poznań', titleEn: 'Page 3: Maule / Poznań Modeling', pageSrc: '/portfolio_pages/page_3.png', pageSrcEn: '/portfolio_pages_en/page_3.png' },
-      { titleEs: 'Lámina 4: Gemelos Digitales de Humedales', titleEn: 'Page 4: Wetland Digital Twins', pageSrc: '/portfolio_pages/page_4.png', pageSrcEn: '/portfolio_pages_en/page_4.png' }
+      { titleEs: 'Lámina 3: Modelación de Cuencas', titleEn: 'Page 3: Watershed Modeling', pageSrc: '/portfolio_pages/page_3.png', pageSrcEn: '/portfolio_pages_en/page_3.png' }
     ],
     methodologyEs: [
-      'Modelación numérica de flujo no saturado en perfiles de suelo mediante Richards',
-      'Cálculo de balances de evapotranspiración real bajo distintos usos de suelo',
-      'Validación con piezómetros y sensores continuos in-situ'
+      'Balance hídrico y dinámica de suelos integrando sistemas acuáticos y terrestres (CV)',
+      'Modelación del impacto de incendios forestales en ecosistemas de cuencas (CV)',
+      'Doble maestría europea en gestión y protección ambiental (CV)'
     ],
     methodologyEn: [
-      'Numerical unsaturated flow modeling in soil profiles using Richards equations',
-      'Actual evapotranspiration balance computation under contrasting land cover',
-      'In-situ sensor validation with piezometers and continuous capacitive probes'
+      'Water balance and soil dynamics integrating aquatic and terrestrial systems (CV)',
+      'Model of forest fire impacts on watershed ecosystems (CV)',
+      'Dual European Master’s program in environmental management (CV)'
     ],
-    tags: ['Hidrología', 'Cuencas', 'Modelación', 'Kiel', 'Física de Suelos']
+    tags: ['CAU Kiel', 'Alemania', 'Dinámica de Suelos', 'Balance Hídrico', 'Incendios']
   },
 
-  // 3. COMUNICACIONES (VERDE): Primera Línea Prensa (+700k) - Santiago
+  // 3. COMUNICACIONES: Primera Línea Prensa (+700k) - Santiago
   {
-    id: 'plp-prensa-santiago',
+    id: 'plp-prensa',
     type: 'comms',
-    titleEs: 'Primera Línea Prensa: Redacción Independiente Masiva (+700k)',
+    titleEs: 'Primera Línea Prensa: Redacción Independiente Popular (+700k)',
     titleEn: 'Primera Línea Prensa: Independent Grassroots Newsroom (+700k)',
-    subtitleEs: 'Periodismo Ciudadano en Estallido Social // Millones de Impresiones Mensuales',
-    subtitleEn: 'Independent Citizen Journalism Feed // Millions of Frontline Impressions',
+    subtitleEs: 'Periodismo Ciudadano y Cobertura de Derechos Humanos en Chile',
+    subtitleEn: 'Citizen Journalism & Human Rights Coverage in Chile',
     country: 'Chile',
     city: 'Santiago',
     flag: '🇨🇱',
@@ -149,136 +148,279 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://www.primeralineaprensa.cl',
     code: 'OPS-COM-02',
     source: 'Archivo Histórico Primera Línea Prensa',
-    impactEs: 'Creación y dirección editorial de un medio ciudadano que alcanzó más de 700.000 seguidores orgánicos, verificando vulneraciones a los derechos humanos en tiempo real sin censura corporativa.',
-    impactEn: 'Founded and directed an independent citizen newsroom scaling to +700,000 organic followers during Chile’s uprising, verifying live human rights violations without corporate control.',
+    impactEs: 'Fundación y dirección de medio digital independiente durante el ciclo cívico 2019-2022 en Chile, alcanzando más de 700.000 seguidores orgánicos en redes sociales.',
+    impactEn: 'Founded and led independent digital news outlet during the 2019-2022 civic cycle in Chile, scaling to +700,000 organic followers.',
     methodologyEs: [
-      'Protocolos de verificación de video en tiempo real desde puntos de conflicto',
-      'Arquitectura de cobertura descentralizada con corresponsales comunitarios',
-      'Estrategia de comunicación de alto impacto en redes sociales e incidencia política'
+      'Reportería en tiempo real y verificación de derechos humanos',
+      'Desarrollo de red ciudadana de corresponsales comunitarios',
+      'Comunicación política y agenda pública independiente'
     ],
     methodologyEn: [
-      'Real-time video verification protocols from frontline demonstration hotspots',
-      'Decentralized reporting infrastructure powered by community correspondents',
-      'Viral political communication and independent editorial agenda setting'
+      'Real-time frontline reporting and human rights verification',
+      'Community correspondent network infrastructure',
+      'Independent editorial agenda and digital advocacy'
     ],
-    tags: ['+700k', 'Prensa Popular', 'Derechos Humanos', 'Santiago']
+    tags: ['+700k', 'Primera Línea Prensa', 'Periodismo Ciudadano', 'Santiago']
   },
 
-  // 4. CIENCIA (ROJO): AMU Poznań - Gemelo Digital de Turberas y Carbono
+  // 4. CIENCIA: AMU Poznań - Tesis de Maestría en Carbono y Humedales
   {
-    id: 'poznan-turberas',
+    id: 'poznan-amu',
     type: 'science',
-    titleEs: 'Captura de Carbono en Turberas y Gemelo Digital de Humedales',
-    titleEn: 'Wetland Carbon Sequestration & Catchment Hydrodynamic Digital Twin',
-    subtitleEs: 'Adam Mickiewicz University (Poznań, Polonia) // Tesis de Maestría M.Sc.',
-    subtitleEn: 'Adam Mickiewicz University (Poznań, Poland) // M.Sc. Thesis Track',
+    titleEs: 'Tesis de Maestría: Secuestro de Carbono en Humedales // AMU Poznań',
+    titleEn: 'Master’s Thesis: Carbon Sequestration in Wetlands // AMU Poznań',
+    subtitleEs: 'Adam Mickiewicz University (Poznań, Polonia) | 2023-2025',
+    subtitleEn: 'Adam Mickiewicz University (Poznań, Poland) | 2023-2025',
     country: 'Polonia',
     city: 'Poznań',
     flag: '🇵🇱',
     lat: 52.41,
     lng: 16.93,
     date: '2023-2025',
-    roleEs: 'Investigador Principal de Tesis & Modelador Hidrológico',
-    roleEn: 'Principal Thesis Researcher & Hydrological Modeler',
+    roleEs: 'Estudiante de Maestría & Tesista',
+    roleEn: 'Master’s Student & Thesis Researcher',
     mediaType: 'plate',
     src: '/portfolio_pages/page_4.png',
     srcEn: '/portfolio_pages_en/page_4.png',
     code: 'OPS-SCI-02',
-    source: 'AMU Poznań // Facultad de Ciencias Geográficas',
-    impactEs: 'Cuantificación de la dinámica de almacenamiento de carbono en turberas templadas de tierras bajas y su acoplamiento hidrológico con cuencas adyacentes aplicando gemelos digitales.',
-    impactEn: 'Quantification of carbon sequestration dynamics in temperate lowland peatlands and their hydrological coupling with surrounding agricultural catchments using digital twins.',
+    source: 'Adam Mickiewicz University (AMU Poznań)',
+    impactEs: 'Tesis de Maestría: Secuestro de carbono en humedales y su relación con ecosistemas terrestres adyacentes (Master\'s Thesis: Carbon sequestration in wetlands and its relationship with adjacent terrestrial ecosystems, según CV).',
+    impactEn: 'Master’s Thesis: Carbon sequestration in wetlands and its relationship with adjacent terrestrial ecosystems (from CV).',
     methodologyEs: [
-      'Medición de flujos de carbono y balance de agua en turberas restauradas',
-      'Simulación de escenarios climáticos y abatimiento de napas en cuencas de drenaje',
-      'Alineamiento con directivas europeas de restauración de la naturaleza'
+      'Secuestro de carbono en humedales (CV)',
+      'Relación con ecosistemas terrestres adyacentes (CV)',
+      'Maestría en Protección Ambiental en AMU Poznań (CV)'
     ],
     methodologyEn: [
-      'Carbon flux and water balance quantification in restored peatland ecosystems',
-      'Climate scenario simulation and water table drawdown analysis',
-      'Alignment with EU Nature Restoration Law targets and water basin policies'
+      'Carbon sequestration in wetlands (CV)',
+      'Coupling with adjacent terrestrial ecosystems (CV)',
+      'Master’s Program in Environmental Protection at AMU Poznań (CV)'
     ],
-    tags: ['Turberas', 'Polonia', 'Carbono', 'Gemelo Digital', 'AMU Poznań']
+    tags: ['AMU Poznań', 'Polonia', 'Carbono', 'Humedales', 'Tesis de Maestría']
   },
 
-  // 5. COMUNICACIONES (VERDE): Apruebo Rural - Maule
+  // 5. COMUNICACIONES: Apruebo Rural - Maule
   {
-    id: 'apruebo-rural-maule',
+    id: 'apruebo-rural',
     type: 'comms',
-    titleEs: 'Apruebo Rural: Defensa Campesina del Agua y Xilografía Popular',
-    titleEn: 'Apruebo Rural: Peasant Water Defense & Linocut Agitation Posters',
-    subtitleEs: 'Campaña Nacional por el Agua como Derecho Humano y Semillas Libres',
-    subtitleEn: 'National Campaign for Water Decommodification & Peasant Seed Sovereignty',
+    titleEs: 'Campaña "Apruebo Rural": Coordinación Nacional de Campaña',
+    titleEn: '"Apruebo Rural" Campaign: National Campaign Coordinator',
+    subtitleEs: 'Campaña por una Nueva Constitución en Chile // Defensa Campesina del Agua',
+    subtitleEn: 'Campaign for a New Constitution in Chile // Peasant Water Defense',
     country: 'Chile',
     city: 'Maule',
     flag: '🇨🇱',
     lat: -35.43,
     lng: -71.66,
     date: '2022',
-    roleEs: 'Director Creativo de Campaña & Grabador',
-    roleEn: 'Campaign Creative Director & Printmaker',
+    roleEs: 'Coordinador de Campaña "Apruebo Rural"',
+    roleEn: '"Apruebo Rural" Campaign Coordinator',
     mediaType: 'woodcut',
     src: '/images/apruebo_rural_1.png',
     code: 'OPS-COM-03',
-    source: 'Taller de Gráfica Popular // Maule & Nacional',
-    impactEs: 'Diseño e impresión manual de afiches en linóleo y xilografía para comités de agua potable rural y sindicatos campesinos, instalando la desprivatización del agua en la agenda constitucional.',
-    impactEn: 'Original woodblock linocut prints hand-carved and pressed on craft paper for rural water assemblies, positioning the end of the private water code into national voting agendas.',
+    source: 'Campaña Nacional Apruebo Rural (CV)',
+    impactEs: 'Coordinación nacional de la campaña "Apruebo Rural" por una nueva constitución en Chile (según CV), articulando comités de agua potable rural y sindicatos campesinos con arte xilográfico.',
+    impactEn: 'National coordinator of "Apruebo Rural": campaign for a new constitution in Chile (from CV), coordinating rural water assemblies, peasant unions, and relief printmaking.',
     methodologyEs: [
-      'Grabado en relieve con iconografía identitaria campesina y comunitaria',
-      'Distribución física comunitaria de afiches y carteles en ferias y asambleas',
-      'Articulación de demandas del campo con el debate constitucional'
+      'Coordinación de campaña por una nueva constitución en Chile (CV)',
+      'Grabado en relieve y xilografía popular comunitaria',
+      'Articulación de demandas del campo y soberanía de semillas'
     ],
     methodologyEn: [
-      'Relief printmaking celebrating rural identities and seed guardianship',
-      'Physical grassroots flyposting across agricultural valleys and community halls',
-      'Translating complex water rights legal codes into powerful visual symbols'
+      'Campaign coordinator for a new constitution in Chile (CV)',
+      'Grassroots linocut and woodcut relief printmaking',
+      'Articulating peasant water rights and seed defense'
     ],
-    tags: ['Xilografía', 'Linograbado', 'Agua para los Pueblos', 'Maule']
+    tags: ['Apruebo Rural', 'Constitución', 'Maule', 'Agua', 'Campesinado']
   },
 
-  // 6. CUMBRES & POLÍTICA (AMARILLO): Degrowth Conference - Oslo, Noruega
+  // 6. CUMBRES & POLÍTICA: Degrowth Conference - Oslo, Noruega
   {
-    id: 'degrowth-oslo',
+    id: 'oslo-degrowth',
     type: 'global',
-    titleEs: 'Conferencia Internacional de Decrecimiento: Alternativas a la Crisis Ecológica',
-    titleEn: 'International Degrowth Conference: Alternatives to Ecological Crisis',
-    subtitleEs: 'Oslo, Noruega (2025) // Ponencia sobre Colapso Hídrico por Monocultivo y Biomasa',
-    subtitleEn: 'Oslo, Norway (2025) // Keynote on Catchment Collapse from Biomass & Forestry',
+    titleEs: 'Degrowth Conference (Oslo, 2025): Alternativas a la Crisis',
+    titleEn: 'Degrowth Conference (Oslo, 2025): Alternatives to the Crisis',
+    subtitleEs: 'Conferencia Internacional de Decrecimiento // Presentación Oficial',
+    subtitleEn: 'International Degrowth Conference // Official Presentation',
     country: 'Noruega',
     city: 'Oslo',
     flag: '🇳🇴',
     lat: 59.91,
     lng: 10.75,
     date: '2025',
-    roleEs: 'Ponente Oficial / Investigador Expositor',
-    roleEn: 'Official Speaker & Research Presenter',
+    roleEs: 'Ponente Oficial',
+    roleEn: 'Official Speaker',
     mediaType: 'press',
     src: '/press_covers/desconcierto_noruega_screen.png',
     url: 'https://eldesconcierto.cl/2025/07/06/paises-tan-ricos-que-no-quieren-crecer-mas-noruega-acoge-mayor-debate-mundial-sobre-alternativas-al-crecimiento-economico-infinito',
     code: 'OPS-GLO-01',
-    source: 'International Degrowth Network // Oslo 2025',
-    impactEs: 'Presentación en Oslo vinculando la degradación de cuencas en el Sur Global con la demanda de biomasa y celulosa del Norte Global, proponiendo marcos de transición poscapitalista.',
-    impactEn: 'Presentation in Oslo bridging Global South catchment degradation with Global North biomass and pulp consumption dynamics, articulating concrete post-extractive transition roadmaps.',
+    source: 'Degrowth Conference Oslo 2025 (CV)',
+    impactEs: 'Presentación en la Conferencia de Decrecimiento (Oslo, 2025) sobre alternativas a la crisis (Environment and Economy, según CV).',
+    impactEn: 'Presentation at the Degrowth Conference (Oslo, 2025) on alternatives to the crisis (Environment and Economy, from CV).',
     methodologyEs: [
-      'Modelos de economía ecológica aplicados a la regeneración de cuencas',
-      'Desarticulación del discurso de biomasa forestal como "energía verde"',
-      'Estrategias de soberanía hídrica y alimentaria comunitaria'
+      'Presentación en la Conferencia de Decrecimiento sobre alternativas a la crisis (CV)',
+      'Análisis de economía y medio ambiente (CV)',
+      'Debate internacional sobre modelos poscrecimiento'
     ],
     methodologyEn: [
-      'Ecological economics frameworks applied to watershed regeneration',
-      'Deconstructing false climate solutions and industrial biomass myths',
-      'Community-led water and food sovereignty strategies'
+      'Presentation at the Degrowth Conference on alternatives to the crisis (CV)',
+      'Environment and Economy research (CV)',
+      'International post-growth debate'
     ],
-    tags: ['Oslo', 'Noruega', 'Decrecimiento', 'Economía Ecológica', 'Conferencia 2025']
+    tags: ['Oslo', 'Noruega', 'Decrecimiento', 'Conferencia 2025', 'Economía']
   },
 
-  // 7. CIENCIA (ROJO): WSL BlueGreen Biodiversity - Davos, Suiza
+  // 7. CUMBRES & POLÍTICA: Environmental Justice Conference - Bonn, Alemania
   {
-    id: 'wsl-davos-suiza',
+    id: 'bonn-ejc',
+    type: 'global',
+    titleEs: 'Environmental Justice Conference (Bonn, 2025)',
+    titleEn: 'Environmental Justice Conference (Bonn, 2025)',
+    subtitleEs: 'Impactos de Plantaciones de Monocultivo & Industria de Biomasa // EPN & GFC',
+    subtitleEn: 'Impacts of Monoculture Plantations & Biomass Industry // EPN & GFC',
+    country: 'Alemania',
+    city: 'Bonn',
+    flag: '🇩🇪',
+    lat: 50.73,
+    lng: 7.10,
+    date: '2025',
+    roleEs: 'Investigador Expositor',
+    roleEn: 'Researcher & Speaker',
+    mediaType: 'press',
+    src: '/press_covers/epn_screen.png',
+    url: 'https://environmentalpaper.org/2023/06/spotlight-on-burning-biomass-for-energy-in-south-america-community-opposition-to-a-power-plant-in-parral-chile/',
+    code: 'OPS-GLO-02',
+    source: 'Environmental Justice Conference Bonn 2025 (CV)',
+    impactEs: 'Ponencia en la Conferencia de Justicia Ambiental (Bonn, 2025) sobre los impactos de las plantaciones de monocultivo; estudio de los impactos de la industria de celulosa, papel y quema de biomasa junto a Global Forest Coalition y Environmental Paper Network (según CV).',
+    impactEn: 'Presentation at the Environmental Justice Conference (Bonn, 2025) on the impacts of monoculture plantations; study on pulp, paper, and biomass industry impacts with Global Forest Coalition and Environmental Paper Network (from CV).',
+    methodologyEs: [
+      'Conferencia de Justicia Ambiental en Bonn sobre impactos de monocultivos (CV)',
+      'Estudio sobre impactos de la industria de celulosa y quema de biomasa (CV)',
+      'Colaboración con Global Forest Coalition y Environmental Paper Network (CV)'
+    ],
+    methodologyEn: [
+      'Environmental Justice Conference in Bonn on monoculture impacts (CV)',
+      'Study on pulp and paper industries and biomass burning (CV)',
+      'Work with Global Forest Coalition and Environmental Paper Network (CV)'
+    ],
+    tags: ['Bonn', 'Alemania', 'Justicia Ambiental', 'Biomasa', 'EPN']
+  },
+
+  // 8. CUMBRES & POLÍTICA: CENSAT Agua Viva & Diálogos Forestales - Bogotá, Colombia
+  {
+    id: 'bogota-censat',
+    type: 'global',
+    titleEs: 'Foros de Justicia y Diálogos de Bosques // Bogotá, Colombia',
+    titleEn: 'Justice Forums & Forest Dialogues // Bogotá, Colombia',
+    subtitleEs: 'Censat Colombia - RESUMOF Chile & Certificación Economía Verde',
+    subtitleEn: 'Censat Colombia - RESUMOF Chile & Green Economy Certification',
+    country: 'Colombia',
+    city: 'Bogotá',
+    flag: '🇨🇴',
+    lat: 4.71,
+    lng: -74.07,
+    date: '2022-2023',
+    roleEs: 'Representante de Organizaciones Ambientales',
+    roleEn: 'Environmental Organizations Delegate',
+    mediaType: 'press',
+    src: '/press_covers/olca_screen.png',
+    url: 'https://olca.cl',
+    code: 'OPS-GLO-03',
+    source: 'Censat Colombia / RESUMOF (CV)',
+    impactEs: 'Representación ante organizaciones ambientales en conferencias y foros sobre justicia y Cambio Climático (Bogotá, 2023); Diálogos sobre Manejo de Bosques y Selvas (Censat Colombia - RESUMOF Chile); Certificación en Economía Verde y Financiarización de la Naturaleza (CENSAT Agua Viva, 2022, según CV).',
+    impactEn: 'Representation to environmental organizations at forums on justice and Climate Change (Bogotá, 2023); Dialogues on Forest and Jungle Management (Censat Colombia - RESUMOF Chile); Certification: Green Economy and Financialization of Nature (CENSAT, 2022, from CV).',
+    methodologyEs: [
+      'Representación en foros de justicia y Cambio Climático en Bogotá (CV)',
+      'Diálogos sobre Manejo de Bosques y Selvas (Censat Colombia - RESUMOF Chile, CV)',
+      'Certificación: Economía Verde y Financiarización de la Naturaleza (CENSAT Agua Viva, CV)'
+    ],
+    methodologyEn: [
+      'Representation at forums on justice and Climate Change in Bogotá (CV)',
+      'Dialogues on Forest and Jungle Management (Censat Colombia - RESUMOF Chile, CV)',
+      'Certification: Green Economy and Financialization of Nature (CENSAT, CV)'
+    ],
+    tags: ['Bogotá', 'Colombia', 'Censat Colombia', 'RESUMOF', 'Bosques']
+  },
+
+  // 9. CUMBRES & POLÍTICA: Justicia y Cambio Climático - San José, Costa Rica
+  {
+    id: 'costarica-justicia',
+    type: 'global',
+    titleEs: 'Foro sobre Justicia y Cambio Climático // San José, Costa Rica',
+    titleEn: 'Justice & Climate Change Forum // San José, Costa Rica',
+    subtitleEs: 'Representación ante Organizaciones Ambientales (2023)',
+    subtitleEn: 'Representation to Environmental Organizations (2023)',
+    country: 'Costa Rica',
+    city: 'San José',
+    flag: '🇨🇷',
+    lat: 9.93,
+    lng: -84.08,
+    date: '2023',
+    roleEs: 'Representante de Organizaciones Ambientales',
+    roleEn: 'Environmental Organizations Delegate',
+    mediaType: 'press',
+    src: '/press_covers/delfino_screen.png',
+    url: 'https://delfino.cr/2023/04/jovenes-activistas-climaticos-de-latinoamerica-tuvieron-encuentro-de-trabajo-en-costa-rica',
+    code: 'OPS-GLO-04',
+    source: 'Foro Internacional de Organizaciones Ambientales (CV)',
+    impactEs: 'Representación ante organizaciones ambientales en conferencias y foros sobre justicia y Cambio Climático (San José, Costa Rica, 2023, según CV).',
+    impactEn: 'Representation to environmental organizations at conferences and forums on justice and Climate Change (San José, Costa Rica, 2023, from CV).',
+    methodologyEs: [
+      'Representación ante organizaciones ambientales en conferencias sobre justicia y Cambio Climático (CV)',
+      'Intercambio regional de experiencias comunitarias frente a la crisis climática',
+      'Articulación de redes socioambientales latinoamericanas'
+    ],
+    methodologyEn: [
+      'Representation to environmental organizations at climate justice conferences (CV)',
+      'Regional grassroots knowledge exchange on climate disruption',
+      'Pan-American socio-environmental networking'
+    ],
+    tags: ['Costa Rica', 'San José', 'Justicia Climática', 'Organizaciones Ambientales']
+  },
+
+  // 10. CUMBRES & POLÍTICA: Justicia y Cambio Climático - Munich, Alemania
+  {
+    id: 'munich-clima',
+    type: 'global',
+    titleEs: 'Foro sobre Justicia y Cambio Climático // Munich, Alemania',
+    titleEn: 'Justice & Climate Change Forum // Munich, Germany',
+    subtitleEs: 'Representación ante Organizaciones Ambientales (2025)',
+    subtitleEn: 'Representation to Environmental Organizations (2025)',
+    country: 'Alemania',
+    city: 'Munich',
+    flag: '🇩🇪',
+    lat: 48.14,
+    lng: 11.58,
+    date: '2025',
+    roleEs: 'Representante de Organizaciones Ambientales',
+    roleEn: 'Environmental Organizations Delegate',
+    mediaType: 'cv',
+    src: '/profile.jpg',
+    code: 'OPS-GLO-05',
+    source: 'Conferencia sobre Justicia y Clima Munich (CV)',
+    impactEs: 'Representación ante organizaciones ambientales en conferencias y foros sobre justicia y Cambio Climático (Munich, Alemania, 2025, según CV).',
+    impactEn: 'Representation to environmental organizations at conferences and forums on justice and Climate Change (Munich, Germany, 2025, from CV).',
+    methodologyEs: [
+      'Representación ante organizaciones ambientales en foros sobre justicia y Cambio Climático (CV)',
+      'Incidencia internacional en políticas de transición ecológica',
+      'Enlace entre realidades del Sur Global y redes de la sociedad civil europea'
+    ],
+    methodologyEn: [
+      'Representation to environmental organizations at climate justice forums (CV)',
+      'International advocacy on ecological transition policies',
+      'Connecting Global South realities with European civil society networks'
+    ],
+    tags: ['Munich', 'Alemania', 'Justicia Climática', 'Foros Ambientales']
+  },
+
+  // 11. CIENCIA: WSL BlueGreen Biodiversity - Davos, Suiza
+  {
+    id: 'wsl-davos',
     type: 'science',
-    titleEs: 'BlueGreen Biodiversity: Resiliencia Acuática y Terrestre de Ecosistemas',
-    titleEn: 'BlueGreen Biodiversity: Aquatic & Terrestrial Ecosystem Resilience',
-    subtitleEs: 'WSL Instituto Federal Suizo de Investigación // Davos, Suiza (2025)',
-    subtitleEn: 'WSL Swiss Federal Research Institute // Davos, Switzerland (2025)',
+    titleEs: 'Certificación: BlueGreen Biodiversity // WSL Davos, Suiza',
+    titleEn: 'Certification: BlueGreen Biodiversity // WSL Davos, Switzerland',
+    subtitleEs: 'WSL Swiss Federal Research Institute | 2025',
+    subtitleEn: 'WSL Swiss Federal Research Institute | 2025',
     country: 'Suiza',
     city: 'Davos',
     flag: '🇨🇭',
@@ -286,346 +428,310 @@ export const GAME_MISSIONS: GameMission[] = [
     lng: 9.83,
     date: '2025',
     roleEs: 'Investigador Certificado WSL',
-    roleEn: 'Certified Researcher & Specialist',
+    roleEn: 'WSL Certified Researcher',
     mediaType: 'plate',
     src: '/portfolio_pages/page_5.png',
     srcEn: '/portfolio_pages_en/page_5.png',
     code: 'OPS-SCI-03',
-    source: 'WSL Swiss Federal Research Institute // Davos',
-    impactEs: 'Certificación e investigación de posgrado en Davos sobre la conectividad estructural y funcional entre sistemas hídricos riparios y cuencas terrestres frente a extremos climáticos.',
-    impactEn: 'Advanced research training at WSL in Davos on structural and functional connectivity between riparian freshwater systems and terrestrial catchments under severe climate disruption.',
+    source: 'WSL Davos (CV)',
+    impactEs: 'Certificación en BlueGreen Biodiversity obtenida en el Instituto Federal Suizo de Investigación WSL (Davos, Suiza, 2025, según CV).',
+    impactEn: 'Certification in BlueGreen Biodiversity from WSL Swiss Federal Research Institute (Davos, Switzerland, 2025, from CV).',
     methodologyEs: [
-      'Monitoreo biológico y físico de microcuencas de alta montaña',
-      'Indicadores de resiliencia frente a inundaciones y sequías extremas',
-      'Diseño de infraestructura verde y azul para mitigación ecológica'
+      'Certificación BlueGreen Biodiversity en WSL Davos (CV)',
+      'Dinámica e interacción de sistemas riparios y terrestres',
+      'Estrategias de resiliencia ecosistémica en cuencas'
     ],
     methodologyEn: [
-      'Biological and geophysical tracking in alpine micro-catchments',
-      'Resilience metrics against compounding floods and severe dry spells',
-      'Blue-green nature-based solutions design for hydrological buffering'
+      'BlueGreen Biodiversity Certification at WSL Davos (CV)',
+      'Dynamics and interplay of riparian and terrestrial systems',
+      'Ecosystem resilience strategies in watersheds'
     ],
-    tags: ['Davos', 'Suiza', 'WSL', 'Biodiversidad', 'Agua']
+    tags: ['Davos', 'Suiza', 'WSL', 'BlueGreen Biodiversity', 'Certificación']
   },
 
-  // 8. CUMBRES & POLÍTICA (AMARILLO): DEAL Doughnut Economics - Copenhague, Dinamarca
+  // 12. CIENCIA: Doughnut Economics - Copenhague, Dinamarca
   {
     id: 'deal-copenhagen',
-    type: 'global',
-    titleEs: 'Economía de la Dona y Límites Planetarios para el Manejo de Cuencas',
-    titleEn: 'Doughnut Economics & Planetary Boundaries for Catchment Planning',
-    subtitleEs: 'DEAL (Doughnut Economics Action Lab) // Copenhague, Dinamarca (2025)',
-    subtitleEn: 'DEAL (Doughnut Economics Action Lab) // Copenhagen, Denmark (2025)',
+    type: 'science',
+    titleEs: 'Certificación: Doughnut Economics // DEAL Copenhague',
+    titleEn: 'Certification: Doughnut Economics // DEAL Copenhagen',
+    subtitleEs: 'DEAL Copenhagen, Dinamarca | 2025',
+    subtitleEn: 'DEAL Copenhagen, Denmark | 2025',
     country: 'Dinamarca',
     city: 'Copenhague',
     flag: '🇩🇰',
     lat: 55.68,
     lng: 12.57,
     date: '2025',
-    roleEs: 'Especialista en Planificación Ecológica',
-    roleEn: 'Ecological Planning Specialist',
+    roleEs: 'Especialista Certificado DEAL',
+    roleEn: 'DEAL Certified Specialist',
     mediaType: 'plate',
     src: '/portfolio_pages/page_6.png',
     srcEn: '/portfolio_pages_en/page_6.png',
-    code: 'OPS-GLO-02',
-    source: 'DEAL // Copenhagen 2025',
-    impactEs: 'Aplicación del marco de Kate Raworth a la escala de cuencas hidrográficas: garantizando bases sociales de acceso al agua potable sin rebasar los techos ecológicos de recarga.',
-    impactEn: 'Translating Kate Raworth’s planetary framework into catchment-scale operations: guaranteeing human rights to water while staying within recharge limits.',
-    methodologyEs: [
-      'Modelación de balances de extracción hídrica contra límites biofísicos',
-      'Diseño de indicadores socioecológicos integrados para planes comunales',
-      'Transición productiva hacia agroforestería regenerativa'
-    ],
-    methodologyEn: [
-      'Water extraction balance modeling versus planetary boundary ceilings',
-      'Integrated socioecological metrics for municipal catchment blueprints',
-      'Productive shift frameworks toward regenerative agroforestry'
-    ],
-    tags: ['Dinamarca', 'Copenhague', 'Doughnut Economics', 'Sostenibilidad']
-  },
-
-  // 9. CUMBRES & POLÍTICA (AMARILLO): Conferencia de Justicia Ambiental - Bonn, Alemania
-  {
-    id: 'bonn-justicia-ambiental',
-    type: 'global',
-    titleEs: 'Conferencia de Justicia Ambiental: Pasivos de la Industria de Celulosa y Biomasa',
-    titleEn: 'Environmental Justice Conference: Impacts of Industrial Tree Plantations',
-    subtitleEs: 'Bonn, Alemania (2025) // Alianza con Environmental Paper Network & GFC',
-    subtitleEn: 'Bonn, Germany (2025) // Collaboration with EPN & Global Forest Coalition',
-    country: 'Alemania',
-    city: 'Bonn',
-    flag: '🇩🇪',
-    lat: 50.73,
-    lng: 7.10,
-    date: '2025',
-    roleEs: 'Investigador Asociado & Expositor',
-    roleEn: 'Research Associate & Speaker',
-    mediaType: 'press',
-    src: '/press_covers/epn_screen.png',
-    url: 'https://environmentalpaper.org/2023/06/spotlight-on-burning-biomass-for-energy-in-south-america-community-opposition-to-a-power-plant-in-parral-chile/',
-    code: 'OPS-GLO-03',
-    source: 'Environmental Justice Summit // Bonn 2025',
-    impactEs: 'Exposición en Bonn sobre la investigación internacional respecto a los pasivos socioambientales de las plantaciones de pino y eucalipto y las plantas de celulosa en América Latina.',
-    impactEn: 'International research presentation in Bonn exposing the ecological footprint and community displacement caused by corporate pulp mills and industrial plantations in Latin America.',
-    methodologyEs: [
-      'Cartografía satelital de zonas de sacrificio ambiental por monocultivo',
-      'Cuantificación de emisiones netas de quema de biomasa industrial',
-      'Articulación con delegaciones indígenas y científicas globales'
-    ],
-    methodologyEn: [
-      'Satellite tracking of sacrificial sacrifice zones under corporate timber control',
-      'Net emission audits of industrial wood-pellet and biomass combustion',
-      'Coordination with frontline Indigenous and scientific delegates worldwide'
-    ],
-    tags: ['Bonn', 'Alemania', 'Justicia Ambiental', 'Biomasa', 'EPN']
-  },
-
-  // 10. CUMBRES & POLÍTICA (AMARILLO): CENSAT Agua Viva - Bogotá, Colombia
-  {
-    id: 'censat-bogota',
-    type: 'global',
-    titleEs: 'Economía Verde, Financiarización de la Naturaleza y Manejo Forestal',
-    titleEn: 'Green Economy, Nature Financialization & Forest Management',
-    subtitleEs: 'CENSAT Agua Viva & Diálogos Forestales RESUMOF // Bogotá, Colombia (2022-2023)',
-    subtitleEn: 'CENSAT Agua Viva & Forest Dialogues // Bogotá, Colombia (2022-2023)',
-    country: 'Colombia',
-    city: 'Bogotá',
-    flag: '🇨🇴',
-    lat: 4.71,
-    lng: -74.07,
-    date: '2022-2023',
-    roleEs: 'Investigador & Delegado Técnico',
-    roleEn: 'Researcher & Technical Delegate',
-    mediaType: 'press',
-    src: '/press_covers/olca_screen.png',
-    url: 'https://olca.cl',
-    code: 'OPS-GLO-04',
-    source: 'CENSAT Agua Viva // Bogotá',
-    impactEs: 'Estudio y desarticulación técnica de los mecanismos de especulación financiera sobre el agua y la biodiversidad, compartiendo aprendizajes de resistencia territorial entre Chile y Colombia.',
-    impactEn: 'Technical audit of financialization mechanisms applied to water rights and biodiversity credits, linking frontline resistance models between Chile and Colombia.',
-    methodologyEs: [
-      'Auditoría crítica de mercados de bonos de carbono y derechos de agua',
-      'Sistematización de acuerdos de gobernanza comunitaria de bosques y selvas',
-      'Articulación sur-sur frente a megaproyectos extractivos'
-    ],
-    methodologyEn: [
-      'Critical audit of carbon credit markets and commodified water concessions',
-      'Documenting community-based forest and watershed stewardship protocols',
-      'South-South alliance building against predatory extractivism'
-    ],
-    tags: ['Colombia', 'Bogotá', 'CENSAT', 'Financiarización', 'Bosques']
-  },
-
-  // 11. CUMBRES & POLÍTICA (AMARILLO): Justicia Climática - San José, Costa Rica
-  {
-    id: 'costarica-justicia',
-    type: 'global',
-    titleEs: 'Cumbre de Organizaciones Ambientales: Derechos de la Naturaleza y Desmercantilización',
-    titleEn: 'International Environmental Summit & Rights of Nature Forum',
-    subtitleEs: 'San José, Costa Rica (2023) // Delegación por la Justicia Hídrica',
-    subtitleEn: 'San José, Costa Rica (2023) // Water Justice Delegation',
-    country: 'Costa Rica',
-    city: 'San José',
-    flag: '🇨🇷',
-    lat: 9.93,
-    lng: -84.08,
-    date: '2023',
-    roleEs: 'Representante Internacional',
-    roleEn: 'International Delegate',
-    mediaType: 'press',
-    src: '/press_covers/delfino_screen.png',
-    url: 'https://delfino.cr/2023/04/jovenes-activistas-climaticos-de-latinoamerica-tuvieron-encuentro-de-trabajo-en-costa-rica',
-    code: 'OPS-GLO-05',
-    source: 'Cumbre Latinoamericana // San José',
-    impactEs: 'Representación de organizaciones socioambientales en el foro regional de Costa Rica, posicionando la desprivatización del agua y la soberanía de semillas como referente latinoamericano.',
-    impactEn: 'Represented grassroots water movements at the regional summit in Costa Rica, establishing the struggle to end the private water code as a key benchmark for Latin American legal reforms.',
-    methodologyEs: [
-      'Debate sobre litigio estratégico y tratados de derechos de la naturaleza',
-      'Estrategias de comunicación popular para desmercantilizar bienes comunes',
-      'Construcción de alianzas jurídicas y técnicas panamericanas'
-    ],
-    methodologyEn: [
-      'Strategic environmental litigation and international Rights of Nature frameworks',
-      'Community communications toolkits for decommodifying common pool resources',
-      'Pan-American legal and scientific alliance building'
-    ],
-    tags: ['Costa Rica', 'San José', 'Justicia Climática', 'Derechos de la Naturaleza']
-  },
-
-  // 12. CIENCIA (ROJO): Inversiones en Agroecología - Kiel / Schleswig-Holstein
-  {
-    id: 'comestible-kiel',
-    type: 'science',
-    titleEs: 'Inversiones para la Agroecología y Conservación de Suelos',
-    titleEn: 'Agroecological Transitions & Soil Conservation Policy',
-    subtitleEs: 'Conferencia & Policy Paper con el Diputado Alemán Dirk Kock-Rohwer (Verdes)',
-    subtitleEn: 'Conference & Policy Paper alongside German Green MP Dirk Kock-Rohwer',
-    country: 'Alemania',
-    city: 'Kiel',
-    flag: '🇩🇪',
-    lat: 54.34,
-    lng: 10.15,
-    date: '2024',
-    roleEs: 'Investigador & Co-autor Técnico',
-    roleEn: 'Researcher & Technical Co-Author',
-    mediaType: 'press',
-    src: '/press_covers/comestible_screen.png',
-    url: 'https://comestible.info/inversiones-para-la-agroecologia-ahora/',
     code: 'OPS-SCI-04',
-    source: 'Comestible.info & Landtag Schleswig-Holstein',
-    impactEs: 'Investigación técnica sobre la urgencia de reorientar subsidios agrícolas de la UE hacia la agroecología y protección biológica de cuencas en el norte de Alemania.',
-    impactEn: 'Technical investigation on shifting EU agricultural subsidies toward agroecological soil conservation and watershed protection in Northern Germany.',
+    source: 'Doughnut Economics Action Lab (DEAL Copenhagen, CV)',
+    impactEs: 'Certificación en Doughnut Economics (DEAL Copenhague, Dinamarca, 2025, según CV).',
+    impactEn: 'Certification in Doughnut Economics (DEAL Copenhagen, Denmark, 2025, from CV).',
     methodologyEs: [
-      'Análisis comparativo de balances de nutrientes y calidad del agua subterránea',
-      'Propuesta regulatoria de subsidios directos a suelos regenerativos',
-      'Traducción de ciencia del suelo a política parlamentaria alemana'
+      'Certificación en Doughnut Economics por DEAL Copenhague (CV)',
+      'Marco de límites planetarios y fundamentos sociales',
+      'Planificación territorial regenerativa y redistributiva'
     ],
     methodologyEn: [
-      'Comparative nutrient balance analysis and groundwater quality tracking',
-      'Policy design redirecting direct farm subsidies toward regenerative soils',
-      'Translating soil physics into parliamentary legislative action'
+      'Doughnut Economics certification by DEAL Copenhagen (CV)',
+      'Planetary boundaries and social foundation framework',
+      'Regenerative and distributive territorial planning'
     ],
-    tags: ['Kiel', 'Alemania', 'Dirk Kock-Rohwer', 'Agroecología', 'Suelos']
+    tags: ['Copenhague', 'Dinamarca', 'Doughnut Economics', 'DEAL', 'Certificación']
   },
 
-  // 13. CUMBRES & POLÍTICA (AMARILLO): Climate Coalition COP27 - Sharm El-Sheikh, Egipto
+  // 13. CIENCIA: Interlinked Justice - Dresden, Alemania
   {
-    id: 'climatecc-cop27',
-    type: 'global',
-    titleEs: 'Dossier Internacional EPN & Coalición Climática (Julia Chuñil)',
-    titleEn: 'International EPN & Climate Coalition Dossier (Julia Chuñil)',
-    subtitleEs: 'Investigación Global sobre Monocultivos Forestales y Resistencia Territorial // COP27',
-    subtitleEn: 'Global Research on Tree Monocultures & Frontline Defense // COP27 Framework',
-    country: 'Egipto',
-    city: 'Sharm El-Sheikh',
-    flag: '🇪🇬',
-    lat: 27.91,
-    lng: 34.33,
-    date: '2022-2024',
-    roleEs: 'Autor Principal & Investigador Internacional',
-    roleEn: 'Lead Author & International Researcher',
-    mediaType: 'press',
-    src: '/press_covers/climatecc_screen.png',
-    code: 'OPS-GLO-06',
-    source: 'Climate Communications Coalition & EPN // COP27',
-    impactEs: 'Serie analítica de tres partes que evalúa los impactos de los monocultivos de biomasa en las comunidades y el clima, dedicada a la defensora ambiental Julia Chuñil.',
-    impactEn: 'Three-part analytical dossier assessing industrial biomass monoculture impacts on frontline communities, presented during global COP climate diplomacy.',
+    id: 'dresden-justice',
+    type: 'science',
+    titleEs: 'Certificación: Interlinked Justice // Dresden, Alemania',
+    titleEn: 'Certification: Interlinked Justice // Dresden, Germany',
+    subtitleEs: 'Programa Académico en Dresden | Certificación Oficial',
+    subtitleEn: 'Academic Program in Dresden | Official Certification',
+    country: 'Alemania',
+    city: 'Dresden',
+    flag: '🇩🇪',
+    lat: 51.05,
+    lng: 13.74,
+    date: '2024-2025',
+    roleEs: 'Participante Certificado',
+    roleEn: 'Certified Participant',
+    mediaType: 'cv',
+    src: '/profile.jpg',
+    code: 'OPS-SCI-05',
+    source: 'Interlinked Justice Dresden (CV)',
+    impactEs: 'Certificación académica en Interlinked Justice (Dresden - Alemania, según sección Additional Information del CV).',
+    impactEn: 'Academic certification in Interlinked Justice (Dresden - Germany, from CV Additional Information section).',
     methodologyEs: [
-      'Evaluación de ciclo de vida de plantaciones forestales contra bosques nativos',
-      'Documentación de defensa territorial de liderazgos indígenas y campesinos',
-      'Incidencia en foros multilaterales de cambio climático'
+      'Certificación en Interlinked Justice en Dresden, Alemania (CV)',
+      'Marcos de justicia ambiental y social interconectada',
+      'Gobernanza de recursos naturales y equidad territorial'
     ],
     methodologyEn: [
-      'Life cycle assessment of industrial tree plantations versus native forest sinks',
-      'Documenting frontline territorial stewardship by Indigenous and rural leaders',
-      'Advocacy in multilateral climate governance summits'
+      'Interlinked Justice certification in Dresden, Germany (CV)',
+      'Interconnected environmental and social justice frameworks',
+      'Natural resource governance and spatial equity'
     ],
-    tags: ['COP27', 'Egipto', 'Julia Chuñil', 'EPN', 'Biomasa']
+    tags: ['Dresden', 'Alemania', 'Interlinked Justice', 'Certificación']
   },
 
-  // 14. COMUNICACIONES (VERDE): Radio Cristalina 96.3 FM - Maule Sur
+  // 14. CIENCIA: Universidad de Chile & Asesoría a la Convención Constitucional
   {
-    id: 'radio-cristalina-maule',
+    id: 'uchile-convencion',
+    type: 'science',
+    titleEs: 'Geofísico con Distinción & Asesoría a la Convención Constitucional',
+    titleEn: 'Geophysicist with Distinction & Advisor to Constitutional Convention',
+    subtitleEs: 'Universidad de Chile (2021) // Asesor en Política Ambiental',
+    subtitleEn: 'University of Chile (2021) // Environmental Policy Advisor',
+    country: 'Chile',
+    city: 'Santiago',
+    flag: '🇨🇱',
+    lat: -33.45,
+    lng: -70.66,
+    date: '2021-2022',
+    roleEs: 'Geofísico con Distinción & Asesor en Política Ambiental',
+    roleEn: 'Geophysicist with Distinction & Environmental Policy Advisor',
+    mediaType: 'plate',
+    src: '/portfolio_pages/page_1.png',
+    srcEn: '/portfolio_pages_en/page_1.png',
+    code: 'OPS-SCI-06',
+    source: 'Universidad de Chile & Convención Constitucional (CV)',
+    impactEs: 'Geofísico graduado con distinción por la Universidad de Chile (2021). Asesoría técnica a la Convención Constitucional en residuos, minería, clima y transición agroforestal; elaboración de planes de ordenamiento de cuencas y gestión de la transición productiva agrícola (según CV).',
+    impactEn: 'Geophysicist graduated with distinction from the University of Chile (2021). Technical advice to the Constitutional Convention (waste, mining, climate, agroforestry transition); watershed management plans and agricultural transition (from CV).',
+    methodologyEs: [
+      'Geofísica con distinción máxima en Universidad de Chile (CV)',
+      'Asesoría técnica a la Convención Constitucional en minería, residuos, clima y agroforestería (CV)',
+      'Elaboración de planes de manejo de cuencas y transición productiva (CV)'
+    ],
+    methodologyEn: [
+      'Geophysics with distinction from University of Chile (CV)',
+      'Technical advice to the Constitutional Convention on mining, waste, climate, agroforestry (CV)',
+      'Watershed management plans and agricultural transition design (CV)'
+    ],
+    tags: ['U. de Chile', 'Geofísica', 'Convención Constitucional', 'Cuencas']
+  },
+
+  // 15. COMUNICACIONES: Radio Cristalina 96.3 FM - Maule Sur
+  {
+    id: 'radio-cristalina',
     type: 'comms',
-    titleEs: 'Radio Cristalina 96.3 FM: Radiodifusión Comunitaria y Memoria Campesina',
-    titleEn: 'Radio Cristalina 96.3 FM: Grassroots Rural Radio Broadcasts',
-    subtitleEs: 'Microprogramas Radiales de Soberanía del Agua y Agroecología en el Maule Sur',
-    subtitleEn: 'Community Radio Series on Water Sovereignty & Peasant Agroecology in Maule',
+    titleEs: 'Red Comunitaria Maule Sur & Radio Cristalina 96.3 FM',
+    titleEn: 'Maule Sur Community Network & Radio Cristalina 96.3 FM',
+    subtitleEs: 'Programa "El Maule Sur También Existe" y Taller de Corresponsales Populares',
+    subtitleEn: '"El Maule Sur También Existe" Radio Series & Popular Reporters Workshop',
     country: 'Chile',
     city: 'Maule Sur',
     flag: '🇨🇱',
     lat: -35.85,
     lng: -71.80,
     date: '2021-2023',
-    roleEs: 'Locutor, Guionista & Productor Radial',
-    roleEn: 'Broadcaster, Scriptwriter & Producer',
+    roleEs: 'Panelista Radial & Capacitador Comunitario',
+    roleEn: 'Radio Panellist & Grassroots Trainer',
     mediaType: 'audio',
+    src: '/maule_sur_radio.jpg',
     code: 'OPS-COM-04',
-    source: 'Radio Cristalina 96.3 FM // Maule Sur',
-    impactEs: 'Producción de cápsulas sonoras emitidas en el dial FM del Maule profundo, llevando explicaciones hidrogeológicas sencillas y testimonios campesinos directamente a los hogares rurales sin internet.',
-    impactEn: 'Produced grassroots audio capsules broadcast on FM bands across deep rural Maule, translating hydrogeology concepts and farmer testimonies to households without internet access.',
+    source: 'Radio Cristalina 96.3 FM & Red Maule Sur (Portafolio Comms)',
+    impactEs: 'Panelista regular en el programa radial "El Maule Sur También Existe" en Radio Cristalina 96.3 FM y creador del Taller de Corresponsales Populares, capacitando a vecinos rurales en reportería comunitaria.',
+    impactEn: 'Regular broadcaster on "El Maule Sur También Existe" on Radio Cristalina 96.3 FM and instructor of the Grassroots Reporters Workshop, training rural residents.',
     methodologyEs: [
-      'Guionización pedagógica adaptada a la oralidad tradicional del campesinado',
-      'Grabación de campo con agricultores, recolectoras y guardianas de semillas',
-      'Difusión de frecuencias libres para democratizar el espectro radioeléctrico'
+      'Emisiones radiales en frecuencia modulada comunitaria en el Maule Sur',
+      'Taller de Corresponsales Populares para vocerías y vecinos del campo',
+      'Difusión pedagógica de problemas hídricos y ambientales territoriales'
     ],
     methodologyEn: [
-      'Accessible scientific scriptwriting honoring rural oral traditions',
-      'Field audio recording with peasant farmers, herb gatherers, and seedkeepers',
-      'Free-frequency broadcasts democratizing local radio spectrum'
+      'Community FM radio broadcasting in rural Maule Sur',
+      'Grassroots Reporters Workshop empowering agricultural neighbors',
+      'Educational dissemination on local water and ecological challenges'
     ],
-    tags: ['Radio FM', 'Maule', 'Comunitaria', 'Agroecología', 'Audio']
+    tags: ['Radio Cristalina', 'Maule Sur', 'Corresponsales', 'Comunitaria']
   },
 
-  // 13. I+D & INNOVACIÓN (MORADO): Bioacústica Vegetal & Geofísica
+  // 16. COMUNICACIONES: Campaña "Solo el pueblo ayuda al pueblo"
+  {
+    id: 'campana-victimas',
+    type: 'comms',
+    titleEs: 'Campaña "Solo el pueblo ayuda al pueblo"',
+    titleEn: '"Only the people help the people" Campaign',
+    subtitleEs: 'Ayuda a Víctimas de Incendios e Inundaciones en Chile // Coordinación & Fondos',
+    subtitleEn: 'Aid to Victims of Fires and Floods in Chile // Coordinator & Fundraising',
+    country: 'Chile',
+    city: 'Maule',
+    flag: '🇨🇱',
+    lat: -35.60,
+    lng: -71.55,
+    date: '2023',
+    roleEs: 'Coordinador de Campaña & Recaudación',
+    roleEn: 'Campaign Coordinator & Fundraising',
+    mediaType: 'press',
+    src: '/profile.jpg',
+    code: 'OPS-COM-05',
+    source: 'Campaña de Solidaridad Comunitaria (CV)',
+    impactEs: 'Coordinación y recaudación de fondos para la campaña "Solo el pueblo ayuda al pueblo": campaña de ayuda a víctimas de incendios e inundaciones ("Only the people help the people": Campaign to aid victims of fires and floods, según CV).',
+    impactEn: 'Campaign coordinator & fundraising for "Only the people help the people": campaign to aid victims of fires and floods (from CV).',
+    methodologyEs: [
+      'Coordinación y recaudación de fondos en emergencias socioambientales (CV)',
+      'Canalización directa de ayuda a familias damnificadas por megaincendios e inundaciones',
+      'Solidaridad comunitaria y autoorganización popular'
+    ],
+    methodologyEn: [
+      'Campaign coordination and emergency fundraising (CV)',
+      'Direct mutual aid delivery to families impacted by wildfires and floods',
+      'Grassroots community self-organization'
+    ],
+    tags: ['Solidaridad', 'Incendios', 'Inundaciones', 'Maule', 'Recaudación']
+  },
+
+  // 17. COMUNICACIONES: Arte, Cultura y Artivismo Territorial
+  {
+    id: 'arte-cultura',
+    type: 'comms',
+    titleEs: 'Arte, Cultura y Artivismo: Brigada Paulina Aguirre & Rap',
+    titleEn: 'Art, Culture & Tactical Artivism: Paulina Aguirre Brigade & Rap',
+    subtitleEs: 'Propaganda Popular, Torneo Beauchef Rap y Cuarentena Rap / Rap Libre',
+    subtitleEn: 'Grassroots Printmaking, Beauchef Rap Tournament & Cuarentena Rap',
+    country: 'Chile',
+    city: 'Santiago',
+    flag: '🇨🇱',
+    lat: -33.46,
+    lng: -70.64,
+    date: '2019-2021',
+    roleEs: 'Organizador Cultural & Artivista',
+    roleEn: 'Cultural Organizer & Artivist',
+    mediaType: 'woodcut',
+    src: '/brigada/mural_no_mas_afp.png',
+    code: 'OPS-COM-06',
+    source: 'Portafolio de Arte y Cultura (data.ts)',
+    impactEs: 'Propaganda y gráfica popular con la Brigada Paulina Aguirre (muralismo, afiches "Evadir"); organización del Torneo Beauchef Rap y Cuarentena Rap / Rap Libre con ayuda comunitaria.',
+    impactEn: 'Grassroots visual culture with Brigada Paulina Aguirre; organization of Beauchef Rap Tournament and Cuarentena Rap freestyle streams supporting community mutual aid.',
+    methodologyEs: [
+      'Muralismo y propaganda gráfica con la Brigada Paulina Aguirre',
+      'Organización de torneos de rap (Beauchef Rap y Cuarentena Rap / Rap Libre)',
+      'Articulación de cultura popular con solidaridad y comedores comunitarios'
+    ],
+    methodologyEn: [
+      'Muralism and propaganda printmaking with Brigada Paulina Aguirre',
+      'Organization of rap battles (Beauchef Rap & Cuarentena Rap)',
+      'Connecting youth culture with mutual aid solidarity'
+    ],
+    tags: ['Brigada Paulina Aguirre', 'Muralismo', 'Rap', 'Cultura Popular']
+  },
+
+  // 18. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica
   {
     id: 'rd-bioacustica',
     type: 'rd',
-    titleEs: 'Bioacústica Vegetal y Geofísica para la Evaluación de Salud de Ecosistemas',
-    titleEn: 'Plant Bioacoustics & Geophysics for Ecosystem Health Assessment',
-    subtitleEs: 'Integración de Señales Acústicas de Xilema con Geoelectricidad de Suelo',
-    subtitleEn: 'Integration of Xylem Acoustic Emissions with Soil Geoelectrics',
+    titleEs: 'Proyecto en Desarrollo: Geofísica y Bioacústica Vegetal',
+    titleEn: 'Project in Development: Geophysics & Plant Bioacoustics',
+    subtitleEs: 'Integración de Geofísica y Bioacústica Vegetal para Evaluar Salud de Ecosistemas',
+    subtitleEn: 'Integrating Geophysics & Plant Bioacoustics for Ecosystem Health Assessment',
     country: 'Alemania',
     city: 'Kiel',
     flag: '🇩🇪',
     lat: 54.33,
     lng: 10.14,
-    date: '2025-2026',
-    roleEs: 'Investigador Principal e Innovador Tecnológico',
-    roleEn: 'Lead Researcher & Technology Innovator',
+    date: '2024-2025',
+    roleEs: 'Investigador de Proyecto (Concursos y Competiciones)',
+    roleEn: 'Project Researcher (Contests & Competitions)',
     mediaType: 'plate',
     src: '/portfolio_pages/page_3.png',
     code: 'OPS-RD-01',
-    source: 'Proyecto I+D // Kiel & Santiago',
-    impactEs: 'Desarrollo de un sistema no invasivo que combina sensores acústicos ultrasónicos de cavitación vegetal con tomografía de resistividad eléctrica (ERT) para detectar estrés hídrico temprano.',
-    impactEn: 'Non-invasive diagnostic framework merging ultrasonic xylem acoustic cavitation detection with electrical resistivity tomography (ERT) to measure early vegetative drought stress.',
+    source: 'Projects in development (CV)',
+    impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Integrating geophysics and plant bioacoustics for ecosystem health assessment" (Integración de geofísica y bioacústica vegetal para evaluación de la salud de ecosistemas, según CV).',
+    impactEn: 'Projects in development (in contests and competitions): "Integrating geophysics and plant bioacoustics for ecosystem health assessment" (from CV).',
     methodologyEs: [
-      'Captación de emisiones acústicas en tallos durante estrés por sequía',
-      'Mapeo geofísico de resistividad aparente en el bulbo radicular del suelo',
-      'Algoritmos de alerta temprana para agricultura regenerativa y bosques nativos'
+      'Integración de geofísica y bioacústica vegetal (CV)',
+      'Evaluación de la salud de ecosistemas (CV)',
+      'Proyectos en desarrollo en concursos y competiciones (CV)'
     ],
     methodologyEn: [
-      'Acoustic emission tracking in plant vascular systems during drought stress',
-      'Geophysical mapping of apparent electrical resistivity in the rhizosphere',
-      'Early-warning indicators for regenerative agroforestry and native forests'
+      'Integrating geophysics and plant bioacoustics (CV)',
+      'Ecosystem health assessment (CV)',
+      'Projects in development in contests and competitions (CV)'
     ],
-    tags: ['Bioacústica', 'Geofísica', 'Innovación', 'Estrés Hídrico', 'I+D']
+    tags: ['Bioacústica', 'Geofísica', 'Salud de Ecosistemas', 'I+D', 'Concursos']
   },
 
-  // 14. I+D & INNOVACIÓN (MORADO): Smart Food Parks - Santiago / EPAC
+  // 19. I+D & INNOVACIÓN: Smart Food Parks & Permacultura (EPAC)
   {
     id: 'rd-smart-food-parks',
     type: 'rd',
-    titleEs: 'Smart Food Parks: Uniendo Naturaleza y Tecnología para Ciudades Sostenibles',
-    titleEn: 'Smart Food Parks: Uniting Nature & Technology for SDG Cities',
-    subtitleEs: 'Parques Productivos Comunitarios con Cosecha de Aguas y Sensores Abiertos',
-    subtitleEn: 'Community Productive Parks with Rainwater Harvesting & Open Sensors',
+    titleEs: 'Smart Food Parks & Diseñador en Permacultura (CDP EPAC)',
+    titleEn: 'Smart Food Parks & Permaculture Designer (CDP EPAC)',
+    subtitleEs: 'Uniendo Naturaleza y Tecnología para Ciudades con ODS // Escuela Chilena de Permacultura',
+    subtitleEn: 'Uniting Nature & Technology for SDG Cities // Chilean School of Permaculture',
     country: 'Chile',
     city: 'Santiago',
     flag: '🇨🇱',
-    lat: -33.45,
-    lng: -70.66,
-    date: '2024-2026',
-    roleEs: 'Diseñador en Permacultura (CDP) & Líder de Proyecto',
-    roleEn: 'Certified Permaculture Designer (CDP) & Project Lead',
+    lat: -33.47,
+    lng: -70.67,
+    date: '2023-2025',
+    roleEs: 'Diseñador en Permacultura Certificado (CDP)',
+    roleEn: 'Certified Permaculture Designer (CDP)',
     mediaType: 'woodcut',
     src: '/images/apruebo_rural_1.png',
     code: 'OPS-RD-02',
-    source: 'EPAC & Red de Ciudades Sostenibles ODS',
-    impactEs: 'Diseño integral de parques urbanos comestibles equipados con captación de agua de lluvia, diseño permacultural (CDP EPAC) y micro-sensores de suelo para soberanía alimentaria barrial.',
-    impactEn: 'Holistic blueprint for community edible urban parks featuring rainwater harvesting, permaculture zoning (CDP), and open-source telemetry for food security in marginalized zones.',
+    source: 'Projects in development & Education EPAC (CV)',
+    impactEs: 'Proyecto en desarrollo: "Smart Food Parks: Uniting nature and technology for SDG cities" (CV) + "Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology (EPAC) | 2023" (según CV).',
+    impactEn: 'Project in development: "Smart Food Parks: Uniting nature and technology for SDG cities" (CV) + "Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology (EPAC) | 2023" (from CV).',
     methodologyEs: [
-      'Diseño en permacultura y curvas de nivel para infiltración hidrológica máxima',
-      'Huertos polivarietales de bajo consumo de agua con especies nativas comestibles',
-      'Monitoreo ambiental abierto gestionado por juntas de vecinos y escuelas'
+      'Smart Food Parks: uniendo naturaleza y tecnología para ciudades con ODS (CV)',
+      'Certificado como Diseñador en Permacultura (CDP) por la Escuela Chilena de Permacultura y Agroecología EPAC (CV)',
+      'Diseño de sistemas regenerativos urbanos'
     ],
     methodologyEn: [
-      'Keyline permaculture water-retaining earthworks for maximum infiltration',
-      'Polyculture resilient agroecosystems maximizing edible yields per square meter',
-      'Open-source monitoring kits managed directly by neighborhood assemblies'
+      'Smart Food Parks: uniting nature and technology for SDG cities (CV)',
+      'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology EPAC (CV)',
+      'Regenerative urban design frameworks'
     ],
-    tags: ['Permacultura', 'Smart Cities', 'ODS', 'Agroecología', 'Ciudades']
+    tags: ['Smart Food Parks', 'Permacultura', 'EPAC', 'ODS', 'I+D']
   }
 ];
+
 
 import { ALL_COASTLINES, CONTINENT_LAND_MATRIX, LatLng } from '../continentsData';
 

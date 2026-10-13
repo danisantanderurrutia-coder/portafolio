@@ -98,25 +98,25 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
         {/* Tape Buttons Column: Left-aligned over the halftone screen tone area */}
         <div className="w-full max-w-sm sm:max-w-md flex flex-col space-y-2 sm:space-y-2.5 py-1">
           
-          {/* TAPE 1: [01. CIENCIA // CAU KIEL] (YELLOW STENCIL TAPE COMO EL BOTÓN [PLAY]) */}
+          {/* TAPE 1: [01. CIENCIA // CAU KIEL & POZNAŃ] (YELLOW STENCIL TAPE COMO EL BOTÓN [PLAY]) */}
           <button
             onClick={() => onSelectCategory('science')}
             className="group relative w-full text-left bg-[#facc15] hover:bg-white text-black px-4 py-2 sm:py-2.5 border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-1 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
           >
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase">
-                {currentLang === 'es' ? '[ 01. CIENCIA // CAU KIEL & POZNAŃ ]' : '[ 01. SCIENCE // CAU KIEL & POZNAŃ ]'}
+                {currentLang === 'es' ? '[ 01. CIENCIA // U. DE CHILE, KIEL & POZNAŃ ]' : '[ 01. SCIENCE // U. OF CHILE, KIEL & POZNAŃ ]'}
               </span>
               <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
             </div>
             <div className="text-[10px] font-mono font-bold text-neutral-800 tracking-tight mt-0.5">
               {currentLang === 'es'
-                ? 'Modelación hidrogeofísica, cuencas y turberas bálticas (Alemania/Polonia)'
-                : 'Hydrogeophysical modeling, catchments & Baltic peatlands (Germany/Poland)'}
+                ? 'Geofísica (U. de Chile), CAU Kiel (Alemania) y AMU Poznań (Polonia)'
+                : 'Geophysics (U. of Chile), CAU Kiel (Germany) & AMU Poznań (Poland)'}
             </div>
           </button>
 
-          {/* TAPE 2: [02. COMUNICACIONES // CONGRESO] (WHITE STENCIL TAPE) */}
+          {/* TAPE 2: [02. COMUNICACIONES // CONGRESO & MEDIOS] (WHITE STENCIL TAPE) */}
           <button
             onClick={() => onSelectCategory('comms')}
             className="group relative w-full text-left bg-white hover:bg-[#facc15] text-black px-4 py-2 sm:py-2.5 border-3 border-black shadow-[4px_4px_0px_#000000] rotate-1 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
@@ -129,8 +129,8 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
             <div className="text-[10px] font-mono font-bold text-neutral-700 group-hover:text-neutral-900 tracking-tight mt-0.5">
               {currentLang === 'es'
-                ? 'Cámara de Diputadas/os, Radio Cristalina y +700k audiencia'
-                : 'Chamber of Deputies testimony, Radio Cristalina & +700k audience'}
+                ? 'Cámara de Diputadas/os, Primera Línea Prensa (+700k) y Apruebo Rural'
+                : 'Chamber of Deputies testimony, Primera Línea Prensa (+700k) & Apruebo Rural'}
             </div>
           </button>
 
@@ -147,8 +147,8 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
             <div className="text-[10px] font-mono font-bold text-neutral-700 group-hover:text-neutral-900 tracking-tight mt-0.5">
               {currentLang === 'es'
-                ? 'COP27 Clima (Egipto), Copenhague (Dinamarca) y Costa Rica'
-                : 'COP27 Summit (Egypt), Copenhagen (Denmark) & Costa Rica'}
+                ? 'Conferencias en Oslo (Decrecimiento), Bonn (Justicia Ambiental), Costa Rica y Bogotá'
+                : 'Conferences in Oslo (Degrowth), Bonn (Environmental Justice), Costa Rica & Bogotá'}
             </div>
           </button>
 
@@ -159,14 +159,14 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           >
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase">
-                {currentLang === 'es' ? '[ 04. I+D // ECO-TECNOLOGÍA ]' : '[ 04. R&D // ECO-TECHNOLOGY ]'}
+                {currentLang === 'es' ? '[ 04. I+D // PROYECTOS & INNOVACIÓN ]' : '[ 04. R&D // PROJECTS & INNOVATION ]'}
               </span>
               <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
             </div>
             <div className="text-[10px] font-mono font-bold text-neutral-700 group-hover:text-neutral-900 tracking-tight mt-0.5">
               {currentLang === 'es'
-                ? 'Telemetría de cuencas en Zúrich y monitoreo satelital en Bogotá'
-                : 'Catchment telemetry in Zurich & satellite monitoring in Bogota'}
+                ? 'Bioacústica vegetal & geofísica, Smart Food Parks y Permacultura (EPAC)'
+                : 'Plant bioacoustics & geophysics, Smart Food Parks & Permaculture (EPAC)'}
             </div>
           </button>
 
@@ -183,8 +183,8 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
             <div className="text-[10px] font-mono font-bold text-neutral-300 group-hover:text-neutral-900 tracking-tight mt-0.5">
               {currentLang === 'es'
-                ? 'Visor táctico con el planeta rotando automáticamente a los 8 países'
-                : 'Tactical HUD with 3D globe rotating smoothly to all 8 countries'}
+                ? 'Visor táctico con el globo 3D interactivo navegando los hitos del CV'
+                : 'Tactical HUD with 3D interactive globe navigating all CV milestones'}
             </div>
           </button>
 
