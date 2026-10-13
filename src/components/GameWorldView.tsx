@@ -827,6 +827,9 @@ interface GameWorldViewProps {
   onExitToDossier?: () => void;
   onBackToMenu?: () => void;
   initialFilter?: 'all' | MissionType;
+  onOpenHireMe?: () => void;
+  onOpenSkills?: () => void;
+  onBackToGateway?: () => void;
 }
 
 export const GameWorldView: React.FC<GameWorldViewProps> = ({
@@ -834,7 +837,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   onToggleLanguage,
   onExitToDossier,
   onBackToMenu,
-  initialFilter = 'all'
+  initialFilter = 'all',
+  onOpenHireMe,
+  onOpenSkills,
+  onBackToGateway
 }) => {
   const [activeFilter, setActiveFilter] = useState<'all' | MissionType>(initialFilter);
   const [selectedMissionId, setSelectedMissionId] = useState<string>(() => {
@@ -1375,6 +1381,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 className="w-full h-full object-cover object-top filter contrast-110"
               />
             </div>
+            {/* Topocatchment Official Insignia */}
+            <div 
+              className="absolute -top-1 -left-1 w-5 h-5 rounded-md bg-[#090b0e] border border-white shadow-[1.5px_1.5px_0px_#facc15] p-0.5 flex items-center justify-center -rotate-6"
+              title="Topocatchment"
+            >
+              <img src={resolveAsset('/favicon.svg')} alt="Topocatchment" className="w-full h-full object-contain" />
+            </div>
           </div>
 
           {/* Stencil Title Tape */}
@@ -1513,6 +1526,30 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
           </button>
 
+          {/* Hire Me Direct Button */}
+          {onOpenHireMe && (
+            <button
+              onClick={onOpenHireMe}
+              className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
+              title="Contratar // Contact Daniel"
+            >
+              <span>💼</span>
+              <span className="hidden xl:inline">{currentLang === 'es' ? 'HIRE ME' : 'HIRE ME'}</span>
+            </button>
+          )}
+
+          {/* Skills Button */}
+          {onOpenSkills && (
+            <button
+              onClick={onOpenSkills}
+              className="px-2 py-1 bg-white/10 hover:bg-white hover:text-black text-white font-mono font-bold text-xs uppercase tracking-wider border border-white/20 active:scale-95 transition-all hidden md:flex items-center space-x-1"
+              title="Ficha Técnica & Skills"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+              <span>SKILLS</span>
+            </button>
+          )}
+
           {onExitToDossier && (
             <button
               onClick={onExitToDossier}
@@ -1521,6 +1558,18 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             >
               <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
               <span className="hidden lg:inline">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
+            </button>
+          )}
+
+          {/* Home / Gateway Button */}
+          {onBackToGateway && (
+            <button
+              onClick={onBackToGateway}
+              className="px-2 py-1 bg-white hover:bg-neutral-200 text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
+              title="Volver a Portada Principal // Home Gateway"
+            >
+              <span>🏠</span>
+              <span className="hidden sm:inline">{currentLang === 'es' ? 'INICIO' : 'HOME'}</span>
             </button>
           )}
         </div>

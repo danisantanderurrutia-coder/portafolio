@@ -10,13 +10,19 @@ interface PunkMainMenuProps {
   onToggleLanguage: () => void;
   onSelectCategory: (category: MissionType | 'all') => void;
   onOpenDossier: () => void;
+  onBackToGateway?: () => void;
+  onOpenHireMe?: () => void;
+  onOpenSkills?: () => void;
 }
 
 export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   currentLang,
   onToggleLanguage,
   onSelectCategory,
-  onOpenDossier
+  onOpenDossier,
+  onBackToGateway,
+  onOpenHireMe,
+  onOpenSkills
 }) => {
   const [isProjectsModalOpen, setIsProjectsModalOpen] = useState(false);
   return (
@@ -45,6 +51,13 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
                 alt="Daniel Santander Urrutia" 
                 className="w-full h-full object-cover object-top filter contrast-110 brightness-95"
               />
+            </div>
+            {/* Topocatchment Official Insignia on Avatar Corner */}
+            <div 
+              className="absolute -top-1.5 -left-1.5 w-6 h-6 rounded-lg bg-[#090b0e] border-2 border-white shadow-[2px_2px_0px_#facc15] p-0.5 flex items-center justify-center -rotate-6 group-hover:rotate-0 transition-transform"
+              title="Topocatchment Logo: Geofísica de Cuencas & Comunicaciones Estratégicas"
+            >
+              <img src={resolveAsset('/favicon.svg')} alt="Topocatchment" className="w-full h-full object-contain" />
             </div>
             {/* Stamp Tag */}
             <div className="absolute -bottom-1 -right-1 bg-red-600 text-white font-mono font-black text-[8px] px-1.5 py-0.2 rounded border border-white uppercase tracking-wider rotate-3">
@@ -104,6 +117,28 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
             <span className="hidden md:inline">{currentLang === 'es' ? 'VISTA DOSSIER' : 'DOSSIER VIEW'}</span>
           </button>
+
+          {onOpenHireMe && (
+            <button
+              onClick={onOpenHireMe}
+              className="px-2.5 sm:px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
+              title="Contratar // Contact Daniel"
+            >
+              <span>💼</span>
+              <span className="hidden sm:inline">{currentLang === 'es' ? 'CONTRATAR' : 'HIRE ME'}</span>
+            </button>
+          )}
+
+          {onBackToGateway && (
+            <button
+              onClick={onBackToGateway}
+              className="px-2.5 sm:px-3 py-1.5 bg-white hover:bg-neutral-200 text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
+              title="Volver a Portada Principal // Home Gateway"
+            >
+              <span>🏠</span>
+              <span className="hidden sm:inline">{currentLang === 'es' ? 'INICIO' : 'HOME'}</span>
+            </button>
+          )}
 
           <button
             onClick={onToggleLanguage}

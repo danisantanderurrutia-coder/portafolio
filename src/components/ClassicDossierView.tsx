@@ -51,20 +51,28 @@ interface ClassicDossierViewProps {
   currentLang: Language;
   onToggleLanguage: () => void;
   onSwitchToGameView?: () => void;
+  initialProfileMode?: ProfileMode;
+  onOpenHireMe?: () => void;
+  onOpenSkills?: () => void;
+  onBackToGateway?: () => void;
 }
 
 export function ClassicDossierView({
   currentLang,
   onToggleLanguage,
-  onSwitchToGameView
+  onSwitchToGameView,
+  initialProfileMode = 'comms',
+  onOpenHireMe,
+  onOpenSkills,
+  onBackToGateway
 }: ClassicDossierViewProps) {
-  const [profileMode, setProfileMode] = useState<ProfileMode>('comms');
+  const [profileMode, setProfileMode] = useState<ProfileMode>(initialProfileMode);
   const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
   const [activeSubSectionIndex, setActiveSubSectionIndex] = useState<number>(0);
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
-  const [hasEntered, setHasEntered] = useState<boolean>(false);
+  const [hasEntered, setHasEntered] = useState<boolean>(true);
 
   // Sync tab and entered state with URL hash
   useEffect(() => {
@@ -282,6 +290,48 @@ export function ClassicDossierView({
                 <span>{currentLang === 'es' ? 'Científico' : 'Scientific'}</span>
               </button>
             </div>
+          )}
+
+          {/* Hire Me & Skills Quick Actions */}
+          {onOpenHireMe && (
+            <button
+              onClick={onOpenHireMe}
+              className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-sans font-bold transition shadow-sm active:scale-95"
+              title="Contratar // Contact Daniel"
+            >
+              <span>💼</span>
+              <span className="hidden sm:inline">{currentLang === 'es' ? 'CONTRATAR' : 'HIRE ME'}</span>
+            </button>
+          )}
+
+          {onOpenSkills && (
+            <button
+              onClick={onOpenSkills}
+              className={`hidden md:flex items-center space-x-1 px-3 py-1.5 rounded-full border text-xs font-sans font-medium transition shadow-sm ${
+                isComms
+                  ? 'border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800'
+                  : 'border-[#d0c4b0] bg-[#ede5d6] text-neutral-800 hover:bg-[#e4dcce]'
+              }`}
+              title="Ver Ficha Técnica y Skills"
+            >
+              <FileCheck className="w-3.5 h-3.5" />
+              <span>{currentLang === 'es' ? 'SKILLS' : 'SKILLS'}</span>
+            </button>
+          )}
+
+          {onBackToGateway && (
+            <button
+              onClick={onBackToGateway}
+              className={`flex items-center space-x-1 px-3 py-1.5 rounded-full border text-xs font-sans font-medium transition shadow-sm ${
+                isComms
+                  ? 'border-slate-700 bg-slate-900/80 text-slate-200 hover:bg-slate-800'
+                  : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-800 hover:bg-[#e4dcce]'
+              }`}
+              title="Volver a Inicio // Back to Gateway"
+            >
+              <span>🏠</span>
+              <span className="hidden sm:inline">{currentLang === 'es' ? 'INICIO' : 'HOME'}</span>
+            </button>
           )}
 
           {onSwitchToGameView && (
