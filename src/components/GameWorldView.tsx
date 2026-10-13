@@ -1680,69 +1680,61 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       </main>
 
       {/* ============================================================== */}
-      {/* 5. GTA MISSION PLANNING BOARD // PIZARRA DE GOLPE PUNK         */}
+      {/* 5. GTA MISSION PLANNING BOARD // PINNED DIRECTLY ON DARK STAGE */}
       {/* ============================================================== */}
-      <footer className="relative z-30 w-full px-3 sm:px-6 py-2 bg-[#edeae1] border-t-4 border-[#1c1c1c] shadow-[0_-10px_30px_rgba(0,0,0,0.85)] flex flex-col space-y-1.5 select-none">
+      <footer className="relative z-30 w-full px-3 sm:px-6 pt-2 pb-3 bg-gradient-to-t from-black via-black/85 to-transparent border-t border-white/10 select-none flex flex-col space-y-2">
         
-        {/* Whiteboard Top Frame: Stencil Banner + Contracts Counter + Pushpins */}
-        <div className="flex items-center justify-between border-b-2 border-neutral-400/60 pb-1 px-1 font-mono text-xs">
+        {/* Top Header: Stencil Banner + Counter + Legend (Centered & Aligned) */}
+        <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-1 font-mono text-xs">
           
-          {/* Left: GTA Board Header with Screws & Stencil Title */}
+          {/* Left: Punk Stencil Header */}
           <div className="flex items-center space-x-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 shadow-inner flex items-center justify-center text-[7px] text-neutral-400 font-bold">
-              +
-            </span>
-            <span className="font-mono font-black text-xs sm:text-sm tracking-tight text-black uppercase">
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <span className="font-mono font-black text-xs sm:text-sm tracking-tight text-[#facc15] uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
               {currentLang === 'es' ? '★ RUTA DE CAMPO & EXPEDIENTES DISPONIBLES ★' : '★ AVAILABLE FIELD CONTRACTS & DOSSIERS ★'}
-            </span>
-            <span className="hidden md:inline text-[10px] text-neutral-500 font-bold">
-              // GTA HEIST BOARD
             </span>
           </div>
 
           {/* Right: Heist Completed Counter (GTA Style) & Category Pushpin Legend */}
           <div className="flex items-center space-x-3 sm:space-x-4">
-            <div className="hidden lg:flex items-center space-x-2.5 text-[10px] font-mono font-bold text-neutral-700">
+            <div className="hidden lg:flex items-center space-x-2.5 text-[10px] font-mono font-bold text-neutral-300">
               <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-600 border border-black shadow-sm" />
+                <span className="w-2.5 h-2.5 rounded-full bg-red-600 border border-white/40 shadow-sm" />
                 <span>CIENCIA</span>
               </span>
               <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 border border-black shadow-sm" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 border border-white/40 shadow-sm" />
                 <span>MEDIOS</span>
               </span>
               <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500 border border-black shadow-sm" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500 border border-white/40 shadow-sm" />
                 <span>CUMBRES</span>
               </span>
               <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 border border-black shadow-sm" />
+                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 border border-white/40 shadow-sm" />
                 <span>ARTE</span>
               </span>
               <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-purple-600 border border-black shadow-sm" />
+                <span className="w-2.5 h-2.5 rounded-full bg-purple-600 border border-white/40 shadow-sm" />
                 <span>I+D</span>
               </span>
             </div>
 
             {/* Total Contracts Done Box (Like "COMPLETED: 773" in GTA Image 1) */}
-            <div className="flex items-center space-x-1.5 bg-white px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000]">
-              <span className="font-mono font-bold text-[10px] text-neutral-600 uppercase">
+            <div className="flex items-center space-x-1.5 bg-black/90 text-white px-2.5 py-0.5 border border-white/30 shadow-[2px_2px_0px_#facc15]">
+              <span className="font-mono font-bold text-[10px] text-neutral-300 uppercase">
                 {currentLang === 'es' ? 'COMPLETADAS:' : 'COMPLETED:'}
               </span>
-              <span className="font-mono font-black text-xs text-black">
+              <span className="font-mono font-black text-xs text-[#facc15]">
                 {filteredMissions.length}
               </span>
             </div>
-
-            <span className="w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 shadow-inner flex items-center justify-center text-[7px] text-neutral-400 font-bold">
-              +
-            </span>
           </div>
         </div>
 
-        {/* Polaroids & Contracts Horizontal Prep Rail */}
-        <div className="w-full flex items-center gap-2.5 sm:gap-3.5 overflow-x-auto no-scrollbar py-1.5 px-1">
+        {/* Polaroids & Contracts Horizontal Prep Rail (Always Centered via mx-auto flex wrapper) */}
+        <div className="w-full overflow-x-auto no-scrollbar py-1 px-1">
+          <div className="flex items-center gap-2.5 sm:gap-3.5 mx-auto w-max justify-center min-w-full">
           {filteredMissions.map((m, idx) => {
             const isSelected = m.id === selectedMissionId;
 
@@ -1870,6 +1862,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               </React.Fragment>
             );
           })}
+          </div>
         </div>
       </footer>
 
