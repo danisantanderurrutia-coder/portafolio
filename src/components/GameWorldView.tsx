@@ -1013,30 +1013,54 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       bGroup.position.copy(pos);
       bGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), norm);
 
-      // Base ring on ground
-      const baseRingGeo = new THREE.RingGeometry(0.025, 0.05, 16);
+      // 1. Double Concentric Surface Rings (Radar footprint)
+      const baseRingGeo = new THREE.RingGeometry(0.022, 0.034, 24);
       const baseRingMat = new THREE.MeshBasicMaterial({ color: colorHex, side: THREE.DoubleSide });
       const baseRing = new THREE.Mesh(baseRingGeo, baseRingMat);
       baseRing.rotation.x = Math.PI / 2;
       bGroup.add(baseRing);
 
-      // Glowing pin sphere
-      const orbGeo = new THREE.SphereGeometry(0.045, 16, 16);
-      const orbMat = new THREE.MeshBasicMaterial({ color: colorHex });
-      const orb = new THREE.Mesh(orbGeo, orbMat);
-      orb.position.y = 0.05;
-      bGroup.add(orb);
+      const outerRingGeo = new THREE.RingGeometry(0.048, 0.058, 24);
+      const outerRingMat = new THREE.MeshBasicMaterial({
+        color: colorHex,
+        transparent: true,
+        opacity: 0.45,
+        side: THREE.DoubleSide
+      });
+      const outerRing = new THREE.Mesh(outerRingGeo, outerRingMat);
+      outerRing.rotation.x = Math.PI / 2;
+      bGroup.add(outerRing);
 
-      // Tactical vertical laser column
-      const beamGeo = new THREE.CylinderGeometry(0.008, 0.008, 0.35, 8);
+      // 2. Luminous Photon Core (Crisp LED/Diamond node)
+      const coreGeo = new THREE.SphereGeometry(0.026, 16, 16);
+      const coreMat = new THREE.MeshBasicMaterial({ color: colorHex });
+      const core = new THREE.Mesh(coreGeo, coreMat);
+      core.position.y = 0.025;
+      bGroup.add(core);
+
+      const coronaGeo = new THREE.SphereGeometry(0.046, 16, 16);
+      const coronaMat = new THREE.MeshBasicMaterial({
+        color: colorHex,
+        transparent: true,
+        opacity: 0.35,
+        blending: THREE.AdditiveBlending
+      });
+      const corona = new THREE.Mesh(coronaGeo, coronaMat);
+      corona.position.y = 0.025;
+      bGroup.add(corona);
+
+      // 3. Ethereal Soft Cone of Light (Fading holographic upward beam)
+      const beamGeo = new THREE.ConeGeometry(0.032, 0.38, 16, 1, true);
       const beamMat = new THREE.MeshBasicMaterial({
         color: colorHex,
         transparent: true,
-        opacity: 0.75,
-        blending: THREE.AdditiveBlending
+        opacity: 0.28,
+        blending: THREE.AdditiveBlending,
+        side: THREE.DoubleSide
       });
       const beam = new THREE.Mesh(beamGeo, beamMat);
-      beam.position.y = 0.22;
+      beam.rotation.x = Math.PI; // Inverted cone: apex on ground, base softly dispersed
+      beam.position.y = 0.19;
       bGroup.add(beam);
 
       // Invisible Hit-Test Sphere for mouse click detection
@@ -1052,9 +1076,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       beaconMeshes.push({ missionId: m.id, type: m.type, group: bGroup });
     });
 
-    // 10. Active Mission Target Reticle (Pulsing radar ring)
+    // 10. Active Mission Target Reticle (Pulsing radar wave + tactical brackets)
     const reticleGroup = new THREE.Group();
-    const pulseRingGeo = new THREE.RingGeometry(0.06, 0.09, 32);
+    const pulseRingGeo = new THREE.RingGeometry(0.04, 0.07, 32);
     const pulseRingMat = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       transparent: true,
@@ -1064,6 +1088,18 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     const pulseRing = new THREE.Mesh(pulseRingGeo, pulseRingMat);
     pulseRing.rotation.x = Math.PI / 2;
     reticleGroup.add(pulseRing);
+
+    const bracketRingGeo = new THREE.RingGeometry(0.082, 0.095, 32);
+    const bracketRingMat = new THREE.MeshBasicMaterial({
+      color: 0xfbbf24, // Amber gold accent
+      transparent: true,
+      opacity: 0.85,
+      side: THREE.DoubleSide
+    });
+    const bracketRing = new THREE.Mesh(bracketRingGeo, bracketRingMat);
+    bracketRing.rotation.x = Math.PI / 2;
+    reticleGroup.add(bracketRing);
+
     earthGroup.add(reticleGroup);
 
     // Initial Globe Orientation (Focus on first mission)
@@ -1073,11 +1109,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     const targetQuat = currentQuat.clone();
     earthGroup.quaternion.copy(currentQuat);
 
-    // Interaction State (Drag to Rotate + Click to Select)
+    // Interaction State (Drag to Rotate + Inertia Momentum + Click to Select)
     let isDragging = false;
     let prevX = 0;
     let prevY = 0;
     let totalDrag = 0;
+    let velX = 0;
+    let velY = 0;
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
@@ -1087,6 +1125,11 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       prevX = e.clientX;
       prevY = e.clientY;
       totalDrag = 0;
+      velX = 0;
+      velY = 0;
+      try {
+        mount.setPointerCapture(e.pointerId);
+      } catch (_) {}
     };
 
     const onPointerMove = (e: PointerEvent) => {
@@ -1097,6 +1140,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       prevX = e.clientX;
       prevY = e.clientY;
 
+      velX = dx * 0.005;
+      velY = dy * 0.005;
+
       // Rotate globe around camera view axes smoothly
       const rotY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), dx * 0.005);
       const rotX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), dy * 0.005);
@@ -1106,6 +1152,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     };
 
     const onPointerUp = (e: PointerEvent) => {
+      try {
+        mount.releasePointerCapture(e.pointerId);
+      } catch (_) {}
+
       if (isDragging && totalDrag < 8) {
         // Raycast to detect click on any beacon pin
         const rect = mount.getBoundingClientRect();
@@ -1137,9 +1187,22 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         const curM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
         const v = latLngToVector3(curM.lat, curM.lng, 1).normalize();
         targetQuat.setFromUnitVectors(v, new THREE.Vector3(0, 0, 1));
+        velX = 0;
+        velY = 0;
       }
 
-      if (!isDragging) {
+      if (isDragging) {
+        // Direct tracking
+      } else if (Math.abs(velX) > 0.0001 || Math.abs(velY) > 0.0001) {
+        // Inertia rotation with natural friction
+        const rotY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), velX);
+        const rotX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), velY);
+        earthGroup.quaternion.premultiply(rotY);
+        earthGroup.quaternion.premultiply(rotX);
+        targetQuat.copy(earthGroup.quaternion);
+        velX *= 0.92;
+        velY *= 0.92;
+      } else {
         earthGroup.quaternion.slerp(targetQuat, 0.055);
       }
 
@@ -1203,7 +1266,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       {/* 2. THE 3D PLANET (SIEMPRE ATRÁS, GIRA Y SE ENFOCA EN CADA EVENTO - DRAG TO ROTATE) */}
       <div 
         ref={mountRef}
-        className="absolute inset-0 z-10 overflow-hidden cursor-grab active:cursor-grabbing"
+        className="absolute inset-0 z-10 overflow-hidden cursor-grab active:cursor-grabbing select-none"
+        style={{ touchAction: 'none' }}
       />
 
       {/* ============================================================== */}
@@ -1350,11 +1414,11 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       {/* ============================================================== */}
       {/* 4. MAIN INTERACTIVE HUD STAGE                                  */}
       {/* ============================================================== */}
-      <main className="relative z-20 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-start overflow-hidden">
+      <main className="relative z-20 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-start overflow-hidden pointer-events-none">
         
         {/* Floatable Tactical Dossier Card (Left / Center Stage) */}
         {isDossierOpen && (
-          <div className="w-full max-w-2xl lg:max-w-3xl max-h-[78vh] bg-[#0c1219]/90 border-2 border-white/20 rounded-2xl shadow-[0_16px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl flex flex-col overflow-hidden animate-fadeIn text-white">
+          <div className="w-full max-w-2xl lg:max-w-3xl max-h-[78vh] bg-[#0c1219]/90 border-2 border-white/20 rounded-2xl shadow-[0_16px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl flex flex-col overflow-hidden animate-fadeIn text-white pointer-events-auto">
             
             {/* Mission Window Header */}
             <div className="px-5 py-2.5 bg-black/70 border-b border-white/15 flex items-center justify-between font-mono text-xs shrink-0">
@@ -1570,7 +1634,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         {!isDossierOpen && (
           <button
             onClick={() => setIsDossierOpen(true)}
-            className="px-4 py-2 rounded-xl bg-black/80 hover:bg-black border border-white/30 text-amber-400 font-mono text-xs font-bold transition flex items-center space-x-2 shadow-2xl backdrop-blur-md"
+            className="pointer-events-auto px-4 py-2 rounded-xl bg-black/80 hover:bg-black border border-white/30 text-amber-400 font-mono text-xs font-bold transition flex items-center space-x-2 shadow-2xl backdrop-blur-md"
           >
             <Maximize2 className="w-4 h-4" />
             <span>
