@@ -1680,82 +1680,194 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       </main>
 
       {/* ============================================================== */}
-      {/* 5. BOTTOM MISSION SLIDE CAROUSEL (ESTILO [REDACTED] COMIC)     */}
+      {/* 5. GTA MISSION PLANNING BOARD // PIZARRA DE GOLPE PUNK         */}
       {/* ============================================================== */}
-      <footer className="relative z-30 w-full px-4 sm:px-8 py-2.5 bg-black border-t-3 border-black shadow-[0_-4px_0px_#facc15] flex flex-col space-y-2">
-        <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
+      <footer className="relative z-30 w-full px-3 sm:px-6 py-2 bg-[#edeae1] border-t-4 border-[#1c1c1c] shadow-[0_-10px_30px_rgba(0,0,0,0.85)] flex flex-col space-y-1.5 select-none">
+        
+        {/* Whiteboard Top Frame: Stencil Banner + Contracts Counter + Pushpins */}
+        <div className="flex items-center justify-between border-b-2 border-neutral-400/60 pb-1 px-1 font-mono text-xs">
+          
+          {/* Left: GTA Board Header with Screws & Stencil Title */}
           <div className="flex items-center space-x-2">
-            <span className="bg-[#facc15] text-black px-1.5 py-0.2 font-black border border-black shadow-[1px_1px_0px_#ffffff]">
-              A
+            <span className="w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 shadow-inner flex items-center justify-center text-[7px] text-neutral-400 font-bold">
+              +
             </span>
-            <span className="font-bold tracking-wider text-amber-300 uppercase">
-              {currentLang === 'es' ? 'ARRASTRA EL PLANETA O SELECCIONA UNA MISIÓN' : 'DRAG THE PLANET OR SELECT A MISSION'}
+            <span className="font-mono font-black text-xs sm:text-sm tracking-tight text-black uppercase">
+              {currentLang === 'es' ? '★ RUTA DE CAMPO & EXPEDIENTES DISPONIBLES ★' : '★ AVAILABLE FIELD CONTRACTS & DOSSIERS ★'}
+            </span>
+            <span className="hidden md:inline text-[10px] text-neutral-500 font-bold">
+              // GTA HEIST BOARD
             </span>
           </div>
-          <div className="hidden sm:flex items-center space-x-2 text-neutral-300 text-[10px] font-mono font-bold">
-            <span className="bg-red-600/20 text-red-400 px-1.5 py-0.5 border border-red-500/30">🔴 CIENCIA</span>
-            <span className="bg-emerald-600/20 text-emerald-400 px-1.5 py-0.5 border border-emerald-500/30">🟢 MEDIOS</span>
-            <span className="bg-amber-600/20 text-amber-400 px-1.5 py-0.5 border border-amber-500/30">🟡 CUMBRES</span>
-            <span className="bg-orange-600/20 text-orange-400 px-1.5 py-0.5 border border-orange-500/30">🟠 CULTURA</span>
-            <span className="bg-purple-600/20 text-purple-400 px-1.5 py-0.5 border border-purple-500/30">🟣 I+D</span>
+
+          {/* Right: Heist Completed Counter (GTA Style) & Category Pushpin Legend */}
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            <div className="hidden lg:flex items-center space-x-2.5 text-[10px] font-mono font-bold text-neutral-700">
+              <span className="flex items-center space-x-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-600 border border-black shadow-sm" />
+                <span>CIENCIA</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 border border-black shadow-sm" />
+                <span>MEDIOS</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500 border border-black shadow-sm" />
+                <span>CUMBRES</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 border border-black shadow-sm" />
+                <span>ARTE</span>
+              </span>
+              <span className="flex items-center space-x-1">
+                <span className="w-2.5 h-2.5 rounded-full bg-purple-600 border border-black shadow-sm" />
+                <span>I+D</span>
+              </span>
+            </div>
+
+            {/* Total Contracts Done Box (Like "COMPLETED: 773" in GTA Image 1) */}
+            <div className="flex items-center space-x-1.5 bg-white px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000]">
+              <span className="font-mono font-bold text-[10px] text-neutral-600 uppercase">
+                {currentLang === 'es' ? 'COMPLETADAS:' : 'COMPLETED:'}
+              </span>
+              <span className="font-mono font-black text-xs text-black">
+                {filteredMissions.length}
+              </span>
+            </div>
+
+            <span className="w-2.5 h-2.5 rounded-full bg-neutral-700 border border-neutral-900 shadow-inner flex items-center justify-center text-[7px] text-neutral-400 font-bold">
+              +
+            </span>
           </div>
         </div>
 
-        {/* Horizontal Carousel of Missions */}
-        <div className="w-full flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1">
-          {filteredMissions.map((m) => {
+        {/* Polaroids & Contracts Horizontal Prep Rail */}
+        <div className="w-full flex items-center gap-2.5 sm:gap-3.5 overflow-x-auto no-scrollbar py-1.5 px-1">
+          {filteredMissions.map((m, idx) => {
             const isSelected = m.id === selectedMissionId;
 
-            let borderTheme = 'border-red-500 text-red-400';
-            let dotColor = 'bg-red-500';
-            if (m.type === 'comms') {
-              borderTheme = 'border-emerald-500 text-emerald-400';
-              dotColor = 'bg-emerald-500';
-            } else if (m.type === 'global') {
-              borderTheme = 'border-amber-500 text-amber-400';
-              dotColor = 'bg-amber-500';
-            } else if (m.type === 'culture') {
-              borderTheme = 'border-orange-500 text-orange-400';
-              dotColor = 'bg-orange-500';
-            } else if (m.type === 'rd') {
-              borderTheme = 'border-purple-500 text-purple-400';
-              dotColor = 'bg-purple-500';
-            }
+            // Colored pushpin matching category
+            const pinColor = 
+              m.type === 'science' ? 'bg-red-600 border-red-900' :
+              m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
+              m.type === 'global' ? 'bg-amber-500 border-amber-800' :
+              m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
+              'bg-purple-600 border-purple-900';
+
+            // Natural slight Polaroid angle
+            const rotation = 
+              idx % 4 === 0 ? '-rotate-1' :
+              idx % 4 === 1 ? 'rotate-1' :
+              idx % 4 === 2 ? '-rotate-2' : 'rotate-2';
 
             return (
-              <div
-                key={m.id}
-                onClick={() => handleSelectMission(m.id)}
-                className={`group relative cursor-pointer px-3 py-2 transition-all duration-150 shrink-0 w-[230px] sm:w-[250px] flex flex-col justify-between border-2 ${
-                  isSelected
-                    ? 'bg-[#facc15] text-black border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-1 scale-105 z-10 font-bold'
-                    : 'bg-[#12161f] hover:bg-black text-neutral-300 hover:text-white border-2 border-black shadow-[2px_2px_0px_#000000] rotate-0 hover:-rotate-0.5'
-                }`}
-              >
-                {/* Card Top: Code & Country */}
-                <div className={`flex items-center justify-between text-[10px] font-mono pb-1 border-b ${isSelected ? 'border-black' : 'border-white/10'}`}>
-                  <div className="flex items-center space-x-1.5">
-                    <span className={`w-2 h-2 rounded-full ${isSelected ? 'bg-black' : dotColor}`} />
-                    <span className="font-bold">{m.code}</span>
-                  </div>
-                  <span className="font-bold">{m.flag} {m.city.toUpperCase()}</span>
-                </div>
-
-                {/* Card Title */}
-                <div className="my-1.5">
-                  <h4 className={`font-mono font-bold text-xs line-clamp-2 leading-snug ${isSelected ? 'text-black' : 'text-white'}`}>
-                    {currentLang === 'es' ? m.titleEs : m.titleEn}
-                  </h4>
-                </div>
-
-                {/* Card Footer */}
-                <div className={`flex items-center justify-between text-[9px] font-mono pt-1 ${isSelected ? 'text-neutral-900 font-black' : 'text-neutral-400'}`}>
-                  <span>{m.date}</span>
-                  <span className="uppercase tracking-wider">
-                    {isSelected ? (currentLang === 'es' ? '[ ACTIVO ]' : '[ ACTIVE ]') : (currentLang === 'es' ? 'VER →' : 'VIEW →')}
+              <React.Fragment key={m.id}>
+                {/* Hand-drawn marker arrow > between polaroids (from GTA Image 3) */}
+                {idx > 0 && (
+                  <span className="text-neutral-500 font-black text-base select-none shrink-0 -mx-1">
+                    ›
                   </span>
+                )}
+
+                {/* The Polaroid Card */}
+                <div
+                  onClick={() => handleSelectMission(m.id)}
+                  className={`group relative cursor-pointer shrink-0 w-[170px] sm:w-[190px] bg-[#fbfbf9] p-2 pb-2.5 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                    isSelected
+                      ? `scale-105 -rotate-1 z-20 shadow-[6px_6px_0px_#000000] ring-2 ring-red-600`
+                      : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[3px_3px_0px_#222222] opacity-90 hover:opacity-100`
+                  }`}
+                >
+                  {/* Pushpin / Magnet on Top Center */}
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                    <div className={`w-3.5 h-3.5 rounded-full ${pinColor} border-2 shadow-[0_2px_4px_rgba(0,0,0,0.6)] flex items-center justify-center`}>
+                      <div className="w-1 h-1 rounded-full bg-white/70" />
+                    </div>
+                  </div>
+
+                  {/* Polaroid Photo Image Frame */}
+                  <div className="relative w-full aspect-[4/3] bg-[#1a1e24] border border-black/40 overflow-hidden mb-1.5 flex items-center justify-center">
+                    {m.mediaType === 'video' ? (
+                      <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
+                        <Play className="w-6 h-6 text-red-600 fill-red-600/30" />
+                        <span className="absolute bottom-1 right-1 font-mono text-[7px] bg-red-600 text-white px-1 font-black uppercase">
+                          VIDEO REC
+                        </span>
+                      </div>
+                    ) : m.mediaType === 'audio' ? (
+                      <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center p-2 text-center text-emerald-400">
+                        <Volume2 className="w-5 h-5 mb-0.5" />
+                        <span className="font-mono text-[7px] font-bold">96.3 FM AUDIO</span>
+                      </div>
+                    ) : m.availablePages && m.availablePages.length > 0 ? (
+                      <img
+                        src={resolveAsset(m.availablePages[0].pageSrc)}
+                        alt={m.titleEs}
+                        className="w-full h-full object-cover filter contrast-105"
+                      />
+                    ) : m.src ? (
+                      <img
+                        src={resolveAsset(m.src)}
+                        alt={m.titleEs}
+                        className="w-full h-full object-cover filter contrast-105"
+                      />
+                    ) : (
+                      /* Blueprint style for pending */
+                      <div className="w-full h-full bg-[#0f172a] border border-dashed border-cyan-500/40 p-1 flex flex-col items-center justify-center text-center">
+                        <span className="font-mono text-[8px] font-black text-cyan-400 uppercase tracking-tighter">
+                          [REGISTRO PENDIENTE]
+                        </span>
+                        <span className="text-[7px] font-mono text-neutral-400 mt-0.5">DOC CLASIFICADO</span>
+                      </div>
+                    )}
+
+                    {/* Small Yellow Sticky Note (Post-it) on Corner */}
+                    <div className="absolute top-1 left-1 bg-[#fef08a] text-black font-mono font-black text-[8px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
+                      {m.code}
+                    </div>
+                  </div>
+
+                  {/* Polaroid Handwritten Marker Caption */}
+                  <div className="flex flex-col space-y-1">
+                    
+                    {/* Checkbox item (like [✔] ALPHA MAIL DISGUISE in GTA Image 3) */}
+                    <div className="flex items-center space-x-1 font-mono text-[10px] font-bold text-neutral-700">
+                      <span className="text-emerald-700 font-black">✔</span>
+                      <span className="uppercase tracking-tight text-neutral-900 font-black truncate">
+                        {m.flag} {m.city}
+                      </span>
+                    </div>
+
+                    {/* Mission Target Name - with Hand-drawn RED MARKER OVAL when Active (From GTA Image 1 & 2) */}
+                    <div className="relative pt-0.5">
+                      {isSelected ? (
+                        <div className="relative inline-block w-full">
+                          {/* Red hand-drawn marker oval outline */}
+                          <div className="border-2 border-red-600 rounded-[14px] px-1.5 py-0.5 bg-red-50/80 -rotate-1 shadow-sm">
+                            <h4 className="font-mono font-black text-[10px] text-red-700 line-clamp-1 leading-tight uppercase">
+                              {currentLang === 'es' ? m.titleEs : m.titleEn}
+                            </h4>
+                          </div>
+                          <span className="absolute -bottom-2 -right-1 font-mono text-[7px] bg-red-600 text-white px-1 font-black uppercase rotate-3">
+                            {currentLang === 'es' ? 'EN CURSO' : 'ACTIVE'}
+                          </span>
+                        </div>
+                      ) : (
+                        <h4 className="font-mono font-bold text-[10px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
+                          {currentLang === 'es' ? m.titleEs : m.titleEn}
+                        </h4>
+                      )}
+                    </div>
+
+                    {/* Bottom Metadata */}
+                    <div className="flex items-center justify-between text-[8px] font-mono text-neutral-500 pt-0.5">
+                      <span>{m.date}</span>
+                      <span className="font-bold text-neutral-700">{m.country}</span>
+                    </div>
+
+                  </div>
                 </div>
-              </div>
+              </React.Fragment>
             );
           })}
         </div>
