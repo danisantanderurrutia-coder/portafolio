@@ -14,10 +14,13 @@ import {
   Layers,
   ArrowRight,
   Sparkles,
-  FileText
+  FileText,
+  Pause,
+  Download
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
+import { ProjectsModal } from './ProjectsModal';
 
 export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture';
 
@@ -843,6 +846,27 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   });
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(true);
   const [selectedPlatePage, setSelectedPlatePage] = useState<number>(0);
+  const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
+  const [isProjectsModalOpen, setIsProjectsModalOpen] = useState<boolean>(false);
+
+  // Filtered list for mission rail
+  const filteredMissions = GAME_MISSIONS.filter((m) => {
+    if (activeFilter === 'all') return true;
+    return m.type === activeFilter;
+  });
+
+  // Tour Auto-Play (Advances every 5.5s to next country)
+  useEffect(() => {
+    if (!isTourPlaying) return;
+    const interval = setInterval(() => {
+      setSelectedMissionId((prevId) => {
+        const curIdx = filteredMissions.findIndex((m) => m.id === prevId);
+        const nextIdx = (curIdx + 1) % filteredMissions.length;
+        return filteredMissions[nextIdx].id;
+      });
+    }, 5500);
+    return () => clearInterval(interval);
+  }, [isTourPlaying, filteredMissions]);
 
   useEffect(() => {
     if (initialFilter) {
@@ -1099,6 +1123,42 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
     earthGroup.add(reticleGroup);
 
+    // 10.5 Flight Trajectory Arcs & Traveling Photons (Suggestion A)
+    const flightGroup = new THREE.Group();
+    const flightArcs: { curve: THREE.QuadraticBezierCurve3; photon: THREE.Mesh; speed: number; offset: number }[] = [];
+
+    for (let i = 0; i < GAME_MISSIONS.length; i++) {
+      const fromM = GAME_MISSIONS[i];
+      const toM = GAME_MISSIONS[(i + 1) % GAME_MISSIONS.length];
+      const posA = latLngToVector3(fromM.lat, fromM.lng, earthRadius * 1.002);
+      const posB = latLngToVector3(toM.lat, toM.lng, earthRadius * 1.002);
+
+      const mid = new THREE.Vector3().addVectors(posA, posB).multiplyScalar(0.5);
+      const dist = posA.distanceTo(posB);
+      // Elevate midpoint above the sphere surface proportionally to distance
+      mid.normalize().multiplyScalar(earthRadius + Math.max(0.18, dist * 0.22));
+
+      const curve = new THREE.QuadraticBezierCurve3(posA, mid, posB);
+      const points = curve.getPoints(40);
+      const arcGeo = new THREE.BufferGeometry().setFromPoints(points);
+      const arcMat = new THREE.LineBasicMaterial({
+        color: 0xfacc15, // Comic Yellow #facc15
+        transparent: true,
+        opacity: 0.45,
+      });
+      const arcLine = new THREE.Line(arcGeo, arcMat);
+      flightGroup.add(arcLine);
+
+      // Glowing traveling photon along the flight trajectory
+      const photonGeo = new THREE.SphereGeometry(0.022, 8, 8);
+      const photonMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const photon = new THREE.Mesh(photonGeo, photonMat);
+      flightGroup.add(photon);
+
+      flightArcs.push({ curve, photon, speed: 0.12, offset: i / GAME_MISSIONS.length });
+    }
+    earthGroup.add(flightGroup);
+
     // Initial Globe Orientation (Focus on first mission)
     const initM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
     const initVec = latLngToVector3(initM.lat, initM.lng, 1).normalize();
@@ -1216,6 +1276,14 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       pulseRing.scale.setScalar(1 + pulse * 2.2);
       pulseRingMat.opacity = 1 - pulse;
 
+      // Update flight trajectory traveling photons
+      const fTime = Date.now() * 0.001;
+      flightArcs.forEach(({ curve, photon, speed, offset }) => {
+        const t = (fTime * speed + offset) % 1;
+        const pt = curve.getPoint(t);
+        photon.position.copy(pt);
+      });
+
       // Filter highlighting
       const filter = activeFilterRef.current;
       beaconMeshes.forEach((bm) => {
@@ -1243,11 +1311,6 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     };
   }, []);
 
-  // Filtered list for mission rail
-  const filteredMissions = GAME_MISSIONS.filter((m) => {
-    if (activeFilter === 'all') return true;
-    return m.type === activeFilter;
-  });
 
   return (
     <div className="relative w-full h-screen overflow-hidden select-none bg-[#090b0e] text-white font-sans flex flex-col justify-between">
@@ -1396,11 +1459,54 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
         </div>
 
-        {/* Right: Language Switcher & Dossier Shortcut */}
-        <div className="flex items-center space-x-2">
+        {/* Right: Actions (Tour, Projects, CV, Lang, Dossier) */}
+        <div className="flex items-center space-x-1.5 sm:space-x-2">
+          {/* Guided Tour Auto-Play Toggle (Suggestion B) */}
+          <button
+            onClick={() => setIsTourPlaying(!isTourPlaying)}
+            className={`px-2.5 py-1 font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1.5 ${
+              isTourPlaying 
+                ? 'bg-amber-400 text-black ring-2 ring-amber-300 animate-pulse' 
+                : 'bg-black/80 hover:bg-black text-amber-300 border-amber-400/60'
+            }`}
+            title={currentLang === 'es' ? 'Activar/desactivar recorrido automático documental por el mundo' : 'Toggle auto-pilot global documentary tour'}
+          >
+            {isTourPlaying ? <Pause className="w-3.5 h-3.5 text-black" /> : <Play className="w-3.5 h-3.5 text-amber-400" />}
+            <span className="hidden md:inline">
+              {isTourPlaying 
+                ? (currentLang === 'es' ? 'PAUSAR TOUR' : 'PAUSE TOUR') 
+                : (currentLang === 'es' ? 'TOUR GUIADO' : 'AUTO TOUR')}
+            </span>
+          </button>
+
+          {/* Caballero Jaguar Grounded Projects Hub (Misiones Secundarias) */}
+          <button
+            onClick={() => setIsProjectsModalOpen(true)}
+            className="px-2.5 py-1 bg-red-600 hover:bg-red-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 -rotate-1"
+            title="Ver Misiones Secundarias y Proyectos (Caballero Jaguar)"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+            <span className="hidden sm:inline">{currentLang === 'es' ? 'PROYECTOS' : 'PROJECTS'}</span>
+            <span className="text-[10px] bg-black text-yellow-300 px-1 font-mono rounded">8</span>
+          </button>
+
+          {/* One-Click CV Loot Download (Suggestion E) */}
+          <a
+            href={resolveAsset('/Daniel_Santander_CV.pdf')}
+            download="Daniel_Santander_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-2.5 py-1 bg-[#22c55e] hover:bg-[#16a34a] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 rotate-1"
+            title="Descargar Currículum Vitae oficial (PDF)"
+          >
+            <Download className="w-3.5 h-3.5 text-black" />
+            <span className="hidden sm:inline">{currentLang === 'es' ? 'CV (PDF)' : 'CV (PDF)'}</span>
+          </a>
+
+          {/* Language Switcher */}
           <button
             onClick={onToggleLanguage}
-            className="px-2.5 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
+            className="px-2 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
             title="Cambiar idioma // Switch Language"
           >
             <Globe2 className="w-3.5 h-3.5" />
@@ -1410,11 +1516,11 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           {onExitToDossier && (
             <button
               onClick={onExitToDossier}
-              className="px-2.5 py-1 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
+              className="px-2 py-1 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
               title="Volver a versión documento"
             >
               <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
-              <span className="hidden sm:inline">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
+              <span className="hidden lg:inline">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
             </button>
           )}
         </div>
@@ -1872,6 +1978,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </div>
         </div>
       </footer>
+
+      {/* Projects / Side Quests Modal (Caballero Jaguar ground truth) */}
+      <ProjectsModal
+        isOpen={isProjectsModalOpen}
+        onClose={() => setIsProjectsModalOpen(false)}
+        currentLang={currentLang}
+      />
 
     </div>
   );

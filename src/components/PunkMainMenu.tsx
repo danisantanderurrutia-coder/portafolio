@@ -1,8 +1,9 @@
-import React from 'react';
-import { Globe, ArrowRight, FileText } from 'lucide-react';
+import React, { useState } from 'react';
+import { Globe, ArrowRight, FileText, Sparkles, Download } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
 import { MissionType } from './GameWorldView';
+import { ProjectsModal } from './ProjectsModal';
 
 interface PunkMainMenuProps {
   currentLang: Language;
@@ -17,6 +18,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   onSelectCategory,
   onOpenDossier
 }) => {
+  const [isProjectsModalOpen, setIsProjectsModalOpen] = useState(false);
   return (
     <div className="relative w-full h-screen overflow-hidden select-none bg-[#090b0e] text-white font-sans flex flex-col justify-between">
       
@@ -70,20 +72,42 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           </div>
         </div>
 
-        {/* Action Controls: Dossier Shortcut & Language Switcher */}
-        <div className="flex items-center space-x-2 sm:space-x-3">
+        {/* Action Controls: Projects, CV, Dossier Shortcut & Language Switcher */}
+        <div className="flex items-center space-x-1.5 sm:space-x-2.5">
+          <button
+            onClick={() => setIsProjectsModalOpen(true)}
+            className="px-2.5 sm:px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1.5 -rotate-1 cursor-pointer"
+            title="Ver Misiones Secundarias y Proyectos (Caballero Jaguar)"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+            <span className="hidden sm:inline">{currentLang === 'es' ? 'PROYECTOS' : 'PROJECTS'}</span>
+            <span className="text-[10px] bg-black text-yellow-300 px-1 font-mono rounded">8</span>
+          </button>
+
+          <a
+            href={resolveAsset('/Daniel_Santander_CV.pdf')}
+            download="Daniel_Santander_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-2.5 sm:px-3 py-1.5 bg-[#22c55e] hover:bg-[#16a34a] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 rotate-1 cursor-pointer"
+            title="Descargar Currículum Vitae oficial (PDF)"
+          >
+            <Download className="w-3.5 h-3.5 text-black" />
+            <span className="hidden sm:inline">{currentLang === 'es' ? 'CV (PDF)' : 'CV (PDF)'}</span>
+          </a>
+
           <button
             onClick={onOpenDossier}
-            className="px-2.5 sm:px-3 py-1.5 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1"
+            className="px-2.5 sm:px-3 py-1.5 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
             title={currentLang === 'es' ? 'Ver Dossier Académico en Papel' : 'View Classic Academic Dossier'}
           >
             <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
-            <span className="hidden sm:inline">{currentLang === 'es' ? 'VISTA DOSSIER' : 'DOSSIER VIEW'}</span>
+            <span className="hidden md:inline">{currentLang === 'es' ? 'VISTA DOSSIER' : 'DOSSIER VIEW'}</span>
           </button>
 
           <button
             onClick={onToggleLanguage}
-            className="px-3 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1.5"
+            className="px-3 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer"
             title="Cambiar idioma // Switch Language"
           >
             <Globe className="w-3.5 h-3.5" />
@@ -188,6 +212,27 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
+          {/* TAPE 5.5: [MISIONES SECUNDARIAS // 8 PROYECTOS CABALLERO JAGUAR] */}
+          <button
+            onClick={() => setIsProjectsModalOpen(true)}
+            className="group relative w-full text-left bg-[#dc2626] hover:bg-[#b91c1c] text-white px-4 py-2 sm:py-2.5 border-3 border-black shadow-[4px_4px_0px_#000000] rotate-1 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
+                <Sparkles className="w-4 h-4 text-yellow-300" />
+                <span>{currentLang === 'es' ? '[ MISIONES SECUNDARIAS // 8 PROYECTOS ]' : '[ SIDE QUESTS // 8 PROJECTS ]'}</span>
+              </span>
+              <span className="bg-yellow-400 text-black font-mono font-black text-[9px] px-1.5 py-0.5 border border-black uppercase">
+                CABALLERO JAGUAR
+              </span>
+            </div>
+            <div className="text-[10px] font-mono font-bold text-red-100 group-hover:text-white tracking-tight mt-0.5">
+              {currentLang === 'es'
+                ? 'Lauwersmeer, ReWild, Chile Agrotech, Los Manejadores, Transmedia, Cómic de Piratas...'
+                : 'Lauwersmeer, ReWild, Chile Agrotech, Los Manejadores, Transmedia, Pirate Comic...'}
+            </div>
+          </button>
+
           {/* TAPE 6: [06. EL PLANETA // EXPLORAR TODO] (BLACK/AMBER STENCIL TAPE) */}
           <button
             onClick={() => onSelectCategory('all')}
@@ -245,6 +290,13 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           </span>
         </div>
       </footer>
+
+      {/* Projects / Side Quests Modal (Caballero Jaguar ground truth) */}
+      <ProjectsModal
+        isOpen={isProjectsModalOpen}
+        onClose={() => setIsProjectsModalOpen(false)}
+        currentLang={currentLang}
+      />
 
     </div>
   );
