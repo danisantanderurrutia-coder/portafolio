@@ -953,7 +953,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       {/* 1. CINEMATIC SKY BACKGROUND (Fondo de Cielo estilo Battlefield / Halo) */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-80"
-        style={{ backgroundImage: `url('/sky_background.jpg')` }}
+        style={{ backgroundImage: `url('${resolveAsset('/sky_background.jpg')}')` }}
       />
       {/* Subtle Dark Vignette & Atmospheric Fog */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#090d13] via-transparent to-[#090d13]/70 pointer-events-none z-0" />

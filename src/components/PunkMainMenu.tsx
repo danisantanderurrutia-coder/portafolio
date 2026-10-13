@@ -24,11 +24,11 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
       {/* Estética de cómic / novela gráfica en tinta china: calle estrecha, plantas abundantes, bicicletas y paneles solares */}
       <div 
         className="absolute inset-0 bg-cover bg-center lg:bg-right bg-no-repeat pointer-events-none z-0"
-        style={{ backgroundImage: `url('/eco_noir_menu_bg.jpg')` }}
+        style={{ backgroundImage: `url('${resolveAsset('/eco_noir_menu_bg.jpg')}')` }}
       />
 
-      {/* Subtle vignette for extreme text contrast on small mobile viewports */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-transparent lg:from-transparent pointer-events-none z-0" />
+      {/* Subtle vignette for high text contrast on left column while keeping artwork vivid */}
+      <div className="absolute inset-y-0 left-0 w-full sm:w-2/3 lg:w-1/2 bg-gradient-to-r from-black/85 via-black/50 to-transparent pointer-events-none z-0" />
 
       {/* 2. TOP BAR: PROFILE BADGE + TITLE STAMP + LANGUAGE TOGGLE */}
       <header className="relative z-20 w-full px-4 sm:px-10 pt-4 pb-2 flex items-center justify-between">
