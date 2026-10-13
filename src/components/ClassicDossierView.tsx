@@ -141,20 +141,20 @@ export function ClassicDossierView({
         <div className="absolute bottom-10 right-10 w-[600px] h-[450px] bg-[#dbe8df]/50 blur-[130px] rounded-full" />
       </div>
 
-      {/* 1. TOP HEADER: BRANDING & ACADEMIC DOSSIER CONTROLS */}
-      <header className="relative z-40 w-full px-4 sm:px-8 py-2.5 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-[#e4dcce]">
-        {/* Identity & Sub-brand (Clickable to Back to Gateway) */}
+      {/* 1. TOP HEADER: LOGO (HOME) + HIRE ME + LANG + SHARE */}
+      <header className="relative z-40 w-full px-4 sm:px-8 py-2.5 max-w-7xl mx-auto flex items-center justify-between border-b border-[#e4dcce]">
+        {/* Identity & Logo (Clickable to Back to Gateway) */}
         <div 
           onClick={() => {
             if (onBackToGateway) {
               onBackToGateway();
             }
           }}
-          className="flex items-center space-x-3.5 self-start sm:self-center cursor-pointer group"
-          title={currentLang === 'es' ? 'Volver al Inicio // Back to Home' : 'Back to Home'}
+          className="flex items-center space-x-3 cursor-pointer group"
+          title={currentLang === 'es' ? 'Volver al Inicio // Return to Home' : 'Return to Home'}
         >
-          <div className="w-9 h-9 rounded-2xl flex items-center justify-center shadow-md transition-all group-hover:scale-105 overflow-hidden bg-[#eae3d5] border border-[#d0c4b0] text-[#2d5a3c] p-1">
-            <img src={resolveAsset('/favicon.svg')} alt="DS Icon" className="w-full h-full object-contain" />
+          <div className="w-9 h-9 rounded-2xl flex items-center justify-center shadow-md transition-all group-hover:scale-105 overflow-hidden bg-[#eae3d5] border border-[#d0c4b0] p-1">
+            <img src={resolveAsset('/favicon.svg')} alt="Topocatchment" className="w-full h-full object-contain" />
           </div>
           <div>
             <h1 className="text-sm sm:text-base font-serif font-bold tracking-wide flex items-center gap-2">
@@ -164,26 +164,19 @@ export function ClassicDossierView({
               <span className="text-neutral-400">//</span>
               <span className="text-xs font-sans font-medium text-[#2d5a3c] hidden md:inline">
                 {currentLang === 'es'
-                  ? 'Expediente Científico (Dual M.Sc. CAU Kiel & AMU Poznań)'
-                  : 'Scientific Dossier (Dual M.Sc. CAU Kiel & AMU Poznań)'}
+                  ? 'Expediente Académico & Científico'
+                  : 'Academic & Scientific Dossier'}
               </span>
             </h1>
           </div>
         </div>
 
-        {/* Action Controls: 3D Globe + CV + Hire Me + Skills + Language + Share */}
-        <div className="flex items-center space-x-2.5 self-end sm:self-center">
-          {/* Scientific Academic Badge */}
-          <div className="px-3 py-1 rounded-full bg-[#ede5d6] border border-[#d0c4b0] text-[11px] font-mono text-[#2d5a3c] font-bold hidden lg:flex items-center space-x-1">
-            <Microscope className="w-3.5 h-3.5 text-[#2d5a3c]" />
-            <span>{currentLang === 'es' ? 'INVESTIGACIÓN ACADÉMICA' : 'ACADEMIC RESEARCH'}</span>
-          </div>
-
-          {/* Hire Me & Skills Quick Actions */}
+        {/* Action Controls: Hire Me + Language + Share */}
+        <div className="flex items-center space-x-2">
           {onOpenHireMe && (
             <button
               onClick={onOpenHireMe}
-              className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-sans font-bold transition shadow-sm active:scale-95"
+              className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-sans font-bold transition shadow-sm active:scale-95 cursor-pointer"
               title="Contratar // Contact Daniel"
             >
               <span>💼</span>
@@ -191,57 +184,13 @@ export function ClassicDossierView({
             </button>
           )}
 
-          {onOpenSkills && (
-            <button
-              onClick={onOpenSkills}
-              className={`hidden md:flex items-center space-x-1 px-3 py-1.5 rounded-full border text-xs font-sans font-medium transition shadow-sm ${
-                isComms
-                  ? 'border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800'
-                  : 'border-[#d0c4b0] bg-[#ede5d6] text-neutral-800 hover:bg-[#e4dcce]'
-              }`}
-              title="Ver Ficha Técnica y Skills"
-            >
-              <FileCheck className="w-3.5 h-3.5" />
-              <span>{currentLang === 'es' ? 'SKILLS' : 'SKILLS'}</span>
-            </button>
-          )}
-
-          {onBackToGateway && (
-            <button
-              onClick={onBackToGateway}
-              className={`flex items-center space-x-1 px-3 py-1.5 rounded-full border text-xs font-sans font-medium transition shadow-sm ${
-                isComms
-                  ? 'border-slate-700 bg-slate-900/80 text-slate-200 hover:bg-slate-800'
-                  : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-800 hover:bg-[#e4dcce]'
-              }`}
-              title="Volver a Inicio // Back to Gateway"
-            >
-              <span>🏠</span>
-              <span className="hidden sm:inline">{currentLang === 'es' ? 'INICIO' : 'HOME'}</span>
-            </button>
-          )}
-
-          {onSwitchToGameView && (
-            <button
-              onClick={onSwitchToGameView}
-              className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-amber-500/60 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-mono font-bold transition shadow-md active:scale-95"
-              title="Cambiar a Modo 3D El Planeta // Switch to 3D Globe The Planet"
-            >
-              <span>🌐</span>
-              <span className="hidden sm:inline">{currentLang === 'es' ? 'EL PLANETA 3D' : 'THE PLANET 3D'}</span>
-            </button>
-          )}
-
           {/* Language Switch */}
           <button
             onClick={toggleLanguage}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full border text-xs font-sans transition shadow-sm backdrop-blur-md ${
-              isComms
-                ? 'border-slate-700/80 bg-slate-900/80 text-amber-300 hover:bg-slate-800 hover:border-amber-500/40'
-                : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-800 hover:bg-[#e4dcce]'
-            }`}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-800 hover:bg-[#e4dcce] text-xs font-sans transition shadow-sm cursor-pointer"
+            title="Cambiar idioma // Switch Language"
           >
-            <Globe className={`w-3.5 h-3.5 ${isComms ? 'text-amber-400' : 'text-[#2d5a3c]'}`} />
+            <Globe className="w-3.5 h-3.5 text-[#2d5a3c]" />
             <span className="font-bold">{currentLang === 'es' ? 'ES' : 'EN'}</span>
             <span className="opacity-40">/</span>
             <span className="opacity-70">{currentLang === 'es' ? 'EN' : 'ES'}</span>
@@ -250,14 +199,10 @@ export function ClassicDossierView({
           {/* Share Link */}
           <button
             onClick={handleCopyLink}
-            className={`p-2 rounded-full border text-xs transition shadow-sm backdrop-blur-md ${
-              isComms
-                ? 'border-slate-700/80 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:text-white hover:border-amber-500/40'
-                : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-700 hover:bg-[#e4dcce] hover:text-black'
-            }`}
-            title="Copiar enlace"
+            className="p-2 rounded-full border border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-700 hover:bg-[#e4dcce] hover:text-black text-xs transition shadow-sm cursor-pointer"
+            title={currentLang === 'es' ? 'Copiar enlace' : 'Copy link'}
           >
-            {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Share2 className="w-4 h-4" />}
+            {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Share2 className="w-4 h-4" />}
           </button>
         </div>
       </header>

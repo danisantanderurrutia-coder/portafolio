@@ -28,6 +28,10 @@ export function App() {
         <PunkMainMenu
           currentLang={currentLang}
           onToggleLanguage={toggleLanguage}
+          onSelectSciencePlanet={() => {
+            setSelectedCategory('science');
+            setViewMode('game');
+          }}
           onSelectSummits={() => {
             setSelectedCategory('global');
             setViewMode('game');
@@ -40,7 +44,7 @@ export function App() {
             setSelectedCategory('comms');
             setViewMode('game');
           }}
-          onSelectScience={() => {
+          onSelectScienceDossier={() => {
             setViewMode('dossier');
           }}
           onOpenHireMe={() => setIsHireMeOpen(true)}
