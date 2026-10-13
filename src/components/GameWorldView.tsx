@@ -276,8 +276,8 @@ export const GAME_MISSIONS: GameMission[] = [
     type: 'global',
     titleEs: 'Environmental Justice Conference (Bonn, 2025)',
     titleEn: 'Environmental Justice Conference (Bonn, 2025)',
-    subtitleEs: 'Impactos de Plantaciones de Monocultivo & Industria de Biomasa // EPN & GFC',
-    subtitleEn: 'Impacts of Monoculture Plantations & Biomass Industry // EPN & GFC',
+    subtitleEs: 'Estudio de Impactos de Celulosa y Biomasa // Maule, Biobío, Ñuble, Araucanía y Global (EPN & GFC)',
+    subtitleEn: 'Study on Pulp & Biomass Impacts // Maule, Biobío, Ñuble, Araucanía & Global (EPN & GFC)',
     country: 'Alemania',
     city: 'Bonn',
     flag: '🇩🇪',
@@ -291,19 +291,19 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://environmentalpaper.org/2023/06/spotlight-on-burning-biomass-for-energy-in-south-america-community-opposition-to-a-power-plant-in-parral-chile/',
     code: 'OPS-GLO-02',
     source: 'Environmental Justice Conference Bonn 2025 (CV)',
-    impactEs: 'Ponencia en la Conferencia de Justicia Ambiental (Bonn, 2025) sobre los impactos de las plantaciones de monocultivo; estudio de los impactos de la industria de celulosa, papel y quema de biomasa junto a Global Forest Coalition y Environmental Paper Network (según CV).',
-    impactEn: 'Presentation at the Environmental Justice Conference (Bonn, 2025) on the impacts of monoculture plantations; study on pulp, paper, and biomass industry impacts with Global Forest Coalition and Environmental Paper Network (from CV).',
+    impactEs: 'Ponencia en la Conferencia de Justicia Ambiental (Bonn, 2025) sobre los impactos de las plantaciones de monocultivo; investigación internacional sobre los impactos de la industria de celulosa, papel y quema de biomasa junto a Global Forest Coalition y Environmental Paper Network, centrada en la Región del Maule, Biobío, Ñuble, Araucanía y su cadena global (según CV).',
+    impactEn: 'Presentation at the Environmental Justice Conference (Bonn, 2025) on monoculture impacts; international investigation into the pulp, paper, and biomass industry with Global Forest Coalition and Environmental Paper Network, analyzing Maule, Biobío, Ñuble, Araucanía, and global trade (from CV).',
     methodologyEs: [
       'Conferencia de Justicia Ambiental en Bonn sobre impactos de monocultivos (CV)',
-      'Estudio sobre impactos de la industria de celulosa y quema de biomasa (CV)',
+      'Estudio sobre impactos de celulosa y biomasa en Maule, Biobío, Ñuble, Araucanía y Global (CV)',
       'Colaboración con Global Forest Coalition y Environmental Paper Network (CV)'
     ],
     methodologyEn: [
       'Environmental Justice Conference in Bonn on monoculture impacts (CV)',
-      'Study on pulp and paper industries and biomass burning (CV)',
-      'Work with Global Forest Coalition and Environmental Paper Network (CV)'
+      'Investigation into pulp and biomass across Maule, Biobío, Ñuble, Araucanía & Global (CV)',
+      'Collaboration with Global Forest Coalition and Environmental Paper Network (CV)'
     ],
-    tags: ['Bonn', 'Alemania', 'Justicia Ambiental', 'Biomasa', 'EPN']
+    tags: ['Bonn', 'Maule', 'Biobío', 'Ñuble', 'Araucanía', 'Global', 'EPN', 'Biomasa']
   },
 
   // 8. CUMBRES & POLÍTICA: CENSAT Agua Viva & Diálogos Forestales - Bogotá, Colombia
@@ -597,33 +597,33 @@ export const GAME_MISSIONS: GameMission[] = [
     type: 'comms',
     titleEs: 'Campaña "Solo el pueblo ayuda al pueblo"',
     titleEn: '"Only the people help the people" Campaign',
-    subtitleEs: 'Ayuda a Víctimas de Incendios e Inundaciones en Chile // Coordinación & Fondos',
-    subtitleEn: 'Aid to Victims of Fires and Floods in Chile // Coordinator & Fundraising',
+    subtitleEs: 'Ayuda a Víctimas de Incendios e Inundaciones // Maule, Biobío, Ñuble y Santiago (CV)',
+    subtitleEn: 'Aid to Victims of Fires & Floods // Maule, Biobío, Ñuble & Santiago (CV)',
     country: 'Chile',
-    city: 'Maule',
+    city: 'Maule, Biobío, Ñuble & Santiago',
     flag: '🇨🇱',
     lat: -35.60,
     lng: -71.55,
-    date: '2023',
+    date: '2019-2023',
     roleEs: 'Coordinador de Campaña & Recaudación',
     roleEn: 'Campaign Coordinator & Fundraising',
     mediaType: 'press',
     src: '/profile.jpg',
     code: 'OPS-COM-05',
     source: 'Campaña de Solidaridad Comunitaria (CV)',
-    impactEs: 'Coordinación y recaudación de fondos para la campaña "Solo el pueblo ayuda al pueblo": campaña de ayuda a víctimas de incendios e inundaciones ("Only the people help the people": Campaign to aid victims of fires and floods, según CV).',
-    impactEn: 'Campaign coordinator & fundraising for "Only the people help the people": campaign to aid victims of fires and floods (from CV).',
+    impactEs: 'Coordinación y recaudación de fondos para la campaña "Solo el pueblo ayuda al pueblo": campañas de ayuda a víctimas de incendios e inundaciones desplegadas en Maule, Biobío, Ñuble y Santiago en distintos años (según CV).',
+    impactEn: 'Campaign coordinator & fundraising for "Only the people help the people": campaigns aiding victims of wildfires and floods deployed across Maule, Biobío, Ñuble, and Santiago across multiple years (from CV).',
     methodologyEs: [
       'Coordinación y recaudación de fondos en emergencias socioambientales (CV)',
-      'Canalización directa de ayuda a familias damnificadas por megaincendios e inundaciones',
-      'Solidaridad comunitaria y autoorganización popular'
+      'Canalización directa de ayuda a familias damnificadas en Maule, Biobío, Ñuble y Santiago',
+      'Solidaridad comunitaria y autoorganización popular territorial'
     ],
     methodologyEn: [
       'Campaign coordination and emergency fundraising (CV)',
-      'Direct mutual aid delivery to families impacted by wildfires and floods',
-      'Grassroots community self-organization'
+      'Direct mutual aid delivery to families impacted across Maule, Biobío, Ñuble, and Santiago',
+      'Grassroots community self-organization and relief logistics'
     ],
-    tags: ['Solidaridad', 'Incendios', 'Inundaciones', 'Maule', 'Recaudación']
+    tags: ['Maule', 'Biobío', 'Ñuble', 'Santiago', 'Solidaridad', 'Incendios', 'Inundaciones']
   },
 
   // 17. COMUNICACIONES: Arte, Cultura y Artivismo Territorial
@@ -661,19 +661,19 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Brigada Paulina Aguirre', 'Muralismo', 'Rap', 'Cultura Popular']
   },
 
-  // 18. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica
+  // 18. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
   {
     id: 'rd-bioacustica',
     type: 'rd',
     titleEs: 'Proyecto en Desarrollo: Geofísica y Bioacústica Vegetal',
     titleEn: 'Project in Development: Geophysics & Plant Bioacoustics',
-    subtitleEs: 'Integración de Geofísica y Bioacústica Vegetal para Evaluar Salud de Ecosistemas',
-    subtitleEn: 'Integrating Geophysics & Plant Bioacoustics for Ecosystem Health Assessment',
-    country: 'Alemania',
-    city: 'Kiel',
-    flag: '🇩🇪',
-    lat: 54.33,
-    lng: 10.14,
+    subtitleEs: 'Evaluación de Salud de Ecosistemas en Bosques Nativos y Cuencas del Centro-Sur de Chile',
+    subtitleEn: 'Ecosystem Health Assessment in Native Forests & Catchments of Central-Southern Chile',
+    country: 'Chile',
+    city: 'Bosques Nativos Centro-Sur',
+    flag: '🇨🇱',
+    lat: -37.40,
+    lng: -72.30,
     date: '2024-2025',
     roleEs: 'Investigador de Proyecto (Concursos y Competiciones)',
     roleEn: 'Project Researcher (Contests & Competitions)',
@@ -681,34 +681,34 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/portfolio_pages/page_3.png',
     code: 'OPS-RD-01',
     source: 'Projects in development (CV)',
-    impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Integrating geophysics and plant bioacoustics for ecosystem health assessment" (Integración de geofísica y bioacústica vegetal para evaluación de la salud de ecosistemas, según CV).',
-    impactEn: 'Projects in development (in contests and competitions): "Integrating geophysics and plant bioacoustics for ecosystem health assessment" (from CV).',
+    impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Integrating geophysics and plant bioacoustics for ecosystem health assessment", orientado a la cuantificación del estado biofísico y estrés hídrico en bosques nativos y cuencas del centro-sur de Chile (según CV).',
+    impactEn: 'Project in development (in contests and competitions): "Integrating geophysics and plant bioacoustics for ecosystem health assessment", focused on native forests and catchments in central-southern Chile (from CV).',
     methodologyEs: [
       'Integración de geofísica y bioacústica vegetal (CV)',
-      'Evaluación de la salud de ecosistemas (CV)',
+      'Evaluación de la salud de ecosistemas en bosques nativos del centro-sur de Chile',
       'Proyectos en desarrollo en concursos y competiciones (CV)'
     ],
     methodologyEn: [
       'Integrating geophysics and plant bioacoustics (CV)',
-      'Ecosystem health assessment (CV)',
+      'Ecosystem health assessment in native forests of central-southern Chile',
       'Projects in development in contests and competitions (CV)'
     ],
-    tags: ['Bioacústica', 'Geofísica', 'Salud de Ecosistemas', 'I+D', 'Concursos']
+    tags: ['Chile', 'Bosques Nativos', 'Centro-Sur', 'Geofísica', 'Bioacústica', 'I+D']
   },
 
-  // 19. I+D & INNOVACIÓN: Smart Food Parks & Permacultura (EPAC)
+  // 19. I+D & INNOVACIÓN: Smart Food Parks & Permacultura para Ciudades Europeas ODS
   {
     id: 'rd-smart-food-parks',
     type: 'rd',
-    titleEs: 'Smart Food Parks & Diseñador en Permacultura (CDP EPAC)',
-    titleEn: 'Smart Food Parks & Permaculture Designer (CDP EPAC)',
-    subtitleEs: 'Uniendo Naturaleza y Tecnología para Ciudades con ODS // Escuela Chilena de Permacultura',
-    subtitleEn: 'Uniting Nature & Technology for SDG Cities // Chilean School of Permaculture',
-    country: 'Chile',
-    city: 'Santiago',
-    flag: '🇨🇱',
-    lat: -33.47,
-    lng: -70.67,
+    titleEs: 'Smart Food Parks: Ciudades Europeas ODS & Permacultura (EPAC)',
+    titleEn: 'Smart Food Parks: European SDG Cities & Permaculture (EPAC)',
+    subtitleEs: 'Uniendo Naturaleza y Tecnología para Ciudades Europeas ODS // Permacultura (EPAC)',
+    subtitleEn: 'Uniting Nature & Technology for European SDG Cities // Permaculture Design (EPAC)',
+    country: 'Europa',
+    city: 'Ciudades Europeas ODS',
+    flag: '🇪🇺',
+    lat: 53.55,
+    lng: 9.99,
     date: '2023-2025',
     roleEs: 'Diseñador en Permacultura Certificado (CDP)',
     roleEn: 'Certified Permaculture Designer (CDP)',
@@ -716,19 +716,19 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/images/apruebo_rural_1.png',
     code: 'OPS-RD-02',
     source: 'Projects in development & Education EPAC (CV)',
-    impactEs: 'Proyecto en desarrollo: "Smart Food Parks: Uniting nature and technology for SDG cities" (CV) + "Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology (EPAC) | 2023" (según CV).',
-    impactEn: 'Project in development: "Smart Food Parks: Uniting nature and technology for SDG cities" (CV) + "Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology (EPAC) | 2023" (from CV).',
+    impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Smart Food Parks: Uniting nature and technology for SDG cities" concebido para ciudades europeas en el marco de los ODS, articulando diseño permacultural (CDP EPAC 2023) con tecnologías abiertas (según CV).',
+    impactEn: 'Project in development (in contests and competitions): "Smart Food Parks: Uniting nature and technology for SDG cities" designed for European SDG cities, integrating permaculture design (CDP EPAC 2023) and open-source solutions (from CV).',
     methodologyEs: [
-      'Smart Food Parks: uniendo naturaleza y tecnología para ciudades con ODS (CV)',
+      'Smart Food Parks: uniendo naturaleza y tecnología para ciudades europeas ODS (CV)',
       'Certificado como Diseñador en Permacultura (CDP) por la Escuela Chilena de Permacultura y Agroecología EPAC (CV)',
-      'Diseño de sistemas regenerativos urbanos'
+      'Diseño regenerativo para entornos urbanos ODS'
     ],
     methodologyEn: [
-      'Smart Food Parks: uniting nature and technology for SDG cities (CV)',
+      'Smart Food Parks: uniting nature and technology for European SDG cities (CV)',
       'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology EPAC (CV)',
-      'Regenerative urban design frameworks'
+      'Regenerative design for SDG urban ecosystems'
     ],
-    tags: ['Smart Food Parks', 'Permacultura', 'EPAC', 'ODS', 'I+D']
+    tags: ['Ciudades Europeas ODS', 'Europa', 'Smart Food Parks', 'Permacultura', 'EPAC', 'I+D']
   }
 ];
 
