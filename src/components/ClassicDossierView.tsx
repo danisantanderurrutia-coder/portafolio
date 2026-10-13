@@ -288,10 +288,10 @@ export function ClassicDossierView({
             <button
               onClick={onSwitchToGameView}
               className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-amber-500/60 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 text-xs font-mono font-bold transition shadow-md active:scale-95"
-              title="Cambiar a Modo 3D Planisferio // Switch to 3D Globe HUD"
+              title="Cambiar a Modo 3D El Planeta // Switch to 3D Globe The Planet"
             >
               <span>🌐</span>
-              <span className="hidden sm:inline">{currentLang === 'es' ? 'PLANISFERIO 3D' : '3D HUD'}</span>
+              <span className="hidden sm:inline">{currentLang === 'es' ? 'EL PLANETA 3D' : 'THE PLANET 3D'}</span>
             </button>
           )}
 

@@ -13,7 +13,8 @@ import {
   Calendar,
   Layers,
   ArrowRight,
-  Sparkles
+  Sparkles,
+  FileText
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -1013,61 +1014,52 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       bGroup.position.copy(pos);
       bGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), norm);
 
-      // 1. Double Concentric Surface Rings (Radar footprint)
-      const baseRingGeo = new THREE.RingGeometry(0.022, 0.034, 24);
-      const baseRingMat = new THREE.MeshBasicMaterial({ color: colorHex, side: THREE.DoubleSide });
-      const baseRing = new THREE.Mesh(baseRingGeo, baseRingMat);
-      baseRing.rotation.x = Math.PI / 2;
-      bGroup.add(baseRing);
+      // 1. Black outer sticker boundary (thick ink edge)
+      const blackBaseGeo = new THREE.RingGeometry(0.02, 0.046, 24);
+      const blackBaseMat = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide });
+      const blackBase = new THREE.Mesh(blackBaseGeo, blackBaseMat);
+      blackBase.rotation.x = Math.PI / 2;
+      bGroup.add(blackBase);
 
-      const outerRingGeo = new THREE.RingGeometry(0.048, 0.058, 24);
-      const outerRingMat = new THREE.MeshBasicMaterial({
-        color: colorHex,
-        transparent: true,
-        opacity: 0.45,
-        side: THREE.DoubleSide
-      });
-      const outerRing = new THREE.Mesh(outerRingGeo, outerRingMat);
-      outerRing.rotation.x = Math.PI / 2;
-      bGroup.add(outerRing);
+      // 2. Crisp White Cutout Border (signature comic sticker border)
+      const whiteBorderGeo = new THREE.RingGeometry(0.012, 0.038, 24);
+      const whiteBorderMat = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+      const whiteBorder = new THREE.Mesh(whiteBorderGeo, whiteBorderMat);
+      whiteBorder.rotation.x = Math.PI / 2;
+      bGroup.add(whiteBorder);
 
-      // 2. Luminous Photon Core (Crisp LED/Diamond node)
-      const coreGeo = new THREE.SphereGeometry(0.026, 16, 16);
-      const coreMat = new THREE.MeshBasicMaterial({ color: colorHex });
-      const core = new THREE.Mesh(coreGeo, coreMat);
-      core.position.y = 0.025;
-      bGroup.add(core);
+      // 3. Category Color Center Disc
+      const centerDiscGeo = new THREE.CircleGeometry(0.022, 24);
+      const centerDiscMat = new THREE.MeshBasicMaterial({ color: colorHex, side: THREE.DoubleSide });
+      const centerDisc = new THREE.Mesh(centerDiscGeo, centerDiscMat);
+      centerDisc.rotation.x = Math.PI / 2;
+      bGroup.add(centerDisc);
 
-      const coronaGeo = new THREE.SphereGeometry(0.046, 16, 16);
-      const coronaMat = new THREE.MeshBasicMaterial({
-        color: colorHex,
-        transparent: true,
-        opacity: 0.35,
-        blending: THREE.AdditiveBlending
-      });
-      const corona = new THREE.Mesh(coronaGeo, coronaMat);
-      corona.position.y = 0.025;
-      bGroup.add(corona);
+      // 4. Comic Stencil Pin Needle (Graphic white stem with colored pin-head)
+      const stemGeo = new THREE.CylinderGeometry(0.005, 0.005, 0.12, 8);
+      const stemMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+      const stem = new THREE.Mesh(stemGeo, stemMat);
+      stem.position.y = 0.06;
+      bGroup.add(stem);
 
-      // 3. Ethereal Soft Cone of Light (Fading holographic upward beam)
-      const beamGeo = new THREE.ConeGeometry(0.032, 0.38, 16, 1, true);
-      const beamMat = new THREE.MeshBasicMaterial({
-        color: colorHex,
-        transparent: true,
-        opacity: 0.28,
-        blending: THREE.AdditiveBlending,
-        side: THREE.DoubleSide
-      });
-      const beam = new THREE.Mesh(beamGeo, beamMat);
-      beam.rotation.x = Math.PI; // Inverted cone: apex on ground, base softly dispersed
-      beam.position.y = 0.19;
-      bGroup.add(beam);
+      // Graphic Pin Head with category color & black outline
+      const headGeo = new THREE.SphereGeometry(0.026, 16, 16);
+      const headMat = new THREE.MeshBasicMaterial({ color: colorHex });
+      const head = new THREE.Mesh(headGeo, headMat);
+      head.position.y = 0.12;
+      bGroup.add(head);
+
+      const headOutlineGeo = new THREE.SphereGeometry(0.03, 16, 16);
+      const headOutlineMat = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true });
+      const headOutline = new THREE.Mesh(headOutlineGeo, headOutlineMat);
+      headOutline.position.y = 0.12;
+      bGroup.add(headOutline);
 
       // Invisible Hit-Test Sphere for mouse click detection
       const hitGeo = new THREE.SphereGeometry(0.18, 8, 8);
       const hitMat = new THREE.MeshBasicMaterial({ visible: false });
       const hitSphere = new THREE.Mesh(hitGeo, hitMat);
-      hitSphere.position.y = 0.1;
+      hitSphere.position.y = 0.08;
       hitSphere.userData = { missionId: m.id };
       bGroup.add(hitSphere);
       hitObjects.push(hitSphere);
@@ -1076,29 +1068,27 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       beaconMeshes.push({ missionId: m.id, type: m.type, group: bGroup });
     });
 
-    // 10. Active Mission Target Reticle (Pulsing radar wave + tactical brackets)
+    // 10. Active Mission Target Reticle (Graphic Action Burst in Comic Yellow & Black)
     const reticleGroup = new THREE.Group();
-    const pulseRingGeo = new THREE.RingGeometry(0.04, 0.07, 32);
+    const pulseRingGeo = new THREE.RingGeometry(0.045, 0.075, 32);
     const pulseRingMat = new THREE.MeshBasicMaterial({
-      color: 0xffffff,
+      color: 0xfacc15, // Comic Yellow #facc15
       transparent: true,
-      opacity: 0.9,
+      opacity: 0.95,
       side: THREE.DoubleSide
     });
     const pulseRing = new THREE.Mesh(pulseRingGeo, pulseRingMat);
     pulseRing.rotation.x = Math.PI / 2;
     reticleGroup.add(pulseRing);
 
-    const bracketRingGeo = new THREE.RingGeometry(0.082, 0.095, 32);
-    const bracketRingMat = new THREE.MeshBasicMaterial({
-      color: 0xfbbf24, // Amber gold accent
-      transparent: true,
-      opacity: 0.85,
+    const outerBlackRingGeo = new THREE.RingGeometry(0.078, 0.094, 32);
+    const outerBlackRingMat = new THREE.MeshBasicMaterial({
+      color: 0x000000,
       side: THREE.DoubleSide
     });
-    const bracketRing = new THREE.Mesh(bracketRingGeo, bracketRingMat);
-    bracketRing.rotation.x = Math.PI / 2;
-    reticleGroup.add(bracketRing);
+    const outerBlackRing = new THREE.Mesh(outerBlackRingGeo, outerBlackRingMat);
+    outerBlackRing.rotation.x = Math.PI / 2;
+    reticleGroup.add(outerBlackRing);
 
     earthGroup.add(reticleGroup);
 
@@ -1253,17 +1243,35 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   });
 
   return (
-    <div className="relative w-full h-screen overflow-hidden select-none bg-[#090d13] text-white font-sans flex flex-col justify-between">
+    <div className="relative w-full h-screen overflow-hidden select-none bg-[#090b0e] text-white font-sans flex flex-col justify-between">
       
-      {/* 1. CINEMATIC SKY BACKGROUND (Fondo de Cielo estilo Battlefield / Halo) */}
+      {/* 1. CINEMATIC BACKGROUND WITH PUNK HALFTONE OVERLAY */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-80"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0 opacity-70"
         style={{ backgroundImage: `url('${resolveAsset('/sky_background.jpg')}')` }}
       />
-      {/* Subtle Dark Vignette & Atmospheric Fog */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#090d13] via-transparent to-[#090d13]/70 pointer-events-none z-0" />
+      
+      {/* Halftone Dot Screen Tone (Signature Comic Texture) */}
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none z-0"
+        style={{
+          backgroundImage: 'radial-gradient(#ffffff 1.5px, transparent 1.5px)',
+          backgroundSize: '16px 16px'
+        }}
+      />
 
-      {/* 2. THE 3D PLANET (SIEMPRE ATRÁS, GIRA Y SE ENFOCA EN CADA EVENTO - DRAG TO ROTATE) */}
+      {/* Dark Vignette Overlay */}
+      <div className="absolute inset-0 bg-radial from-transparent via-[#090b0e]/60 to-[#090b0e]/95 pointer-events-none z-0" />
+
+      {/* Yellow/Black Industrial Caution Tape Top Bar */}
+      <div 
+        className="absolute top-0 left-0 right-0 h-2 opacity-85 z-40 pointer-events-none"
+        style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, #facc15, #facc15 12px, #000 12px, #000 24px)'
+        }}
+      />
+
+      {/* 2. THE 3D PLANET (EL PLANETA - DRAG TO ROTATE & CLICK STICKERS) */}
       <div 
         ref={mountRef}
         className="absolute inset-0 z-10 overflow-hidden cursor-grab active:cursor-grabbing select-none"
@@ -1271,129 +1279,122 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       />
 
       {/* ============================================================== */}
-      {/* 3. GAME HUD TOP BAR (ESTILO BATTLEFIELD / HALO INFINITE)        */}
+      {/* 3. COMIC PUNK HEADER (ESTILO [REDACTED] // KRAFTON)            */}
       {/* ============================================================== */}
-      <header className="relative z-30 w-full px-4 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3 bg-gradient-to-b from-black/80 to-transparent border-b border-white/10 backdrop-blur-sm">
-        {/* Call-Sign Identity & Back to Punk Menu */}
-        <div className="flex items-center space-x-3">
+      <header className="relative z-30 w-full px-4 sm:px-8 pt-3.5 pb-2 flex flex-wrap items-center justify-between gap-2.5 bg-black/90 border-b-2 border-black shadow-[0_4px_0px_#000000]">
+        
+        {/* Left: Identity Sticker Box & Back Button */}
+        <div className="flex items-center space-x-2.5 sm:space-x-3">
           {onBackToMenu && (
             <button
               onClick={onBackToMenu}
-              className="px-3 py-1.5 rounded-xl bg-black/80 hover:bg-black text-[#eab308] hover:text-white border-2 border-[#eab308] hover:border-white font-mono text-xs font-black tracking-wider uppercase transition shadow-[3px_3px_0px_#ffffff] flex items-center space-x-1.5 active:scale-95"
-              title="Volver al menú punk inicial"
+              className="px-2.5 sm:px-3 py-1 bg-black hover:bg-[#facc15] text-[#facc15] hover:text-black border-2 border-[#facc15] hover:border-black font-mono text-xs font-black tracking-wider uppercase transition shadow-[2px_2px_0px_#ffffff] flex items-center space-x-1 active:scale-95"
+              title="Volver al menú principal"
             >
               <span>←</span>
-              <span>{currentLang === 'es' ? 'MENÚ PRINCIPAL' : 'MAIN MENU'}</span>
+              <span>{currentLang === 'es' ? 'MENÚ' : 'MENU'}</span>
             </button>
           )}
 
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-amber-500 to-amber-700 p-1 flex items-center justify-center shadow-lg border border-amber-300/40">
-            <span className="font-serif font-black text-white text-base">DS</span>
-          </div>
-          <div>
-            <div className="text-[10px] font-mono tracking-widest text-amber-400 font-bold uppercase leading-none">
-              COMMAND THEATER // GEOFÍSICA & COMUNICACIONES
+          {/* Daniel Santander Comic Portrait Sticker */}
+          <div className="relative group shrink-0 hidden sm:block">
+            <div className="w-10 h-10 rounded-lg bg-black p-0.5 border-2 border-white shadow-[3px_3px_0px_#facc15] -rotate-2 overflow-hidden">
+              <img 
+                src={resolveAsset('/profile.jpg')} 
+                alt="Daniel Santander" 
+                className="w-full h-full object-cover object-top filter contrast-110"
+              />
             </div>
-            <h1 className="text-base sm:text-lg font-serif font-black text-white tracking-tight leading-snug">
-              DANIEL SANTANDER URRUTIA
-            </h1>
+          </div>
+
+          {/* Stencil Title Tape */}
+          <div className="flex flex-col">
+            <div className="bg-white text-black px-2.5 sm:px-3 py-0.5 border-2 border-black shadow-[2px_2px_0px_#facc15] -rotate-1 inline-block self-start">
+              <h1 className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase leading-none">
+                [DANIEL SANTANDER // EL PLANETA]
+              </h1>
+            </div>
+            <div className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-amber-400 uppercase mt-0.5">
+              SECTOR: {currentMission.city.toUpperCase()} ({Math.abs(currentMission.lat).toFixed(1)}°{currentMission.lat >= 0 ? 'N' : 'S'} {Math.abs(currentMission.lng).toFixed(1)}°{currentMission.lng >= 0 ? 'E' : 'W'})
+            </div>
           </div>
         </div>
 
-        {/* Tactical Mission Filters (Color Legend) */}
-        <div className="flex items-center gap-1.5 p-1 rounded-xl bg-black/60 border border-white/15 backdrop-blur-md overflow-x-auto no-scrollbar">
+        {/* Center: Category Filter Slanted Tape Strips */}
+        <div className="flex items-center gap-1 sm:gap-1.5 p-1 bg-black/60 border border-white/20 overflow-x-auto no-scrollbar">
           <button
             onClick={() => setActiveFilter('all')}
-            className={`px-3 py-1 rounded-lg font-mono text-xs transition-all ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 ${
               activeFilter === 'all'
-                ? 'bg-white text-black font-bold shadow'
-                : 'text-neutral-300 hover:text-white hover:bg-white/10'
+                ? 'bg-[#facc15] text-black shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-white hover:bg-white hover:text-black'
             }`}
           >
             {currentLang === 'es' ? `TODAS (${GAME_MISSIONS.length})` : `ALL (${GAME_MISSIONS.length})`}
           </button>
 
-          {/* Rojo: Ciencia */}
           <button
             onClick={() => setActiveFilter('science')}
-            className={`px-3 py-1 rounded-lg font-mono text-xs transition-all flex items-center space-x-1.5 ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 ${
               activeFilter === 'science'
-                ? 'bg-red-600 text-white font-bold shadow'
-                : 'text-neutral-300 hover:text-white hover:bg-white/10'
+                ? 'bg-red-600 text-white shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-red-500 hover:text-white'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <span>{currentLang === 'es' ? 'CIENCIA (ROJO)' : 'SCIENCE (RED)'}</span>
+            {currentLang === 'es' ? '[CIENCIA]' : '[SCIENCE]'}
           </button>
 
-          {/* Verde: Comunicaciones */}
           <button
             onClick={() => setActiveFilter('comms')}
-            className={`px-3 py-1 rounded-lg font-mono text-xs transition-all flex items-center space-x-1.5 ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 ${
               activeFilter === 'comms'
-                ? 'bg-emerald-600 text-white font-bold shadow'
-                : 'text-neutral-300 hover:text-white hover:bg-white/10'
+                ? 'bg-emerald-600 text-white shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-emerald-500 hover:text-white'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>{currentLang === 'es' ? 'COMUNICACIONES (VERDE)' : 'COMMS (GREEN)'}</span>
+            {currentLang === 'es' ? '[MEDIOS]' : '[COMMS]'}
           </button>
 
-          {/* Ámbar: Cumbres & Política */}
           <button
             onClick={() => setActiveFilter('global')}
-            className={`px-3 py-1 rounded-lg font-mono text-xs transition-all flex items-center space-x-1.5 ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-1 ${
               activeFilter === 'global'
-                ? 'bg-amber-600 text-white font-bold shadow'
-                : 'text-neutral-300 hover:text-white hover:bg-white/10'
+                ? 'bg-[#facc15] text-black shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-[#facc15] hover:text-black'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-amber-400" />
-            <span>{currentLang === 'es' ? 'CUMBRES (ÁMBAR)' : 'SUMMITS (AMBER)'}</span>
+            {currentLang === 'es' ? '[CUMBRES]' : '[SUMMITS]'}
           </button>
 
-          {/* Naranja: Arte & Cultura */}
           <button
             onClick={() => setActiveFilter('culture')}
-            className={`px-3 py-1 rounded-lg font-mono text-xs transition-all flex items-center space-x-1.5 ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 ${
               activeFilter === 'culture'
-                ? 'bg-orange-600 text-white font-bold shadow'
-                : 'text-neutral-300 hover:text-white hover:bg-white/10'
+                ? 'bg-orange-600 text-white shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-orange-500 hover:text-white'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-            <span>{currentLang === 'es' ? 'ARTE & CULTURA (NARANJA)' : 'ART & CULTURE (ORANGE)'}</span>
+            {currentLang === 'es' ? '[CULTURA]' : '[CULTURE]'}
           </button>
 
-          {/* Morado: I+D Innovación */}
           <button
             onClick={() => setActiveFilter('rd')}
-            className={`px-3 py-1 rounded-lg font-mono text-xs transition-all flex items-center space-x-1.5 ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 ${
               activeFilter === 'rd'
-                ? 'bg-purple-600 text-white font-bold shadow'
-                : 'text-neutral-300 hover:text-white hover:bg-white/10'
+                ? 'bg-purple-600 text-white shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-purple-500 hover:text-white'
             }`}
           >
-            <span className="w-2 h-2 rounded-full bg-purple-400" />
-            <span>{currentLang === 'es' ? 'I+D (MORADO)' : 'R&D (PURPLE)'}</span>
+            {currentLang === 'es' ? '[I+D]' : '[R&D]'}
           </button>
         </div>
 
-        {/* Right Controls: Language & Telemetry */}
+        {/* Right: Language Switcher & Dossier Shortcut */}
         <div className="flex items-center space-x-2">
-          <div className="hidden md:flex flex-col text-right font-mono text-[10px] text-neutral-300 pr-2">
-            <span className="text-amber-400 font-bold">
-              {currentMission.city.toUpperCase()}, {currentMission.country.toUpperCase()}
-            </span>
-            <span>
-              {Math.abs(currentMission.lat).toFixed(1)}°{currentMission.lat >= 0 ? 'N' : 'S'}{' '}
-              {Math.abs(currentMission.lng).toFixed(1)}°{currentMission.lng >= 0 ? 'E' : 'W'}
-            </span>
-          </div>
-
           <button
             onClick={onToggleLanguage}
-            className="px-2.5 py-1 rounded-lg bg-black/60 hover:bg-black/90 border border-white/20 font-mono text-xs font-bold text-amber-300 flex items-center space-x-1 transition shadow"
+            className="px-2.5 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
+            title="Cambiar idioma // Switch Language"
           >
             <Globe2 className="w-3.5 h-3.5" />
             <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
@@ -1402,10 +1403,11 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           {onExitToDossier && (
             <button
               onClick={onExitToDossier}
-              className="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 font-serif text-xs text-neutral-200 transition"
+              className="px-2.5 py-1 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
               title="Volver a versión documento"
             >
-              {currentLang === 'es' ? 'Vista Dossier' : 'Dossier View'}
+              <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
+              <span className="hidden sm:inline">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
             </button>
           )}
         </div>
@@ -1418,43 +1420,52 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         
         {/* Floatable Tactical Dossier Card (Left / Center Stage) */}
         {isDossierOpen && (
-          <div className="w-full max-w-2xl lg:max-w-3xl max-h-[78vh] bg-[#0c1219]/90 border-2 border-white/20 rounded-2xl shadow-[0_16px_50px_rgba(0,0,0,0.8)] backdrop-blur-xl flex flex-col overflow-hidden animate-fadeIn text-white pointer-events-auto">
+          <div className="w-full max-w-2xl lg:max-w-3xl max-h-[78vh] bg-[#0c0f14] border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden animate-fadeIn text-white pointer-events-auto">
             
-            {/* Mission Window Header */}
-            <div className="px-5 py-2.5 bg-black/70 border-b border-white/15 flex items-center justify-between font-mono text-xs shrink-0">
+            {/* Comic Panel Header */}
+            <div className="px-4 py-2.5 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
               <div className="flex items-center space-x-2.5">
-                <span className={`w-3 h-3 rounded-full ${
-                  currentMission.type === 'science' ? 'bg-red-500' :
-                  currentMission.type === 'comms' ? 'bg-emerald-500' :
-                  currentMission.type === 'global' ? 'bg-amber-500' :
-                  currentMission.type === 'culture' ? 'bg-orange-500' : 'bg-purple-500'
-                }`} />
-                <span className="font-bold text-white tracking-widest">
+                {/* Yellow Slanted Stencil Tape */}
+                <div className="bg-[#facc15] text-black font-mono font-black text-xs px-2.5 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
                   {currentMission.code} // {currentMission.city.toUpperCase()}
-                </span>
-                <span className="text-neutral-400">•</span>
-                <span className="text-neutral-300">{currentMission.flag} {currentMission.country}</span>
+                </div>
+                
+                {/* Country Badge */}
+                <div className="bg-white/10 text-neutral-200 font-mono text-[10px] px-2 py-0.5 border border-white/20">
+                  {currentMission.flag} {currentMission.country.toUpperCase()}
+                </div>
+
+                {/* Verification Stamp */}
+                {currentMission.src || currentMission.embedUrl || (currentMission.availablePages && currentMission.availablePages.length > 0) ? (
+                  <span className="hidden sm:inline bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider rotate-1">
+                    {currentLang === 'es' ? 'REGISTRO REAL' : 'VERIFIED'}
+                  </span>
+                ) : (
+                  <span className="hidden sm:inline bg-red-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider -rotate-1">
+                    {currentLang === 'es' ? 'REGISTRO PENDIENTE' : 'PENDING'}
+                  </span>
+                )}
               </div>
 
               {/* Prev / Next & Close */}
               <div className="flex items-center space-x-1.5">
                 <button
                   onClick={handlePrev}
-                  className="p-1 rounded hover:bg-white/10 text-neutral-300 hover:text-white transition"
+                  className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
                   title="Misión anterior"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-1 rounded hover:bg-white/10 text-neutral-300 hover:text-white transition"
+                  className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
                   title="Misión siguiente"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setIsDossierOpen(false)}
-                  className="p-1 rounded hover:bg-white/10 text-neutral-300 hover:text-white transition ml-2"
+                  className="p-1 bg-black hover:bg-red-600 text-white border border-white/40 hover:border-black transition ml-1 font-mono font-black shadow-[1px_1px_0px_#000]"
                   title="Minimizar panel para ver el planeta"
                 >
                   <X className="w-4 h-4" />
@@ -1465,8 +1476,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             {/* Mission Body Scrollable */}
             <div className="overflow-y-auto p-5 sm:p-6 space-y-4 no-scrollbar">
               
-              {/* Media Viewport */}
-              <div className="relative w-full rounded-xl bg-black/80 border border-white/15 overflow-hidden flex items-center justify-center min-h-[240px] max-h-[380px]">
+              {/* Media Viewport Frame with Comic Ink Border */}
+              <div className="relative w-full rounded-lg bg-black border-3 border-black shadow-[4px_4px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[240px] max-h-[380px]">
                 {currentMission.mediaType === 'video' && currentMission.embedUrl ? (
                   <div className="w-full aspect-video">
                     <iframe
@@ -1571,23 +1582,25 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               {/* Title & Metadata */}
               <div>
                 <div className="flex items-center space-x-2 font-mono text-[10px] text-amber-400 mb-1">
-                  <span>{currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}</span>
-                  <span>• {currentMission.date}</span>
+                  <span className="bg-[#facc15] text-black font-mono font-black px-1.5 py-0.5 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
+                    {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
+                  </span>
+                  <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
                 </div>
 
-                <h2 className="text-xl sm:text-2xl font-serif font-black text-white leading-snug">
+                <h2 className="text-xl sm:text-2xl font-mono font-black text-white uppercase tracking-tight leading-snug">
                   {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
                 </h2>
 
-                <p className="text-xs font-sans text-neutral-300 mt-1">
+                <p className="text-xs font-mono text-neutral-300 mt-1">
                   {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
                 </p>
               </div>
 
-              {/* Impact Synopsis */}
-              <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-1.5">
-                <div className="font-mono text-[10px] uppercase tracking-wider text-amber-300 font-bold">
-                  {currentLang === 'es' ? 'SINOPSIS METODOLÓGICA & IMPACTO' : 'METHODOLOGY & IMPACT SYNOPSIS'}
+              {/* Impact Synopsis Box */}
+              <div className="p-3.5 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-1.5">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black">
+                  {currentLang === 'es' ? '[ SINOPSIS METODOLÓGICA & IMPACTO ]' : '[ METHODOLOGY & IMPACT SYNOPSIS ]'}
                 </div>
                 <p className="text-xs font-serif text-neutral-200 leading-relaxed">
                   {currentLang === 'es' ? currentMission.impactEs : currentMission.impactEn}
@@ -1595,36 +1608,55 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               </div>
 
               {/* Methodology Bullets */}
-              <ul className="space-y-1.5 text-xs font-serif text-neutral-300">
+              <ul className="space-y-1.5 text-xs font-mono text-neutral-300">
                 {(currentLang === 'es' ? currentMission.methodologyEs : currentMission.methodologyEn).map((m, mIdx) => (
-                  <li key={mIdx} className="flex items-start space-x-2 bg-white/5 p-2 rounded border border-white/5">
-                    <span className="text-amber-400 font-bold">•</span>
+                  <li key={mIdx} className="flex items-start space-x-2 bg-black/50 p-2 border border-white/10">
+                    <span className="bg-[#facc15] text-black font-mono font-black text-[9px] px-1 border border-black shrink-0">
+                      0{mIdx + 1}
+                    </span>
                     <span>{m}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* Links & Tags */}
-              <div className="pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+              {/* Links & Tags & Comic Barcode */}
+              <div className="pt-2 border-t-2 border-black flex flex-wrap items-center justify-between gap-2">
                 <div className="flex flex-wrap gap-1">
                   {currentMission.tags.map((t, idx) => (
-                    <span key={idx} className="px-2 py-0.5 rounded font-mono text-[10px] bg-white/10 text-neutral-300">
+                    <span key={idx} className="px-2 py-0.5 font-mono text-[10px] bg-white/10 text-neutral-300 border border-white/15">
                       #{t}
                     </span>
                   ))}
                 </div>
 
-                {currentMission.url && (
-                  <a
-                    href={currentMission.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="px-3.5 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-black font-serif font-bold text-xs flex items-center space-x-1 transition shadow"
-                  >
-                    <span>{currentLang === 'es' ? 'Abrir Fuente' : 'Open Source'}</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                )}
+                <div className="flex items-center space-x-3">
+                  {currentMission.url && (
+                    <a
+                      href={currentMission.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="px-3.5 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
+                    >
+                      <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
+
+                  {/* Barcode Stamp [REDACTED] 2294 */}
+                  <div className="hidden sm:flex flex-col items-end opacity-70">
+                    <div className="flex space-x-0.5 h-4 items-center">
+                      <div className="w-0.5 h-full bg-white" />
+                      <div className="w-1 h-full bg-white" />
+                      <div className="w-0.5 h-full bg-white" />
+                      <div className="w-1.5 h-full bg-white" />
+                      <div className="w-0.5 h-full bg-white" />
+                      <div className="w-1 h-full bg-white" />
+                      <div className="w-0.5 h-full bg-white" />
+                      <div className="w-2 h-full bg-white" />
+                    </div>
+                    <span className="text-[7px] font-mono tracking-widest text-neutral-400">DS-2294</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1634,7 +1666,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         {!isDossierOpen && (
           <button
             onClick={() => setIsDossierOpen(true)}
-            className="pointer-events-auto px-4 py-2 rounded-xl bg-black/80 hover:bg-black border border-white/30 text-amber-400 font-mono text-xs font-bold transition flex items-center space-x-2 shadow-2xl backdrop-blur-md"
+            className="pointer-events-auto px-4 py-2 bg-[#facc15] hover:bg-white text-black font-mono text-xs font-black uppercase border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-1 transition flex items-center space-x-2 active:scale-95"
           >
             <Maximize2 className="w-4 h-4" />
             <span>
@@ -1648,27 +1680,29 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       </main>
 
       {/* ============================================================== */}
-      {/* 5. BOTTOM HORIZONTAL MISSION RAIL (ESTILO BATTLEFIELD 1 / HALO) */}
+      {/* 5. BOTTOM MISSION SLIDE CAROUSEL (ESTILO [REDACTED] COMIC)     */}
       {/* ============================================================== */}
-      <footer className="relative z-30 w-full px-4 sm:px-8 py-3 bg-gradient-to-t from-black via-black/90 to-transparent border-t border-white/10 backdrop-blur-md flex flex-col space-y-2">
+      <footer className="relative z-30 w-full px-4 sm:px-8 py-2.5 bg-black border-t-3 border-black shadow-[0_-4px_0px_#facc15] flex flex-col space-y-2">
         <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
           <div className="flex items-center space-x-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <span className="bg-[#facc15] text-black px-1.5 py-0.2 font-black border border-black shadow-[1px_1px_0px_#ffffff]">
+              A
+            </span>
             <span className="font-bold tracking-wider text-amber-300 uppercase">
-              {currentLang === 'es' ? 'SELECCIONA O ARRASTRA EL PLANETA // EL GLOBO GIRA A CADA MISIÓN' : 'SELECT OR DRAG PLANET // GLOBE ROTATES TO EACH TARGET'}
+              {currentLang === 'es' ? 'ARRASTRA EL PLANETA O SELECCIONA UNA MISIÓN' : 'DRAG THE PLANET OR SELECT A MISSION'}
             </span>
           </div>
-          <div className="flex items-center space-x-3 text-neutral-300">
-            <span>{currentLang === 'es' ? '🔴 CIENCIA' : '🔴 SCIENCE'}</span>
-            <span>{currentLang === 'es' ? '🟢 COMUNICACIONES' : '🟢 COMMS'}</span>
-            <span>{currentLang === 'es' ? '🟡 CUMBRES' : '🟡 SUMMITS'}</span>
-            <span>{currentLang === 'es' ? '🟠 CULTURA' : '🟠 CULTURE'}</span>
-            <span>{currentLang === 'es' ? '🟣 I+D' : '🟣 R&D'}</span>
+          <div className="hidden sm:flex items-center space-x-2 text-neutral-300 text-[10px] font-mono font-bold">
+            <span className="bg-red-600/20 text-red-400 px-1.5 py-0.5 border border-red-500/30">🔴 CIENCIA</span>
+            <span className="bg-emerald-600/20 text-emerald-400 px-1.5 py-0.5 border border-emerald-500/30">🟢 MEDIOS</span>
+            <span className="bg-amber-600/20 text-amber-400 px-1.5 py-0.5 border border-amber-500/30">🟡 CUMBRES</span>
+            <span className="bg-orange-600/20 text-orange-400 px-1.5 py-0.5 border border-orange-500/30">🟠 CULTURA</span>
+            <span className="bg-purple-600/20 text-purple-400 px-1.5 py-0.5 border border-purple-500/30">🟣 I+D</span>
           </div>
         </div>
 
         {/* Horizontal Carousel of Missions */}
-        <div className="w-full flex items-center gap-3 overflow-x-auto no-scrollbar py-1">
+        <div className="w-full flex items-center gap-2.5 overflow-x-auto no-scrollbar py-1">
           {filteredMissions.map((m) => {
             const isSelected = m.id === selectedMissionId;
 
@@ -1692,33 +1726,33 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               <div
                 key={m.id}
                 onClick={() => handleSelectMission(m.id)}
-                className={`group relative cursor-pointer px-3.5 py-2.5 rounded-xl transition-all duration-200 shrink-0 w-[240px] sm:w-[260px] flex flex-col justify-between border-2 ${
+                className={`group relative cursor-pointer px-3 py-2 transition-all duration-150 shrink-0 w-[230px] sm:w-[250px] flex flex-col justify-between border-2 ${
                   isSelected
-                    ? `bg-black/90 shadow-[0_0_20px_rgba(255,255,255,0.25)] scale-105 ${borderTheme}`
-                    : 'bg-black/60 hover:bg-black/80 border-white/15 text-neutral-300 hover:border-white/40'
+                    ? 'bg-[#facc15] text-black border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-1 scale-105 z-10 font-bold'
+                    : 'bg-[#12161f] hover:bg-black text-neutral-300 hover:text-white border-2 border-black shadow-[2px_2px_0px_#000000] rotate-0 hover:-rotate-0.5'
                 }`}
               >
                 {/* Card Top: Code & Country */}
-                <div className="flex items-center justify-between text-[10px] font-mono pb-1 border-b border-white/10">
+                <div className={`flex items-center justify-between text-[10px] font-mono pb-1 border-b ${isSelected ? 'border-black' : 'border-white/10'}`}>
                   <div className="flex items-center space-x-1.5">
-                    <span className={`w-2 h-2 rounded-full ${dotColor}`} />
+                    <span className={`w-2 h-2 rounded-full ${isSelected ? 'bg-black' : dotColor}`} />
                     <span className="font-bold">{m.code}</span>
                   </div>
-                  <span>{m.flag} {m.city}</span>
+                  <span className="font-bold">{m.flag} {m.city.toUpperCase()}</span>
                 </div>
 
                 {/* Card Title */}
                 <div className="my-1.5">
-                  <h4 className="font-serif font-bold text-xs sm:text-sm text-white line-clamp-2 leading-snug group-hover:text-amber-300 transition-colors">
+                  <h4 className={`font-mono font-bold text-xs line-clamp-2 leading-snug ${isSelected ? 'text-black' : 'text-white'}`}>
                     {currentLang === 'es' ? m.titleEs : m.titleEn}
                   </h4>
                 </div>
 
                 {/* Card Footer */}
-                <div className="flex items-center justify-between text-[9px] font-mono text-neutral-400 pt-1">
+                <div className={`flex items-center justify-between text-[9px] font-mono pt-1 ${isSelected ? 'text-neutral-900 font-black' : 'text-neutral-400'}`}>
                   <span>{m.date}</span>
-                  <span className="font-bold uppercase tracking-wider text-amber-400">
-                    {isSelected ? (currentLang === 'es' ? 'EN FOCO' : 'ACTIVE') : (currentLang === 'es' ? 'VER' : 'VIEW')} →
+                  <span className="uppercase tracking-wider">
+                    {isSelected ? (currentLang === 'es' ? '[ ACTIVO ]' : '[ ACTIVE ]') : (currentLang === 'es' ? 'VER →' : 'VIEW →')}
                   </span>
                 </div>
               </div>

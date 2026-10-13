@@ -188,21 +188,21 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
-          {/* TAPE 6: [06. PLANISFERIO 3D // GLOBO] (WHITE/AMBER STENCIL TAPE) */}
+          {/* TAPE 6: [06. EL PLANETA // EXPLORAR TODO] (BLACK/AMBER STENCIL TAPE) */}
           <button
             onClick={() => onSelectCategory('all')}
             className="group relative w-full text-left bg-black text-white hover:bg-[#facc15] hover:text-black px-4 py-2 sm:py-2.5 border-3 border-white hover:border-black shadow-[4px_4px_0px_#facc15] -rotate-1 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
           >
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase">
-                {currentLang === 'es' ? '[ 06. EXPLORAR TODO ]' : '[ 06. EXPLORE ALL ]'}
+                {currentLang === 'es' ? '[ 06. EL PLANETA // EXPLORAR TODO ]' : '[ 06. THE PLANET // EXPLORE ALL ]'}
               </span>
               <ArrowRight className="w-4 h-4 text-amber-400 group-hover:text-black group-hover:translate-x-1 transition-transform" />
             </div>
             <div className="text-[10px] font-mono font-bold text-neutral-300 group-hover:text-neutral-900 tracking-tight mt-0.5">
               {currentLang === 'es'
-                ? 'Visor táctico con el globo 3D interactivo navegando los hitos del CV'
-                : 'Tactical HUD with 3D interactive globe navigating all CV milestones'}
+                ? 'Globo 3D interactivo navegando las misiones de campo y coordenadas del CV'
+                : '3D interactive globe exploring field missions and CV coordinates'}
             </div>
           </button>
 
@@ -229,7 +229,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             A
           </span>
           <span className="font-bold text-white uppercase">
-            {currentLang === 'es' ? 'SELECCIONAR SECTOR // ENTRAR AL GLOBO' : 'SELECT SECTOR // LAUNCH 3D GLOBE'}
+            {currentLang === 'es' ? 'SELECCIONAR SECTOR // ENTRAR A EL PLANETA' : 'SELECT SECTOR // LAUNCH THE PLANET'}
           </span>
           <span className="opacity-40">•</span>
           <span className="opacity-80">
