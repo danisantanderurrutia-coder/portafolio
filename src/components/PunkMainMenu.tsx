@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
-import { Globe, ArrowRight, FileText, Sparkles, Download } from 'lucide-react';
+import { Globe, ArrowRight, FileText, Sparkles, Download, Terminal } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
 import { MissionType } from './GameWorldView';
 import { ProjectsModal } from './ProjectsModal';
+import { TopocatchmentLogo } from './TopocatchmentLogo';
 
 interface PunkMainMenuProps {
   currentLang: Language;
   onToggleLanguage: () => void;
   onSelectCategory: (category: MissionType | 'all') => void;
-  onOpenDossier: () => void;
+  onOpenDossier: (mode?: 'science' | 'comms') => void;
   onBackToGateway?: () => void;
   onOpenHireMe?: () => void;
   onOpenSkills?: () => void;
@@ -43,6 +44,11 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
         
         {/* Profile Card & Title Stencil Box */}
         <div className="flex items-center space-x-3 sm:space-x-4">
+          {/* Topocatchment Brand Emblem */}
+          <div className="shrink-0 -rotate-3 hover:rotate-0 transition-transform cursor-pointer" title="Topocatchment Emblem">
+            <TopocatchmentLogo variant="badge" className="w-12 h-12 sm:w-14 sm:h-14 shadow-[4px_4px_0px_#facc15]" />
+          </div>
+
           {/* Daniel Santander Real Portrait Badge (Comic Sticker Cutout) */}
           <div className="relative group shrink-0">
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-black p-0.5 border-3 border-white shadow-[4px_4px_0px_#facc15] -rotate-2 group-hover:rotate-0 transition-transform overflow-hidden">
@@ -51,13 +57,6 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
                 alt="Daniel Santander Urrutia" 
                 className="w-full h-full object-cover object-top filter contrast-110 brightness-95"
               />
-            </div>
-            {/* Topocatchment Official Insignia on Avatar Corner */}
-            <div 
-              className="absolute -top-1.5 -left-1.5 w-6 h-6 rounded-lg bg-[#090b0e] border-2 border-white shadow-[2px_2px_0px_#facc15] p-0.5 flex items-center justify-center -rotate-6 group-hover:rotate-0 transition-transform"
-              title="Topocatchment Logo: Geofísica de Cuencas & Comunicaciones Estratégicas"
-            >
-              <img src={resolveAsset('/favicon.svg')} alt="Topocatchment" className="w-full h-full object-contain" />
             </div>
             {/* Stamp Tag */}
             <div className="absolute -bottom-1 -right-1 bg-red-600 text-white font-mono font-black text-[8px] px-1.5 py-0.2 rounded border border-white uppercase tracking-wider rotate-3">
@@ -110,7 +109,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           </a>
 
           <button
-            onClick={onOpenDossier}
+            onClick={() => onOpenDossier()}
             className="px-2.5 sm:px-3 py-1.5 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
             title={currentLang === 'es' ? 'Ver Dossier Académico en Papel' : 'View Classic Academic Dossier'}
           >
@@ -129,14 +128,25 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </button>
           )}
 
+          {onOpenSkills && (
+            <button
+              onClick={onOpenSkills}
+              className="hidden lg:flex px-2.5 sm:px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white font-mono font-bold text-xs uppercase tracking-wider border-2 border-neutral-600 shadow-[2px_2px_0px_#000000] active:scale-95 transition-all items-center space-x-1 cursor-pointer"
+              title="Ficha Técnica // Tech Skills"
+            >
+              <Terminal className="w-3.5 h-3.5 text-amber-400" />
+              <span>{currentLang === 'es' ? 'SKILLS' : 'SKILLS'}</span>
+            </button>
+          )}
+
           {onBackToGateway && (
             <button
               onClick={onBackToGateway}
-              className="px-2.5 sm:px-3 py-1.5 bg-white hover:bg-neutral-200 text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
-              title="Volver a Portada Principal // Home Gateway"
+              className="px-2.5 sm:px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white font-mono font-bold text-xs uppercase tracking-wider border-2 border-neutral-600 shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
+              title="Ver Resumen Ejecutivo // View Executive Summary"
             >
-              <span>🏠</span>
-              <span className="hidden sm:inline">{currentLang === 'es' ? 'INICIO' : 'HOME'}</span>
+              <FileText className="w-3.5 h-3.5 text-amber-400" />
+              <span className="hidden xl:inline">{currentLang === 'es' ? 'EJECUTIVO' : 'EXECUTIVE'}</span>
             </button>
           )}
 
@@ -288,7 +298,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
 
           {/* TAPE 7: [07. DOSSIER ACADÉMICO IMPRESO] */}
           <button
-            onClick={onOpenDossier}
+            onClick={() => onOpenDossier('science')}
             className="group relative w-full text-left bg-[#eee5d5] hover:bg-white text-[#2c2620] px-3.5 py-1.5 border-2 border-black shadow-[3px_3px_0px_#000000] rotate-0.5 hover:rotate-0 hover:scale-[1.02] transition-all cursor-pointer"
           >
             <div className="flex items-center justify-between">

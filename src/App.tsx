@@ -10,7 +10,7 @@ import { SkillsModal } from './components/SkillsModal';
 export { resolveAsset } from './utils';
 
 export function App() {
-  const [viewMode, setViewMode] = useState<'gateway' | 'punk' | 'game' | 'dossier'>('gateway');
+  const [viewMode, setViewMode] = useState<'punk' | 'game' | 'dossier' | 'gateway'>('punk');
   const [dossierMode, setDossierMode] = useState<'science' | 'comms'>('science');
   const [selectedCategory, setSelectedCategory] = useState<'all' | MissionType>('all');
   const [currentLang, setCurrentLang] = useState<Language>('en');
@@ -23,7 +23,56 @@ export function App() {
 
   return (
     <>
-      {/* 1. PORTADA PRINCIPAL DE ACCESO PROFESIONAL (LANDING GATEWAY) */}
+      {/* 1. MENÚ PRINCIPAL PUNK / ECO-NOIR (PORTADA PRINCIPAL QUE DA LA BIENVENIDA A EL PLANETA) */}
+      {viewMode === 'punk' && (
+        <PunkMainMenu
+          currentLang={currentLang}
+          onToggleLanguage={toggleLanguage}
+          onSelectCategory={(category) => {
+            setSelectedCategory(category);
+            setViewMode('game');
+          }}
+          onOpenDossier={(mode = 'science') => {
+            setDossierMode(mode);
+            setViewMode('dossier');
+          }}
+          onBackToGateway={() => setViewMode('gateway')}
+          onOpenHireMe={() => setIsHireMeOpen(true)}
+          onOpenSkills={() => setIsSkillsOpen(true)}
+        />
+      )}
+
+      {/* 2. VISOR INMERSIVO: EL PLANETA 3D INTERACTIVO */}
+      {viewMode === 'game' && (
+        <GameWorldView
+          currentLang={currentLang}
+          onToggleLanguage={toggleLanguage}
+          onExitToDossier={() => {
+            setDossierMode('science');
+            setViewMode('dossier');
+          }}
+          onBackToMenu={() => setViewMode('punk')}
+          onBackToGateway={() => setViewMode('punk')}
+          onOpenHireMe={() => setIsHireMeOpen(true)}
+          onOpenSkills={() => setIsSkillsOpen(true)}
+          initialFilter={selectedCategory}
+        />
+      )}
+
+      {/* 3. VISTA EJECUTIVA: DOSSIER ACADÉMICO / EDITORIAL LIMPIO (CIENCIA O COMUNICACIONES) */}
+      {viewMode === 'dossier' && (
+        <ClassicDossierView
+          currentLang={currentLang}
+          onToggleLanguage={toggleLanguage}
+          onSwitchToGameView={() => setViewMode('game')}
+          initialProfileMode={dossierMode}
+          onOpenHireMe={() => setIsHireMeOpen(true)}
+          onOpenSkills={() => setIsSkillsOpen(true)}
+          onBackToGateway={() => setViewMode('punk')}
+        />
+      )}
+
+      {/* 4. VISTA DE RESUMEN EJECUTIVO // GATEWAY DE 4 EXPEDIENTES (OPCIONAL) */}
       {viewMode === 'gateway' && (
         <LandingGateway
           currentLang={currentLang}
@@ -43,55 +92,6 @@ export function App() {
           onSelectPunkMenu={() => setViewMode('punk')}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}
-        />
-      )}
-
-      {/* 2. MENÚ ESTILO PUNK / FANZINE ECO-NOIR ARCADE */}
-      {viewMode === 'punk' && (
-        <PunkMainMenu
-          currentLang={currentLang}
-          onToggleLanguage={toggleLanguage}
-          onSelectCategory={(category) => {
-            setSelectedCategory(category);
-            setViewMode('game');
-          }}
-          onOpenDossier={() => {
-            setDossierMode('comms');
-            setViewMode('dossier');
-          }}
-          onBackToGateway={() => setViewMode('gateway')}
-          onOpenHireMe={() => setIsHireMeOpen(true)}
-          onOpenSkills={() => setIsSkillsOpen(true)}
-        />
-      )}
-
-      {/* 3. VISOR INMERSIVO: EL PLANETA 3D INTERACTIVO */}
-      {viewMode === 'game' && (
-        <GameWorldView
-          currentLang={currentLang}
-          onToggleLanguage={toggleLanguage}
-          onExitToDossier={() => {
-            setDossierMode('science');
-            setViewMode('dossier');
-          }}
-          onBackToMenu={() => setViewMode('gateway')}
-          onBackToGateway={() => setViewMode('gateway')}
-          onOpenHireMe={() => setIsHireMeOpen(true)}
-          onOpenSkills={() => setIsSkillsOpen(true)}
-          initialFilter={selectedCategory}
-        />
-      )}
-
-      {/* 4. VISTA EJECUTIVA: DOSSIER ACADÉMICO / EDITORIAL LIMPIO (CIENCIA O COMUNICACIONES) */}
-      {viewMode === 'dossier' && (
-        <ClassicDossierView
-          currentLang={currentLang}
-          onToggleLanguage={toggleLanguage}
-          onSwitchToGameView={() => setViewMode('game')}
-          initialProfileMode={dossierMode}
-          onOpenHireMe={() => setIsHireMeOpen(true)}
-          onOpenSkills={() => setIsSkillsOpen(true)}
-          onBackToGateway={() => setViewMode('gateway')}
         />
       )}
 
