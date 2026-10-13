@@ -195,7 +195,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           >
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase">
-                {currentLang === 'es' ? '[ 06. EXPLORAR PLANISFERIO 3D ]' : '[ 06. EXPLORE 3D PLANET HUD ]'}
+                {currentLang === 'es' ? '[ 06. EXPLORAR TODO ]' : '[ 06. EXPLORE ALL ]'}
               </span>
               <ArrowRight className="w-4 h-4 text-amber-400 group-hover:text-black group-hover:translate-x-1 transition-transform" />
             </div>

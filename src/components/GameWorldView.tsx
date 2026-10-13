@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import * as THREE from 'three';
 import { 
   Play, 
   ExternalLink, 
@@ -812,41 +813,15 @@ export const GAME_MISSIONS: GameMission[] = [
 ];
 
 
-import { ALL_COASTLINES, CONTINENT_LAND_MATRIX, LatLng } from '../continentsData';
-
-const drawCoastlinePath = (
-  ctx: CanvasRenderingContext2D,
-  coords: LatLng[],
-  project: (latDeg: number, lngDeg: number) => { x: number; y: number; visible: boolean }
-) => {
-  if (coords.length < 2) return;
-  for (let i = 0; i < coords.length - 1; i++) {
-    const p1 = coords[i];
-    const p2 = coords[i + 1];
-
-    const dLat = p2[0] - p1[0];
-    const dLng = p2[1] - p1[1];
-    const dist = Math.sqrt(dLat * dLat + dLng * dLng);
-    const steps = Math.max(1, Math.ceil(dist / 2.0));
-
-    let first = true;
-    for (let s = 0; s <= steps; s++) {
-      const lat = p1[0] + (dLat * s) / steps;
-      const lng = p1[1] + (dLng * s) / steps;
-      const pt = project(lat, lng);
-
-      if (pt.visible) {
-        if (first) {
-          ctx.moveTo(pt.x, pt.y);
-          first = false;
-        } else {
-          ctx.lineTo(pt.x, pt.y);
-        }
-      } else {
-        first = true;
-      }
-    }
-  }
+// Precise spherical coordinate mapping to Three.js 3D globe coordinates
+const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector3 => {
+  const phi = (90 - lat) * (Math.PI / 180);
+  const theta = (lng + 180) * (Math.PI / 180);
+  return new THREE.Vector3(
+    -radius * Math.sin(phi) * Math.cos(theta),
+    radius * Math.cos(phi),
+    radius * Math.sin(phi) * Math.sin(theta)
+  );
 };
 
 interface GameWorldViewProps {
@@ -885,230 +860,16 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     }
   }, [initialFilter]);
 
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const mountRef = useRef<HTMLDivElement | null>(null);
 
   const currentMission = GAME_MISSIONS.find((m) => m.id === selectedMissionId) || GAME_MISSIONS[0];
   const currentMissionIndex = GAME_MISSIONS.findIndex((m) => m.id === selectedMissionId);
 
-  // Smooth lerp for globe rotation
-  const currentCoord = useRef<{ lat: number; lng: number }>({
-    lat: currentMission.lat,
-    lng: currentMission.lng
-  });
+  const selectedMissionRef = useRef(selectedMissionId);
+  selectedMissionRef.current = selectedMissionId;
 
-  // Render 3D Canvas Globe
-  useEffect(() => {
-    let animId: number;
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let targetLat = currentMission.lat;
-    let targetLng = currentMission.lng;
-
-    const render = () => {
-      // Lerp rotation smoothly
-      const speed = 0.055;
-      currentCoord.current.lat += (targetLat - currentCoord.current.lat) * speed;
-      
-      let dLng = targetLng - currentCoord.current.lng;
-      while (dLng > 180) dLng -= 360;
-      while (dLng < -180) dLng += 360;
-      currentCoord.current.lng += dLng * speed;
-
-      const width = canvas.width;
-      const height = canvas.height;
-      
-      // Make planet large and majestic in the background (center-right bias for cinematic game feel)
-      const radius = Math.min(width, height) * 0.44;
-      const cx = width > 900 ? width * 0.65 : width * 0.5;
-      const cy = height * 0.5;
-
-      ctx.clearRect(0, 0, width, height);
-
-      // 1. Atmospheric Outer Glow
-      const glowGrad = ctx.createRadialGradient(cx, cy, radius * 0.85, cx, cy, radius * 1.35);
-      glowGrad.addColorStop(0, 'rgba(80, 160, 220, 0.15)');
-      glowGrad.addColorStop(0.5, 'rgba(50, 110, 180, 0.08)');
-      glowGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-      ctx.fillStyle = glowGrad;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius * 1.4, 0, Math.PI * 2);
-      ctx.fill();
-
-      // 2. Planet Sphere Disk (Deep Blue-Black Ocean with Twilight Terminator)
-      const oceanGrad = ctx.createRadialGradient(cx - radius * 0.35, cy - radius * 0.35, radius * 0.1, cx, cy, radius);
-      oceanGrad.addColorStop(0, '#1c2e42');
-      oceanGrad.addColorStop(0.65, '#0c1622');
-      oceanGrad.addColorStop(1, '#05090f');
-      ctx.fillStyle = oceanGrad;
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Outer Rim Glow
-      ctx.strokeStyle = 'rgba(120, 180, 230, 0.45)';
-      ctx.lineWidth = 2;
-      ctx.stroke();
-
-      // 3. Mathematical Orthographic 3D Projection
-      const centerLatRad = (currentCoord.current.lat * Math.PI) / 180;
-      const centerLngRad = (currentCoord.current.lng * Math.PI) / 180;
-
-      const project = (latDeg: number, lngDeg: number): { x: number; y: number; visible: boolean } => {
-        const phi = (latDeg * Math.PI) / 180;
-        const lambda = (lngDeg * Math.PI) / 180;
-        const dLambda = lambda - centerLngRad;
-
-        const cosC = Math.sin(centerLatRad) * Math.sin(phi) + Math.cos(centerLatRad) * Math.cos(phi) * Math.cos(dLambda);
-        const visible = cosC >= 0;
-
-        const x = cx + radius * Math.cos(phi) * Math.sin(dLambda);
-        const y = cy - radius * (Math.cos(centerLatRad) * Math.sin(phi) - Math.sin(centerLatRad) * Math.cos(phi) * Math.cos(dLambda));
-
-        return { x, y, visible };
-      };
-
-      // 4. Parallels & Meridians (HUD Graticule)
-      ctx.strokeStyle = 'rgba(90, 140, 180, 0.18)';
-      ctx.lineWidth = 0.8;
-
-      for (let p = -60; p <= 60; p += 30) {
-        ctx.beginPath();
-        let first = true;
-        for (let m = -180; m <= 180; m += 10) {
-          const pt = project(p, m);
-          if (pt.visible) {
-            if (first) { ctx.moveTo(pt.x, pt.y); first = false; }
-            else { ctx.lineTo(pt.x, pt.y); }
-          } else {
-            first = true;
-          }
-        }
-        ctx.stroke();
-      }
-
-      for (let m = -180; m < 180; m += 30) {
-        ctx.beginPath();
-        let first = true;
-        for (let p = -80; p <= 80; p += 10) {
-          const pt = project(p, m);
-          if (pt.visible) {
-            if (first) { ctx.moveTo(pt.x, pt.y); first = false; }
-            else { ctx.lineTo(pt.x, pt.y); }
-          } else {
-            first = true;
-          }
-        }
-        ctx.stroke();
-      }
-
-      // 5. Continents: Luminous Vector Coastlines & Tactical Landmass Dot Grid
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-      ctx.clip(); // Keep inside the planetary sphere
-
-      // A. Outer Glow for Coastlines
-      ctx.strokeStyle = 'rgba(56, 189, 248, 0.35)';
-      ctx.lineWidth = 3.5;
-      ctx.lineJoin = 'round';
-      ctx.lineCap = 'round';
-      ctx.beginPath();
-      ALL_COASTLINES.forEach((c) => {
-        drawCoastlinePath(ctx, c.coords, project);
-      });
-      ctx.stroke();
-
-      // B. Crisp Glowing Cyan Vector Coastline Core
-      ctx.strokeStyle = 'rgba(125, 211, 252, 0.9)';
-      ctx.lineWidth = 1.6;
-      ctx.beginPath();
-      ALL_COASTLINES.forEach((c) => {
-        drawCoastlinePath(ctx, c.coords, project);
-      });
-      ctx.stroke();
-
-      // C. Dense Tactical Halftone Landmass Dot Matrix
-      ctx.fillStyle = 'rgba(125, 211, 252, 0.65)';
-      for (const [lLat, lLng] of CONTINENT_LAND_MATRIX) {
-        const pt = project(lLat, lLng);
-        if (pt.visible) {
-          ctx.beginPath();
-          ctx.arc(pt.x, pt.y, 2.5, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-
-      ctx.restore();
-
-      // 6. Color-Coded Mission Beacons:
-      // Rojo = Ciencia (#ef4444)
-      // Verde = Comunicaciones (#22c55e)
-      // Ámbar = Cumbres & Política (#f59e0b)
-      // Morado = I+D (#a855f7)
-      GAME_MISSIONS.forEach((m) => {
-        const isSelected = m.id === selectedMissionId;
-        const pt = project(m.lat, m.lng);
-
-        if (pt.visible) {
-          let beaconColor = '#ef4444'; // Red default (Science)
-          if (m.type === 'comms') beaconColor = '#22c55e'; // Green
-          if (m.type === 'global') beaconColor = '#f59e0b'; // Amber
-          if (m.type === 'rd') beaconColor = '#a855f7'; // Purple
-          if (m.type === 'culture') beaconColor = '#f97316'; // Orange (Culture)
-
-          if (isSelected) {
-            // Large Radar Pulse
-            const pulse = (Date.now() % 1400) / 1400;
-            ctx.strokeStyle = beaconColor;
-            ctx.globalAlpha = 1 - pulse;
-            ctx.lineWidth = 2.5;
-            ctx.beginPath();
-            ctx.arc(pt.x, pt.y, 8 + pulse * 28, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.globalAlpha = 1.0;
-
-            // Target Core Pin
-            ctx.fillStyle = beaconColor;
-            ctx.beginPath();
-            ctx.arc(pt.x, pt.y, 6.5, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = '#ffffff';
-            ctx.lineWidth = 2;
-            ctx.stroke();
-
-            // HUD Floating Label
-            ctx.font = 'bold 11px monospace';
-            ctx.fillStyle = '#ffffff';
-            ctx.fillText(`${m.flag} ${m.city.toUpperCase()}`, pt.x + 12, pt.y - 6);
-
-            ctx.font = '9px monospace';
-            ctx.fillStyle = beaconColor;
-            ctx.fillText(m.code, pt.x + 12, pt.y + 7);
-          } else {
-            // Passive Glowing Pin
-            ctx.fillStyle = beaconColor;
-            ctx.beginPath();
-            ctx.arc(pt.x, pt.y, 4, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = 'rgba(255,255,255,0.7)';
-            ctx.lineWidth = 1;
-            ctx.stroke();
-          }
-        }
-      });
-
-      animId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      cancelAnimationFrame(animId);
-    };
-  }, [currentMission, selectedMissionId]);
+  const activeFilterRef = useRef(activeFilter);
+  activeFilterRef.current = activeFilter;
 
   // Mission selection handler (rotates globe smoothly)
   const handleSelectMission = (missionId: string) => {
@@ -1127,6 +888,308 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     handleSelectMission(GAME_MISSIONS[prevIdx].id);
   };
 
+  // Three.js Photorealistic 3D Earth Globe HUD
+  useEffect(() => {
+    const mount = mountRef.current;
+    if (!mount) return;
+
+    let animId: number;
+    const width = mount.clientWidth || window.innerWidth || 1400;
+    const height = mount.clientHeight || window.innerHeight || 900;
+
+    // 1. Scene & Camera
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 1000);
+    camera.position.set(0, 0, 6.2);
+
+    // 2. WebGL Renderer
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance'
+    });
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    mount.appendChild(renderer.domElement);
+
+    // 3. Earth Group (Positioned with right-side bias on desktop for tactical HUD layout)
+    const earthGroup = new THREE.Group();
+    const updateLayout = () => {
+      const w = mount.clientWidth;
+      const h = mount.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+      if (w > 900) {
+        earthGroup.position.set(1.4, 0, 0);
+      } else {
+        earthGroup.position.set(0, 0.35, 0);
+      }
+    };
+    updateLayout();
+    scene.add(earthGroup);
+
+    // 4. Textures Loading (NASA Blue Marble True-Color surface + Normal Map Relief + Oceans + Clouds)
+    const textureLoader = new THREE.TextureLoader();
+    const dayMap = textureLoader.load(resolveAsset('/earth/earth_day_4096.jpg'));
+    dayMap.colorSpace = THREE.SRGBColorSpace;
+    dayMap.anisotropy = renderer.capabilities.getMaxAnisotropy();
+
+    const normalMap = textureLoader.load(resolveAsset('/earth/earth_normal_2048.jpg'));
+    const specMap = textureLoader.load(resolveAsset('/earth/earth_specular_2048.jpg'));
+    const cloudsMap = textureLoader.load(resolveAsset('/earth/earth_clouds_1024.png'));
+
+    // 5. Main Earth Sphere (Real Continents, Oceans & Mountain Relief Shadows)
+    const earthRadius = 2.25;
+    const earthGeo = new THREE.SphereGeometry(earthRadius, 64, 64);
+    const earthMat = new THREE.MeshPhongMaterial({
+      map: dayMap,
+      normalMap: normalMap,
+      normalScale: new THREE.Vector2(1.6, 1.6), // Pronounced 3D relief on Andes, Himalayas, Alps, Rockies!
+      specularMap: specMap,
+      specular: new THREE.Color(0x305075), // Realistic water specularity
+      shininess: 28,
+    });
+    const earthMesh = new THREE.Mesh(earthGeo, earthMat);
+    earthGroup.add(earthMesh);
+
+    // 6. Clouds Sphere (Drifting Atmospheric Cloud Layer)
+    const cloudsGeo = new THREE.SphereGeometry(earthRadius * 1.014, 64, 64);
+    const cloudsMat = new THREE.MeshLambertMaterial({
+      map: cloudsMap,
+      transparent: true,
+      opacity: 0.36,
+      blending: THREE.AdditiveBlending,
+    });
+    const cloudsMesh = new THREE.Mesh(cloudsGeo, cloudsMat);
+    earthGroup.add(cloudsMesh);
+
+    // 7. Atmospheric Space Halo (Subtle glowing blue rim)
+    const haloGeo = new THREE.SphereGeometry(earthRadius * 1.035, 48, 48);
+    const haloMat = new THREE.ShaderMaterial({
+      vertexShader: `
+        varying vec3 vNormal;
+        void main() {
+          vNormal = normalize(normalMatrix * normal);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vNormal;
+        void main() {
+          float intensity = pow(0.68 - dot(vNormal, vec3(0.0, 0.0, 1.0)), 2.6);
+          gl_FragColor = vec4(0.32, 0.68, 1.0, 1.0) * intensity;
+        }
+      `,
+      blending: THREE.AdditiveBlending,
+      side: THREE.BackSide,
+      transparent: true,
+    });
+    const haloMesh = new THREE.Mesh(haloGeo, haloMat);
+    earthGroup.add(haloMesh);
+
+    // 8. Cinematic Lighting
+    // Directional Sunlight (Sun angle creating realistic mountain shadows)
+    const sunLight = new THREE.DirectionalLight(0xffffff, 2.3);
+    sunLight.position.set(6, 3, 5);
+    scene.add(sunLight);
+
+    // Ambient space light for clear continent visibility
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+    scene.add(ambientLight);
+
+    // Blue rim light for space depth
+    const rimLight = new THREE.DirectionalLight(0x38bdf8, 0.85);
+    rimLight.position.set(-6, -2, -3);
+    scene.add(rimLight);
+
+    // 9. Mission 3D Beacons & Pins
+    const hitObjects: THREE.Object3D[] = [];
+    const beaconMeshes: { missionId: string; type: MissionType; group: THREE.Group }[] = [];
+
+    GAME_MISSIONS.forEach((m) => {
+      const pos = latLngToVector3(m.lat, m.lng, earthRadius * 1.002);
+      const norm = pos.clone().normalize();
+      const colorHex = 
+        m.type === 'science' ? 0xef4444 :
+        m.type === 'comms' ? 0x22c55e :
+        m.type === 'global' ? 0xf59e0b :
+        m.type === 'culture' ? 0xf97316 : 0xa855f7;
+
+      const bGroup = new THREE.Group();
+      bGroup.position.copy(pos);
+      bGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), norm);
+
+      // Base ring on ground
+      const baseRingGeo = new THREE.RingGeometry(0.025, 0.05, 16);
+      const baseRingMat = new THREE.MeshBasicMaterial({ color: colorHex, side: THREE.DoubleSide });
+      const baseRing = new THREE.Mesh(baseRingGeo, baseRingMat);
+      baseRing.rotation.x = Math.PI / 2;
+      bGroup.add(baseRing);
+
+      // Glowing pin sphere
+      const orbGeo = new THREE.SphereGeometry(0.045, 16, 16);
+      const orbMat = new THREE.MeshBasicMaterial({ color: colorHex });
+      const orb = new THREE.Mesh(orbGeo, orbMat);
+      orb.position.y = 0.05;
+      bGroup.add(orb);
+
+      // Tactical vertical laser column
+      const beamGeo = new THREE.CylinderGeometry(0.008, 0.008, 0.35, 8);
+      const beamMat = new THREE.MeshBasicMaterial({
+        color: colorHex,
+        transparent: true,
+        opacity: 0.75,
+        blending: THREE.AdditiveBlending
+      });
+      const beam = new THREE.Mesh(beamGeo, beamMat);
+      beam.position.y = 0.22;
+      bGroup.add(beam);
+
+      // Invisible Hit-Test Sphere for mouse click detection
+      const hitGeo = new THREE.SphereGeometry(0.18, 8, 8);
+      const hitMat = new THREE.MeshBasicMaterial({ visible: false });
+      const hitSphere = new THREE.Mesh(hitGeo, hitMat);
+      hitSphere.position.y = 0.1;
+      hitSphere.userData = { missionId: m.id };
+      bGroup.add(hitSphere);
+      hitObjects.push(hitSphere);
+
+      earthGroup.add(bGroup);
+      beaconMeshes.push({ missionId: m.id, type: m.type, group: bGroup });
+    });
+
+    // 10. Active Mission Target Reticle (Pulsing radar ring)
+    const reticleGroup = new THREE.Group();
+    const pulseRingGeo = new THREE.RingGeometry(0.06, 0.09, 32);
+    const pulseRingMat = new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.9,
+      side: THREE.DoubleSide
+    });
+    const pulseRing = new THREE.Mesh(pulseRingGeo, pulseRingMat);
+    pulseRing.rotation.x = Math.PI / 2;
+    reticleGroup.add(pulseRing);
+    earthGroup.add(reticleGroup);
+
+    // Initial Globe Orientation (Focus on first mission)
+    const initM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
+    const initVec = latLngToVector3(initM.lat, initM.lng, 1).normalize();
+    const currentQuat = new THREE.Quaternion().setFromUnitVectors(initVec, new THREE.Vector3(0, 0, 1));
+    const targetQuat = currentQuat.clone();
+    earthGroup.quaternion.copy(currentQuat);
+
+    // Interaction State (Drag to Rotate + Click to Select)
+    let isDragging = false;
+    let prevX = 0;
+    let prevY = 0;
+    let totalDrag = 0;
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    const onPointerDown = (e: PointerEvent) => {
+      if (e.button !== 0) return;
+      isDragging = true;
+      prevX = e.clientX;
+      prevY = e.clientY;
+      totalDrag = 0;
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!isDragging) return;
+      const dx = e.clientX - prevX;
+      const dy = e.clientY - prevY;
+      totalDrag += Math.abs(dx) + Math.abs(dy);
+      prevX = e.clientX;
+      prevY = e.clientY;
+
+      // Rotate globe around camera view axes smoothly
+      const rotY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), dx * 0.005);
+      const rotX = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), dy * 0.005);
+      earthGroup.quaternion.premultiply(rotY);
+      earthGroup.quaternion.premultiply(rotX);
+      targetQuat.copy(earthGroup.quaternion);
+    };
+
+    const onPointerUp = (e: PointerEvent) => {
+      if (isDragging && totalDrag < 8) {
+        // Raycast to detect click on any beacon pin
+        const rect = mount.getBoundingClientRect();
+        mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(hitObjects, false);
+        if (intersects.length > 0) {
+          const hitId = intersects[0].object.userData.missionId;
+          if (hitId) {
+            handleSelectMission(hitId);
+          }
+        }
+      }
+      isDragging = false;
+    };
+
+    mount.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove);
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('resize', updateLayout);
+
+    // 11. Animation Loop
+    let lastMissionId = selectedMissionRef.current;
+    const render = () => {
+      // If active mission changed, smoothly slerp to target coordinates
+      if (selectedMissionRef.current !== lastMissionId) {
+        lastMissionId = selectedMissionRef.current;
+        const curM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
+        const v = latLngToVector3(curM.lat, curM.lng, 1).normalize();
+        targetQuat.setFromUnitVectors(v, new THREE.Vector3(0, 0, 1));
+      }
+
+      if (!isDragging) {
+        earthGroup.quaternion.slerp(targetQuat, 0.055);
+      }
+
+      // Atmospheric cloud drift
+      cloudsMesh.rotation.y += 0.0003;
+
+      // Update target reticle position and pulse animation
+      const activeM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
+      const activePos = latLngToVector3(activeM.lat, activeM.lng, earthRadius * 1.004);
+      reticleGroup.position.copy(activePos);
+      reticleGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), activePos.clone().normalize());
+
+      const pulse = (Date.now() % 1400) / 1400;
+      pulseRing.scale.setScalar(1 + pulse * 2.2);
+      pulseRingMat.opacity = 1 - pulse;
+
+      // Filter highlighting
+      const filter = activeFilterRef.current;
+      beaconMeshes.forEach((bm) => {
+        const matchesFilter = filter === 'all' || bm.type === filter;
+        bm.group.visible = matchesFilter;
+      });
+
+      renderer.render(scene, camera);
+      animId = requestAnimationFrame(render);
+    };
+
+    render();
+
+    // 12. Cleanup
+    return () => {
+      cancelAnimationFrame(animId);
+      mount.removeEventListener('pointerdown', onPointerDown);
+      window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('pointerup', onPointerUp);
+      window.removeEventListener('resize', updateLayout);
+      renderer.dispose();
+      if (mount.contains(renderer.domElement)) {
+        mount.removeChild(renderer.domElement);
+      }
+    };
+  }, []);
+
   // Filtered list for mission rail
   const filteredMissions = GAME_MISSIONS.filter((m) => {
     if (activeFilter === 'all') return true;
@@ -1144,15 +1207,11 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       {/* Subtle Dark Vignette & Atmospheric Fog */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#090d13] via-transparent to-[#090d13]/70 pointer-events-none z-0" />
 
-      {/* 2. THE 3D PLANET (SIEMPRE ATRÁS, GIRA Y SE ENFOCA EN CADA EVENTO) */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-        <canvas
-          ref={canvasRef}
-          width={window.innerWidth || 1400}
-          height={window.innerHeight || 900}
-          className="w-full h-full object-contain"
-        />
-      </div>
+      {/* 2. THE 3D PLANET (SIEMPRE ATRÁS, GIRA Y SE ENFOCA EN CADA EVENTO - DRAG TO ROTATE) */}
+      <div 
+        ref={mountRef}
+        className="absolute inset-0 z-10 overflow-hidden cursor-grab active:cursor-grabbing"
+      />
 
       {/* ============================================================== */}
       {/* 3. GAME HUD TOP BAR (ESTILO BATTLEFIELD / HALO INFINITE)        */}
@@ -1510,7 +1569,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           <div className="flex items-center space-x-2">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
             <span className="font-bold tracking-wider text-amber-300 uppercase">
-              {currentLang === 'es' ? 'SELECCIONA UNA REGIÓN O PROYECTO (EL PLANETA GIRA AL LUGAR)' : 'SELECT A REGION OR PROJECT (PLANET ROTATES TO TARGET)'}
+              {currentLang === 'es' ? 'SELECCIONA O ARRASTRA EL PLANETA // EL GLOBO GIRA A CADA MISIÓN' : 'SELECT OR DRAG PLANET // GLOBE ROTATES TO EACH TARGET'}
             </span>
           </div>
           <div className="flex items-center space-x-3 text-neutral-300">
