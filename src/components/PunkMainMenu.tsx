@@ -152,32 +152,50 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
-          {/* TAPE 4: [04. I+D // ECO-TECNOLOGÍA] (WHITE STENCIL TAPE) */}
+          {/* TAPE 4: [04. ARTE & CULTURA POPULAR] (ORANGE STENCIL TAPE) */}
           <button
-            onClick={() => onSelectCategory('rd')}
-            className="group relative w-full text-left bg-white hover:bg-[#facc15] text-black px-4 py-2 sm:py-2.5 border-3 border-black shadow-[4px_4px_0px_#000000] rotate-1 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
+            onClick={() => onSelectCategory('culture')}
+            className="group relative w-full text-left bg-[#ffedd5] hover:bg-[#f97316] hover:text-white text-black px-4 py-2 sm:py-2.5 border-3 border-black shadow-[4px_4px_0px_#000000] rotate-1 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
           >
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase">
-                {currentLang === 'es' ? '[ 04. I+D // PROYECTOS & INNOVACIÓN ]' : '[ 04. R&D // PROJECTS & INNOVATION ]'}
+                {currentLang === 'es' ? '[ 04. ARTE & CULTURA POPULAR ]' : '[ 04. ART & GRASSROOTS CULTURE ]'}
+              </span>
+              <ArrowRight className="w-4 h-4 text-black group-hover:text-white group-hover:translate-x-1 transition-transform" />
+            </div>
+            <div className="text-[10px] font-mono font-bold text-neutral-800 group-hover:text-white tracking-tight mt-0.5">
+              {currentLang === 'es'
+                ? 'Brigada Paulina Aguirre, Rap Beauchef (Japón/Perú/Arg/Mex) y Cuarentena Rap'
+                : 'Paulina Aguirre Brigade, Rap Beauchef (Japan/Peru/Arg/Mex) & Cuarentena Rap'}
+            </div>
+          </button>
+
+          {/* TAPE 5: [05. I+D // PROYECTOS & INNOVACIÓN] (WHITE STENCIL TAPE) */}
+          <button
+            onClick={() => onSelectCategory('rd')}
+            className="group relative w-full text-left bg-white hover:bg-[#facc15] text-black px-4 py-2 sm:py-2.5 border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-0.5 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
+          >
+            <div className="flex items-center justify-between">
+              <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase">
+                {currentLang === 'es' ? '[ 05. I+D // PROYECTOS & INNOVACIÓN ]' : '[ 05. R&D // PROJECTS & INNOVATION ]'}
               </span>
               <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
             </div>
             <div className="text-[10px] font-mono font-bold text-neutral-700 group-hover:text-neutral-900 tracking-tight mt-0.5">
               {currentLang === 'es'
-                ? 'Bioacústica vegetal & geofísica, Smart Food Parks y Permacultura (EPAC)'
-                : 'Plant bioacoustics & geophysics, Smart Food Parks & Permaculture (EPAC)'}
+                ? 'Bioacústica en bosques nativos, Smart Food Parks (ODS) y Permacultura (EPAC)'
+                : 'Native forest bioacoustics, SDG Smart Food Parks & Permaculture (EPAC)'}
             </div>
           </button>
 
-          {/* TAPE 5: [05. PLANISFERIO 3D // GLOBO] (WHITE/AMBER STENCIL TAPE) */}
+          {/* TAPE 6: [06. PLANISFERIO 3D // GLOBO] (WHITE/AMBER STENCIL TAPE) */}
           <button
             onClick={() => onSelectCategory('all')}
             className="group relative w-full text-left bg-black text-white hover:bg-[#facc15] hover:text-black px-4 py-2 sm:py-2.5 border-3 border-white hover:border-black shadow-[4px_4px_0px_#facc15] -rotate-1 hover:rotate-0 hover:scale-[1.03] active:scale-95 transition-all cursor-pointer"
           >
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase">
-                {currentLang === 'es' ? '[ 05. EXPLORAR PLANISFERIO 3D ]' : '[ 05. EXPLORE 3D PLANET HUD ]'}
+                {currentLang === 'es' ? '[ 06. EXPLORAR PLANISFERIO 3D ]' : '[ 06. EXPLORE 3D PLANET HUD ]'}
               </span>
               <ArrowRight className="w-4 h-4 text-amber-400 group-hover:text-black group-hover:translate-x-1 transition-transform" />
             </div>
@@ -188,14 +206,14 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
-          {/* TAPE 6: [06. DOSSIER ACADÉMICO IMPRESO] */}
+          {/* TAPE 7: [07. DOSSIER ACADÉMICO IMPRESO] */}
           <button
             onClick={onOpenDossier}
             className="group relative w-full text-left bg-[#eee5d5] hover:bg-white text-[#2c2620] px-3.5 py-1.5 border-2 border-black shadow-[3px_3px_0px_#000000] rotate-0.5 hover:rotate-0 hover:scale-[1.02] transition-all cursor-pointer"
           >
             <div className="flex items-center justify-between">
               <span className="font-serif font-bold text-xs tracking-wide uppercase">
-                {currentLang === 'es' ? '[ 06. DOSSIER ACADÉMICO // ARCHIVO PAPEL ]' : '[ 06. ACADEMIC DOSSIER // PAPER ARCHIVE ]'}
+                {currentLang === 'es' ? '[ 07. DOSSIER ACADÉMICO // ARCHIVO PAPEL ]' : '[ 07. ACADEMIC DOSSIER // PAPER ARCHIVE ]'}
               </span>
               <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
             </div>

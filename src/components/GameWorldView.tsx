@@ -17,7 +17,7 @@ import {
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
 
-export type MissionType = 'science' | 'comms' | 'global' | 'rd';
+export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture';
 
 export interface GameMission {
   id: string;
@@ -626,39 +626,118 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Maule', 'Biobío', 'Ñuble', 'Santiago', 'Solidaridad', 'Incendios', 'Inundaciones']
   },
 
-  // 17. COMUNICACIONES: Arte, Cultura y Artivismo Territorial
+  // 17. ARTE & CULTURA: Brigada Paulina Aguirre - Propaganda & Serigrafía Callejera
   {
-    id: 'arte-cultura',
-    type: 'comms',
-    titleEs: 'Arte, Cultura y Artivismo: Brigada Paulina Aguirre & Rap',
-    titleEn: 'Art, Culture & Tactical Artivism: Paulina Aguirre Brigade & Rap',
-    subtitleEs: 'Propaganda Popular, Torneo Beauchef Rap y Cuarentena Rap / Rap Libre',
-    subtitleEn: 'Grassroots Printmaking, Beauchef Rap Tournament & Cuarentena Rap',
+    id: 'brigada-paulina-aguirre',
+    type: 'culture',
+    titleEs: 'Brigada Paulina Aguirre: Propaganda Callejera y Serigrafía Popular',
+    titleEn: 'Brigada Paulina Aguirre: Street Propaganda & Grassroots Printmaking',
+    subtitleEs: 'Afiche "Evadir", Muralismo No+AFP y Agitación Visual // Santiago (2019-2020)',
+    subtitleEn: 'Historical "Evadir" Poster, No+AFP Muralism & Visual Agitation // Santiago',
     country: 'Chile',
-    city: 'Santiago',
+    city: 'Santiago (Plaza Dignidad / Alameda)',
     flag: '🇨🇱',
-    lat: -33.46,
-    lng: -70.64,
-    date: '2019-2021',
-    roleEs: 'Organizador Cultural & Artivista',
-    roleEn: 'Cultural Organizer & Artivist',
+    lat: -33.44,
+    lng: -70.63,
+    date: '2019-2020',
+    roleEs: 'Muralista & Artivista de Propaganda Callejera',
+    roleEn: 'Muralist & Street Propaganda Artivist',
     mediaType: 'woodcut',
-    src: '/brigada/mural_no_mas_afp.png',
-    code: 'OPS-COM-06',
-    source: 'Portafolio de Arte y Cultura (data.ts)',
-    impactEs: 'Propaganda y gráfica popular con la Brigada Paulina Aguirre (muralismo, afiches "Evadir"); organización del Torneo Beauchef Rap y Cuarentena Rap / Rap Libre con ayuda comunitaria.',
-    impactEn: 'Grassroots visual culture with Brigada Paulina Aguirre; organization of Beauchef Rap Tournament and Cuarentena Rap freestyle streams supporting community mutual aid.',
+    src: '/brigada/brigada_mural_no_afp.png',
+    code: 'OPS-CUL-01',
+    source: 'Brigada de Propaganda Paulina Aguirre (Portafolio)',
+    availablePages: [
+      { titleEs: 'Lámina 1: Mural Monumental No+AFP', titleEn: 'Plate 1: No+AFP Monumental Mural', pageSrc: '/brigada/brigada_mural_no_afp.png' },
+      { titleEs: 'Lámina 2: Afiche "Evadir, No Pagar"', titleEn: 'Plate 2: "Evadir, No Pagar" Poster', pageSrc: '/brigada/brigada_afiche_evadir.png' },
+      { titleEs: 'Lámina 3: Fotografía en Alameda', titleEn: 'Plate 3: Frontline Alameda Photo', pageSrc: '/brigada/brigada_protesta.png' },
+      { titleEs: 'Lámina 4: Gráficas Digitales', titleEn: 'Plate 4: Digital Agitation Graphics', pageSrc: '/brigada/brigada_grafica_digital.jpg' }
+    ],
+    impactEs: 'Diseño y serigrafía callejera del histórico afiche "Evadir, No Pagar: Otra Forma de Luchar", muralismo monumental en fachadas barriales y agitación visual durante las jornadas de movilización popular en Santiago (2019).',
+    impactEn: 'Design and silkscreen flyposting of the iconic "Evadir, No Pagar" poster, monumental neighborhood facade murals, and visual agitation during the October 2019 uprising in Santiago.',
     methodologyEs: [
-      'Muralismo y propaganda gráfica con la Brigada Paulina Aguirre',
-      'Organización de torneos de rap (Beauchef Rap y Cuarentena Rap / Rap Libre)',
-      'Articulación de cultura popular con solidaridad y comedores comunitarios'
+      'Serigrafía y afiches de agitación callejera pegados en el centro de Santiago',
+      'Muralismo monumental comunitario visibilizando las demandas del pueblo trabajador',
+      'Registro fotográfico de movilizaciones populares y gráfica de contra-información'
     ],
     methodologyEn: [
-      'Muralism and propaganda printmaking with Brigada Paulina Aguirre',
-      'Organization of rap battles (Beauchef Rap & Cuarentena Rap)',
-      'Connecting youth culture with mutual aid solidarity'
+      'Silkscreen flyposting across downtown Santiago subway turnstiles and streets',
+      'Large-scale community facade murals portraying working-class struggles',
+      'Protest photography and digital counter-information agitation'
     ],
-    tags: ['Brigada Paulina Aguirre', 'Muralismo', 'Rap', 'Cultura Popular']
+    tags: ['Brigada Paulina Aguirre', 'Evadir No Pagar', 'Muralismo', 'No Más AFP', 'Santiago', 'Cultura']
+  },
+
+  // 18. ARTE & CULTURA: Rap Beauchef - Arena Universitaria & Circuito Internacional
+  {
+    id: 'rap-beauchef',
+    type: 'culture',
+    titleEs: 'Rap Beauchef: Arena Universitaria & Circuito Internacional',
+    titleEn: 'Rap Beauchef: University Arena & International Online Circuit',
+    subtitleEs: 'Torneos en Anfiteatro FCFM, "Dueñas de la Voz" y Alianzas con Japón, Perú, Argentina y México',
+    subtitleEn: 'FCFM Amphitheater Cyphers, "Dueñas de la Voz" & Collaborations with Japan, Peru, Argentina & Mexico',
+    country: 'Chile',
+    city: 'Santiago & Red Internacional (Japón, Perú, Argentina, México)',
+    flag: '🇨🇱',
+    lat: -33.457,
+    lng: -70.663,
+    date: '2019-2021',
+    roleEs: 'Organizador General & Director Creativo',
+    roleEn: 'Head Organizer & Creative Director',
+    mediaType: 'press',
+    src: '/instagram_covers/B9ljgLMngum.jpg',
+    url: 'https://www.instagram.com/p/B9ljgLMngum/',
+    code: 'OPS-CUL-02',
+    source: '@rapbeauchef // FCFM U. de Chile & Red Internacional',
+    impactEs: 'Dirección y producción de Rap Beauchef en el anfiteatro de la FCFM (U. de Chile), certamen femenino "Dueñas de la Voz" y proyección internacional online con colaboraciones y competidores de Japón, Perú, Argentina y México.',
+    impactEn: 'Directed and produced Rap Beauchef at the FCFM amphitheater (U. of Chile), the "Dueñas de la Voz" women\'s showcase, and international online expansions connecting emcees from Japan, Peru, Argentina, and Mexico.',
+    methodologyEs: [
+      'Organización y producción técnica autogestionada de batallas de freestyle en arena universitaria',
+      'Certamen "Dueñas de la Voz": visibilización del liderazgo lírico y spoken word femenino',
+      'Red internacional de freestyle online con emcees y colectivos de Japón, Perú, Argentina y México'
+    ],
+    methodologyEn: [
+      'Self-managed technical and stage production of live university freestyle tournaments',
+      '"Dueñas de la Voz": empowering women emcees, lyricists, and vocal artists',
+      'International online tournament circuit connecting artists from Japan, Peru, Argentina, and Mexico'
+    ],
+    tags: ['Rap Beauchef', 'FCFM', 'Dueñas de la Voz', 'Japón', 'Perú', 'Argentina', 'México', 'Hip-Hop']
+  },
+
+  // 19. ARTE & CULTURA: Cuarentena Rap - Liga Federal Latinoamericana en Streaming
+  {
+    id: 'cuarentena-rap',
+    type: 'culture',
+    titleEs: 'Cuarentena Rap: Liga Federal Latinoamericana en Pandemia',
+    titleEn: 'Cuarentena Rap: Pan-American Digital Streaming Championship',
+    subtitleEs: 'Red Federal de Ligas Underground: Chile, Argentina, Colombia, Perú y México // Manifiesto Conceptual',
+    subtitleEn: 'Federated Underground Leagues: Chile, Argentina, Colombia, Peru & Mexico // Conceptual Manifesto',
+    country: 'Latinoamérica',
+    city: 'Red Federal (Chile, Argentina, Colombia, Perú, México)',
+    flag: '🌎',
+    lat: -12.04,
+    lng: -77.04,
+    date: '2020-2021',
+    roleEs: 'Creador & Director Creativo de la Liga',
+    roleEn: 'Creator & Creative League Director',
+    mediaType: 'video',
+    embedUrl: 'https://www.youtube.com/embed/B2XrNxHxwrA',
+    url: 'https://www.youtube.com/watch?v=B2XrNxHxwrA',
+    src: '/youtube_covers/B2XrNxHxwrA.jpg',
+    code: 'OPS-CUL-03',
+    source: 'Cuarentena Rap // Streaming & Red Federal',
+    impactEs: 'Diseño y dirección de la liga digital durante la pandemia con narrativa conceptual ("fase de karmas" y renacer artístico), federando colectivos y plazas underground de Chile, Argentina, Colombia, Perú y México en disciplinas de freestyle, batallas escritas y beatbox.',
+    impactEn: 'Designed and directed the pandemic streaming championship with a conceptual narrative ("karma phase" and artistic rebirth), federating underground leagues from Chile, Argentina, Colombia, Peru, and Mexico across freestyle, written battles, and beatbox.',
+    methodologyEs: [
+      'Narrativa conceptual: purga de karmas del encierro y catarsis a través de la rima colectiva',
+      'Red federal que articuló a ligas de plaza underground de Chile, Argentina, Colombia, Perú y México',
+      'Integración multidisciplinaria de freestyle en vivo, guerra de letras escritas y torneo de beatbox'
+    ],
+    methodologyEn: [
+      'Conceptual storytelling: purging lockdown karmas through collective lyricism and rebirth',
+      'Federal network uniting underground street leagues from Chile, Argentina, Colombia, Peru, and Mexico',
+      'Multidisciplinary league featuring live freestyle, written rap battles, and beatboxing cup'
+    ],
+    tags: ['Cuarentena Rap', 'Red Latinoamericana', 'Chile', 'Argentina', 'Colombia', 'Perú', 'México', 'Beatbox']
   },
 
   // 18. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
@@ -978,6 +1057,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           if (m.type === 'comms') beaconColor = '#22c55e'; // Green
           if (m.type === 'global') beaconColor = '#f59e0b'; // Amber
           if (m.type === 'rd') beaconColor = '#a855f7'; // Purple
+          if (m.type === 'culture') beaconColor = '#f97316'; // Orange (Culture)
 
           if (isSelected) {
             // Large Radar Pulse
@@ -1114,7 +1194,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 : 'text-neutral-300 hover:text-white hover:bg-white/10'
             }`}
           >
-            {currentLang === 'es' ? 'TODAS (14)' : 'ALL (14)'}
+            {currentLang === 'es' ? `TODAS (${GAME_MISSIONS.length})` : `ALL (${GAME_MISSIONS.length})`}
           </button>
 
           {/* Rojo: Ciencia */}
@@ -1154,6 +1234,19 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           >
             <span className="w-2 h-2 rounded-full bg-amber-400" />
             <span>{currentLang === 'es' ? 'CUMBRES (ÁMBAR)' : 'SUMMITS (AMBER)'}</span>
+          </button>
+
+          {/* Naranja: Arte & Cultura */}
+          <button
+            onClick={() => setActiveFilter('culture')}
+            className={`px-3 py-1 rounded-lg font-mono text-xs transition-all flex items-center space-x-1.5 ${
+              activeFilter === 'culture'
+                ? 'bg-orange-600 text-white font-bold shadow'
+                : 'text-neutral-300 hover:text-white hover:bg-white/10'
+            }`}
+          >
+            <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
+            <span>{currentLang === 'es' ? 'ARTE & CULTURA (NARANJA)' : 'ART & CULTURE (ORANGE)'}</span>
           </button>
 
           {/* Morado: I+D Innovación */}
@@ -1217,7 +1310,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 <span className={`w-3 h-3 rounded-full ${
                   currentMission.type === 'science' ? 'bg-red-500' :
                   currentMission.type === 'comms' ? 'bg-emerald-500' :
-                  currentMission.type === 'global' ? 'bg-amber-500' : 'bg-purple-500'
+                  currentMission.type === 'global' ? 'bg-amber-500' :
+                  currentMission.type === 'culture' ? 'bg-orange-500' : 'bg-purple-500'
                 }`} />
                 <span className="font-bold text-white tracking-widest">
                   {currentMission.code} // {currentMission.city.toUpperCase()}
@@ -1423,6 +1517,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <span>{currentLang === 'es' ? '🔴 CIENCIA' : '🔴 SCIENCE'}</span>
             <span>{currentLang === 'es' ? '🟢 COMUNICACIONES' : '🟢 COMMS'}</span>
             <span>{currentLang === 'es' ? '🟡 CUMBRES' : '🟡 SUMMITS'}</span>
+            <span>{currentLang === 'es' ? '🟠 CULTURA' : '🟠 CULTURE'}</span>
             <span>{currentLang === 'es' ? '🟣 I+D' : '🟣 R&D'}</span>
           </div>
         </div>
@@ -1440,6 +1535,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             } else if (m.type === 'global') {
               borderTheme = 'border-amber-500 text-amber-400';
               dotColor = 'bg-amber-500';
+            } else if (m.type === 'culture') {
+              borderTheme = 'border-orange-500 text-orange-400';
+              dotColor = 'bg-orange-500';
             } else if (m.type === 'rd') {
               borderTheme = 'border-purple-500 text-purple-400';
               dotColor = 'bg-purple-500';
