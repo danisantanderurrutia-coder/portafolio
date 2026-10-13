@@ -45,13 +45,11 @@ const InstagramIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
   </svg>
 );
 
-type ProfileMode = 'comms' | 'science';
-
 interface ClassicDossierViewProps {
   currentLang: Language;
   onToggleLanguage: () => void;
   onSwitchToGameView?: () => void;
-  initialProfileMode?: ProfileMode;
+  initialProfileMode?: 'science' | 'comms';
   onOpenHireMe?: () => void;
   onOpenSkills?: () => void;
   onBackToGateway?: () => void;
@@ -61,33 +59,22 @@ export function ClassicDossierView({
   currentLang,
   onToggleLanguage,
   onSwitchToGameView,
-  initialProfileMode = 'comms',
   onOpenHireMe,
   onOpenSkills,
   onBackToGateway
 }: ClassicDossierViewProps) {
-  const [profileMode, setProfileMode] = useState<ProfileMode>(initialProfileMode);
-  const [activeTabIndex, setActiveTabIndex] = useState<number>(initialProfileMode === 'comms' ? 1 : 0);
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
   const [activeSubSectionIndex, setActiveSubSectionIndex] = useState<number>(0);
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
-
-  // Sync profile mode when prop changes
-  useEffect(() => {
-    setProfileMode(initialProfileMode);
-    setActiveTabIndex(initialProfileMode === 'comms' ? 1 : 0);
-    setActiveSubSectionIndex(0);
-    setCurrentSlideIndex(0);
-  }, [initialProfileMode]);
 
   // Sync tab with URL hash
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase().replace(/^#/, '');
       if (hash.length > 1 && hash !== 'acceso') {
-        const sections = profileMode === 'comms' ? communicationsSections : scientificSections;
-        const foundIdx = sections.findIndex(
+        const foundIdx = scientificSections.findIndex(
           (s) => s.id.toLowerCase() === hash || s.tabKey.toLowerCase().includes(hash)
         );
         if (foundIdx >= 0) {
@@ -100,30 +87,16 @@ export function ClassicDossierView({
     handleHash();
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
-  }, [profileMode]);
+  }, []);
 
-  // Pick dataset based on profile mode
-  const activeSections: SectionData[] = profileMode === 'comms' ? communicationsSections : scientificSections;
+  // Scientific dataset exclusively
+  const activeSections: SectionData[] = scientificSections;
   const activeSection: SectionData = activeSections[activeTabIndex] || activeSections[0];
 
-  // Resolve media items taking into account subSections if present (e.g. Citizen Journalism)
+  // Resolve media items taking into account subSections if present
   const currentSubSection = activeSection.subSections ? activeSection.subSections[activeSubSectionIndex] : null;
   const items = currentSubSection ? currentSubSection.mediaItems : activeSection.mediaItems;
   const currentItem = items[currentSlideIndex] || items[0];
-
-  // Switch between nocturnal comms and diurnal science (Direct shortcut)
-  const handleToggleProfile = (mode: ProfileMode) => {
-    setProfileMode(mode);
-    if (mode === 'comms') {
-      setActiveTabIndex(1); // 01. Intervención
-      window.location.hash = '#intervencion';
-    } else {
-      setActiveTabIndex(0); // 00. Portada del Expediente Científico
-      window.location.hash = '#portada-cientifica';
-    }
-    setActiveSubSectionIndex(0);
-    setCurrentSlideIndex(0);
-  };
 
   const handleSelectTab = (index: number) => {
     setActiveTabIndex(index);
@@ -158,40 +131,18 @@ export function ClassicDossierView({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const isComms = profileMode === 'comms';
+  const isComms = false;
 
   return (
-    <div
-      className={`relative min-h-screen transition-colors duration-500 flex flex-col justify-between overflow-x-hidden select-none ${
-        isComms
-          ? 'bg-[#15171e] text-[#f8fafc]' // Estética editorial luminosa: Grafito / Pizarra profunda con sutil calidez
-          : 'bg-[#faf8f4] text-[#1c1917]' // Fondo diurno papel crema / beige claro (científico y biofísico)
-      }`}
-    >
+    <div className="relative min-h-screen bg-[#faf8f4] text-[#1c1917] transition-colors duration-500 flex flex-col justify-between overflow-x-hidden select-none">
       {/* Background Ambient Glows */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {isComms ? (
-          <>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-amber-500/20 via-orange-500/10 to-transparent blur-[140px] rounded-full" />
-            <div className="absolute bottom-10 right-10 w-[550px] h-[450px] bg-blue-500/10 blur-[150px] rounded-full" />
-            <div className="absolute top-1/3 left-10 w-[450px] h-[350px] bg-amber-500/10 blur-[130px] rounded-full" />
-          </>
-        ) : (
-          <>
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-gradient-to-b from-[#e8decb]/60 via-[#efe8da]/40 to-transparent blur-[120px] rounded-full" />
-            <div className="absolute bottom-10 right-10 w-[600px] h-[450px] bg-[#dbe8df]/50 blur-[130px] rounded-full" />
-          </>
-        )}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[600px] bg-gradient-to-b from-[#e8decb]/60 via-[#efe8da]/40 to-transparent blur-[120px] rounded-full" />
+        <div className="absolute bottom-10 right-10 w-[600px] h-[450px] bg-[#dbe8df]/50 blur-[130px] rounded-full" />
       </div>
 
-      {/* 1. TOP HEADER: MODE TOGGLE & BRANDING */}
-      <header
-        className={`relative z-40 w-full px-4 sm:px-8 py-2.5 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 border-b transition-colors duration-300 ${
-          isComms
-            ? 'border-slate-800/80 bg-[#15171e]/70 backdrop-blur-md'
-            : 'border-[#e4dcce]'
-        }`}
-      >
+      {/* 1. TOP HEADER: BRANDING & ACADEMIC DOSSIER CONTROLS */}
+      <header className="relative z-40 w-full px-4 sm:px-8 py-2.5 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-[#e4dcce]">
         {/* Identity & Sub-brand (Clickable to Back to Gateway) */}
         <div 
           onClick={() => {
@@ -200,78 +151,33 @@ export function ClassicDossierView({
             }
           }}
           className="flex items-center space-x-3.5 self-start sm:self-center cursor-pointer group"
-          title={currentLang === 'es' ? 'Volver al Inicio // Back to Gateway' : 'Back to Gateway'}
+          title={currentLang === 'es' ? 'Volver al Inicio // Back to Home' : 'Back to Home'}
         >
-          <div
-            className={`w-9 h-9 rounded-2xl flex items-center justify-center shadow-md transition-all group-hover:scale-105 overflow-hidden ${
-              isComms
-                ? 'bg-slate-900 border border-amber-500/50 text-amber-400 p-1 shadow-amber-500/15'
-                : 'bg-[#eae3d5] border border-[#d0c4b0] text-[#2d5a3c] p-1'
-            }`}
-          >
+          <div className="w-9 h-9 rounded-2xl flex items-center justify-center shadow-md transition-all group-hover:scale-105 overflow-hidden bg-[#eae3d5] border border-[#d0c4b0] text-[#2d5a3c] p-1">
             <img src={resolveAsset('/favicon.svg')} alt="DS Icon" className="w-full h-full object-contain" />
           </div>
           <div>
             <h1 className="text-sm sm:text-base font-serif font-bold tracking-wide flex items-center gap-2">
-              <span className={isComms ? 'group-hover:text-amber-300 transition-colors' : 'group-hover:text-[#2d5a3c] transition-colors'}>
+              <span className="group-hover:text-[#2d5a3c] transition-colors">
                 DANIEL SANTANDER URRUTIA
               </span>
-              <span className={isComms ? 'text-amber-500/60' : 'text-neutral-400'}>//</span>
-              <span
-                className={`text-xs font-sans font-medium hidden md:inline ${
-                  isComms
-                    ? 'text-amber-400'
-                    : 'text-[#2d5a3c]'
-                }`}
-              >
-                {isComms
-                  ? currentLang === 'es'
-                    ? 'Comunicaciones Estratégicas & Campañas'
-                    : 'Strategic Communications & Campaigns'
-                  : currentLang === 'es'
-                  ? 'Científico Ambiental (Dual M.Sc.)'
-                  : 'Environmental Scientist (Dual M.Sc.)'}
+              <span className="text-neutral-400">//</span>
+              <span className="text-xs font-sans font-medium text-[#2d5a3c] hidden md:inline">
+                {currentLang === 'es'
+                  ? 'Expediente Científico (Dual M.Sc. CAU Kiel & AMU Poznań)'
+                  : 'Scientific Dossier (Dual M.Sc. CAU Kiel & AMU Poznań)'}
               </span>
             </h1>
           </div>
         </div>
 
-        {/* Action Controls: Profile Switcher + Language + Share */}
+        {/* Action Controls: 3D Globe + CV + Hire Me + Skills + Language + Share */}
         <div className="flex items-center space-x-2.5 self-end sm:self-center">
-          {/* DUAL PROFILE SWITCHER */}
-          <div
-            className={`p-1 rounded-full border flex items-center shadow-sm backdrop-blur-md transition-colors ${
-              isComms
-                ? 'bg-slate-900/90 border-slate-700/80 shadow-md shadow-black/30'
-                : 'bg-[#ede5d6]/90 border-[#d0c4b0]'
-            }`}
-          >
-              <button
-                onClick={() => handleToggleProfile('comms')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 ${
-                  isComms
-                    ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 font-bold shadow-md shadow-amber-500/30'
-                    : 'text-neutral-600 hover:text-black'
-                }`}
-                title="Modo Nocturno Cálido: Comunicaciones y Campañas"
-              >
-                <Moon className="w-3.5 h-3.5" />
-                <span>{currentLang === 'es' ? 'Comunicaciones' : 'Communications'}</span>
-              </button>
-
-              <button
-                onClick={() => handleToggleProfile('science')}
-                className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 ${
-                  !isComms
-                    ? 'bg-[#2d5a3c] text-white font-bold shadow-md'
-                    : 'text-slate-300 hover:text-white'
-                }`}
-                title="Modo Diurno: Científico y Biofísica"
-              >
-                <Sun className="w-3.5 h-3.5" />
-                <span>{currentLang === 'es' ? 'Científico' : 'Scientific'}</span>
-              </button>
-            </div>
+          {/* Scientific Academic Badge */}
+          <div className="px-3 py-1 rounded-full bg-[#ede5d6] border border-[#d0c4b0] text-[11px] font-mono text-[#2d5a3c] font-bold hidden lg:flex items-center space-x-1">
+            <Microscope className="w-3.5 h-3.5 text-[#2d5a3c]" />
+            <span>{currentLang === 'es' ? 'INVESTIGACIÓN ACADÉMICA' : 'ACADEMIC RESEARCH'}</span>
+          </div>
 
           {/* Hire Me & Skills Quick Actions */}
           {onOpenHireMe && (
@@ -1026,7 +932,7 @@ export function ClassicDossierView({
       >
         <span>
           © {new Date().getFullYear()} Daniel Santander Urrutia •{' '}
-          {isComms ? 'Perfil de Comunicaciones & Campañas' : 'Perfil Científico & Sistemas Biofísicos'} • Usa ← y →
+          {currentLang === 'es' ? 'Expediente Científico Oficial • CAU Kiel, AMU Poznań & U. de Chile' : 'Official Scientific Dossier • CAU Kiel, AMU Poznań & U. of Chile'} • {currentLang === 'es' ? 'Navega con' : 'Navigate with'} ← / →
         </span>
       </footer>
 

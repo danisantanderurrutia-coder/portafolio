@@ -1492,11 +1492,11 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </span>
           </button>
 
-          {/* Caballero Jaguar Grounded Projects Hub (Misiones Secundarias) */}
+          {/* Projects & Innovation Hub (R&D Initiatives) */}
           <button
             onClick={() => setIsProjectsModalOpen(true)}
-            className="px-2.5 py-1 bg-red-600 hover:bg-red-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 -rotate-1"
-            title="Ver Misiones Secundarias y Proyectos (Caballero Jaguar)"
+            className="px-2.5 py-1 bg-red-600 hover:bg-red-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 -rotate-1 cursor-pointer"
+            title={currentLang === 'es' ? 'Ver Proyectos & Innovación (I+D)' : 'View Projects & Innovation (R&D)'}
           >
             <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
             <span className="hidden sm:inline">{currentLang === 'es' ? 'PROYECTOS' : 'PROJECTS'}</span>

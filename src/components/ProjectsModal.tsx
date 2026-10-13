@@ -232,7 +232,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
         <div className="px-4 sm:px-6 py-3 bg-black border-b-3 border-black flex flex-wrap items-center justify-between gap-2 shrink-0">
           <div className="flex items-center space-x-3">
             <span className="bg-[#facc15] text-black px-2.5 py-0.5 font-mono font-black text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
-              [ CABALLERO JAGUAR // PROYECTOS & MISIONES ]
+              {currentLang === 'es' ? '[ PROYECTOS & INNOVACIÓN // I+D ]' : '[ PROJECTS & INNOVATION // R&D ]'}
             </span>
             <span className="hidden sm:inline font-mono text-xs text-neutral-400 font-bold">
               {currentLang === 'es' ? '8 FRENTES ESTRATÉGICOS REALES' : '8 REAL STRATEGIC VENTURES'}

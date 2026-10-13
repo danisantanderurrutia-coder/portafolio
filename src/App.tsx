@@ -3,14 +3,15 @@ import { Language } from './types';
 import { GameWorldView, MissionType } from './components/GameWorldView';
 import { PunkMainMenu } from './components/PunkMainMenu';
 import { ClassicDossierView } from './components/ClassicDossierView';
+import { CommsCultureView, CommsCultureMode } from './components/CommsCultureView';
 import { HireMeModal } from './components/HireMeModal';
 import { SkillsModal } from './components/SkillsModal';
 
 export { resolveAsset } from './utils';
 
 export function App() {
-  const [viewMode, setViewMode] = useState<'punk' | 'game' | 'dossier'>('punk');
-  const [dossierMode, setDossierMode] = useState<'science' | 'comms'>('science');
+  const [viewMode, setViewMode] = useState<'punk' | 'game' | 'dossier' | 'comms_culture'>('punk');
+  const [commsCultureMode, setCommsCultureMode] = useState<CommsCultureMode>('comms_arts');
   const [selectedCategory, setSelectedCategory] = useState<'all' | MissionType>('all');
   const [currentLang, setCurrentLang] = useState<Language>('en');
   const [isHireMeOpen, setIsHireMeOpen] = useState(false);
@@ -22,18 +23,25 @@ export function App() {
 
   return (
     <>
-      {/* 1. MENÚ PRINCIPAL PUNK / ECO-NOIR (PORTADA PRINCIPAL QUE DA LA BIENVENIDA A EL PLANETA) */}
+      {/* 1. MENÚ PRINCIPAL PUNK / ECO-NOIR (PORTADA PRINCIPAL CON EL LOGO, FOTO Y 8 BOTONES ESTRATÉGICOS) */}
       {viewMode === 'punk' && (
         <PunkMainMenu
           currentLang={currentLang}
           onToggleLanguage={toggleLanguage}
-          onSelectCategory={(category) => {
-            setSelectedCategory(category);
+          onSelectScience={() => {
+            setViewMode('dossier');
+          }}
+          onSelectSummits={() => {
+            setSelectedCategory('global');
             setViewMode('game');
           }}
-          onOpenDossier={(mode = 'science') => {
-            setDossierMode(mode);
-            setViewMode('dossier');
+          onSelectCommsArts={() => {
+            setCommsCultureMode('comms_arts');
+            setViewMode('comms_culture');
+          }}
+          onSelectGrassroots={() => {
+            setCommsCultureMode('grassroots');
+            setViewMode('comms_culture');
           }}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}
@@ -46,7 +54,6 @@ export function App() {
           currentLang={currentLang}
           onToggleLanguage={toggleLanguage}
           onExitToDossier={() => {
-            setDossierMode('science');
             setViewMode('dossier');
           }}
           onBackToMenu={() => setViewMode('punk')}
@@ -57,16 +64,34 @@ export function App() {
         />
       )}
 
-      {/* 3. VISTA EJECUTIVA: DOSSIER ACADÉMICO / EDITORIAL LIMPIO (CIENCIA O COMUNICACIONES) */}
+      {/* 3. VISTA EJECUTIVA: EXPEDIENTE CIENTÍFICO EN PAPEL (CIENCIA & ACADEMIA EXCLUSIVAMENTE) */}
       {viewMode === 'dossier' && (
         <ClassicDossierView
           currentLang={currentLang}
           onToggleLanguage={toggleLanguage}
-          onSwitchToGameView={() => setViewMode('game')}
-          initialProfileMode={dossierMode}
+          onSwitchToGameView={() => {
+            setSelectedCategory('science');
+            setViewMode('game');
+          }}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}
           onBackToGateway={() => setViewMode('punk')}
+        />
+      )}
+
+      {/* 4. VISOR DE MEDIOS, ARTIVISMO & FRENTE TERRITORIAL (CON TODAS LAS SUBPESTAÑAS Y MULTIMEDIA PRESERVADOS) */}
+      {viewMode === 'comms_culture' && (
+        <CommsCultureView
+          currentLang={currentLang}
+          onToggleLanguage={toggleLanguage}
+          onBackToHome={() => setViewMode('punk')}
+          onSwitchToGameView={(cat) => {
+            setSelectedCategory((cat as MissionType) || 'all');
+            setViewMode('game');
+          }}
+          onOpenHireMe={() => setIsHireMeOpen(true)}
+          onOpenSkills={() => setIsSkillsOpen(true)}
+          initialMode={commsCultureMode}
         />
       )}
 
@@ -82,7 +107,7 @@ export function App() {
         isOpen={isSkillsOpen}
         onClose={() => setIsSkillsOpen(false)}
         currentLang={currentLang}
-        initialTab={dossierMode === 'comms' ? 'comms' : 'science'}
+        initialTab={viewMode === 'comms_culture' ? 'comms' : 'science'}
       />
     </>
   );
