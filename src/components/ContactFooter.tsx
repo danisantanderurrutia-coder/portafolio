@@ -83,11 +83,11 @@ export const ContactFooter: React.FC<ContactFooterProps> = ({
             </h5>
             <div className="space-y-2 text-xs font-mono">
               <a
-                href="mailto:daniel.santander.u@gmail.com"
+                href="mailto:danisantander.urrutia@gmail.com"
                 className="flex items-center space-x-2 text-emerald-400 hover:underline"
               >
                 <Mail className="w-3.5 h-3.5" />
-                <span>daniel.santander.u@gmail.com</span>
+                <span>danisantander.urrutia@gmail.com</span>
               </a>
 
               <button

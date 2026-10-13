@@ -60,7 +60,7 @@ export const PdfDossierModal: React.FC<PdfDossierModalProps> = ({
               Daniel Santander Urrutia
             </h3>
             <p className="text-xs text-neutral-400 font-mono mt-1">
-              Santiago, Chile • EPN 2024 Lead Author • daniel.santander.u@gmail.com
+              Santiago, Chile • EPN 2024 Lead Author • danisantander.urrutia@gmail.com
             </p>
           </div>
 

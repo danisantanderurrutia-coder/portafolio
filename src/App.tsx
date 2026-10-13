@@ -13,7 +13,7 @@ export function App() {
   const [viewMode, setViewMode] = useState<'gateway' | 'punk' | 'game' | 'dossier'>('gateway');
   const [dossierMode, setDossierMode] = useState<'science' | 'comms'>('science');
   const [selectedCategory, setSelectedCategory] = useState<'all' | MissionType>('all');
-  const [currentLang, setCurrentLang] = useState<Language>('es');
+  const [currentLang, setCurrentLang] = useState<Language>('en');
   const [isHireMeOpen, setIsHireMeOpen] = useState(false);
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
 

@@ -39,9 +39,9 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
   currentLang
 }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const email = 'dsantanderurrutia@gmail.com';
+  const email = 'danisantander.urrutia@gmail.com';
   const githubUrl = 'https://github.com/danisantanderurrutia-coder';
-  const linkedinUrl = 'https://www.linkedin.com/in/daniel-santander-urrutia';
+  const linkedinUrl = 'https://www.linkedin.com/in/santanderurrutia/';
 
   if (!isOpen) return null;
 

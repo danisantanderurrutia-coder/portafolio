@@ -57,7 +57,7 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
       { text: 'Escribir la sección de Métodos y Discusión del artículo', completed: false }
     ],
     notes: 'Paper enfocado en resiliencia costera. Integración con modelos de elevación digital y simulaciones de marejadas.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor'
   },
   {
     id: 'rewild',
@@ -78,7 +78,7 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
       { text: 'Diseñar mapas cartográficos de zonas afectadas por megaincendios', completed: false }
     ],
     notes: 'ReWild aborda la restauración activa versus pasiva del matorral y bosque esclerófilo y templado.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof'
   },
   {
     id: 'permacultura',
@@ -99,7 +99,7 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
       { text: 'Presentar Brochure Ejecutivo a viñas y predios agrícolas del Maule', completed: false }
     ],
     notes: 'Chile Agrotech une tecnología de frontera con la realidad productiva y ecológica del campo chileno.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app'
   },
   {
     id: 'paper_fisica',
@@ -159,7 +159,8 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
       { text: 'Diseñar plataforma web para visualización de mapas socio-ecológicos', completed: false },
       { text: 'Gestión de alianzas con centros de investigación universitarios', completed: false }
     ],
-    notes: 'Conectar el conocimiento académico con los saberes y luchas de los territorios.'
+    notes: 'Conectar el conocimiento académico con los saberes y luchas de los territorios.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/memoria-y-dignidad-maule'
   },
   {
     id: 'piratas',
@@ -198,7 +199,7 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
       { text: 'Conectar señal streaming para la radio comunitaria en vivo', completed: false }
     ],
     notes: 'Maule Red responde a la desconexión informativa de los territorios rurales: comunicación hecha por y para las comunidades.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/MauleRed'
   }
 ];
 

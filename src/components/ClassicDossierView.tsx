@@ -67,23 +67,25 @@ export function ClassicDossierView({
   onBackToGateway
 }: ClassicDossierViewProps) {
   const [profileMode, setProfileMode] = useState<ProfileMode>(initialProfileMode);
-  const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
+  const [activeTabIndex, setActiveTabIndex] = useState<number>(initialProfileMode === 'comms' ? 1 : 0);
   const [activeSubSectionIndex, setActiveSubSectionIndex] = useState<number>(0);
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
   const [copied, setCopied] = useState<boolean>(false);
-  const [hasEntered, setHasEntered] = useState<boolean>(true);
 
-  // Sync tab and entered state with URL hash
+  // Sync profile mode when prop changes
+  useEffect(() => {
+    setProfileMode(initialProfileMode);
+    setActiveTabIndex(initialProfileMode === 'comms' ? 1 : 0);
+    setActiveSubSectionIndex(0);
+    setCurrentSlideIndex(0);
+  }, [initialProfileMode]);
+
+  // Sync tab with URL hash
   useEffect(() => {
     const handleHash = () => {
       const hash = window.location.hash.toLowerCase().replace(/^#/, '');
-      if (hash === 'acceso' || hash === '' || hash === '/') {
-        // Stay on welcome entrance screen
-        setHasEntered(false);
-        setActiveTabIndex(0);
-      } else if (hash.length > 1) {
-        setHasEntered(true);
+      if (hash.length > 1 && hash !== 'acceso') {
         const sections = profileMode === 'comms' ? communicationsSections : scientificSections;
         const foundIdx = sections.findIndex(
           (s) => s.id.toLowerCase() === hash || s.tabKey.toLowerCase().includes(hash)
@@ -112,7 +114,6 @@ export function ClassicDossierView({
   // Switch between nocturnal comms and diurnal science (Direct shortcut)
   const handleToggleProfile = (mode: ProfileMode) => {
     setProfileMode(mode);
-    setHasEntered(true); // Actúa como shortcut directo dentro del visor
     if (mode === 'comms') {
       setActiveTabIndex(1); // 01. Intervención
       window.location.hash = '#intervencion';
@@ -162,22 +163,14 @@ export function ClassicDossierView({
   return (
     <div
       className={`relative min-h-screen transition-colors duration-500 flex flex-col justify-between overflow-x-hidden select-none ${
-        !hasEntered
-          ? 'bg-[#121214] text-[#f4f4f5]' // Estética neutra, minimalista y equilibrada para el menú de entrada
-          : isComms
+        isComms
           ? 'bg-[#15171e] text-[#f8fafc]' // Estética editorial luminosa: Grafito / Pizarra profunda con sutil calidez
           : 'bg-[#faf8f4] text-[#1c1917]' // Fondo diurno papel crema / beige claro (científico y biofísico)
       }`}
     >
       {/* Background Ambient Glows */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {!hasEntered ? (
-          /* Brillo neutral equilibrado: dorado tenue a la izquierda y verde esmeralda tenue a la derecha */
-          <>
-            <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/10 blur-[150px] rounded-full" />
-            <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-emerald-500/10 blur-[150px] rounded-full" />
-          </>
-        ) : isComms ? (
+        {isComms ? (
           <>
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[550px] bg-gradient-to-b from-amber-500/20 via-orange-500/10 to-transparent blur-[140px] rounded-full" />
             <div className="absolute bottom-10 right-10 w-[550px] h-[450px] bg-blue-500/10 blur-[150px] rounded-full" />
@@ -194,28 +187,24 @@ export function ClassicDossierView({
       {/* 1. TOP HEADER: MODE TOGGLE & BRANDING */}
       <header
         className={`relative z-40 w-full px-4 sm:px-8 py-2.5 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 border-b transition-colors duration-300 ${
-          !hasEntered
-            ? 'border-neutral-800'
-            : isComms
+          isComms
             ? 'border-slate-800/80 bg-[#15171e]/70 backdrop-blur-md'
             : 'border-[#e4dcce]'
         }`}
       >
-        {/* Identity & Sub-brand (Clickable to Access & Intro) */}
+        {/* Identity & Sub-brand (Clickable to Back to Gateway) */}
         <div 
           onClick={() => {
-            setHasEntered(false);
-            setActiveTabIndex(0);
-            window.location.hash = '';
+            if (onBackToGateway) {
+              onBackToGateway();
+            }
           }}
           className="flex items-center space-x-3.5 self-start sm:self-center cursor-pointer group"
-          title={currentLang === 'es' ? 'Ir a portada de acceso // Go to Access & Intro' : 'Go to Access & Intro'}
+          title={currentLang === 'es' ? 'Volver al Inicio // Back to Gateway' : 'Back to Gateway'}
         >
           <div
             className={`w-9 h-9 rounded-2xl flex items-center justify-center shadow-md transition-all group-hover:scale-105 overflow-hidden ${
-              !hasEntered
-                ? 'bg-neutral-900 border border-neutral-700 text-neutral-300 p-1'
-                : isComms
+              isComms
                 ? 'bg-slate-900 border border-amber-500/50 text-amber-400 p-1 shadow-amber-500/15'
                 : 'bg-[#eae3d5] border border-[#d0c4b0] text-[#2d5a3c] p-1'
             }`}
@@ -224,24 +213,18 @@ export function ClassicDossierView({
           </div>
           <div>
             <h1 className="text-sm sm:text-base font-serif font-bold tracking-wide flex items-center gap-2">
-              <span className={!hasEntered ? 'text-white group-hover:text-amber-300 transition-colors' : isComms ? 'group-hover:text-amber-300 transition-colors' : 'group-hover:text-[#2d5a3c] transition-colors'}>
+              <span className={isComms ? 'group-hover:text-amber-300 transition-colors' : 'group-hover:text-[#2d5a3c] transition-colors'}>
                 DANIEL SANTANDER URRUTIA
               </span>
-              <span className={!hasEntered ? 'text-neutral-600' : isComms ? 'text-amber-500/60' : 'text-neutral-400'}>//</span>
+              <span className={isComms ? 'text-amber-500/60' : 'text-neutral-400'}>//</span>
               <span
                 className={`text-xs font-sans font-medium hidden md:inline ${
-                  !hasEntered
-                    ? 'text-neutral-400'
-                    : isComms
+                  isComms
                     ? 'text-amber-400'
                     : 'text-[#2d5a3c]'
                 }`}
               >
-                {!hasEntered
-                  ? currentLang === 'es'
-                    ? 'Portafolio Profesional • Doble Vertiente'
-                    : 'Professional Portfolio • Dual Edition'
-                  : isComms
+                {isComms
                   ? currentLang === 'es'
                     ? 'Comunicaciones Estratégicas & Campañas'
                     : 'Strategic Communications & Campaigns'
@@ -253,17 +236,16 @@ export function ClassicDossierView({
           </div>
         </div>
 
-        {/* Action Controls: Profile Switcher (Solo visible tras entrar al portafolio) + Language + Share */}
+        {/* Action Controls: Profile Switcher + Language + Share */}
         <div className="flex items-center space-x-2.5 self-end sm:self-center">
-          {/* DUAL PROFILE SWITCHER (OCULTO EN EL MENÚ DE ENTRADA PARA EVITAR CONFUSIONES) */}
-          {hasEntered && (
-            <div
-              className={`p-1 rounded-full border flex items-center shadow-sm backdrop-blur-md transition-colors ${
-                isComms
-                  ? 'bg-slate-900/90 border-slate-700/80 shadow-md shadow-black/30'
-                  : 'bg-[#ede5d6]/90 border-[#d0c4b0]'
-              }`}
-            >
+          {/* DUAL PROFILE SWITCHER */}
+          <div
+            className={`p-1 rounded-full border flex items-center shadow-sm backdrop-blur-md transition-colors ${
+              isComms
+                ? 'bg-slate-900/90 border-slate-700/80 shadow-md shadow-black/30'
+                : 'bg-[#ede5d6]/90 border-[#d0c4b0]'
+            }`}
+          >
               <button
                 onClick={() => handleToggleProfile('comms')}
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-sans font-medium transition-all duration-300 ${
@@ -290,7 +272,6 @@ export function ClassicDossierView({
                 <span>{currentLang === 'es' ? 'Científico' : 'Scientific'}</span>
               </button>
             </div>
-          )}
 
           {/* Hire Me & Skills Quick Actions */}
           {onOpenHireMe && (
@@ -349,14 +330,12 @@ export function ClassicDossierView({
           <button
             onClick={toggleLanguage}
             className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-full border text-xs font-sans transition shadow-sm backdrop-blur-md ${
-              !hasEntered
-                ? 'border-neutral-700 bg-neutral-900/80 text-neutral-200 hover:bg-neutral-800'
-                : isComms
+              isComms
                 ? 'border-slate-700/80 bg-slate-900/80 text-amber-300 hover:bg-slate-800 hover:border-amber-500/40'
                 : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-800 hover:bg-[#e4dcce]'
             }`}
           >
-            <Globe className={`w-3.5 h-3.5 ${!hasEntered ? 'text-neutral-400' : isComms ? 'text-amber-400' : 'text-[#2d5a3c]'}`} />
+            <Globe className={`w-3.5 h-3.5 ${isComms ? 'text-amber-400' : 'text-[#2d5a3c]'}`} />
             <span className="font-bold">{currentLang === 'es' ? 'ES' : 'EN'}</span>
             <span className="opacity-40">/</span>
             <span className="opacity-70">{currentLang === 'es' ? 'EN' : 'ES'}</span>
@@ -366,9 +345,7 @@ export function ClassicDossierView({
           <button
             onClick={handleCopyLink}
             className={`p-2 rounded-full border text-xs transition shadow-sm backdrop-blur-md ${
-              !hasEntered
-                ? 'border-neutral-700 bg-neutral-900/80 text-neutral-300 hover:bg-neutral-800 hover:text-white'
-                : isComms
+              isComms
                 ? 'border-slate-700/80 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:text-white hover:border-amber-500/40'
                 : 'border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-700 hover:bg-[#e4dcce] hover:text-black'
             }`}
@@ -380,15 +357,14 @@ export function ClassicDossierView({
       </header>
 
       {/* 2. FLOATING TAB PILLS (MENÚ FLOTANTE COMPACTO Y ELEGANTE) */}
-      {hasEntered ? (
-        <div className="sticky top-2 z-40 w-full px-3 flex justify-center mb-2 sm:mb-2.5">
-          <nav
-            className={`inline-flex items-center border backdrop-blur-xl shadow-xl overflow-x-auto max-w-[98vw] no-scrollbar transition-all duration-300 ${
-              isComms
-                ? 'p-1 rounded-full bg-slate-900/90 border-slate-700/80 shadow-2xl'
-                : 'p-1 rounded-full bg-[#ede5d6]/95 border-[#d0c4b0] shadow-md'
-            }`}
-          >
+      <div className="sticky top-2 z-40 w-full px-3 flex justify-center mb-2 sm:mb-2.5">
+        <nav
+          className={`inline-flex items-center border backdrop-blur-xl shadow-xl overflow-x-auto max-w-[98vw] no-scrollbar transition-all duration-300 ${
+            isComms
+              ? 'p-1 rounded-full bg-slate-900/90 border-slate-700/80 shadow-2xl'
+              : 'p-1 rounded-full bg-[#ede5d6]/95 border-[#d0c4b0] shadow-md'
+          }`}
+        >
             {/* In Comms mode: Sections 1+ (01. Intervención, 02. Cultura, etc. - no Cover).
                 In Science mode: All sections including 00. Portada (Cover sheet) */}
             {(isComms ? activeSections.slice(1) : activeSections).map((sec, originalIdx) => {
@@ -429,17 +405,6 @@ export function ClassicDossierView({
             })}
           </nav>
         </div>
-      ) : (
-        /* Top badge when in Welcome Gate view */
-        <div className="w-full flex justify-center py-2">
-          <div className={`px-4 py-1.5 rounded-full border text-xs font-mono font-semibold flex items-center space-x-2 backdrop-blur-md ${
-            isComms ? 'bg-[#18130c]/90 border-amber-400/40 text-amber-300 shadow-lg shadow-amber-500/10' : 'bg-[#ede5d6] border-[#d0c4b0] text-[#2d5a3c]'
-          }`}>
-            <Sparkles className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-            <span>{currentLang === 'es' ? 'PORTADA Y PRESENTACIÓN EJECUTIVA' : 'COVER & EXECUTIVE BRIEFING'}</span>
-          </div>
-        </div>
-      )}
 
       {/* 3. MAIN CENTRAL PANORAMIC STAGE */}
       <main className="relative z-10 flex-1 flex flex-col items-center justify-center px-3 sm:px-6 w-full max-w-6xl mx-auto my-auto py-1 sm:py-2">
@@ -513,144 +478,7 @@ export function ClassicDossierView({
         )}
 
         {/* The Central Stage: Conditional Layout for Comms vs Science */}
-        {!hasEntered ? (
-          /* ENTRADA MINIMALISTA REPRESENTATIVA DE AMBOS MODOS (COMUNICACIONES & CIENTÍFICO) */
-          <div className="relative w-full max-w-4xl mx-auto py-6 sm:py-10 animate-fadeIn flex flex-col items-center text-center space-y-8">
-              
-              {/* Monogram Icon & Identity */}
-              <div className="flex flex-col items-center space-y-4">
-                <div className="relative group">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-neutral-600 shadow-2xl p-0.5 bg-neutral-900">
-                    <img
-                      src={resolveAsset('/profile.jpg')}
-                      alt="Daniel Santander Urrutia"
-                      className="w-full h-full object-cover object-center rounded-full"
-                    />
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-neutral-900 border border-neutral-600 p-1 flex items-center justify-center shadow-lg">
-                    <img src={resolveAsset('/favicon.svg')} alt="DS" className="w-full h-full object-contain" />
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold tracking-tight text-white">
-                    Daniel Santander Urrutia
-                  </h1>
-                  <p className="text-xs sm:text-sm font-sans font-medium text-neutral-400 tracking-wide">
-                    {currentLang === 'es'
-                      ? 'Geofísica Ambiental (U. de Chile) • M.Sc. Kiel / Poznań'
-                      : 'Environmental Geophysics (U. de Chile) • M.Sc. Kiel / Poznań'}
-                  </p>
-                </div>
-
-                <p className="text-xs sm:text-sm text-neutral-400 max-w-lg font-sans leading-relaxed">
-                  {currentLang === 'es'
-                    ? 'Portafolio profesional interactivo. Selecciona el perfil para ingresar al expediente correspondiente:'
-                    : 'Interactive professional portfolio. Choose an edition below to enter the dossier:'}
-                </p>
-              </div>
-
-              {/* DUAL MODE MINIMALIST PORTALS (SIDE-BY-SIDE EQUILIBRADO) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full max-w-2xl px-2">
-                
-                {/* 1. PUERTA COMUNICACIONES (Cálido / Ámbar y Grafito Editorial) */}
-                <div 
-                  onClick={() => {
-                    handleToggleProfile('comms');
-                    setHasEntered(true);
-                    setActiveTabIndex(1);
-                    setCurrentSlideIndex(0);
-                    window.location.hash = '#intervencion';
-                  }}
-                  className="group relative cursor-pointer rounded-2xl border border-slate-800 hover:border-amber-500/50 bg-slate-900/90 hover:bg-[#1a1d26] p-6 text-left transition-all duration-300 hover:scale-[1.02] shadow-xl hover:shadow-amber-500/10 flex flex-col justify-between"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/25 text-amber-400 flex items-center justify-center group-hover:bg-amber-500/20 transition">
-                        <Moon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400/90 font-bold px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20">
-                        {currentLang === 'es' ? 'Campañas & Medios' : 'Campaigns & Media'}
-                      </span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-base sm:text-lg font-serif font-bold text-white group-hover:text-amber-300 transition-colors">
-                        {currentLang === 'es' ? 'Comunicaciones & Medios' : 'Communications & Media'}
-                      </h3>
-                      <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                        {currentLang === 'es'
-                          ? 'Intervención pública, periodismo ciudadano, campañas territoriales, arte y cultura comunitaria, prensa de investigación y publicaciones.'
-                          : 'Public intervention, citizen journalism, territorial campaigns, art & community culture, investigative press, and analytical essays.'}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 pt-3 border-t border-slate-800 group-hover:border-amber-500/20 flex items-center justify-between text-xs font-serif font-bold text-neutral-400 group-hover:text-amber-400 transition-colors">
-                    <span>{currentLang === 'es' ? 'Entrar a Comunicaciones' : 'Enter Communications'}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-
-                {/* 2. PUERTA CIENTÍFICO (Biofísico / Esmeralda sutil) */}
-                <div 
-                  onClick={() => {
-                    handleToggleProfile('science');
-                    setHasEntered(true);
-                    setActiveTabIndex(0);
-                    setCurrentSlideIndex(0);
-                    window.location.hash = '#portada';
-                  }}
-                  className="group relative cursor-pointer rounded-2xl border border-neutral-800 hover:border-emerald-500/50 bg-neutral-900/90 hover:bg-[#101a14] p-6 text-left transition-all duration-300 hover:scale-[1.02] shadow-xl hover:shadow-emerald-500/10 flex flex-col justify-between"
-                >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 flex items-center justify-center group-hover:bg-emerald-500/20 transition">
-                        <Microscope className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400/90 font-bold px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20">
-                        Dual M.Sc.
-                      </span>
-                    </div>
-
-                    <div>
-                      <h3 className="text-base sm:text-lg font-serif font-bold text-white group-hover:text-emerald-300 transition-colors">
-                        {currentLang === 'es' ? 'Expediente Científico' : 'Scientific Dossier'}
-                      </h3>
-                      <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
-                        {currentLang === 'es'
-                          ? 'Geofísica de cuencas, gemelos hidrogeológicos, monitoreo en Maule y análisis de políticas ambientales en Europa.'
-                          : 'Catchment geophysics, hydrogeological twins, Maule basin monitoring, and European environmental policy.'}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-5 pt-3 border-t border-neutral-800 group-hover:border-emerald-500/20 flex items-center justify-between text-xs font-serif font-bold text-neutral-400 group-hover:text-emerald-400 transition-colors">
-                    <span>{currentLang === 'es' ? 'Entrar a Científico' : 'Enter Scientific'}</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Direct Full Access Button */}
-              <div className="pt-2">
-                <button
-                  onClick={() => {
-                    setHasEntered(true);
-                    setActiveTabIndex(1);
-                    setCurrentSlideIndex(0);
-                    window.location.hash = '#intervencion';
-                  }}
-                  className="px-7 py-2.5 rounded-full border border-neutral-800 hover:border-neutral-700 text-neutral-400 hover:text-neutral-200 bg-neutral-900/60 hover:bg-neutral-900 font-sans text-xs font-medium transition-all flex items-center space-x-2 shadow-sm"
-                >
-                  <span>{currentLang === 'es' ? 'O explorar todo el contenido directo' : 'Or explore all contents directly'}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
-                </button>
-              </div>
-
-            </div>
-          ) : isComms ? (
+        {isComms ? (
             currentItem.type === 'press' ? (
               /* MODO NOCTURNO: VISOR DE PRENSA Y ARTÍCULOS WEB COMPLETO (100% VISIBLE SIN ZOOM) */
               <div className="relative w-full flex flex-col space-y-5 animate-fadeIn">
