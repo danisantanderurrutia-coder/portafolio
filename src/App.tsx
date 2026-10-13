@@ -3,14 +3,13 @@ import { Language } from './types';
 import { GameWorldView, MissionType } from './components/GameWorldView';
 import { PunkMainMenu } from './components/PunkMainMenu';
 import { ClassicDossierView } from './components/ClassicDossierView';
-import { LandingGateway } from './components/LandingGateway';
 import { HireMeModal } from './components/HireMeModal';
 import { SkillsModal } from './components/SkillsModal';
 
 export { resolveAsset } from './utils';
 
 export function App() {
-  const [viewMode, setViewMode] = useState<'punk' | 'game' | 'dossier' | 'gateway'>('punk');
+  const [viewMode, setViewMode] = useState<'punk' | 'game' | 'dossier'>('punk');
   const [dossierMode, setDossierMode] = useState<'science' | 'comms'>('science');
   const [selectedCategory, setSelectedCategory] = useState<'all' | MissionType>('all');
   const [currentLang, setCurrentLang] = useState<Language>('en');
@@ -36,7 +35,6 @@ export function App() {
             setDossierMode(mode);
             setViewMode('dossier');
           }}
-          onBackToGateway={() => setViewMode('gateway')}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}
         />
@@ -69,29 +67,6 @@ export function App() {
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}
           onBackToGateway={() => setViewMode('punk')}
-        />
-      )}
-
-      {/* 4. VISTA DE RESUMEN EJECUTIVO // GATEWAY DE 4 EXPEDIENTES (OPCIONAL) */}
-      {viewMode === 'gateway' && (
-        <LandingGateway
-          currentLang={currentLang}
-          onToggleLanguage={toggleLanguage}
-          onSelectScienceExecutive={() => {
-            setDossierMode('science');
-            setViewMode('dossier');
-          }}
-          onSelectCommsExecutive={() => {
-            setDossierMode('comms');
-            setViewMode('dossier');
-          }}
-          onSelectImmersive={() => {
-            setSelectedCategory('all');
-            setViewMode('game');
-          }}
-          onSelectPunkMenu={() => setViewMode('punk')}
-          onOpenHireMe={() => setIsHireMeOpen(true)}
-          onOpenSkills={() => setIsSkillsOpen(true)}
         />
       )}
 

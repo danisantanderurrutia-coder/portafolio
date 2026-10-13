@@ -11,7 +11,6 @@ interface PunkMainMenuProps {
   onToggleLanguage: () => void;
   onSelectCategory: (category: MissionType | 'all') => void;
   onOpenDossier: (mode?: 'science' | 'comms') => void;
-  onBackToGateway?: () => void;
   onOpenHireMe?: () => void;
   onOpenSkills?: () => void;
 }
@@ -21,7 +20,6 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   onToggleLanguage,
   onSelectCategory,
   onOpenDossier,
-  onBackToGateway,
   onOpenHireMe,
   onOpenSkills
 }) => {
@@ -136,17 +134,6 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             >
               <Terminal className="w-3.5 h-3.5 text-amber-400" />
               <span>{currentLang === 'es' ? 'SKILLS' : 'SKILLS'}</span>
-            </button>
-          )}
-
-          {onBackToGateway && (
-            <button
-              onClick={onBackToGateway}
-              className="px-2.5 sm:px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 text-white font-mono font-bold text-xs uppercase tracking-wider border-2 border-neutral-600 shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
-              title="Ver Resumen Ejecutivo // View Executive Summary"
-            >
-              <FileText className="w-3.5 h-3.5 text-amber-400" />
-              <span className="hidden xl:inline">{currentLang === 'es' ? 'EJECUTIVO' : 'EXECUTIVE'}</span>
             </button>
           )}
 
