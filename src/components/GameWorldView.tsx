@@ -35,7 +35,7 @@ export interface GameMission {
   date: string;
   roleEs: string;
   roleEn: string;
-  mediaType: 'video' | 'plate' | 'audio' | 'woodcut' | 'press' | 'cv';
+  mediaType?: 'video' | 'plate' | 'audio' | 'woodcut' | 'press' | 'cv' | 'pending';
   src?: string;
   srcEn?: string;
   embedUrl?: string;
@@ -103,18 +103,12 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023-2025',
     roleEs: 'Estudiante de Maestría & Investigador',
     roleEn: 'Master’s Student & Researcher',
-    mediaType: 'plate',
-    src: '/portfolio_pages/page_3.png',
-    srcEn: '/portfolio_pages_en/page_3.png',
+    mediaType: 'pending',
+    url: 'https://www.uni-kiel.de',
     code: 'OPS-SCI-01',
     source: 'Christian Albrechts University (CAU Kiel)',
     impactEs: 'Investigación en balance hídrico y dinámica de suelos integrando sistemas acuáticos y terrestres, y modelación del impacto de incendios forestales en ecosistemas de cuencas (según CV).',
     impactEn: 'Research on water balance and soil dynamics integrating aquatic and terrestrial systems, and modeling forest fire impacts on watershed ecosystems (from CV).',
-    availablePages: [
-      { titleEs: 'Lámina 1: Perfil y Trayectoria Geofísica', titleEn: 'Page 1: Profile & Geophysics Track', pageSrc: '/portfolio_pages/page_1.png', pageSrcEn: '/portfolio_pages_en/page_1.png' },
-      { titleEs: 'Lámina 2: Balances Ecohidrológicos', titleEn: 'Page 2: Ecohydrological Balances', pageSrc: '/portfolio_pages/page_2.png', pageSrcEn: '/portfolio_pages_en/page_2.png' },
-      { titleEs: 'Lámina 3: Modelación de Cuencas', titleEn: 'Page 3: Watershed Modeling', pageSrc: '/portfolio_pages/page_3.png', pageSrcEn: '/portfolio_pages_en/page_3.png' }
-    ],
     methodologyEs: [
       'Balance hídrico y dinámica de suelos integrando sistemas acuáticos y terrestres (CV)',
       'Modelación del impacto de incendios forestales en ecosistemas de cuencas (CV)',
@@ -180,9 +174,8 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023-2025',
     roleEs: 'Estudiante de Maestría & Tesista',
     roleEn: 'Master’s Student & Thesis Researcher',
-    mediaType: 'plate',
-    src: '/portfolio_pages/page_4.png',
-    srcEn: '/portfolio_pages_en/page_4.png',
+    mediaType: 'pending',
+    url: 'https://amu.edu.pl',
     code: 'OPS-SCI-02',
     source: 'Adam Mickiewicz University (AMU Poznań)',
     impactEs: 'Tesis de Maestría: Secuestro de carbono en humedales y su relación con ecosistemas terrestres adyacentes (Master\'s Thesis: Carbon sequestration in wetlands and its relationship with adjacent terrestrial ecosystems, según CV).',
@@ -395,8 +388,7 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Representante de Organizaciones Ambientales',
     roleEn: 'Environmental Organizations Delegate',
-    mediaType: 'cv',
-    src: '/profile.jpg',
+    mediaType: 'pending',
     code: 'OPS-GLO-05',
     source: 'Conferencia sobre Justicia y Clima Munich (CV)',
     impactEs: 'Representación ante organizaciones ambientales en conferencias y foros sobre justicia y Cambio Climático (Munich, Alemania, 2025, según CV).',
@@ -430,9 +422,8 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Investigador Certificado WSL',
     roleEn: 'WSL Certified Researcher',
-    mediaType: 'plate',
-    src: '/portfolio_pages/page_5.png',
-    srcEn: '/portfolio_pages_en/page_5.png',
+    mediaType: 'pending',
+    url: 'https://www.wsl.ch',
     code: 'OPS-SCI-03',
     source: 'WSL Davos (CV)',
     impactEs: 'Certificación en BlueGreen Biodiversity obtenida en el Instituto Federal Suizo de Investigación WSL (Davos, Suiza, 2025, según CV).',
@@ -466,9 +457,8 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Especialista Certificado DEAL',
     roleEn: 'DEAL Certified Specialist',
-    mediaType: 'plate',
-    src: '/portfolio_pages/page_6.png',
-    srcEn: '/portfolio_pages_en/page_6.png',
+    mediaType: 'pending',
+    url: 'https://doughnuteconomics.org',
     code: 'OPS-SCI-04',
     source: 'Doughnut Economics Action Lab (DEAL Copenhagen, CV)',
     impactEs: 'Certificación en Doughnut Economics (DEAL Copenhague, Dinamarca, 2025, según CV).',
@@ -502,8 +492,7 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2024-2025',
     roleEs: 'Participante Certificado',
     roleEn: 'Certified Participant',
-    mediaType: 'cv',
-    src: '/profile.jpg',
+    mediaType: 'pending',
     code: 'OPS-SCI-05',
     source: 'Interlinked Justice Dresden (CV)',
     impactEs: 'Certificación académica en Interlinked Justice (Dresden - Alemania, según sección Additional Information del CV).',
@@ -540,6 +529,10 @@ export const GAME_MISSIONS: GameMission[] = [
     mediaType: 'plate',
     src: '/portfolio_pages/page_1.png',
     srcEn: '/portfolio_pages_en/page_1.png',
+    availablePages: [
+      { titleEs: 'Lámina 1: Perfil Geofísica FCFM U. de Chile', titleEn: 'Plate 1: FCFM Geophysics Profile', pageSrc: '/portfolio_pages/page_1.png', pageSrcEn: '/portfolio_pages_en/page_1.png' },
+      { titleEs: 'Lámina 4: Asesoría Convención Constitucional', titleEn: 'Plate 4: Constitutional Convention Advisory', pageSrc: '/portfolio_pages/page_4.png', pageSrcEn: '/portfolio_pages_en/page_4.png' }
+    ],
     code: 'OPS-SCI-06',
     source: 'Universidad de Chile & Convención Constitucional (CV)',
     impactEs: 'Geofísico graduado con distinción por la Universidad de Chile (2021). Asesoría técnica a la Convención Constitucional en residuos, minería, clima y transición agroforestal; elaboración de planes de ordenamiento de cuencas y gestión de la transición productiva agrícola (según CV).',
@@ -608,8 +601,7 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2019-2023',
     roleEs: 'Coordinador de Campaña & Recaudación',
     roleEn: 'Campaign Coordinator & Fundraising',
-    mediaType: 'press',
-    src: '/profile.jpg',
+    mediaType: 'pending',
     code: 'OPS-COM-05',
     source: 'Campaña de Solidaridad Comunitaria (CV)',
     impactEs: 'Coordinación y recaudación de fondos para la campaña "Solo el pueblo ayuda al pueblo": campañas de ayuda a víctimas de incendios e inundaciones desplegadas en Maule, Biobío, Ñuble y Santiago en distintos años (según CV).',
@@ -757,8 +749,7 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2024-2025',
     roleEs: 'Investigador de Proyecto (Concursos y Competiciones)',
     roleEn: 'Project Researcher (Contests & Competitions)',
-    mediaType: 'plate',
-    src: '/portfolio_pages/page_3.png',
+    mediaType: 'pending',
     code: 'OPS-RD-01',
     source: 'Projects in development (CV)',
     impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Integrating geophysics and plant bioacoustics for ecosystem health assessment", orientado a la cuantificación del estado biofísico y estrés hídrico en bosques nativos y cuencas del centro-sur de Chile (según CV).',
@@ -792,8 +783,7 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023-2025',
     roleEs: 'Diseñador en Permacultura Certificado (CDP)',
     roleEn: 'Certified Permaculture Designer (CDP)',
-    mediaType: 'woodcut',
-    src: '/images/apruebo_rural_1.png',
+    mediaType: 'pending',
     code: 'OPS-RD-02',
     source: 'Projects in development & Education EPAC (CV)',
     impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Smart Food Parks: Uniting nature and technology for SDG cities" concebido para ciudades europeas en el marco de los ODS, articulando diseño permacultural (CDP EPAC 2023) con tecnologías abiertas (según CV).',
@@ -1479,7 +1469,36 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       className="max-h-[320px] w-auto object-contain rounded"
                     />
                   </div>
-                ) : null}
+                ) : (
+                  /* Slot limpio y explícito para detectar material faltante */
+                  <div className="w-full h-full min-h-[220px] p-6 flex flex-col items-center justify-center text-center border-2 border-dashed border-amber-500/35 rounded-xl bg-black/50">
+                    <div className="w-11 h-11 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 mb-2.5">
+                      <Layers className="w-5 h-5 animate-pulse" />
+                    </div>
+                    <span className="font-mono text-xs font-bold tracking-widest text-amber-300 uppercase">
+                      {currentLang === 'es' ? '[ REGISTRO VISUAL PENDIENTE ]' : '[ PENDING VISUAL ARCHIVE ]'}
+                    </span>
+                    <p className="text-[11px] font-mono text-neutral-300 max-w-md mt-1.5 leading-relaxed">
+                      {currentLang === 'es'
+                        ? 'Hito verificado en CV sin archivo gráfico asignado aún. Espacio reservado para fotografía, certificado o enlace oficial.'
+                        : 'Milestone verified in CV without assigned graphic file yet. Reserved slot for photograph, certificate, or official link.'}
+                    </p>
+                    <div className="mt-3 px-3 py-1 rounded bg-white/5 border border-white/10 font-mono text-[9px] text-neutral-400">
+                      ID: <span className="text-white font-bold">{currentMission.code}</span> • {currentMission.city}, {currentMission.country}
+                    </div>
+                    {currentMission.url && (
+                      <a
+                        href={currentMission.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2.5 inline-flex items-center space-x-1.5 text-xs text-amber-400 hover:text-white underline font-mono"
+                      >
+                        <span>{currentLang === 'es' ? 'Ver sitio web oficial' : 'Visit official website'}</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* Title & Metadata */}
