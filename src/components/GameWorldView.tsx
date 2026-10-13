@@ -660,14 +660,14 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Brigada Paulina Aguirre', 'Evadir No Pagar', 'Muralismo', 'No Más AFP', 'Santiago', 'Cultura']
   },
 
-  // 18. ARTE & CULTURA: Rap Beauchef - Arena Universitaria & Circuito Internacional
+  // 18. ARTE & CULTURA: Rap Beauchef & Dueñas de la Voz - Arena Universitaria & Circuito Internacional
   {
     id: 'rap-beauchef',
     type: 'culture',
-    titleEs: 'Rap Beauchef: Arena Universitaria & Circuito Internacional',
-    titleEn: 'Rap Beauchef: University Arena & International Online Circuit',
-    subtitleEs: 'Torneos en Anfiteatro FCFM, "Dueñas de la Voz" y Alianzas con Japón, Perú, Argentina y México',
-    subtitleEn: 'FCFM Amphitheater Cyphers, "Dueñas de la Voz" & Collaborations with Japan, Peru, Argentina & Mexico',
+    titleEs: 'Rap Beauchef & Dueñas de la Voz: Arena Universitaria y Circuito Internacional',
+    titleEn: 'Rap Beauchef & Dueñas de la Voz: University Arena & International Circuit',
+    subtitleEs: 'Encuentro Femenino "Dueñas de la Voz" (Queena - Final) // Anfiteatro FCFM & Red Internacional',
+    subtitleEn: 'Women\'s Tournament "Dueñas de la Voz" (Queena - Final) // FCFM Amphitheater & Global Cyphers',
     country: 'Chile',
     city: 'Santiago & Red Internacional (Japón, Perú, Argentina, México)',
     flag: '🇨🇱',
@@ -676,24 +676,27 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2019-2021',
     roleEs: 'Organizador General & Director Creativo',
     roleEn: 'Head Organizer & Creative Director',
-    mediaType: 'press',
-    src: '/instagram_covers/B9ljgLMngum.jpg',
-    url: 'https://www.instagram.com/p/B9ljgLMngum/',
+    mediaType: 'video',
+    embedUrl: 'https://www.youtube.com/embed/NcDejj3NKXo',
+    url: 'https://www.youtube.com/watch?v=NcDejj3NKXo',
+    src: '/youtube_covers/NcDejj3NKXo.jpg',
     code: 'OPS-CUL-02',
-    source: '@rapbeauchef // FCFM U. de Chile & Red Internacional',
-    impactEs: 'Dirección y producción de Rap Beauchef en el anfiteatro de la FCFM (U. de Chile), certamen femenino "Dueñas de la Voz" y proyección internacional online con colaboraciones y competidores de Japón, Perú, Argentina y México.',
-    impactEn: 'Directed and produced Rap Beauchef at the FCFM amphitheater (U. of Chile), the "Dueñas de la Voz" women\'s showcase, and international online expansions connecting emcees from Japan, Peru, Argentina, and Mexico.',
+    source: '@rapbeauchef // FCFM U. de Chile & Dueñas de la Voz',
+    impactEs: 'Dirección y producción general de Rap Beauchef en el anfiteatro de la FCFM (U. de Chile) y certamen femenino "Dueñas de la Voz" (registro audiovisual oficial de la Gran Final por Queena), articulando competencias en vivo, conciertos y proyección internacional online con colaboraciones en Japón, Perú, Argentina y México.',
+    impactEn: 'General direction and production of Rap Beauchef at the FCFM amphitheater (U. of Chile) and the landmark "Dueñas de la Voz" women\'s tournament (official audio/video record of Queena\'s Grand Final), bridging live arenas with international online cyphers linking Japan, Peru, Argentina, and Mexico.',
     methodologyEs: [
-      'Organización y producción técnica autogestionada de batallas de freestyle en arena universitaria',
+      'Registro sonoro y audiovisual oficial de la Final de "Dueñas de la Voz" (Queena)',
+      'Organización y producción técnica de batallas de freestyle en arena universitaria (FCFM)',
       'Certamen "Dueñas de la Voz": visibilización del liderazgo lírico y spoken word femenino',
       'Red internacional de freestyle online con emcees y colectivos de Japón, Perú, Argentina y México'
     ],
     methodologyEn: [
-      'Self-managed technical and stage production of live university freestyle tournaments',
+      'Official live audio and video documentation of the "Dueñas de la Voz" Grand Final (Queena)',
+      'Self-managed technical and stage production of university freestyle tournaments at FCFM',
       '"Dueñas de la Voz": empowering women emcees, lyricists, and vocal artists',
       'International online tournament circuit connecting artists from Japan, Peru, Argentina, and Mexico'
     ],
-    tags: ['Rap Beauchef', 'FCFM', 'Dueñas de la Voz', 'Japón', 'Perú', 'Argentina', 'México', 'Hip-Hop']
+    tags: ['Rap Beauchef', 'Dueñas de la Voz', 'Queena', 'FCFM', 'Santiago', 'Hip-Hop', 'Cultura']
   },
 
   // 19. ARTE & CULTURA: Cuarentena Rap - Liga Federal Latinoamericana en Streaming

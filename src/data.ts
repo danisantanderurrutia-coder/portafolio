@@ -698,6 +698,12 @@ export const communicationsSections: SectionData[] = [
             tags: ['Dueñas de la Voz', 'Shows en Vivo', 'Mujeres en Hip-Hop', 'Gestión Cultural'],
             subLinks: [
               {
+                titleEn: 'QUEENA - Dueñas de la Voz Final (Official Video)',
+                titleEs: 'QUEENA - Final Dueñas de la Voz (Registro Oficial)',
+                url: 'https://www.youtube.com/watch?v=NcDejj3NKXo',
+                src: '/youtube_covers/NcDejj3NKXo.jpg'
+              },
+              {
                 titleEn: 'Official Poster Launch',
                 titleEs: 'Afiche Oficial de Lanzamiento',
                 url: 'https://www.instagram.com/p/B1k2tdFgYoK/',
