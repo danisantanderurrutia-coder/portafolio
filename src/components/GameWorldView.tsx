@@ -1132,40 +1132,139 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
     earthGroup.add(reticleGroup);
 
-    // 10.5 Flight Trajectory Arcs & Traveling Photons (Suggestion A)
-    const flightGroup = new THREE.Group();
-    const flightArcs: { curve: THREE.QuadraticBezierCurve3; photon: THREE.Mesh; speed: number; offset: number }[] = [];
+    // 10.5 High-Energy Volumetric Beams of Light & Plasma Pulses by Category
+    const BEAM_PALETTE: Record<MissionType, { beam: number; core: number; halo: number }> = {
+      science: { beam: 0xff2a5f, core: 0xffffff, halo: 0xff6688 }, // Laser Crimson / Particle Accelerator
+      global:  { beam: 0xfbbf24, core: 0xfffbeb, halo: 0xfcd34d }, // Solar Amber / Golden Ray
+      comms:   { beam: 0x10b981, core: 0xecfdf5, halo: 0x34d399 }, // Bio-Emerald / Cyber Matrix
+      culture: { beam: 0xf97316, core: 0xffedd5, halo: 0xfb923c }, // Tangerine Fire / Neon Flame
+      rd:      { beam: 0xa855f7, core: 0xfaf5ff, halo: 0xc084fc }, // Cosmic Violet / Quantum Plasma
+    };
 
-    for (let i = 0; i < GAME_MISSIONS.length; i++) {
-      const fromM = GAME_MISSIONS[i];
-      const toM = GAME_MISSIONS[(i + 1) % GAME_MISSIONS.length];
-      const posA = latLngToVector3(fromM.lat, fromM.lng, earthRadius * 1.002);
-      const posB = latLngToVector3(toM.lat, toM.lng, earthRadius * 1.002);
-
-      const mid = new THREE.Vector3().addVectors(posA, posB).multiplyScalar(0.5);
-      const dist = posA.distanceTo(posB);
-      // Elevate midpoint above the sphere surface proportionally to distance
-      mid.normalize().multiplyScalar(earthRadius + Math.max(0.18, dist * 0.22));
-
-      const curve = new THREE.QuadraticBezierCurve3(posA, mid, posB);
-      const points = curve.getPoints(40);
-      const arcGeo = new THREE.BufferGeometry().setFromPoints(points);
-      const arcMat = new THREE.LineBasicMaterial({
-        color: 0xfacc15, // Comic Yellow #facc15
-        transparent: true,
-        opacity: 0.45,
-      });
-      const arcLine = new THREE.Line(arcGeo, arcMat);
-      flightGroup.add(arcLine);
-
-      // Glowing traveling photon along the flight trajectory
-      const photonGeo = new THREE.SphereGeometry(0.022, 8, 8);
-      const photonMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-      const photon = new THREE.Mesh(photonGeo, photonMat);
-      flightGroup.add(photon);
-
-      flightArcs.push({ curve, photon, speed: 0.12, offset: i / GAME_MISSIONS.length });
+    interface EnergyBeamArc {
+      type: MissionType;
+      curve: THREE.QuadraticBezierCurve3;
+      speed: number;
+      offset: number;
+      arcGroup: THREE.Group;
+      headCore: THREE.Mesh;
+      headGlow: THREE.Mesh;
+      tailNodes: THREE.Mesh[];
+      trailLine: THREE.Line;
     }
+
+    const energyBeamArcs: EnergyBeamArc[] = [];
+    const flightGroup = new THREE.Group();
+
+    const missionCategories: MissionType[] = ['science', 'global', 'comms', 'culture', 'rd'];
+
+    missionCategories.forEach((cat, catIdx) => {
+      const catMissions = GAME_MISSIONS.filter((m) => m.type === cat);
+      if (catMissions.length < 2) return;
+
+      const palette = BEAM_PALETTE[cat];
+
+      for (let i = 0; i < catMissions.length; i++) {
+        const fromM = catMissions[i];
+        const toM = catMissions[(i + 1) % catMissions.length];
+        const posA = latLngToVector3(fromM.lat, fromM.lng, earthRadius * 1.002);
+        const posB = latLngToVector3(toM.lat, toM.lng, earthRadius * 1.002);
+
+        const mid = new THREE.Vector3().addVectors(posA, posB).multiplyScalar(0.5);
+        const dist = posA.distanceTo(posB);
+        // Elevate midpoint above the sphere surface proportionally to distance
+        mid.normalize().multiplyScalar(earthRadius + Math.max(0.20, dist * 0.24));
+
+        const curve = new THREE.QuadraticBezierCurve3(posA, mid, posB);
+
+        const arcGroup = new THREE.Group();
+
+        // 1. Volumetric Energy Conduit (Outer glowing tube)
+        const tubeGeo = new THREE.TubeGeometry(curve, 36, 0.006, 6, false);
+        const tubeMat = new THREE.MeshBasicMaterial({
+          color: palette.beam,
+          transparent: true,
+          opacity: 0.38,
+          blending: THREE.AdditiveBlending,
+        });
+        const tubeMesh = new THREE.Mesh(tubeGeo, tubeMat);
+        arcGroup.add(tubeMesh);
+
+        // 2. Inner Laser Core Line
+        const coreGeo = new THREE.BufferGeometry().setFromPoints(curve.getPoints(36));
+        const coreMat = new THREE.LineBasicMaterial({
+          color: palette.halo,
+          transparent: true,
+          opacity: 0.75,
+          blending: THREE.AdditiveBlending,
+        });
+        const coreLine = new THREE.Line(coreGeo, coreMat);
+        arcGroup.add(coreLine);
+
+        // 3. Traveling Energy Beam Head (Hot white/tinted core + colorful plasma halo)
+        const headCoreGeo = new THREE.SphereGeometry(0.016, 8, 8);
+        const headCoreMat = new THREE.MeshBasicMaterial({
+          color: palette.core,
+          blending: THREE.AdditiveBlending,
+        });
+        const headCore = new THREE.Mesh(headCoreGeo, headCoreMat);
+        arcGroup.add(headCore);
+
+        const headGlowGeo = new THREE.SphereGeometry(0.038, 12, 12);
+        const headGlowMat = new THREE.MeshBasicMaterial({
+          color: palette.beam,
+          transparent: true,
+          opacity: 0.7,
+          blending: THREE.AdditiveBlending,
+        });
+        const headGlow = new THREE.Mesh(headGlowGeo, headGlowMat);
+        arcGroup.add(headGlow);
+
+        // 4. Trailing Light Streak (5 nodes along the curve behind the head)
+        const tailNodes: THREE.Mesh[] = [];
+        const tailOpacities = [0.55, 0.42, 0.30, 0.20, 0.10];
+        const tailSizes = [0.028, 0.022, 0.017, 0.012, 0.008];
+
+        for (let tIdx = 0; tIdx < 5; tIdx++) {
+          const tGeo = new THREE.SphereGeometry(tailSizes[tIdx], 8, 8);
+          const tMat = new THREE.MeshBasicMaterial({
+            color: palette.beam,
+            transparent: true,
+            opacity: tailOpacities[tIdx],
+            blending: THREE.AdditiveBlending,
+          });
+          const tNode = new THREE.Mesh(tGeo, tMat);
+          arcGroup.add(tNode);
+          tailNodes.push(tNode);
+        }
+
+        // 5. Dynamic Streaming Beam Line (Connects head and tail nodes into a solid streak of light)
+        const trailGeo = new THREE.BufferGeometry().setFromPoints(new Array(6).fill(new THREE.Vector3()));
+        const trailMat = new THREE.LineBasicMaterial({
+          color: palette.halo,
+          transparent: true,
+          opacity: 0.85,
+          blending: THREE.AdditiveBlending,
+        });
+        const trailLine = new THREE.Line(trailGeo, trailMat);
+        arcGroup.add(trailLine);
+
+        flightGroup.add(arcGroup);
+
+        energyBeamArcs.push({
+          type: cat,
+          curve,
+          speed: 0.10 + (catIdx % 3) * 0.02,
+          offset: (i / catMissions.length) + (catIdx * 0.15),
+          arcGroup,
+          headCore,
+          headGlow,
+          tailNodes,
+          trailLine,
+        });
+      }
+    });
+
     earthGroup.add(flightGroup);
 
     // Initial Globe Orientation (Focus on first mission)
@@ -1285,16 +1384,36 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       pulseRing.scale.setScalar(1 + pulse * 2.2);
       pulseRingMat.opacity = 1 - pulse;
 
-      // Update flight trajectory traveling photons
+      // Update high-energy beams of light & trailing plasma streams
       const fTime = Date.now() * 0.001;
-      flightArcs.forEach(({ curve, photon, speed, offset }) => {
+      const filter = activeFilterRef.current;
+
+      energyBeamArcs.forEach(({ curve, speed, offset, headCore, headGlow, tailNodes, trailLine, type, arcGroup }) => {
+        const matchesFilter = filter === 'all' || type === filter;
+        arcGroup.visible = matchesFilter;
+        if (!matchesFilter) return;
+
         const t = (fTime * speed + offset) % 1;
-        const pt = curve.getPoint(t);
-        photon.position.copy(pt);
+        const headPos = curve.getPoint(t);
+        headCore.position.copy(headPos);
+        headGlow.position.copy(headPos);
+
+        const glowPulse = 1 + 0.25 * Math.sin(fTime * 7 + offset * 15);
+        headGlow.scale.setScalar(glowPulse);
+
+        const trailPoints: THREE.Vector3[] = [headPos];
+        const trailOffsets = [0.012, 0.024, 0.038, 0.052, 0.070];
+        tailNodes.forEach((node, nIdx) => {
+          const tNode = (t - trailOffsets[nIdx] + 1) % 1;
+          const pNode = curve.getPoint(tNode);
+          node.position.copy(pNode);
+          trailPoints.push(pNode);
+        });
+
+        trailLine.geometry.setFromPoints(trailPoints);
       });
 
-      // Filter highlighting
-      const filter = activeFilterRef.current;
+      // Filter highlighting for beacons
       beaconMeshes.forEach((bm) => {
         const matchesFilter = filter === 'all' || bm.type === filter;
         bm.group.visible = matchesFilter;

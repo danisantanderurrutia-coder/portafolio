@@ -45,15 +45,15 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* ============================================================== */}
-        {/* 1. TOP HEADER: TACTICAL TECHNICAL BLUEPRINT                    */}
+        {/* 1. TOP HEADER: COMMERCIAL SERVICES & SKILLS MATRIX             */}
         {/* ============================================================== */}
         <div className="px-4 sm:px-6 py-3.5 bg-black border-b-3 border-black flex flex-wrap items-center justify-between gap-3 shrink-0">
           <div className="flex items-center space-x-3">
             <span className="bg-[#06b6d4] text-black px-3 py-1 font-mono font-black text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
-              {currentLang === 'es' ? '[ FICHA TÉCNICA // SKILLS & METODOLOGÍAS ]' : '[ TECHNICAL SPECIFICATIONS // SKILLS MATRIX ]'}
+              {currentLang === 'es' ? '[ CATÁLOGO DE SERVICIOS & CAPACIDADES TÉCNICAS ]' : '[ CONSULTING SERVICES & TECHNICAL CAPABILITIES ]'}
             </span>
-            <span className="hidden sm:inline-block bg-yellow-400 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
-              {currentLang === 'es' ? 'COMPETENCIAS VERIFICADAS' : 'VERIFIED COMPETENCIES'}
+            <span className="hidden sm:inline-block bg-emerald-400 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
+              {currentLang === 'es' ? 'DISPONIBLE PARA CONSULTORÍA' : 'OPEN FOR ROLES & ADVISORY'}
             </span>
           </div>
 
@@ -66,14 +66,18 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
           </button>
         </div>
 
-        {/* Blueprint Subheader Bar */}
-        <div className="bg-[#07131d] border-b-2 border-cyan-500/30 px-4 sm:px-6 py-2.5 shrink-0 flex items-center justify-between text-[11px] font-mono text-cyan-300">
+        {/* Commercial Proposition Banner */}
+        <div className="bg-[#07131d] border-b-2 border-cyan-500/30 px-4 sm:px-6 py-2.5 shrink-0 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-cyan-300">
           <div className="flex items-center space-x-2">
-            <Binary className="w-3.5 h-3.5 text-cyan-400" />
-            <span>ID: DSU-ENGINEERING-CORE • VER. 2026.04</span>
+            <Binary className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+            <span className="font-bold text-white">
+              {currentLang === 'es' 
+                ? 'GEOFÍSICA & MODELACIÓN DE CUENCAS • ESTRATEGIA DE COMUNICACIONES • I+D AGTECH' 
+                : 'HYDROGEOPHYSICS & WATERSHEDS • STRATEGIC COMMS • AGTECH R&D'}
+            </span>
           </div>
-          <span className="text-neutral-400 hidden sm:inline">
-            {currentLang === 'es' ? 'AUDITABLE PARA PERFILES SENIOR' : 'SENIOR AUDITABLE COMPETENCIES'}
+          <span className="text-emerald-400 font-bold shrink-0">
+            ● {currentLang === 'es' ? 'ENTREGABLES DE ALTO VALOR // TIEMPO DE RESPUESTA < 24H' : 'HIGH-VALUE DELIVERABLES // < 24H RESPONSE'}
           </span>
         </div>
 
@@ -488,19 +492,32 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
         </div>
 
         {/* ============================================================== */}
-        {/* 4. MODAL FOOTER                                                */}
+        {/* 4. COMMERCIAL MODAL FOOTER                                     */}
         {/* ============================================================== */}
-        <div className="px-4 sm:px-6 py-2.5 bg-black border-t-2 border-white/15 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-400 shrink-0">
-          <div className="flex items-center space-x-2">
-            <span className="bg-[#06b6d4] text-black font-black px-1.5 py-0.2">SKILLS-DB</span>
-            <span>TOPOCATCHMENT HYDROGEOPHYSICS & STRATEGIC COMMS</span>
+        <div className="px-4 sm:px-6 py-3 bg-black border-t-2 border-white/15 flex flex-wrap items-center justify-between gap-3 text-xs font-mono shrink-0">
+          <div className="flex items-center space-x-2 text-neutral-400">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px]">
+              {currentLang === 'es' ? 'DISPONIBLE PARA CONTRATACIÓN & CONSULTORÍAS TÉCNICAS' : 'AVAILABLE FOR CONSULTING & TECHNICAL ROLES'}
+            </span>
           </div>
-          <button
-            onClick={onClose}
-            className="px-3 py-1 bg-white hover:bg-cyan-400 text-black font-bold uppercase transition-all cursor-pointer"
-          >
-            {currentLang === 'es' ? 'CERRAR FICHA' : 'CLOSE SPEC SHEET'}
-          </button>
+
+          <div className="flex items-center space-x-2">
+            <a
+              href="mailto:danisantander.urrutia@gmail.com?subject=Propuesta%20de%20Consultor%C3%ADa%20-%20Daniel%20Santander"
+              className="px-3.5 py-1.5 rounded bg-emerald-500 hover:bg-emerald-400 text-black font-black uppercase text-xs transition-all shadow-[2px_2px_0px_#000] active:scale-95 flex items-center space-x-1.5"
+            >
+              <span>💼</span>
+              <span>{currentLang === 'es' ? 'SOLICITAR PROPUESTA / HIRE ME' : 'REQUEST PROPOSAL / HIRE ME'}</span>
+            </a>
+
+            <button
+              onClick={onClose}
+              className="px-3 py-1.5 rounded bg-white/10 hover:bg-white/20 text-neutral-300 font-bold uppercase text-xs transition-all cursor-pointer border border-white/20"
+            >
+              {currentLang === 'es' ? 'CERRAR' : 'CLOSE'}
+            </button>
+          </div>
         </div>
 
       </div>

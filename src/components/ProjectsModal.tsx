@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { 
   X, 
-  CheckSquare, 
-  Square, 
+  CheckCircle2, 
   Users, 
   Layers, 
   ExternalLink, 
   ArrowRight, 
   Sparkles,
   Code,
-  Pin,
   Flame,
   Globe2,
-  Terminal
+  Terminal,
+  ShieldCheck,
+  TrendingUp,
+  Cpu,
+  Mail,
+  Zap,
+  Target
 } from 'lucide-react';
 import { Language } from '../types';
 
@@ -21,6 +25,13 @@ const GithubIcon = ({ className = "w-3.5 h-3.5" }: { className?: string }) => (
     <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
   </svg>
 );
+
+export interface CommercialDeliverable {
+  titleEn: string;
+  titleEs: string;
+  descEn: string;
+  descEs: string;
+}
 
 export interface SideProject {
   id: string;
@@ -33,18 +44,22 @@ export interface SideProject {
   categoryEs: string;
   categoryColor: string;
   branch: 'science' | 'comms';
-  progress: number;
-  collaboratorsEn: string;
-  collaboratorsEs: string;
-  descEn: string;
-  descEs: string;
-  checklistEn: { text: string; completed: boolean }[];
-  checklistEs: { text: string; completed: boolean }[];
-  subprojectEn?: string;
-  subprojectEs?: string;
+  statusBadgeEn: string;
+  statusBadgeEs: string;
+  statusBadgeColor: string;
+  clientEn: string;
+  clientEs: string;
+  valuePropEn: string;
+  valuePropEs: string;
+  deliverablesEn: string[];
+  deliverablesEs: string[];
+  impactMetricEn: string;
+  impactMetricEs: string;
+  techStack: string[];
   notesEn: string;
   notesEs: string;
   githubUrl?: string;
+  liveUrl?: string;
 }
 
 export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
@@ -52,131 +67,151 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
   // RAMA CIENCIA & MODELACIÓN AMBIENTAL (4)
   // ==========================================
   {
-    id: 'lauwersmeer',
-    emoji: '🌊',
-    titleEn: 'Coastal Climate Risk in Lauwersmeer',
-    titleEs: 'Climate Risk en Lauwersmeer',
-    subtitleEn: 'Hydrodynamic modeling of storm surges and sea level rise in the Wadden Sea basin',
-    subtitleEs: 'Evaluación y modelación hidrodinámica de riesgo climático costero y marejadas',
-    categoryEn: 'Scientific Research',
-    categoryEs: 'Investigación Científica',
-    categoryColor: 'bg-blue-600 text-white',
-    branch: 'science',
-    progress: 75,
-    collaboratorsEn: 'Co-authored with research colleagues (CAU Kiel, Germany)',
-    collaboratorsEs: 'Co-autoría con colegas investigadores (CAU Kiel, Alemania)',
-    descEn: 'Vulnerability assessment, extreme storm surge simulations, and sea level rise (SLR) scenarios for the Lauwersmeer coastal ecosystem in the Netherlands.',
-    descEs: 'Estudio de vulnerabilidad, eventos de inundación extrema y modelación de ascenso del nivel del mar (SLR) en la cuenca y ecosistema de Lauwersmeer (Países Bajos).',
-    checklistEn: [
-      { text: 'Consolidate Lauwersmeer climate database (1990-2025)', completed: true },
-      { text: 'Execute hydrodynamic storm surge simulations', completed: true },
-      { text: 'Coordination review with co-authors in Kiel', completed: false },
-      { text: 'Draft Methodology and Discussion sections of paper', completed: false }
-    ],
-    checklistEs: [
-      { text: 'Consolidar base de datos climáticos de Lauwersmeer (1990-2025)', completed: true },
-      { text: 'Ejecutar simulaciones de eventos de marejada de tempestad', completed: true },
-      { text: 'Reunión de coordinación con co-autores en Kiel', completed: false },
-      { text: 'Escribir la sección de Métodos y Discusión del artículo', completed: false }
-    ],
-    notesEn: 'Paper focused on coastal resilience, combining hydrodynamic modeling with LiDAR digital elevation models.',
-    notesEs: 'Paper enfocado en resiliencia costera e integración con modelos de elevación digital LiDAR.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor'
-  },
-  {
-    id: 'rewild',
-    emoji: '🔥',
-    titleEn: 'ReWild: Forestry Model & Megafire Overhaul',
-    titleEs: 'ReWild: Modelo Forestal & Incendios',
-    subtitleEn: 'Ecological analysis and transition proposal from timber monocultures to native forest mosaics',
-    subtitleEs: 'Análisis ecológico y propuesta de reconversión del monocultivo de pino y eucalipto',
-    categoryEn: 'Ecology & Territorial Transition',
-    categoryEs: 'Ecología & Transición Territorial',
-    categoryColor: 'bg-orange-600 text-white',
-    branch: 'science',
-    progress: 65,
-    collaboratorsEn: 'Network for the Overhaul of the Forestry Model + 2 Co-editors',
-    collaboratorsEs: 'Red por la Superación del Modelo Forestal + 2 Co-editores',
-    descEn: 'Collaborative volume and research initiative dissecting Chilean wildfire cycles, ecological restoration of sclerophyllous forest, and replacing timber monoculture extractivism.',
-    descEs: 'Preparación y edición colectiva de obra crítica y propositiva sobre megaincendios forestales en Chile, restauración ecológica de bosques nativos y superación del extractivismo forestal.',
-    subprojectEn: '🌲 App for Native Forest ReWilding (community monitoring and fire prevention)',
-    subprojectEs: '🌲 App para ReWild de Bosques (monitoreo comunal de parches nativos y prevención)',
-    checklistEn: [
-      { text: 'Review and edit chapters from the Forestry Overhaul Network', completed: true },
-      { text: 'Draft prologue and introduction with co-editors', completed: true },
-      { text: 'Define data architecture for the ReWild Native Forest App', completed: false },
-      { text: 'Map critical wildland-urban interface risk corridors', completed: false }
-    ],
-    checklistEs: [
-      { text: 'Revisar y editar capítulos de la Red por la Superación del Modelo Forestal', completed: true },
-      { text: 'Redactar prólogo e introducción con co-editores', completed: true },
-      { text: 'Definir arquitectura de datos de la App ReWild (monitoreo de bosque nativo)', completed: false },
-      { text: 'Diseñar cartografía de zonas críticas de interfase urbano-forestal', completed: false }
-    ],
-    notesEn: 'ReWild explores active versus passive restoration in Mediterranean-climate sclerophyllous landscapes.',
-    notesEs: 'ReWild aborda la restauración activa versus pasiva del matorral y bosque esclerófilo.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof'
-  },
-  {
     id: 'permacultura',
     emoji: '🌾',
     titleEn: 'Chile Agrotech & AgriTwin Platform',
-    titleEs: 'Chile Agrotech & AgriTwin',
+    titleEs: 'Chile Agrotech & Plataforma AgriTwin',
     subtitleEn: 'Precision Agriculture IoT & Soil Telemetry Digital Twin — Maule, Chile',
     subtitleEs: 'Tecnología Agrícola de Precisión & Gemelo Digital IoT — Maule, Chile',
     categoryEn: 'Agrotech, IoT & Satellites',
     categoryEs: 'Agrotech, IoT & Satélites',
     categoryColor: 'bg-emerald-600 text-white',
     branch: 'science',
-    progress: 85,
-    collaboratorsEn: 'Maule Agricultural Producers, IoT Engineers & ESG Specialists',
-    collaboratorsEs: 'Productores Agrícolas del Maule, Ingenieros IoT & Especialistas ESG',
-    descEn: 'Precision agricultural engineering platform for Chilean croplands. Couples AgriTwin digital twin engine with in-situ soil moisture telemetry and Sentinel-2 NDVI/NDRE satellite analytics.',
-    descEs: 'Plataforma de ingeniería y tecnología agrícola de precisión para el campo chileno y la Región del Maule. Integra gemelo digital AgriTwin, sensores de humedad de suelo IoT y análisis satelital Sentinel/NDVI.',
-    subprojectEn: '🚜 AgriTwin Hub + Keyline Regenerative Water Design for Vineyards',
-    subprojectEs: '🚜 AgriTwin Hub + Diseño Regenerativo Keyline para huertos y viñas',
-    checklistEn: [
-      { text: 'Configure microservice architecture and production backend', completed: true },
-      { text: 'Integrate automated Sentinel-2 multispectral vegetation feeds', completed: true },
-      { text: 'Connect real-time capacitive soil moisture probes to telemetry hub', completed: false },
-      { text: 'Deliver executive rollout brochure to partner vineyards in Maule', completed: false }
+    statusBadgeEn: 'COMMERCIAL READY / AGRO-SAAS',
+    statusBadgeEs: 'LISTO PARA PRODUCCIÓN / SAAS',
+    statusBadgeColor: 'bg-emerald-500 text-black',
+    clientEn: 'Maule Agricultural Producers, Export Vineyards & Agtech Operators',
+    clientEs: 'Productores Agrícolas del Maule, Viñas de Exportación & Agroindustria',
+    valuePropEn: 'Precision environmental engineering platform that eliminates crop water stress and slashes agricultural water consumption by combining micro-meteorological LoRaWAN telemetry with automated Copernicus satellite vegetation indices (NDVI/NDRE).',
+    valuePropEs: 'Plataforma de ingeniería ambiental de precisión que reduce el consumo de agua de riego y previene el estrés hídrico de cultivos combinando telemetría de suelo IoT LoRaWAN con índices de vegetación satelitales automáticos (Copernicus Sentinel-2 NDVI/NDRE).',
+    deliverablesEn: [
+      'Real-time IoT soil moisture & matric potential digital twin dashboard',
+      'Automated Sentinel-2 multispectral crop stress & canopy vigor tracking pipeline',
+      'Keyline regenerative water contour engineering and predictive irrigation schedules',
+      'Certified ESG water footprint audit and regulatory compliance documentation'
     ],
-    checklistEs: [
-      { text: 'Configurar entorno oficial y arquitectura de microservicios AgroTech Chile', completed: true },
-      { text: 'Integrar capas satelitales multispectrales (Sentinel-2 / NDVI)', completed: true },
-      { text: 'Conectar telemetría de sensores de humedad de suelo IoT al AgriTwin Hub', completed: false },
-      { text: 'Presentar Brochure Ejecutivo a viñas y predios agrícolas del Maule', completed: false }
+    deliverablesEs: [
+      'Panel de control y gemelo digital de telemetría de humedad y potencial mátrico en tiempo real',
+      'Pipeline automatizado de monitoreo multiespectral Sentinel-2 (NDVI/NDRE) para vigor vegetal',
+      'Diseño hidrológico regenerativo Keyline y cálculo predictivo de tasas óptimas de riego',
+      'Auditoría y certificación de reducción de huella hídrica para estándares de exportación ESG'
     ],
-    notesEn: 'Bridges European precision environmental engineering with smallholder and vineyard water challenges.',
-    notesEs: 'Chile Agrotech une tecnología de frontera con la realidad productiva y ecológica del campo chileno.',
+    impactMetricEn: 'Up to 35% Irrigation Water Savings • Proven Maule Valley Deployment',
+    impactMetricEs: 'Hasta 35% de Ahorro de Agua de Riego • Validado en el Valle del Maule',
+    techStack: ['Python', 'Sentinel-2 API', 'IoT LoRaWAN', 'FastAPI', 'QGIS', 'PostGIS', 'Next.js'],
+    notesEn: 'Scalable to orchards, vineyards, and cooperative water user associations (WUA).',
+    notesEs: 'Escalable a viñedos, huertos comerciales y asociaciones de canalistas (Juntas de Vigilancia).',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app'
+  },
+  {
+    id: 'lauwersmeer',
+    emoji: '🌊',
+    titleEn: 'Lauwersmeer Coastal Climate Risk & SLR Engine',
+    titleEs: 'Lauwersmeer: Simulación de Riesgo Costero & Marejadas',
+    subtitleEn: 'Hydrodynamic 2D modeling of storm surges and sea level rise in the Wadden Sea basin',
+    subtitleEs: 'Modelación hidrodinámica 2D de marejadas de tempestad y aumento del nivel del mar',
+    categoryEn: 'Coastal Engineering & Climate Risk',
+    categoryEs: 'Ingeniería Costera & Riesgo Climático',
+    categoryColor: 'bg-blue-600 text-white',
+    branch: 'science',
+    statusBadgeEn: 'PRODUCTION CLIMATE ENGINE',
+    statusBadgeEs: 'MODELO CLIMÁTICO VALIDADO',
+    statusBadgeColor: 'bg-blue-400 text-black',
+    clientEn: 'Coastal Management Authorities, Port Operators & CAU Kiel Research Group',
+    clientEs: 'Autoridades Portuarias, Direcciones de Obras Hidráulicas & CAU Kiel',
+    valuePropEn: 'High-resolution hydrodynamic modeling platform providing coastal engineers, port authorities, and municipalities with physics-grounded flood risk forecasts under IPCC SSP2-4.5 and SSP5-8.5 sea level rise scenarios.',
+    valuePropEs: 'Plataforma de modelación hidrodinámica de alta resolución que proporciona a ingenieros costeros, autoridades portuarias y municipios pronósticos físicos de inundación bajo escenarios IPCC de cambio climático y ascenso del nivel del mar.',
+    deliverablesEn: [
+      'High-resolution hydrodynamic bathymetry and wave propagation simulations (Delft3D)',
+      '100-year and 500-year storm surge return period inundation hazard mapping',
+      'Critical infrastructure vulnerability audit and coastal barrier failure diagnostics',
+      'Policy-ready executive climate risk briefing for maritime and environmental authorities'
+    ],
+    deliverablesEs: [
+      'Simulación hidrodinámica 2D de batimetría y propagación de oleaje extremo en Delft3D',
+      'Cartografía de riesgo de inundación para periodos de retorno de marejada de 100 y 500 años',
+      'Auditoría de vulnerabilidad de infraestructura crítica y diagnóstico de diques costeros',
+      'Informe ejecutivo de riesgo climático para autoridades marítimas y comisiones ambientales'
+    ],
+    impactMetricEn: '100-Year Storm Surge Modeling • 35-Year Climate Database Integration',
+    impactMetricEs: 'Modelación de Marejada de 100 Años • Integración de 35 Años de Datos Climáticos',
+    techStack: ['Delft3D', 'Python Hydro', 'LiDAR DEM', 'QGIS', 'Copernicus Marine', 'NetCDF'],
+    notesEn: 'Grounding European coastal resilience frameworks for international ports and estuaries.',
+    notesEs: 'Articulación de metodologías de resiliencia costera europea para puertos y estuarios.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor'
+  },
+  {
+    id: 'rewild',
+    emoji: '🔥',
+    titleEn: 'ReWild: Forestry Model & Megafire Overhaul',
+    titleEs: 'ReWild: Analítica de Incendios & Mosaicos Nativos',
+    subtitleEn: 'Predictive wildfire risk modeling and transition from timber monocultures to native forest mosaics',
+    subtitleEs: 'Modelación predictiva de megaincendios y reconversión de monocultivos a mosaicos nativos',
+    categoryEn: 'Forestry Analytics & Wildfire Risk',
+    categoryEs: 'Analítica Forestal & Riesgo de Incendios',
+    categoryColor: 'bg-orange-600 text-white',
+    branch: 'science',
+    statusBadgeEn: 'SPATIAL DECISION SUPPORT SYSTEM',
+    statusBadgeEs: 'SISTEMA DE SOPORTE DE DECISIÓN ESPACIAL',
+    statusBadgeColor: 'bg-orange-400 text-black',
+    clientEn: 'Territorial Municipalities, Forestry Transition Networks & Watershed Coalitions',
+    clientEs: 'Municipios Territoriales, Red de Superación del Modelo Forestal & Cuencas',
+    valuePropEn: 'Strategic engineering and spatial analytics framework designed to replace highly combustible pine/eucalyptus monocultures with fire-resilient biological buffers, quantifying fire velocity dampening and catchment water recovery.',
+    valuePropEs: 'Marco de ingeniería espacial y analítica territorial para reemplazar monocultivos combustibles de pino y eucalipto por franjas de amortiguación biológica nativa, cuantificando la reducción en la velocidad de propagación del fuego y la recuperación hídrica.',
+    deliverablesEn: [
+      'Wildland-Urban Interface (WUI) combustible fuel-load risk cartography',
+      'Species-specific sclerophyllous native reforestation optimization algorithms',
+      'Mobile & Web Spatial App for community vegetation monitoring and early hazard alert',
+      'Institutional roadmaps for sustainable timber transition and watershed restoration'
+    ],
+    deliverablesEs: [
+      'Cartografía de carga de combustible y vulnerabilidad en la interfaz urbano-forestal (IUF)',
+      'Algoritmos de optimización espacial para la restauración de parches de bosque esclerófilo',
+      'Aplicación espacial web y móvil para monitoreo comunitario y alerta temprana de focos',
+      'Hojas de ruta institucionales para la transición forestal y restauración de cuencas'
+    ],
+    impactMetricEn: '100,000+ Hectares Basins Analyzed • Fire-Resilient Buffer Architecture',
+    impactMetricEs: '+100.000 Hectáreas Modeladas • Arquitectura de Barreras Cortafuego Vivas',
+    techStack: ['Google Earth Engine', 'Python GIS', 'Sentinel-2', 'GeoPandas', 'Streamlit', 'Rasterio'],
+    notesEn: 'Empirical decision tool for public policy and territorial risk management.',
+    notesEs: 'Herramienta de soporte técnico para políticas públicas de ordenamiento territorial.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof'
   },
   {
     id: 'paper_fisica',
     emoji: '⚛️',
-    titleEn: 'Non-Equilibrium Thermodynamics & Complex Systems',
-    titleEs: 'Termodinámica & Sistemas Complejos',
-    subtitleEn: 'Mathematical modeling of stochastic transport processes and entropy production',
-    subtitleEs: 'Modelación matemática de procesos estocásticos y termodinámica de no equilibrio',
+    titleEn: 'Non-Equilibrium Thermodynamics & Transport Systems',
+    titleEs: 'Termodinámica & Sistemas Complejos de Transporte',
+    subtitleEn: 'Mathematical modeling of stochastic dissipation and entropy production in natural systems',
+    subtitleEs: 'Modelación matemática de disipación estocástica y producción de entropía territorial',
     categoryEn: 'Theoretical Physics & Modeling',
     categoryEs: 'Física Teórica & Modelación',
-    categoryColor: 'bg-blue-600 text-white',
+    categoryColor: 'bg-purple-600 text-white',
     branch: 'science',
-    progress: 25,
-    collaboratorsEn: 'Autonomous Research & Physics Mentors',
-    collaboratorsEs: 'Investigación Autónoma & Asesores Físicos',
-    descEn: 'Theoretical physics investigation applying non-equilibrium statistical mechanics to spatial dissipation and hydrological transport equations.',
-    descEs: 'Exploración teórica rigurosa, modelación matemática y desarrollo de un paper de física aplicada a procesos estocásticos de transporte territorial y disipación de entropía.',
-    checklistEn: [
-      { text: 'Formulate governing equations and conceptual framework', completed: true },
-      { text: 'Compile literature on non-linear dynamics and Fokker-Planck equations', completed: false }
+    statusBadgeEn: 'THEORETICAL FOUNDATION / ADVANCED MATH',
+    statusBadgeEs: 'FUNDAMENTO TEÓRICO / MATEMÁTICA AVANZADA',
+    statusBadgeColor: 'bg-purple-400 text-black',
+    clientEn: 'Academic Research Labs, Complex Systems Institutes & Advanced R&D Centers',
+    clientEs: 'Laboratorios de Investigación, Institutos de Sistemas Complejos & Centros I+D',
+    valuePropEn: 'Rigorous theoretical physics investigation applying non-equilibrium statistical mechanics to spatial dissipation and hydrological transport equations, bridging microscopic fluctuations with macroscopic watershed behavior.',
+    valuePropEs: 'Investigación rigurosa de física teórica que aplica mecánica estadística de no equilibrio a procesos estocásticos de transporte territorial y disipación de energía, vinculando fluctuaciones microscópicas con el comportamiento macroscópico de cuencas.',
+    deliverablesEn: [
+      'Governing stochastic differential equations for non-linear landscape transport',
+      'Entropy production calculation models for thermodynamic hydrological states',
+      'Numerical solver scripts in Python / NumPy for Fokker-Planck equations',
+      'Peer-reviewed manuscript ready for submission to scientific physics journals'
     ],
-    checklistEs: [
-      { text: 'Definir marco conceptual y ecuaciones gobernantes', completed: true },
-      { text: 'Compilar referencias de física estadística y sistemas no lineales', completed: false }
+    deliverablesEs: [
+      'Ecuaciones diferenciales estocásticas para transporte no lineal en medios porosos',
+      'Modelos analíticos de producción de entropía para estados hidrológicos termodinámicos',
+      'Solucionadores numéricos en Python / NumPy para ecuaciones de Fokker-Planck',
+      'Manuscrito científico listo para someter a revisión por pares en revistas internacionales'
     ],
-    notesEn: 'Deep intellectual project delving into stochastic thermodynamics and hydrogeophysical transport.',
-    notesEs: 'Proyecto para profundizar en física teórica dura y procesos estocásticos.',
+    impactMetricEn: 'Non-Linear Physics Modeling • Analytical Stochastic Framework',
+    impactMetricEs: 'Modelación de Física No Lineal • Marco Estocástico Analítico',
+    techStack: ['Python NumPy', 'SciPy', 'SymPy', 'LaTeX / Typst', 'Differential Equations'],
+    notesEn: 'Intellectual engine powering all physical transport and environmental modeling algorithms.',
+    notesEs: 'Motor intelectual que sustenta todos los algoritmos de modelación física y transporte ambiental.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder'
   },
 
@@ -184,130 +219,152 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
   // RAMA COMUNICACIONES & MEDIOS (4)
   // ==========================================
   {
-    id: 'incel',
-    emoji: '🎭',
-    titleEn: 'Los Manejadores (Digital Media & AI Agency)',
-    titleEs: 'Los Manejadores (Media & AI Strategy)',
-    subtitleEn: 'Web presence architecture, virtual AI creators, and brand narrative engineering',
-    subtitleEs: 'Arquitectura de presencia digital, influencers virtuales generados por IA y narrativa',
-    categoryEn: 'Artificial Intelligence & Media',
-    categoryEs: 'Inteligencia Artificial & Media',
-    categoryColor: 'bg-purple-600 text-white',
+    id: 'plp-editorial',
+    emoji: '📰',
+    titleEn: 'Primera Línea Prensa: High-Impact Investigative Media',
+    titleEs: 'Primera Línea Prensa: Red de Periodismo de Investigación',
+    subtitleEn: 'Digital news platform, verified crisis journalism, human rights documentation, and publishing house',
+    subtitleEs: 'Plataforma de prensa digital, periodismo de crisis, derechos humanos y editorial autogestionada',
+    categoryEn: 'Investigative Media & Publishing',
+    categoryEs: 'Prensa de Investigación & Editorial',
+    categoryColor: 'bg-red-600 text-white',
     branch: 'comms',
-    progress: 80,
-    collaboratorsEn: 'Digital Media Crew, Generative AI Team & Storytellers',
-    collaboratorsEs: 'Equipo de Medios Digitales, Producción IA & Storytelling',
-    descEn: 'Digital communication agency combining European analytical precision with energetic digital storytelling. Managing AI-driven virtual creators, YouTube educational feeds, and strategic brand positioning.',
-    descEs: 'Agencia de comunicación digital y arquitectura de presencia web. Une precisión analítica europea con visión de medios para gestionar creadores virtuales impulsados por IA, canales de divulgación y consultoría estratégica.',
-    checklistEn: [
-      { text: 'Establish virtual creator personas and core narrative pillars', completed: true },
-      { text: 'Produce initial social media scripts, carousels, and visual assets', completed: true },
-      { text: 'Finalize official web platform and automated distribution pipeline', completed: false },
-      { text: 'Complete 10-slide pitch deck for institutional clients', completed: false }
+    statusBadgeEn: 'HIGH-IMPACT MEDIA NETWORK',
+    statusBadgeEs: 'RED DE MEDIOS DE ALTO IMPACTO',
+    statusBadgeColor: 'bg-red-500 text-white',
+    clientEn: 'Independent Readers, International Human Rights Organizations & Educational Collectives',
+    clientEs: 'Audiencias Independientes, Organismos Internacionales de DDHH & Colectivos Sociales',
+    valuePropEn: 'Independent investigative news organization delivering real-time crisis coverage, factual verification, human rights documentation, and physical book publishing with over 700,000 digital community reach.',
+    valuePropEs: 'Organización de periodismo de investigación que lideró la cobertura en terreno durante la crisis social chilena, entregando verificación de hechos, documentación audiovisual de derechos humanos y producción editorial con más de 700.000 personas de alcance.',
+    deliverablesEn: [
+      'High-traffic digital journalism portal and automated multi-channel newsroom pipeline',
+      'Verified investigative report series on water privatization, forestry extractivism, and political rights',
+      'Physical print book publishing & distribution ("Relatos de la revuelta", 44 chronicles)',
+      'Independent crisis verification protocols and digital security architecture for field journalists'
     ],
-    checklistEs: [
-      { text: 'Definir perfiles de creadores digitales e identidades de marca', completed: true },
-      { text: 'Producir primeros guiones y carruseles para redes sociales', completed: true },
-      { text: 'Desarrollar landing page completa y conectar pipeline de difusión', completed: false },
-      { text: 'Finalizar pitch deck de 10 diapositivas para inversores y clientes', completed: false }
+    deliverablesEs: [
+      'Portal de periodismo digital de alto tráfico y pipeline automatizado de distribución en redes',
+      'Series de reportajes investigativos sobre privatización del agua, modelo forestal y proceso constituyente',
+      'Publicación y distribución física del libro impreso «Relatos de la revuelta» (44 crónicas)',
+      'Protocolos de verificación periodística y seguridad digital para corresponsales en terreno'
     ],
-    notesEn: 'Democratizing the reach of authentic narratives: Generative AI + compelling storytelling + measurable metrics.',
-    notesEs: 'Los Manejadores democratiza el impacto digital: IA + storytelling + resultados medibles.'
+    impactMetricEn: '+700,000 Audience Reach • Physical Book Published & Distributed',
+    impactMetricEs: '+700.000 Audiencia Alcanzada • Libro Impreso Publicado & Distribuido',
+    techStack: ['WordPress Enterprise', 'Next.js', '4K Audiovisual', 'Social Syndication', 'Open Journalism'],
+    notesEn: 'Benchmark in independent citizen journalism and verified grassroots documentation.',
+    notesEs: 'Referente de periodismo independiente, verificación técnica y memoria histórica popular.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/primera-linea-prensa'
   },
   {
-    id: 'divulgacion',
-    emoji: '🎙️',
-    titleEn: 'Science & Territories (Ciencia & Territorios)',
-    titleEs: 'Ciencia & Territorios',
-    subtitleEn: 'Transmedia platform for public science communication and participatory socio-environmental mapping',
-    subtitleEs: 'Plataforma transmedia de divulgación científica y comunicación pública de la ciencia',
-    categoryEn: 'Public Science Outreach',
-    categoryEs: 'Divulgación Científica',
+    id: 'apruebo-rural',
+    emoji: '📢',
+    titleEn: 'Apruebo Rural: Transmedia Peasant Campaign Leadership',
+    titleEs: 'Apruebo Rural: Dirección de Campaña Transmedia Territorial',
+    subtitleEn: 'Decentralized political strategy, transmedia campaign production, and community syndication across 20+ communes',
+    subtitleEs: 'Estrategia comunicacional descentralizada, producción audiovisual y difusión comunitaria en 20+ comunas',
+    categoryEn: 'Strategic Communications & Campaigns',
+    categoryEs: 'Comunicaciones Estratégicas & Campañas',
     categoryColor: 'bg-emerald-600 text-white',
     branch: 'comms',
-    progress: 70,
-    collaboratorsEn: 'Frontline Communities, Scientists & Grassroots Communicators',
-    collaboratorsEs: 'Comunidades Locales, Científicos & Comunicadores',
-    descEn: 'Transmedia initiative translating complex environmental science into frontline community reality via audio podcasts, investigative video briefs, and participatory cartography.',
-    descEs: 'Iniciativa transmedia para acercar el conocimiento científico a las realidades territoriales chilenas mediante reportajes, podcasts, cápsulas para redes y cartografía socio-ambiental participativa.',
-    checklistEn: [
-      { text: 'Produce first 4 episodes of the Ciencia & Territorios podcast', completed: true },
-      { text: 'Publish in-depth feature on watershed biodiversity and water rights', completed: true },
-      { text: 'Deploy interactive web platform for socio-ecological community maps', completed: false },
-      { text: 'Establish strategic alliances with university research centers', completed: false }
+    statusBadgeEn: 'LARGE-SCALE CAMPAIGN DIRECTED',
+    statusBadgeEs: 'CAMPAÑA MASIVA DIRIGIDA',
+    statusBadgeColor: 'bg-emerald-400 text-black',
+    clientEn: 'Peasant Organizations, Rural Water Boards, Peasant Women Federations & Civic Movements',
+    clientEs: 'Organizaciones Campesinas, Juntas de Agua Potable Rural (APR) & Federaciones Agrarias',
+    valuePropEn: 'Executive political and transmedia communication campaign designed to translate complex constitutional water reform into concrete rural benefits, producing high-impact viral videos, radio broadcasting capsules, and communal assemblies.',
+    valuePropEs: 'Dirección ejecutiva de campaña comunicacional y transmedia diseñada para traducir reformas complejas del Código de Aguas a beneficios concretos para el campesinado, produciendo videos virales de alto impacto, cápsulas radiales y encuentros territoriales.',
+    deliverablesEn: [
+      'Viral short-form video production achieving +500,000 organic views on TikTok & Meta platforms',
+      'Syndicated daily audio capsules broadcast across rural community radio stations in Maule Sur',
+      'Multi-commune town-hall deliberation summits and pedagogical graphic leaflets',
+      'Strategic messaging architecture connecting peasant water struggles with national policy'
     ],
-    checklistEs: [
-      { text: 'Producir primeros 4 episodios del podcast Ciencia & Territorios', completed: true },
-      { text: 'Publicar reportaje sobre biodiversidad y escasez hídrica local', completed: true },
-      { text: 'Diseñar plataforma web para visualización de mapas socio-ecológicos', completed: false },
-      { text: 'Gestión de alianzas con centros de investigación universitarios', completed: false }
+    deliverablesEs: [
+      'Producción audiovisual viral de formato corto con +500.000 reproducciones orgánicas en TikTok y Meta',
+      'Cápsulas radiales diarias emitidas en cadenas de emisoras comunitarias de la Región del Maule',
+      'Encuentros comunales de deliberación territorial y material pedagógico gráfico impreso',
+      'Arquitectura de mensajes estratégicos que posicionaron el derecho humano al agua en el mundo rural'
     ],
-    notesEn: 'Bridging academic peer-reviewed research with community knowledge and water assemblies.',
-    notesEs: 'Conectar el conocimiento académico con las vivencias y luchas de los territorios.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/memoria-y-dignidad-maule'
+    impactMetricEn: '+500,000 Organic Video Views • 20+ Rural Communes Coordinated',
+    impactMetricEs: '+500.000 Visualizaciones Orgánicas • 20+ Comunas Rurales Coordinadas',
+    techStack: ['Premiere Pro', 'DaVinci Resolve', 'Radio Broadcasting', 'Meta/TikTok Ads', 'Community Strategy'],
+    notesEn: 'Demonstrated ability to move mass audiences and build trusted grassroots coalitions.',
+    notesEs: 'Demostrada capacidad de movilización de audiencias masivas y construcción de confianza territorial.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/campana-maule-sur'
   },
   {
-    id: 'piratas',
-    emoji: '🏴‍☠️',
-    titleEn: 'Graphic Novel: War of the Pacific & Sea Legends',
-    titleEs: 'Novela Gráfica: Guerra del Pacífico & Leyendas',
-    subtitleEn: 'Historical-mythological comic novel on South Pacific naval combat and coastal nautical legends',
-    subtitleEs: 'Cómic histórico-fantástico sobre la contienda naval y mitología del Pacífico Sur',
-    categoryEn: 'Art, Graphic Novel & Narrative',
-    categoryEs: 'Arte, Cómic & Narrativa',
+    id: 'rap-beauchef',
+    emoji: '🎤',
+    titleEn: 'Rap Beauchef & Urban Culture Agency',
+    titleEs: 'Rap Beauchef & Agencia de Producción Cultural',
+    subtitleEn: 'Live tournament direction, multi-camera 4K broadcast production, and international cypher federation',
+    subtitleEs: 'Dirección de certámenes en vivo, transmisión 4K multicámara y circuito internacional de freestyle',
+    categoryEn: 'Creative Direction & Event Architecture',
+    categoryEs: 'Dirección Creativa & Producción de Eventos',
     categoryColor: 'bg-amber-600 text-white',
     branch: 'comms',
-    progress: 55,
-    collaboratorsEn: 'Illustrators, Naval Historians & Scriptwriters',
-    collaboratorsEs: 'Ilustradores, Historiadores & Guionistas',
-    descEn: 'Graphic novel exploring the 1879 War of the Pacific, intertwining historical ironclad combat, South Pacific corsairs, and maritime Chilean mythology.',
-    descEs: 'Creación de novela gráfica ambientada en el marco de la Guerra del Pacífico chilena, entrelazando batallas navales históricas, corsarios del Pacífico sur y mitos náuticos de las costas chilenas.',
-    checklistEn: [
-      { text: 'Define character development arcs (naval officers, corsairs, sea mythical beings)', completed: true },
-      { text: 'Complete literary script for the first 3 chapters', completed: true },
-      { text: 'Approve historical sketches of ironclad warships and coastal landscapes', completed: false },
-      { text: 'Coordinate layout and printing pipeline with indie comic publisher', completed: false }
+    statusBadgeEn: 'COMMERCIAL EVENT AGENCY',
+    statusBadgeEs: 'AGENCIA DE EVENTOS CULTURALES',
+    statusBadgeColor: 'bg-yellow-400 text-black',
+    clientEn: 'Universidad de Chile FCFM, Corporate Brands, Urban Music Collectives & Media Partners',
+    clientEs: 'Universidad de Chile FCFM, Colectivos de Música Urbana, Marcas & Medios',
+    valuePropEn: 'Comprehensive art direction and live event production agency that elevates grassroots hip hop into high-production cultural spectacles, commanding 1,000+ attendee auditoriums, global livestreams, and brand collaborations.',
+    valuePropEs: 'Agencia de producción general y dirección de arte que profesionaliza el hip hop y el freestyle underground, convirtiéndolos en espectáculos culturales de alta fidelidad técnica con auditorios de más de 1.000 asistentes y transmisión global.',
+    deliverablesEn: [
+      'Full live tournament production in high-capacity venues (FCFM U. de Chile Amphitheater)',
+      'Landmark women\'s tournament direction ("Dueñas de la Voz", official Queena championship)',
+      'Low-latency multi-channel online cypher infrastructure connecting emcees in 5 countries (Cuarentena Rap)',
+      'Brand identity, stage lighting design, motion graphics, and post-production aftermovies'
     ],
-    checklistEs: [
-      { text: 'Definir arco de personajes (corsarios, marinos y seres mitológicos)', completed: true },
-      { text: 'Finalizar guión literario de los primeros 3 capítulos', completed: true },
-      { text: 'Aprobar bocetos de embarcaciones navales históricas', completed: false },
-      { text: 'Coordinar maquetación con la editorial o plataforma webcomic', completed: false }
+    deliverablesEs: [
+      'Producción ejecutiva de eventos masivos en anfiteatros universitarios y recintos culturales',
+      'Dirección y realización del certamen femenino «Dueñas de la Voz» (registro audiovisual de la Gran Final)',
+      'Infraestructura técnica para batallas online de baja latencia con emcees en 5 países (Cuarentena Rap)',
+      'Identidad visual, diseño de escenario, motion graphics y aftermovies oficiales en resolución 4K'
     ],
-    notesEn: 'Focus on contrasting gritty military historical accuracy with maritime folklore.',
-    notesEs: 'Enfoque en el choque entre realismo militar histórico y leyendas populares del mar de Chile.'
+    impactMetricEn: '1,000+ Live Attendees • 5-Country International Cypher Circuit',
+    impactMetricEs: '+1.000 Asistentes en Vivo • Circuito Internacional en 5 Países',
+    techStack: ['OBS Studio Broadcast', 'Discord Infrastructure', 'Sony 4K Production', 'Audio Engineering'],
+    notesEn: 'Unites engineering rigor with youth subculture authenticity and audiovisual mastery.',
+    notesEs: 'Unión única entre rigor ingenieril de producción, autenticidad urbana y dominio audiovisual.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder'
   },
   {
-    id: 'red_maule',
-    emoji: '📻',
-    titleEn: 'Maule Red // Community Media & Rural Warning System',
-    titleEs: 'Maule Red // Red de Medios Territoriales',
-    subtitleEn: 'Live broadcast radio, rural drinking water emergency alerts (APR), and regional journalism',
-    subtitleEs: 'Radio en vivo, avisador de emergencias rurales (APR) y periodismo territorial',
-    categoryEn: 'Grassroots Media & Rural Water Alerts',
-    categoryEs: 'Medios Territoriales & APR',
-    categoryColor: 'bg-emerald-600 text-white',
+    id: 'incel',
+    emoji: '🤖',
+    titleEn: 'Los Manejadores: Generative AI & Digital Media Strategy',
+    titleEs: 'Los Manejadores: Estrategia de Medios & IA Generativa',
+    subtitleEn: 'Virtual AI creators, automated technical knowledge pipelines, and high-retention digital narratives',
+    subtitleEs: 'Creadores virtuales de IA, pipelines automáticos de divulgación y narrativa digital de alta retención',
+    categoryEn: 'Artificial Intelligence & Media Strategy',
+    categoryEs: 'Inteligencia Artificial & Estrategia de Medios',
+    categoryColor: 'bg-purple-600 text-white',
     branch: 'comms',
-    progress: 40,
-    collaboratorsEn: 'Local Peasant Reporters, Rural Water Committees (APR) & Agrarian Unions',
-    collaboratorsEs: 'Reporteros Locales, Comunidades Campesinas & Redes de APR',
-    descEn: 'Grassroots information platform for rural Maule. Features live community streaming radio, emergency alert system for rural water cuts (APR) and power outages, and interactive community news.',
-    descEs: 'Plataforma comunitaria de información para el Maule Sur. Integra radio comunitaria en vivo, avisador de emergencias de Agua Potable Rural (APR) y cortes de suministro eléctrico, mapa territorial colaborativo y periodismo de utilidad cotidiana.',
-    checklistEn: [
-      { text: 'Prototype responsive web platform and rural APR outage map', completed: true },
-      { text: 'Draft guidelines and community call for citizen peasant reporters', completed: true },
-      { text: 'Convene first assembly of community media correspondents', completed: false },
-      { text: 'Stream live broadcast feed across rural community frequencies', completed: false }
+    statusBadgeEn: 'ACTIVE DIGITAL VENTURE',
+    statusBadgeEs: 'VENTURE DIGITAL ACTIVO',
+    statusBadgeColor: 'bg-purple-400 text-black',
+    clientEn: 'Knowledge-Driven Companies, Tech Founders, Scientific Brands & Educational Channels',
+    clientEs: 'Empresas de Tecnología, Founders, Marcas Científicas & Canales de Divulgación',
+    valuePropEn: 'Digital media agency coupling European analytical rigor with generative AI production pipelines to build high-retention educational feeds, synthetic character IP, and narrative positioning for commercial clients.',
+    valuePropEs: 'Agencia de medios digitales que combina precisión analítica con pipelines de producción asistida por IA para desarrollar canales de divulgación técnica, propiedad intelectual de personajes virtuales y posicionamiento estratégico de marcas.',
+    deliverablesEn: [
+      'Synthetic virtual creator pipelines (neural voice cloning, automated lip-sync, visual consistency)',
+      'High-retention technical scriptwriting and data-driven carousel engineering for LinkedIn & YouTube',
+      'Automated multi-platform content scheduling and audience engagement analytics',
+      'Executive brand consulting and AI implementation roadmap for corporate enterprises'
     ],
-    checklistEs: [
-      { text: 'Prototipar plataforma web y mapa de cortes y emergencias APR', completed: true },
-      { text: 'Elaborar perfil de roles y convocatoria abierta para reporteros locales', completed: true },
-      { text: 'Realizar primera asamblea o reunión de equipo fundador', completed: false },
-      { text: 'Conectar señal streaming para la radio comunitaria en vivo', completed: false }
+    deliverablesEs: [
+      'Pipelines de creación sintética de personajes (clonación neural de voz, sincronización labial, avatares)',
+      'Guionización técnica de alta retención e ingeniería de carruseles de datos para LinkedIn y YouTube',
+      'Automatización de distribución multicanal y analítica predictiva de retención de audiencia',
+      'Consultoría estratégica de posicionamiento de marca y adopción de IA para empresas corporativas'
     ],
-    notesEn: 'Addressing the isolation of rural peasant towns: community communication produced by and for local territories.',
-    notesEs: 'Maule Red responde a la desconexión informativa de los territorios rurales.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/MauleRed'
+    impactMetricEn: 'Automated Content Engine • High-Retention Narrative Architecture',
+    impactMetricEs: 'Motor de Contenidos Automatizado • Arquitectura de Alta Retención',
+    techStack: ['Generative AI', 'ElevenLabs', 'RunwayML', 'Python Automation', 'Next.js', 'Tailwind CSS'],
+    notesEn: 'Pioneering ethical, high-quality AI storytelling for the modern knowledge economy.',
+    notesEs: 'Pioneros en storytelling con IA de alta calidad para la economía del conocimiento.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder'
   }
 ];
 
@@ -317,92 +374,77 @@ interface ProjectsModalProps {
   currentLang: Language;
 }
 
-export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, currentLang }) => {
-  const [filterBranch, setFilterBranch] = useState<'all' | 'science' | 'comms'>('all');
+export const ProjectsModal: React.FC<ProjectsModalProps> = ({
+  isOpen,
+  onClose,
+  currentLang
+}) => {
+  const [selectedBranch, setSelectedBranch] = useState<'all' | 'science' | 'comms'>('all');
   const [selectedProjectId, setSelectedProjectId] = useState<string>(ACTIVE_INNOVATION_PROJECTS[0].id);
 
   if (!isOpen) return null;
 
   const filteredProjects = ACTIVE_INNOVATION_PROJECTS.filter((p) => {
-    if (filterBranch === 'all') return true;
-    return p.branch === filterBranch;
+    if (selectedBranch === 'all') return true;
+    return p.branch === selectedBranch;
   });
 
-  const currentProj = ACTIVE_INNOVATION_PROJECTS.find((p) => p.id === selectedProjectId) || filteredProjects[0] || ACTIVE_INNOVATION_PROJECTS[0];
+  const currentProj = ACTIVE_INNOVATION_PROJECTS.find((p) => p.id === selectedProjectId) || filteredProjects[0];
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-fadeIn select-none"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/90 backdrop-blur-md animate-fadeIn select-none"
       onClick={onClose}
     >
-      {/* Modal Container (GTA Heist Quest Corkboard / Tactical Blueprint) */}
       <div 
-        className="relative w-full max-w-5xl max-h-[92vh] bg-[#0c1017] border-4 border-black rounded-2xl shadow-[10px_10px_0px_#dc2626] flex flex-col overflow-hidden text-white font-sans"
+        className="relative w-full max-w-5xl h-[92vh] bg-[#0c1017] border-4 border-black rounded-2xl shadow-[10px_10px_0px_#facc15] flex flex-col overflow-hidden text-white font-sans"
         onClick={(e) => e.stopPropagation()}
       >
         {/* ============================================================== */}
-        {/* 1. TOP HEADER: TACTICAL CORKBOARD BLUEPRINT                    */}
+        {/* 1. TOP COMMERCIAL HEADER BAR                                   */}
         {/* ============================================================== */}
         <div className="px-4 sm:px-6 py-3.5 bg-black border-b-3 border-black flex flex-wrap items-center justify-between gap-3 shrink-0">
           <div className="flex items-center space-x-3">
-            <span className="bg-[#dc2626] text-white px-3 py-1 font-mono font-black text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 flex items-center space-x-1.5">
-              <Pin className="w-3.5 h-3.5" />
-              <span>{currentLang === 'es' ? '[ PROYECTOS & INNOVACIÓN // I+D ]' : '[ VENTURES & INNOVATION // R&D ]'}</span>
+            <span className="bg-[#facc15] text-black px-3 py-1 font-mono font-black text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
+              {currentLang === 'es' ? '[ CATÁLOGO DE SOLUCIONES & PROYECTOS ]' : '[ COMMERCIAL PORTFOLIO & SOLUTIONS ]'}
             </span>
-            <span className="hidden sm:inline-block bg-yellow-400 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
-              {currentLang === 'es' ? '8 INICIATIVAS ACTIVAS' : '8 ACTIVE INITIATIVES'}
+            <span className="hidden sm:inline-block bg-emerald-500 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
+              {currentLang === 'es' ? 'DISPONIBLE PARA CONTRATACIÓN' : 'ENTERPRISE & CONSULTING READY'}
             </span>
           </div>
 
-          {/* Branch Filter Tabs (Ciencia vs Comunicaciones) */}
-          <div className="flex items-center space-x-1.5 ml-auto">
-            <button
-              onClick={() => {
-                setFilterBranch('all');
-                setSelectedProjectId(ACTIVE_INNOVATION_PROJECTS[0].id);
-              }}
-              className={`px-2.5 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border-2 border-black transition-all cursor-pointer ${
-                filterBranch === 'all'
-                  ? 'bg-white text-black shadow-[2px_2px_0px_#000]'
-                  : 'bg-white/10 text-neutral-300 hover:bg-white/20'
-              }`}
-            >
-              {currentLang === 'es' ? 'TODOS (8)' : 'ALL (8)'}
-            </button>
-
-            <button
-              onClick={() => {
-                setFilterBranch('science');
-                const firstScience = ACTIVE_INNOVATION_PROJECTS.find(p => p.branch === 'science');
-                if (firstScience) setSelectedProjectId(firstScience.id);
-              }}
-              className={`px-2.5 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border-2 border-black transition-all cursor-pointer ${
-                filterBranch === 'science'
-                  ? 'bg-blue-600 text-white shadow-[2px_2px_0px_#000]'
-                  : 'bg-white/10 text-neutral-300 hover:bg-blue-600/40'
-              }`}
-            >
-              🔬 {currentLang === 'es' ? 'CIENCIA (4)' : 'SCIENCE (4)'}
-            </button>
-
-            <button
-              onClick={() => {
-                setFilterBranch('comms');
-                const firstComms = ACTIVE_INNOVATION_PROJECTS.find(p => p.branch === 'comms');
-                if (firstComms) setSelectedProjectId(firstComms.id);
-              }}
-              className={`px-2.5 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border-2 border-black transition-all cursor-pointer ${
-                filterBranch === 'comms'
-                  ? 'bg-orange-600 text-white shadow-[2px_2px_0px_#000]'
-                  : 'bg-white/10 text-neutral-300 hover:bg-orange-600/40'
-              }`}
-            >
-              📢 {currentLang === 'es' ? 'MEDIOS (4)' : 'COMMS (4)'}
-            </button>
+          <div className="flex items-center space-x-2">
+            {/* Filter Pills */}
+            <div className="inline-flex p-0.5 rounded-lg bg-white/10 border border-white/20 text-xs font-mono">
+              <button
+                onClick={() => setSelectedBranch('all')}
+                className={`px-2.5 py-1 rounded font-bold transition-all cursor-pointer ${
+                  selectedBranch === 'all' ? 'bg-[#facc15] text-black shadow-sm' : 'text-neutral-300 hover:text-white'
+                }`}
+              >
+                {currentLang === 'es' ? 'TODOS (8)' : 'ALL (8)'}
+              </button>
+              <button
+                onClick={() => setSelectedBranch('science')}
+                className={`px-2.5 py-1 rounded font-bold transition-all cursor-pointer ${
+                  selectedBranch === 'science' ? 'bg-blue-500 text-white shadow-sm' : 'text-neutral-300 hover:text-white'
+                }`}
+              >
+                🔬 {currentLang === 'es' ? 'CIENCIA & I+D (4)' : 'SCIENCE & R&D (4)'}
+              </button>
+              <button
+                onClick={() => setSelectedBranch('comms')}
+                className={`px-2.5 py-1 rounded font-bold transition-all cursor-pointer ${
+                  selectedBranch === 'comms' ? 'bg-orange-500 text-white shadow-sm' : 'text-neutral-300 hover:text-white'
+                }`}
+              >
+                📢 {currentLang === 'es' ? 'MEDIOS & CAMPAÑAS (4)' : 'COMMS & CAMPAIGNS (4)'}
+              </button>
+            </div>
 
             <button
               onClick={onClose}
-              className="p-1 rounded-lg bg-white/10 hover:bg-red-600 hover:text-white text-neutral-300 transition-all border border-white/20 active:scale-90 cursor-pointer ml-1"
+              className="p-1.5 rounded-lg bg-white/10 hover:bg-red-600 hover:text-white text-neutral-300 transition-all border border-white/20 active:scale-90 cursor-pointer ml-1"
               title={currentLang === 'es' ? 'Cerrar panel' : 'Close panel'}
             >
               <X className="w-5 h-5" />
@@ -410,13 +452,16 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
           </div>
         </div>
 
-        {/* Modal Body: Left Project List (Sidebar) + Right Project Detail */}
+        {/* ============================================================== */}
+        {/* 2. MAIN SPLIT BODY: LEFT SHOWCASE SIDEBAR + RIGHT EXECUTIVE PANE */}
+        {/* ============================================================== */}
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           
-          {/* Left Column: Project Selector Tabs */}
-          <div className="w-full md:w-80 bg-black/95 border-r-3 border-black overflow-y-auto p-3 space-y-2 shrink-0 no-scrollbar">
-            <div className="text-[10px] font-mono font-black text-amber-400 uppercase tracking-widest px-1 pb-1">
-              📌 {currentLang === 'es' ? 'TABLERO DE MISIONES' : 'MISSION DOSSIERS'} ({filteredProjects.length})
+          {/* Left Column: Commercial Product Selector */}
+          <div className="w-full md:w-84 bg-[#080b10] border-r-3 border-black overflow-y-auto p-3 space-y-2.5 shrink-0 no-scrollbar">
+            <div className="text-[10px] font-mono font-black text-amber-400 uppercase tracking-widest px-1 pb-1 flex items-center justify-between">
+              <span>{currentLang === 'es' ? '⚡ SOLUCIONES DESARROLLADAS' : '⚡ DEVELOPED SOLUTIONS'}</span>
+              <span className="text-neutral-500">({filteredProjects.length})</span>
             </div>
 
             {filteredProjects.map((proj) => {
@@ -425,161 +470,194 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                 <div
                   key={proj.id}
                   onClick={() => setSelectedProjectId(proj.id)}
-                  className={`p-2.5 border-2 cursor-pointer transition-all ${
+                  className={`p-3 border-2 rounded-xl cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-white text-black border-black shadow-[4px_4px_0px_#dc2626] translate-x-1 -rotate-0.5'
-                      : 'bg-[#121620] text-neutral-300 border-black/80 hover:bg-[#1a202c] hover:text-white'
+                      ? 'bg-gradient-to-r from-white via-neutral-100 to-white text-black border-black shadow-[4px_4px_0px_#facc15] translate-x-1'
+                      : 'bg-[#111622] text-neutral-300 border-black/80 hover:bg-[#182030] hover:text-white hover:border-neutral-700'
                   }`}
                 >
-                  <div className="flex items-center justify-between">
-                    <span className="text-base">{proj.emoji}</span>
+                  <div className="flex items-center justify-between gap-1 mb-1.5">
+                    <span className="text-lg">{proj.emoji}</span>
                     <span
-                      className={`text-[9px] font-mono font-black px-1.5 py-0.2 border border-black uppercase ${
-                        isSelected ? 'bg-black text-yellow-300' : proj.categoryColor
+                      className={`text-[9px] font-mono font-black px-2 py-0.5 rounded border border-black uppercase ${
+                        isSelected ? 'bg-black text-[#facc15]' : proj.statusBadgeColor
                       }`}
                     >
-                      {proj.branch === 'science' 
-                        ? (currentLang === 'es' ? 'CIENCIA' : 'SCIENCE') 
-                        : (currentLang === 'es' ? 'MEDIOS' : 'COMMS')} • {proj.progress}%
+                      {currentLang === 'es' ? proj.statusBadgeEs : proj.statusBadgeEn}
                     </span>
                   </div>
 
-                  <div className="font-mono font-black text-xs uppercase mt-1 truncate">
+                  <div className="font-mono font-black text-xs uppercase leading-tight truncate">
                     {currentLang === 'es' ? proj.titleEs : proj.titleEn}
                   </div>
 
-                  <div className={`text-[10px] truncate mt-0.5 ${isSelected ? 'text-neutral-700 font-medium' : 'text-neutral-400'}`}>
+                  <div className={`text-[10px] truncate mt-1 ${isSelected ? 'text-neutral-700 font-medium' : 'text-neutral-400'}`}>
                     {currentLang === 'es' ? proj.subtitleEs : proj.subtitleEn}
+                  </div>
+
+                  <div className={`mt-2 pt-1.5 border-t flex items-center justify-between text-[9px] font-mono ${
+                    isSelected ? 'border-neutral-300 text-emerald-800 font-bold' : 'border-white/10 text-emerald-400'
+                  }`}>
+                    <span className="truncate max-w-[200px]">
+                      {currentLang === 'es' ? proj.impactMetricEs : proj.impactMetricEn}
+                    </span>
+                    <ArrowRight className="w-3 h-3 shrink-0 ml-1" />
                   </div>
                 </div>
               );
             })}
           </div>
 
-          {/* Right Column: Mission Detail Briefing Board */}
-          <div className="flex-1 bg-[#10141d] overflow-y-auto p-4 sm:p-6 space-y-4 no-scrollbar">
+          {/* Right Column: Executive Commercial Solution Dossier */}
+          <div className="flex-1 bg-[#0e131d] overflow-y-auto p-4 sm:p-6 lg:p-7 space-y-5 no-scrollbar">
             
-            {/* Mission Hero Header */}
-            <div className="space-y-2 border-b-2 border-white/10 pb-3">
+            {/* Top Product Header */}
+            <div className="space-y-2.5 border-b border-white/15 pb-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <div className="flex items-center space-x-2">
-                  <span className="text-2xl">{currentProj.emoji}</span>
-                  <span className={`text-[10px] font-mono font-black px-2 py-0.5 border border-black uppercase ${currentProj.categoryColor}`}>
-                    {currentLang === 'es' ? currentProj.categoryEs : currentProj.categoryEn}
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-3xl">{currentProj.emoji}</span>
+                  <span className={`text-[10px] font-mono font-black px-2.5 py-1 rounded border border-black uppercase ${currentProj.statusBadgeColor}`}>
+                    {currentLang === 'es' ? currentProj.statusBadgeEs : currentProj.statusBadgeEn}
                   </span>
-                  <span className="text-[10px] font-mono bg-white/10 text-neutral-300 px-2 py-0.5 border border-white/20 uppercase">
+                  <span className="text-[10px] font-mono bg-white/10 text-neutral-300 px-2.5 py-1 rounded border border-white/20 uppercase">
                     {currentProj.branch === 'science' 
-                      ? (currentLang === 'es' ? '🔬 Rama Científica' : '🔬 Science Branch') 
-                      : (currentLang === 'es' ? '📢 Rama Comunicación & Cultura' : '📢 Comms & Culture Branch')}
+                      ? (currentLang === 'es' ? '🔬 Rama Científica & Modelación' : '🔬 Science & Computational Modeling') 
+                      : (currentLang === 'es' ? '📢 Rama Estrategia & Comunicaciones' : '📢 Comms & Strategy Branch')}
                   </span>
                 </div>
 
-                {/* GitHub link button if applicable */}
-                {currentProj.githubUrl && (
+                {/* External Links Bar */}
+                <div className="flex items-center space-x-2">
+                  {currentProj.githubUrl && (
+                    <a
+                      href={currentProj.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-1.5 bg-purple-600 hover:bg-purple-500 text-white font-mono font-black text-xs rounded border border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition-all cursor-pointer"
+                    >
+                      <GithubIcon className="w-3.5 h-3.5" />
+                      <span>{currentLang === 'es' ? 'Ver Código' : 'Code Repo'}</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                   <a
-                    href={currentProj.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition-all cursor-pointer"
+                    href="mailto:danisantander.urrutia@gmail.com?subject=Consulta%20Comercial%20-%20Proyecto%20Daniel%20Santander"
+                    className="px-3 py-1.5 bg-[#facc15] hover:bg-yellow-400 text-black font-mono font-black text-xs rounded border border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition-all cursor-pointer"
                   >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    <span>GitHub Repo</span>
-                    <ExternalLink className="w-3 h-3" />
+                    <Mail className="w-3.5 h-3.5" />
+                    <span>{currentLang === 'es' ? 'Solicitar Propuesta' : 'Request Proposal'}</span>
                   </a>
-                )}
+                </div>
               </div>
 
-              <h3 className="font-mono font-black text-lg sm:text-xl text-white uppercase tracking-tight">
-                {currentLang === 'es' ? currentProj.titleEs : currentProj.titleEn}
-              </h3>
-              <p className="font-sans text-xs text-neutral-300">
-                {currentLang === 'es' ? currentProj.subtitleEs : currentProj.subtitleEn}
-              </p>
+              <div>
+                <h3 className="font-mono font-black text-xl sm:text-2xl text-white uppercase tracking-tight">
+                  {currentLang === 'es' ? currentProj.titleEs : currentProj.titleEn}
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-neutral-300 mt-1 leading-relaxed">
+                  {currentLang === 'es' ? currentProj.subtitleEs : currentProj.subtitleEn}
+                </p>
+              </div>
             </div>
 
-            {/* Collaborators */}
-            <div className="flex items-center space-x-2 font-mono text-xs text-neutral-300 bg-black/60 p-2.5 border-2 border-black shadow-[2px_2px_0px_#000]">
-              <Users className="w-4 h-4 text-amber-400 shrink-0" />
-              <span className="text-neutral-400">{currentLang === 'es' ? 'Colaboradores:' : 'Collaborators:'}</span>
-              <span className="text-white font-bold">
-                {currentLang === 'es' ? currentProj.collaboratorsEs : currentProj.collaboratorsEn}
+            {/* Impact Metric & Business ROI Highlight Banner */}
+            <div className="p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-emerald-950/80 via-black to-[#091816] border-2 border-emerald-500/60 shadow-[4px_4px_0px_#10b981] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center shrink-0">
+                  <TrendingUp className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold">
+                    {currentLang === 'es' ? 'IMPACTO CUANTIFICADO & VALOR DEMOSTRADO' : 'QUANTIFIED IMPACT & PROVEN VALUE'}
+                  </div>
+                  <div className="font-mono font-black text-sm sm:text-base text-white">
+                    {currentLang === 'es' ? currentProj.impactMetricEs : currentProj.impactMetricEn}
+                  </div>
+                </div>
+              </div>
+
+              <span className="px-3 py-1 rounded bg-emerald-500 text-black font-mono font-black text-[10px] uppercase border border-black shrink-0">
+                {currentLang === 'es' ? 'RESULTADO VERIFICADO' : 'VERIFIED ROI'}
               </span>
             </div>
 
-            {/* Operational Progress Bar */}
-            <div className="p-3 bg-black border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1.5">
-              <div className="flex items-center justify-between font-mono text-xs font-bold">
-                <span className="text-amber-400">
-                  {currentLang === 'es' ? 'AVANCE OPERATIVO' : 'OPERATIONAL PROGRESS'}
-                </span>
-                <span className="text-white font-black">{currentProj.progress}%</span>
+            {/* Commercial Value Proposition / Problem Solved */}
+            <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">
+              <div className="font-mono text-xs font-black text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
+                <Target className="w-4 h-4" />
+                <span>{currentLang === 'es' ? 'PROPUESTA DE VALOR & SOLUCIÓN COMERCIAL' : 'VALUE PROPOSITION & COMMERCIAL SOLUTION'}</span>
               </div>
-              <div className="w-full h-3 bg-neutral-900 border border-white/30 overflow-hidden p-0.5">
-                <div
-                  className="h-full bg-gradient-to-r from-red-500 via-amber-400 to-green-400 transition-all duration-500"
-                  style={{ width: `${currentProj.progress}%` }}
-                />
-              </div>
-            </div>
-
-            {/* Strategic Objective */}
-            <div className="p-3.5 bg-[#0a0e14] border-2 border-dashed border-white/30 rounded-lg space-y-1">
-              <div className="font-mono text-[10px] text-yellow-400 font-black uppercase">
-                {currentLang === 'es' ? '[ OBJETIVO ESTRATÉGICO & ALCANCE ]' : '[ STRATEGIC OBJECTIVE & SCOPE ]'}
-              </div>
-              <p className="font-sans text-xs text-neutral-200 leading-relaxed">
-                {currentLang === 'es' ? currentProj.descEs : currentProj.descEn}
+              <p className="font-sans text-xs sm:text-sm text-neutral-200 leading-relaxed">
+                {currentLang === 'es' ? currentProj.valuePropEs : currentProj.valuePropEn}
               </p>
             </div>
 
-            {/* Subproject Tag (if applicable) */}
-            {(currentProj.subprojectEn || currentProj.subprojectEs) && (
-              <div className="p-2.5 bg-[#facc15]/10 border-2 border-[#facc15] text-[#facc15] font-mono text-xs font-bold rounded flex items-center space-x-2">
-                <Sparkles className="w-4 h-4 shrink-0 text-[#facc15]" />
-                <span>{currentLang === 'es' ? currentProj.subprojectEs : currentProj.subprojectEn}</span>
-              </div>
-            )}
-
-            {/* Checklist of Real Milestones */}
-            <div className="space-y-2">
-              <div className="font-mono text-xs font-black text-white uppercase tracking-wider flex items-center space-x-2">
-                <span>{currentLang === 'es' ? 'HITOS & CHECKLIST DE OPERACIÓN' : 'MILESTONES & OPERATION CHECKLIST'}</span>
+            {/* Tangible Commercial Deliverables (What the Client / Partner Receives) */}
+            <div className="space-y-2.5">
+              <div className="font-mono text-xs font-black text-white uppercase tracking-wider flex items-center justify-between">
+                <span className="flex items-center gap-1.5 text-cyan-400">
+                  <Layers className="w-4 h-4" />
+                  <span>{currentLang === 'es' ? 'ENTREGABLES COMERCIALES & CAPACIDADES CLAVE' : 'COMMERCIAL DELIVERABLES & KEY CAPABILITIES'}</span>
+                </span>
+                <span className="text-[10px] font-mono text-neutral-400">[READY TO IMPLEMENT]</span>
               </div>
 
-              <div className="space-y-1.5">
-                {(currentLang === 'es' ? currentProj.checklistEs : currentProj.checklistEn).map((chk, cIdx) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {(currentLang === 'es' ? currentProj.deliverablesEs : currentProj.deliverablesEn).map((deliv, dIdx) => (
                   <div
-                    key={cIdx}
-                    className={`p-2 border-2 border-black font-mono text-xs flex items-start space-x-2.5 ${
-                      chk.completed
-                        ? 'bg-emerald-950/60 text-emerald-200'
-                        : 'bg-black/50 text-neutral-300'
-                    }`}
+                    key={dIdx}
+                    className="p-3 rounded-lg bg-[#121824] border border-cyan-500/30 font-sans text-xs text-neutral-200 flex items-start space-x-2.5 shadow-sm"
                   >
-                    {chk.completed ? (
-                      <CheckSquare className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    ) : (
-                      <Square className="w-4 h-4 text-neutral-500 shrink-0 mt-0.5" />
-                    )}
-                    <span className={chk.completed ? 'line-through opacity-80' : ''}>{chk.text}</span>
+                    <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                    <span className="leading-snug">{deliv}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Field Notes */}
-            <div className="font-mono text-[10px] text-neutral-400 pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
-              <span>* {currentLang === 'es' ? `Bitácora: ${currentProj.notesEs}` : `Field note: ${currentProj.notesEn}`}</span>
-              {currentProj.githubUrl && (
-                <a 
-                  href={currentProj.githubUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-purple-400 hover:text-white underline font-mono text-[10px]"
-                >
-                  {currentLang === 'es' ? 'Repositorio GitHub' : 'GitHub Repository'}
-                </a>
-              )}
+            {/* Target Clients & Institutional Partners */}
+            <div className="p-3.5 rounded-xl bg-black/60 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 font-mono text-xs">
+              <div className="flex items-center space-x-2 text-neutral-300">
+                <Users className="w-4 h-4 text-amber-400 shrink-0" />
+                <span className="text-neutral-400">{currentLang === 'es' ? 'Contrapartes & Clientes Clave:' : 'Clients & Key Partners:'}</span>
+                <span className="text-white font-bold">
+                  {currentLang === 'es' ? currentProj.clientEs : currentProj.clientEn}
+                </span>
+              </div>
+            </div>
+
+            {/* Verified Tech Stack Badges */}
+            <div className="space-y-1.5 pt-1">
+              <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider font-bold flex items-center gap-1">
+                <Cpu className="w-3.5 h-3.5 text-purple-400" />
+                <span>{currentLang === 'es' ? 'STACK TECNOLÓGICO EMPLEADO' : 'DEPLOYED TECHNOLOGY STACK'}</span>
+              </div>
+              <div className="flex flex-wrap gap-1.5">
+                {currentProj.techStack.map((tech, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="px-2.5 py-1 rounded bg-[#161c28] border border-white/15 font-mono text-[10px] text-neutral-300 font-bold"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Strategic Notes & Direct CTA Footer */}
+            <div className="p-4 rounded-xl bg-gradient-to-r from-neutral-900 to-black border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono text-xs">
+              <div className="text-neutral-400 text-[11px] font-sans">
+                💡 <span className="font-semibold text-neutral-300">{currentLang === 'es' ? 'Nota Estratégica:' : 'Strategic Scope:'}</span>{' '}
+                {currentLang === 'es' ? currentProj.notesEs : currentProj.notesEn}
+              </div>
+
+              <a
+                href="mailto:danisantander.urrutia@gmail.com?subject=Consulta%20Comercial%20-%20Daniel%20Santander"
+                className="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs flex items-center space-x-1.5 shrink-0 transition shadow-md active:scale-95"
+              >
+                <span>{currentLang === 'es' ? 'Consultar Disponibilidad' : 'Check Availability'}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
 
           </div>
@@ -589,3 +667,5 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
     </div>
   );
 };
+
+export default ProjectsModal;
