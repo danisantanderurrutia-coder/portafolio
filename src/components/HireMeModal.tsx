@@ -108,7 +108,7 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
               <div className="flex flex-wrap gap-2 mt-2 font-mono text-[10px] text-neutral-400">
                 <span>📍 Santiago, Chile • CET Friendly</span>
                 <span>•</span>
-                <span>🗣️ Español (Nativo), English (C1), Deutsch (B1/B2)</span>
+                <span>🗣️ {currentLang === 'es' ? 'Español (Nativo), English (C1), Deutsch (B1/B2)' : 'Spanish (Native), English (C1), German (B1/B2)'}</span>
               </div>
             </div>
           </div>
@@ -151,9 +151,9 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
                     : 'Large-scale campaign leadership (+700k reach), parliamentary spokesperson, transmedia science outreach, investigative journalism & AI.'}
                 </p>
                 <div className="pt-1 flex flex-wrap gap-1 font-mono text-[9px] text-orange-300">
-                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">+700K Audiencia</span>
-                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">Vocería Prensa</span>
-                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">Narrativa Transmedia</span>
+                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">{currentLang === 'es' ? '+700K Audiencia' : '+700K Audience Reach'}</span>
+                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">{currentLang === 'es' ? 'Vocería Prensa' : 'Press Spokesperson'}</span>
+                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">{currentLang === 'es' ? 'Narrativa Transmedia' : 'Transmedia Storytelling'}</span>
                 </div>
               </div>
             </div>
@@ -251,7 +251,9 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
               >
                 <div className="flex items-center space-x-2.5">
                   <FileText className="w-4 h-4 text-emerald-400" />
-                  <span className="font-mono font-bold text-xs text-emerald-300">CV Oficial (PDF)</span>
+                  <span className="font-mono font-bold text-xs text-emerald-300">
+                    {currentLang === 'es' ? 'CV Oficial (PDF)' : 'Official Resume (PDF)'}
+                  </span>
                 </div>
                 <span className="text-[10px] font-mono text-emerald-400 font-black">⬇</span>
               </a>
@@ -264,7 +266,7 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
         {/* Modal Bottom Banner */}
         <div className="px-5 py-2.5 bg-black/90 border-t border-neutral-800 flex items-center justify-between font-mono text-[10px] text-neutral-400">
           <span>{currentLang === 'es' ? 'RESPUESTA HABITUAL: < 24 HORAS' : 'TYPICAL RESPONSE TIME: < 24H'}</span>
-          <span className="text-emerald-400 font-bold">● ONLINE / DISPONIBLE</span>
+          <span className="text-emerald-400 font-bold">{currentLang === 'es' ? '● ONLINE / DISPONIBLE' : '● ONLINE / AVAILABLE'}</span>
         </div>
       </div>
     </div>

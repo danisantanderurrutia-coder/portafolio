@@ -11,9 +11,7 @@ import {
   Users,
   Microscope,
   BookOpen,
-  GraduationCap,
-  Flame,
-  Tv
+  GraduationCap
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -74,7 +72,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <TopocatchmentLogo variant="badge" className="w-9 h-9 sm:w-10 sm:h-10 shadow-[3px_3px_0px_#facc15]" />
           </div>
 
-          {/* Daniel Santander Real Portrait Badge (Tamaño Curriculum / Pasaporte) */}
+          {/* Daniel Santander Real Portrait Badge (Tamaño Curriculum / Passport) */}
           <div className="relative shrink-0 group">
             <div className="w-9 h-11 sm:w-10 sm:h-12 rounded-lg bg-black p-0.5 border-2 border-white shadow-[3px_3px_0px_#facc15] overflow-hidden -rotate-1 group-hover:rotate-0 transition-transform">
               <img 
@@ -104,17 +102,17 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <div className="text-[8px] sm:text-[8.5px] font-mono text-neutral-300 opacity-80 hidden sm:block">
               {currentLang === 'es'
                 ? 'Dual M.Sc. CAU Kiel & Poznań • U. de Chile • Vocero y Expositor (8 Países)'
-                : 'Dual M.Sc. CAU Kiel & Poznań • U. de Chile • Speaker & Modeler (8 Countries)'}
+                : 'Dual M.Sc. CAU Kiel & Poznań • U. of Chile • Speaker & Modeler (8 Countries)'}
             </div>
           </div>
         </div>
 
-        {/* Top Right: ONLY the Language Switcher (Zero scattered buttons) */}
+        {/* Top Right: Language Switcher */}
         <div className="flex items-center space-x-2">
           <button
             onClick={onToggleLanguage}
             className="px-2.5 sm:px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer"
-            title="Cambiar idioma // Switch Language"
+            title={currentLang === 'es' ? 'Cambiar a Inglés' : 'Switch to Spanish'}
           >
             <Globe className="w-3.5 h-3.5" />
             <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
@@ -128,7 +126,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
         {/* Buttons Stack Container with Dynamic Punk Angles & Staggered Offsets */}
         <div className="w-full max-w-md sm:max-w-lg md:max-w-xl flex flex-col space-y-1 sm:space-y-1.5">
           
-          {/* BUTTON 1: [01. SCIENCE & ACADEMY // FIELD RESEARCH] (Yellow Tape, pure science) */}
+          {/* BUTTON 1: [01. SCIENCE & ACADEMY // FIELD RESEARCH] */}
           <button
             onClick={onSelectSciencePlanet}
             className="group relative w-full text-left bg-[#facc15] hover:bg-white text-black px-3 py-1 sm:py-1.5 border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-2 -translate-x-2 hover:rotate-0 hover:translate-x-0 hover:scale-[1.02] hover:z-30 active:scale-95 transition-all cursor-pointer"
@@ -136,7 +134,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                 <Microscope className="w-3.5 h-3.5 text-black" />
-                <span>[ 01. SCIENCE & ACADEMY ]</span>
+                <span>{currentLang === 'es' ? '[ 01. CIENCIA & ACADEMIA ]' : '[ 01. SCIENCE & ACADEMY ]'}</span>
               </span>
               <span className="bg-black text-[#facc15] font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
                 {currentLang === 'es' ? 'PLANETA 3D' : '3D GLOBE'}
@@ -149,7 +147,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
-          {/* BUTTON 2: [02. SUMMITS & GLOBAL POLICY] (White Stencil Tape) */}
+          {/* BUTTON 2: [02. SUMMITS & GLOBAL POLICY] */}
           <button
             onClick={onSelectSummits}
             className="group relative w-full text-left bg-white hover:bg-[#facc15] text-black px-3 py-1 sm:py-1.5 border-3 border-black shadow-[4px_4px_0px_#000000] rotate-1.5 translate-x-2 hover:rotate-0 hover:translate-x-0 hover:scale-[1.02] hover:z-30 active:scale-95 transition-all cursor-pointer"
@@ -157,7 +155,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                 <Globe className="w-3.5 h-3.5 text-black" />
-                <span>[ 02. SUMMITS & GLOBAL POLICY ]</span>
+                <span>{currentLang === 'es' ? '[ 02. CUMBRES & POLÍTICA GLOBAL ]' : '[ 02. SUMMITS & GLOBAL POLICY ]'}</span>
               </span>
               <span className="bg-black text-[#facc15] font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
                 {currentLang === 'es' ? 'PLANETA 3D' : '3D GLOBE'}
@@ -179,7 +177,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               <div className="flex items-center justify-between">
                 <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                   <Palette className="w-3.5 h-3.5 text-black group-hover:text-white" />
-                  <span>[ 03. COMMUNICATIONS, MEDIA & ARTS ]</span>
+                  <span>{currentLang === 'es' ? '[ 03. COMUNICACIONES, MEDIOS & ARTE ]' : '[ 03. COMMUNICATIONS, MEDIA & ARTS ]'}</span>
                 </span>
                 <div className="flex items-center space-x-1.5">
                   {onOpenArtDirector && (
@@ -189,9 +187,9 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
                         onOpenArtDirector();
                       }}
                       className="bg-black hover:bg-yellow-400 text-yellow-300 hover:text-black font-mono font-black text-[8px] sm:text-[9px] px-1.5 py-0.5 border border-white/50 uppercase transition-all shadow-[1px_1px_0px_#000]"
-                      title="Abrir backstage y memoria de Rap Beauchef y Cuarentena Rap"
+                      title={currentLang === 'es' ? 'Abrir backstage y memoria de Rap Beauchef y Cuarentena Rap' : 'Open backstage & archives for Rap Beauchef and Cuarentena Rap'}
                     >
-                      ⚡ SABER MÁS // RAP
+                      {currentLang === 'es' ? '⚡ SABER MÁS // RAP' : '⚡ DEEP DIVE // RAP'}
                     </span>
                   )}
                   <span className="bg-black text-white font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
@@ -207,7 +205,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </button>
           </div>
 
-          {/* BUTTON 4: [04. GRASSROOTS AND COMMUNITIES] (Mint / Emerald Tape) */}
+          {/* BUTTON 4: [04. GRASSROOTS AND COMMUNITIES] */}
           <button
             onClick={onSelectGrassroots}
             className="group relative w-full text-left bg-[#d1fae5] hover:bg-[#10b981] hover:text-white text-black px-3 py-1 sm:py-1.5 border-3 border-black shadow-[4px_4px_0px_#000000] rotate-2 translate-x-2 hover:rotate-0 hover:translate-x-0 hover:scale-[1.02] hover:z-30 active:scale-95 transition-all cursor-pointer"
@@ -215,7 +213,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                 <Users className="w-3.5 h-3.5 text-black group-hover:text-white" />
-                <span>[ 04. GRASSROOTS AND COMMUNITIES ]</span>
+                <span>{currentLang === 'es' ? '[ 04. COMUNIDADES & TERRITORIOS ]' : '[ 04. GRASSROOTS & COMMUNITIES ]'}</span>
               </span>
               <span className="bg-black text-white font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
                 {currentLang === 'es' ? 'PLANETA 3D' : '3D GLOBE'}
@@ -228,7 +226,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
-          {/* BUTTON 5: [05. PROJECTS & INNOVATION] (Red Tape, Zero Caballero Jaguar) */}
+          {/* BUTTON 5: [05. PROJECTS & INNOVATION] */}
           <button
             onClick={() => setIsProjectsModalOpen(true)}
             className="group relative w-full text-left bg-[#dc2626] hover:bg-[#b91c1c] text-white px-3 py-1 sm:py-1.5 border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-1 -translate-x-2.5 hover:rotate-0 hover:translate-x-0 hover:scale-[1.02] hover:z-30 active:scale-95 transition-all cursor-pointer"
@@ -236,10 +234,10 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-                <span>[ 05. PROJECTS & INNOVATION ]</span>
+                <span>{currentLang === 'es' ? '[ 05. PROYECTOS & INNOVACIÓN ]' : '[ 05. PROJECTS & INNOVATION ]'}</span>
               </span>
               <span className="bg-yellow-400 text-black font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
-                8 INICIATIVAS
+                {currentLang === 'es' ? '8 INICIATIVAS' : '8 VENTURES'}
               </span>
             </div>
             <div className="text-[9px] sm:text-[9.5px] font-mono font-bold text-red-100 group-hover:text-white tracking-tight mt-0.5">
@@ -249,7 +247,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
-          {/* BUTTON 6: [06. PUBLICATIONS & PRESS] (NEW! Amber / Parchment Stencil) */}
+          {/* BUTTON 6: [06. PUBLICATIONS & PRESS] */}
           {onOpenPublications && (
             <button
               onClick={onOpenPublications}
@@ -258,10 +256,10 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               <div className="flex items-center justify-between">
                 <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                   <BookOpen className="w-3.5 h-3.5 text-black" />
-                  <span>[ 06. PUBLICATIONS & INVESTIGATIVE PRESS ]</span>
+                  <span>{currentLang === 'es' ? '[ 06. PUBLICACIONES & PRENSA INVESTIGATIVA ]' : '[ 06. PUBLICATIONS & INVESTIGATIVE PRESS ]'}</span>
                 </span>
                 <span className="bg-red-600 text-white font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
-                  EPN • OLCA • PRENSA
+                  {currentLang === 'es' ? 'EPN • OLCA • PRENSA' : 'EPN • OLCA • PRESS'}
                 </span>
               </div>
               <div className="text-[9px] sm:text-[9.5px] font-mono font-bold text-neutral-800 tracking-tight mt-0.5">
@@ -272,7 +270,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </button>
           )}
 
-          {/* BUTTON 7: [07. SKILLS] (Distinct High-Contrast Neon Cyan Tape) */}
+          {/* BUTTON 7: [07. SKILLS] */}
           {onOpenSkills && (
             <button
               onClick={onOpenSkills}
@@ -281,7 +279,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               <div className="flex items-center justify-between">
                 <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                   <Terminal className="w-3.5 h-3.5 text-black" />
-                  <span>[ 07. SKILLS & TECHNICAL TOOLKIT ]</span>
+                  <span>{currentLang === 'es' ? '[ 07. FICHA TÉCNICA & HABILIDADES ]' : '[ 07. SKILLS & TECHNICAL TOOLKIT ]'}</span>
                 </span>
                 <ArrowRight className="w-3.5 h-3.5 text-black group-hover:translate-x-1 transition-transform" />
               </div>
@@ -293,7 +291,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </button>
           )}
 
-          {/* BUTTON 8: [08. ACADEMIC TITLES & DEGREES] (NEW! Official Certifications Tape) */}
+          {/* BUTTON 8: [08. ACADEMIC TITLES & DEGREES] */}
           {onOpenTitles && (
             <button
               onClick={onOpenTitles}
@@ -302,10 +300,10 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               <div className="flex items-center justify-between">
                 <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                   <GraduationCap className="w-3.5 h-3.5 text-indigo-900" />
-                  <span>[ 08. ACADEMIC TITLES & DEGREES ]</span>
+                  <span>{currentLang === 'es' ? '[ 08. TÍTULOS ACADÉMICOS & GRADOS ]' : '[ 08. ACADEMIC TITLES & DEGREES ]'}</span>
                 </span>
                 <span className="bg-indigo-900 text-white font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
-                  KIEL • POZNAŃ • U. DE CHILE
+                  {currentLang === 'es' ? 'KIEL • POZNAŃ • U. DE CHILE' : 'KIEL • POZNAŃ • U. OF CHILE'}
                 </span>
               </div>
               <div className="text-[9px] sm:text-[9.5px] font-mono font-bold text-neutral-800 tracking-tight mt-0.5">
@@ -316,22 +314,22 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </button>
           )}
 
-          {/* BUTTON 9: [09. CV] (Bright Green Direct Download Tape) */}
+          {/* BUTTON 9: [09. CV] */}
           <a
             href={resolveAsset('/Daniel_Santander_CV.pdf')}
             download="Daniel_Santander_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative w-full text-left bg-[#22c55e] hover:bg-[#16a34a] text-black hover:text-white px-3 py-1 sm:py-1.5 border-3 border-black shadow-[4px_4px_0px_#000000] -rotate-2 -translate-x-2 hover:rotate-0 hover:translate-x-0 hover:scale-[1.02] hover:z-30 active:scale-95 transition-all flex flex-col cursor-pointer"
-            title="Descargar Currículum Vitae oficial (PDF)"
+            title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
           >
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                 <Download className="w-3.5 h-3.5 text-black group-hover:text-white" />
-                <span>[ 09. CURRICULUM VITAE (PDF) ]</span>
+                <span>{currentLang === 'es' ? '[ 09. CURRÍCULUM VITAE (PDF) ]' : '[ 09. CURRICULUM VITAE (PDF) ]'}</span>
               </span>
               <span className="bg-black text-white font-mono font-black text-[9px] px-1.5 py-0.2 border border-white uppercase">
-                DOWNLOAD
+                {currentLang === 'es' ? 'DESCARGAR' : 'DOWNLOAD'}
               </span>
             </div>
             <div className="text-[9px] sm:text-[9.5px] font-mono font-bold text-neutral-900 group-hover:text-neutral-100 tracking-tight mt-0.5">
@@ -341,7 +339,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </a>
 
-          {/* BUTTON 10: [10. ACADEMIC DOSSIER // EXPEDIENTE EN PAPEL] (Aparte, justo después del curriculum!) */}
+          {/* BUTTON 10: [10. ACADEMIC DOSSIER // PAPER ARCHIVE] */}
           <button
             onClick={onSelectScienceDossier}
             className="group relative w-full text-left bg-[#ede5d6] hover:bg-white text-[#2c2620] px-3 py-1 sm:py-1.5 border-3 border-black shadow-[4px_4px_0px_#000000] rotate-1.5 translate-x-2 hover:rotate-0 hover:translate-x-0 hover:scale-[1.02] hover:z-30 active:scale-95 transition-all cursor-pointer"
@@ -349,7 +347,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             <div className="flex items-center justify-between">
               <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                 <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
-                <span>[ 10. ACADEMIC DOSSIER // EXPEDIENTE EN PAPEL ]</span>
+                <span>{currentLang === 'es' ? '[ 10. EXPEDIENTE CIENTÍFICO EN PAPEL ]' : '[ 10. ACADEMIC DOSSIER // PAPER ARCHIVE ]'}</span>
               </span>
               <span className="bg-black text-[#ede5d6] font-mono font-black text-[9px] px-1.5 py-0.2 border border-black uppercase">
                 {currentLang === 'es' ? 'ARCHIVO PAPEL' : 'PAPER ARCHIVE'}
@@ -362,7 +360,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
           </button>
 
-          {/* BUTTON 11: [11. HIRE ME // WORK TOGETHER] (Golden Amber Stencil Tape) */}
+          {/* BUTTON 11: [11. HIRE ME // WORK TOGETHER] */}
           {onOpenHireMe && (
             <button
               onClick={onOpenHireMe}
@@ -371,14 +369,14 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               <div className="flex items-center justify-between">
                 <span className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase flex items-center space-x-1.5">
                   <Briefcase className="w-3.5 h-3.5 text-black" />
-                  <span>[ 11. HIRE ME // WORK TOGETHER ]</span>
+                  <span>{currentLang === 'es' ? '[ 11. CONTRÁTAME // TRABAJEMOS JUNTOS ]' : '[ 11. HIRE ME // WORK TOGETHER ]'}</span>
                 </span>
                 <ArrowRight className="w-3.5 h-3.5 text-black group-hover:translate-x-1 transition-transform" />
               </div>
               <div className="text-[9px] sm:text-[9.5px] font-mono font-bold text-neutral-800 tracking-tight mt-0.5">
                 {currentLang === 'es'
                   ? 'Consultoría Ambiental, Contratos de Investigación, Ponencias y Dirección'
-                  : 'Environmental Consulting, Research Contracts, Speaking & Campaign Direction'}
+                  : 'Environmental Consulting, Research Contracts, Speaking & Campaign Leadership'}
               </div>
             </button>
           )}
@@ -397,7 +395,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           </span>
           <span className="opacity-40">•</span>
           <span className="opacity-80">
-            {currentLang === 'es' ? '8 PAÍSES REGISTRADOS' : '8 COUNTRIES DOCUMENTED'}
+            {currentLang === 'es' ? '8 PAÍSES REGISTRADOS' : '8 DOCUMENTED COUNTRIES'}
           </span>
         </div>
 

@@ -25,17 +25,25 @@ const GithubIcon = ({ className = "w-3.5 h-3.5" }: { className?: string }) => (
 export interface SideProject {
   id: string;
   emoji: string;
-  title: string;
-  subtitle: string;
-  category: string;
+  titleEn: string;
+  titleEs: string;
+  subtitleEn: string;
+  subtitleEs: string;
+  categoryEn: string;
+  categoryEs: string;
   categoryColor: string;
   branch: 'science' | 'comms';
   progress: number;
-  collaborators: string;
-  desc: string;
-  checklist: { text: string; completed: boolean }[];
-  subproject?: string;
-  notes: string;
+  collaboratorsEn: string;
+  collaboratorsEs: string;
+  descEn: string;
+  descEs: string;
+  checklistEn: { text: string; completed: boolean }[];
+  checklistEs: { text: string; completed: boolean }[];
+  subprojectEn?: string;
+  subprojectEs?: string;
+  notesEn: string;
+  notesEs: string;
   githubUrl?: string;
 }
 
@@ -46,81 +54,129 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
   {
     id: 'lauwersmeer',
     emoji: '🌊',
-    title: 'Climate Risk en Lauwersmeer',
-    subtitle: 'Evaluación y modelación hidrodinámica de riesgo climático costero y marejadas',
-    category: 'Investigación Científica',
+    titleEn: 'Coastal Climate Risk in Lauwersmeer',
+    titleEs: 'Climate Risk en Lauwersmeer',
+    subtitleEn: 'Hydrodynamic modeling of storm surges and sea level rise in the Wadden Sea basin',
+    subtitleEs: 'Evaluación y modelación hidrodinámica de riesgo climático costero y marejadas',
+    categoryEn: 'Scientific Research',
+    categoryEs: 'Investigación Científica',
     categoryColor: 'bg-blue-600 text-white',
     branch: 'science',
     progress: 75,
-    collaborators: 'Co-autoría con colegas investigadores (CAU Kiel)',
-    desc: 'Estudio de vulnerabilidad, eventos de inundación extrema y modelación de ascenso del nivel del mar (SLR) en la cuenca y ecosistema de Lauwersmeer (Países Bajos).',
-    checklist: [
+    collaboratorsEn: 'Co-authored with research colleagues (CAU Kiel, Germany)',
+    collaboratorsEs: 'Co-autoría con colegas investigadores (CAU Kiel, Alemania)',
+    descEn: 'Vulnerability assessment, extreme storm surge simulations, and sea level rise (SLR) scenarios for the Lauwersmeer coastal ecosystem in the Netherlands.',
+    descEs: 'Estudio de vulnerabilidad, eventos de inundación extrema y modelación de ascenso del nivel del mar (SLR) en la cuenca y ecosistema de Lauwersmeer (Países Bajos).',
+    checklistEn: [
+      { text: 'Consolidate Lauwersmeer climate database (1990-2025)', completed: true },
+      { text: 'Execute hydrodynamic storm surge simulations', completed: true },
+      { text: 'Coordination review with co-authors in Kiel', completed: false },
+      { text: 'Draft Methodology and Discussion sections of paper', completed: false }
+    ],
+    checklistEs: [
       { text: 'Consolidar base de datos climáticos de Lauwersmeer (1990-2025)', completed: true },
       { text: 'Ejecutar simulaciones de eventos de marejada de tempestad', completed: true },
       { text: 'Reunión de coordinación con co-autores en Kiel', completed: false },
       { text: 'Escribir la sección de Métodos y Discusión del artículo', completed: false }
     ],
-    notes: 'Paper enfocado en resiliencia costera e integración con modelos de elevación digital LiDAR.',
+    notesEn: 'Paper focused on coastal resilience, combining hydrodynamic modeling with LiDAR digital elevation models.',
+    notesEs: 'Paper enfocado en resiliencia costera e integración con modelos de elevación digital LiDAR.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor'
   },
   {
     id: 'rewild',
     emoji: '🔥',
-    title: 'ReWild: Modelo Forestal & Incendios',
-    subtitle: 'Análisis ecológico y propuesta de reconversión del monocultivo de pino y eucalipto',
-    category: 'Ecología & Transición Territorial',
+    titleEn: 'ReWild: Forestry Model & Megafire Overhaul',
+    titleEs: 'ReWild: Modelo Forestal & Incendios',
+    subtitleEn: 'Ecological analysis and transition proposal from timber monocultures to native forest mosaics',
+    subtitleEs: 'Análisis ecológico y propuesta de reconversión del monocultivo de pino y eucalipto',
+    categoryEn: 'Ecology & Territorial Transition',
+    categoryEs: 'Ecología & Transición Territorial',
     categoryColor: 'bg-orange-600 text-white',
     branch: 'science',
     progress: 65,
-    collaborators: 'Red por la Superación del Modelo Forestal + 2 Co-editores',
-    desc: 'Preparación y edición colectiva de obra crítica y propositiva sobre megaincendios forestales en Chile, restauración ecológica de bosques nativos y superación del extractivismo forestal.',
-    subproject: '🌲 App para ReWild de Bosques (monitoreo comunal de parches nativos y prevención)',
-    checklist: [
+    collaboratorsEn: 'Network for the Overhaul of the Forestry Model + 2 Co-editors',
+    collaboratorsEs: 'Red por la Superación del Modelo Forestal + 2 Co-editores',
+    descEn: 'Collaborative volume and research initiative dissecting Chilean wildfire cycles, ecological restoration of sclerophyllous forest, and replacing timber monoculture extractivism.',
+    descEs: 'Preparación y edición colectiva de obra crítica y propositiva sobre megaincendios forestales en Chile, restauración ecológica de bosques nativos y superación del extractivismo forestal.',
+    subprojectEn: '🌲 App for Native Forest ReWilding (community monitoring and fire prevention)',
+    subprojectEs: '🌲 App para ReWild de Bosques (monitoreo comunal de parches nativos y prevención)',
+    checklistEn: [
+      { text: 'Review and edit chapters from the Forestry Overhaul Network', completed: true },
+      { text: 'Draft prologue and introduction with co-editors', completed: true },
+      { text: 'Define data architecture for the ReWild Native Forest App', completed: false },
+      { text: 'Map critical wildland-urban interface risk corridors', completed: false }
+    ],
+    checklistEs: [
       { text: 'Revisar y editar capítulos de la Red por la Superación del Modelo Forestal', completed: true },
       { text: 'Redactar prólogo e introducción con co-editores', completed: true },
       { text: 'Definir arquitectura de datos de la App ReWild (monitoreo de bosque nativo)', completed: false },
       { text: 'Diseñar cartografía de zonas críticas de interfase urbano-forestal', completed: false }
     ],
-    notes: 'ReWild aborda la restauración activa versus pasiva del matorral y bosque esclerófilo.',
+    notesEn: 'ReWild explores active versus passive restoration in Mediterranean-climate sclerophyllous landscapes.',
+    notesEs: 'ReWild aborda la restauración activa versus pasiva del matorral y bosque esclerófilo.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof'
   },
   {
     id: 'permacultura',
     emoji: '🌾',
-    title: 'Chile Agrotech & AgriTwin',
-    subtitle: 'Tecnología Agrícola de Precisión & Gemelo Digital IoT — Maule, Chile',
-    category: 'Agrotech, IoT & Satélites',
+    titleEn: 'Chile Agrotech & AgriTwin Platform',
+    titleEs: 'Chile Agrotech & AgriTwin',
+    subtitleEn: 'Precision Agriculture IoT & Soil Telemetry Digital Twin — Maule, Chile',
+    subtitleEs: 'Tecnología Agrícola de Precisión & Gemelo Digital IoT — Maule, Chile',
+    categoryEn: 'Agrotech, IoT & Satellites',
+    categoryEs: 'Agrotech, IoT & Satélites',
     categoryColor: 'bg-emerald-600 text-white',
     branch: 'science',
     progress: 85,
-    collaborators: 'Productores Agrícolas del Maule, Ingenieros IoT & Especialistas ESG',
-    desc: 'Plataforma de ingeniería y tecnología agrícola de precisión para el campo chileno y la Región del Maule. Integra gemelo digital AgriTwin, sensores de humedad de suelo IoT y análisis satelital Sentinel/NDVI.',
-    subproject: '🚜 AgriTwin Hub + Diseño Regenerativo Keyline para huertos y viñas',
-    checklist: [
+    collaboratorsEn: 'Maule Agricultural Producers, IoT Engineers & ESG Specialists',
+    collaboratorsEs: 'Productores Agrícolas del Maule, Ingenieros IoT & Especialistas ESG',
+    descEn: 'Precision agricultural engineering platform for Chilean croplands. Couples AgriTwin digital twin engine with in-situ soil moisture telemetry and Sentinel-2 NDVI/NDRE satellite analytics.',
+    descEs: 'Plataforma de ingeniería y tecnología agrícola de precisión para el campo chileno y la Región del Maule. Integra gemelo digital AgriTwin, sensores de humedad de suelo IoT y análisis satelital Sentinel/NDVI.',
+    subprojectEn: '🚜 AgriTwin Hub + Keyline Regenerative Water Design for Vineyards',
+    subprojectEs: '🚜 AgriTwin Hub + Diseño Regenerativo Keyline para huertos y viñas',
+    checklistEn: [
+      { text: 'Configure microservice architecture and production backend', completed: true },
+      { text: 'Integrate automated Sentinel-2 multispectral vegetation feeds', completed: true },
+      { text: 'Connect real-time capacitive soil moisture probes to telemetry hub', completed: false },
+      { text: 'Deliver executive rollout brochure to partner vineyards in Maule', completed: false }
+    ],
+    checklistEs: [
       { text: 'Configurar entorno oficial y arquitectura de microservicios AgroTech Chile', completed: true },
       { text: 'Integrar capas satelitales multispectrales (Sentinel-2 / NDVI)', completed: true },
       { text: 'Conectar telemetría de sensores de humedad de suelo IoT al AgriTwin Hub', completed: false },
       { text: 'Presentar Brochure Ejecutivo a viñas y predios agrícolas del Maule', completed: false }
     ],
-    notes: 'Chile Agrotech une tecnología de frontera con la realidad productiva y ecológica del campo chileno.',
+    notesEn: 'Bridges European precision environmental engineering with smallholder and vineyard water challenges.',
+    notesEs: 'Chile Agrotech une tecnología de frontera con la realidad productiva y ecológica del campo chileno.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app'
   },
   {
     id: 'paper_fisica',
     emoji: '⚛️',
-    title: 'Termodinámica & Sistemas Complejos',
-    subtitle: 'Modelación matemática de procesos estocásticos y termodinámica de no equilibrio',
-    category: 'Física Teórica & Modelación',
+    titleEn: 'Non-Equilibrium Thermodynamics & Complex Systems',
+    titleEs: 'Termodinámica & Sistemas Complejos',
+    subtitleEn: 'Mathematical modeling of stochastic transport processes and entropy production',
+    subtitleEs: 'Modelación matemática de procesos estocásticos y termodinámica de no equilibrio',
+    categoryEn: 'Theoretical Physics & Modeling',
+    categoryEs: 'Física Teórica & Modelación',
     categoryColor: 'bg-blue-600 text-white',
     branch: 'science',
     progress: 25,
-    collaborators: 'Investigación Autónoma & Asesores Físicos',
-    desc: 'Exploración teórica rigurosa, modelación matemática y desarrollo de un paper de física aplicada a procesos estocásticos de transporte territorial y disipación de entropía.',
-    checklist: [
+    collaboratorsEn: 'Autonomous Research & Physics Mentors',
+    collaboratorsEs: 'Investigación Autónoma & Asesores Físicos',
+    descEn: 'Theoretical physics investigation applying non-equilibrium statistical mechanics to spatial dissipation and hydrological transport equations.',
+    descEs: 'Exploración teórica rigurosa, modelación matemática y desarrollo de un paper de física aplicada a procesos estocásticos de transporte territorial y disipación de entropía.',
+    checklistEn: [
+      { text: 'Formulate governing equations and conceptual framework', completed: true },
+      { text: 'Compile literature on non-linear dynamics and Fokker-Planck equations', completed: false }
+    ],
+    checklistEs: [
       { text: 'Definir marco conceptual y ecuaciones gobernantes', completed: true },
       { text: 'Compilar referencias de física estadística y sistemas no lineales', completed: false }
     ],
-    notes: 'Proyecto para profundizar en física teórica dura y procesos estocásticos.',
+    notesEn: 'Deep intellectual project delving into stochastic thermodynamics and hydrogeophysical transport.',
+    notesEs: 'Proyecto para profundizar en física teórica dura y procesos estocásticos.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder'
   },
 
@@ -130,79 +186,127 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
   {
     id: 'incel',
     emoji: '🎭',
-    title: 'Los Manejadores (Media & AI Strategy)',
-    subtitle: 'Arquitectura de presencia digital, influencers virtuales generados por IA y narrativa',
-    category: 'Inteligencia Artificial & Media',
+    titleEn: 'Los Manejadores (Digital Media & AI Agency)',
+    titleEs: 'Los Manejadores (Media & AI Strategy)',
+    subtitleEn: 'Web presence architecture, virtual AI creators, and brand narrative engineering',
+    subtitleEs: 'Arquitectura de presencia digital, influencers virtuales generados por IA y narrativa',
+    categoryEn: 'Artificial Intelligence & Media',
+    categoryEs: 'Inteligencia Artificial & Media',
     categoryColor: 'bg-purple-600 text-white',
     branch: 'comms',
     progress: 80,
-    collaborators: 'Equipo de Medios Digitales, Producción IA & Storytelling',
-    desc: 'Agencia de comunicación digital y arquitectura de presencia web. Une precisión analítica europea con visión de medios para gestionar creadores virtuales impulsados por IA, canales de divulgación y consultoría estratégica.',
-    checklist: [
+    collaboratorsEn: 'Digital Media Crew, Generative AI Team & Storytellers',
+    collaboratorsEs: 'Equipo de Medios Digitales, Producción IA & Storytelling',
+    descEn: 'Digital communication agency combining European analytical precision with energetic digital storytelling. Managing AI-driven virtual creators, YouTube educational feeds, and strategic brand positioning.',
+    descEs: 'Agencia de comunicación digital y arquitectura de presencia web. Une precisión analítica europea con visión de medios para gestionar creadores virtuales impulsados por IA, canales de divulgación y consultoría estratégica.',
+    checklistEn: [
+      { text: 'Establish virtual creator personas and core narrative pillars', completed: true },
+      { text: 'Produce initial social media scripts, carousels, and visual assets', completed: true },
+      { text: 'Finalize official web platform and automated distribution pipeline', completed: false },
+      { text: 'Complete 10-slide pitch deck for institutional clients', completed: false }
+    ],
+    checklistEs: [
       { text: 'Definir perfiles de creadores digitales e identidades de marca', completed: true },
       { text: 'Producir primeros guiones y carruseles para redes sociales', completed: true },
       { text: 'Desarrollar landing page completa y conectar pipeline de difusión', completed: false },
       { text: 'Finalizar pitch deck de 10 diapositivas para inversores y clientes', completed: false }
     ],
-    notes: 'Los Manejadores democratiza el impacto digital: IA + storytelling + resultados medibles.'
+    notesEn: 'Democratizing the reach of authentic narratives: Generative AI + compelling storytelling + measurable metrics.',
+    notesEs: 'Los Manejadores democratiza el impacto digital: IA + storytelling + resultados medibles.'
   },
   {
     id: 'divulgacion',
     emoji: '🎙️',
-    title: 'Ciencia & Territorios',
-    subtitle: 'Plataforma transmedia de divulgación científica y comunicación pública de la ciencia',
-    category: 'Divulgación Científica',
+    titleEn: 'Science & Territories (Ciencia & Territorios)',
+    titleEs: 'Ciencia & Territorios',
+    subtitleEn: 'Transmedia platform for public science communication and participatory socio-environmental mapping',
+    subtitleEs: 'Plataforma transmedia de divulgación científica y comunicación pública de la ciencia',
+    categoryEn: 'Public Science Outreach',
+    categoryEs: 'Divulgación Científica',
     categoryColor: 'bg-emerald-600 text-white',
     branch: 'comms',
     progress: 70,
-    collaborators: 'Comunidades Locales, Científicos & Comunicadores',
-    desc: 'Iniciativa transmedia para acercar el conocimiento científico a las realidades territoriales chilenas mediante reportajes, podcasts, cápsulas para redes y cartografía socio-ambiental participativa.',
-    checklist: [
+    collaboratorsEn: 'Frontline Communities, Scientists & Grassroots Communicators',
+    collaboratorsEs: 'Comunidades Locales, Científicos & Comunicadores',
+    descEn: 'Transmedia initiative translating complex environmental science into frontline community reality via audio podcasts, investigative video briefs, and participatory cartography.',
+    descEs: 'Iniciativa transmedia para acercar el conocimiento científico a las realidades territoriales chilenas mediante reportajes, podcasts, cápsulas para redes y cartografía socio-ambiental participativa.',
+    checklistEn: [
+      { text: 'Produce first 4 episodes of the Ciencia & Territorios podcast', completed: true },
+      { text: 'Publish in-depth feature on watershed biodiversity and water rights', completed: true },
+      { text: 'Deploy interactive web platform for socio-ecological community maps', completed: false },
+      { text: 'Establish strategic alliances with university research centers', completed: false }
+    ],
+    checklistEs: [
       { text: 'Producir primeros 4 episodios del podcast Ciencia & Territorios', completed: true },
       { text: 'Publicar reportaje sobre biodiversidad y escasez hídrica local', completed: true },
       { text: 'Diseñar plataforma web para visualización de mapas socio-ecológicos', completed: false },
       { text: 'Gestión de alianzas con centros de investigación universitarios', completed: false }
     ],
-    notes: 'Conectar el conocimiento académico con las vivencias y luchas de los territorios.',
+    notesEn: 'Bridging academic peer-reviewed research with community knowledge and water assemblies.',
+    notesEs: 'Conectar el conocimiento académico con las vivencias y luchas de los territorios.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/memoria-y-dignidad-maule'
   },
   {
     id: 'piratas',
     emoji: '🏴‍☠️',
-    title: 'Novela Gráfica: Guerra del Pacífico & Leyendas',
-    subtitle: 'Cómic histórico-fantástico sobre la contienda naval y mitología del Pacífico Sur',
-    category: 'Arte, Cómic & Narrativa',
+    titleEn: 'Graphic Novel: War of the Pacific & Sea Legends',
+    titleEs: 'Novela Gráfica: Guerra del Pacífico & Leyendas',
+    subtitleEn: 'Historical-mythological comic novel on South Pacific naval combat and coastal nautical legends',
+    subtitleEs: 'Cómic histórico-fantástico sobre la contienda naval y mitología del Pacífico Sur',
+    categoryEn: 'Art, Graphic Novel & Narrative',
+    categoryEs: 'Arte, Cómic & Narrativa',
     categoryColor: 'bg-amber-600 text-white',
     branch: 'comms',
     progress: 55,
-    collaborators: 'Ilustradores, Historiadores & Guionistas',
-    desc: 'Creación de novela gráfica ambientada en el marco de la Guerra del Pacífico chilena, entrelazando batallas navales históricas, corsarios del Pacífico sur y mitos náuticos de las costas chilenas.',
-    checklist: [
+    collaboratorsEn: 'Illustrators, Naval Historians & Scriptwriters',
+    collaboratorsEs: 'Ilustradores, Historiadores & Guionistas',
+    descEn: 'Graphic novel exploring the 1879 War of the Pacific, intertwining historical ironclad combat, South Pacific corsairs, and maritime Chilean mythology.',
+    descEs: 'Creación de novela gráfica ambientada en el marco de la Guerra del Pacífico chilena, entrelazando batallas navales históricas, corsarios del Pacífico sur y mitos náuticos de las costas chilenas.',
+    checklistEn: [
+      { text: 'Define character development arcs (naval officers, corsairs, sea mythical beings)', completed: true },
+      { text: 'Complete literary script for the first 3 chapters', completed: true },
+      { text: 'Approve historical sketches of ironclad warships and coastal landscapes', completed: false },
+      { text: 'Coordinate layout and printing pipeline with indie comic publisher', completed: false }
+    ],
+    checklistEs: [
       { text: 'Definir arco de personajes (corsarios, marinos y seres mitológicos)', completed: true },
       { text: 'Finalizar guión literario de los primeros 3 capítulos', completed: true },
       { text: 'Aprobar bocetos de embarcaciones navales históricas', completed: false },
       { text: 'Coordinar maquetación con la editorial o plataforma webcomic', completed: false }
     ],
-    notes: 'Enfoque en el choque entre realismo militar histórico y leyendas populares del mar de Chile.'
+    notesEn: 'Focus on contrasting gritty military historical accuracy with maritime folklore.',
+    notesEs: 'Enfoque en el choque entre realismo militar histórico y leyendas populares del mar de Chile.'
   },
   {
     id: 'red_maule',
     emoji: '📻',
-    title: 'Maule Red // Red de Medios Territoriales',
-    subtitle: 'Radio en vivo, avisador de emergencias rurales (APR) y periodismo territorial',
-    category: 'Medios Territoriales & APR',
+    titleEn: 'Maule Red // Community Media & Rural Warning System',
+    titleEs: 'Maule Red // Red de Medios Territoriales',
+    subtitleEn: 'Live broadcast radio, rural drinking water emergency alerts (APR), and regional journalism',
+    subtitleEs: 'Radio en vivo, avisador de emergencias rurales (APR) y periodismo territorial',
+    categoryEn: 'Grassroots Media & Rural Water Alerts',
+    categoryEs: 'Medios Territoriales & APR',
     categoryColor: 'bg-emerald-600 text-white',
     branch: 'comms',
     progress: 40,
-    collaborators: 'Reporteros Locales, Comunidades Campesinas & Redes de APR',
-    desc: 'Plataforma comunitaria de información para el Maule Sur. Integra radio comunitaria en vivo, avisador de emergencias de Agua Potable Rural (APR) y cortes de suministro eléctrico, mapa territorial colaborativo y periodismo de utilidad cotidiana.',
-    checklist: [
+    collaboratorsEn: 'Local Peasant Reporters, Rural Water Committees (APR) & Agrarian Unions',
+    collaboratorsEs: 'Reporteros Locales, Comunidades Campesinas & Redes de APR',
+    descEn: 'Grassroots information platform for rural Maule. Features live community streaming radio, emergency alert system for rural water cuts (APR) and power outages, and interactive community news.',
+    descEs: 'Plataforma comunitaria de información para el Maule Sur. Integra radio comunitaria en vivo, avisador de emergencias de Agua Potable Rural (APR) y cortes de suministro eléctrico, mapa territorial colaborativo y periodismo de utilidad cotidiana.',
+    checklistEn: [
+      { text: 'Prototype responsive web platform and rural APR outage map', completed: true },
+      { text: 'Draft guidelines and community call for citizen peasant reporters', completed: true },
+      { text: 'Convene first assembly of community media correspondents', completed: false },
+      { text: 'Stream live broadcast feed across rural community frequencies', completed: false }
+    ],
+    checklistEs: [
       { text: 'Prototipar plataforma web y mapa de cortes y emergencias APR', completed: true },
       { text: 'Elaborar perfil de roles y convocatoria abierta para reporteros locales', completed: true },
       { text: 'Realizar primera asamblea o reunión de equipo fundador', completed: false },
       { text: 'Conectar señal streaming para la radio comunitaria en vivo', completed: false }
     ],
-    notes: 'Maule Red responde a la desconexión informativa de los territorios rurales.',
+    notesEn: 'Addressing the isolation of rural peasant towns: community communication produced by and for local territories.',
+    notesEs: 'Maule Red responde a la desconexión informativa de los territorios rurales.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/MauleRed'
   }
 ];
@@ -246,7 +350,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
               <span>{currentLang === 'es' ? '[ PROYECTOS & INNOVACIÓN // I+D ]' : '[ VENTURES & INNOVATION // R&D ]'}</span>
             </span>
             <span className="hidden sm:inline-block bg-yellow-400 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
-              8 ACTIVE INITIATIVES
+              {currentLang === 'es' ? '8 INICIATIVAS ACTIVAS' : '8 ACTIVE INITIATIVES'}
             </span>
           </div>
 
@@ -299,7 +403,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
             <button
               onClick={onClose}
               className="p-1 rounded-lg bg-white/10 hover:bg-red-600 hover:text-white text-neutral-300 transition-all border border-white/20 active:scale-90 cursor-pointer ml-1"
-              title="Cerrar panel"
+              title={currentLang === 'es' ? 'Cerrar panel' : 'Close panel'}
             >
               <X className="w-5 h-5" />
             </button>
@@ -334,16 +438,18 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                         isSelected ? 'bg-black text-yellow-300' : proj.categoryColor
                       }`}
                     >
-                      {proj.branch === 'science' ? 'CIENCIA' : 'MEDIOS'} • {proj.progress}%
+                      {proj.branch === 'science' 
+                        ? (currentLang === 'es' ? 'CIENCIA' : 'SCIENCE') 
+                        : (currentLang === 'es' ? 'MEDIOS' : 'COMMS')} • {proj.progress}%
                     </span>
                   </div>
 
                   <div className="font-mono font-black text-xs uppercase mt-1 truncate">
-                    {proj.title}
+                    {currentLang === 'es' ? proj.titleEs : proj.titleEn}
                   </div>
 
                   <div className={`text-[10px] truncate mt-0.5 ${isSelected ? 'text-neutral-700 font-medium' : 'text-neutral-400'}`}>
-                    {proj.subtitle}
+                    {currentLang === 'es' ? proj.subtitleEs : proj.subtitleEn}
                   </div>
                 </div>
               );
@@ -359,10 +465,12 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                 <div className="flex items-center space-x-2">
                   <span className="text-2xl">{currentProj.emoji}</span>
                   <span className={`text-[10px] font-mono font-black px-2 py-0.5 border border-black uppercase ${currentProj.categoryColor}`}>
-                    {currentProj.category}
+                    {currentLang === 'es' ? currentProj.categoryEs : currentProj.categoryEn}
                   </span>
                   <span className="text-[10px] font-mono bg-white/10 text-neutral-300 px-2 py-0.5 border border-white/20 uppercase">
-                    {currentProj.branch === 'science' ? '🔬 Rama Científica' : '📢 Rama Comunicación & Cultura'}
+                    {currentProj.branch === 'science' 
+                      ? (currentLang === 'es' ? '🔬 Rama Científica' : '🔬 Science Branch') 
+                      : (currentLang === 'es' ? '📢 Rama Comunicación & Cultura' : '📢 Comms & Culture Branch')}
                   </span>
                 </div>
 
@@ -382,10 +490,10 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
               </div>
 
               <h3 className="font-mono font-black text-lg sm:text-xl text-white uppercase tracking-tight">
-                {currentProj.title}
+                {currentLang === 'es' ? currentProj.titleEs : currentProj.titleEn}
               </h3>
               <p className="font-sans text-xs text-neutral-300">
-                {currentProj.subtitle}
+                {currentLang === 'es' ? currentProj.subtitleEs : currentProj.subtitleEn}
               </p>
             </div>
 
@@ -393,7 +501,9 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
             <div className="flex items-center space-x-2 font-mono text-xs text-neutral-300 bg-black/60 p-2.5 border-2 border-black shadow-[2px_2px_0px_#000]">
               <Users className="w-4 h-4 text-amber-400 shrink-0" />
               <span className="text-neutral-400">{currentLang === 'es' ? 'Colaboradores:' : 'Collaborators:'}</span>
-              <span className="text-white font-bold">{currentProj.collaborators}</span>
+              <span className="text-white font-bold">
+                {currentLang === 'es' ? currentProj.collaboratorsEs : currentProj.collaboratorsEn}
+              </span>
             </div>
 
             {/* Operational Progress Bar */}
@@ -418,15 +528,15 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                 {currentLang === 'es' ? '[ OBJETIVO ESTRATÉGICO & ALCANCE ]' : '[ STRATEGIC OBJECTIVE & SCOPE ]'}
               </div>
               <p className="font-sans text-xs text-neutral-200 leading-relaxed">
-                {currentProj.desc}
+                {currentLang === 'es' ? currentProj.descEs : currentProj.descEn}
               </p>
             </div>
 
             {/* Subproject Tag (if applicable) */}
-            {currentProj.subproject && (
+            {(currentProj.subprojectEn || currentProj.subprojectEs) && (
               <div className="p-2.5 bg-[#facc15]/10 border-2 border-[#facc15] text-[#facc15] font-mono text-xs font-bold rounded flex items-center space-x-2">
                 <Sparkles className="w-4 h-4 shrink-0 text-[#facc15]" />
-                <span>{currentProj.subproject}</span>
+                <span>{currentLang === 'es' ? currentProj.subprojectEs : currentProj.subprojectEn}</span>
               </div>
             )}
 
@@ -437,7 +547,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
               </div>
 
               <div className="space-y-1.5">
-                {currentProj.checklist.map((chk, cIdx) => (
+                {(currentLang === 'es' ? currentProj.checklistEs : currentProj.checklistEn).map((chk, cIdx) => (
                   <div
                     key={cIdx}
                     className={`p-2 border-2 border-black font-mono text-xs flex items-start space-x-2.5 ${
@@ -459,7 +569,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
 
             {/* Field Notes */}
             <div className="font-mono text-[10px] text-neutral-400 pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
-              <span>* Bitácora: {currentProj.notes}</span>
+              <span>* {currentLang === 'es' ? `Bitácora: ${currentProj.notesEs}` : `Field note: ${currentProj.notesEn}`}</span>
               {currentProj.githubUrl && (
                 <a 
                   href={currentProj.githubUrl} 
@@ -467,7 +577,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                   rel="noopener noreferrer" 
                   className="text-purple-400 hover:text-white underline font-mono text-[10px]"
                 >
-                  Repositorio GitHub
+                  {currentLang === 'es' ? 'Repositorio GitHub' : 'GitHub Repository'}
                 </a>
               )}
             </div>

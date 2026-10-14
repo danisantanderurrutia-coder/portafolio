@@ -54,14 +54,14 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
               {currentLang === 'es' ? '[ ARQUITECTURA CULTURAL & DIRECCIÓN DE ARTE ]' : '[ CULTURAL ARCHITECTURE & ART DIRECTION ]'}
             </span>
             <span className="hidden sm:inline-block bg-yellow-400 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
-              BACKSTAGE & CONCEPT BOOK
+              {currentLang === 'es' ? 'BACKSTAGE & LIBRO DE CONCEPTO' : 'BACKSTAGE & CONCEPT BOOK'}
             </span>
           </div>
 
           <button
             onClick={onClose}
             className="p-1 rounded-lg bg-white/10 hover:bg-red-600 hover:text-white text-neutral-300 transition-all border border-white/20 active:scale-90 cursor-pointer ml-auto"
-            title="Cerrar // Close"
+            title={currentLang === 'es' ? 'Cerrar' : 'Close'}
           >
             <X className="w-5 h-5" />
           </button>
@@ -108,7 +108,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
             }`}
           >
             <Tv className="w-3.5 h-3.5" />
-            <span>01. CUARENTENA RAP // DISPOSITIVO & KARMAS</span>
+            <span>{currentLang === 'es' ? '01. CUARENTENA RAP // DISPOSITIVO & KARMAS' : '01. CUARENTENA RAP // CONCEPT & KARMAS'}</span>
           </button>
 
           <button
@@ -132,7 +132,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
             }`}
           >
             <Users className="w-3.5 h-3.5" />
-            <span>03. INFRAESTRUCTURA DISCORD (+12K)</span>
+            <span>{currentLang === 'es' ? '03. INFRAESTRUCTURA DISCORD (+12K)' : '03. DISCORD INFRASTRUCTURE (+12K)'}</span>
           </button>
 
           <button
@@ -144,7 +144,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
             }`}
           >
             <Flame className="w-3.5 h-3.5" />
-            <span>04. BRIGADA PAULINA AGUIRRE & MURALES</span>
+            <span>{currentLang === 'es' ? '04. BRIGADA PAULINA AGUIRRE & MURALES' : '04. PAULINA AGUIRRE BRIGADE & MURALS'}</span>
           </button>
         </div>
 
@@ -164,27 +164,33 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2">
                   <div className="flex items-center space-x-2">
                     <span className="bg-red-600 text-white font-mono font-black text-[9px] px-2 py-0.5 border border-black uppercase">
-                      CONCEPTO FILOSÓFICO
+                      {currentLang === 'es' ? 'CONCEPTO FILOSÓFICO' : 'PHILOSOPHICAL CONCEPT'}
                     </span>
                     <h3 className="font-mono font-black text-sm sm:text-base text-yellow-400 uppercase">
                       {currentLang === 'es' ? 'La Muerte Simbólica y el Viaje hacia la Liberación' : 'Symbolic Death & The Journey toward Liberation'}
                     </h3>
                   </div>
-                  <span className="font-mono text-xs text-neutral-400">2020-2021 // Pandemia Global</span>
+                  <span className="font-mono text-xs text-neutral-400">
+                    {currentLang === 'es' ? '2020-2021 // Pandemia Global' : '2020-2021 // Global Pandemic'}
+                  </span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-sans text-neutral-300 leading-relaxed">
                   <div className="bg-black/60 p-3 rounded-lg border border-white/10 space-y-1">
-                    <span className="text-[#facc15] font-mono font-black text-xs uppercase block">01. Fase de Tumbas</span>
+                    <span className="text-[#facc15] font-mono font-black text-xs uppercase block">
+                      {currentLang === 'es' ? '01. Fase de Tumbas' : '01. Crypt Phase (Fase de Tumbas)'}
+                    </span>
                     <p className="text-[11px] text-neutral-300">
                       {currentLang === 'es'
                         ? 'En pleno confinamiento sanitario, la sociedad vivía rodeada de aislamiento y muerte en las noticias. Los emcees ingresan al torneo simbólicamente "muertos": inactivos y confinados.'
-                        : 'During lockdowns, emcees entered the narrative symbolically "dead" — inactive and confined — waking up their voices to overcome isolation.'}
+                        : 'During lockdowns, emcees entered the tournament symbolically "dead" — inactive and confined — waking up their voices to overcome isolation.'}
                     </p>
                   </div>
 
                   <div className="bg-black/60 p-3 rounded-lg border border-white/10 space-y-1">
-                    <span className="text-[#f97316] font-mono font-black text-xs uppercase block">02. Fase de Karmas</span>
+                    <span className="text-[#f97316] font-mono font-black text-xs uppercase block">
+                      {currentLang === 'es' ? '02. Fase de Karmas' : '02. Karma Phase (Fase de Karmas)'}
+                    </span>
                     <p className="text-[11px] text-neutral-300">
                       {currentLang === 'es'
                         ? 'Los participantes se enfrentan a sus propios dolores, duelos y conflictos estructurales. No era solo insultar al rival: era purgar la asfixia del encierro mediante la palabra poética.'
@@ -193,7 +199,9 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                   </div>
 
                   <div className="bg-black/60 p-3 rounded-lg border border-white/10 space-y-1">
-                    <span className="text-[#22c55e] font-mono font-black text-xs uppercase block">03. La Liberación</span>
+                    <span className="text-[#22c55e] font-mono font-black text-xs uppercase block">
+                      {currentLang === 'es' ? '03. La Liberación' : '03. Liberation Phase'}
+                    </span>
                     <p className="text-[11px] text-neutral-300">
                       {currentLang === 'es'
                         ? 'Culminación en la Gran Final. El arte se convierte en vehículo de catarsis colectiva y renacimiento, transmitido en directo ante miles de espectadores conectados.'
@@ -251,7 +259,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                           </div>
                         </div>
                         <div className="absolute bottom-2 left-2 right-2 bg-black/80 px-2.5 py-1 text-[11px] font-mono text-yellow-300 border border-white/20">
-                          ▶ Clic para reproducir manifiesto audiovisual
+                          {currentLang === 'es' ? '▶ Clic para reproducir manifiesto audiovisual' : '▶ Click to play audiovisual manifesto'}
                         </div>
                       </div>
                     )}
@@ -262,7 +270,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                 <div className="bg-[#141720] border-3 border-black p-4 rounded-xl shadow-[4px_4px_0px_#000] space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="bg-amber-400 text-black font-mono font-black text-[9px] px-2 py-0.5 border border-black uppercase">
-                      GRAN FINAL & CORONACIÓN
+                      {currentLang === 'es' ? 'GRAN FINAL & CORONACIÓN' : 'GRAND FINAL & CORONATION'}
                     </span>
                     <a
                       href="https://www.instagram.com/p/CKu2R9qgy3Q/"
@@ -270,7 +278,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                       rel="noreferrer"
                       className="font-mono text-[10px] text-neutral-400 hover:text-white flex items-center space-x-1"
                     >
-                      <span>Instagram Oficial</span>
+                      <span>{currentLang === 'es' ? 'Instagram Oficial' : 'Official Instagram'}</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
@@ -285,7 +293,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     </div>
                     <div className="space-y-1">
                       <h4 className="font-mono font-black text-sm text-white leading-tight">
-                        Crizzo Campeón: La Coronación de la Temporada
+                        {currentLang === 'es' ? 'Crizzo Campeón: La Coronación de la Temporada' : 'Crizzo Champion: Grand Season Finale'}
                       </h4>
                       <p className="text-[11px] text-neutral-300 font-sans leading-relaxed">
                         {currentLang === 'es'
@@ -298,7 +306,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                   {/* Battle Links */}
                   <div className="pt-2 border-t border-white/10 space-y-1.5">
                     <div className="text-[10px] font-mono uppercase text-neutral-400 font-bold">
-                      Batallas Destacadas en YouTube:
+                      {currentLang === 'es' ? 'Batallas Destacadas en YouTube:' : 'Featured YouTube Battles:'}
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10.5px] font-mono">
                       <a 
@@ -307,7 +315,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         rel="noreferrer"
                         className="p-1.5 bg-black/60 hover:bg-neutral-800 border border-white/10 rounded flex items-center justify-between text-yellow-300"
                       >
-                        <span>⚔️ Semifinales Oficiales</span>
+                        <span>{currentLang === 'es' ? '⚔️ Semifinales Oficiales' : '⚔️ Official Semifinals'}</span>
                         <ExternalLink className="w-3 h-3 text-neutral-400" />
                       </a>
                       <a 
@@ -316,7 +324,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         rel="noreferrer"
                         className="p-1.5 bg-black/60 hover:bg-neutral-800 border border-white/10 rounded flex items-center justify-between text-yellow-300"
                       >
-                        <span>⚔️ Cuartos: Chologuapo</span>
+                        <span>{currentLang === 'es' ? '⚔️ Cuartos: Chologuapo' : '⚔️ Quarterfinals: Chologuapo'}</span>
                         <ExternalLink className="w-3 h-3 text-neutral-400" />
                       </a>
                       <a 
@@ -325,7 +333,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         rel="noreferrer"
                         className="p-1.5 bg-black/60 hover:bg-neutral-800 border border-white/10 rounded flex items-center justify-between text-yellow-300"
                       >
-                        <span>⚔️ Fase de Karmas</span>
+                        <span>{currentLang === 'es' ? '⚔️ Fase de Karmas' : '⚔️ Karma Phase'}</span>
                         <ExternalLink className="w-3 h-3 text-neutral-400" />
                       </a>
                       <a 
@@ -334,7 +342,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         rel="noreferrer"
                         className="p-1.5 bg-black/60 hover:bg-neutral-800 border border-white/10 rounded flex items-center justify-between text-yellow-300"
                       >
-                        <span>⚔️ Duelo: Chologuapo vs Crizzo</span>
+                        <span>{currentLang === 'es' ? '⚔️ Duelo: Chologuapo vs Crizzo' : '⚔️ Clash: Chologuapo vs Crizzo'}</span>
                         <ExternalLink className="w-3 h-3 text-neutral-400" />
                       </a>
                     </div>
@@ -372,14 +380,16 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         />
                       </div>
                       <div className="font-mono font-bold text-xs text-white group-hover:text-yellow-400">
-                        Bases y Protocolos
+                        {currentLang === 'es' ? 'Bases y Protocolos' : 'Rules & Ethical Guidelines'}
                       </div>
                       <div className="text-[10px] text-neutral-400 mt-1">
-                        Manual ético y normativas de competencia anti-discriminación.
+                        {currentLang === 'es' 
+                          ? 'Manual ético y normativas de competencia anti-discriminación.' 
+                          : 'Anti-discrimination community standards and competitive rules.'}
                       </div>
                     </div>
                     <div className="mt-2 text-[9px] font-mono text-yellow-400 flex items-center justify-between">
-                      <span>Ver en Instagram</span>
+                      <span>{currentLang === 'es' ? 'Ver en Instagram' : 'View on Instagram'}</span>
                       <ExternalLink className="w-3 h-3" />
                     </div>
                   </a>
@@ -400,14 +410,16 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         />
                       </div>
                       <div className="font-mono font-bold text-xs text-white group-hover:text-yellow-400">
-                        Criterio Lírico
+                        {currentLang === 'es' ? 'Criterio Lírico' : 'Lyricism Evaluation'}
                       </div>
                       <div className="text-[10px] text-neutral-400 mt-1">
-                        Ponderación de coherencia, métrica, profundidad y figuras retóricas.
+                        {currentLang === 'es'
+                          ? 'Ponderación de coherencia, métrica, profundidad y figuras retóricas.'
+                          : 'Scoring weight for coherence, metrics, depth, and rhetorical devices.'}
                       </div>
                     </div>
                     <div className="mt-2 text-[9px] font-mono text-yellow-400 flex items-center justify-between">
-                      <span>Ver en Instagram</span>
+                      <span>{currentLang === 'es' ? 'Ver en Instagram' : 'View on Instagram'}</span>
                       <ExternalLink className="w-3 h-3" />
                     </div>
                   </a>
@@ -428,14 +440,16 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         />
                       </div>
                       <div className="font-mono font-bold text-xs text-white group-hover:text-yellow-400">
-                        Puntaje & Flow
+                        {currentLang === 'es' ? 'Puntaje & Flow' : 'Flow & Metric Scoring'}
                       </div>
                       <div className="text-[10px] text-neutral-400 mt-1">
-                        Estructura matemática de calificación por compás e instrumental.
+                        {currentLang === 'es'
+                          ? 'Estructura matemática de calificación por compás e instrumental.'
+                          : 'Mathematical scoring matrix per musical bar and beat.'}
                       </div>
                     </div>
                     <div className="mt-2 text-[9px] font-mono text-yellow-400 flex items-center justify-between">
-                      <span>Ver en Instagram</span>
+                      <span>{currentLang === 'es' ? 'Ver en Instagram' : 'View on Instagram'}</span>
                       <ExternalLink className="w-3 h-3" />
                     </div>
                   </a>
@@ -456,14 +470,16 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         />
                       </div>
                       <div className="font-mono font-bold text-xs text-white group-hover:text-yellow-400">
-                        Desempeño Global
+                        {currentLang === 'es' ? 'Desempeño Global' : 'Overall Staging'}
                       </div>
                       <div className="text-[10px] text-neutral-400 mt-1">
-                        Puesta en escena, actitud, consistencia conceptual y remate.
+                        {currentLang === 'es'
+                          ? 'Puesta en escena, actitud, consistencia conceptual y remate.'
+                          : 'Stage presence, delivery, conceptual consistency, and punchlines.'}
                       </div>
                     </div>
                     <div className="mt-2 text-[9px] font-mono text-yellow-400 flex items-center justify-between">
-                      <span>Ver en Instagram</span>
+                      <span>{currentLang === 'es' ? 'Ver en Instagram' : 'View on Instagram'}</span>
                       <ExternalLink className="w-3 h-3" />
                     </div>
                   </a>
@@ -474,7 +490,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
               {/* INTEGRACIÓN DE DISCIPLINAS: BEATMAKERS, BEATBOX & BREAKING */}
               <div className="bg-[#12151e] border-2 border-black rounded-xl p-4 space-y-3">
                 <div className="text-xs font-mono font-black text-amber-400 uppercase tracking-wider">
-                  DISCIPLINAS INTEGRADAS DEL HIP-HOP EN CONFINAMIENTO
+                  {currentLang === 'es' ? 'DISCIPLINAS INTEGRADAS DEL HIP-HOP EN CONFINAMIENTO' : 'INTEGRATED HIP-HOP DISCIPLINES UNDER LOCKDOWN'}
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   
@@ -487,10 +503,12 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                   >
                     <div className="flex items-center space-x-2 text-white font-mono font-bold text-xs group-hover:text-amber-400">
                       <Disc className="w-3.5 h-3.5 text-amber-400" />
-                      <span>Beatmakers & Boom-Bap</span>
+                      <span>{currentLang === 'es' ? 'Beatmakers & Boom-Bap' : 'Beatmakers & Boom-Bap'}</span>
                     </div>
                     <p className="text-[11px] text-neutral-400 mt-1">
-                      Producción de instrumentales exclusivas, samples y texturas sonoras creadas por productores de toda la región.
+                      {currentLang === 'es'
+                        ? 'Producción de instrumentales exclusivas, samples y texturas sonoras creadas por productores de toda la región.'
+                        : 'Exclusive instrumentals, sample-based loops, and boom-bap soundscapes produced across Latin America.'}
                     </p>
                   </a>
 
@@ -503,10 +521,12 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                   >
                     <div className="flex items-center space-x-2 text-white font-mono font-bold text-xs group-hover:text-amber-400">
                       <Music className="w-3.5 h-3.5 text-amber-400" />
-                      <span>Beatboxers Cup</span>
+                      <span>{currentLang === 'es' ? 'Beatboxers Cup' : 'Beatboxers Cup'}</span>
                     </div>
                     <p className="text-[11px] text-neutral-400 mt-1">
-                      Percusión vocal e innovación acústica transformando micrófonos hogareños en baterías completas en duelos virtuales.
+                      {currentLang === 'es'
+                        ? 'Percusión vocal e innovación acústica transformando micrófonos hogareños en baterías completas en duelos virtuales.'
+                        : 'Acoustic vocal percussion turning desktop mics into full drum kits during virtual duels.'}
                     </p>
                   </a>
 
@@ -519,10 +539,12 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                   >
                     <div className="flex items-center space-x-2 text-white font-mono font-bold text-xs group-hover:text-amber-400">
                       <Flame className="w-3.5 h-3.5 text-amber-400" />
-                      <span>Breaking Virtual Cyphers</span>
+                      <span>{currentLang === 'es' ? 'Breaking Virtual Cyphers' : 'Breaking Virtual Cyphers'}</span>
                     </div>
                     <p className="text-[11px] text-neutral-400 mt-1">
-                      B-Boys y B-Girls compitiendo mediante grabaciones sincrónicas y cyphers en vivo durante el confinamiento.
+                      {currentLang === 'es'
+                        ? 'B-Boys y B-Girls compitiendo mediante grabaciones sincrónicas y cyphers en vivo durante el confinamiento.'
+                        : 'B-Boys & B-Girls competing via synchronized high-framerate cyphers during lockdowns.'}
                     </p>
                   </a>
 
@@ -543,10 +565,12 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-pink-500/20 pb-2">
                   <div className="flex items-center space-x-2">
                     <span className="bg-[#ec4899] text-white font-mono font-black text-[9px] px-2 py-0.5 border border-black uppercase">
-                      ENCUENTRO FEMENINO HISTÓRICO
+                      {currentLang === 'es' ? 'ENCUENTRO FEMENINO HISTÓRICO' : 'HISTORIC WOMEN’S TOURNAMENT'}
                     </span>
                     <h3 className="font-mono font-black text-sm sm:text-base text-pink-300 uppercase">
-                      "Dueñas de la Voz" — Conciertos & Liderazgo de Mujeres
+                      {currentLang === 'es' 
+                        ? '"Dueñas de la Voz" — Conciertos & Liderazgo de Mujeres' 
+                        : '"Dueñas de la Voz" — Live Hip-Hop & Women’s Spoken-Word Leadership'}
                     </h3>
                   </div>
                   <span className="font-mono text-xs text-neutral-400">2019 // FCFM U. de Chile</span>
@@ -558,7 +582,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                   <div className="bg-black border-2 border-black rounded-lg overflow-hidden">
                     <div className="p-2.5 bg-neutral-900 border-b border-neutral-800 flex items-center justify-between">
                       <span className="font-mono font-bold text-xs text-pink-300">
-                        QUEENA - Final Dueñas de la Voz (Registro Oficial)
+                        {currentLang === 'es' ? 'QUEENA - Final Dueñas de la Voz (Registro Oficial)' : 'QUEENA - Dueñas de la Voz Final (Official Recording)'}
                       </span>
                       <a 
                         href="https://www.youtube.com/watch?v=NcDejj3NKXo" 
@@ -596,7 +620,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                             </div>
                           </div>
                           <div className="absolute bottom-2 left-2 right-2 bg-black/80 px-2.5 py-1 text-[10px] font-mono text-pink-300 border border-white/20">
-                            ▶ Clic para ver presentación final de Queena
+                            {currentLang === 'es' ? '▶ Clic para ver presentación final de Queena' : '▶ Click to watch Queena\'s championship performance'}
                           </div>
                         </div>
                       )}
@@ -623,7 +647,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         rel="noreferrer"
                         className="px-2.5 py-1 bg-pink-950/80 hover:bg-pink-900 border border-pink-500/40 text-pink-300 rounded font-mono text-[10px] flex items-center space-x-1"
                       >
-                        <span>Afiche Oficial de Lanzamiento</span>
+                        <span>{currentLang === 'es' ? 'Afiche Oficial de Lanzamiento' : 'Official Launch Poster'}</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
                       <a
@@ -632,7 +656,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                         rel="noreferrer"
                         className="px-2.5 py-1 bg-pink-950/80 hover:bg-pink-900 border border-pink-500/40 text-pink-300 rounded font-mono text-[10px] flex items-center space-x-1"
                       >
-                        <span>Galería Fotográfica del Torneo</span>
+                        <span>{currentLang === 'es' ? 'Galería Fotográfica del Torneo' : 'Tournament Photo Gallery'}</span>
                         <ExternalLink className="w-3 h-3" />
                       </a>
                     </div>
@@ -647,7 +671,9 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                   <div className="flex items-center space-x-2">
                     <Award className="w-4 h-4 text-orange-400" />
                     <h4 className="font-mono font-black text-xs uppercase tracking-wider text-white">
-                      PRODUCCIÓN EN VIVO: ANFITEATRO FCFM UNIVERSIDAD DE CHILE
+                      {currentLang === 'es' 
+                        ? 'PRODUCCIÓN EN VIVO: ANFITEATRO FCFM UNIVERSIDAD DE CHILE' 
+                        : 'LIVE PRODUCTION: BEAUCHEF AMPHITHEATER (U. OF CHILE)'}
                     </h4>
                   </div>
                   <a
@@ -656,7 +682,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     rel="noreferrer"
                     className="font-mono text-[11px] text-orange-400 hover:text-white flex items-center space-x-1"
                   >
-                    <span>@rapbeauchef Oficial</span>
+                    <span>@rapbeauchef {currentLang === 'es' ? 'Oficial' : 'Official'}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -679,9 +705,11 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     </div>
                     <div className="p-2 bg-neutral-950 border-t border-neutral-800">
                       <div className="text-[10px] font-mono font-bold text-white group-hover:text-orange-400">
-                        Escenario & Emcees
+                        {currentLang === 'es' ? 'Escenario & Emcees' : 'Stage & Emcees'}
                       </div>
-                      <div className="text-[9px] text-neutral-400">Duelos en arena abierta</div>
+                      <div className="text-[9px] text-neutral-400">
+                        {currentLang === 'es' ? 'Duelos en arena abierta' : 'Open-air battles'}
+                      </div>
                     </div>
                   </a>
 
@@ -701,9 +729,11 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     </div>
                     <div className="p-2 bg-neutral-950 border-t border-neutral-800">
                       <div className="text-[10px] font-mono font-bold text-white group-hover:text-orange-400">
-                        Anfiteatro Lleno
+                        {currentLang === 'es' ? 'Anfiteatro Lleno' : 'Crowded Amphitheater'}
                       </div>
-                      <div className="text-[9px] text-neutral-400">+1.500 asistentes</div>
+                      <div className="text-[9px] text-neutral-400">
+                        {currentLang === 'es' ? '+1.500 asistentes' : '+1,500 attendees'}
+                      </div>
                     </div>
                   </a>
 
@@ -723,9 +753,11 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     </div>
                     <div className="p-2 bg-neutral-950 border-t border-neutral-800">
                       <div className="text-[10px] font-mono font-bold text-white group-hover:text-orange-400">
-                        Jueces & Flow
+                        {currentLang === 'es' ? 'Jueces & Flow' : 'Jury & Evaluation'}
                       </div>
-                      <div className="text-[9px] text-neutral-400">Panel de referentes</div>
+                      <div className="text-[9px] text-neutral-400">
+                        {currentLang === 'es' ? 'Panel de referentes' : 'Veteran emcees'}
+                      </div>
                     </div>
                   </a>
 
@@ -745,9 +777,11 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     </div>
                     <div className="p-2 bg-neutral-950 border-t border-neutral-800">
                       <div className="text-[10px] font-mono font-bold text-white group-hover:text-orange-400">
-                        Premiación & Trofeo
+                        {currentLang === 'es' ? 'Premiación & Trofeo' : 'Trophy & Ceremony'}
                       </div>
-                      <div className="text-[9px] text-neutral-400">Cierre de temporada</div>
+                      <div className="text-[9px] text-neutral-400">
+                        {currentLang === 'es' ? 'Cierre de temporada' : 'Season finale'}
+                      </div>
                     </div>
                   </a>
 
@@ -767,13 +801,17 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-cyan-500/20 pb-2">
                   <div className="flex items-center space-x-2">
                     <span className="bg-[#06b6d4] text-black font-mono font-black text-[9px] px-2 py-0.5 border border-black uppercase">
-                      INGENIERÍA DE COMUNIDAD
+                      {currentLang === 'es' ? 'INGENIERÍA DE COMUNIDAD' : 'COMMUNITY ARCHITECTURE'}
                     </span>
                     <h3 className="font-mono font-black text-sm sm:text-base text-cyan-300 uppercase">
-                      Arquitectura del Servidor Discord de Rap Beauchef & Cuarentena
+                      {currentLang === 'es'
+                        ? 'Arquitectura del Servidor Discord de Rap Beauchef & Cuarentena'
+                        : 'Discord Server Infrastructure for Rap Beauchef & Cuarentena Rap'}
                     </h3>
                   </div>
-                  <span className="font-mono text-xs text-neutral-400">+12.000 Usuarios Activos</span>
+                  <span className="font-mono text-xs text-neutral-400">
+                    {currentLang === 'es' ? '+12.000 Usuarios Activos' : '+12,000 Active Members'}
+                  </span>
                 </div>
 
                 <p className="text-xs font-sans text-neutral-300 leading-relaxed">
@@ -784,23 +822,35 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                   <div className="bg-black/60 p-3 rounded border border-white/10 space-y-1">
-                    <div className="font-mono font-black text-cyan-400 text-xs">AUDIO LOW-LATENCY</div>
+                    <div className="font-mono font-black text-cyan-400 text-xs">
+                      {currentLang === 'es' ? 'AUDIO LOW-LATENCY' : 'LOW-LATENCY AUDIO'}
+                    </div>
                     <div className="text-[11px] text-neutral-300">
-                      Salas de audio optimizadas a 64 kbps mono/stereo para evitar desfases métricos en instrumentales de hip-hop en vivo.
+                      {currentLang === 'es'
+                        ? 'Salas de audio optimizadas a 64 kbps mono/stereo para evitar desfases métricos en instrumentales de hip-hop en vivo.'
+                        : 'Optimized 64 kbps audio bitrates to prevent latency drift over live boom-bap instrumentals.'}
                     </div>
                   </div>
 
                   <div className="bg-black/60 p-3 rounded border border-white/10 space-y-1">
-                    <div className="font-mono font-black text-cyan-400 text-xs">BOTS & MATCHMAKING</div>
+                    <div className="font-mono font-black text-cyan-400 text-xs">
+                      {currentLang === 'es' ? 'BOTS & MATCHMAKING' : 'BOTS & MATCHMAKING'}
+                    </div>
                     <div className="text-[11px] text-neutral-300">
-                      Automatización de fixtures, cronómetros de rima por compás, conteo de votos de jurados y distribución de roles por liga.
+                      {currentLang === 'es'
+                        ? 'Automatización de fixtures, cronómetros de rima por compás, conteo de votos de jurados y distribución de roles por liga.'
+                        : 'Automated bracket fixtures, bar-by-bar rhyme timers, jury vote tallying, and regional league roles.'}
                     </div>
                   </div>
 
                   <div className="bg-black/60 p-3 rounded border border-white/10 space-y-1">
-                    <div className="font-mono font-black text-cyan-400 text-xs">RED FEDERAL</div>
+                    <div className="font-mono font-black text-cyan-400 text-xs">
+                      {currentLang === 'es' ? 'RED FEDERAL' : 'FEDERAL NETWORK'}
+                    </div>
                     <div className="text-[11px] text-neutral-300">
-                      Alianza con ligas de plaza de Chile, Argentina, Colombia, Perú, México y España, federando los torneos de cada región.
+                      {currentLang === 'es'
+                        ? 'Alianza con ligas de plaza de Chile, Argentina, Colombia, Perú, México y España, federando los torneos de cada región.'
+                        : 'Alliances with grassroots underground leagues from Chile, Argentina, Colombia, Peru, Mexico, and Spain.'}
                     </div>
                   </div>
                 </div>
@@ -812,7 +862,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     rel="noreferrer"
                     className="px-3 py-1.5 bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/40 text-cyan-300 rounded font-mono text-[11px] flex items-center space-x-1"
                   >
-                    <span>Ver Concurrencia de Salas en Instagram</span>
+                    <span>{currentLang === 'es' ? 'Ver Concurrencia de Salas en Instagram' : 'View Room Attendance on Instagram'}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                   <a
@@ -821,7 +871,7 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                     rel="noreferrer"
                     className="px-3 py-1.5 bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/40 text-cyan-300 rounded font-mono text-[11px] flex items-center space-x-1"
                   >
-                    <span>Fixture Oficial del Torneo</span>
+                    <span>{currentLang === 'es' ? 'Fixture Oficial del Torneo' : 'Official Tournament Fixture'}</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
@@ -840,13 +890,17 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
                 <div className="flex flex-wrap items-center justify-between gap-2 border-b border-pink-500/20 pb-2">
                   <div className="flex items-center space-x-2">
                     <span className="bg-[#ec4899] text-white font-mono font-black text-[9px] px-2 py-0.5 border border-black uppercase">
-                      AGITACIÓN GRÁFICA & MEMORIA
+                      {currentLang === 'es' ? 'AGITACIÓN GRÁFICA & MEMORIA' : 'GRAPHIC AGITPROP & MEMORY'}
                     </span>
                     <h3 className="font-mono font-black text-sm sm:text-base text-pink-300 uppercase">
-                      Brigada Paulina Aguirre: Muralismo, Stencil & Resistencia Callejera
+                      {currentLang === 'es'
+                        ? 'Brigada Paulina Aguirre: Muralismo, Stencil & Resistencia Callejera'
+                        : 'Brigada Paulina Aguirre: Murals, Stencils & Street Resistance'}
                     </h3>
                   </div>
-                  <span className="font-mono text-xs text-neutral-400">2018-2022 // Santiago de Chile</span>
+                  <span className="font-mono text-xs text-neutral-400">
+                    2018-2022 // Santiago, Chile
+                  </span>
                 </div>
 
                 <p className="text-xs font-sans text-neutral-300 leading-relaxed">
@@ -857,16 +911,24 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                   <div className="bg-black/60 p-3 rounded border border-white/10 space-y-1">
-                    <div className="font-mono font-black text-pink-400 text-xs">ARTEFACTOS DE PRESIÓN GRÁFICA</div>
+                    <div className="font-mono font-black text-pink-400 text-xs">
+                      {currentLang === 'es' ? 'ARTEFACTOS DE PRESIÓN GRÁFICA' : 'GRAPHIC PRINT ARTIFACTS'}
+                    </div>
                     <div className="text-[11px] text-neutral-300">
-                      Afiches de alto contraste xilográfico distribuidos mano a mano en ferias libres, asambleas barriales y centros sociales autogestionados.
+                      {currentLang === 'es'
+                        ? 'Afiches de alto contraste xilográfico distribuidos mano a mano en ferias libres, asambleas barriales y centros sociales autogestionados.'
+                        : 'High-contrast woodcut posters distributed hand-to-hand across street markets, neighborhood assemblies, and community centers.'}
                     </div>
                   </div>
 
                   <div className="bg-black/60 p-3 rounded border border-white/10 space-y-1">
-                    <div className="font-mono font-black text-pink-400 text-xs">MEMORIA VIVA</div>
+                    <div className="font-mono font-black text-pink-400 text-xs">
+                      {currentLang === 'es' ? 'MEMORIA VIVA' : 'LIVING HISTORICAL MEMORY'}
+                    </div>
                     <div className="text-[11px] text-neutral-300">
-                      Homenaje a las luchadoras populares y defensa irrestricta de los derechos humanos y la autodeterminación comunitaria.
+                      {currentLang === 'es'
+                        ? 'Homenaje a las luchadoras populares y defensa irrestricta de los derechos humanos y la autodeterminación comunitaria.'
+                        : 'Honoring women freedom fighters and defending human rights and territorial autonomy.'}
                     </div>
                   </div>
                 </div>
@@ -883,7 +945,11 @@ export const ArtDirectorModal: React.FC<ArtDirectorModalProps> = ({
         <div className="px-4 sm:px-6 py-2.5 bg-black border-t-2 border-white/15 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-400 shrink-0">
           <div className="flex items-center space-x-2">
             <span className="bg-[#f97316] text-black font-black px-1.5 py-0.2">ART-DIR</span>
-            <span>PRODUCCIÓN CULTURAL • CONTRACULTURA DIGITAL • DANIEL SANTANDER</span>
+            <span>
+              {currentLang === 'es' 
+                ? 'PRODUCCIÓN CULTURAL • CONTRACULTURA DIGITAL • DANIEL SANTANDER' 
+                : 'CULTURAL PRODUCTION • DIGITAL COUNTER-CULTURE • DANIEL SANTANDER'}
+            </span>
           </div>
           <button
             onClick={onClose}

@@ -1875,23 +1875,23 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <div className="hidden lg:flex items-center space-x-2.5 text-[10px] font-mono font-bold text-neutral-300">
               <span className="flex items-center space-x-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-red-600 border border-white/40 shadow-sm" />
-                <span>CIENCIA</span>
+                <span>{currentLang === 'es' ? 'CIENCIA' : 'SCIENCE'}</span>
               </span>
               <span className="flex items-center space-x-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 border border-white/40 shadow-sm" />
-                <span>MEDIOS</span>
+                <span>{currentLang === 'es' ? 'MEDIOS' : 'COMMS'}</span>
               </span>
               <span className="flex items-center space-x-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500 border border-white/40 shadow-sm" />
-                <span>CUMBRES</span>
+                <span>{currentLang === 'es' ? 'CUMBRES' : 'SUMMITS'}</span>
               </span>
               <span className="flex items-center space-x-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-orange-500 border border-white/40 shadow-sm" />
-                <span>ARTE</span>
+                <span>{currentLang === 'es' ? 'ARTE' : 'ARTS'}</span>
               </span>
               <span className="flex items-center space-x-1">
                 <span className="w-2.5 h-2.5 rounded-full bg-purple-600 border border-white/40 shadow-sm" />
-                <span>I+D</span>
+                <span>{currentLang === 'es' ? 'I+D' : 'R&D'}</span>
               </span>
             </div>
 
