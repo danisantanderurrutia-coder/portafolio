@@ -829,6 +829,7 @@ interface GameWorldViewProps {
   initialFilter?: 'all' | MissionType;
   onOpenHireMe?: () => void;
   onOpenSkills?: () => void;
+  onOpenArtDirector?: () => void;
   onBackToGateway?: () => void;
 }
 
@@ -840,6 +841,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   initialFilter = 'all',
   onOpenHireMe,
   onOpenSkills,
+  onOpenArtDirector,
   onBackToGateway
 }) => {
   const [activeFilter, setActiveFilter] = useState<'all' | MissionType>(initialFilter);
@@ -1792,7 +1794,17 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                   ))}
                 </div>
 
-                <div className="flex items-center space-x-3">
+                <div className="flex items-center space-x-2">
+                  {onOpenArtDirector && (currentMission.type === 'culture' || currentMission.id.includes('beauchef') || currentMission.id.includes('cuarentena')) && (
+                    <button
+                      onClick={onOpenArtDirector}
+                      className="px-3 py-1.5 bg-[#f97316] hover:bg-white text-black font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95 cursor-pointer -rotate-1"
+                      title="Saber más: Arquitectura cultural, Rap Beauchef y Cuarentena Rap"
+                    >
+                      <span>⚡ {currentLang === 'es' ? 'SABER MÁS // RAP & BACKSTAGE' : 'DEEP DIVE // RAP & BACKSTAGE'}</span>
+                    </button>
+                  )}
+
                   {currentMission.url && (
                     <a
                       href={currentMission.url}

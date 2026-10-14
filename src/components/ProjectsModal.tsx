@@ -8,7 +8,11 @@ import {
   ExternalLink, 
   ArrowRight, 
   Sparkles,
-  Code
+  Code,
+  Pin,
+  Flame,
+  Globe2,
+  Terminal
 } from 'lucide-react';
 import { Language } from '../types';
 
@@ -35,7 +39,7 @@ export interface SideProject {
   githubUrl?: string;
 }
 
-export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
+export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
   // ==========================================
   // RAMA CIENCIA & MODELACIÓN AMBIENTAL (4)
   // ==========================================
@@ -43,50 +47,50 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
     id: 'lauwersmeer',
     emoji: '🌊',
     title: 'Climate Risk en Lauwersmeer',
-    subtitle: 'Artículo científico sobre evaluación y modelación de riesgo climático costero',
+    subtitle: 'Evaluación y modelación hidrodinámica de riesgo climático costero y marejadas',
     category: 'Investigación Científica',
     categoryColor: 'bg-blue-600 text-white',
     branch: 'science',
     progress: 75,
-    collaborators: 'Co-autoría con 2 colegas investigadores (CAU Kiel)',
-    desc: 'Estudio de evaluación de vulnerabilidad, eventos de inundación extrema y modelación de ascenso del nivel del mar (SLR) en la cuenca y ecosistema de Lauwersmeer (Países Bajos).',
+    collaborators: 'Co-autoría con colegas investigadores (CAU Kiel)',
+    desc: 'Estudio de vulnerabilidad, eventos de inundación extrema y modelación de ascenso del nivel del mar (SLR) en la cuenca y ecosistema de Lauwersmeer (Países Bajos).',
     checklist: [
       { text: 'Consolidar base de datos climáticos de Lauwersmeer (1990-2025)', completed: true },
       { text: 'Ejecutar simulaciones de eventos de marejada de tempestad', completed: true },
-      { text: 'Reunión de coordinación con los 2 colegas co-autores', completed: false },
+      { text: 'Reunión de coordinación con co-autores en Kiel', completed: false },
       { text: 'Escribir la sección de Métodos y Discusión del artículo', completed: false }
     ],
-    notes: 'Paper enfocado en resiliencia costera. Integración con modelos de elevación digital y simulaciones de marejadas.',
+    notes: 'Paper enfocado en resiliencia costera e integración con modelos de elevación digital LiDAR.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor'
   },
   {
     id: 'rewild',
     emoji: '🔥',
-    title: 'ReWild: Libro de Incendios & Modelo Forestal',
-    subtitle: 'Libro de análisis ecológico y propuesta de reconversión del monocultivo forestal',
+    title: 'ReWild: Modelo Forestal & Incendios',
+    subtitle: 'Análisis ecológico y propuesta de reconversión del monocultivo de pino y eucalipto',
     category: 'Ecología & Transición Territorial',
     categoryColor: 'bg-orange-600 text-white',
     branch: 'science',
     progress: 65,
     collaborators: 'Red por la Superación del Modelo Forestal + 2 Co-editores',
-    desc: 'Preparación y edición colectiva de obra crítica y propositiva sobre incendios forestales en Chile, restauración ecológica de bosques nativos y superación del modelo de sustitución forestal.',
-    subproject: '🌲 Subproyecto: App para ReWild de Bosques (monitoreo comunal de parches nativos y prevención comunitaria)',
+    desc: 'Preparación y edición colectiva de obra crítica y propositiva sobre megaincendios forestales en Chile, restauración ecológica de bosques nativos y superación del extractivismo forestal.',
+    subproject: '🌲 App para ReWild de Bosques (monitoreo comunal de parches nativos y prevención)',
     checklist: [
       { text: 'Revisar y editar capítulos de la Red por la Superación del Modelo Forestal', completed: true },
-      { text: 'Redactar prólogo e introducción en conjunto con los 2 co-editores', completed: true },
+      { text: 'Redactar prólogo e introducción con co-editores', completed: true },
       { text: 'Definir arquitectura de datos de la App ReWild (monitoreo de bosque nativo)', completed: false },
-      { text: 'Diseñar mapas cartográficos de zonas afectadas por megaincendios', completed: false }
+      { text: 'Diseñar cartografía de zonas críticas de interfase urbano-forestal', completed: false }
     ],
-    notes: 'ReWild aborda la restauración activa versus pasiva del matorral y bosque esclerófilo y templado.',
+    notes: 'ReWild aborda la restauración activa versus pasiva del matorral y bosque esclerófilo.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof'
   },
   {
     id: 'permacultura',
     emoji: '🌾',
-    title: 'Chile Agrotech (Tecnología de Precisión & AgriTwin)',
-    subtitle: 'Tecnología Agrícola de Precisión & Gemelo Digital (AgriTwin) — Maule, Chile',
+    title: 'Chile Agrotech & AgriTwin',
+    subtitle: 'Tecnología Agrícola de Precisión & Gemelo Digital IoT — Maule, Chile',
     category: 'Agrotech, IoT & Satélites',
-    categoryColor: 'bg-purple-600 text-white',
+    categoryColor: 'bg-emerald-600 text-white',
     branch: 'science',
     progress: 85,
     collaborators: 'Productores Agrícolas del Maule, Ingenieros IoT & Especialistas ESG',
@@ -104,19 +108,19 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
   {
     id: 'paper_fisica',
     emoji: '⚛️',
-    title: 'Paper en Física & Sistemas Complejos',
-    subtitle: 'Investigación en termodinámica de no equilibrio o sistemas complejos',
+    title: 'Termodinámica & Sistemas Complejos',
+    subtitle: 'Modelación matemática de procesos estocásticos y termodinámica de no equilibrio',
     category: 'Física Teórica & Modelación',
     categoryColor: 'bg-blue-600 text-white',
     branch: 'science',
-    progress: 20,
+    progress: 25,
     collaborators: 'Investigación Autónoma & Asesores Físicos',
-    desc: 'Exploración teórica rigurosa, modelación matemática y desarrollo de un paper de física aplicada a procesos territoriales o termodinámicos.',
+    desc: 'Exploración teórica rigurosa, modelación matemática y desarrollo de un paper de física aplicada a procesos estocásticos de transporte territorial y disipación de entropía.',
     checklist: [
       { text: 'Definir marco conceptual y ecuaciones gobernantes', completed: true },
       { text: 'Compilar referencias de física estadística y sistemas no lineales', completed: false }
     ],
-    notes: 'Proyecto intelectual para profundizar en ciencia dura y procesos estocásticos.',
+    notes: 'Proyecto para profundizar en física teórica dura y procesos estocásticos.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder'
   },
 
@@ -126,28 +130,28 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
   {
     id: 'incel',
     emoji: '🎭',
-    title: 'Los Manejadores (Agencia Digital & IA)',
-    subtitle: 'Conectamos talentos con el mundo · Arquitectura de presencia e influencers virtuales',
-    category: 'Inteligencia Artificial & Media Agency',
-    categoryColor: 'bg-emerald-600 text-white',
+    title: 'Los Manejadores (Media & AI Strategy)',
+    subtitle: 'Arquitectura de presencia digital, influencers virtuales generados por IA y narrativa',
+    category: 'Inteligencia Artificial & Media',
+    categoryColor: 'bg-purple-600 text-white',
     branch: 'comms',
     progress: 80,
     collaborators: 'Equipo de Medios Digitales, Producción IA & Storytelling',
-    desc: 'Agencia de comunicación digital y arquitectura de presencia web. Une precisión analítica europea con energía emprendedora americana para gestionar influencers virtuales generados por IA, canales de YouTube de divulgación y asesorías estratégicas.',
+    desc: 'Agencia de comunicación digital y arquitectura de presencia web. Une precisión analítica europea con visión de medios para gestionar creadores virtuales impulsados por IA, canales de divulgación y consultoría estratégica.',
     checklist: [
-      { text: 'Definir set de influencers digitales e identidades de marca', completed: true },
+      { text: 'Definir perfiles de creadores digitales e identidades de marca', completed: true },
       { text: 'Producir primeros guiones y carruseles para redes sociales', completed: true },
       { text: 'Desarrollar landing page completa y conectar pipeline de difusión', completed: false },
       { text: 'Finalizar pitch deck de 10 diapositivas para inversores y clientes', completed: false }
     ],
-    notes: 'Los Manejadores democratiza el poder de la influencia auténtica: IA + storytelling + resultados medibles.'
+    notes: 'Los Manejadores democratiza el impacto digital: IA + storytelling + resultados medibles.'
   },
   {
     id: 'divulgacion',
     emoji: '🎙️',
     title: 'Ciencia & Territorios',
-    subtitle: 'Plataforma de divulgación científica territorial y comunicación pública de la ciencia',
-    category: 'Comunicación Pública de la Ciencia',
+    subtitle: 'Plataforma transmedia de divulgación científica y comunicación pública de la ciencia',
+    category: 'Divulgación Científica',
     categoryColor: 'bg-emerald-600 text-white',
     branch: 'comms',
     progress: 70,
@@ -159,24 +163,24 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
       { text: 'Diseñar plataforma web para visualización de mapas socio-ecológicos', completed: false },
       { text: 'Gestión de alianzas con centros de investigación universitarios', completed: false }
     ],
-    notes: 'Conectar el conocimiento académico con los saberes y luchas de los territorios.',
+    notes: 'Conectar el conocimiento académico con las vivencias y luchas de los territorios.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/memoria-y-dignidad-maule'
   },
   {
     id: 'piratas',
     emoji: '🏴‍☠️',
-    title: 'Cómic de Piratas: Guerra del Pacífico & Leyendas del Mar',
+    title: 'Novela Gráfica: Guerra del Pacífico & Leyendas',
     subtitle: 'Cómic histórico-fantástico sobre la contienda naval y mitología del Pacífico Sur',
-    category: 'Arte, Narrativa & Historia Naval',
+    category: 'Arte, Cómic & Narrativa',
     categoryColor: 'bg-amber-600 text-white',
     branch: 'comms',
     progress: 55,
     collaborators: 'Ilustradores, Historiadores & Guionistas',
-    desc: 'Creación de novela gráfica ambientada en el marco de la Guerra del Pacífico chilena, entrelazando batallas navales históricas, piratas del Pacífico sur y mitos náuticos de las costas chilenas.',
+    desc: 'Creación de novela gráfica ambientada en el marco de la Guerra del Pacífico chilena, entrelazando batallas navales históricas, corsarios del Pacífico sur y mitos náuticos de las costas chilenas.',
     checklist: [
-      { text: 'Definir arco de personajes (corsarios, marinos y criaturas del mar)', completed: true },
+      { text: 'Definir arco de personajes (corsarios, marinos y seres mitológicos)', completed: true },
       { text: 'Finalizar guión literario de los primeros 3 capítulos', completed: true },
-      { text: 'Aprobar bocetos de embarcaciones navales históricas y seres fantásticos', completed: false },
+      { text: 'Aprobar bocetos de embarcaciones navales históricas', completed: false },
       { text: 'Coordinar maquetación con la editorial o plataforma webcomic', completed: false }
     ],
     notes: 'Enfoque en el choque entre realismo militar histórico y leyendas populares del mar de Chile.'
@@ -184,9 +188,9 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
   {
     id: 'red_maule',
     emoji: '📻',
-    title: 'Red Comunitaria de Medios Maule Sur (Maule Red)',
+    title: 'Maule Red // Red de Medios Territoriales',
     subtitle: 'Radio en vivo, avisador de emergencias rurales (APR) y periodismo territorial',
-    category: 'Medios Territoriales & Emergencias',
+    category: 'Medios Territoriales & APR',
     categoryColor: 'bg-emerald-600 text-white',
     branch: 'comms',
     progress: 40,
@@ -198,7 +202,7 @@ export const CABALLERO_JAGUAR_PROJECTS: SideProject[] = [
       { text: 'Realizar primera asamblea o reunión de equipo fundador', completed: false },
       { text: 'Conectar señal streaming para la radio comunitaria en vivo', completed: false }
     ],
-    notes: 'Maule Red responde a la desconexión informativa de los territorios rurales: comunicación hecha por y para las comunidades.',
+    notes: 'Maule Red responde a la desconexión informativa de los territorios rurales.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/MauleRed'
   }
 ];
@@ -211,42 +215,49 @@ interface ProjectsModalProps {
 
 export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, currentLang }) => {
   const [filterBranch, setFilterBranch] = useState<'all' | 'science' | 'comms'>('all');
-  const [selectedProjectId, setSelectedProjectId] = useState<string>(CABALLERO_JAGUAR_PROJECTS[0].id);
+  const [selectedProjectId, setSelectedProjectId] = useState<string>(ACTIVE_INNOVATION_PROJECTS[0].id);
 
   if (!isOpen) return null;
 
-  const filteredProjects = CABALLERO_JAGUAR_PROJECTS.filter((p) => {
+  const filteredProjects = ACTIVE_INNOVATION_PROJECTS.filter((p) => {
     if (filterBranch === 'all') return true;
     return p.branch === filterBranch;
   });
 
-  const currentProj = CABALLERO_JAGUAR_PROJECTS.find((p) => p.id === selectedProjectId) || filteredProjects[0] || CABALLERO_JAGUAR_PROJECTS[0];
+  const currentProj = ACTIVE_INNOVATION_PROJECTS.find((p) => p.id === selectedProjectId) || filteredProjects[0] || ACTIVE_INNOVATION_PROJECTS[0];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-fadeIn select-none">
-      
-      {/* Modal Container (Comic / GTA Heist Quest Board) */}
-      <div className="relative w-full max-w-5xl max-h-[92vh] bg-[#0c0f14] border-4 border-black rounded-2xl shadow-[10px_10px_0px_#facc15] flex flex-col overflow-hidden text-white">
-        
-        {/* Header Bar */}
-        <div className="px-4 sm:px-6 py-3 bg-black border-b-3 border-black flex flex-wrap items-center justify-between gap-2 shrink-0">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-fadeIn select-none"
+      onClick={onClose}
+    >
+      {/* Modal Container (GTA Heist Quest Corkboard / Tactical Blueprint) */}
+      <div 
+        className="relative w-full max-w-5xl max-h-[92vh] bg-[#0c1017] border-4 border-black rounded-2xl shadow-[10px_10px_0px_#dc2626] flex flex-col overflow-hidden text-white font-sans"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* ============================================================== */}
+        {/* 1. TOP HEADER: TACTICAL CORKBOARD BLUEPRINT                    */}
+        {/* ============================================================== */}
+        <div className="px-4 sm:px-6 py-3.5 bg-black border-b-3 border-black flex flex-wrap items-center justify-between gap-3 shrink-0">
           <div className="flex items-center space-x-3">
-            <span className="bg-[#facc15] text-black px-2.5 py-0.5 font-mono font-black text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
-              {currentLang === 'es' ? '[ PROYECTOS & INNOVACIÓN // I+D ]' : '[ PROJECTS & INNOVATION // R&D ]'}
+            <span className="bg-[#dc2626] text-white px-3 py-1 font-mono font-black text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 flex items-center space-x-1.5">
+              <Pin className="w-3.5 h-3.5" />
+              <span>{currentLang === 'es' ? '[ PROYECTOS & INNOVACIÓN // I+D ]' : '[ VENTURES & INNOVATION // R&D ]'}</span>
             </span>
-            <span className="hidden sm:inline font-mono text-xs text-neutral-400 font-bold">
-              {currentLang === 'es' ? '8 FRENTES ESTRATÉGICOS REALES' : '8 REAL STRATEGIC VENTURES'}
+            <span className="hidden sm:inline-block bg-yellow-400 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
+              8 ACTIVE INITIATIVES
             </span>
           </div>
 
           {/* Branch Filter Tabs (Ciencia vs Comunicaciones) */}
-          <div className="flex items-center space-x-1.5">
+          <div className="flex items-center space-x-1.5 ml-auto">
             <button
               onClick={() => {
                 setFilterBranch('all');
-                setSelectedProjectId(CABALLERO_JAGUAR_PROJECTS[0].id);
+                setSelectedProjectId(ACTIVE_INNOVATION_PROJECTS[0].id);
               }}
-              className={`px-2 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border border-black rounded transition-all ${
+              className={`px-2.5 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border-2 border-black transition-all cursor-pointer ${
                 filterBranch === 'all'
                   ? 'bg-white text-black shadow-[2px_2px_0px_#000]'
                   : 'bg-white/10 text-neutral-300 hover:bg-white/20'
@@ -258,10 +269,10 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
             <button
               onClick={() => {
                 setFilterBranch('science');
-                const firstScience = CABALLERO_JAGUAR_PROJECTS.find(p => p.branch === 'science');
+                const firstScience = ACTIVE_INNOVATION_PROJECTS.find(p => p.branch === 'science');
                 if (firstScience) setSelectedProjectId(firstScience.id);
               }}
-              className={`px-2 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border border-black rounded transition-all ${
+              className={`px-2.5 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border-2 border-black transition-all cursor-pointer ${
                 filterBranch === 'science'
                   ? 'bg-blue-600 text-white shadow-[2px_2px_0px_#000]'
                   : 'bg-white/10 text-neutral-300 hover:bg-blue-600/40'
@@ -273,10 +284,10 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
             <button
               onClick={() => {
                 setFilterBranch('comms');
-                const firstComms = CABALLERO_JAGUAR_PROJECTS.find(p => p.branch === 'comms');
+                const firstComms = ACTIVE_INNOVATION_PROJECTS.find(p => p.branch === 'comms');
                 if (firstComms) setSelectedProjectId(firstComms.id);
               }}
-              className={`px-2 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border border-black rounded transition-all ${
+              className={`px-2.5 py-1 font-mono font-bold text-[10px] sm:text-xs uppercase border-2 border-black transition-all cursor-pointer ${
                 filterBranch === 'comms'
                   ? 'bg-orange-600 text-white shadow-[2px_2px_0px_#000]'
                   : 'bg-white/10 text-neutral-300 hover:bg-orange-600/40'
@@ -287,10 +298,10 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
 
             <button
               onClick={onClose}
-              className="p-1.5 ml-2 bg-black hover:bg-red-600 text-white border-2 border-white/50 hover:border-black font-mono font-black transition shadow-[2px_2px_0px_#000] active:scale-95"
+              className="p-1 rounded-lg bg-white/10 hover:bg-red-600 hover:text-white text-neutral-300 transition-all border border-white/20 active:scale-90 cursor-pointer ml-1"
               title="Cerrar panel"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -299,9 +310,9 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           
           {/* Left Column: Project Selector Tabs */}
-          <div className="w-full md:w-80 bg-black/90 border-r-2 border-black/80 overflow-y-auto p-3 space-y-2 shrink-0 no-scrollbar">
+          <div className="w-full md:w-80 bg-black/95 border-r-3 border-black overflow-y-auto p-3 space-y-2 shrink-0 no-scrollbar">
             <div className="text-[10px] font-mono font-black text-amber-400 uppercase tracking-widest px-1 pb-1">
-              {currentLang === 'es' ? 'SELECCIONA PROYECTO' : 'SELECT VENTURE'} ({filteredProjects.length})
+              📌 {currentLang === 'es' ? 'TABLERO DE MISIONES' : 'MISSION DOSSIERS'} ({filteredProjects.length})
             </div>
 
             {filteredProjects.map((proj) => {
@@ -310,16 +321,16 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                 <div
                   key={proj.id}
                   onClick={() => setSelectedProjectId(proj.id)}
-                  className={`p-2.5 rounded-lg border-2 cursor-pointer transition-all ${
+                  className={`p-2.5 border-2 cursor-pointer transition-all ${
                     isSelected
-                      ? 'bg-white text-black border-black shadow-[4px_4px_0px_#facc15] translate-x-1'
-                      : 'bg-white/5 text-neutral-300 border-white/10 hover:bg-white/10 hover:text-white'
+                      ? 'bg-white text-black border-black shadow-[4px_4px_0px_#dc2626] translate-x-1 -rotate-0.5'
+                      : 'bg-[#121620] text-neutral-300 border-black/80 hover:bg-[#1a202c] hover:text-white'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span className="text-base">{proj.emoji}</span>
                     <span
-                      className={`text-[9px] font-mono font-black px-1.5 py-0.5 rounded uppercase ${
+                      className={`text-[9px] font-mono font-black px-1.5 py-0.2 border border-black uppercase ${
                         isSelected ? 'bg-black text-yellow-300' : proj.categoryColor
                       }`}
                     >
@@ -331,7 +342,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                     {proj.title}
                   </div>
 
-                  <div className={`text-[10px] truncate mt-0.5 ${isSelected ? 'text-neutral-700' : 'text-neutral-400'}`}>
+                  <div className={`text-[10px] truncate mt-0.5 ${isSelected ? 'text-neutral-700 font-medium' : 'text-neutral-400'}`}>
                     {proj.subtitle}
                   </div>
                 </div>
@@ -340,17 +351,17 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
           </div>
 
           {/* Right Column: Mission Detail Briefing Board */}
-          <div className="flex-1 bg-[#10141d] overflow-y-auto p-4 sm:p-6 space-y-4">
+          <div className="flex-1 bg-[#10141d] overflow-y-auto p-4 sm:p-6 space-y-4 no-scrollbar">
             
             {/* Mission Hero Header */}
-            <div className="space-y-1.5 border-b border-white/10 pb-3">
+            <div className="space-y-2 border-b-2 border-white/10 pb-3">
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center space-x-2">
                   <span className="text-2xl">{currentProj.emoji}</span>
-                  <span className={`text-[10px] font-mono font-black px-2 py-0.5 rounded uppercase ${currentProj.categoryColor}`}>
+                  <span className={`text-[10px] font-mono font-black px-2 py-0.5 border border-black uppercase ${currentProj.categoryColor}`}>
                     {currentProj.category}
                   </span>
-                  <span className="text-[10px] font-mono bg-white/10 text-neutral-300 px-2 py-0.5 rounded uppercase">
+                  <span className="text-[10px] font-mono bg-white/10 text-neutral-300 px-2 py-0.5 border border-white/20 uppercase">
                     {currentProj.branch === 'science' ? '🔬 Rama Científica' : '📢 Rama Comunicación & Cultura'}
                   </span>
                 </div>
@@ -361,7 +372,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                     href={currentProj.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-2.5 py-1 bg-purple-600 hover:bg-purple-500 text-white font-mono font-bold text-xs rounded border border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition-all"
+                    className="px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition-all cursor-pointer"
                   >
                     <GithubIcon className="w-3.5 h-3.5" />
                     <span>GitHub Repo</span>
@@ -373,40 +384,40 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
               <h3 className="font-mono font-black text-lg sm:text-xl text-white uppercase tracking-tight">
                 {currentProj.title}
               </h3>
-              <p className="font-serif text-xs text-neutral-300 italic">
+              <p className="font-sans text-xs text-neutral-300">
                 {currentProj.subtitle}
               </p>
             </div>
 
             {/* Collaborators */}
-            <div className="flex items-center space-x-2 font-mono text-xs text-neutral-300 bg-white/5 p-2 rounded border border-white/10">
+            <div className="flex items-center space-x-2 font-mono text-xs text-neutral-300 bg-black/60 p-2.5 border-2 border-black shadow-[2px_2px_0px_#000]">
               <Users className="w-4 h-4 text-amber-400 shrink-0" />
               <span className="text-neutral-400">{currentLang === 'es' ? 'Colaboradores:' : 'Collaborators:'}</span>
               <span className="text-white font-bold">{currentProj.collaborators}</span>
             </div>
 
-            {/* Progress Bar */}
-            <div className="p-3 bg-black/60 border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1.5">
+            {/* Operational Progress Bar */}
+            <div className="p-3 bg-black border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1.5">
               <div className="flex items-center justify-between font-mono text-xs font-bold">
                 <span className="text-amber-400">
                   {currentLang === 'es' ? 'AVANCE OPERATIVO' : 'OPERATIONAL PROGRESS'}
                 </span>
                 <span className="text-white font-black">{currentProj.progress}%</span>
               </div>
-              <div className="w-full h-3 bg-neutral-800 border border-black rounded-full overflow-hidden p-0.5">
+              <div className="w-full h-3 bg-neutral-900 border border-white/30 overflow-hidden p-0.5">
                 <div
-                  className="h-full bg-gradient-to-r from-amber-500 to-amber-300 rounded-full transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-red-500 via-amber-400 to-green-400 transition-all duration-500"
                   style={{ width: `${currentProj.progress}%` }}
                 />
               </div>
             </div>
 
-            {/* Description */}
-            <div className="p-3.5 bg-black/40 border-2 border-dashed border-white/20 rounded-lg">
-              <div className="font-mono text-[10px] text-amber-300 font-black uppercase mb-1">
-                {currentLang === 'es' ? '[ OBJETIVO ESTRATÉGICO ]' : '[ STRATEGIC OBJECTIVE ]'}
+            {/* Strategic Objective */}
+            <div className="p-3.5 bg-[#0a0e14] border-2 border-dashed border-white/30 rounded-lg space-y-1">
+              <div className="font-mono text-[10px] text-yellow-400 font-black uppercase">
+                {currentLang === 'es' ? '[ OBJETIVO ESTRATÉGICO & ALCANCE ]' : '[ STRATEGIC OBJECTIVE & SCOPE ]'}
               </div>
-              <p className="font-serif text-xs text-neutral-200 leading-relaxed">
+              <p className="font-sans text-xs text-neutral-200 leading-relaxed">
                 {currentProj.desc}
               </p>
             </div>
@@ -429,10 +440,10 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                 {currentProj.checklist.map((chk, cIdx) => (
                   <div
                     key={cIdx}
-                    className={`p-2 border rounded font-mono text-xs flex items-start space-x-2.5 ${
+                    className={`p-2 border-2 border-black font-mono text-xs flex items-start space-x-2.5 ${
                       chk.completed
-                        ? 'bg-emerald-950/40 border-emerald-500/50 text-emerald-200'
-                        : 'bg-black/40 border-white/10 text-neutral-300'
+                        ? 'bg-emerald-950/60 text-emerald-200'
+                        : 'bg-black/50 text-neutral-300'
                     }`}
                   >
                     {chk.completed ? (
@@ -440,15 +451,15 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({ isOpen, onClose, c
                     ) : (
                       <Square className="w-4 h-4 text-neutral-500 shrink-0 mt-0.5" />
                     )}
-                    <span className={chk.completed ? 'line-through opacity-85' : ''}>{chk.text}</span>
+                    <span className={chk.completed ? 'line-through opacity-80' : ''}>{chk.text}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Field Notes */}
-            <div className="font-mono text-[10px] text-neutral-400 italic pt-2 border-t border-white/10 flex items-center justify-between">
-              <span>* Nota de bitácora: {currentProj.notes}</span>
+            <div className="font-mono text-[10px] text-neutral-400 pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+              <span>* Bitácora: {currentProj.notes}</span>
               {currentProj.githubUrl && (
                 <a 
                   href={currentProj.githubUrl} 

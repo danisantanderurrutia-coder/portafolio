@@ -9,10 +9,12 @@ import {
   Layers, 
   CheckCircle2, 
   Sparkles,
-  BookOpen,
   Terminal,
   Radio,
-  ExternalLink
+  ExternalLink,
+  Wrench,
+  Activity,
+  Binary
 } from 'lucide-react';
 import { Language } from '../types';
 
@@ -20,7 +22,7 @@ interface SkillsModalProps {
   isOpen: boolean;
   onClose: () => void;
   currentLang: Language;
-  initialTab?: 'science' | 'comms' | 'credentials';
+  initialTab?: 'science' | 'comms' | 'equipment';
 }
 
 export const SkillsModal: React.FC<SkillsModalProps> = ({
@@ -29,156 +31,228 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
   currentLang,
   initialTab = 'science'
 }) => {
-  const [activeTab, setActiveTab] = useState<'science' | 'comms' | 'credentials'>(initialTab);
+  const [activeTab, setActiveTab] = useState<'science' | 'comms' | 'equipment'>(initialTab);
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md animate-fadeIn">
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-md animate-fadeIn select-none"
+      onClick={onClose}
+    >
       <div 
-        className="relative w-full max-w-3xl bg-[#0c0f14] border-3 border-black rounded-2xl shadow-[10px_10px_0px_#facc15] overflow-hidden flex flex-col max-h-[92vh] text-white"
+        className="relative w-full max-w-4xl max-h-[92vh] bg-[#0c1017] border-4 border-black rounded-2xl shadow-[10px_10px_0px_#06b6d4] flex flex-col overflow-hidden text-white font-sans"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header */}
-        <div className="px-5 py-3.5 bg-black border-b-2 border-neutral-800 flex items-center justify-between shrink-0">
-          <div className="flex items-center space-x-2.5">
-            <div className="p-1.5 rounded-lg bg-[#facc15] text-black">
-              <Terminal className="w-4 h-4" />
-            </div>
-            <div>
-              <h3 className="font-mono font-black text-xs sm:text-sm uppercase tracking-wider text-white">
-                {currentLang === 'es' ? 'FICHA TÉCNICA // SKILLS, HERRAMIENTAS & METODOLOGÍAS' : 'TECHNICAL SPECIFICATIONS // SKILLS & TOOLS'}
-              </h3>
-              <p className="font-mono text-[10px] text-neutral-400">
-                {currentLang === 'es' ? 'MATRIZ DE COMPETENCIAS PROFESIONALES COMPROBABLES' : 'VERIFIED PROFESSIONAL CAPABILITY MATRIX'}
-              </p>
-            </div>
+        {/* ============================================================== */}
+        {/* 1. TOP HEADER: TACTICAL TECHNICAL BLUEPRINT                    */}
+        {/* ============================================================== */}
+        <div className="px-4 sm:px-6 py-3.5 bg-black border-b-3 border-black flex flex-wrap items-center justify-between gap-3 shrink-0">
+          <div className="flex items-center space-x-3">
+            <span className="bg-[#06b6d4] text-black px-3 py-1 font-mono font-black text-xs sm:text-sm uppercase border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
+              {currentLang === 'es' ? '[ FICHA TÉCNICA // SKILLS & METODOLOGÍAS ]' : '[ TECHNICAL SPECIFICATIONS // SKILLS MATRIX ]'}
+            </span>
+            <span className="hidden sm:inline-block bg-yellow-400 text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black uppercase rotate-1">
+              VERIFIED WORKFLOWS
+            </span>
           </div>
 
           <button
             onClick={onClose}
-            className="p-1 rounded-lg bg-white/10 hover:bg-red-600 hover:text-white text-neutral-400 transition-all border border-white/20 active:scale-90"
+            className="p-1 rounded-lg bg-white/10 hover:bg-red-600 hover:text-white text-neutral-300 transition-all border border-white/20 active:scale-90 cursor-pointer ml-auto"
             title="Cerrar // Close"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Tab Buttons (Slanted Stencil Tape / Modern Tabs) */}
-        <div className="px-5 pt-3 pb-1 bg-black/50 border-b border-neutral-800 flex items-center gap-2 overflow-x-auto no-scrollbar shrink-0">
+        {/* Blueprint Subheader Bar */}
+        <div className="bg-[#07131d] border-b-2 border-cyan-500/30 px-4 sm:px-6 py-2.5 shrink-0 flex items-center justify-between text-[11px] font-mono text-cyan-300">
+          <div className="flex items-center space-x-2">
+            <Binary className="w-3.5 h-3.5 text-cyan-400" />
+            <span>ID: DSU-ENGINEERING-CORE • VERSIÓN 2026.04</span>
+          </div>
+          <span className="text-neutral-400 hidden sm:inline">
+            {currentLang === 'es' ? 'AUDITABLE PARA PERFILES SENIOR' : 'SENIOR AUDITABLE COMPETENCIES'}
+          </span>
+        </div>
+
+        {/* ============================================================== */}
+        {/* 2. TAB CONTROLS (STENCIL TAPE & COMIC INK)                     */}
+        {/* ============================================================== */}
+        <div className="px-4 sm:px-6 pt-3 pb-2 bg-black/70 border-b border-white/10 flex items-center gap-2 overflow-x-auto no-scrollbar shrink-0">
           <button
             onClick={() => setActiveTab('science')}
-            className={`px-3 py-1.5 font-mono font-black text-xs uppercase tracking-wider border-2 border-black transition-all rounded-md flex items-center space-x-1.5 ${
+            className={`px-3 py-1.5 font-mono font-black text-xs uppercase tracking-tight border-2 border-black transition-all flex items-center space-x-1.5 cursor-pointer shrink-0 ${
               activeTab === 'science'
-                ? 'bg-blue-600 text-white shadow-[2px_2px_0px_#fff]'
+                ? 'bg-[#06b6d4] text-black shadow-[3px_3px_0px_#fff] -rotate-1'
                 : 'bg-white/10 text-neutral-300 hover:bg-white/20'
             }`}
           >
-            <span>🔬</span>
-            <span>{currentLang === 'es' ? 'CIENCIA & DATOS' : 'SCIENCE & DATA'}</span>
+            <Code className="w-3.5 h-3.5" />
+            <span>01. CIENCIA, CÓDIGO & MODELACIÓN</span>
           </button>
 
           <button
             onClick={() => setActiveTab('comms')}
-            className={`px-3 py-1.5 font-mono font-black text-xs uppercase tracking-wider border-2 border-black transition-all rounded-md flex items-center space-x-1.5 ${
+            className={`px-3 py-1.5 font-mono font-black text-xs uppercase tracking-tight border-2 border-black transition-all flex items-center space-x-1.5 cursor-pointer shrink-0 ${
               activeTab === 'comms'
-                ? 'bg-orange-600 text-white shadow-[2px_2px_0px_#fff]'
+                ? 'bg-[#f97316] text-white shadow-[3px_3px_0px_#fff] rotate-1'
                 : 'bg-white/10 text-neutral-300 hover:bg-white/20'
             }`}
           >
-            <span>📢</span>
-            <span>{currentLang === 'es' ? 'COMUNICACIONES & ESTRATEGIA' : 'COMMS & STRATEGY'}</span>
+            <Radio className="w-3.5 h-3.5" />
+            <span>02. COMUNICACIONES & ESTRATEGIA</span>
           </button>
 
           <button
-            onClick={() => setActiveTab('credentials')}
-            className={`px-3 py-1.5 font-mono font-black text-xs uppercase tracking-wider border-2 border-black transition-all rounded-md flex items-center space-x-1.5 ${
-              activeTab === 'credentials'
-                ? 'bg-emerald-600 text-white shadow-[2px_2px_0px_#fff]'
+            onClick={() => setActiveTab('equipment')}
+            className={`px-3 py-1.5 font-mono font-black text-xs uppercase tracking-tight border-2 border-black transition-all flex items-center space-x-1.5 cursor-pointer shrink-0 ${
+              activeTab === 'equipment'
+                ? 'bg-[#22c55e] text-black shadow-[3px_3px_0px_#fff] -rotate-1'
                 : 'bg-white/10 text-neutral-300 hover:bg-white/20'
             }`}
           >
-            <span>🌐</span>
-            <span>{currentLang === 'es' ? 'IDIOMAS & GRADOS' : 'LANGUAGES & DEGREES'}</span>
+            <Wrench className="w-3.5 h-3.5" />
+            <span>03. EQUIPOS DE CAMPO & IDIOMAS</span>
           </button>
         </div>
 
-        {/* Modal Scrollable Content */}
-        <div className="p-5 sm:p-7 overflow-y-auto space-y-6">
-
+        {/* ============================================================== */}
+        {/* 3. SCROLLABLE TAB CONTENT                                      */}
+        {/* ============================================================== */}
+        <div className="overflow-y-auto p-4 sm:p-6 space-y-6 no-scrollbar">
+          
           {/* ============================================================== */}
-          {/* TAB 1: SCIENCE & DATA                                          */}
+          {/* TAB 1: SCIENCE, CODE & MODELING                                */}
           {/* ============================================================== */}
           {activeTab === 'science' && (
             <div className="space-y-6 animate-fadeIn">
               
-              {/* Block 1: Programming & Tools */}
-              <div className="space-y-2.5">
-                <h4 className="font-mono font-black text-xs uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
-                  <Code className="w-4 h-4" />
-                  <span>{currentLang === 'es' ? 'LENGUAJES DE PROGRAMACIÓN & SOFTWARE CIENTÍFICO' : 'LANGUAGES & SCIENTIFIC SOFTWARE'}</span>
-                </h4>
+              {/* Languages & Software Meter Grid */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-cyan-500/20 pb-1.5">
+                  <h4 className="font-mono font-black text-xs uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                    <Terminal className="w-4 h-4" />
+                    <span>{currentLang === 'es' ? 'STACK DE PROGRAMACIÓN & SOFTWARE ESPACIAL' : 'PROGRAMMING STACK & GEOSPATIAL ENGINES'}</span>
+                  </h4>
+                  <span className="font-mono text-[10px] text-neutral-400">[VU POWER LEVELS]</span>
+                </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
-                    { name: 'Python', level: 'Avanzado', desc: 'GeoPandas, NumPy, SciPy, Matplotlib, GDAL, Rasterio' },
-                    { name: 'R Language', level: 'Avanzado', desc: 'Análisis espacial, series de tiempo, ggplot2, sf' },
-                    { name: 'QGIS / ArcGIS Pro', level: 'Experto', desc: 'Modelación geoespacial, DEMs, raster, shapefiles' },
-                    { name: 'Google Earth Engine', level: 'Competente', desc: 'Procesamiento satelital Sentinel-2 & Landsat' },
-                    { name: 'Git & GitHub', level: 'Avanzado', desc: 'Control de versiones, CI/CD, trabajo colaborativo' },
-                    { name: 'Three.js / WebGL', level: 'Competente', desc: 'Visualización de datos 3D, mapas esféricos' },
-                    { name: 'Delft3D / Hydro', level: 'Especializado', desc: 'Dinámica costera, marejadas y transporte estuarino' },
-                    { name: 'SQL & Bases Espaciales', level: 'Competente', desc: 'PostGIS, consultas relacionales y filtrado' },
-                    { name: 'LaTeX / Typst', level: 'Experto', desc: 'Composición de artículos y reportes científicos' },
+                    { 
+                      name: 'Python', 
+                      level: 95, 
+                      tags: 'GeoPandas, NumPy, SciPy, Rasterio, GDAL, Matplotlib',
+                      meter: '[██████████████░] 95%'
+                    },
+                    { 
+                      name: 'R Language', 
+                      level: 90, 
+                      tags: 'Análisis espacial, sf, ggplot2, series temporales, ecología',
+                      meter: '[█████████████░░] 90%'
+                    },
+                    { 
+                      name: 'QGIS & ArcGIS Pro', 
+                      level: 95, 
+                      tags: 'Modelación hidrológica, DEMs LiDAR, cuencas, cartografía',
+                      meter: '[██████████████░] 95%'
+                    },
+                    { 
+                      name: 'Google Earth Engine (GEE)', 
+                      level: 85, 
+                      tags: 'Procesamiento masivo de constelaciones Sentinel-2 y Landsat',
+                      meter: '[████████████░░░] 85%'
+                    },
+                    { 
+                      name: 'Delft3D / Hydro Models', 
+                      level: 80, 
+                      tags: 'Dinámica de marejadas de tempestad, transporte estuarino (Lauwersmeer)',
+                      meter: '[███████████░░░░] 80%'
+                    },
+                    { 
+                      name: 'Git, GitHub & CI/CD', 
+                      level: 90, 
+                      tags: 'Control de versiones, pipelines automatizados, repositorios abiertos',
+                      meter: '[█████████████░░] 90%'
+                    },
+                    { 
+                      name: 'LaTeX / Typst', 
+                      level: 95, 
+                      tags: 'Tipografía de alta precisión para artículos científicos y tesis',
+                      meter: '[██████████████░] 95%'
+                    },
+                    { 
+                      name: 'PostgreSQL / PostGIS', 
+                      level: 85, 
+                      tags: 'Consultas espaciales indexadas, filtrado de polígonos masivos',
+                      meter: '[████████████░░░] 85%'
+                    }
                   ].map((item, idx) => (
-                    <div key={idx} className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-blue-500/50 transition-colors">
+                    <div 
+                      key={idx}
+                      className="p-3 bg-[#111722] border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1.5"
+                    >
                       <div className="flex items-center justify-between">
-                        <span className="font-mono font-bold text-xs text-white">{item.name}</span>
-                        <span className="font-mono text-[9px] px-1 py-0.2 bg-blue-500/20 text-blue-300 rounded border border-blue-500/30">
-                          {item.level}
-                        </span>
+                        <span className="font-mono font-black text-sm text-white">{item.name}</span>
+                        <span className="font-mono text-[10px] text-cyan-400 font-bold">{item.meter}</span>
                       </div>
-                      <p className="text-[10px] text-neutral-400 mt-1 font-sans leading-tight">
-                        {item.desc}
+                      
+                      {/* Terminal Progress Bar */}
+                      <div className="w-full h-2 bg-black rounded-sm overflow-hidden p-0.5 border border-white/20">
+                        <div 
+                          className="h-full bg-gradient-to-r from-cyan-500 to-yellow-400" 
+                          style={{ width: `${item.level}%` }}
+                        />
+                      </div>
+
+                      <p className="text-[10px] font-sans text-neutral-400 leading-tight">
+                        {item.tags}
                       </p>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Block 2: Methodologies */}
-              <div className="space-y-2.5">
-                <h4 className="font-mono font-black text-xs uppercase tracking-wider text-blue-400 flex items-center gap-1.5">
-                  <Database className="w-4 h-4" />
-                  <span>{currentLang === 'es' ? 'METODOLOGÍAS BIOFÍSICAS & MODELACIÓN' : 'BIOPHYSICAL METHODOLOGIES & MODELING'}</span>
-                </h4>
+              {/* Biophysical & Catchment Methodologies */}
+              <div className="space-y-3">
+                <div className="border-b border-cyan-500/20 pb-1.5">
+                  <h4 className="font-mono font-black text-xs uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
+                    <Database className="w-4 h-4" />
+                    <span>{currentLang === 'es' ? 'METODOLOGÍAS CIENTÍFICAS APLICADAS' : 'APPLIED SCIENTIFIC METHODOLOGIES'}</span>
+                  </h4>
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     {
-                      title: currentLang === 'es' ? 'Modelación Hidrogeofísica de Cuencas' : 'Catchment Hydrogeophysical Modeling',
-                      detail: currentLang === 'es' ? 'Flujo de aguas subterráneas, balances hídricos integrados y recarga en cuencas de Chile y Europa.' : 'Groundwater dynamics, integrated water balance & recharge models in Chile & EU.'
+                      badge: 'GEOFÍSICA & HIDROLOGÍA',
+                      title: currentLang === 'es' ? 'Tomografía de Resistividad Eléctrica (ERT)' : 'Electrical Resistivity Tomography (ERT)',
+                      desc: currentLang === 'es' ? 'Caracterización no invasiva de acuíferos, intrusión salina y mapeo de perfiles de suelo 2D/3D con Syscal Pro.' : 'Non-invasive aquifer characterization, saline intrusion and 2D/3D soil profiles using Syscal Pro.'
                     },
                     {
-                      title: currentLang === 'es' ? 'Evaluación de Riesgo Climático Costero' : 'Coastal Climate Risk & SLR Assessments',
-                      detail: currentLang === 'es' ? 'Modelación de marejadas de tempestad, ascenso del nivel del mar y resiliencia en Lauwersmeer (Países Bajos).' : 'Storm surge simulations, sea level rise modeling & resilience at Lauwersmeer (Netherlands).'
+                      badge: 'ATMÓSFERA & FLUJOS GEI',
+                      title: currentLang === 'es' ? 'Eddy Covariance & Micro-meteorología' : 'Eddy Covariance & Micro-meteorology',
+                      desc: currentLang === 'es' ? 'Cuantificación de flujos turbulentos de CO2, CH4 y vapor de agua en turberas y agroecosistemas con torres LI-COR.' : 'Quantifying turbulent CO2, CH4 and water vapor exchange across peatlands using LI-COR towers.'
                     },
                     {
-                      title: currentLang === 'es' ? 'Gemelos Digitales & IoT Agrícola (AgriTwin)' : 'Digital Twins & Agricultural IoT (AgriTwin)',
-                      detail: currentLang === 'es' ? 'Diseño de sensores de suelo, microclima y mapas multispectrales para eficiencia hídrica en viñas del Maule.' : 'Soil telemetry, microclimates & multispectral satellite feeds for precision irrigation in Chile.'
+                      badge: 'RIESGO CLIMÁTICO',
+                      title: currentLang === 'es' ? 'Modelación de Ascenso del Nivel del Mar' : 'Sea Level Rise & Coastal Storm Surge',
+                      desc: currentLang === 'es' ? 'Simulaciones de inundación costera y vulnerabilidad hidrodinámica en la cuenca de Lauwersmeer (Países Bajos).' : 'Coastal flooding simulations and hydrodynamic vulnerability in the Lauwersmeer basin (Netherlands).'
                     },
                     {
-                      title: currentLang === 'es' ? 'Bioacústica & Ecosistemas Nativos' : 'Bioacoustics & Native Forest Ecology',
-                      detail: currentLang === 'es' ? 'Monitoreo acústico de biodiversidad, procesamiento de señales y modelos de restauración ecológica (ReWild).' : 'Acoustic biodiversity monitoring, signal processing & restoration modeling (ReWild).'
+                      badge: 'IOT & AGROTECNOLOGÍA',
+                      title: currentLang === 'es' ? 'Gemelos Digitales Agrícolas (AgriTwin)' : 'Agricultural Digital Twins (AgriTwin)',
+                      desc: currentLang === 'es' ? 'Integración de telemetría de humedad en tiempo real con índices satelitales Sentinel (NDVI/NDRE) en el Maule.' : 'Real-time soil telemetry integrated with Sentinel NDVI/NDRE satellite indexes in Maule, Chile.'
                     }
                   ].map((m, idx) => (
-                    <div key={idx} className="p-3 rounded-lg bg-blue-950/20 border border-blue-800/40">
-                      <div className="font-mono font-bold text-xs text-blue-300">
-                        {m.title}
-                      </div>
-                      <p className="text-[11px] text-neutral-300 font-sans mt-1 leading-relaxed">
-                        {m.detail}
-                      </p>
+                    <div key={idx} className="p-3 bg-[#0d141e] border-2 border-black rounded-lg space-y-1 shadow-[2px_2px_0px_#000]">
+                      <span className="font-mono font-bold text-[9px] px-1.5 py-0.5 bg-cyan-950 text-cyan-300 border border-cyan-700/50 uppercase inline-block">
+                        {m.badge}
+                      </span>
+                      <h5 className="font-mono font-black text-xs text-white pt-1">{m.title}</h5>
+                      <p className="text-[11px] font-sans text-neutral-300 leading-relaxed">{m.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -188,60 +262,60 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
           )}
 
           {/* ============================================================== */}
-          {/* TAB 2: COMMS & STRATEGY                                        */}
+          {/* TAB 2: COMMS, STRATEGY & ART DIRECTION                         */}
           {/* ============================================================== */}
           {activeTab === 'comms' && (
             <div className="space-y-6 animate-fadeIn">
               
-              <div className="space-y-2.5">
-                <h4 className="font-mono font-black text-xs uppercase tracking-wider text-orange-400 flex items-center gap-1.5">
-                  <Radio className="w-4 h-4" />
-                  <span>{currentLang === 'es' ? 'HABILIDADES EN COMUNICACIÓN ESTRATÉGICA & MEDIOS' : 'STRATEGIC COMMUNICATIONS & MEDIA SKILLS'}</span>
-                </h4>
+              <div className="space-y-3">
+                <div className="border-b border-orange-500/20 pb-1.5">
+                  <h4 className="font-mono font-black text-xs uppercase tracking-wider text-orange-400 flex items-center gap-1.5">
+                    <Radio className="w-4 h-4" />
+                    <span>{currentLang === 'es' ? 'CAPACIDADES EN COMUNICACIÓN ESTRATÉGICA & PRODUCCIÓN' : 'STRATEGIC COMMS & PRODUCTION CAPABILITIES'}</span>
+                  </h4>
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
                     {
-                      title: currentLang === 'es' ? 'Campañas Masivas de Alto Impacto' : 'High-Impact Mass Campaigns',
+                      title: 'Campañas Masivas de Alto Impacto',
                       metric: '+700K Audiencia',
-                      desc: currentLang === 'es' ? 'Diseño y dirección de la campaña nacional Apruebo Rural y Primera Línea Prensa con cobertura viral orgánica.' : 'Direction of national campaigns (Apruebo Rural, Primera Línea Prensa) with massive organic reach.'
+                      desc: 'Diseño y dirección de la campaña nacional Apruebo Rural y de Primera Línea Prensa con amplia cobertura orgánica y viral.'
                     },
                     {
-                      title: currentLang === 'es' ? 'Vocería Parlamentaria & Incidencia' : 'Parliamentary Advocacy & Spokesperson',
-                      metric: 'Cámara de Diputadas/os',
-                      desc: currentLang === 'es' ? 'Alegatos técnicos ante comisiones del Congreso, fiscalización de megaincendios y articulación comunitaria.' : 'Official expert testimonies before congressional committees, investigating wildfire spread.'
+                      title: 'Dirección de Arte & Producción Cultural',
+                      metric: 'Rap Beauchef & Cuarentena',
+                      desc: 'Producción ejecutiva de escenarios en vivo, rigging de sonido en anfiteatros universitarios y ligas de streaming digital.'
                     },
                     {
-                      title: currentLang === 'es' ? 'Periodismo de Investigación & Datos' : 'Investigative & Data Journalism',
-                      metric: 'Caso EPN / Biomasa',
-                      desc: currentLang === 'es' ? 'Investigaciones complejas que revelaron subsidios ilícitos y catalizaron reformas regulatorias nacionales.' : 'In-depth reporting exposing irregular subsidies that triggered nationwide regulatory overhauls.'
+                      title: 'Vocería Parlamentaria & Incidencia',
+                      metric: 'Congreso Nacional',
+                      desc: 'Alegatos técnicos ante comisiones de la Cámara de Diputadas y Diputados sobre megaincendios e impacto del monocultivo forestal.'
                     },
                     {
-                      title: currentLang === 'es' ? 'Narrativa Transmedia & Podcasting' : 'Transmedia Outreach & Podcasting',
-                      metric: 'Podcast & Multimedia',
-                      desc: currentLang === 'es' ? 'Producción de plataformas de audio, guiones narrativos, cartografía participativa y divulgación científica.' : 'Audio showrunner, participatory cartography, narrative scripting & public science outreach.'
+                      title: 'Periodismo de Investigación & Datos',
+                      metric: 'Informe EPN 2024',
+                      desc: 'Investigación transnacional sobre contabilidad de carbono en biomasa forestal bajo las normativas RED III de la Unión Europea.'
                     },
                     {
-                      title: currentLang === 'es' ? 'Artivismo & Cultura Popular' : 'Artivism & Grassroots Culture',
+                      title: 'Arquitectura de Comunidades Digitales',
+                      metric: '+12.000 Miembros',
+                      desc: 'Administración de servidores Discord de alto rendimiento con bots de matchmaking, baja latencia y alcance en 8 países.'
+                    },
+                    {
+                      title: 'Agitación Gráfica & Xilografía Popular',
                       metric: 'Brigada Paulina Aguirre',
-                      desc: currentLang === 'es' ? 'Muralismo político, diseño de fanzines, estética cómic punk y proyectos musicales de rap social.' : 'Public street muralism, fanzine editorial design, punk comic aesthetics & conscious hip-hop music.'
-                    },
-                    {
-                      title: currentLang === 'es' ? 'Estrategia Digital, IA & Storytelling' : 'Digital Strategy, AI & Storytelling',
-                      metric: 'Los Manejadores',
-                      desc: currentLang === 'es' ? 'Arquitectura de presencia digital, gestión de creadores virtuales de IA y consultoría de comunicación estratégica.' : 'Digital presence architecture, virtual AI talent management & strategic brand narratives.'
+                      desc: 'Muralismo callejero, grabado en linóleo y xilografía para defensa de derechos humanos y memoria histórica.'
                     }
                   ].map((c, idx) => (
-                    <div key={idx} className="p-3 rounded-lg bg-orange-950/20 border border-orange-800/40">
+                    <div key={idx} className="p-3 bg-[#19120d] border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1">
                       <div className="flex items-center justify-between">
-                        <span className="font-mono font-bold text-xs text-orange-300">{c.title}</span>
-                        <span className="font-mono text-[9px] px-1.5 py-0.2 bg-orange-500/20 text-orange-200 rounded border border-orange-500/30">
+                        <span className="font-mono font-black text-xs text-orange-300">{c.title}</span>
+                        <span className="font-mono text-[9px] px-1.5 py-0.2 bg-orange-500/20 text-orange-200 border border-orange-500/30">
                           {c.metric}
                         </span>
                       </div>
-                      <p className="text-[11px] text-neutral-300 font-sans mt-1 leading-relaxed">
-                        {c.desc}
-                      </p>
+                      <p className="text-[11px] font-sans text-neutral-300 leading-relaxed">{c.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -251,80 +325,70 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
           )}
 
           {/* ============================================================== */}
-          {/* TAB 3: CREDENTIALS & LANGUAGES                                */}
+          {/* TAB 3: FIELD EQUIPMENT & WORKING LANGUAGES                     */}
           {/* ============================================================== */}
-          {activeTab === 'credentials' && (
+          {activeTab === 'equipment' && (
             <div className="space-y-6 animate-fadeIn">
               
-              {/* Languages */}
-              <div className="space-y-2.5">
-                <h4 className="font-mono font-black text-xs uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                  <Globe2 className="w-4 h-4" />
-                  <span>{currentLang === 'es' ? 'IDIOMAS DE TRABAJO' : 'WORKING LANGUAGES'}</span>
-                </h4>
+              {/* Field Gear */}
+              <div className="space-y-3">
+                <div className="border-b border-green-500/20 pb-1.5">
+                  <h4 className="font-mono font-black text-xs uppercase tracking-wider text-green-400 flex items-center gap-1.5">
+                    <Activity className="w-4 h-4" />
+                    <span>{currentLang === 'es' ? 'INSTRUMENTAL DE CAMPO & LABORATORIO OPERADO' : 'FIELD GEAR & LABORATORY INSTRUMENTATION'}</span>
+                  </h4>
+                </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono font-black text-sm text-white">Español</span>
-                      <span className="font-mono text-[10px] text-emerald-400 font-bold">Nativo</span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                  {[
+                    { name: 'Syscal Pro (Iris Instruments)', role: 'Resistivímetro multielectrodo para tomografía eléctrica profunda (ERT).' },
+                    { name: 'LI-COR LI-7500 / LI-7700', role: 'Analizadores de gas infrarrojo para torres micrometeorológicas de CO2 y CH4.' },
+                    { name: 'Sondas CTD & Piezómetros', role: 'Monitoreo de conductividad, temperatura y nivel freático en pozos.' },
+                    { name: 'Barrenos Edelman & Muestreo', role: 'Extracción de testigos de suelo intactos para análisis de densidad aparente.' },
+                    { name: 'Cámaras de Flujo Dinámicas', role: 'Medición in-situ de respiración del suelo y emisiones biogénicas.' },
+                    { name: 'Drones & Sensores Multiespectrales', role: 'Fotogrametría aérea y cálculo de índices de vigor vegetal (NDVI).' }
+                  ].map((eq, idx) => (
+                    <div key={idx} className="p-3 bg-[#0d1811] border-2 border-black rounded-lg space-y-1">
+                      <div className="font-mono font-bold text-xs text-green-300">{eq.name}</div>
+                      <p className="text-[10px] font-sans text-neutral-400">{eq.role}</p>
                     </div>
-                    <p className="text-[10px] text-neutral-400 mt-1">Lengua materna, oratoria en prensa, redacción editorial y legislativa.</p>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono font-black text-sm text-white">English</span>
-                      <span className="font-mono text-[10px] text-emerald-400 font-bold">C1 / Fluido</span>
-                    </div>
-                    <p className="text-[10px] text-neutral-400 mt-1">Ponencias en cumbres (Oslo, Bonn, Davos), redacción de papers y posgrado.</p>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono font-black text-sm text-white">Deutsch</span>
-                      <span className="font-mono text-[10px] text-amber-400 font-bold">B1 / B2</span>
-                    </div>
-                    <p className="text-[10px] text-neutral-400 mt-1">Estudios de M.Sc. en Kiel (Alemania), comunicación técnica y vida académica.</p>
-                  </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Degrees & Formations */}
-              <div className="space-y-2.5">
-                <h4 className="font-mono font-black text-xs uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                  <Award className="w-4 h-4" />
-                  <span>{currentLang === 'es' ? 'GRADOS ACADÉMICOS & FORMACIÓN' : 'ACADEMIC DEGREES & EDUCATION'}</span>
-                </h4>
+              {/* Working Languages */}
+              <div className="space-y-3">
+                <div className="border-b border-green-500/20 pb-1.5">
+                  <h4 className="font-mono font-black text-xs uppercase tracking-wider text-green-400 flex items-center gap-1.5">
+                    <Globe2 className="w-4 h-4" />
+                    <span>{currentLang === 'es' ? 'DOMINIO DE IDIOMAS' : 'LANGUAGE PROFICIENCY'}</span>
+                  </h4>
+                </div>
 
-                <div className="space-y-2">
-                  {[
-                    {
-                      degree: currentLang === 'es' ? 'Doble M.Sc. en Gestión Ambiental & Manejo Integrado de Cuencas' : 'Double European M.Sc. in Environmental Management & Integrated Catchment Management',
-                      institution: 'Christian-Albrechts-Universität zu Kiel (Alemania) & Adam Mickiewicz University in Poznań (Polonia)',
-                      years: '2018 - 2021',
-                      badge: 'Graduación con Honores'
-                    },
-                    {
-                      degree: currentLang === 'es' ? 'Ingeniería Civil en Geofísica & Licenciatura en Ciencias de la Tierra' : 'Engineering Geophysics & B.Sc. in Earth Sciences',
-                      institution: 'Universidad de Chile (Facultad de Ciencias Físicas y Matemáticas - FCFM / Beauchef)',
-                      years: '2010 - 2017',
-                      badge: 'U. de Chile'
-                    }
-                  ].map((deg, idx) => (
-                    <div key={idx} className="p-3 rounded-xl bg-emerald-950/20 border border-emerald-800/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                      <div>
-                        <div className="font-mono font-bold text-xs sm:text-sm text-white">{deg.degree}</div>
-                        <div className="text-[11px] text-neutral-300 font-sans mt-0.5">{deg.institution}</div>
-                      </div>
-                      <div className="flex items-center space-x-2 shrink-0">
-                        <span className="font-mono text-[10px] text-neutral-400">{deg.years}</span>
-                        <span className="font-mono text-[9px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30">
-                          {deg.badge}
-                        </span>
-                      </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="p-3 bg-black/60 border-2 border-black rounded-lg space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono font-black text-sm text-white">Español</span>
+                      <span className="font-mono text-[9px] bg-green-500/20 text-green-300 px-1.5 border border-green-500/40">NATIVO</span>
                     </div>
-                  ))}
+                    <p className="text-[10px] text-neutral-400">Oratoria pública, vocería parlamentaria y redacción editorial.</p>
+                  </div>
+
+                  <div className="p-3 bg-black/60 border-2 border-black rounded-lg space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono font-black text-sm text-white">English</span>
+                      <span className="font-mono text-[9px] bg-green-500/20 text-green-300 px-1.5 border border-green-500/40">C1 / FLUENT</span>
+                    </div>
+                    <p className="text-[10px] text-neutral-400">Ponencias en cumbres internacionales (Oslo, Bonn, Davos) y redacción científica.</p>
+                  </div>
+
+                  <div className="p-3 bg-black/60 border-2 border-black rounded-lg space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono font-black text-sm text-white">Deutsch</span>
+                      <span className="font-mono text-[9px] bg-amber-500/20 text-amber-300 px-1.5 border border-amber-500/40">B1 / B2</span>
+                    </div>
+                    <p className="text-[10px] text-neutral-400">Estudios de M.Sc. en CAU Kiel, comunicación técnica y vida académica en Alemania.</p>
+                  </div>
                 </div>
               </div>
 
@@ -333,21 +397,22 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
 
         </div>
 
-        {/* Modal Footer with Direct CV & Hire Me Links */}
-        <div className="px-5 py-3 bg-black/90 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
-          <span className="text-neutral-400">
-            {currentLang === 'es' ? 'COMPATIBLE CON FILTROS ATS Y PERFILES CORPORATIVOS' : 'ATS & RECRUITER COMPATIBLE MATRIX'}
-          </span>
-          <a
-            href="https://github.com/danisantanderurrutia-coder"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-purple-400 hover:text-white flex items-center space-x-1"
+        {/* ============================================================== */}
+        {/* 4. MODAL FOOTER                                                */}
+        {/* ============================================================== */}
+        <div className="px-4 sm:px-6 py-2.5 bg-black border-t-2 border-white/15 flex flex-wrap items-center justify-between gap-2 text-[10px] font-mono text-neutral-400 shrink-0">
+          <div className="flex items-center space-x-2">
+            <span className="bg-[#06b6d4] text-black font-black px-1.5 py-0.2">SKILLS-DB</span>
+            <span>TOPOCATCHMENT HYDROGEOPHYSICS & STRATEGIC COMMS</span>
+          </div>
+          <button
+            onClick={onClose}
+            className="px-3 py-1 bg-white hover:bg-cyan-400 text-black font-bold uppercase transition-all cursor-pointer"
           >
-            <span>github.com/danisantanderurrutia-coder</span>
-            <ExternalLink className="w-3 h-3" />
-          </a>
+            {currentLang === 'es' ? 'CERRAR FICHA' : 'CLOSE SPEC SHEET'}
+          </button>
         </div>
+
       </div>
     </div>
   );

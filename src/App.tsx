@@ -6,6 +6,9 @@ import { ClassicDossierView } from './components/ClassicDossierView';
 import { CommsCultureView, CommsCultureMode } from './components/CommsCultureView';
 import { HireMeModal } from './components/HireMeModal';
 import { SkillsModal } from './components/SkillsModal';
+import { PublicationsModal } from './components/PublicationsModal';
+import { TitlesModal } from './components/TitlesModal';
+import { ArtDirectorModal } from './components/ArtDirectorModal';
 
 export { resolveAsset } from './utils';
 
@@ -14,8 +17,13 @@ export function App() {
   const [commsCultureMode, setCommsCultureMode] = useState<CommsCultureMode>('comms_arts');
   const [selectedCategory, setSelectedCategory] = useState<'all' | MissionType>('all');
   const [currentLang, setCurrentLang] = useState<Language>('en');
+  
+  // Modals state
   const [isHireMeOpen, setIsHireMeOpen] = useState(false);
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+  const [isPublicationsOpen, setIsPublicationsOpen] = useState(false);
+  const [isTitlesOpen, setIsTitlesOpen] = useState(false);
+  const [isArtDirectorOpen, setIsArtDirectorOpen] = useState(false);
 
   const toggleLanguage = () => {
     setCurrentLang((prev) => (prev === 'es' ? 'en' : 'es'));
@@ -23,7 +31,7 @@ export function App() {
 
   return (
     <>
-      {/* 1. MENÚ PRINCIPAL PUNK / ECO-NOIR (PORTADA PRINCIPAL CON EL LOGO, FOTO Y 8 BOTONES ESTRATÉGICOS) */}
+      {/* 1. MENÚ PRINCIPAL PUNK / ECO-NOIR (PORTADA PRINCIPAL CON EL LOGO, FOTO Y BOTONES ESTRATÉGICOS) */}
       {viewMode === 'punk' && (
         <PunkMainMenu
           currentLang={currentLang}
@@ -49,6 +57,9 @@ export function App() {
           }}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}
+          onOpenPublications={() => setIsPublicationsOpen(true)}
+          onOpenTitles={() => setIsTitlesOpen(true)}
+          onOpenArtDirector={() => setIsArtDirectorOpen(true)}
         />
       )}
 
@@ -64,6 +75,7 @@ export function App() {
           onBackToGateway={() => setViewMode('punk')}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenSkills={() => setIsSkillsOpen(true)}
+          onOpenArtDirector={() => setIsArtDirectorOpen(true)}
           initialFilter={selectedCategory}
         />
       )}
@@ -112,6 +124,27 @@ export function App() {
         onClose={() => setIsSkillsOpen(false)}
         currentLang={currentLang}
         initialTab={viewMode === 'comms_culture' ? 'comms' : 'science'}
+      />
+
+      {/* MODAL GLOBAL DE PUBLICACIONES & PRENSA INVESTIGATIVA */}
+      <PublicationsModal
+        isOpen={isPublicationsOpen}
+        onClose={() => setIsPublicationsOpen(false)}
+        currentLang={currentLang}
+      />
+
+      {/* MODAL GLOBAL DE TÍTULOS ACADÉMICOS, CERTIFICACIONES & AVALES */}
+      <TitlesModal
+        isOpen={isTitlesOpen}
+        onClose={() => setIsTitlesOpen(false)}
+        currentLang={currentLang}
+      />
+
+      {/* MODAL GLOBAL DE DIRECCIÓN DE ARTE, RAP BEAUCHEF & CUARENTENA RAP (SABER MÁS) */}
+      <ArtDirectorModal
+        isOpen={isArtDirectorOpen}
+        onClose={() => setIsArtDirectorOpen(false)}
+        currentLang={currentLang}
       />
     </>
   );
