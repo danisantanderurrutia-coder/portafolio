@@ -12,9 +12,7 @@ import {
   Users,
   Microscope,
   BookOpen,
-  GraduationCap,
-  Compass,
-  MapPin
+  GraduationCap
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -35,6 +33,166 @@ interface PunkMainMenuProps {
   onOpenTitles?: () => void;
   onOpenArtDirector?: () => void;
 }
+
+interface WoodenSignSlatProps {
+  direction: 'left' | 'right';
+  bgColor: string;
+  textColor?: string;
+  rotationClass: string;
+  offsetClass?: string;
+  icon: React.ReactNode;
+  label: string;
+  extraElement?: React.ReactNode;
+  onClick?: () => void;
+  href?: string;
+  download?: string;
+  title?: string;
+  isSpecial?: boolean;
+}
+
+const WoodenSignSlat: React.FC<WoodenSignSlatProps> = ({
+  direction,
+  bgColor,
+  textColor = '#ffffff',
+  rotationClass,
+  offsetClass = '',
+  icon,
+  label,
+  extraElement,
+  onClick,
+  href,
+  download,
+  title,
+  isSpecial
+}) => {
+  // Arrow paths with full comic stroke and no clipped borders
+  // Right arrow: flat left end, pointy chevron on right
+  // Left arrow: pointy chevron on left, flat right end
+  const pathData = direction === 'right'
+    ? "M 2.5 2.5 L 198 2.5 L 217.5 19 L 198 35.5 L 2.5 35.5 Z"
+    : "M 217.5 2.5 L 22 2.5 L 2.5 19 L 22 35.5 L 217.5 35.5 Z";
+
+  const highlightPath = direction === 'right'
+    ? "M 4 4.5 L 196 4.5 L 213 19"
+    : "M 216 4.5 L 24 4.5 L 6 19";
+
+  const isLightBg = textColor === '#000000';
+
+  const content = (
+    <div
+      className={`group relative w-full h-[36px] sm:h-[39px] flex items-center justify-between select-none cursor-pointer transition-all duration-150 active:scale-95 hover:scale-[1.03] hover:z-30 ${
+        direction === 'right' ? 'pl-3.5 sm:pl-4 pr-7 sm:pr-8' : 'pl-7 sm:pl-8 pr-3.5 sm:pr-4'
+      }`}
+      style={{
+        filter: isSpecial 
+          ? 'drop-shadow(3.5px 4px 0px rgba(0,0,0,0.95))' 
+          : 'drop-shadow(2.5px 3px 0px rgba(0,0,0,0.85))'
+      }}
+      title={title}
+    >
+      {/* SVG Painted Wooden Plank (Continuous stroke, vector nail bolts, bevel highlight) */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none"
+        viewBox="0 0 220 38"
+        preserveAspectRatio="none"
+      >
+        {/* Main wood plank */}
+        <path
+          d={pathData}
+          fill={bgColor}
+          stroke="#000000"
+          strokeWidth={isSpecial ? 3 : 2.5}
+          strokeLinejoin="round"
+          strokeLinecap="round"
+        />
+        {/* Wood top edge bevel highlight */}
+        <path
+          d={highlightPath}
+          fill="none"
+          stroke={isLightBg ? 'rgba(255,255,255,0.5)' : 'rgba(255,255,255,0.3)'}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+        {/* Two metallic nail heads holding the wooden plank to the post axis */}
+        <circle cx="110" cy="12" r="2.2" fill="#334155" stroke="#000000" strokeWidth="0.8" />
+        <circle cx="110" cy="26" r="2.2" fill="#334155" stroke="#000000" strokeWidth="0.8" />
+      </svg>
+
+      {/* Content Layer */}
+      <div className="relative z-10 w-full flex items-center justify-between pointer-events-none">
+        {direction === 'right' ? (
+          <>
+            <div className="flex items-center space-x-2 min-w-0">
+              <span className="shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]" style={{ color: textColor }}>
+                {icon}
+              </span>
+              <span
+                className="font-mono font-black text-[11px] sm:text-xs md:text-[13px] tracking-wide uppercase whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]"
+                style={{ color: textColor }}
+              >
+                {label}
+              </span>
+            </div>
+            <div className="flex items-center space-x-1.5 shrink-0 ml-1">
+              {extraElement}
+              <ArrowRight
+                className="w-3.5 h-3.5 shrink-0 opacity-80 group-hover:translate-x-1 transition-transform"
+                style={{ color: textColor }}
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="flex items-center space-x-1.5 shrink-0 mr-1">
+              <ArrowLeft
+                className="w-3.5 h-3.5 shrink-0 opacity-80 group-hover:-translate-x-1 transition-transform"
+                style={{ color: textColor }}
+              />
+              {extraElement}
+            </div>
+            <div className="flex items-center space-x-2 min-w-0">
+              <span
+                className="font-mono font-black text-[11px] sm:text-xs md:text-[13px] tracking-wide uppercase whitespace-nowrap drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]"
+                style={{ color: textColor }}
+              >
+                {label}
+              </span>
+              <span className="shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.6)]" style={{ color: textColor }}>
+                {icon}
+              </span>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+
+  return (
+    <div
+      className={`relative flex justify-center w-full transition-transform duration-150 hover:rotate-0 hover:translate-x-0 ${rotationClass} ${offsetClass}`}
+    >
+      {href ? (
+        <a
+          href={href}
+          download={download}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-[92%] sm:w-[94%] block"
+        >
+          {content}
+        </a>
+      ) : (
+        <button
+          onClick={onClick}
+          className="w-[92%] sm:w-[94%] block text-left"
+          type="button"
+        >
+          {content}
+        </button>
+      )}
+    </div>
+  );
+};
 
 export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   currentLang,
@@ -119,23 +277,9 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
         </div>
       </header>
 
-      {/* 3. MAIN STAGE: AUTHENTIC HECTIC WOODEN SIGNPOST OVER THE COMIC TIMBER POLE */}
-      <main className="relative z-20 flex-1 w-full px-4 sm:px-8 lg:px-12 flex flex-col lg:flex-row items-center justify-between my-auto overflow-y-auto no-scrollbar py-2">
+      {/* 3. MAIN STAGE: DIRECTIONAL WOODEN SLATS MOUNTED OVER THE TIMBER POST (CLEAN, NO FOOTER, NO EXTRA BOXES) */}
+      <main className="relative z-20 flex-1 w-full px-4 sm:px-8 lg:px-12 flex flex-col justify-center items-center my-auto overflow-y-auto no-scrollbar py-2">
         
-        {/* LEFT AREA: EMPTY TO FULLY DISPLAY THE CANAL, BRIDGE & BICYCLE ON DESKTOP */}
-        <div className="hidden lg:flex flex-col justify-end pb-8 max-w-xs pointer-events-none select-none">
-          {/* Subtle location pin */}
-          <div className="bg-black/75 backdrop-blur-md p-2.5 rounded-xl border-2 border-black shadow-[3px_3px_0px_#facc15] pointer-events-auto inline-block self-start">
-            <div className="flex items-center space-x-1.5 text-[10px] font-mono text-amber-400 font-bold uppercase">
-              <MapPin className="w-3.5 h-3.5 text-red-500 shrink-0" />
-              <span>UTRECHT & CATCHMENT ARCHIVE</span>
-            </div>
-            <div className="text-[9px] font-mono text-neutral-300 mt-0.5">
-              52°05′N 5°07′E • 33°27′S 70°40′W
-            </div>
-          </div>
-        </div>
-
         {/* RIGHT AREA: DIRECTIONAL WOODEN SLATS MOUNTED DIRECTLY ON THE TIMBER POST */}
         <div className="w-full max-w-sm sm:max-w-md lg:w-[410px] xl:w-[450px] lg:absolute lg:left-[67.7%] lg:-translate-x-1/2 flex flex-col items-center my-auto relative py-1">
           
@@ -146,342 +290,174 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           <div className="relative z-10 w-full flex flex-col space-y-1 sm:space-y-1.5 py-1">
             
             {/* 1. SIGN 01: SCIENCE & ACADEMY (Points Right ➔) */}
-            <div className="relative flex justify-center w-full -rotate-2.5 translate-x-1 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-              <button
-                onClick={onSelectSciencePlanet}
-                className="group relative w-[90%] sm:w-[92%] bg-[#1d4ed8] hover:bg-[#2563eb] text-white py-1.5 sm:py-2 pl-4 pr-7 sm:pr-8 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                style={{
-                  clipPath: 'polygon(0% 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 0% 100%)'
-                }}
-                title={currentLang === 'es' ? 'Explorar Planeta Ciencia 3D' : 'Explore 3D Science Planet'}
-              >
-                {/* Two Metallic Nail Heads Bolted to the Post */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <Microscope className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                  <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {currentLang === 'es' ? 'CIENCIA & ACADEMIA' : 'SCIENCE & ACADEMY'}
-                  </span>
-                </div>
-                <ArrowRight className="w-3.5 h-3.5 shrink-0 group-hover:translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-              </button>
-            </div>
+            <WoodenSignSlat
+              direction="right"
+              bgColor="#1d4ed8"
+              textColor="#ffffff"
+              rotationClass="-rotate-2.5"
+              offsetClass="translate-x-1"
+              icon={<Microscope className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'CIENCIA & ACADEMIA' : 'SCIENCE & ACADEMY'}
+              onClick={onSelectSciencePlanet}
+              title={currentLang === 'es' ? 'Explorar Planeta Ciencia 3D' : 'Explore 3D Science Planet'}
+            />
 
             {/* 2. SIGN 02: SUMMITS & GLOBAL POLICY (Points Left ⬅) */}
-            <div className="relative flex justify-center w-full rotate-3 -translate-x-1 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-              <button
-                onClick={onSelectSummits}
-                className="group relative w-[90%] sm:w-[92%] bg-[#b91c1c] hover:bg-[#dc2626] text-white py-1.5 sm:py-2 pl-7 sm:pl-8 pr-4 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                style={{
-                  clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 16px 100%, 0% 50%)'
-                }}
-                title={currentLang === 'es' ? 'Ver Cumbres y Política Global 3D' : 'View Summits & Global Policy 3D'}
-              >
-                {/* Two Metallic Nail Heads Bolted to the Post */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                </div>
-
-                <ArrowLeft className="w-3.5 h-3.5 shrink-0 group-hover:-translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                <div className="flex items-center space-x-2">
-                  <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {currentLang === 'es' ? 'CUMBRES & POLÍTICA GLOBAL' : 'SUMMITS & GLOBAL POLICY'}
-                  </span>
-                  <Globe className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                </div>
-              </button>
-            </div>
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#b91c1c"
+              textColor="#ffffff"
+              rotationClass="rotate-3"
+              offsetClass="-translate-x-1"
+              icon={<Globe className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'CUMBRES & POLÍTICA GLOBAL' : 'SUMMITS & GLOBAL POLICY'}
+              onClick={onSelectSummits}
+              title={currentLang === 'es' ? 'Ver Cumbres y Política Global 3D' : 'View Summits & Global Policy 3D'}
+            />
 
             {/* 3. SIGN 03: COMMUNICATIONS & ARTS (Points Right ➔) */}
-            <div className="relative flex justify-center w-full -rotate-1.5 translate-x-2 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-              <button
-                onClick={onSelectCommsArts}
-                className="group relative w-[90%] sm:w-[92%] bg-[#ea580c] hover:bg-[#f97316] text-white py-1.5 sm:py-2 pl-4 pr-7 sm:pr-8 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                style={{
-                  clipPath: 'polygon(0% 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 0% 100%)'
-                }}
-                title={currentLang === 'es' ? 'Ver Medios, Música y Arte' : 'View Communications & Arts'}
-              >
-                {/* Two Metallic Nail Heads Bolted to the Post */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <Palette className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                  <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {currentLang === 'es' ? 'MEDIOS & ARTE' : 'COMMUNICATIONS & ARTS'}
-                  </span>
-                </div>
-
-                <div className="flex items-center space-x-1.5 shrink-0">
-                  {onOpenArtDirector && (
-                    <span 
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onOpenArtDirector();
-                      }}
-                      className="bg-black hover:bg-yellow-400 text-yellow-300 hover:text-black font-mono font-black text-[8px] sm:text-[9px] px-1.5 py-0.5 border border-white/60 uppercase shadow-[1px_1px_0px_#000] cursor-pointer"
-                      title="Abrir backstage de Rap"
-                    >
-                      ⚡ RAP
-                    </span>
-                  )}
-                  <ArrowRight className="w-3.5 h-3.5 shrink-0 group-hover:translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                </div>
-              </button>
-            </div>
+            <WoodenSignSlat
+              direction="right"
+              bgColor="#ea580c"
+              textColor="#ffffff"
+              rotationClass="-rotate-1.5"
+              offsetClass="translate-x-2"
+              icon={<Palette className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'MEDIOS & ARTE' : 'COMMUNICATIONS & ARTS'}
+              extraElement={onOpenArtDirector && (
+                <span 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onOpenArtDirector();
+                  }}
+                  className="pointer-events-auto bg-black hover:bg-yellow-400 text-yellow-300 hover:text-black font-mono font-black text-[8px] sm:text-[9px] px-1.5 py-0.5 border border-white/60 uppercase shadow-[1px_1px_0px_#000] cursor-pointer"
+                  title="Abrir backstage de Rap"
+                >
+                  ⚡ RAP
+                </span>
+              )}
+              onClick={onSelectCommsArts}
+              title={currentLang === 'es' ? 'Ver Medios, Música y Arte' : 'View Communications & Arts'}
+            />
 
             {/* 4. SIGN 04: GRASSROOTS & WATER (Points Left ⬅) */}
-            <div className="relative flex justify-center w-full rotate-3.5 -translate-x-2 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-              <button
-                onClick={onSelectGrassroots}
-                className="group relative w-[90%] sm:w-[92%] bg-[#15803d] hover:bg-[#16a34a] text-white py-1.5 sm:py-2 pl-7 sm:pl-8 pr-4 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                style={{
-                  clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 16px 100%, 0% 50%)'
-                }}
-                title={currentLang === 'es' ? 'Ver Comunidades y Defensa del Agua' : 'View Grassroots & Water Governance'}
-              >
-                {/* Two Metallic Nail Heads Bolted to the Post */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                </div>
-
-                <ArrowLeft className="w-3.5 h-3.5 shrink-0 group-hover:-translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                <div className="flex items-center space-x-2">
-                  <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {currentLang === 'es' ? 'COMUNIDADES & AGUA' : 'GRASSROOTS & WATER'}
-                  </span>
-                  <Users className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                </div>
-              </button>
-            </div>
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#15803d"
+              textColor="#ffffff"
+              rotationClass="rotate-3.5"
+              offsetClass="-translate-x-2"
+              icon={<Users className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'COMUNIDADES & AGUA' : 'GRASSROOTS & WATER'}
+              onClick={onSelectGrassroots}
+              title={currentLang === 'es' ? 'Ver Comunidades y Defensa del Agua' : 'View Grassroots & Water Governance'}
+            />
 
             {/* 5. SIGN 05: PROJECTS & INNOVATION (Points Right ➔) */}
-            <div className="relative flex justify-center w-full -rotate-3 translate-x-1.5 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-              <button
-                onClick={() => setIsProjectsModalOpen(true)}
-                className="group relative w-[90%] sm:w-[92%] bg-[#eab308] hover:bg-[#facc15] text-black py-1.5 sm:py-2 pl-4 pr-7 sm:pr-8 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                style={{
-                  clipPath: 'polygon(0% 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 0% 100%)'
-                }}
-                title={currentLang === 'es' ? 'Ver Portafolio de Proyectos y Soluciones Comerciales' : 'View Commercial Projects Portfolio'}
-              >
-                {/* Two Metallic Nail Heads Bolted to the Post */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <Sparkles className="w-4 h-4 shrink-0 text-black drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)]" />
-                  <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
-                    {currentLang === 'es' ? 'PROYECTOS & INNOVACIÓN' : 'PROJECTS & INNOVATION'}
-                  </span>
-                </div>
-                <ArrowRight className="w-3.5 h-3.5 shrink-0 group-hover:translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(255,255,255,0.4)]" />
-              </button>
-            </div>
+            <WoodenSignSlat
+              direction="right"
+              bgColor="#eab308"
+              textColor="#000000"
+              rotationClass="-rotate-3"
+              offsetClass="translate-x-1.5"
+              icon={<Sparkles className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'PROYECTOS & INNOVACIÓN' : 'PROJECTS & INNOVATION'}
+              onClick={() => setIsProjectsModalOpen(true)}
+              title={currentLang === 'es' ? 'Ver Portafolio de Proyectos y Soluciones Comerciales' : 'View Commercial Projects Portfolio'}
+            />
 
             {/* 6. SIGN 06: PUBLICATIONS & PRESS (Points Left ⬅) */}
             {onOpenPublications && (
-              <div className="relative flex justify-center w-full rotate-2 -translate-x-0.5 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-                <button
-                  onClick={onOpenPublications}
-                  className="group relative w-[90%] sm:w-[92%] bg-[#1e1b4b] hover:bg-[#312e81] text-[#fef08a] py-1.5 sm:py-2 pl-7 sm:pl-8 pr-4 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                  style={{
-                    clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 16px 100%, 0% 50%)'
-                  }}
-                  title={currentLang === 'es' ? 'Ver Publicaciones, Libros y Prensa' : 'View Publications & Press'}
-                >
-                  {/* Two Metallic Nail Heads Bolted to the Post */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                    <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                    <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  </div>
-
-                  <ArrowLeft className="w-3.5 h-3.5 shrink-0 group-hover:-translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                  <div className="flex items-center space-x-2">
-                    <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      {currentLang === 'es' ? 'PUBLICACIONES & PRENSA' : 'PUBLICATIONS & PRESS'}
-                    </span>
-                    <BookOpen className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                  </div>
-                </button>
-              </div>
+              <WoodenSignSlat
+                direction="left"
+                bgColor="#1e1b4b"
+                textColor="#fef08a"
+                rotationClass="rotate-2"
+                offsetClass="-translate-x-0.5"
+                icon={<BookOpen className="w-4 h-4" />}
+                label={currentLang === 'es' ? 'PUBLICACIONES & PRENSA' : 'PUBLICATIONS & PRESS'}
+                onClick={onOpenPublications}
+                title={currentLang === 'es' ? 'Ver Publicaciones, Libros y Prensa' : 'View Publications & Press'}
+              />
             )}
 
             {/* 7. SIGN 07: SKILLS & TOOLKIT (Points Right ➔) */}
             {onOpenSkills && (
-              <div className="relative flex justify-center w-full -rotate-3.5 translate-x-2 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-                <button
-                  onClick={onOpenSkills}
-                  className="group relative w-[90%] sm:w-[92%] bg-[#0891b2] hover:bg-[#06b6d4] text-white py-1.5 sm:py-2 pl-4 pr-7 sm:pr-8 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                  style={{
-                    clipPath: 'polygon(0% 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 0% 100%)'
-                  }}
-                  title={currentLang === 'es' ? 'Ver Ficha Técnica de Habilidades y Software' : 'View Skills & Technical Toolkit'}
-                >
-                  {/* Two Metallic Nail Heads Bolted to the Post */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                    <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                    <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Terminal className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                    <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      {currentLang === 'es' ? 'FICHA TÉCNICA & SKILLS' : 'SKILLS & TOOLKIT'}
-                    </span>
-                  </div>
-                  <ArrowRight className="w-3.5 h-3.5 shrink-0 group-hover:translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                </button>
-              </div>
+              <WoodenSignSlat
+                direction="right"
+                bgColor="#0891b2"
+                textColor="#ffffff"
+                rotationClass="-rotate-3.5"
+                offsetClass="translate-x-2"
+                icon={<Terminal className="w-4 h-4" />}
+                label={currentLang === 'es' ? 'FICHA TÉCNICA & SKILLS' : 'SKILLS & TOOLKIT'}
+                onClick={onOpenSkills}
+                title={currentLang === 'es' ? 'Ver Ficha Técnica de Habilidades y Software' : 'View Skills & Technical Toolkit'}
+              />
             )}
 
             {/* 8. SIGN 08: ACADEMIC TITLES (Points Left ⬅) */}
             {onOpenTitles && (
-              <div className="relative flex justify-center w-full rotate-2.5 -translate-x-1.5 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-                <button
-                  onClick={onOpenTitles}
-                  className="group relative w-[90%] sm:w-[92%] bg-[#831843] hover:bg-[#9d174d] text-white py-1.5 sm:py-2 pl-7 sm:pl-8 pr-4 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                  style={{
-                    clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 16px 100%, 0% 50%)'
-                  }}
-                  title={currentLang === 'es' ? 'Ver Títulos Académicos y Grados' : 'View Academic Degrees & Diplomas'}
-                >
-                  {/* Two Metallic Nail Heads Bolted to the Post */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                    <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                    <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  </div>
-
-                  <ArrowLeft className="w-3.5 h-3.5 shrink-0 group-hover:-translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                  <div className="flex items-center space-x-2">
-                    <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                      {currentLang === 'es' ? 'TÍTULOS ACADÉMICOS' : 'ACADEMIC TITLES'}
-                    </span>
-                    <GraduationCap className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                  </div>
-                </button>
-              </div>
+              <WoodenSignSlat
+                direction="left"
+                bgColor="#831843"
+                textColor="#ffffff"
+                rotationClass="rotate-2.5"
+                offsetClass="-translate-x-1.5"
+                icon={<GraduationCap className="w-4 h-4" />}
+                label={currentLang === 'es' ? 'TÍTULOS ACADÉMICOS' : 'ACADEMIC TITLES'}
+                onClick={onOpenTitles}
+                title={currentLang === 'es' ? 'Ver Títulos Académicos y Grados' : 'View Academic Degrees & Diplomas'}
+              />
             )}
 
             {/* 9. SIGN 09: ACADEMIC DOSSIER PAPER (Points Right ➔) */}
-            <div className="relative flex justify-center w-full -rotate-1.5 translate-x-1 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-              <button
-                onClick={onSelectScienceDossier}
-                className="group relative w-[90%] sm:w-[92%] bg-[#c2410c] hover:bg-[#d97706] text-white py-1.5 sm:py-2 pl-4 pr-7 sm:pr-8 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                style={{
-                  clipPath: 'polygon(0% 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 0% 100%)'
-                }}
-                title={currentLang === 'es' ? 'Ver Expediente Académico Formato Fanzine Papel' : 'View Academic Dossier Paper Format'}
-              >
-                {/* Two Metallic Nail Heads Bolted to the Post */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  <FileText className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                  <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {currentLang === 'es' ? 'EXPEDIENTE ACADÉMICO' : 'ACADEMIC DOSSIER'}
-                  </span>
-                </div>
-                <ArrowRight className="w-3.5 h-3.5 shrink-0 group-hover:translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-              </button>
-            </div>
+            <WoodenSignSlat
+              direction="right"
+              bgColor="#c2410c"
+              textColor="#ffffff"
+              rotationClass="-rotate-2"
+              offsetClass="translate-x-1"
+              icon={<FileText className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'EXPEDIENTE ACADÉMICO' : 'ACADEMIC DOSSIER'}
+              onClick={onSelectScienceDossier}
+              title={currentLang === 'es' ? 'Ver Expediente Académico Formato Fanzine Papel' : 'View Academic Dossier Paper Format'}
+            />
 
             {/* 10. SIGN 10: CURRICULUM VITAE PDF (Points Left ⬅) */}
-            <div className="relative flex justify-center w-full rotate-3 -translate-x-2 hover:rotate-0 hover:translate-x-0 transition-transform duration-150">
-              <a
-                href={resolveAsset('/Daniel_Santander_CV.pdf')}
-                download="Daniel_Santander_CV.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative w-[90%] sm:w-[92%] bg-[#16a34a] hover:bg-[#22c55e] text-white py-1.5 sm:py-2 pl-7 sm:pl-8 pr-4 border-2 sm:border-[2.5px] border-black shadow-[4px_4px_0px_rgba(0,0,0,0.85)] hover:shadow-[6px_6px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                style={{
-                  clipPath: 'polygon(16px 0%, 100% 0%, 100% 100%, 16px 100%, 0% 50%)'
-                }}
-                title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
-              >
-                {/* Two Metallic Nail Heads Bolted to the Post */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  <div className="w-2 h-2 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                </div>
-
-                <ArrowLeft className="w-3.5 h-3.5 shrink-0 group-hover:-translate-x-1 transition-transform opacity-90 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                <div className="flex items-center space-x-2">
-                  <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
-                    {currentLang === 'es' ? 'CURRÍCULUM VITAE (PDF)' : 'CURRICULUM VITAE (PDF)'}
-                  </span>
-                  <Download className="w-4 h-4 shrink-0 drop-shadow-[0_1px_1px_rgba(0,0,0,0.7)]" />
-                </div>
-              </a>
-            </div>
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#16a34a"
+              textColor="#ffffff"
+              rotationClass="rotate-3"
+              offsetClass="-translate-x-2"
+              icon={<Download className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'CURRÍCULUM VITAE (PDF)' : 'CURRICULUM VITAE (PDF)'}
+              href={resolveAsset('/Daniel_Santander_CV.pdf')}
+              download="Daniel_Santander_CV.pdf"
+              title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
+            />
 
             {/* 11. SIGN 11: HIRE ME // WORK TOGETHER (Points Right ➔) */}
             {onOpenHireMe && (
-              <div className="relative flex justify-center w-full -rotate-1 translate-x-0 hover:rotate-0 hover:translate-x-0 transition-transform duration-150 pt-0.5">
-                <button
-                  onClick={onOpenHireMe}
-                  className="group relative w-[90%] sm:w-[92%] bg-[#facc15] hover:bg-white text-black py-2 pl-4 pr-7 sm:pr-8 border-3 border-black shadow-[5px_5px_0px_#000000] hover:shadow-[7px_7px_0px_#000] hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-between"
-                  style={{
-                    clipPath: 'polygon(0% 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 0% 100%)'
-                  }}
-                  title={currentLang === 'es' ? 'Contactar para contratación o colaboraciones' : 'Contact for hiring or partnerships'}
-                >
-                  {/* Two Metallic Nail Heads Bolted to the Post */}
-                  <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex flex-col space-y-1.5 pointer-events-none z-20 opacity-80">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#1e293b] border border-black shadow-[inset_0_0.5px_0.5px_rgba(255,255,255,0.7)] flex items-center justify-center"><div className="w-1 h-0.5 bg-neutral-900" /></div>
-                  </div>
-
-                  <div className="flex items-center space-x-2">
-                    <Briefcase className="w-4 h-4 text-black shrink-0" />
-                    <span className="font-mono font-black text-xs sm:text-[13px] md:text-sm tracking-wide uppercase">
-                      {currentLang === 'es' ? '★ CONTRÁTAME // HIRE ME ★' : '★ HIRE ME // WORK TOGETHER ★'}
-                    </span>
-                  </div>
-                  <ArrowRight className="w-4 h-4 text-black shrink-0 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </div>
+              <WoodenSignSlat
+                direction="right"
+                bgColor="#facc15"
+                textColor="#000000"
+                rotationClass="-rotate-1"
+                offsetClass="translate-x-0"
+                icon={<Briefcase className="w-4 h-4" />}
+                label={currentLang === 'es' ? '★ CONTRÁTAME // HIRE ME ★' : '★ HIRE ME // WORK TOGETHER ★'}
+                onClick={onOpenHireMe}
+                title={currentLang === 'es' ? 'Contactar para contratación o colaboraciones' : 'Contact for hiring or partnerships'}
+                isSpecial={true}
+              />
             )}
 
           </div>
         </div>
       </main>
 
-      {/* 4. FOOTER: CONTROLLER PROMPTS & TICKER */}
-      <footer className="relative z-30 w-full px-4 sm:px-8 py-1.5 bg-black/80 border-t-2 border-black flex flex-wrap items-center justify-between gap-2 text-[9.5px] font-mono text-neutral-300 shrink-0 backdrop-blur-md">
-        <div className="flex items-center space-x-2.5">
-          <span className="bg-[#facc15] text-black px-1.5 py-0.2 font-black border border-black shadow-[1px_1px_0px_#ffffff]">
-            A
-          </span>
-          <span className="font-bold text-white uppercase">
-            {currentLang === 'es' ? 'SELECCIONAR SECTOR // CRUCE DE RUTAS' : 'SELECT SECTOR // CAREER CROSSROADS'}
-          </span>
-          <span className="text-neutral-500">•</span>
-          <span className="text-emerald-400 font-bold">ONLINE & DISPONIBLE</span>
-        </div>
-
-        <div className="flex items-center space-x-3 text-neutral-400">
-          <span>{currentLang === 'es' ? 'EXPEDIENTE N° 2026-DSU' : 'DOSSIER NO. 2026-DSU'}</span>
-          <span className="text-neutral-500">•</span>
-          <span className="font-mono font-black text-white">
-            ||| | ||||| || |||||| | |||
-          </span>
-        </div>
-      </footer>
 
       {/* Commercial Projects Modal */}
       <ProjectsModal
