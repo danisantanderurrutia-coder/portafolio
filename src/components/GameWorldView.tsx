@@ -3174,12 +3174,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 className="w-full h-full object-cover object-top filter contrast-110"
               />
             </div>
-            {/* Topocatchment Official Insignia */}
+            {/* Geofrecuencia Official Insignia */}
             <div 
               className="absolute -top-1 -left-1 w-5 h-5 rounded-md bg-[#090b0e] border border-white shadow-[1.5px_1.5px_0px_#facc15] p-0.5 flex items-center justify-center -rotate-6"
-              title="Topocatchment"
+              title="Geofrecuencia: Pulso Geofísico & Frecuencia de Comunicación"
             >
-              <img src={resolveAsset('/favicon.svg')} alt="Topocatchment" className="w-full h-full object-contain" />
+              <img src={resolveAsset('/favicon.svg')} alt="Geofrecuencia Logo" className="w-full h-full object-contain" />
             </div>
           </div>
 
@@ -3898,13 +3898,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               </div>
                             </div>
 
-                            {/* Single Logo Frame - PROMINENT LOGO, MINIMAL BACKGROUND */}
-                            <div className="relative w-full aspect-[16/11] bg-gradient-to-b from-[#1a2334] to-[#0a0f18] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-1.5 group-hover:border-cyan-300">
+                            {/* Single Logo Frame - MASSIVE HERO LOGO, ALMOST ZERO EMPTY BACKGROUND */}
+                            <div className="relative w-full h-[96px] sm:h-[108px] bg-[#090d16] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-0.5 group-hover:border-cyan-300">
                               <div
-                                className="absolute inset-0 rounded blur-xl opacity-35 pointer-events-none"
+                                className="absolute inset-0 rounded blur-xl opacity-40 pointer-events-none"
                                 style={{ backgroundColor: tool.color }}
                               />
-                              <TechLogo name={tool.name} size={64} className="relative z-10 drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)] transition-transform group-hover:scale-110" />
+                              <TechLogo name={tool.name} size={88} className="relative z-10 drop-shadow-[0_4px_16px_rgba(0,0,0,0.98)] transition-transform duration-200 group-hover:scale-108" />
                               
                               {/* Mini index */}
                               <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[7px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
@@ -3995,9 +3995,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                 <span className="font-mono text-[6px] font-bold">96.3 FM</span>
                               </div>
                             ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
-                              <div className="w-full h-full bg-gradient-to-b from-[#1a2334] to-[#0a0f18] p-1.5 flex flex-col items-center justify-center">
-                                <TechLogo name={m.techStack?.[0] || 'Python'} size={56} className="drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]" />
-                                <span className="font-mono text-[7px] text-cyan-300 font-bold mt-1 uppercase">
+                              <div className="w-full h-full bg-[#090d16] p-1 flex flex-col items-center justify-center">
+                                <TechLogo name={m.techStack?.[0] || 'Python'} size={76} className="drop-shadow-[0_4px_14px_rgba(0,0,0,0.98)]" />
+                                <span className="font-mono text-[7px] text-cyan-300 font-bold mt-0.5 uppercase">
                                   {m.city}
                                 </span>
                               </div>
