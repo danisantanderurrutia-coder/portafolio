@@ -490,6 +490,53 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Costa Rica', 'San José', 'Justicia Climática', 'Organizaciones Ambientales']
   },
 
+  // 9b. CUMBRES & POLÍTICA: Justicia y Cambio Climático - Múnich, Alemania (CV)
+  {
+    id: 'munich-justicia',
+    type: 'global',
+    titleEs: 'Foro sobre Justicia y Cambio Climático // Múnich, Alemania',
+    titleEn: 'Justice & Climate Change Forum // Munich, Germany',
+    subtitleEs: 'Representación ante Organizaciones Ambientales (2025)',
+    subtitleEn: 'Representation to Environmental Organizations (2025)',
+    country: 'Alemania',
+    city: 'Múnich',
+    flag: '🇩🇪',
+    lat: 48.137,
+    lng: 11.576,
+    date: '2025',
+    roleEs: 'Representante de Organizaciones Ambientales',
+    roleEn: 'Environmental Organizations Delegate',
+    mediaType: 'press',
+    src: '/expeditions/hamburg_enjust_library.jpg',
+    availablePages: [
+      {
+        titleEs: 'Redes de Justicia Ambiental y Cambio Climático en Alemania',
+        titleEn: 'Environmental Justice & Climate Networks in Germany',
+        pageSrc: '/expeditions/hamburg_enjust_library.jpg'
+      },
+      {
+        titleEs: 'Logotipo Oficial Red ENJUST Alemania',
+        titleEn: 'Official ENJUST Network Logo Germany',
+        pageSrc: '/expeditions/enjust_logo.png'
+      }
+    ],
+    code: 'OPS-GLO-05',
+    source: 'Representations: Conferences and forums on justice and Climate Change (Munich, Germany, 2025 - CV)',
+    impactEs: 'Representación ante organizaciones ambientales en conferencias y foros sobre justicia y Cambio Climático (Múnich, Alemania, 2025, según CV).',
+    impactEn: 'Representation to environmental organizations at conferences and forums on justice and Climate Change (Munich, Germany, 2025, from CV).',
+    methodologyEs: [
+      'Representación ante organizaciones ambientales en foros sobre justicia y Cambio Climático en Múnich (CV)',
+      'Debate sobre transición energética, justicia climática y economía ecológica',
+      'Articulación de redes territoriales internacionales'
+    ],
+    methodologyEn: [
+      'Representation to environmental organizations at justice and Climate Change forums in Munich (CV)',
+      'Debate on energy transition, climate justice, and ecological economics',
+      'Cross-border territorial network coordination'
+    ],
+    tags: ['Múnich', 'Alemania', 'Justicia Climática', 'Organizaciones Ambientales']
+  },
+
   // 10. CIENCIA: WSL BlueGreen Biodiversity - Davos, Suiza
   {
     id: 'wsl-davos',
@@ -999,296 +1046,100 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Ciudades Europeas ODS', 'Europa', 'Smart Food Parks', 'Permacultura', 'EPAC', 'I+D']
   },
 
-  // 21. I+D & INNOVACIÓN: Chile Agrotech & Plataforma AgriTwin (Maule, Chile)
+  // 21. I+D & INVESTIGACIÓN: Modelación de Impacto de Incendios en Cuencas (CV)
   {
-    id: 'rd-agritwin',
+    id: 'rd-incendios-cuencas',
     type: 'rd',
-    titleEs: 'Chile Agrotech & Plataforma AgriTwin',
-    titleEn: 'Chile Agrotech & AgriTwin Platform',
-    subtitleEs: 'Tecnología Agrícola de Precisión & Gemelo Digital IoT — Maule, Chile',
-    subtitleEn: 'Precision Agriculture IoT & Soil Telemetry Digital Twin — Maule, Chile',
-    country: 'Chile',
-    city: 'Maule',
-    flag: '🇨🇱',
-    lat: -35.43,
-    lng: -71.66,
-    date: '2023-2025',
-    roleEs: 'Arquitecto de Plataforma & Modelador',
-    roleEn: 'Platform Architect & Modeler',
-    mediaType: 'plate',
-    src: '/expeditions/cauquenes_rain_gauge.jpg',
-    availablePages: [
-      {
-        titleEs: 'Instalación de Telemetría y Pluviómetro en Cerro Molco (Cauquenes)',
-        titleEn: 'Telemetry & Rain Gauge Installation at Cerro Molco (Cauquenes)',
-        pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
-      },
-      {
-        titleEs: 'Sondaje Eléctrico Vertical (SEV) para Mapeo de Acuíferos',
-        titleEn: 'Vertical Electrical Sounding (VES) for Aquifer Mapping',
-        pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
-      }
-    ],
-    url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
-    code: 'OPS-RD-03',
-    source: 'Portafolio de Soluciones Comerciales e Innovación',
-    impactEs: 'Plataforma de ingeniería ambiental de precisión que reduce hasta un 35% el consumo de agua de riego combinando telemetría de suelo IoT LoRaWAN con índices de vegetación satelitales automáticos (Copernicus Sentinel-2 NDVI/NDRE).',
-    impactEn: 'Precision environmental engineering platform slashing up to 35% of irrigation water consumption by combining LoRaWAN soil telemetry with automated Sentinel-2 multispectral vegetation indices (NDVI/NDRE).',
-    methodologyEs: [
-      'Gemelo digital de telemetría de humedad y potencial mátrico en tiempo real',
-      'Pipeline automatizado de monitoreo multiespectral Sentinel-2 (NDVI/NDRE) para vigor vegetal',
-      'Diseño hidrológico regenerativo Keyline y cálculo predictivo de tasas óptimas de riego'
-    ],
-    methodologyEn: [
-      'Real-time IoT soil moisture & matric potential digital twin dashboard',
-      'Automated Sentinel-2 multispectral crop stress & canopy vigor tracking pipeline',
-      'Keyline regenerative water contour engineering and predictive irrigation schedules'
-    ],
-    deliverablesEs: [
-      'Panel de control y gemelo digital de telemetría de humedad en tiempo real',
-      'Pipeline automatizado de monitoreo multiespectral Sentinel-2 (NDVI/NDRE)',
-      'Diseño hidrológico regenerativo Keyline y cálculo predictivo de tasas de riego',
-      'Auditoría y certificación de reducción de huella hídrica para estándares ESG'
-    ],
-    deliverablesEn: [
-      'Real-time IoT soil moisture & matric potential digital twin dashboard',
-      'Automated Sentinel-2 multispectral crop stress & canopy vigor tracking pipeline',
-      'Keyline regenerative water contour engineering and predictive irrigation schedules',
-      'Certified ESG water footprint audit and regulatory compliance documentation'
-    ],
-    techStack: ['Python', 'Sentinel-2 API', 'IoT LoRaWAN', 'FastAPI', 'QGIS', 'PostGIS', 'Next.js'],
-    tags: ['AgriTwin', 'Maule', 'Agrotech', 'IoT', 'Satélites', 'Sentinel-2']
-  },
-
-  // 22. I+D & INNOVACIÓN: Lauwersmeer Coastal Risk & Storm Surge Engine (Delft3D)
-  {
-    id: 'rd-lauwersmeer',
-    type: 'rd',
-    titleEs: 'Lauwersmeer: Simulación de Riesgo Costero & Marejadas',
-    titleEn: 'Lauwersmeer Coastal Climate Risk & SLR Engine',
-    subtitleEs: 'Modelación hidrodinámica 2D de marejadas de tempestad y aumento del nivel del mar (Delft3D)',
-    subtitleEn: 'Hydrodynamic 2D modeling of storm surges and sea level rise in the Wadden Sea basin',
-    country: 'Países Bajos / Alemania',
-    city: 'Mar de Wadden (UNESCO)',
-    flag: '🌊',
-    lat: 53.40,
-    lng: 6.20,
-    date: '2024',
-    roleEs: 'Modelador Hidrodinámico & Consultor',
-    roleEn: 'Hydrodynamic Modeler & Consultant',
-    mediaType: 'plate',
-    src: '/expeditions/wadden_sea_birding.jpg',
-    availablePages: [
-      {
-        titleEs: 'Monitoreo de Planicies Intermareales y Avifauna en Mar de Wadden',
-        titleEn: 'Intertidal Mudflat & Avifauna Monitoring in the Wadden Sea',
-        pageSrc: '/expeditions/wadden_sea_birding.jpg'
-      }
-    ],
-    url: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
-    code: 'OPS-RD-04',
-    source: 'Investigación Costera CAU Kiel & Delft3D',
-    impactEs: 'Plataforma de modelación hidrodinámica de alta resolución que proporciona a ingenieros costeros, autoridades portuarias y municipios pronósticos físicos de inundación bajo escenarios IPCC de cambio climático.',
-    impactEn: 'High-resolution hydrodynamic modeling platform providing coastal engineers, port authorities, and municipalities with physics-grounded flood risk forecasts under IPCC sea level rise scenarios.',
-    methodologyEs: [
-      'Simulación hidrodinámica 2D de batimetría y propagación de oleaje extremo en Delft3D',
-      'Cartografía de riesgo de inundación para periodos de retorno de marejada de 100 y 500 años',
-      'Auditoría de vulnerabilidad de infraestructura crítica y diagnóstico de diques costeros'
-    ],
-    methodologyEn: [
-      'High-resolution hydrodynamic bathymetry and wave propagation simulations (Delft3D)',
-      '100-year and 500-year storm surge return period inundation hazard mapping',
-      'Critical infrastructure vulnerability audit and coastal barrier failure diagnostics'
-    ],
-    deliverablesEs: [
-      'Simulación hidrodinámica 2D de batimetría y propagación de oleaje extremo en Delft3D',
-      'Cartografía de riesgo de inundación para periodos de retorno de 100 y 500 años',
-      'Auditoría de vulnerabilidad de infraestructura crítica y diagnóstico de diques costeros',
-      'Informe ejecutivo de riesgo climático para autoridades marítimas y comisiones ambientales'
-    ],
-    deliverablesEn: [
-      'High-resolution hydrodynamic bathymetry and wave propagation simulations (Delft3D)',
-      '100-year and 500-year storm surge return period inundation hazard mapping',
-      'Critical infrastructure vulnerability audit and coastal barrier failure diagnostics',
-      'Policy-ready executive climate risk briefing for maritime and environmental authorities'
-    ],
-    techStack: ['Delft3D', 'Python Hydro', 'LiDAR DEM', 'QGIS', 'Copernicus Marine', 'NetCDF'],
-    tags: ['Lauwersmeer', 'Delft3D', 'Mar de Wadden', 'Marejadas', 'Ingeniería Costera']
-  },
-
-  // 23. I+D & INNOVACIÓN: ReWild: Analítica de Incendios & Mosaicos Nativos (Chile)
-  {
-    id: 'rd-rewild',
-    type: 'rd',
-    titleEs: 'ReWild: Analítica de Incendios & Mosaicos Nativos',
-    titleEn: 'ReWild: Forestry Model & Megafire Overhaul',
-    subtitleEs: 'Modelación predictiva de megaincendios y reconversión de monocultivos a mosaicos nativos',
-    subtitleEn: 'Predictive wildfire risk modeling and transition from timber monocultures to native forest mosaics',
+    titleEs: 'Modelación del Impacto de Incendios en Ecosistemas de Cuencas',
+    titleEn: 'Model of Forest Fire Impacts on Watershed Ecosystems',
+    subtitleEs: 'Investigación Científica en Cuencas del Centro-Sur // Balance Hídrico y Suelos (CV)',
+    subtitleEn: 'Scientific Research on Central-Southern Watersheds // Water Balance & Soil Dynamics (CV)',
     country: 'Chile',
     city: 'Centro-Sur',
     flag: '🇨🇱',
     lat: -36.20,
     lng: -71.90,
     date: '2023-2025',
-    roleEs: 'Científico de Datos Espaciales & Diseñador',
-    roleEn: 'Spatial Data Scientist & Designer',
+    roleEs: 'Investigador (Researcher)',
+    roleEn: 'Researcher',
     mediaType: 'plate',
     src: '/expeditions/longavi_biodiversity_survey.jpg',
     availablePages: [
       {
         titleEs: 'Catastro Ecológico y Parches de Bosque Nativo en Cerro Longaví',
-        titleEn: 'Ecological Inventory & Native Forest Patches at Cerro Longaví',
+        titleEn: 'Ecological Survey & Native Forest Patches at Cerro Longaví',
         pageSrc: '/expeditions/longavi_biodiversity_survey.jpg'
       },
       {
-        titleEs: 'Monitoreo de Humedales Comunitarios con ONG Raíz',
-        titleEn: 'Community Wetland Monitoring with ONG Raíz',
+        titleEs: 'Monitoreo Comunitario de Humedales y Ecosistemas Acuáticos',
+        titleEn: 'Community Wetland & Aquatic Ecosystem Monitoring',
         pageSrc: '/expeditions/ong_raiz_wetland_group.jpg'
       }
     ],
-    url: 'https://github.com/danisantanderurrutia-coder/resumof',
-    code: 'OPS-RD-05',
-    source: 'Iniciativa ReWild & Red de Superación del Modelo Forestal',
-    impactEs: 'Marco de ingeniería espacial y analítica territorial para reemplazar monocultivos combustibles de pino y eucalipto por franjas de amortiguación biológica nativa, cuantificando la reducción en la velocidad del fuego en más de 100.000 ha.',
-    impactEn: 'Strategic engineering and spatial analytics framework designed to replace combustible pine/eucalyptus monocultures with fire-resilient biological buffers across +100,000 hectares.',
+    code: 'OPS-RD-03',
+    source: 'Researcher: Model of forest fire impacts on watershed ecosystems (CV)',
+    impactEs: 'Investigación orientada a modelar el impacto de los incendios forestales en ecosistemas de cuencas, integrando dinámica de suelos y balance hídrico entre sistemas acuáticos y terrestres en el centro-sur de Chile (según CV).',
+    impactEn: 'Research focused on modeling forest fire impacts on watershed ecosystems, integrating soil dynamics and water balance between aquatic and terrestrial systems in central-southern Chile (from CV).',
     methodologyEs: [
-      'Cartografía de carga de combustible y vulnerabilidad en la interfaz urbano-forestal (IUF)',
-      'Algoritmos de optimización espacial para la restauración de parches de bosque esclerófilo',
-      'Hojas de ruta institucionales para la transición forestal y restauración de cuencas'
+      'Model of forest fire impacts on watershed ecosystems (CV)',
+      'Water balance and soil dynamics, integrating aquatic and terrestrial systems (CV)',
+      'Análisis de degradación post-fuego y resiliencia de cabeceras de cuenca'
     ],
     methodologyEn: [
-      'Wildland-Urban Interface (WUI) combustible fuel-load risk cartography',
-      'Species-specific sclerophyllous native reforestation optimization algorithms',
-      'Institutional roadmaps for sustainable timber transition and watershed restoration'
+      'Model of forest fire impacts on watershed ecosystems (CV)',
+      'Water balance and soil dynamics, integrating aquatic and terrestrial systems (CV)',
+      'Post-fire degradation analysis and headwater catchment resilience'
     ],
-    deliverablesEs: [
-      'Cartografía de carga de combustible y vulnerabilidad en la interfaz urbano-forestal (IUF)',
-      'Algoritmos de optimización espacial para la restauración de bosque esclerófilo',
-      'Aplicación espacial web y móvil para monitoreo comunitario y alerta temprana',
-      'Hojas de ruta institucionales para la transición forestal y restauración de cuencas'
-    ],
-    deliverablesEn: [
-      'Wildland-Urban Interface (WUI) combustible fuel-load risk cartography',
-      'Species-specific sclerophyllous native reforestation optimization algorithms',
-      'Mobile & Web Spatial App for community vegetation monitoring and early hazard alert',
-      'Institutional roadmaps for sustainable timber transition and watershed restoration'
-    ],
-    techStack: ['Google Earth Engine', 'Python GIS', 'Sentinel-2', 'GeoPandas', 'Streamlit', 'Rasterio'],
-    tags: ['ReWild', 'Incendios', 'Mosaicos Nativos', 'GEE', 'Sentinel-2', 'Maule']
+    techStack: ['QGIS', 'R Modeling', 'Python', 'Balance Hídrico'],
+    tags: ['Incendios', 'Cuencas', 'Balance Hídrico', 'Suelos', 'Chile', 'I+D']
   },
 
-  // 24. I+D & INNOVACIÓN: Física Teórica & Termodinámica de No Equilibrio (ESTÁTICO)
+  // 22. I+D & ASESORÍA: Ordenamiento de Cuencas & Transición Productiva (CV)
   {
-    id: 'rd-termodinamica',
+    id: 'rd-transicion-cuencas',
     type: 'rd',
-    titleEs: 'Física Teórica: Termodinámica & Transporte No Lineal',
-    titleEn: 'Theoretical Physics: Non-Equilibrium Thermodynamics & Transport',
-    subtitleEs: 'Modelación matemática de disipación estocástica y producción de entropía territorial',
-    subtitleEn: 'Mathematical modeling of stochastic dissipation and entropy production in natural systems',
-    country: 'Universal',
-    city: 'I+D Teórico',
-    flag: '⚛️',
-    lat: 0,
-    lng: 0,
-    isStatic: true,
-    date: '2023-2025',
-    roleEs: 'Investigador en Física Teórica',
-    roleEn: 'Theoretical Physics Researcher',
+    titleEs: 'Planes de Ordenamiento de Cuencas y Transición Productiva',
+    titleEn: 'Watershed Management Plans & Agricultural Production Transition',
+    subtitleEs: 'Gestión de Cuencas y Transición Agroforestal // Permacultura (EPAC)',
+    subtitleEn: 'Watershed Management & Agroforestry Transition // Permaculture (EPAC)',
+    country: 'Chile',
+    city: 'Maule',
+    flag: '🇨🇱',
+    lat: -35.43,
+    lng: -71.66,
+    date: '2022-2025',
+    roleEs: 'Asesor en Política Ambiental & Diseñador en Permacultura (CDP)',
+    roleEn: 'Environmental Policy Advisor & Certified Permaculture Designer (CDP)',
     mediaType: 'plate',
-    src: '/portfolio_pages/page_1.png',
+    src: '/expeditions/cauquenes_rain_gauge.jpg',
     availablePages: [
       {
-        titleEs: 'Lámina Académica Oficial Geofísica FCFM U. de Chile',
-        titleEn: 'Official Academic Plate FCFM U. of Chile',
-        pageSrc: '/portfolio_pages/page_1.png'
-      }
-    ],
-    url: 'https://github.com/danisantanderurrutia-coder',
-    code: 'OPS-RD-06',
-    source: 'Laboratorio de Sistemas Complejos & Modelación Teórica',
-    impactEs: 'Investigación rigurosa de física teórica que aplica mecánica estadística de no equilibrio a procesos estocásticos de transporte territorial y disipación de energía, vinculando fluctuaciones microscópicas con el comportamiento macroscópico de cuencas.',
-    impactEn: 'Rigorous theoretical physics investigation applying non-equilibrium statistical mechanics to spatial dissipation and hydrological transport equations, bridging microscopic fluctuations with macroscopic watershed behavior.',
-    methodologyEs: [
-      'Ecuaciones diferenciales estocásticas para transporte no lineal en medios porosos',
-      'Modelos analíticos de producción de entropía para estados hidrológicos termodinámicos',
-      'Solucionadores numéricos en Python / NumPy para ecuaciones de Fokker-Planck'
-    ],
-    methodologyEn: [
-      'Governing stochastic differential equations for non-linear landscape transport',
-      'Entropy production calculation models for thermodynamic hydrological states',
-      'Numerical solver scripts in Python / NumPy for Fokker-Planck equations'
-    ],
-    deliverablesEs: [
-      'Ecuaciones diferenciales estocásticas para transporte no lineal en medios porosos',
-      'Modelos analíticos de producción de entropía para estados hidrológicos termodinámicos',
-      'Solucionadores numéricos en Python / NumPy para ecuaciones de Fokker-Planck',
-      'Manuscrito científico listo para someter a revisión por pares en revistas internacionales'
-    ],
-    deliverablesEn: [
-      'Governing stochastic differential equations for non-linear landscape transport',
-      'Entropy production calculation models for thermodynamic hydrological states',
-      'Numerical solver scripts in Python / NumPy for Fokker-Planck equations',
-      'Peer-reviewed manuscript ready for submission to scientific physics journals'
-    ],
-    techStack: ['Python NumPy', 'SciPy', 'SymPy', 'LaTeX / Typst', 'Differential Equations'],
-    tags: ['Física Teórica', 'Termodinámica', 'Sistemas Complejos', 'Fokker-Planck', 'Modelación']
-  },
-
-  // 25. I+D & INNOVACIÓN: Los Manejadores: Estrategia de Medios & IA Generativa (ESTÁTICO)
-  {
-    id: 'rd-los-manejadores',
-    type: 'rd',
-    titleEs: 'Los Manejadores: Estrategia de Medios & IA Generativa',
-    titleEn: 'Los Manejadores: Generative AI & Digital Media Strategy',
-    subtitleEs: 'Creadores virtuales de IA, pipelines automáticos de divulgación y narrativa digital de alta retención',
-    subtitleEn: 'Virtual AI creators, automated technical knowledge pipelines & high-retention digital storytelling',
-    country: 'Digital',
-    city: 'IA & Medios',
-    flag: '🤖',
-    lat: 0,
-    lng: 0,
-    isStatic: true,
-    date: '2024-2026',
-    roleEs: 'Director de Estrategia de Medios & IA',
-    roleEn: 'Media Strategy & AI Director',
-    mediaType: 'plate',
-    src: '/press_covers/tomaterojo_screen.png',
-    availablePages: [
+        titleEs: 'Instalación de Monitoreo Pluviométrico en Cerro Molco (Cauquenes)',
+        titleEn: 'Rainfall Monitoring Installation at Cerro Molco (Cauquenes)',
+        pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
+      },
       {
-        titleEs: 'Portal de Análisis y Divulgación Socioambiental',
-        titleEn: 'Socioenvironmental Analysis & Dissemination Portal',
-        pageSrc: '/press_covers/tomaterojo_screen.png'
+        titleEs: 'Sondaje Eléctrico Vertical (SEV) para Hidrogeología en Terreno',
+        titleEn: 'Vertical Electrical Sounding (VES) for Field Hydrogeology',
+        pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
       }
     ],
-    url: 'https://github.com/danisantanderurrutia-coder',
-    code: 'OPS-RD-07',
-    source: 'Agencia Digital Los Manejadores',
-    impactEs: 'Agencia de medios digitales que combina precisión analítica con pipelines de producción asistida por IA para desarrollar canales de divulgación técnica, propiedad intelectual de personajes virtuales y posicionamiento estratégico de marcas.',
-    impactEn: 'Digital media agency coupling European analytical rigor with generative AI production pipelines to build high-retention educational feeds, synthetic character IP, and narrative positioning for commercial clients.',
+    code: 'OPS-RD-04',
+    source: 'Environmental Policy Advisor & Permaculture EPAC (CV)',
+    impactEs: 'Desarrollo de planes de ordenamiento de cuencas y gestión de la transición productiva agrícola y agroforestal, aplicando diseño permacultural (CDP EPAC 2023) y prospección hidrogeofísica en comunidades rurales (según CV).',
+    impactEn: 'Development of watershed management plans and management of agricultural production transition, applying permaculture design (CDP EPAC 2023) and hydrogeophysical exploration in rural communities (from CV).',
     methodologyEs: [
-      'Pipelines de creación sintética de personajes (clonación neural de voz, sincronización labial, avatares)',
-      'Guionización técnica de alta retención e ingeniería de carruseles de datos para LinkedIn y YouTube',
-      'Automatización de distribución multicanal y analítica predictiva de retención de audiencia'
+      'Development of watershed management plans and agricultural production transition (CV)',
+      'Diseño en Permacultura Certificado (CDP) Escuela Chilena de Permacultura y Agroecología EPAC (CV)',
+      'Integración hidrogeofísica (SEV) y balance hídrico territorial'
     ],
     methodologyEn: [
-      'Synthetic virtual creator pipelines (neural voice cloning, automated lip-sync, visual consistency)',
-      'High-retention technical scriptwriting and data-driven carousel engineering for LinkedIn & YouTube',
-      'Automated multi-platform content scheduling and audience engagement analytics'
+      'Development of watershed management plans and agricultural production transition (CV)',
+      'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology EPAC (CV)',
+      'Hydrogeophysical exploration (VES) and watershed water balance'
     ],
-    deliverablesEs: [
-      'Pipelines de creación sintética de personajes (clonación neural de voz, sincronización labial, avatares)',
-      'Guionización técnica de alta retención e ingeniería de carruseles de datos para LinkedIn y YouTube',
-      'Automatización de distribución multicanal y analítica predictiva de retención de audiencia',
-      'Consultoría estratégica de posicionamiento de marca y adopción de IA para empresas corporativas'
-    ],
-    deliverablesEn: [
-      'Synthetic virtual creator pipelines (neural voice cloning, automated lip-sync, visual consistency)',
-      'High-retention technical scriptwriting and data-driven carousel engineering for LinkedIn & YouTube',
-      'Automated multi-platform content scheduling and audience engagement analytics',
-      'Executive brand consulting and AI implementation roadmap for corporate enterprises'
-    ],
-    techStack: ['Generative AI', 'ElevenLabs', 'RunwayML', 'Python Automation', 'Next.js', 'Tailwind CSS'],
-    tags: ['IA Generativa', 'Storytelling', 'Pipelines Digitales', 'Divulgación', 'Los Manejadores']
+    techStack: ['QGIS', 'SEV / VES', 'Permacultura', 'Agroecología', 'Planificación Territorial'],
+    tags: ['Ordenamiento de Cuencas', 'Transición Agrícola', 'Permacultura', 'EPAC', 'Maule', 'I+D']
   },
 
   // ==============================================================
@@ -1395,54 +1246,6 @@ export const GAME_MISSIONS: GameMission[] = [
       'Community territorial autonomy and Good Living alternatives'
     ],
     tags: ['OLCA', 'Autonomía', 'Decrecimiento', 'Ecología Política', 'Buen Vivir', 'Ensayos']
-  },
-
-  // 28. PUBLICACIONES: Conservación de Suelos Agrícolas con Dirk Kock-Rohwer (Alemania)
-  {
-    id: 'pub-kock-rohwer',
-    type: 'publications',
-    titleEs: 'Conservación de Suelos Agrícolas con diputado Dirk Kock-Rohwer',
-    titleEn: 'Agricultural Soil Conservation with German MP Dirk Kock-Rohwer',
-    subtitleEs: 'Publicación conjunta en el parlamento de Schleswig-Holstein (Alemania, 2024)',
-    subtitleEn: 'Joint parliamentary paper in Schleswig-Holstein, Germany (2024)',
-    country: 'Alemania',
-    city: 'Kiel (Schleswig-Holstein)',
-    flag: '🇩🇪',
-    lat: 54.32,
-    lng: 10.13,
-    date: '2024',
-    roleEs: 'Coautor Parlamentario & Investigador',
-    roleEn: 'Parliamentary Co-Author & Researcher',
-    mediaType: 'plate',
-    src: '/expeditions/kiel_soil_lab.png',
-    availablePages: [
-      {
-        titleEs: 'Laboratorio de Física de Suelos de CAU Kiel',
-        titleEn: 'Soil Physics Laboratory at CAU Kiel',
-        pageSrc: '/expeditions/kiel_soil_lab.png'
-      },
-      {
-        titleEs: 'Lámina 5: Publicaciones Internacionales y Policy Briefs',
-        titleEn: 'Plate 5: International Publications & Policy Briefs',
-        pageSrc: '/portfolio_pages/page_5.png'
-      }
-    ],
-    url: 'https://www.dirk-kock-rohwer.de/',
-    code: 'OPS-PUB-03',
-    source: 'Parlamento de Schleswig-Holstein & CAU Kiel',
-    impactEs: 'Documento técnico-político sobre fertilidad orgánica de suelos, agroecología y transición post-química en el parlamento de Schleswig-Holstein, Alemania.',
-    impactEn: 'Technical and political brief addressing sustainable soil fertility, agroecology, and the post-chemical agricultural transition in Northern Germany (Schleswig-Holstein parliament).',
-    methodologyEs: [
-      'Diagnóstico de compactación de suelos y pérdida de materia orgánica',
-      'Estrategias de rotación de cultivos y reducción de pesticidas sintéticos',
-      'Articulación legislativa para subsidios agrícolas verdes en la UE'
-    ],
-    methodologyEn: [
-      'Soil compaction diagnosis and organic matter loss quantification',
-      'Crop rotation strategies and synthetic pesticide phase-out roadmaps',
-      'Legislative advocacy for green agricultural subsidies in the EU'
-    ],
-    tags: ['Schleswig-Holstein', 'Alemania', 'Suelos', 'Agroecología', 'Los Verdes', 'Publicación']
   },
 
   // 29. PUBLICACIONES: El Desconcierto: Humedales, Turberas y Megaincendios (Chile)
@@ -1583,49 +1386,6 @@ export const GAME_MISSIONS: GameMission[] = [
       'Advocacy for degrowth frameworks and people’s climate sovereignty'
     ],
     tags: ['ClimateCC', 'Falsas Soluciones', 'Carbon Credits', 'Bosques', 'Internacional']
-  },
-
-  // 32. PUBLICACIONES: Rewilding Aljezur (Concejo Municipal de Aljezur, Portugal)
-  {
-    id: 'pub-aljezur',
-    type: 'publications',
-    titleEs: 'Rewilding Aljezur: Transición Ecológica Municipal y Resiliencia al Fuego',
-    titleEn: 'Rewilding Aljezur: Municipal Ecological Transition & Fire Resilience',
-    subtitleEs: 'Policy brief y StoryMaps SIG entregados al Concejo Municipal de Aljezur, Portugal',
-    subtitleEn: 'Comprehensive policy brief and GIS StoryMaps delivered to Aljezur Council, Portugal',
-    country: 'Portugal',
-    city: 'Aljezur (Algarve)',
-    flag: '🇵🇹',
-    lat: 37.31,
-    lng: -8.80,
-    date: '2024',
-    roleEs: 'Consultor de Planificación Espacial & Rewilding',
-    roleEn: 'Spatial Planning & Rewilding Consultant',
-    mediaType: 'plate',
-    src: '/portfolio_pages/page_5.png',
-    availablePages: [
-      {
-        titleEs: 'Lámina 5: Publicaciones Internacionales y StoryMaps de Aljezur',
-        titleEn: 'Plate 5: International Publications & Aljezur StoryMaps',
-        pageSrc: '/portfolio_pages/page_5.png'
-      }
-    ],
-    url: 'https://cm-aljezur.pt',
-    code: 'OPS-PUB-07',
-    source: 'Concejo Municipal de Aljezur (Algarve, Portugal) & CAU Kiel',
-    impactEs: 'Policy brief y StoryMaps SIG entregados al Concejo Municipal de Aljezur en Portugal, delineando estrategias de renaturalización activa para mitigar incendios forestales recurrentes.',
-    impactEn: 'Comprehensive policy brief and GIS StoryMaps delivered to the Aljezur Municipal Council in Portugal, outlining active rewilding strategies to curb recurrent wildfire devastation.',
-    methodologyEs: [
-      'Modelación SIG de carga combustible en el Parque Natural del Sudoeste Alentejano',
-      'Plan maestro de sustitución de eucaliptales por franjas de encinas y alcornoques',
-      'Visualización interactiva en ArcGIS StoryMaps para autoridades comunales'
-    ],
-    methodologyEn: [
-      'GIS fuel-load modeling in Southwest Alentejo and Vicentine Coast Natural Park',
-      'Master plan replacing eucalyptus stands with native cork oak (sobreiro) buffers',
-      'ArcGIS StoryMaps interactive briefings for municipal council members'
-    ],
-    tags: ['Portugal', 'Aljezur', 'Rewilding', 'SIG', 'Incendios', 'Policy Brief']
   },
 
   // 33. PUBLICACIONES: Libro Impreso "Relatos de la revuelta popular" (PLP)
@@ -2088,7 +1848,7 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
       }
     ],
-    techStack: ['Syscal SEV / VES', 'IoT LoRaWAN', 'Zeiss Microscopio', 'LiDAR DEM', 'Garmin GPS', 'Español', 'Inglés', 'Alemán'],
+    techStack: ['Syscal SEV / VES', 'IoT LoRaWAN', 'Zeiss Microscopio', 'LiDAR DEM', 'Garmin GPS', 'Español', 'Inglés', 'Alemán', 'Polaco'],
     url: 'https://github.com/danisantanderurrutia-coder',
     code: 'OPS-SKI-03',
     source: 'Catálogo de Instrumental Científico y Certificaciones Lingüísticas',
@@ -2098,13 +1858,13 @@ export const GAME_MISSIONS: GameMission[] = [
       'Geofísica de Terreno: SEV/VES corriente continua, arreglo Schlumberger/Wenner, resistivímetro',
       'Hidrometría & Clima: Balancines pluviométricos automáticos, molinetes de aforo, sondas multiparámetro YSI',
       'Laboratorio: Microscopios ópticos Zeiss Primo Star, muestreadores de sedimento Van Veen, filtrado de bentos',
-      'Idiomas: Español (Nativo) • Inglés (C1/C2 Fluido Profesional) • Alemán (B1/B2 Técnico Intermedio)'
+      'Idiomas: Español (Nativo) • Inglés (IELTS Academic – C1) • Alemán (A2-B1) • Polaco (Básico)'
     ],
     methodologyEn: [
       'Field Geophysics: DC VES sounding, Schlumberger/Wenner electrode arrays, resistivity meters',
       'Hydrometry & Climate: Automated tipping-bucket rain gauges, streamflow meters, YSI multiparameter probes',
       'Laboratory: Zeiss Primo Star optical microscopes, Van Veen sediment grabs, benthic sieve sorting',
-      'Languages: Spanish (Native) • English (C1/C2 Fluent Professional) • German (B1/B2 Intermediate Technical)'
+      'Languages: Spanish (Native) • English (IELTS Academic – C1) • German (A2-B1) • Polish (Basic)'
     ],
     deliverablesEs: [
       'Campañas de prospección hidrogeofísica para captación de aguas subterráneas',
@@ -2168,9 +1928,21 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
     tags: 'DEMs LiDAR • Mapeo Cuencas • Grass GIS • SAGA • ModelBuilder',
     descEs: 'Cartografía vectorial y raster avanzada, delimitación hidrológica de cuencas y cálculo de índices espectrales.',
     descEn: 'Advanced raster & vector cartography, hydrological catchment delineation, and spectral index calculations.',
-    applicationEs: 'StoryMaps de Aljezur (Portugal), modelación de riesgo de incendios y zonificación territorial comunitaria.',
-    applicationEn: 'Aljezur StoryMaps (Portugal), wildfire risk modeling, and community land-use zoning.',
+    applicationEs: 'Modelación de cuencas hidrográficas, riesgo de incendios y zonificación territorial comunitaria.',
+    applicationEn: 'Watershed hydrological modeling, wildfire risk analysis, and community land-use zoning.',
     color: '#589632'
+  },
+  {
+    name: 'R & Modelación',
+    badge: 'R Studio // MODELACIÓN & SIG',
+    level: '90% • CERTIFICADO ESCUELA GIS',
+    levelPercent: 90,
+    tags: 'R Modeling • Spatial Data • GeoTIFF • Series Temporales • Análisis Estadístico',
+    descEs: 'Modelación cuantitativa y gestión de datos satelitales SIG en lenguaje R (certificación Escuela Ambiental GIS).',
+    descEn: 'Quantitative modeling and GIS satellite data management in R (certified by Escuela Ambiental GIS).',
+    applicationEs: 'Análisis estadístico ambiental, modelos de balance hídrico y procesamiento de datos satelitales en R.',
+    applicationEn: 'Environmental statistical analysis, water balance modeling, and satellite raster processing in R.',
+    color: '#276dc3'
   },
   {
     name: 'Docker',
@@ -2396,14 +2168,14 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
   },
   {
     name: 'Idiomas',
-    badge: 'Trilingüe // DIPLOMACIA CIENTÍFICA',
-    level: 'ES / EN / DE • PROFESIONAL FLUIDO',
+    badge: 'Idiomas // DIPLOMACIA & INVESTIGACIÓN',
+    level: 'ES / EN / DE / PL • CERTIFICADO',
     levelPercent: 100,
-    tags: 'Español (Nativo) • Inglés (C1/C2 Fluido Académico) • Alemán (B1/B2 Técnico Intermedio)',
-    descEs: 'Fluidez trilingüe para articulación de redes científicas, redacción de papers y diplomacia en cumbres de la ONU.',
-    descEn: 'Trilingual proficiency for international research consortia, paper authoring, and UN climate summits.',
-    applicationEs: 'Expositor en cumbres de Bonn, Hamburgo, Oslo y Costa Rica; trabajo de laboratorio en Kiel y Poznań.',
-    applicationEn: 'Keynote speaker at Bonn, Hamburg, Oslo, and Costa Rica; scientific laboratory research in Kiel and Poznań.',
+    tags: 'Español (Nativo) • Inglés (IELTS Academic – C1) • Alemán (A2-B1) • Polaco (Básico)',
+    descEs: 'Competencia lingüística para investigación en consorcios internacionales, redacción científica y diplomacia climática.',
+    descEn: 'Linguistic proficiency for international research consortia, scientific reporting, and climate diplomacy.',
+    applicationEs: 'Expositor en cumbres de Bonn, Hamburgo, Oslo, Costa Rica y Múnich; trabajo de investigación en Kiel y Poznań.',
+    applicationEn: 'Speaker at Bonn, Hamburg, Oslo, Costa Rica, and Munich; scientific research in Kiel and Poznań.',
     color: '#ec4899'
   }
 ];
@@ -2440,6 +2212,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     return GAME_MISSIONS[0].id;
   });
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(true);
+  const [isMoreInfoOpen, setIsMoreInfoOpen] = useState<boolean>(false);
   const [selectedPlatePage, setSelectedPlatePage] = useState<number>(0);
   const [activeSkillToolIndex, setActiveSkillToolIndex] = useState<number>(0);
   const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
@@ -2554,14 +2327,36 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   };
 
   const handleNext = () => {
-    const nextIdx = (currentMissionIndex + 1) % GAME_MISSIONS.length;
-    handleSelectMission(GAME_MISSIONS[nextIdx].id);
+    const list = filteredMissions.length > 0 ? filteredMissions : GAME_MISSIONS;
+    const curIdx = list.findIndex((m) => m.id === selectedMissionId);
+    const nextIdx = ((curIdx >= 0 ? curIdx : 0) + 1) % list.length;
+    handleSelectMission(list[nextIdx].id);
   };
 
   const handlePrev = () => {
-    const prevIdx = (currentMissionIndex - 1 + GAME_MISSIONS.length) % GAME_MISSIONS.length;
-    handleSelectMission(GAME_MISSIONS[prevIdx].id);
+    const list = filteredMissions.length > 0 ? filteredMissions : GAME_MISSIONS;
+    const curIdx = list.findIndex((m) => m.id === selectedMissionId);
+    const prevIdx = ((curIdx >= 0 ? curIdx : 0) - 1 + list.length) % list.length;
+    handleSelectMission(list[prevIdx].id);
   };
+
+  // Keyboard navigation for card switching & Escape to close drawer
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) return;
+      if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNext();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handlePrev();
+      } else if (e.key === 'Escape') {
+        setIsMoreInfoOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedMissionId, activeFilter, filteredMissions]);
 
   // Three.js Photorealistic 3D Earth Globe HUD
   useEffect(() => {
@@ -3577,476 +3372,503 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 </div>
 
                 {/* Pinned Photo Handwritten Marker Caption at Bottom */}
-                <div className="pt-3 flex flex-col space-y-0.5 border-t border-black/15 mt-3">
+                <div className="pt-3 flex flex-col space-y-1.5 border-t border-black/15 mt-3">
+                  {/* Top row: Verified flag & city + dates + quick arrows */}
                   <div className="flex items-center justify-between font-mono text-xs font-bold text-neutral-700">
-                    <div className="flex items-center space-x-1.5">
+                    <div className="flex items-center space-x-1.5 truncate pr-2">
                       <span className="text-emerald-700 font-black">✔</span>
-                      <span className="uppercase tracking-tight text-neutral-900 font-black truncate max-w-[280px]">
+                      <span className="uppercase tracking-tight text-neutral-900 font-black truncate max-w-[200px] sm:max-w-[240px]">
                         {currentMission.flag} {currentMission.city}, {currentMission.country}
                       </span>
                     </div>
-                    <span className="text-neutral-500 text-xs">{currentMission.date}</span>
+
+                    <div className="flex items-center space-x-1 shrink-0">
+                      <button
+                        onClick={handlePrev}
+                        className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-black shadow-[1px_1px_0px_#000] active:scale-95 transition-all cursor-pointer"
+                        title={currentLang === 'es' ? 'Ficha anterior (←)' : 'Previous card (←)'}
+                      >
+                        <ChevronLeft className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={handleNext}
+                        className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-black shadow-[1px_1px_0px_#000] active:scale-95 transition-all cursor-pointer"
+                        title={currentLang === 'es' ? 'Ficha siguiente (→)' : 'Next card (→)'}
+                      >
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
                   </div>
-                  <h3 className="font-mono font-black text-sm sm:text-base text-neutral-900 line-clamp-1 uppercase">
+
+                  {/* Role Badge and Date */}
+                  <div className="flex items-center space-x-2 pt-0.5">
+                    <span className="bg-[#facc15] text-black font-mono font-black text-[9px] sm:text-[10px] px-2 py-0.5 border border-black shadow-[1.5px_1.5px_0px_#000] uppercase -rotate-0.5">
+                      {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
+                    </span>
+                    <span className="text-neutral-500 font-mono text-[10px] sm:text-[11px] font-bold">
+                      • {currentMission.date}
+                    </span>
+                  </div>
+
+                  {/* Full Uncut Title (no line-clamp-1) */}
+                  <h3 className="font-mono font-black text-sm sm:text-base text-neutral-950 uppercase leading-snug tracking-tight pt-0.5">
                     {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
                   </h3>
+
+                  {/* Subtitle */}
+                  <p className="text-xs font-mono text-neutral-700 font-bold leading-normal">
+                    {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* ========================================================================= */}
-            {/* B. RIGHT COLUMN: SPLIT INTO UPPER (DOSSIER) & LOWER (3-COL PHOTO GRID)    */}
+            {/* B. RIGHT COLUMN: TRIGGER BAR & 3-COL PINNED CARDS (HALF SIZE, SQUARE)     */}
             {/* ========================================================================= */}
-            <div className="w-full lg:w-[60%] xl:w-[62%] flex flex-col space-y-2 self-center max-w-[760px] lg:max-w-none">
+            <div className="w-full lg:w-[48%] xl:w-[46%] max-w-[460px] lg:max-w-[480px] flex flex-col space-y-2 self-center">
               
-              {/* ------------------------------------------------------------- */}
-              {/* B1. UPPER SECTION: DOSSIER BRIEFING CARD (CENTERED / COMPACT)  */}
-              {/* ------------------------------------------------------------- */}
-              <div className="w-full max-h-[22vh] sm:max-h-[24vh] bg-[#0c0f14]/90 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
-                
-                {/* Comic Panel Header */}
-                <div className="px-3 py-1.5 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
-                  <div className="flex items-center space-x-2">
-                    {/* Yellow Slanted Stencil Tape */}
-                    <div className="bg-[#facc15] text-black font-mono font-black text-xs px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
-                      {currentMission.code} // {currentMission.city.toUpperCase()}
-                    </div>
-                    
-                    {/* Country Badge */}
-                    <div className="bg-white/10 text-neutral-200 font-mono text-[10px] px-2 py-0.5 border border-white/20">
-                      {currentMission.flag} {currentMission.country.toUpperCase()}
-                    </div>
+              {/* Trigger Bar to open More Information Drawer */}
+              <div className="flex items-center justify-between bg-black/85 border-2 border-black p-1.5 shadow-[4px_4px_0px_#000000] -rotate-0.5 backdrop-blur-md">
+                <button
+                  onClick={() => setIsMoreInfoOpen(true)}
+                  className="px-3 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider flex items-center space-x-2 border border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all cursor-pointer"
+                  title={currentLang === 'es' ? 'Abrir ficha completa hacia la derecha' : 'Slide open detailed dossier to the right'}
+                >
+                  <FileText className="w-3.5 h-3.5 text-black" />
+                  <span>{currentLang === 'es' ? '📄 MÁS INFORMACIÓN →' : '📄 MORE INFORMATION →'}</span>
+                </button>
 
-                    {/* Verification Stamp */}
-                    {currentMission.src || currentMission.embedUrl || (currentMission.availablePages && currentMission.availablePages.length > 0) ? (
-                      <span className="hidden sm:inline bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider rotate-1">
-                        {currentLang === 'es' ? 'REGISTRO REAL' : 'VERIFIED'}
-                      </span>
-                    ) : (
-                      <span className="hidden sm:inline bg-red-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider -rotate-1">
-                        {currentLang === 'es' ? 'REGISTRO PENDIENTE' : 'PENDING'}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Prev / Next & Close */}
-                  <div className="flex items-center space-x-1.5">
-                    <button
-                      onClick={handlePrev}
-                      className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
-                      title="Misión anterior"
-                    >
-                      <ChevronLeft className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={handleNext}
-                      className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
-                      title="Misión siguiente"
-                    >
-                      <ChevronRight className="w-3.5 h-3.5" />
-                    </button>
-                    <button
-                      onClick={() => setIsDossierOpen(false)}
-                      className="p-1 bg-black hover:bg-red-600 text-white border border-white/40 hover:border-black transition ml-1 font-mono font-black shadow-[1px_1px_0px_#000]"
-                      title="Minimizar panel para ver el planeta"
-                    >
-                      <X className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-
-                {/* Dossier Body Scrollable */}
-                <div className="overflow-y-auto p-2.5 sm:p-3 space-y-2 no-scrollbar">
-                  {/* Title & Metadata */}
-                  <div>
-                    <div className="flex items-center space-x-2 font-mono text-[10px] text-amber-400 mb-0.5">
-                      <span className="bg-[#facc15] text-black font-mono font-black px-1.5 py-0.2 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
-                        {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
-                      </span>
-                      <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
-                    </div>
-
-                    <h2 className="text-sm sm:text-base font-mono font-black text-white uppercase tracking-tight leading-snug">
-                      {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
-                    </h2>
-
-                    <p className="text-xs font-mono text-neutral-300 mt-0.5">
-                      {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
-                    </p>
-                  </div>
-
-                  {/* ⚡ TECH STACK & TOOLS SELECTOR (ARRIBA A LA DERECHA) ⚡ */}
-                  {currentMission.techStack && currentMission.techStack.length > 0 && (
-                    <div className="p-2 rounded-lg bg-black/80 border-2 border-[#facc15]/70 shadow-[2px_2px_0px_#000] space-y-1">
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse" />
-                          <span className="font-mono text-[11px] font-black uppercase text-[#facc15] tracking-wider">
-                            {currentLang === 'es' ? '⚡ HERRAMIENTAS & LOGOS TÉCNICOS:' : '⚡ TECH STACK & TOOLS:'}
-                          </span>
-                        </div>
-                        <span className="font-mono text-[8px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase">
-                          {currentMission.techStack.length} {currentLang === 'es' ? 'HERRAMIENTAS' : 'TOOLS'}
-                        </span>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                        {currentMission.techStack.map((tech, tIdx) => {
-                          const isCurrent = currentMission.type === 'skills' && activeSkillToolIndex === tIdx;
-                          return (
-                            <button
-                              key={tIdx}
-                              onClick={() => {
-                                setActiveSkillToolIndex(tIdx);
-                                setSelectedPlatePage(0);
-                              }}
-                              className={`cursor-pointer transition-all ${
-                                isCurrent
-                                  ? 'ring-2 ring-[#facc15] scale-105 shadow-[0_0_8px_rgba(250,204,21,0.6)]'
-                                  : 'hover:scale-105 opacity-85 hover:opacity-100'
-                              }`}
-                              title={`Ver logo y ficha técnica de ${tech}`}
-                            >
-                              <TechBadge name={tech} size="sm" />
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Impact Synopsis Box */}
-                  <div className="p-2 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-1">
-                    <div className="font-mono text-[9px] uppercase tracking-wider text-[#facc15] font-black">
-                      {currentLang === 'es' ? '[ SINOPSIS METODOLÓGICA & IMPACTO ]' : '[ METHODOLOGY & IMPACT SYNOPSIS ]'}
-                    </div>
-                    <p className="text-xs font-serif text-neutral-200 leading-relaxed">
-                      {currentLang === 'es' ? currentMission.impactEs : currentMission.impactEn}
-                    </p>
-                  </div>
-
-                  {/* Methodology Bullets */}
-                  <ul className="space-y-1 text-xs font-mono text-neutral-300">
-                    {(currentLang === 'es' ? currentMission.methodologyEs : currentMission.methodologyEn).map((m, mIdx) => (
-                      <li key={mIdx} className="flex items-start space-x-2 bg-black/50 p-1.5 border border-white/10">
-                        <span className="bg-[#facc15] text-black font-mono font-black text-[9px] px-1 border border-black shrink-0">
-                          0{mIdx + 1}
-                        </span>
-                        <span>{m}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Deliverables Box if present */}
-                  {currentMission.deliverablesEs && currentMission.deliverablesEs.length > 0 && (
-                    <div className="p-2 rounded-lg bg-black/70 border-2 border-dashed border-[#facc15]/40 space-y-1">
-                      <div className="font-mono text-[9px] uppercase tracking-wider text-[#facc15] font-black flex items-center space-x-1.5">
-                        <Sparkles className="w-3 h-3 text-[#facc15]" />
-                        <span>{currentLang === 'es' ? '[ ENTREGABLES & RESULTADOS TÉCNICOS ]' : '[ DELIVERABLES & TECHNICAL OUTPUTS ]'}</span>
-                      </div>
-                      <ul className="space-y-1 text-xs font-mono text-neutral-300">
-                        {(currentLang === 'es' ? currentMission.deliverablesEs : currentMission.deliverablesEn || currentMission.deliverablesEs).map((d, dIdx) => (
-                          <li key={dIdx} className="flex items-start space-x-2 bg-black/40 p-1.5 border border-white/5 rounded">
-                            <span className="text-[#facc15] font-black">✔</span>
-                            <span>{d}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Links & Tags & Comic Barcode */}
-                  <div className="pt-1.5 border-t-2 border-black flex flex-wrap items-center justify-between gap-1.5">
-                    <div className="flex flex-wrap gap-1">
-                      {currentMission.tags.map((t, idx) => (
-                        <span key={idx} className="px-1.5 py-0.2 font-mono text-[9px] bg-white/10 text-neutral-300 border border-white/15">
-                          #{t}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center space-x-1.5">
-                      {onOpenArtDirector && (currentMission.type === 'culture' || currentMission.id.includes('beauchef') || currentMission.id.includes('cuarentena')) && (
-                        <button
-                          onClick={onOpenArtDirector}
-                          className="px-2 py-0.5 bg-[#f97316] hover:bg-white text-black font-mono font-black text-[10px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95 cursor-pointer -rotate-1"
-                          title="Saber más: Arquitectura cultural, Rap Beauchef y Cuarentena Rap"
-                        >
-                          <span>⚡ {currentLang === 'es' ? 'SABER MÁS // RAP' : 'DEEP DIVE // RAP'}</span>
-                        </button>
-                      )}
-
-                      {currentMission.url && (
-                        <a
-                          href={currentMission.url}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="px-2.5 py-0.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-[10px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
-                        >
-                          <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
-                          <ExternalLink className="w-3 h-3" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                <div className="flex items-center space-x-1.5 font-mono text-xs text-white pr-1">
+                  <span className="text-[10px] text-[#facc15] font-black mr-1 hidden sm:inline">
+                    {currentMission.code}
+                  </span>
+                  <button
+                    onClick={handlePrev}
+                    className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000] cursor-pointer"
+                    title={currentLang === 'es' ? 'Ficha anterior' : 'Previous mission'}
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000] cursor-pointer"
+                    title={currentLang === 'es' ? 'Ficha siguiente' : 'Next mission'}
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
 
-              {/* ------------------------------------------------------------- */}
-              {/* B2. LOWER SECTION: REST OF PHOTOS PINNED DIRECTLY TO THE WALL  */}
-              {/* ------------------------------------------------------------- */}
-              <div className="w-full max-h-[30vh] sm:max-h-[34vh] flex flex-col overflow-y-auto no-scrollbar pt-2.5 pb-1 px-1">
-                
-                {/* Floating Tape Quick Switcher when inside Skills */}
-                {currentMission.type === 'skills' && (
-                  <div className="flex items-center space-x-1.5 pb-2 overflow-x-auto no-scrollbar shrink-0">
-                    <button
-                      onClick={() => {
-                        handleSelectMission('skills-ciencia-geofisica');
-                        setActiveSkillToolIndex(0);
-                      }}
-                      className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 ${
-                        currentMission.id === 'skills-ciencia-geofisica'
-                          ? 'bg-red-600 text-white ring-2 ring-yellow-400'
-                          : 'bg-black/80 hover:bg-black text-neutral-200'
-                      }`}
-                    >
-                      ⚡ CIENCIA (9)
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleSelectMission('skills-comms-cultura');
-                        setActiveSkillToolIndex(0);
-                      }}
-                      className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] rotate-1 ${
-                        currentMission.id === 'skills-comms-cultura'
-                          ? 'bg-emerald-600 text-white ring-2 ring-yellow-400'
-                          : 'bg-black/80 hover:bg-black text-neutral-200'
-                      }`}
-                    >
-                      🎬 MEDIOS (6)
-                    </button>
-                    <button
-                      onClick={() => {
-                        handleSelectMission('skills-equipos-idiomas');
-                        setActiveSkillToolIndex(0);
-                      }}
-                      className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 ${
-                        currentMission.id === 'skills-equipos-idiomas'
-                          ? 'bg-cyan-600 text-white ring-2 ring-yellow-400'
-                          : 'bg-black/80 hover:bg-black text-neutral-200'
-                      }`}
-                    >
-                      🔬 INSTRUMENTAL (6)
-                    </button>
-                  </div>
-                )}
+              {/* Quick Track Switcher when inside Skills */}
+              {currentMission.type === 'skills' && (
+                <div className="flex items-center space-x-1.5 pb-1 overflow-x-auto no-scrollbar shrink-0">
+                  <button
+                    onClick={() => {
+                      handleSelectMission('skills-ciencia-geofisica');
+                      setActiveSkillToolIndex(0);
+                    }}
+                    className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 ${
+                      currentMission.id === 'skills-ciencia-geofisica'
+                        ? 'bg-red-600 text-white ring-2 ring-yellow-400'
+                        : 'bg-black/80 hover:bg-black text-neutral-200'
+                    }`}
+                  >
+                    ⚡ CIENCIA (9)
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleSelectMission('skills-comms-cultura');
+                      setActiveSkillToolIndex(0);
+                    }}
+                    className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] rotate-1 ${
+                      currentMission.id === 'skills-comms-cultura'
+                        ? 'bg-emerald-600 text-white ring-2 ring-yellow-400'
+                        : 'bg-black/80 hover:bg-black text-neutral-200'
+                    }`}
+                  >
+                    🎬 MEDIOS (6)
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleSelectMission('skills-equipos-idiomas');
+                      setActiveSkillToolIndex(0);
+                    }}
+                    className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 ${
+                      currentMission.id === 'skills-equipos-idiomas'
+                        ? 'bg-cyan-600 text-white ring-2 ring-yellow-400'
+                        : 'bg-black/80 hover:bg-black text-neutral-200'
+                    }`}
+                  >
+                    🔬 INSTRUMENTAL (6)
+                  </button>
+                </div>
+              )}
 
-                {/* 3 COLUMNS GRID OF FREELY PINNED POLAROIDS / FIELD CONTRACTS */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-2.5 pt-1">
-                  {currentMission.type === 'skills' ? (
-                    /* ★ SKILLS AS SEPARATE 3-COL CARDS ★ */
-                    (() => {
-                      const activeToolList =
-                        currentMission.id === 'skills-comms-cultura' ? TOOLS_COMMS :
-                        currentMission.id === 'skills-equipos-idiomas' ? TOOLS_EQUIPOS :
-                        TOOLS_CIENCIA;
+              {/* 3 COLUMNS GRID OF SQUARE PINNED POLAROIDS (HALF SIZE, FREELY PINNED) */}
+              <div className="w-full max-h-[36vh] sm:max-h-[40vh] overflow-y-auto no-scrollbar grid grid-cols-3 gap-2 sm:gap-2.5 p-1 pt-2">
+                {currentMission.type === 'skills' ? (
+                  /* ★ SKILLS AS SQUARE PINNED CARDS ★ */
+                  (() => {
+                    const activeToolList =
+                      currentMission.id === 'skills-comms-cultura' ? TOOLS_COMMS :
+                      currentMission.id === 'skills-equipos-idiomas' ? TOOLS_EQUIPOS :
+                      TOOLS_CIENCIA;
 
-                      return activeToolList.map((tool, tIdx) => {
-                        const isToolActive = activeSkillToolIndex === tIdx;
-                        const rotation =
-                          tIdx % 3 === 0 ? '-rotate-1' :
-                          tIdx % 3 === 1 ? 'rotate-1' :
-                          '-rotate-0.5';
-
-                        return (
-                          <div
-                            key={tool.name}
-                            onClick={() => {
-                              setActiveSkillToolIndex(tIdx);
-                              setSelectedPlatePage(0);
-                            }}
-                            className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
-                              isToolActive
-                                ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
-                                : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
-                            }`}
-                            title={`Ver ficha técnica de ${tool.name}`}
-                          >
-                            {/* Pushpin pinned through top edge */}
-                            <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                              <div className="w-3.5 h-3.5 rounded-full bg-cyan-500 border border-black shadow-[0_2px_4px_rgba(0,0,0,0.9)] flex items-center justify-center">
-                                <div className="w-1 h-1 rounded-full bg-white/90" />
-                              </div>
-                            </div>
-
-                            {/* Single Logo Frame - MASSIVE HERO LOGO, COMPACT CONTAINER */}
-                            <div className="relative w-full h-[64px] sm:h-[72px] bg-[#090d16] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-0.5 group-hover:border-cyan-300">
-                              <div
-                                className="absolute inset-0 rounded blur-xl opacity-40 pointer-events-none"
-                                style={{ backgroundColor: tool.color }}
-                              />
-                              <TechLogo name={tool.name} size={56} className="relative z-10 drop-shadow-[0_3px_12px_rgba(0,0,0,0.98)] transition-transform duration-200 group-hover:scale-108" />
-                              
-                              {/* Mini index */}
-                              <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[6px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
-                                #{tIdx + 1}
-                              </div>
-                            </div>
-
-                            {/* Caption */}
-                            <div className="flex flex-col space-y-0.5">
-                              <div className="flex items-center space-x-1 font-mono text-[8px] font-bold text-neutral-800">
-                                <span className="text-cyan-700 font-black">★</span>
-                                <span className="uppercase tracking-tight truncate font-black text-[8.5px] text-neutral-900">
-                                  {tool.name}
-                                </span>
-                              </div>
-
-                              <div className="relative pt-0.2">
-                                {isToolActive ? (
-                                  <div className="border border-red-600 rounded-[4px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
-                                    <h4 className="font-mono font-black text-[7.5px] text-red-700 line-clamp-1 leading-tight uppercase">
-                                      {tool.name}
-                                    </h4>
-                                  </div>
-                                ) : (
-                                  <h4 className="font-mono font-bold text-[7.5px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
-                                    {tool.name}
-                                  </h4>
-                                )}
-                              </div>
-
-                              <div className="text-[6.5px] font-mono text-neutral-500 pt-0.2 flex items-center justify-between">
-                                <span className="text-[#b45309] font-black">{tool.level.split(' ')[0]}</span>
-                                <span className="text-neutral-400 truncate max-w-[55px]">{tool.tags.split(',')[0]}</span>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      });
-                    })()
-                  ) : (
-                    /* ★ EXPEDITIONS / MISSIONS AS 3-COL CARDS ★ */
-                    filteredMissions.map((m, idx) => {
-                      const isSelected = m.id === selectedMissionId;
-
-                      const pinColor = 
-                        m.type === 'science' ? 'bg-red-600 border-red-900' :
-                        m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
-                        m.type === 'global' ? 'bg-amber-500 border-amber-800' :
-                        m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
-                        m.type === 'titles' ? 'bg-pink-600 border-pink-900' :
-                        m.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
-                        'bg-purple-600 border-purple-900';
-
-                      const rotation = 
-                        idx % 3 === 0 ? '-rotate-1.5' :
-                        idx % 3 === 1 ? 'rotate-1.5' :
+                    return activeToolList.map((tool, tIdx) => {
+                      const isToolActive = activeSkillToolIndex === tIdx;
+                      const rotation =
+                        tIdx % 3 === 0 ? '-rotate-1.5' :
+                        tIdx % 3 === 1 ? 'rotate-1.5' :
                         '-rotate-0.5';
 
                       return (
                         <div
-                          key={m.id}
-                          onClick={() => handleSelectMission(m.id)}
+                          key={tool.name}
+                          onClick={() => {
+                            setActiveSkillToolIndex(tIdx);
+                            setSelectedPlatePage(0);
+                          }}
                           className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
-                            isSelected
+                            isToolActive
                               ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
                               : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
                           }`}
+                          title={`Ver ficha técnica de ${tool.name}`}
                         >
                           {/* Pushpin pinned through top edge */}
                           <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                            <div className={`w-3.5 h-3.5 rounded-full ${pinColor} border border-black shadow-[0_2px_4px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
+                            <div className="w-3 h-3 rounded-full bg-cyan-500 border border-black shadow-[0_2px_4px_rgba(0,0,0,0.9)] flex items-center justify-center">
                               <div className="w-1 h-1 rounded-full bg-white/90" />
                             </div>
                           </div>
 
-                          {/* Image / Preview Frame */}
-                          <div className="relative w-full h-[54px] sm:h-[62px] bg-[#12161f] border border-black/40 overflow-hidden mb-1 flex items-center justify-center">
-                            {m.mediaType === 'video' ? (
-                              <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
-                                <Play className="w-3.5 h-3.5 text-red-500 fill-red-500/30" />
-                                <span className="absolute bottom-0.5 right-0.5 font-mono text-[5px] bg-red-600 text-white px-0.5 font-black uppercase">
-                                  REC
-                                </span>
-                              </div>
-                            ) : m.mediaType === 'audio' ? (
-                              <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center text-center text-emerald-400">
-                                <Volume2 className="w-3.5 h-3.5" />
-                                <span className="font-mono text-[6px] font-bold">96.3 FM</span>
-                              </div>
-                            ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
-                              <div className="w-full h-full bg-[#090d16] p-0.5 flex flex-col items-center justify-center">
-                                <TechLogo name={m.techStack?.[0] || 'Python'} size={50} className="drop-shadow-[0_3px_10px_rgba(0,0,0,0.98)]" />
-                                <span className="font-mono text-[6px] text-cyan-300 font-bold mt-0.2 uppercase">
-                                  {m.city}
-                                </span>
-                              </div>
-                            ) : m.availablePages && m.availablePages.length > 0 ? (
-                              <img
-                                src={resolveAsset(m.availablePages[0].pageSrc)}
-                                alt={m.titleEs}
-                                className="w-full h-full object-cover filter contrast-105"
-                              />
-                            ) : m.src ? (
-                              <img
-                                src={resolveAsset(m.src)}
-                                alt={m.titleEs}
-                                className="w-full h-full object-cover filter contrast-105"
-                              />
-                            ) : (
-                              <div className="w-full h-full bg-[#0f172a] border border-dashed border-cyan-500/40 p-0.5 flex flex-col items-center justify-center text-center">
-                                <span className="font-mono text-[6px] font-black text-cyan-400 uppercase">
-                                  [DOC]
-                                </span>
-                              </div>
-                            )}
-
-                            {/* Mini Sticky Note */}
-                            <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[6px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-2 uppercase">
-                              {m.code}
+                          {/* Square Logo Frame */}
+                          <div className="relative w-full aspect-square bg-[#090d16] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-1 group-hover:border-cyan-300">
+                            <div
+                              className="absolute inset-0 rounded blur-xl opacity-40 pointer-events-none"
+                              style={{ backgroundColor: tool.color }}
+                            />
+                            <TechLogo name={tool.name} size={48} className="relative z-10 drop-shadow-[0_3px_12px_rgba(0,0,0,0.98)] transition-transform duration-200 group-hover:scale-108" />
+                            
+                            {/* Mini index */}
+                            <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[6px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
+                              #{tIdx + 1}
                             </div>
                           </div>
 
-                          {/* Caption */}
-                          <div className="flex flex-col space-y-0.2">
-                            <div className="flex items-center space-x-1 font-mono text-[7px] font-bold text-neutral-800">
-                              <span className="text-emerald-700 font-black">✔</span>
-                              <span className="uppercase tracking-tight truncate">
-                                {m.flag} {m.city}
+                          {/* Caption with vertical breathing room */}
+                          <div className="flex flex-col space-y-0.5 pt-0.5">
+                            <div className="flex items-center space-x-1 font-mono text-[7.5px] font-bold text-neutral-800">
+                              <span className="text-cyan-700 font-black">★</span>
+                              <span className="uppercase tracking-tight truncate font-black text-[8px] text-neutral-900">
+                                {tool.name}
                               </span>
                             </div>
 
-                            {/* Title with Red Marker Oval if Selected */}
                             <div className="relative pt-0.2">
-                              {isSelected ? (
-                                <div className="border border-red-600 rounded-[4px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
-                                  <h4 className="font-mono font-black text-[7.5px] text-red-700 line-clamp-1 leading-tight uppercase">
-                                    {currentLang === 'es' ? m.titleEs : m.titleEn}
+                              {isToolActive ? (
+                                <div className="border border-red-600 rounded-[3px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
+                                  <h4 className="font-mono font-black text-[7.5px] text-red-700 line-clamp-2 leading-tight uppercase">
+                                    {tool.name}
                                   </h4>
                                 </div>
                               ) : (
-                                <h4 className="font-mono font-bold text-[7.5px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
-                                  {currentLang === 'es' ? m.titleEs : m.titleEn}
+                                <h4 className="font-mono font-bold text-[7.5px] text-neutral-800 line-clamp-2 leading-tight group-hover:text-black">
+                                  {tool.name}
                                 </h4>
                               )}
                             </div>
 
-                            <div className="text-[6.5px] font-mono text-neutral-500 pt-0.2 flex items-center justify-between">
-                              <span className="truncate">{m.date}</span>
-                              <span className="font-bold text-[6.5px] text-neutral-600 uppercase">{m.type}</span>
+                            <div className="text-[6.5px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
+                              <span className="text-[#b45309] font-black">{tool.level.split(' ')[0]}</span>
+                              <span className="text-neutral-400 truncate max-w-[50px]">{tool.tags.split(',')[0]}</span>
                             </div>
                           </div>
                         </div>
                       );
-                    })
-                  )}
-                </div>
+                    });
+                  })()
+                ) : (
+                  /* ★ EXPEDITIONS / MISSIONS AS SQUARE PINNED POLAROIDS ★ */
+                  filteredMissions.map((m, idx) => {
+                    const isSelected = m.id === selectedMissionId;
+
+                    const pinColor = 
+                      m.type === 'science' ? 'bg-red-600 border-red-900' :
+                      m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
+                      m.type === 'global' ? 'bg-amber-500 border-amber-800' :
+                      m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
+                      m.type === 'titles' ? 'bg-pink-600 border-pink-900' :
+                      m.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
+                      'bg-purple-600 border-purple-900';
+
+                    const rotation = 
+                      idx % 3 === 0 ? '-rotate-1.5' :
+                      idx % 3 === 1 ? 'rotate-1.5' :
+                      '-rotate-0.5';
+
+                    return (
+                      <div
+                        key={m.id}
+                        onClick={() => handleSelectMission(m.id)}
+                        className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                          isSelected
+                            ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
+                            : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
+                        }`}
+                      >
+                        {/* Pushpin pinned through top edge */}
+                        <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                          <div className={`w-3 h-3 rounded-full ${pinColor} border border-black shadow-[0_2px_4px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
+                            <div className="w-1 h-1 rounded-full bg-white/90" />
+                          </div>
+                        </div>
+
+                        {/* Square Image / Preview Frame */}
+                        <div className="relative w-full aspect-square bg-[#0c1017] rounded border border-black/40 overflow-hidden mb-1 flex items-center justify-center">
+                          {m.mediaType === 'video' ? (
+                            <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
+                              <Play className="w-4 h-4 text-red-500 fill-red-500/30" />
+                              <span className="absolute bottom-0.5 right-0.5 font-mono text-[5px] bg-red-600 text-white px-0.5 font-black uppercase">
+                                REC
+                              </span>
+                            </div>
+                          ) : m.mediaType === 'audio' ? (
+                            <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center text-center text-emerald-400">
+                              <Volume2 className="w-4 h-4" />
+                              <span className="font-mono text-[6px] font-bold">96.3 FM</span>
+                            </div>
+                          ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
+                            <div className="w-full h-full bg-[#090d16] p-0.5 flex flex-col items-center justify-center">
+                              <TechLogo name={m.techStack?.[0] || 'Python'} size={44} className="drop-shadow-[0_3px_10px_rgba(0,0,0,0.98)]" />
+                              <span className="font-mono text-[6px] text-cyan-300 font-bold mt-0.2 uppercase">
+                                {m.city}
+                              </span>
+                            </div>
+                          ) : m.availablePages && m.availablePages.length > 0 ? (
+                            <img
+                              src={resolveAsset(m.availablePages[0].pageSrc)}
+                              alt={m.titleEs}
+                              className="w-full h-full object-cover filter contrast-105"
+                            />
+                          ) : m.src ? (
+                            <img
+                              src={resolveAsset(m.src)}
+                              alt={m.titleEs}
+                              className="w-full h-full object-cover filter contrast-105"
+                            />
+                          ) : (
+                            <div className="w-full h-full bg-[#0f172a] border border-dashed border-cyan-500/40 p-0.5 flex flex-col items-center justify-center text-center">
+                              <span className="font-mono text-[6px] font-black text-cyan-400 uppercase">
+                                [DOC]
+                              </span>
+                            </div>
+                          )}
+
+                          {/* Mini Sticky Note */}
+                          <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[6px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-2 uppercase">
+                            {m.code}
+                          </div>
+                        </div>
+
+                        {/* Caption with +1/3 vertical space for title */}
+                        <div className="flex flex-col space-y-0.5 pt-0.5">
+                          <div className="flex items-center space-x-1 font-mono text-[7.5px] font-bold text-neutral-800">
+                            <span className="text-emerald-700 font-black">✔</span>
+                            <span className="uppercase tracking-tight truncate">
+                              {m.flag} {m.city}
+                            </span>
+                          </div>
+
+                          {/* Title (up to 2 lines for comfortable reading) */}
+                          <div className="relative pt-0.2">
+                            {isSelected ? (
+                              <div className="border border-red-600 rounded-[3px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
+                                <h4 className="font-mono font-black text-[7.5px] text-red-700 line-clamp-2 leading-tight uppercase">
+                                  {currentLang === 'es' ? m.titleEs : m.titleEn}
+                                </h4>
+                              </div>
+                            ) : (
+                              <h4 className="font-mono font-bold text-[7.5px] text-neutral-800 line-clamp-2 leading-tight group-hover:text-black">
+                                {currentLang === 'es' ? m.titleEs : m.titleEn}
+                              </h4>
+                            )}
+                          </div>
+
+                          <div className="text-[6.5px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
+                            <span className="truncate">{m.date}</span>
+                            <span className="font-bold text-[6.5px] text-neutral-600 uppercase">{m.type}</span>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
               </div>
 
             </div>
           </div>
         )}
+
+        {/* Slide-out "More Information" Drawer docked on the right */}
+        {isMoreInfoOpen && (
+          <div 
+            onClick={() => setIsMoreInfoOpen(false)}
+            className="fixed inset-0 bg-black/50 backdrop-blur-xs z-40 transition-opacity duration-300 pointer-events-auto"
+          />
+        )}
+
+        <div
+          className={`fixed top-0 right-0 h-full w-full sm:w-[500px] lg:w-[540px] bg-[#0c1017]/95 border-l-4 border-black backdrop-blur-2xl shadow-[-16px_0_40px_rgba(0,0,0,0.95)] z-50 transition-transform duration-300 ease-in-out flex flex-col text-white pointer-events-auto ${
+            isMoreInfoOpen ? 'translate-x-0' : 'translate-x-full pointer-events-none'
+          }`}
+        >
+          {/* Drawer Header */}
+          <div className="px-4 py-3 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
+            <div className="flex items-center space-x-2">
+              <div className="bg-[#facc15] text-black font-mono font-black text-xs px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
+                {currentMission.code} // {currentMission.city.toUpperCase()}
+              </div>
+              <div className="bg-white/10 text-neutral-200 font-mono text-[10px] px-2 py-0.5 border border-white/20">
+                {currentMission.flag} {currentMission.country.toUpperCase()}
+              </div>
+              <span className="bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider rotate-1">
+                {currentLang === 'es' ? 'VERIFICADO' : 'VERIFIED'}
+              </span>
+            </div>
+
+            <div className="flex items-center space-x-1.5">
+              <button
+                onClick={handlePrev}
+                className="p-1.5 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000] cursor-pointer"
+                title={currentLang === 'es' ? 'Ficha anterior' : 'Previous mission'}
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handleNext}
+                className="p-1.5 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000] cursor-pointer"
+                title={currentLang === 'es' ? 'Ficha siguiente' : 'Next mission'}
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => setIsMoreInfoOpen(false)}
+                className="p-1.5 bg-red-600 hover:bg-white text-white hover:text-black border border-black transition font-mono font-black shadow-[1px_1px_0px_#000] ml-1 cursor-pointer"
+                title={currentLang === 'es' ? 'Cerrar ficha' : 'Close dossier'}
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Drawer Body Scrollable */}
+          <div className="overflow-y-auto p-4 sm:p-5 space-y-3.5 no-scrollbar flex-1">
+            {/* Title & Metadata */}
+            <div>
+              <div className="flex items-center space-x-2 font-mono text-[11px] text-amber-400 mb-1">
+                <span className="bg-[#facc15] text-black font-mono font-black px-2 py-0.5 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
+                  {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
+                </span>
+                <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
+              </div>
+
+              <h2 className="text-lg sm:text-xl font-mono font-black text-white uppercase tracking-tight leading-snug">
+                {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
+              </h2>
+
+              <p className="text-xs sm:text-sm font-mono text-neutral-300 mt-1 leading-normal">
+                {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
+              </p>
+            </div>
+
+            {/* Tech Stack & Tools */}
+            {currentMission.techStack && currentMission.techStack.length > 0 && (
+              <div className="p-2.5 rounded-lg bg-black/80 border-2 border-[#facc15]/70 shadow-[2px_2px_0px_#000] space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse" />
+                    <span className="font-mono text-xs font-black uppercase text-[#facc15] tracking-wider">
+                      {currentLang === 'es' ? '⚡ HERRAMIENTAS & LOGOS TÉCNICOS:' : '⚡ TECH STACK & TOOLS:'}
+                    </span>
+                  </div>
+                  <span className="font-mono text-[9px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase">
+                    {currentMission.techStack.length} {currentLang === 'es' ? 'HERRAMIENTAS' : 'TOOLS'}
+                  </span>
+                </div>
+                <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                  {currentMission.techStack.map((tech, tIdx) => (
+                    <TechBadge key={tIdx} name={tech} size="sm" />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Impact Synopsis Box */}
+            <div className="p-3 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-1">
+              <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black">
+                {currentLang === 'es' ? '[ SINOPSIS METODOLÓGICA & IMPACTO (CV) ]' : '[ METHODOLOGY & IMPACT SYNOPSIS (CV) ]'}
+              </div>
+              <p className="text-xs sm:text-sm font-serif text-neutral-200 leading-relaxed">
+                {currentLang === 'es' ? currentMission.impactEs : currentMission.impactEn}
+              </p>
+            </div>
+
+            {/* Methodology Bullets */}
+            <ul className="space-y-1.5 text-xs font-mono text-neutral-300">
+              {(currentLang === 'es' ? currentMission.methodologyEs : currentMission.methodologyEn).map((m, mIdx) => (
+                <li key={mIdx} className="flex items-start space-x-2 bg-black/50 p-2 border border-white/10">
+                  <span className="bg-[#facc15] text-black font-mono font-black text-[9px] px-1 border border-black shrink-0">
+                    0{mIdx + 1}
+                  </span>
+                  <span>{m}</span>
+                </li>
+              ))}
+            </ul>
+
+            {/* Deliverables Box if present */}
+            {currentMission.deliverablesEs && currentMission.deliverablesEs.length > 0 && (
+              <div className="p-3 rounded-lg bg-black/70 border-2 border-dashed border-[#facc15]/40 space-y-1.5">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black flex items-center space-x-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-[#facc15]" />
+                  <span>{currentLang === 'es' ? '[ ENTREGABLES & RESULTADOS TÉCNICOS ]' : '[ DELIVERABLES & TECHNICAL OUTPUTS ]'}</span>
+                </div>
+                <ul className="space-y-1 text-xs font-mono text-neutral-300">
+                  {(currentLang === 'es' ? currentMission.deliverablesEs : currentMission.deliverablesEn || currentMission.deliverablesEs).map((d, dIdx) => (
+                    <li key={dIdx} className="flex items-start space-x-2 bg-black/40 p-1.5 border border-white/5 rounded">
+                      <span className="text-[#facc15] font-black">✔</span>
+                      <span>{d}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Links & Tags */}
+            <div className="pt-2 border-t-2 border-black flex flex-wrap items-center justify-between gap-2">
+              <div className="flex flex-wrap gap-1">
+                {currentMission.tags.map((t, idx) => (
+                  <span key={idx} className="px-2 py-0.5 font-mono text-[9px] bg-white/10 text-neutral-300 border border-white/15">
+                    #{t}
+                  </span>
+                ))}
+              </div>
+
+              {currentMission.url && (
+                <a
+                  href={currentMission.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
+                >
+                  <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
 
         {/* Restore Button if Window is Closed */}
         {!isDossierOpen && (
