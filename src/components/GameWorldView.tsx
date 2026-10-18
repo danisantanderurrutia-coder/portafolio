@@ -3898,13 +3898,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               </div>
                             </div>
 
-                            {/* Single Logo Frame */}
-                            <div className="relative w-full aspect-[4/3] bg-[#0c1017] rounded border border-cyan-500/30 overflow-hidden mb-1 flex items-center justify-center p-2 group-hover:border-cyan-400">
+                            {/* Single Logo Frame - PROMINENT LOGO, MINIMAL BACKGROUND */}
+                            <div className="relative w-full aspect-[16/11] bg-gradient-to-b from-[#1a2334] to-[#0a0f18] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-1.5 group-hover:border-cyan-300">
                               <div
-                                className="absolute inset-0 rounded blur-xl opacity-25 pointer-events-none"
+                                className="absolute inset-0 rounded blur-xl opacity-35 pointer-events-none"
                                 style={{ backgroundColor: tool.color }}
                               />
-                              <TechLogo name={tool.name} size={34} className="relative z-10 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] transition-transform group-hover:scale-110" />
+                              <TechLogo name={tool.name} size={64} className="relative z-10 drop-shadow-[0_4px_14px_rgba(0,0,0,0.95)] transition-transform group-hover:scale-110" />
                               
                               {/* Mini index */}
                               <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[7px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
@@ -3916,7 +3916,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                             <div className="flex flex-col space-y-0.5">
                               <div className="flex items-center space-x-1 font-mono text-[8px] font-bold text-neutral-800">
                                 <span className="text-cyan-700 font-black">★</span>
-                                <span className="uppercase tracking-tight truncate font-black">
+                                <span className="uppercase tracking-tight truncate font-black text-[9px] text-neutral-900">
                                   {tool.name}
                                 </span>
                               </div>
@@ -3995,9 +3995,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                 <span className="font-mono text-[6px] font-bold">96.3 FM</span>
                               </div>
                             ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
-                              <div className="w-full h-full bg-[#0a0f1d] p-1 flex flex-col items-center justify-center">
-                                <TechLogo name={m.techStack?.[0] || 'Python'} size={24} />
-                                <span className="font-mono text-[6px] text-cyan-300 font-bold mt-0.5 uppercase">
+                              <div className="w-full h-full bg-gradient-to-b from-[#1a2334] to-[#0a0f18] p-1.5 flex flex-col items-center justify-center">
+                                <TechLogo name={m.techStack?.[0] || 'Python'} size={56} className="drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)]" />
+                                <span className="font-mono text-[7px] text-cyan-300 font-bold mt-1 uppercase">
                                   {m.city}
                                 </span>
                               </div>
