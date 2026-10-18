@@ -797,6 +797,54 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Maule', 'Biobío', 'Ñuble', 'Santiago', 'Solidaridad', 'Incendios', 'Inundaciones']
   },
 
+  // 15b. COMUNICACIONES & GRASSROOTS: Memoria y Dignidad Maule - Museo Digital
+  {
+    id: 'memoria-dignidad-maule',
+    type: 'comms',
+    titleEs: 'Memoria y Dignidad Maule: Museo Digital de Derechos Humanos',
+    titleEn: 'Memoria y Dignidad Maule: Digital Museum of Human Rights',
+    subtitleEs: 'Museo virtual de memoria histórica y derechos humanos de la Región del Maule, Chile',
+    subtitleEn: 'Virtual museum of historical memory and human rights in Maule Region, Chile',
+    country: 'Chile',
+    city: 'Talca / Maule',
+    flag: '🇨🇱',
+    lat: -35.43,
+    lng: -71.66,
+    date: '2024-2026',
+    roleEs: 'Desarrollador & Investigador',
+    roleEn: 'Developer & Researcher',
+    mediaType: 'plate',
+    src: '/expeditions/memoria_dignidad_maule.png',
+    url: 'https://danisantanderurrutia-coder.github.io/memoria-y-dignidad-maule/',
+    availablePages: [
+      {
+        titleEs: 'Plataforma Oficial Memoria y Dignidad Maule (Museo Digital)',
+        titleEn: 'Official Memoria y Dignidad Maule Platform (Digital Museum)',
+        pageSrc: '/expeditions/memoria_dignidad_maule.png'
+      },
+      {
+        titleEs: 'Logotipo Oficial • Memoria y Dignidad Maule',
+        titleEn: 'Official Logo • Memoria y Dignidad Maule',
+        pageSrc: '/logos/memoria_dignidad_logo.svg'
+      }
+    ],
+    code: 'OPS-COM-06',
+    source: 'Memoria y Dignidad Maule (Museo Virtual)',
+    impactEs: 'Desarrollo del museo virtual de memoria histórica y derechos humanos de la Región del Maule, Chile, documentando sitios de memoria, testimonios y preservación del patrimonio territorial.',
+    impactEn: 'Development of the virtual museum of historical memory and human rights in the Maule Region, Chile, documenting memorial sites, oral histories, and community heritage.',
+    methodologyEs: [
+      'Museo virtual interactivo de derechos humanos y sitios de memoria del Maule',
+      'Mapeo territorial y preservación de archivos orales e históricos',
+      'Plataforma web abierta disponible en GitHub Pages'
+    ],
+    methodologyEn: [
+      'Interactive virtual museum of human rights and memory sites in Maule',
+      'Spatial mapping and archival preservation of oral and historical testimonies',
+      'Open-access web platform published on GitHub Pages'
+    ],
+    tags: ['Memoria Histórica', 'Derechos Humanos', 'Maule', 'Museo Digital', 'GitHub Pages']
+  },
+
   // 16. ARTE & CULTURA: Brigada Paulina Aguirre - Propaganda & Serigrafía Callejera
   {
     id: 'brigada-paulina-aguirre',

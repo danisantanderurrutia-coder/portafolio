@@ -201,6 +201,74 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
       customRoleEn: 'Lead Coordinator & Grassroots Disaster Relief Manager',
       sectionData: communicationsSections.find(s => s.id === 'solo-el-pueblo'),
       parentSection: communicationsSections.find(s => s.id === 'solo-el-pueblo')
+    },
+    {
+      id: 'memoria-dignidad-maule',
+      labelEn: '05. Memoria y Dignidad Maule',
+      labelEs: '05. Memoria y Dignidad Maule',
+      icon: BookOpen,
+      accent: '#c2410c',
+      badgeEn: 'Virtual Museum // Human Rights & Territorial Memory',
+      badgeEs: 'Museo Virtual // DDHH & Memoria Histórica del Maule',
+      customRoleEs: 'Desarrollador & Investigador // Museo Virtual Memoria y Dignidad',
+      customRoleEn: 'Lead Developer & Researcher // Virtual Memory Museum',
+      sectionData: {
+        id: 'memoria-dignidad',
+        tabKey: '05. MEMORIA MAULE',
+        tabTitleEn: 'Memoria y Dignidad Maule',
+        tabTitleEs: 'Memoria y Dignidad Maule',
+        titleEn: 'Memoria y Dignidad Maule: Virtual Museum of Human Rights',
+        titleEs: 'Memoria y Dignidad Maule: Museo Digital de Derechos Humanos',
+        badgeEn: 'VIRTUAL MUSEUM & TERRITORIAL MEMORY',
+        badgeEs: 'MUSEO DIGITAL & MEMORIA TERRITORIAL',
+        headlineEn: 'Preserving historical memory, memorial sites, and popular archives across the Maule Region',
+        headlineEs: 'Preservación de la memoria histórica, sitios de memoria y archivos populares en la Región del Maule',
+        roleEn: 'Lead Digital Creator & Spatial Archival Researcher',
+        roleEs: 'Creador Digital & Investigador de Memoria Espacial',
+        narrativeEn: 'An open digital museum dedicated to historical memory and human rights in the Maule Region, Chile. It documents memorial sites, survivor testimonies, resistance archives, and cultural dignity through interactive spatial records.',
+        narrativeEs: 'Museo virtual y archivo abierto de memoria histórica y derechos humanos de la Región del Maule, Chile. Documenta sitios de memoria, testimonios de sobrevivientes, archivos de resistencia y dignidad comunitaria mediante registros espaciales interactivos.',
+        keyOutcomesEn: [
+          'Spatial digital museum of memory sites and resistance in Maule',
+          'Interactive mapping and archival preservation of oral histories',
+          'Community open-access platform published on GitHub Pages'
+        ],
+        keyOutcomesEs: [
+          'Museo digital espacial de sitios de memoria y resistencia en el Maule',
+          'Mapeo interactivo y preservación documental de testimonios orales',
+          'Plataforma de acceso abierto comunitario publicada en GitHub Pages'
+        ],
+        stats: [
+          { value: 'Maule', labelEn: 'Territorial Scope', labelEs: 'Alcance Territorial' },
+          { value: '100%', labelEn: 'Open Access Archive', labelEs: 'Acceso Abierto' },
+          { value: 'Digital', labelEn: 'Virtual Museum', labelEs: 'Museo Virtual' }
+        ],
+        mediaItems: [
+          {
+            id: 'memoria-maule-app',
+            type: 'image',
+            titleEs: 'Plataforma Oficial Memoria y Dignidad Maule (Museo Digital)',
+            titleEn: 'Official Memoria y Dignidad Maule Platform (Digital Museum)',
+            captionEs: 'Museo virtual de memoria histórica y derechos humanos de la Región del Maule, Chile.',
+            captionEn: 'Virtual museum of historical memory and human rights in Maule Region, Chile.',
+            src: '/expeditions/memoria_dignidad_maule.png',
+            url: 'https://danisantanderurrutia-coder.github.io/memoria-y-dignidad-maule/'
+          },
+          {
+            id: 'memoria-maule-logo',
+            type: 'image',
+            titleEs: 'Logotipo Oficial • Memoria y Dignidad Maule',
+            titleEn: 'Official Logo • Memoria y Dignidad Maule',
+            captionEs: 'Identidad visual del Museo Digital Memoria y Dignidad Maule.',
+            captionEn: 'Visual identity of Memoria y Dignidad Maule Digital Museum.',
+            src: '/logos/memoria_dignidad_logo.svg',
+            url: 'https://danisantanderurrutia-coder.github.io/memoria-y-dignidad-maule/'
+          }
+        ]
+      },
+      logoSrc: '/logos/memoria_dignidad_logo.svg',
+      externalUrl: 'https://danisantanderurrutia-coder.github.io/memoria-y-dignidad-maule/',
+      externalUrlLabelEs: 'Abrir Museo Memoria y Dignidad Maule en GitHub Pages ↗',
+      externalUrlLabelEn: 'Open Memoria y Dignidad Maule on GitHub Pages ↗'
     }
   ];
 
