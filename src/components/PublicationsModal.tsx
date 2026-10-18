@@ -41,26 +41,121 @@ interface PublicationItem {
 }
 
 export const PUBLICATIONS_DATA: PublicationItem[] = [
-  // 1. EPN 2024 BIOMASS REPORT
+  // 1. EPN 2023-2024: SPOTLIGHT ON BURNING BIOMASS (PARRAL, CHILE)
   {
-    id: 'epn-2024',
+    id: 'epn-parral-biomass',
     category: 'policy',
-    titleEn: 'Spotlight on Burning Biomass for Energy in South America',
-    titleEs: 'Spotlight on Burning Biomass for Energy in South America (Informe EPN 2024)',
-    outletEn: 'Environmental Paper Network (EPN) // International Investigation',
-    outletEs: 'Environmental Paper Network (EPN) // Investigación Internacional',
-    date: '2024',
-    url: 'https://environmentalpaper.org/biomass/',
-    src: '/portfolio_pages/page_5.png',
+    titleEn: 'Spotlight on Burning Biomass: Community Opposition to Power Plant in Parral, Chile',
+    titleEs: 'Spotlight on Burning Biomass: Oposición Comunitaria a Central en Parral, Chile',
+    outletEn: 'Environmental Paper Network (EPN) & Global Forest Coalition',
+    outletEs: 'Environmental Paper Network (EPN) & Global Forest Coalition',
+    date: '2023',
+    url: 'https://environmentalpaper.org/2023/06/spotlight-on-burning-biomass-for-energy-in-south-america-community-opposition-to-a-power-plant-in-parral-chile/',
+    src: '/press_covers/epn_parral_biomass.jpg',
     badgeEn: 'LEAD TECHNICAL AUTHOR',
-    badgeEs: 'AUTOR PRINCIPAL',
+    badgeEs: 'AUTOR PRINCIPAL // SPOTLIGHT',
     badgeColor: 'bg-red-600 text-white',
-    summaryEn: 'Landmark international investigative report exposing critical carbon accounting loopholes under the EU Renewable Energy Directive (RED III) and EU ETS regarding industrial forestry biomass extraction across South America.',
-    summaryEs: 'Informe investigativo internacional que expone las fallas críticas de contabilidad de carbono bajo la Directiva de Energías Renovables de la UE (RED III) y el mercado ETS sobre la extracción de biomasa forestal en Sudamérica.',
-    tags: ['EPN', 'Biomasa', 'RED III', 'Carbon Accounting', 'UE']
+    summaryEn: 'International case study investigating community resistance against forest biomass incineration in Parral (Maule), exposing EU renewable energy subsidies and carbon accounting loopholes.',
+    summaryEs: 'Investigación internacional sobre la resistencia comunitaria contra la incineración de biomasa forestal en Parral (Maule), desmintiendo la neutralidad de carbono y subsidios europeos.',
+    tags: ['EPN', 'Parral', 'Maule', 'Biomasa', 'Justicia Ambiental', 'RED III']
   },
 
-  // 2. TETRALOGÍA OLCA
+  // 2. TOMATE ROJO: HUMEDALES BAJO FUEGO
+  {
+    id: 'tomaterojo-humedales',
+    category: 'press',
+    titleEn: 'Waters Under Fire: What Do We Know and What Is Chile Doing?',
+    titleEs: '¡Aguas, aguas! Humedales bajo fuego: ¿Qué sabemos y qué está haciendo Chile?',
+    outletEn: 'Tomate Rojo // Red Plurinacional de Humedales (D. Santander, L. Muñoz, C. Bonifetti)',
+    outletEs: 'Tomate Rojo // Red Plurinacional de Humedales (D. Santander, L. Muñoz, C. Bonifetti)',
+    date: '2023',
+    url: 'https://tomaterojo.cl/aguas-aguas-humedales-bajo-fuego-que-sabemos-y-que-esta-haciendo-chile/',
+    src: '/press_covers/tomaterojo_humedales_fuego.jpg',
+    badgeEn: 'INVESTIGATIVE REPORT',
+    badgeEs: 'REPORTAJE INVESTIGATIVO',
+    badgeColor: 'bg-orange-600 text-white',
+    summaryEn: 'Comprehensive investigation co-authored with the Plurinational Wetland Network on how catastrophic wildfires threaten vital aquatic and peatland ecosystems across Chile.',
+    summaryEs: 'Investigación colaborativa con la Red Plurinacional de Humedales sobre el impacto de los megaincendios forestales en ecosistemas de humedales y turberas en Chile.',
+    tags: ['Tomate Rojo', 'Humedales', 'Incendios', 'Red Plurinacional', 'Agua']
+  },
+
+  // 3. EL REGIONALISTA & FUNDACIÓN SUELO: COLAPSO CLIMÁTICO
+  {
+    id: 'el-regionalista-colapso',
+    category: 'press',
+    titleEn: 'How Do We Prepare for a Climate Collapse?',
+    titleEs: '¿Cómo nos preparamos para un colapso climático?',
+    outletEn: 'El Regionalista & Fundación Suelo (Carolina Miranda & Daniel Santander)',
+    outletEs: 'El Regionalista & Fundación Suelo (Carolina Miranda y Daniel Santander)',
+    date: '2023',
+    url: 'https://elregionalista.cl/como-nos-preparamos-para-un-colapso-climatico/',
+    src: '/press_covers/el_regionalista_colapso_climatico.jpg',
+    badgeEn: 'OPINION & RESILIENCE BRIEF',
+    badgeEs: 'COLUMNA & RESILIENCIA',
+    badgeColor: 'bg-emerald-600 text-white',
+    summaryEn: 'Prospective analysis addressing deep community adaptation, soil living networks, and decentralized food sovereignty in response to impending ecological collapse.',
+    summaryEs: 'Columna de análisis prospectivo sobre adaptación comunitaria profunda, regeneración de suelos y soberanía territorial frente al colapso ecológico.',
+    tags: ['El Regionalista', 'Fundación Suelo', 'Colapso Climático', 'Adaptación', 'Suelos']
+  },
+
+  // 4. RESUMEN.CL & COMESTIBLE.INFO: DIRK KOCK-ROHWER
+  {
+    id: 'kock-rohwer-soils',
+    category: 'policy',
+    titleEn: 'The Earth is at Risk: Investments for Organic Agriculture Now!',
+    titleEs: 'La tierra está en riesgo: ¡Inversiones para la agricultura orgánica ahora!',
+    outletEn: 'Resumen.cl & Comestible.info (with German Green MP Dirk Kock-Rohwer)',
+    outletEs: 'Resumen.cl & Comestible.info (con el diputado Dirk Kock-Rohwer)',
+    date: '2024',
+    url: 'https://comestible.info/inversiones-para-la-agroecologia-ahora/',
+    src: '/press_covers/resumen_dirk_kock_rohwer_agricultura_organica.jpg',
+    badgeEn: 'PARLIAMENTARY JOINT COLUMN',
+    badgeEs: 'COLUMNA PARLAMENTARIA',
+    badgeColor: 'bg-green-600 text-white',
+    summaryEn: 'Joint political ecology column with Schleswig-Holstein Green MP Dirk Kock-Rohwer on soil organic fertility, agroecology, and the imperative for direct public subsidies for non-chemical farming.',
+    summaryEs: 'Columna conjunta con el diputado de Los Verdes Dirk Kock-Rohwer (Schleswig-Holstein) sobre fertilidad orgánica de suelos, agroecología y subsidios a la transición sin pesticidas.',
+    tags: ['Dirk Kock-Rohwer', 'Resumen.cl', 'Comestible.info', 'Agroecología', 'Suelos', 'Alemania']
+  },
+
+  // 5. EL DESCONCIERTO: NORUEGA Y DECRECIMIENTO
+  {
+    id: 'desconcierto-noruega',
+    category: 'press',
+    titleEn: 'Countries Too Rich to Grow? Norway & World Degrowth Summit',
+    titleEs: '¿Países tan ricos que no quieren crecer más? Noruega y Decrecimiento',
+    outletEn: 'El Desconcierto // International Investigative Journalism',
+    outletEs: 'El Desconcierto // Periodismo de Investigación Internacional',
+    date: '2025',
+    url: 'https://eldesconcierto.cl/2025/07/06/paises-tan-ricos-que-no-quieren-crecer-mas-noruega-acoge-mayor-debate-mundial-sobre-alternativas-al-crecimiento-economico-infinito',
+    src: '/press_covers/desconcierto_noruega_screen.png',
+    badgeEn: 'INTERNATIONAL DISPATCH',
+    badgeEs: 'CRÓNICA INTERNACIONAL',
+    badgeColor: 'bg-blue-600 text-white',
+    summaryEn: 'Special dispatch from Oslo reporting on the world degrowth conference, post-extractivism, and alternatives to perpetual economic growth in Nordic economies.',
+    summaryEs: 'Crónica especial desde Oslo sobre la conferencia mundial de decrecimiento, post-extractivismo y los límites ecológicos del crecimiento infinito en el norte global.',
+    tags: ['El Desconcierto', 'Noruega', 'Decrecimiento', 'Oslo', 'Economía Ecológica']
+  },
+
+  // 6. DELFINO.CR: ENCUENTRO CLIMÁTICO EN COSTA RICA
+  {
+    id: 'delfino-costa-rica',
+    category: 'press',
+    titleEn: 'Latin American Youth Climate Activists Convene in Costa Rica',
+    titleEs: 'Jóvenes activistas climáticos de Latinoamérica tuvieron encuentro en Costa Rica',
+    outletEn: 'Delfino.cr // International Climate Justice Coverage',
+    outletEs: 'Delfino.cr // Cobertura de Justicia Climática Internacional',
+    date: '2023',
+    url: 'https://delfino.cr/2023/04/jovenes-activistas-climaticos-de-latinoamerica-tuvieron-encuentro-de-trabajo-en-costa-rica',
+    src: '/press_covers/delfino_screen.png',
+    badgeEn: 'CLIMATE SUMMIT PRESS',
+    badgeEs: 'PRENSA CUMBRE CLIMÁTICA',
+    badgeColor: 'bg-cyan-600 text-white',
+    summaryEn: 'International press coverage highlighting the working summit of Latin American climate justice leaders and environmental delegates in San José, Costa Rica.',
+    summaryEs: 'Cobertura de prensa sobre el encuentro de trabajo de líderes socioambientales de América Latina en San José de Costa Rica por justicia climática intergeneracional.',
+    tags: ['Costa Rica', 'Delfino', 'Justicia Climática', 'Juventudes', 'San José']
+  },
+
+  // 7. TETRALOGÍA OLCA: SER LIBRES AL BORDE DEL ABISMO
   {
     id: 'olca-ser-libres',
     category: 'essays',
@@ -79,102 +174,26 @@ export const PUBLICATIONS_DATA: PublicationItem[] = [
     tags: ['OLCA', 'Autonomía', 'Decrecimiento', 'Ecología Política', 'Buen Vivir']
   },
 
-  // 3. DIRK KOCK-ROHWER JOINT PUBLICATION
-  {
-    id: 'kock-rohwer-soils',
-    category: 'policy',
-    titleEn: 'Agricultural Soil Conservation & Agroecological Transition in Germany',
-    titleEs: 'Conservación de Suelos Agrícolas y Transición Agroecológica en Alemania',
-    outletEn: 'Joint publication with German Green MP Dirk Kock-Rohwer (Schleswig-Holstein)',
-    outletEs: 'Publicación conjunta con el diputado de Los Verdes Dirk Kock-Rohwer (Schleswig-Holstein)',
-    date: '2024',
-    url: 'https://www.dirk-kock-rohwer.de/',
-    src: '/portfolio_pages/page_5.png',
-    badgeEn: 'PARLIAMENTARY CO-AUTHORSHIP',
-    badgeEs: 'COAUTORÍA PARLAMENTARIA',
-    badgeColor: 'bg-emerald-600 text-white',
-    summaryEn: 'Technical and political brief addressing sustainable soil fertility, agroecology, and the post-chemical agricultural transition in Northern Germany (Schleswig-Holstein parliament).',
-    summaryEs: 'Documento técnico-político sobre fertilidad orgánica de suelos, agroecología y transición post-química en el parlamento de Schleswig-Holstein, Alemania.',
-    tags: ['Schleswig-Holstein', 'Alemania', 'Suelos', 'Agroecología', 'Los Verdes']
-  },
-
-  // 4. EL DESCONCIERTO: HUMEDALES Y TURBERAS
-  {
-    id: 'desconcierto-humedales',
-    category: 'press',
-    titleEn: 'El Desconcierto: Wetland Rewetting, Fire Prevention & Peatlands',
-    titleEs: 'El Desconcierto: Rehumectación de Humedales y Prevención de Incendios',
-    outletEn: 'El Desconcierto // National Investigative Journalism',
-    outletEs: 'El Desconcierto // Periodismo de Investigación Nacional',
-    date: '2026',
-    url: 'https://www.eldesconcierto.cl',
-    src: '/portfolio_pages/page_5.png',
-    badgeEn: 'PRESS ARTICLE',
-    badgeEs: 'ARTÍCULO DE PRENSA',
-    badgeColor: 'bg-blue-600 text-white',
-    summaryEn: 'Analysis of peatland restoration as natural climate buffers against catastrophic fires, combining European research with Chilean watershed reality.',
-    summaryEs: 'Análisis sobre la rehumectación de turberas como amortiguadores naturales frente a megaincendios, articulando la investigación europea con la realidad hídrica de Chile.',
-    tags: ['El Desconcierto', 'Turberas', 'Incendios', 'Cuencas']
-  },
-
-  // 5. TOMATEROJO: BIOMASA Y SEQUÍA
-  {
-    id: 'tomaterojo-biomasa',
-    category: 'press',
-    titleEn: 'Tomaterojo: Industrial Tree Monocultures & Water Exhaustion',
-    titleEs: 'Tomaterojo: Monocultivos Forestales y Agotamiento del Agua',
-    outletEn: 'Tomaterojo // Environmental Journalism',
-    outletEs: 'Tomaterojo // Prensa Socioambiental',
-    date: '2023',
-    url: 'https://tomaterojo.cl',
-    src: '/portfolio_pages/page_5.png',
-    badgeEn: 'INVESTIGATIVE ESSAY',
-    badgeEs: 'ENSAYO INVESTIGATIVO',
-    badgeColor: 'bg-orange-600 text-white',
-    summaryEn: 'Empirical breakdown of the water deficit caused by extensive pine and eucalyptus plantations in the Maule region and central-southern Chile.',
-    summaryEs: 'Desglose empírico del déficit hídrico y agotamiento de napas subterráneas por plantaciones de pino y eucalipto en la Región del Maule.',
-    tags: ['Tomaterojo', 'Monocultivo', 'Maule', 'Agua']
-  },
-
-  // 6. CLIMATECC TREE MONOCULTURES
+  // 8. CLIMATECC: GLOBAL TREE MONOCULTURES
   {
     id: 'climatecc-monocultures',
     category: 'essays',
-    titleEn: 'ClimateCC: Global Tree Monocultures & False Climate Solutions',
-    titleEs: 'ClimateCC: Monocultivos Forestales y Falsas Soluciones Climáticas',
+    titleEn: 'Global Tree Monocultures & False Climate Solutions',
+    titleEs: 'Monocultivos Forestales y Falsas Soluciones Climáticas',
     outletEn: 'ClimateCC // International Climate Portal',
     outletEs: 'ClimateCC // Portal Climático Internacional',
     date: '2024',
     url: 'https://www.climatecc.org/forests/tree-monocultures',
-    src: '/portfolio_pages/page_5.png',
-    badgeEn: 'GLOBAL SERIES',
+    src: '/press_covers/climatecc_screen.png',
+    badgeEn: 'GLOBAL ESSAY SERIES',
     badgeEs: 'SERIE GLOBAL',
     badgeColor: 'bg-purple-600 text-white',
-    summaryEn: 'International analytical series dissecting tree monocultures, carbon credits, and environmental justice from Latin America to global climate summits.',
-    summaryEs: 'Serie analítica internacional que disecciona los monocultivos arbóreos, los créditos de carbono y la justicia climática desde Latinoamérica.',
+    summaryEn: 'International analytical series dissecting industrial tree monocultures, carbon offsetting fallacies, and climate justice from the Global South.',
+    summaryEs: 'Serie analítica internacional que disecciona los monocultivos forestales industriales, los créditos de carbono y las falsas soluciones climáticas.',
     tags: ['ClimateCC', 'Falsas Soluciones', 'Carbon Credits', 'Bosques']
   },
 
-  // 7. ALJEZUR MUNICIPALITY (PORTUGAL)
-  {
-    id: 'aljezur-rewilding',
-    category: 'policy',
-    titleEn: 'Rewilding Aljezur: Municipal Ecological Transition & Fire Resilience',
-    titleEs: 'Rewilding Aljezur: Transición Ecológica y Resiliencia frente al Fuego',
-    outletEn: 'Municipality of Aljezur (Algarve, Portugal) // Policy Brief & StoryMaps',
-    outletEs: 'Municipio de Aljezur (Algarve, Portugal) // Policy Brief & StoryMaps',
-    date: '2024',
-    url: 'https://cm-aljezur.pt',
-    src: '/portfolio_pages/page_5.png',
-    badgeEn: 'MUNICIPAL POLICY BRIEF',
-    badgeEs: 'POLICY BRIEF MUNICIPAL',
-    badgeColor: 'bg-teal-600 text-white',
-    summaryEn: 'Comprehensive policy brief and GIS StoryMaps delivered to the Aljezur Municipal Council in Portugal, outlining active rewilding strategies to curb recurrent wildfire devastation.',
-    summaryEs: 'Policy brief y StoryMaps SIG entregados al Concejo Municipal de Aljezur en Portugal, delineando estrategias de renaturalización activa para mitigar incendios forestales.',
-    tags: ['Portugal', 'Aljezur', 'Rewilding', 'SIG', 'Incendios']
-  },
-
-  // 8. RELATOS DE LA REVUELTA (LIBRO IMPRESO)
+  // 9. RELATOS DE LA REVUELTA (LIBRO IMPRESO)
   {
     id: 'plp-libro-revuelta',
     category: 'press',
@@ -309,6 +328,18 @@ export const PublicationsModal: React.FC<PublicationsModalProps> = ({
                       {item.date}
                     </span>
                   </div>
+
+                  {/* Cover Preview Image */}
+                  {item.src && (
+                    <div className="relative w-full h-36 mb-2.5 overflow-hidden rounded-lg border border-white/10 bg-black/60 group-hover:border-amber-400/40 transition-colors">
+                      <img
+                        src={resolveAsset(item.src)}
+                        alt={currentLang === 'es' ? item.titleEs : item.titleEn}
+                        className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
 
                   {/* Title */}
                   <h4 className="font-mono font-black text-sm text-white group-hover:text-[#facc15] transition-colors leading-snug">

@@ -374,6 +374,11 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/enjust_logo.png'
       },
       {
+        titleEs: 'Spotlight EPN: Oposición Comunitaria a Planta de Biomasa en Parral, Maule',
+        titleEn: 'EPN Spotlight: Community Opposition to Biomass Plant in Parral, Maule',
+        pageSrc: '/press_covers/epn_parral_biomass.jpg'
+      },
+      {
         titleEs: 'Informe Internacional EPN & Impacto de Biomasa',
         titleEn: 'EPN International Report on Biomass Impacts',
         pageSrc: '/press_covers/epn_screen.png'
@@ -1197,25 +1202,30 @@ export const GAME_MISSIONS: GameMission[] = [
   // SECCIÓN: PUBLICACIONES, INFORMES INTERNACIONALES & PRENSA (8)
   // ==============================================================
 
-  // 26. PUBLICACIONES: EPN 2024 Biomass Report - Bonn & Sudamérica
+  // 26. PUBLICACIONES: EPN 2023-2024 Spotlight on Burning Biomass (Parral, Chile)
   {
     id: 'pub-epn-biomass',
     type: 'publications',
-    titleEs: 'Spotlight on Burning Biomass for Energy in South America (Informe EPN 2024)',
-    titleEn: 'Spotlight on Burning Biomass for Energy in South America (EPN 2024 Report)',
-    subtitleEs: 'Environmental Paper Network (EPN) // Investigación Internacional sobre Carbon Accounting',
-    subtitleEn: 'Environmental Paper Network (EPN) // International Investigation on Carbon Accounting',
-    country: 'Alemania / Chile',
-    city: 'Bonn / Santiago',
+    titleEs: 'Spotlight on Burning Biomass: Oposición Comunitaria en Parral (EPN & GFC)',
+    titleEn: 'Spotlight on Burning Biomass: Community Opposition in Parral (EPN & GFC)',
+    subtitleEs: 'Environmental Paper Network & Global Forest Coalition // Caso de Estudio Parral, Maule',
+    subtitleEn: 'Environmental Paper Network & Global Forest Coalition // Parral Case Study, Maule',
+    country: 'Chile / Alemania',
+    city: 'Parral / Bonn',
     flag: '📑',
-    lat: 50.73,
-    lng: 7.10,
-    date: '2024',
-    roleEs: 'Autor Técnico Principal',
-    roleEn: 'Lead Technical Author',
+    lat: -36.14,
+    lng: -71.82,
+    date: '2023-2024',
+    roleEs: 'Autor Técnico Principal // Spotlight',
+    roleEn: 'Lead Technical Author // Spotlight',
     mediaType: 'press',
-    src: '/press_covers/epn_cover.png',
+    src: '/press_covers/epn_parral_biomass.jpg',
     availablePages: [
+      {
+        titleEs: 'Spotlight EPN: Oposición Comunitaria a Central de Biomasa en Parral, Maule',
+        titleEn: 'EPN Spotlight: Community Opposition to Biomass Plant in Parral, Maule',
+        pageSrc: '/press_covers/epn_parral_biomass.jpg'
+      },
       {
         titleEs: 'Portada Oficial del Informe Internacional EPN 2024',
         titleEn: 'Official Cover of EPN 2024 International Report',
@@ -1232,22 +1242,22 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/enjust_logo.png'
       }
     ],
-    url: 'https://environmentalpaper.org/biomass/',
+    url: 'https://environmentalpaper.org/2023/06/spotlight-on-burning-biomass-for-energy-in-south-america-community-opposition-to-a-power-plant-in-parral-chile/',
     code: 'OPS-PUB-01',
     source: 'Environmental Paper Network (EPN) & Global Forest Coalition',
-    impactEs: 'Informe investigativo internacional que expone las fallas críticas de contabilidad de carbono bajo la Directiva de Energías Renovables de la UE (RED III) y el mercado ETS sobre la extracción de biomasa forestal en Sudamérica.',
-    impactEn: 'Landmark international investigative report exposing critical carbon accounting loopholes under the EU Renewable Energy Directive (RED III) and EU ETS regarding industrial forestry biomass extraction across South America.',
+    impactEs: 'Investigación internacional en terreno sobre la resistencia de las comunidades de Parral (Maule) contra la instalación de una termoeléctrica a biomasa forestal, desmontando la falsa neutralidad de carbono y las subvenciones europeas bajo la directiva RED III.',
+    impactEn: 'International investigation examining grassroots resistance against a forest biomass power plant in Parral (Maule, Chile), exposing false carbon neutrality claims and EU RED III bioenergy subsidies.',
     methodologyEs: [
-      'Investigación empírica en terreno en Maule, Biobío, Ñuble y Araucanía',
+      'Investigación empírica en terreno en Parral, Maule y cuencas vecinas',
       'Desglose del balance de carbono bajo la directiva europea RED III',
-      'Auditoría a subsidios de bioenergía y conflictividad socioambiental'
+      'Auditoría a subsidios de bioenergía y articulación con redes de justicia ambiental'
     ],
     methodologyEn: [
-      'Empirical fieldwork across Maule, Biobío, Ñuble, and Araucanía',
+      'Empirical fieldwork across Parral, Maule, and neighboring watersheds',
       'Carbon balance audit under the European RED III directive',
-      'Scrutiny of bioenergy subsidies and socio-environmental conflicts'
+      'Scrutiny of bioenergy subsidies and environmental justice alliance building'
     ],
-    tags: ['EPN', 'Biomasa', 'RED III', 'Carbon Accounting', 'UE', 'Publicación']
+    tags: ['EPN', 'Parral', 'Maule', 'Biomasa', 'RED III', 'Carbon Accounting', 'Publicación']
   },
 
   // 27. PUBLICACIONES: Tetralogía OLCA: Ser libres al borde del abismo (ESTÁTICO)
@@ -1299,100 +1309,201 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['OLCA', 'Autonomía', 'Decrecimiento', 'Ecología Política', 'Buen Vivir', 'Ensayos']
   },
 
-  // 29. PUBLICACIONES: El Desconcierto: Humedales, Turberas y Megaincendios (Chile)
+  // 29. PUBLICACIONES: El Desconcierto: Noruega y Decrecimiento (2025)
   {
     id: 'pub-desconcierto',
     type: 'publications',
-    titleEs: 'El Desconcierto: Rehumectación de Humedales, Turberas y Prevención de Incendios',
-    titleEn: 'El Desconcierto: Wetland Rewetting, Peatlands & Wildfire Prevention',
-    subtitleEs: 'Periodismo de investigación nacional sobre amortiguadores climáticos y cuencas',
-    subtitleEn: 'National investigative journalism on climate sponge buffers and catchments',
-    country: 'Chile',
-    city: 'Santiago',
-    flag: '🇨🇱',
-    lat: -33.44,
-    lng: -70.65,
-    date: '2026',
-    roleEs: 'Autor & Analista Socioambiental',
-    roleEn: 'Author & Socio-Environmental Analyst',
+    titleEs: 'El Desconcierto: ¿Países tan ricos que no quieren crecer más? Noruega y Decrecimiento',
+    titleEn: 'El Desconcierto: Countries Too Rich to Grow? Norway & World Degrowth Summit',
+    subtitleEs: 'Crónica y cobertura internacional desde el mayor debate mundial en Noruega (2025)',
+    subtitleEn: 'Dispatch and international coverage from the global degrowth summit in Norway (2025)',
+    country: 'Noruega / Chile',
+    city: 'Oslo / Santiago',
+    flag: '🇳🇴',
+    lat: 59.91,
+    lng: 10.75,
+    date: '2025',
+    roleEs: 'Corresponsal Internacional & Analista',
+    roleEn: 'International Correspondent & Analyst',
     mediaType: 'press',
-    src: '/press_covers/desconcierto_cover.png',
+    src: '/press_covers/desconcierto_noruega_screen.png',
     availablePages: [
       {
-        titleEs: 'Portada de Reportaje en El Desconcierto',
-        titleEn: 'Cover Article in El Desconcierto',
-        pageSrc: '/press_covers/desconcierto_cover.png'
+        titleEs: 'Reportaje en El Desconcierto: Noruega y el Debate Mundial sobre Decrecimiento',
+        titleEn: 'El Desconcierto Feature: Norway and the World Degrowth Debate',
+        pageSrc: '/press_covers/desconcierto_noruega_screen.png'
       },
       {
-        titleEs: 'Reportaje sobre Cobertura en Noruega y Decrecimiento',
-        titleEn: 'Article on Norway Coverage & Degrowth',
-        pageSrc: '/press_covers/desconcierto_noruega_screen.png'
+        titleEs: 'Portada Editorial El Desconcierto',
+        titleEn: 'Editorial Cover El Desconcierto',
+        pageSrc: '/press_covers/desconcierto_cover.png'
       }
     ],
-    url: 'https://www.eldesconcierto.cl',
+    url: 'https://eldesconcierto.cl/2025/07/06/paises-tan-ricos-que-no-quieren-crecer-mas-noruega-acoge-mayor-debate-mundial-sobre-alternativas-al-crecimiento-economico-infinito',
     code: 'OPS-PUB-04',
-    source: 'El Desconcierto // Periodismo de Investigación Nacional',
-    impactEs: 'Análisis sobre la rehumectación de turberas como amortiguadores naturales frente a megaincendios, articulando la investigación europea con la realidad hídrica de Chile.',
-    impactEn: 'Analysis of peatland restoration as natural climate buffers against catastrophic fires, combining European research with Chilean watershed reality.',
+    source: 'El Desconcierto // Periodismo de Investigación Internacional',
+    impactEs: 'Crónica periodística y análisis socioeconómico desde Oslo sobre la Cumbre Mundial de Decrecimiento, evaluando la transición post-extractivista y alternativas al dogma del crecimiento infinito.',
+    impactEn: 'Investigative dispatch and socio-economic analysis from Oslo covering the World Degrowth Summit, evaluating post-extractivist pathways and alternatives to perpetual growth.',
     methodologyEs: [
-      'Modelación del efecto esponja de humedales ante olas de calor extremo',
-      'Comparativa de políticas de restauración entre el norte de Europa y Chile',
-      'Propuestas de cortafuegos biológicos y conservación de cabeceras de cuenca'
+      'Cobertura periodística in situ del mayor encuentro global sobre decrecimiento en Noruega',
+      'Análisis comparativo de bienestar social sin expansión material ni dependencia fósil',
+      'Articulación de debates del Norte Global con las luchas socioambientales del Sur Global'
     ],
     methodologyEn: [
-      'Peatland hydrological sponge modeling under extreme heatwaves',
-      'Comparative policy analysis between Northern Europe and Chile',
-      'Biological fire barrier blueprints and headwater catchment protection'
+      'On-the-ground journalistic reporting at the world degrowth conference in Norway',
+      'Comparative analysis of well-being detached from material throughput and fossil fuels',
+      'Connecting Global North economic debates with Global South environmental justice struggles'
     ],
-    tags: ['El Desconcierto', 'Turberas', 'Incendios', 'Cuencas', 'Prensa']
+    tags: ['El Desconcierto', 'Noruega', 'Decrecimiento', 'Oslo', 'Economía Ecológica', 'Prensa']
   },
 
-  // 30. PUBLICACIONES: Tomaterojo: Monocultivos Forestales y Agotamiento del Agua
+  // 30. PUBLICACIONES: Tomate Rojo: Humedales bajo fuego (2023)
   {
     id: 'pub-tomaterojo',
     type: 'publications',
-    titleEs: 'Tomaterojo: Monocultivos Forestales y Agotamiento del Agua',
-    titleEn: 'Tomaterojo: Industrial Tree Monocultures & Water Exhaustion',
-    subtitleEs: 'Desglose empírico del déficit hídrico por pino y eucalipto en el Maule',
-    subtitleEn: 'Empirical analysis of pine/eucalyptus groundwater deficit in the Maule basin',
+    titleEs: 'Tomate Rojo: ¡Aguas, aguas! Humedales bajo fuego: ¿Qué sabemos y qué está haciendo Chile?',
+    titleEn: 'Tomate Rojo: Waters Under Fire: What Do We Know and What Is Chile Doing?',
+    subtitleEs: 'Red Plurinacional de Humedales (D. Santander, L. Muñoz, C. Bonifetti)',
+    subtitleEn: 'Plurinational Wetland Network (D. Santander, L. Muñoz, C. Bonifetti)',
     country: 'Chile',
-    city: 'Maule',
+    city: 'Santiago / Maule',
     flag: '🇨🇱',
-    lat: -35.43,
-    lng: -71.66,
+    lat: -33.44,
+    lng: -70.65,
     date: '2023',
-    roleEs: 'Investigador & Autor',
-    roleEn: 'Researcher & Author',
+    roleEs: 'Investigador & Coautor',
+    roleEn: 'Researcher & Co-Author',
     mediaType: 'press',
-    src: '/press_covers/tomaterojo_screen.png',
+    src: '/press_covers/tomaterojo_humedales_fuego.jpg',
     availablePages: [
       {
-        titleEs: 'Artículo Investigativo en Tomaterojo',
-        titleEn: 'Investigative Article on Tomaterojo',
+        titleEs: 'Reportaje Investigativo: Humedales bajo fuego en Tomate Rojo',
+        titleEn: 'Investigative Feature: Wetlands Under Fire in Tomate Rojo',
+        pageSrc: '/press_covers/tomaterojo_humedales_fuego.jpg'
+      },
+      {
+        titleEs: 'Investigación en Plataforma Tomate Rojo',
+        titleEn: 'Article on Tomate Rojo Portal',
         pageSrc: '/press_covers/tomaterojo_screen.png'
       },
       {
-        titleEs: 'Portada Editorial de Prensa Socioambiental',
-        titleEn: 'Editorial Cover Socioenvironmental Press',
+        titleEs: 'Portada Editorial Tomate Rojo',
+        titleEn: 'Editorial Cover Tomate Rojo',
         pageSrc: '/press_covers/tomaterojo_cover.jpg'
       }
     ],
-    url: 'https://tomaterojo.cl',
+    url: 'https://tomaterojo.cl/aguas-aguas-humedales-bajo-fuego-que-sabemos-y-que-esta-haciendo-chile/',
     code: 'OPS-PUB-05',
-    source: 'Tomaterojo // Prensa Socioambiental',
-    impactEs: 'Desglose empírico del déficit hídrico y agotamiento de napas subterráneas por plantaciones de pino y eucalipto en la Región del Maule.',
-    impactEn: 'Empirical breakdown of the water deficit caused by extensive pine and eucalyptus plantations in the Maule region and central-southern Chile.',
+    source: 'Tomate Rojo & Red Plurinacional de Humedales',
+    impactEs: 'Investigación colaborativa junto a la Red Plurinacional de Humedales de Chile exponiendo la vulnerabilidad crítica de los ecosistemas acuáticos ante los megaincendios y la negligencia en la protección de cabeceras de cuenca.',
+    impactEn: 'Collaborative investigation with the Chilean Plurinational Wetland Network exposing the acute vulnerability of aquatic habitats to megafires and the lack of systemic watershed protection.',
     methodologyEs: [
-      'Balance hídrico comparado entre cuencas forestadas y bosque esclerófilo nativo',
-      'Análisis de datos de caudal histórico de la Dirección General de Aguas (DGA)',
-      'Documentación de testimonios de comités de agua potable rural damnificados'
+      'Evaluación del régimen de fuego sobre humedales urbanos y rurales del centro-sur',
+      'Diagnóstico de marcos regulatorios y vacíos en la ley de humedales urbanos',
+      'Propuestas de cortafuegos ecosistémicos y rehumectación comunitaria'
     ],
     methodologyEn: [
-      'Comparative water balance between timber plantations and native sclerophyll forest',
-      'Historical streamflow data analysis from the General Directorate of Water (DGA)',
-      'Ground truth documentation with affected rural drinking water committees'
+      'Assessment of fire regimes across urban and rural wetlands in central-southern Chile',
+      'Regulatory audit of legislative gaps in urban wetland conservation',
+      'Ecosystem firebreak blueprints and community-led rewetting'
     ],
-    tags: ['Tomaterojo', 'Monocultivo', 'Maule', 'Agua', 'Prensa']
+    tags: ['Tomate Rojo', 'Humedales', 'Incendios', 'Red Plurinacional', 'Agua', 'Prensa']
+  },
+
+  // 30B. PUBLICACIONES: El Regionalista: ¿Cómo nos preparamos para un colapso climático? (2023)
+  {
+    id: 'pub-regionalista-colapso',
+    type: 'publications',
+    titleEs: 'El Regionalista: ¿Cómo nos preparamos para un colapso climático?',
+    titleEn: 'El Regionalista: How Do We Prepare for a Climate Collapse?',
+    subtitleEs: 'Fundación Suelo (Carolina Miranda y Daniel Santander) // Enero 2023',
+    subtitleEn: 'Fundación Suelo (Carolina Miranda & Daniel Santander) // January 2023',
+    country: 'Chile',
+    city: 'Rancagua / Maule',
+    flag: '🇨🇱',
+    lat: -34.17,
+    lng: -70.74,
+    date: '2023',
+    roleEs: 'Coautor & Analista de Resiliencia Climática',
+    roleEn: 'Co-Author & Climate Resilience Analyst',
+    mediaType: 'press',
+    src: '/press_covers/el_regionalista_colapso_climatico.jpg',
+    availablePages: [
+      {
+        titleEs: 'Columna en El Regionalista: ¿Cómo nos preparamos para un colapso climático?',
+        titleEn: 'El Regionalista Column: How Do We Prepare for a Climate Collapse?',
+        pageSrc: '/press_covers/el_regionalista_colapso_climatico.jpg'
+      }
+    ],
+    url: 'https://elregionalista.cl/como-nos-preparamos-para-un-colapso-climatico/',
+    code: 'OPS-PUB-05B',
+    source: 'El Regionalista & Fundación Suelo',
+    impactEs: 'Columna de opinión y análisis prospectivo sobre resiliencia comunitaria, regeneración de suelos y adaptación descentralizada ante el colapso ecológico acelerado en el centro-sur de Chile.',
+    impactEn: 'Prospective analysis on grassroots resilience, soil regeneration, and decentralized community adaptation facing accelerated ecological collapse in central-southern Chile.',
+    methodologyEs: [
+      'Análisis de escenarios de estrés hídrico extremo y calentamiento global regional',
+      'Propuestas de soberanía alimentaria descentralizada y microbiología de suelos',
+      'Articulación de redes de apoyo mutuo y resiliencia barrial y campesina'
+    ],
+    methodologyEn: [
+      'Scenario analysis of extreme hydrological stress and regional global heating',
+      'Decentralized food sovereignty and living soil biology frameworks',
+      'Mutual aid networking and peasant-neighborhood community resilience'
+    ],
+    tags: ['El Regionalista', 'Fundación Suelo', 'Colapso Climático', 'Adaptación', 'Suelos', 'Prensa']
+  },
+
+  // 30C. PUBLICACIONES: Resumen.cl & Comestible.info: Dirk Kock-Rohwer (2024)
+  {
+    id: 'pub-kock-rohwer-resumen',
+    type: 'publications',
+    titleEs: 'Resumen.cl: La tierra está en riesgo: ¡Inversiones para la agricultura orgánica ahora!',
+    titleEn: 'Resumen.cl: The Earth is at Risk: Investments for Organic Agriculture Now!',
+    subtitleEs: 'Columna conjunta con Dirk Kock-Rohwer (diputado de Schleswig-Holstein) // Comestible.info',
+    subtitleEn: 'Joint column with Dirk Kock-Rohwer (Schleswig-Holstein MP) // Comestible.info',
+    country: 'Alemania / Chile',
+    city: 'Kiel / Concepción',
+    flag: '🌱',
+    lat: 54.32,
+    lng: 10.13,
+    date: '2024',
+    roleEs: 'Coautor con Dirk Kock-Rohwer',
+    roleEn: 'Co-Author with Dirk Kock-Rohwer',
+    mediaType: 'press',
+    src: '/press_covers/resumen_dirk_kock_rohwer_agricultura_organica.jpg',
+    availablePages: [
+      {
+        titleEs: 'Columna de Opinión en Resumen.cl & Comestible.info',
+        titleEn: 'Opinion Column on Resumen.cl & Comestible.info',
+        pageSrc: '/press_covers/resumen_dirk_kock_rohwer_agricultura_organica.jpg'
+      },
+      {
+        titleEs: 'Publicación en Revista Comestible',
+        titleEn: 'Publication on Comestible Magazine',
+        pageSrc: '/press_covers/comestible_screen.png'
+      },
+      {
+        titleEs: 'Portada de Revista Comestible',
+        titleEn: 'Comestible Magazine Cover',
+        pageSrc: '/press_covers/comestible_cover.jpg'
+      }
+    ],
+    url: 'https://comestible.info/inversiones-para-la-agroecologia-ahora/',
+    code: 'OPS-PUB-05C',
+    source: 'Resumen.cl & Comestible.info',
+    impactEs: 'Columna de opinión conjunta con el parlamentario ecologista alemán Dirk Kock-Rohwer (Schleswig-Holstein) alertando sobre la degradación de suelos fértiles y exigiendo financiamiento público directo para la transición agroecológica urgente sin agroquímicos.',
+    impactEn: 'Joint opinion column with German Green MP Dirk Kock-Rohwer (Schleswig-Holstein) warning against fertile topsoil loss and demanding direct public subsidies for non-chemical agroecological transitions.',
+    methodologyEs: [
+      'Análisis de directivas europeas de conservación de suelos y biodiversidad agraria',
+      'Articulación de demandas del movimiento agroecológico chileno y alemán',
+      'Incidencia en políticas públicas parlamentarias de Schleswig-Holstein'
+    ],
+    methodologyEn: [
+      'Analysis of European soil conservation and agricultural biodiversity directives',
+      'Cross-continental alliance between Chilean and German agroecological movements',
+      'Policy advocacy in the Schleswig-Holstein state parliament'
+    ],
+    tags: ['Dirk Kock-Rohwer', 'Resumen.cl', 'Comestible.info', 'Agroecología', 'Suelos', 'Alemania', 'Prensa']
   },
 
   // 31. PUBLICACIONES: ClimateCC: Monocultivos Arbóreos y Falsas Soluciones (ESTÁTICO)
