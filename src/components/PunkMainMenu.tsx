@@ -485,23 +485,25 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
             />
 
-            {/* 11. SIGN 11: HIRE ME // WORK TOGETHER (Points Right ➔) */}
-            {onOpenHireMe && (
-              <WoodenSignSlat
-                direction="right"
-                bgColor="#facc15"
-                textColor="#000000"
-                rotationClass="-rotate-1"
-                offsetClass="translate-x-0"
-                icon={<Briefcase className="w-4 h-4" />}
-                label={currentLang === 'es' ? '★ CONTRÁTAME // HIRE ME ★' : '★ HIRE ME // WORK TOGETHER ★'}
-                onClick={onOpenHireMe}
-                title={currentLang === 'es' ? 'Contactar para contratación o colaboraciones' : 'Contact for hiring or partnerships'}
-                isSpecial={true}
-              />
-            )}
-
           </div>
+
+          {/* Elegant Standalone Closing Button outside the timber post */}
+          {onOpenHireMe && (
+            <div className="w-full flex justify-center mt-3 pt-1 z-20">
+              <button
+                type="button"
+                onClick={onOpenHireMe}
+                className="group relative inline-flex items-center space-x-2 px-5 py-2 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black rounded-full shadow-[3px_3px_0px_#000000] hover:shadow-[5px_5px_0px_#000000] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+                title={currentLang === 'es' ? 'Contactar para contratación o colaboraciones' : 'Contact for hiring or partnerships'}
+              >
+                <Briefcase className="w-3.5 h-3.5 text-black group-hover:scale-110 transition-transform" />
+                <span>
+                  {currentLang === 'es' ? 'TRABAJEMOS JUNTOS // HIRE ME' : 'HIRE ME // WORK TOGETHER'}
+                </span>
+                <Sparkles className="w-3.5 h-3.5 text-black group-hover:rotate-12 transition-transform" />
+              </button>
+            </div>
+          )}
         </div>
       </main>
 
