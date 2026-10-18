@@ -487,20 +487,25 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
 
           </div>
 
-          {/* Elegant Standalone Closing Button outside the timber post */}
+          {/* Elegant Standalone Closing Button at bicycle wheel level */}
           {onOpenHireMe && (
-            <div className="w-full flex justify-center mt-3 pt-1 z-20">
+            <div className="w-full flex justify-center mt-8 sm:mt-12 lg:mt-16 pb-4 z-20">
               <button
                 type="button"
                 onClick={onOpenHireMe}
-                className="group relative inline-flex items-center space-x-2 px-5 py-2 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black rounded-full shadow-[3px_3px_0px_#000000] hover:shadow-[5px_5px_0px_#000000] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer"
+                className="group relative flex flex-col items-center justify-center px-4 py-3 sm:px-5 sm:py-3.5 min-w-[135px] max-w-[160px] bg-[#facc15] hover:bg-white text-black font-mono border-2 border-black rounded-xl shadow-[4px_4px_0px_#000000] hover:shadow-[6px_6px_0px_#000000] hover:-translate-y-0.5 active:translate-y-0.5 transition-all cursor-pointer text-center"
                 title={currentLang === 'es' ? 'Contactar para contratación o colaboraciones' : 'Contact for hiring or partnerships'}
               >
-                <Briefcase className="w-3.5 h-3.5 text-black group-hover:scale-110 transition-transform" />
-                <span>
-                  {currentLang === 'es' ? 'TRABAJEMOS JUNTOS // HIRE ME' : 'HIRE ME // WORK TOGETHER'}
+                <div className="flex items-center space-x-1.5 mb-1">
+                  <Briefcase className="w-4 h-4 text-black group-hover:scale-110 transition-transform" />
+                  <Sparkles className="w-3.5 h-3.5 text-black group-hover:rotate-12 transition-transform" />
+                </div>
+                <span className="font-black text-[11px] sm:text-xs uppercase tracking-tight leading-tight">
+                  {currentLang === 'es' ? 'TRABAJEMOS JUNTOS' : 'WORK TOGETHER'}
                 </span>
-                <Sparkles className="w-3.5 h-3.5 text-black group-hover:rotate-12 transition-transform" />
+                <span className="font-bold text-[9.5px] sm:text-[10px] text-neutral-800 uppercase tracking-widest mt-0.5">
+                  [ HIRE ME ]
+                </span>
               </button>
             </div>
           )}
