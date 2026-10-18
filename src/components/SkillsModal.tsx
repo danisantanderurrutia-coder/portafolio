@@ -17,6 +17,7 @@ import {
   Binary
 } from 'lucide-react';
 import { Language } from '../types';
+import { TechLogo } from './TechLogos';
 
 interface SkillsModalProps {
   isOpen: boolean;
@@ -153,18 +154,25 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                       meter: '[██████████████░] 95%'
                     },
                     { 
-                      name: 'R Language', 
-                      level: 90, 
-                      tagsEn: 'Spatial analytics, sf, ggplot2, time-series, ecological modeling',
-                      tagsEs: 'Análisis espacial, sf, ggplot2, series temporales, modelación ecológica',
-                      meter: '[█████████████░░] 90%'
-                    },
-                    { 
                       name: 'QGIS & ArcGIS Pro', 
                       level: 95, 
                       tagsEn: 'Catchment delineation, LiDAR DEMs, hydrogeological mapping, raster calc',
                       tagsEs: 'Delimitación de cuencas, DEMs LiDAR, mapeo hidrogeológico, cálculo raster',
                       meter: '[██████████████░] 95%'
+                    },
+                    { 
+                      name: 'Docker', 
+                      level: 90, 
+                      tagsEn: 'Reproducible microservices, CI/CD images, containerized geo-modeling',
+                      tagsEs: 'Microservicios reproducibles, imágenes CI/CD, modelación contenerizada',
+                      meter: '[█████████████░░] 90%'
+                    },
+                    { 
+                      name: 'PostgreSQL / PostGIS', 
+                      level: 85, 
+                      tagsEn: 'Indexed spatial queries, polygon filtering, relational GIS databases',
+                      tagsEs: 'Consultas espaciales indexadas, filtrado poligonal, bases GIS relacionales',
+                      meter: '[████████████░░░] 85%'
                     },
                     { 
                       name: 'Google Earth Engine (GEE)', 
@@ -181,7 +189,42 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                       meter: '[███████████░░░░] 80%'
                     },
                     { 
-                      name: 'Git, GitHub & CI/CD', 
+                      name: 'Unity 3D', 
+                      level: 85, 
+                      tagsEn: 'Real-time spatial digital twins, UN Citiverse simulation environments',
+                      tagsEs: 'Gemelos digitales espaciales, simulación en tiempo real (ONU Citiverse)',
+                      meter: '[████████████░░░] 85%'
+                    },
+                    { 
+                      name: 'Next.js & React', 
+                      level: 90, 
+                      tagsEn: 'Interactive climate dashboards, analytical UI/UX, responsive map viewers',
+                      tagsEs: 'Dashboards climáticos interactivos, UI/UX analítica, visores de mapas',
+                      meter: '[█████████████░░] 90%'
+                    },
+                    { 
+                      name: 'TypeScript', 
+                      level: 90, 
+                      tagsEn: 'Strict typing for geospatial data pipelines and web architectures',
+                      tagsEs: 'Tipado estricto para pipelines de datos espaciales y arquitecturas web',
+                      meter: '[█████████████░░] 90%'
+                    },
+                    { 
+                      name: 'FastAPI', 
+                      level: 90, 
+                      tagsEn: 'High-performance async REST APIs for hydrological & ML numerical models',
+                      tagsEs: 'APIs REST asíncronas de alto rendimiento para modelos numéricos y ML',
+                      meter: '[█████████████░░] 90%'
+                    },
+                    { 
+                      name: 'R Language', 
+                      level: 90, 
+                      tagsEn: 'Spatial analytics, sf, ggplot2, time-series, ecological modeling',
+                      tagsEs: 'Análisis espacial, sf, ggplot2, series temporales, modelación ecológica',
+                      meter: '[█████████████░░] 90%'
+                    },
+                    { 
+                      name: 'Git & GitHub', 
                       level: 90, 
                       tagsEn: 'Version control, open repositories, automated reproducible workflows',
                       tagsEs: 'Control de versiones, repositorios abiertos, flujos reproducibles automáticos',
@@ -193,21 +236,17 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                       tagsEn: 'High-precision mathematical typography for scientific papers and theses',
                       tagsEs: 'Tipografía matemática de alta precisión para artículos científicos y tesis',
                       meter: '[██████████████░] 95%'
-                    },
-                    { 
-                      name: 'PostgreSQL / PostGIS', 
-                      level: 85, 
-                      tagsEn: 'Indexed spatial queries, polygon filtering, relational GIS databases',
-                      tagsEs: 'Consultas espaciales indexadas, filtrado poligonal, bases GIS relacionales',
-                      meter: '[████████████░░░] 85%'
                     }
                   ].map((item, idx) => (
                     <div 
                       key={idx}
-                      className="p-3 bg-[#111722] border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1.5"
+                      className="p-3 bg-[#111722] border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1.5 hover:border-cyan-500/50 transition-colors"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="font-mono font-black text-sm text-white">{item.name}</span>
+                        <div className="flex items-center space-x-2">
+                          <TechLogo name={item.name} size={20} />
+                          <span className="font-mono font-black text-sm text-white">{item.name}</span>
+                        </div>
                         <span className="font-mono text-[10px] text-cyan-400 font-bold">{item.meter}</span>
                       </div>
                       
@@ -423,7 +462,10 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                     }
                   ].map((eq, idx) => (
                     <div key={idx} className="p-3 bg-[#0d1811] border-2 border-black rounded-lg space-y-1">
-                      <div className="font-mono font-bold text-xs text-green-300">{eq.name}</div>
+                      <div className="flex items-center space-x-2">
+                        <TechLogo name={eq.name} size={18} />
+                        <div className="font-mono font-bold text-xs text-green-300">{eq.name}</div>
+                      </div>
                       <p className="text-[10px] font-sans text-neutral-400">
                         {currentLang === 'es' ? eq.roleEs : eq.roleEn}
                       </p>

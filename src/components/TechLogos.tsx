@@ -331,6 +331,82 @@ export const TechLogo: React.FC<TechLogoProps> = ({ name, className = '', size =
     );
   }
 
+  // 22. R LANGUAGE
+  if (norm.includes('r language') || norm === 'r') {
+    return (
+      <svg width={size} height={size} viewBox="0 0 128 128" className={`shrink-0 ${className}`}>
+        <ellipse cx="64" cy="64" rx="58" ry="46" fill="#276DC3" />
+        <ellipse cx="64" cy="64" rx="42" ry="32" fill="#ffffff" />
+        <text x="56" y="80" fill="#276DC3" fontWeight="900" fontSize="56" fontFamily="sans-serif">R</text>
+      </svg>
+    );
+  }
+
+  // 23. GIT & GITHUB
+  if (norm.includes('git') || norm.includes('github')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 128 128" className={`shrink-0 ${className}`}>
+        <rect x="24" y="24" width="80" height="80" rx="16" fill="#F05032" transform="rotate(45 64 64)" />
+        <circle cx="44" cy="64" r="8" fill="#ffffff" />
+        <circle cx="76" cy="44" r="8" fill="#ffffff" />
+        <circle cx="76" cy="84" r="8" fill="#ffffff" />
+        <line x1="44" y1="64" x2="76" y2="44" stroke="#ffffff" strokeWidth="6" />
+        <line x1="44" y1="64" x2="76" y2="84" stroke="#ffffff" strokeWidth="6" />
+      </svg>
+    );
+  }
+
+  // 24. LATEX / TYPST
+  if (norm.includes('latex') || norm.includes('typst')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 128 128" className={`shrink-0 ${className}`}>
+        <rect width="128" height="128" rx="24" fill="#008080" />
+        <text x="64" y="78" textAnchor="middle" fill="#ffffff" fontWeight="bold" fontSize="32" fontFamily="serif">
+          L&#7491;T&#477;X
+        </text>
+      </svg>
+    );
+  }
+
+  // 25. SYSCAL / SEV / VES (GEOFÍSICA DE RESISTIVIDAD)
+  if (norm.includes('syscal') || norm.includes('sev') || norm.includes('ves') || norm.includes('resistiv')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 128 128" className={`shrink-0 ${className}`}>
+        <rect width="128" height="128" rx="24" fill="#431407" />
+        <path d="M20 90 Q 64 30 108 90" fill="none" stroke="#ea580c" strokeWidth="6" />
+        <path d="M30 90 Q 64 45 98 90" fill="none" stroke="#facc15" strokeWidth="5" />
+        <circle cx="20" cy="90" r="6" fill="#facc15" />
+        <circle cx="108" cy="90" r="6" fill="#facc15" />
+        <text x="64" y="32" textAnchor="middle" fill="#facc15" fontWeight="900" fontSize="18" fontFamily="monospace">
+          Ω·m
+        </text>
+      </svg>
+    );
+  }
+
+  // 26. ZEISS / MICROSCOPIO
+  if (norm.includes('zeiss') || norm.includes('microscop')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 128 128" className={`shrink-0 ${className}`}>
+        <circle cx="64" cy="64" r="58" fill="#003594" stroke="#ffffff" strokeWidth="3" />
+        <circle cx="64" cy="64" r="38" fill="#0284c7" />
+        <circle cx="64" cy="64" r="22" fill="#e0f2fe" />
+        <circle cx="70" cy="58" r="8" fill="#ffffff" />
+      </svg>
+    );
+  }
+
+  // 27. GARMIN / GPS
+  if (norm.includes('garmin') || norm.includes('gps')) {
+    return (
+      <svg width={size} height={size} viewBox="0 0 128 128" className={`shrink-0 ${className}`}>
+        <rect width="128" height="128" rx="24" fill="#000000" stroke="#007cc3" strokeWidth="4" />
+        <path d="M64 24 C 48 24 36 36 36 52 C 36 74 64 104 64 104 C 64 104 92 74 92 52 C 92 36 80 24 64 24 Z" fill="#007cc3" />
+        <circle cx="64" cy="50" r="10" fill="#ffffff" />
+      </svg>
+    );
+  }
+
   // DEFAULT / CODE / TOOL BADGE
   return (
     <svg width={size} height={size} viewBox="0 0 128 128" className={`shrink-0 ${className}`}>

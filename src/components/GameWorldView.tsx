@@ -1925,13 +1925,18 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/expeditions/smart_food_parks_architecture.jpg',
     availablePages: [
       {
-        titleEs: 'Arquitectura de Datos y Pipeline Técnico (IoT, Cloud, Unity 3D)',
-        titleEn: 'Technical Data Pipeline & Cloud Architecture (IoT, 3D)',
+        titleEs: 'Lámina 1: Matriz de Software Científico & Logotipos Oficiales',
+        titleEn: 'Plate 1: Scientific Software Matrix & Official Logos',
+        pageSrc: 'TECH_MATRIX_CIENCIA'
+      },
+      {
+        titleEs: 'Lámina 2: Arquitectura de Datos y Pipeline Técnico (IoT, Cloud, Unity 3D)',
+        titleEn: 'Plate 2: Technical Data Pipeline & Cloud Architecture (IoT, 3D)',
         pageSrc: '/expeditions/smart_food_parks_architecture.jpg'
       },
       {
-        titleEs: 'Lámina 2: Modelación Hidrológica y Geofísica',
-        titleEn: 'Plate 2: Hydrological & Geophysical Modeling',
+        titleEs: 'Lámina 3: Modelación Hidrológica y Geofísica',
+        titleEn: 'Plate 3: Hydrological & Geophysical Modeling',
         pageSrc: '/portfolio_pages/page_2.png'
       }
     ],
@@ -1964,7 +1969,7 @@ export const GAME_MISSIONS: GameMission[] = [
       'Geospatial databases and vector tile map servers',
       'Interactive dashboards and real-time digital twins'
     ],
-    techStack: ['Python', 'Delft3D', 'GEE', 'QGIS', 'PostGIS', 'Unity 3D', 'FastAPI', 'Docker'],
+    techStack: ['Python', 'QGIS', 'Docker', 'PostGIS', 'GEE', 'Delft3D', 'Unity 3D', 'Next.js', 'React', 'TypeScript', 'FastAPI', 'Tailwind CSS'],
     tags: ['Python', 'Delft3D', 'GEE', 'QGIS', 'PostGIS', 'Unity 3D', 'Skills']
   },
 
@@ -1989,18 +1994,23 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/plp/plp_header_consigna.png',
     availablePages: [
       {
-        titleEs: 'Cabecera Editorial y Estrategia de Redacción (+700k Audiencia)',
-        titleEn: 'Editorial Header & Newsroom Strategy (+700k Audience)',
+        titleEs: 'Lámina 1: Matriz de Producción Audiovisual, Broadcast & Logotipos',
+        titleEn: 'Plate 1: Audiovisual Production, Broadcast Matrix & Logos',
+        pageSrc: 'TECH_MATRIX_COMMS'
+      },
+      {
+        titleEs: 'Lámina 2: Cabecera Editorial y Estrategia de Redacción (+700k Audiencia)',
+        titleEn: 'Plate 2: Editorial Header & Newsroom Strategy (+700k Audience)',
         pageSrc: '/plp/plp_header_consigna.png'
       },
       {
-        titleEs: 'Producción Cultural y Dirección Creativa de Freestyle',
-        titleEn: 'Cultural Production & Freestyle Creative Direction',
+        titleEs: 'Lámina 3: Producción Cultural y Dirección Creativa de Freestyle',
+        titleEn: 'Plate 3: Cultural Production & Freestyle Creative Direction',
         pageSrc: '/youtube_covers/NcDejj3NKXo.jpg'
       },
       {
-        titleEs: 'Identidad Visual y Propaganda Callejera',
-        titleEn: 'Visual Identity & Street Agitation',
+        titleEs: 'Lámina 4: Identidad Visual y Propaganda Callejera',
+        titleEn: 'Plate 4: Visual Identity & Street Agitation',
         pageSrc: '/brigada/brigada_mural_no_afp.png'
       }
     ],
@@ -2058,21 +2068,27 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/expeditions/cauquenes_geophysics_ves.jpg',
     availablePages: [
       {
-        titleEs: 'Sondaje Eléctrico Vertical (SEV / VES) en Terreno (Cauquenes)',
-        titleEn: 'Vertical Electrical Sounding (VES) in the Field (Cauquenes)',
+        titleEs: 'Lámina 1: Matriz de Instrumental de Campo, Laboratorio & Idiomas',
+        titleEn: 'Plate 1: Field Instrumentation, Laboratory & Languages Matrix',
+        pageSrc: 'TECH_MATRIX_EQUIPOS'
+      },
+      {
+        titleEs: 'Lámina 2: Sondaje Eléctrico Vertical (SEV / VES) en Terreno (Cauquenes)',
+        titleEn: 'Plate 2: Vertical Electrical Sounding (VES) in the Field (Cauquenes)',
         pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
       },
       {
-        titleEs: 'Estación Pluviométrica Digital en Cerro Molco (Cauquenes)',
-        titleEn: 'Digital Rain Gauge Station at Cerro Molco (Cauquenes)',
+        titleEs: 'Lámina 3: Estación Pluviométrica Digital en Cerro Molco (Cauquenes)',
+        titleEn: 'Plate 3: Digital Rain Gauge Station at Cerro Molco (Cauquenes)',
         pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
       },
       {
-        titleEs: 'Microscopía Binocular Zeiss Primo Star para Taxonomía Acuática',
-        titleEn: 'Zeiss Primo Star Binocular Microscopy for Aquatic Taxonomy',
+        titleEs: 'Lámina 4: Microscopía Binocular Zeiss Primo Star para Taxonomía Acuática',
+        titleEn: 'Plate 4: Zeiss Primo Star Binocular Microscopy for Aquatic Taxonomy',
         pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
       }
     ],
+    techStack: ['Syscal SEV / VES', 'IoT LoRaWAN', 'Zeiss Microscopio', 'LiDAR DEM', 'Garmin GPS', 'Español', 'Inglés', 'Alemán'],
     url: 'https://github.com/danisantanderurrutia-coder',
     code: 'OPS-SKI-03',
     source: 'Catálogo de Instrumental Científico y Certificaciones Lingüísticas',
@@ -2102,7 +2118,6 @@ export const GAME_MISSIONS: GameMission[] = [
       'Microfauna taxonomic diagnostics for freshwater bioindication',
       'Trilingual technical negotiation (Spanish, English, German) with international delegations'
     ],
-    techStack: ['VES Geophysics', 'Schlumberger', 'Zeiss Primo Star', 'YSI Probes', 'Rain Gauges', 'Languages'],
     tags: ['SEV', 'Geofísica', 'Instrumentación', 'Microscopía', 'Idiomas', 'Inglés', 'Alemán']
   }
 ];
@@ -2178,11 +2193,39 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     if (initialFilter) {
       setActiveFilter(initialFilter);
       if (initialFilter !== 'all') {
-        const found = GAME_MISSIONS.find((m) => m.type === initialFilter);
-        if (found) setSelectedMissionId(found.id);
+        const found = GAME_MISSIONS.find((m) => {
+          if (initialFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa';
+          return m.type === initialFilter;
+        });
+        if (found) {
+          setSelectedMissionId(found.id);
+          setSelectedPlatePage(0);
+        }
       }
     }
   }, [initialFilter]);
+
+  const handleFilterChange = (newFilter: 'all' | MissionType) => {
+    setActiveFilter(newFilter);
+    setSelectedPlatePage(0);
+    setIsDossierOpen(true);
+    if (newFilter === 'all') {
+      setSelectedMissionId(GAME_MISSIONS[0].id);
+    } else {
+      const match = GAME_MISSIONS.find((m) => {
+        if (newFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa';
+        return m.type === newFilter;
+      });
+      if (match) setSelectedMissionId(match.id);
+    }
+  };
+
+  useEffect(() => {
+    if (filteredMissions.length > 0 && !filteredMissions.some((m) => m.id === selectedMissionId)) {
+      setSelectedMissionId(filteredMissions[0].id);
+      setSelectedPlatePage(0);
+    }
+  }, [activeFilter, filteredMissions, selectedMissionId]);
 
   const mountRef = useRef<HTMLDivElement | null>(null);
 
@@ -2846,7 +2889,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         {/* Center: Category Filter Slanted Tape Strips (Direct Access to All Portfolio Tracks) */}
         <div className="flex items-center gap-1 sm:gap-1.5 p-1 bg-black/60 border border-white/20 overflow-x-auto no-scrollbar">
           <button
-            onClick={() => setActiveFilter('all')}
+            onClick={() => handleFilterChange('all')}
             className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
               activeFilter === 'all'
                 ? 'bg-[#facc15] text-black shadow-[2px_2px_0px_#000]'
@@ -2857,7 +2900,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('science')}
+            onClick={() => handleFilterChange('science')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'science'
                 ? 'bg-red-600 text-white shadow-[2px_2px_0px_#000]'
@@ -2868,7 +2911,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('global')}
+            onClick={() => handleFilterChange('global')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'global'
                 ? 'bg-amber-500 text-black shadow-[2px_2px_0px_#000]'
@@ -2879,7 +2922,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('culture')}
+            onClick={() => handleFilterChange('culture')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'culture'
                 ? 'bg-orange-600 text-white shadow-[2px_2px_0px_#000]'
@@ -2890,7 +2933,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('comms')}
+            onClick={() => handleFilterChange('comms')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
               activeFilter === 'comms'
                 ? 'bg-emerald-600 text-white shadow-[2px_2px_0px_#000]'
@@ -2901,7 +2944,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('rd')}
+            onClick={() => handleFilterChange('rd')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-1 cursor-pointer shrink-0 ${
               activeFilter === 'rd'
                 ? 'bg-purple-600 text-white shadow-[2px_2px_0px_#000]'
@@ -2912,7 +2955,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('publications')}
+            onClick={() => handleFilterChange('publications')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'publications'
                 ? 'bg-indigo-600 text-white shadow-[2px_2px_0px_#000]'
@@ -2923,7 +2966,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('titles')}
+            onClick={() => handleFilterChange('titles')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'titles'
                 ? 'bg-pink-600 text-white shadow-[2px_2px_0px_#000]'
@@ -2934,7 +2977,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </button>
 
           <button
-            onClick={() => setActiveFilter('skills')}
+            onClick={() => handleFilterChange('skills')}
             className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
               activeFilter === 'skills'
                 ? 'bg-cyan-500 text-black shadow-[2px_2px_0px_#000]'
@@ -2967,7 +3010,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
           {/* Quick R&D Filter Toggle */}
           <button
-            onClick={() => setActiveFilter('rd')}
+            onClick={() => handleFilterChange('rd')}
             className="px-2.5 py-1 bg-purple-600 hover:bg-purple-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 -rotate-1 cursor-pointer"
             title={currentLang === 'es' ? 'Filtrar Proyectos & Innovación (I+D)' : 'Filter Projects & Innovation (R&D)'}
           >
@@ -3012,11 +3055,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
           {/* Skills Button (Filters directly into the carousel & 3D view) */}
           <button
-            onClick={() => {
-              setActiveFilter('skills');
-              const sm = GAME_MISSIONS.find((m) => m.type === 'skills');
-              if (sm) setSelectedMissionId(sm.id);
-            }}
+            onClick={() => handleFilterChange('skills')}
             className="px-2 py-1 bg-white/10 hover:bg-white hover:text-black text-white font-mono font-bold text-xs uppercase tracking-wider border border-white/20 active:scale-95 transition-all hidden md:flex items-center space-x-1 cursor-pointer"
             title="Ficha Técnica & Skills"
           >
@@ -3146,17 +3185,121 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     </audio>
                   </div>
                 ) : currentMission.availablePages && currentMission.availablePages.length > 0 ? (
-                  /* Visor de Láminas de Expediente Científico PNG */
+                  /* Visor de Láminas de Expediente Científico PNG o Matriz de Skills */
                   <div className="w-full flex flex-col items-center p-2 bg-[#fdfbf7] rounded-lg">
-                    <img
-                      src={resolveAsset(
-                        currentLang === 'en' && currentMission.availablePages[selectedPlatePage].pageSrcEn
-                          ? currentMission.availablePages[selectedPlatePage].pageSrcEn
-                          : currentMission.availablePages[selectedPlatePage].pageSrc
-                      )}
-                      alt="Expediente Científico Oficial"
-                      className="max-h-[300px] w-auto object-contain rounded"
-                    />
+                    {currentMission.availablePages[selectedPlatePage].pageSrc === 'TECH_MATRIX_CIENCIA' ? (
+                      /* Interactive Visual Tech Matrix for Code, Science & GIS */
+                      <div className="w-full p-3 bg-[#0d131f] text-white rounded-lg border-2 border-black space-y-2.5">
+                        <div className="flex items-center justify-between border-b border-cyan-500/30 pb-1.5">
+                          <span className="font-mono text-xs font-black text-cyan-400 uppercase tracking-wider">
+                            {currentLang === 'es' ? 'STACK DE PROGRAMACIÓN & SOFTWARE ESPACIAL' : 'PROGRAMMING STACK & GEOSPATIAL ENGINES'}
+                          </span>
+                          <span className="font-mono text-[9px] bg-cyan-400 text-black px-1.5 font-bold uppercase">
+                            100% PRODUCCIÓN
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                          {[
+                            { name: 'Python', level: '95%', tags: 'NumPy • SciPy • GeoPandas' },
+                            { name: 'QGIS & GIS', level: '95%', tags: 'DEMs LiDAR • Mapeo Cuencas' },
+                            { name: 'Docker', level: '90%', tags: 'Contenedores CI/CD' },
+                            { name: 'PostGIS', level: '85%', tags: 'Bases Espaciales SQL' },
+                            { name: 'Earth Engine (GEE)', level: '85%', tags: 'Sentinel-2 & Landsat' },
+                            { name: 'Delft3D', level: '80%', tags: 'Modelación Hidrodinámica' },
+                            { name: 'Unity 3D', level: '85%', tags: 'Gemelos Digitales' },
+                            { name: 'Next.js & React', level: '90%', tags: 'Dashboards Climáticos' },
+                            { name: 'FastAPI', level: '90%', tags: 'APIs Asíncronas REST' }
+                          ].map((t, idx) => (
+                            <div key={idx} className="p-2 rounded bg-black/70 border border-white/10 flex flex-col space-y-1 hover:border-cyan-400 transition-colors">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-1.5">
+                                  <TechLogo name={t.name} size={16} />
+                                  <span className="font-mono font-bold text-[11px] text-white truncate">{t.name}</span>
+                                </div>
+                                <span className="font-mono text-[9px] text-[#facc15] font-black">{t.level}</span>
+                              </div>
+                              <span className="font-mono text-[8px] text-neutral-400 truncate">{t.tags}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : currentMission.availablePages[selectedPlatePage].pageSrc === 'TECH_MATRIX_COMMS' ? (
+                      /* Interactive Visual Tech Matrix for Comms & Media */
+                      <div className="w-full p-3 bg-[#18110b] text-white rounded-lg border-2 border-black space-y-2.5">
+                        <div className="flex items-center justify-between border-b border-orange-500/30 pb-1.5">
+                          <span className="font-mono text-xs font-black text-orange-400 uppercase tracking-wider">
+                            {currentLang === 'es' ? 'MATRIZ DE PRODUCCIÓN AUDIOVISUAL & BROADCAST' : 'AUDIOVISUAL & BROADCAST PRODUCTION MATRIX'}
+                          </span>
+                          <span className="font-mono text-[9px] bg-orange-400 text-black px-1.5 font-bold uppercase">
+                            BROADCAST 4K
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                          {[
+                            { name: 'DaVinci Resolve', level: '95%', tags: 'Montaje & Color 4K' },
+                            { name: 'OBS Studio', level: '90%', tags: 'Streaming Multicámara' },
+                            { name: 'Sony 4K', level: '90%', tags: 'Óptica & Rigging' },
+                            { name: 'Premiere Pro', level: '90%', tags: 'Edición Periodística' },
+                            { name: 'Radio FM', level: '95%', tags: 'Transmisores & Mezcla' },
+                            { name: 'Dirección Creativa', level: '95%', tags: 'Serigrafía & Editorial' }
+                          ].map((t, idx) => (
+                            <div key={idx} className="p-2 rounded bg-black/70 border border-white/10 flex flex-col space-y-1 hover:border-orange-400 transition-colors">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-1.5">
+                                  <TechLogo name={t.name} size={16} />
+                                  <span className="font-mono font-bold text-[11px] text-white truncate">{t.name}</span>
+                                </div>
+                                <span className="font-mono text-[9px] text-[#facc15] font-black">{t.level}</span>
+                              </div>
+                              <span className="font-mono text-[8px] text-neutral-400 truncate">{t.tags}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : currentMission.availablePages[selectedPlatePage].pageSrc === 'TECH_MATRIX_EQUIPOS' ? (
+                      /* Interactive Visual Tech Matrix for Field Equipment & Languages */
+                      <div className="w-full p-3 bg-[#0c1810] text-white rounded-lg border-2 border-black space-y-2.5">
+                        <div className="flex items-center justify-between border-b border-green-500/30 pb-1.5">
+                          <span className="font-mono text-xs font-black text-green-400 uppercase tracking-wider">
+                            {currentLang === 'es' ? 'INSTRUMENTAL DE CAMPO & FLUIDEZ LINGÜÍSTICA' : 'FIELD INSTRUMENTATION & LANGUAGES'}
+                          </span>
+                          <span className="font-mono text-[9px] bg-green-400 text-black px-1.5 font-bold uppercase">
+                            CALIBRADO
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                          {[
+                            { name: 'Syscal SEV / VES', level: '95%', tags: 'Tomografía Resistividad' },
+                            { name: 'IoT LoRaWAN', level: '90%', tags: 'Pluviómetros Digitales' },
+                            { name: 'Zeiss Microscopio', level: '90%', tags: 'Taxonomía Protozoos' },
+                            { name: 'LiDAR DEM', level: '95%', tags: 'Nubes de Puntos Láser' },
+                            { name: 'Garmin GPS', level: '95%', tags: 'Georreferenciación' },
+                            { name: 'Idiomas', level: 'ES/EN/DE', tags: 'Trilingüe Técnico' }
+                          ].map((t, idx) => (
+                            <div key={idx} className="p-2 rounded bg-black/70 border border-white/10 flex flex-col space-y-1 hover:border-green-400 transition-colors">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center space-x-1.5">
+                                  <TechLogo name={t.name} size={16} />
+                                  <span className="font-mono font-bold text-[11px] text-white truncate">{t.name}</span>
+                                </div>
+                                <span className="font-mono text-[9px] text-[#facc15] font-black">{t.level}</span>
+                              </div>
+                              <span className="font-mono text-[8px] text-neutral-400 truncate">{t.tags}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <img
+                        src={resolveAsset(
+                          currentLang === 'en' && currentMission.availablePages[selectedPlatePage].pageSrcEn
+                            ? currentMission.availablePages[selectedPlatePage].pageSrcEn
+                            : currentMission.availablePages[selectedPlatePage].pageSrc
+                        )}
+                        alt="Expediente Científico Oficial"
+                        className="max-h-[300px] w-auto object-contain rounded"
+                      />
+                    )}
                     {/* Caption for active plate */}
                     {currentMission.availablePages[selectedPlatePage] && (
                       <div className="mt-2 text-center px-3 py-1 bg-black/85 rounded border border-black/40 text-[10px] font-mono font-bold text-neutral-200 shadow-sm max-w-full truncate">
@@ -3242,6 +3385,28 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                   {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
                 </p>
               </div>
+
+              {/* ⚡ PROMINENT TECH STACK & LOGOS AT TOP OF CARD ⚡ */}
+              {currentMission.techStack && currentMission.techStack.length > 0 && (
+                <div className="p-3 rounded-xl bg-black/85 border-2 border-[#facc15]/70 shadow-[3px_3px_0px_#000] space-y-2">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-2">
+                      <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
+                      <span className="font-mono text-xs font-black uppercase text-[#facc15] tracking-wider">
+                        {currentLang === 'es' ? '⚡ HERRAMIENTAS & LOGOS TÉCNICOS:' : '⚡ TECH STACK & TOOLS:'}
+                      </span>
+                    </div>
+                    <span className="font-mono text-[9px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase shadow-[1px_1px_0px_#000]">
+                      {currentMission.techStack.length} {currentLang === 'es' ? 'HERRAMIENTAS' : 'TOOLS'}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                    {currentMission.techStack.map((tech, tIdx) => (
+                      <TechBadge key={tIdx} name={tech} size="md" />
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Impact Synopsis Box */}
               <div className="p-3.5 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-1.5">
@@ -3481,6 +3646,25 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center p-2 text-center text-emerald-400">
                         <Volume2 className="w-5 h-5 mb-0.5" />
                         <span className="font-mono text-[7px] font-bold">96.3 FM AUDIO</span>
+                      </div>
+                    ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
+                      <div className="w-full h-full bg-[#0a0f1d] p-1.5 flex flex-col justify-between border border-cyan-500/40">
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-[7px] text-cyan-400 font-bold uppercase tracking-wider">
+                            TECH STACK
+                          </span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                        </div>
+                        <div className="grid grid-cols-3 gap-1 place-items-center py-0.5">
+                          {(m.techStack || ['Python', 'QGIS', 'Docker', 'GEE', 'Delft3D', 'Unity 3D']).slice(0, 6).map((tech, tIdx) => (
+                            <div key={tIdx} className="w-6 h-6 rounded bg-black/70 border border-white/20 flex items-center justify-center p-0.5" title={tech}>
+                              <TechLogo name={tech} size={15} />
+                            </div>
+                          ))}
+                        </div>
+                        <div className="text-[7px] font-mono text-cyan-300 font-bold truncate text-center bg-black/60 px-1 py-0.5 rounded">
+                          {(m.techStack || []).slice(0, 3).join(' • ')}
+                        </div>
                       </div>
                     ) : m.availablePages && m.availablePages.length > 0 ? (
                       <img
