@@ -3335,34 +3335,34 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         </div>
       </header>
 
-      <main className="relative z-20 flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 py-2 flex items-center justify-center overflow-hidden pointer-events-none">
+      <main className="relative z-20 flex-1 w-full max-w-[1680px] mx-auto px-2 sm:px-4 lg:px-6 py-2 flex items-center justify-center overflow-hidden pointer-events-none">
         
-        {/* Main Tactical Stage: Pinned Photo on Left (50%) + Dossier Briefing on Right (50%) */}
+        {/* Main Tactical Stage: Pinned Photo on Left (150% Visual Area) + Dossier Briefing on Right */}
         {isDossierOpen && (
-          <div className="w-full flex flex-col lg:flex-row items-stretch lg:items-start gap-5 sm:gap-6 max-h-[76vh] overflow-y-auto no-scrollbar pointer-events-auto">
+          <div className="w-full flex flex-col lg:flex-row items-stretch lg:items-start gap-4 sm:gap-6 max-h-[82vh] overflow-y-auto no-scrollbar pointer-events-auto">
             
             {/* ======================================================== */}
-            {/* A. LEFT SECTOR: PINNED FEATURED PHOTO / MEDIA CARD (50%) */}
+            {/* A. LEFT SECTOR: PINNED FEATURED PHOTO / MEDIA CARD (60%) */}
             {/* ======================================================== */}
-            <div className="w-full lg:w-1/2 flex flex-col items-center justify-start">
-              <div className="relative group w-full -rotate-1.5 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-4 pb-4 border-3 border-black shadow-[10px_10px_0px_#000000] flex flex-col justify-between">
+            <div className="w-full lg:w-[58%] xl:w-[60%] flex flex-col items-center justify-start">
+              <div className="relative group w-full -rotate-1 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-5 pb-5 border-4 border-black shadow-[12px_12px_0px_#000000] flex flex-col justify-between">
                 
                 {/* Pushpin at Top Center */}
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                  <div className={`w-5 h-5 rounded-full ${heroPinColor} border-2 border-black/80 shadow-[0_3px_6px_rgba(0,0,0,0.7)] flex items-center justify-center`}>
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                  <div className={`w-6 h-6 rounded-full ${heroPinColor} border-2 border-black/80 shadow-[0_4px_8px_rgba(0,0,0,0.7)] flex items-center justify-center`}>
+                    <div className="w-2 h-2 rounded-full bg-white/80" />
                   </div>
                 </div>
 
                 {/* Yellow Sticky Note / Post-it on Top Left Corner */}
-                <div className="absolute top-2.5 left-2.5 z-20 bg-[#fef08a] text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black shadow-[2px_2px_0px_#000] -rotate-3 uppercase">
+                <div className="absolute top-3 left-3 z-20 bg-[#fef08a] text-black font-mono font-black text-xs px-2.5 py-1 border border-black shadow-[2px_2px_0px_#000] -rotate-3 uppercase">
                   {currentMission.code} // {currentMission.city}
                 </div>
 
-                {/* Media Viewport Frame - EXPANDED & CENTERED */}
-                <div className="relative w-full rounded-lg bg-[#080c14] border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] max-h-[520px]">
+                {/* Media Viewport Frame - MASSIVE 150% VISUAL AREA */}
+                <div className="relative w-full rounded-xl bg-[#080c14] border-2 border-black shadow-[5px_5px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] xl:min-h-[620px] max-h-[700px]">
                   {currentMission.mediaType === 'video' && currentMission.embedUrl ? (
-                    <div className="w-full aspect-video min-h-[300px] sm:min-h-[380px] lg:min-h-[420px]">
+                    <div className="w-full h-full aspect-video min-h-[420px] sm:min-h-[500px] lg:min-h-[580px]">
                       <iframe
                         src={currentMission.embedUrl}
                         title={currentMission.titleEs}
@@ -3373,40 +3373,40 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     </div>
                   ) : currentMission.mediaType === 'audio' ? (
                     /* Pletina de Casete de Radio Campesina */
-                    <div className="w-full h-full p-6 sm:p-8 bg-[#161b22] text-white flex flex-col items-center justify-center space-y-4">
-                      <div className="flex items-center justify-between w-full font-mono text-[10px] text-emerald-400 border-b border-white/10 pb-1.5">
+                    <div className="w-full h-full p-8 sm:p-12 bg-[#161b22] text-white flex flex-col items-center justify-center space-y-6">
+                      <div className="flex items-center justify-between w-full font-mono text-xs text-emerald-400 border-b border-white/10 pb-2">
                         <span>RADIO CRISTALINA 96.3 FM • MAULE SUR</span>
-                        <span>SIDE A • CÁPSULA RURAL</span>
+                        <span>SIDE A • CÁPSULA RURAL (TRANSMISIÓN DE CAMPO)</span>
                       </div>
-                      <div className="flex items-center justify-center space-x-8 py-4">
-                        <div className="w-14 h-14 rounded-full border-2 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
-                          <div className="w-5 h-5 bg-emerald-400 rounded-full" />
+                      <div className="flex items-center justify-center space-x-12 py-6">
+                        <div className="w-20 h-20 rounded-full border-3 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
+                          <div className="w-7 h-7 bg-emerald-400 rounded-full" />
                         </div>
-                        <span className="font-mono text-sm text-emerald-300 font-bold">96.3 MHz FM</span>
-                        <div className="w-14 h-14 rounded-full border-2 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
-                          <div className="w-5 h-5 bg-emerald-400 rounded-full" />
+                        <span className="font-mono text-lg text-emerald-300 font-bold tracking-widest">96.3 MHz FM</span>
+                        <div className="w-20 h-20 rounded-full border-3 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
+                          <div className="w-7 h-7 bg-emerald-400 rounded-full" />
                         </div>
                       </div>
-                      <audio controls className="w-full max-w-sm">
+                      <audio controls className="w-full max-w-md">
                         <source src={resolveAsset('/audio/corte_constitucion.mp3')} type="audio/mp3" />
                         Audio no disponible.
                       </audio>
                     </div>
                   ) : currentMission.availablePages && currentMission.availablePages.length > 0 ? (
                     currentMission.availablePages[selectedPlatePage].pageSrc.startsWith('TECH_MATRIX') ? (() => {
-                      /* ★ SINGLE-LOGO HERO SHOWCASE: UN LOGO A LA VEZ (SIN BOTONES INTERNOS) ★ */
+                      /* ★ SINGLE-LOGO HERO SHOWCASE: UN LOGO A LA VEZ (MASSIVE 150% AREA) ★ */
                       const pageCode = currentMission.availablePages[selectedPlatePage].pageSrc;
                       const toolList = pageCode === 'TECH_MATRIX_CIENCIA' ? TOOLS_CIENCIA : pageCode === 'TECH_MATRIX_COMMS' ? TOOLS_COMMS : TOOLS_EQUIPOS;
                       const safeIdx = ((activeSkillToolIndex % toolList.length) + toolList.length) % toolList.length;
                       const currentTool = toolList[safeIdx];
 
                       return (
-                        <div className="w-full h-full p-5 sm:p-7 flex flex-col justify-between space-y-4 bg-[#0a0f19]">
-                          {/* Top Bar: Category & Counter (Sin botones de cambio aquí) */}
-                          <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                        <div className="w-full h-full p-6 sm:p-8 flex flex-col justify-between space-y-5 bg-[#0a0f19]">
+                          {/* Top Bar: Category & Counter */}
+                          <div className="flex items-center justify-between border-b border-white/10 pb-2.5">
                             <div className="flex items-center space-x-2">
-                              <span className="w-2.5 h-2.5 rounded-full bg-[#facc15] animate-pulse" />
-                              <span className="font-mono text-xs font-black text-[#facc15] uppercase tracking-wider">
+                              <span className="w-3 h-3 rounded-full bg-[#facc15] animate-pulse" />
+                              <span className="font-mono text-sm font-black text-[#facc15] uppercase tracking-wider">
                                 {pageCode === 'TECH_MATRIX_CIENCIA'
                                   ? (currentLang === 'es' ? 'STACK CIENTÍFICO' : 'SCIENTIFIC STACK')
                                   : pageCode === 'TECH_MATRIX_COMMS'
@@ -3414,42 +3414,42 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                   : (currentLang === 'es' ? 'INSTRUMENTAL DE CAMPO' : 'FIELD GEAR')}
                               </span>
                             </div>
-                            <span className="font-mono text-xs bg-white/10 text-neutral-300 px-2 py-0.5 rounded border border-white/15">
+                            <span className="font-mono text-xs bg-white/10 text-neutral-300 px-2.5 py-1 rounded border border-white/15">
                               {safeIdx + 1} / {toolList.length}
                             </span>
                           </div>
 
-                          {/* Hero Section: BIG CENTERED LOGO PEDESTAL */}
-                          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 p-4 sm:p-5 bg-black/60 rounded-2xl border border-white/10">
-                            {/* Large Logo Pedestal */}
-                            <div className="relative shrink-0 w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-2xl bg-gradient-to-b from-white/10 to-black/80 border-2 border-white/20 shadow-2xl flex items-center justify-center p-3.5 group">
+                          {/* Hero Section: MASSIVE CENTERED LOGO PEDESTAL */}
+                          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 p-5 sm:p-7 bg-black/60 rounded-2xl border border-white/10">
+                            {/* Giant Logo Pedestal */}
+                            <div className="relative shrink-0 w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-2xl bg-gradient-to-b from-white/10 to-black/80 border-2 border-white/20 shadow-2xl flex items-center justify-center p-4 group">
                               <div 
-                                className="absolute inset-0 rounded-2xl blur-2xl opacity-30 pointer-events-none"
+                                className="absolute inset-0 rounded-2xl blur-3xl opacity-35 pointer-events-none"
                                 style={{ backgroundColor: currentTool.color }}
                               />
-                              <TechLogo name={currentTool.name} size={84} className="drop-shadow-[0_6px_20px_rgba(0,0,0,0.95)] transition-transform group-hover:scale-110" />
+                              <TechLogo name={currentTool.name} size={110} className="drop-shadow-[0_8px_24px_rgba(0,0,0,0.95)] transition-transform group-hover:scale-110" />
                             </div>
 
                             {/* Tool Info */}
-                            <div className="flex-1 flex flex-col space-y-2 text-center sm:text-left min-w-0">
-                              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                                <h3 className="font-mono font-black text-lg sm:text-2xl text-white uppercase tracking-tight">
+                            <div className="flex-1 flex flex-col space-y-2.5 text-center sm:text-left min-w-0">
+                              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                                <h3 className="font-mono font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
                                   {currentTool.name}
                                 </h3>
-                                <span className="font-mono text-[10px] font-black px-2 py-0.5 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
+                                <span className="font-mono text-xs font-black px-2.5 py-0.5 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
                                   ★ {currentTool.level}
                                 </span>
                               </div>
 
-                              <p className="font-mono text-xs text-cyan-300 font-bold leading-tight">
+                              <p className="font-mono text-xs sm:text-sm text-cyan-300 font-bold leading-tight">
                                 {currentTool.tags}
                               </p>
 
-                              <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed pt-0.5">
+                              <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed pt-1">
                                 {currentLang === 'es' ? currentTool.descEs : currentTool.descEn}
                               </p>
 
-                              <div className="pt-1.5 flex items-start space-x-1.5 text-xs font-mono text-emerald-400 border-t border-white/10">
+                              <div className="pt-2 flex items-start space-x-2 text-xs sm:text-sm font-mono text-emerald-400 border-t border-white/10">
                                 <span className="font-bold shrink-0">{currentLang === 'es' ? '▶ APLICACIÓN:' : '▶ APPLICATION:'}</span>
                                 <span className="text-neutral-300 italic">
                                   {currentLang === 'es' ? currentTool.applicationEs : currentTool.applicationEn}
@@ -3459,7 +3459,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           </div>
 
                           {/* Footer Help text */}
-                          <div className="text-center pt-1 text-[10px] font-mono text-neutral-400">
+                          <div className="text-center pt-1 text-xs font-mono text-neutral-400">
                             ★ {currentLang === 'es'
                               ? 'Selecciona herramientas desde el panel superior derecho o el riel inferior'
                               : 'Select tools from the top-right panel or the bottom rail'}
@@ -3467,10 +3467,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         </div>
                       );
                     })() : (
-                      /* NATURAL PHOTO & PLATE VIEWER (NO CLUTTER, AMBIENT BLUR) */
-                      <div className="relative w-full h-full min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] max-h-[520px] flex items-center justify-center bg-black/50 overflow-hidden group">
+                      /* NATURAL PHOTO & PLATE VIEWER (150% AREA, IMMERSIVE BLUR) */
+                      <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] xl:min-h-[620px] max-h-[700px] flex items-center justify-center bg-black/60 overflow-hidden group">
                         <div
-                          className="absolute inset-0 bg-center bg-cover filter blur-3xl opacity-30 scale-125 pointer-events-none"
+                          className="absolute inset-0 bg-center bg-cover filter blur-3xl opacity-35 scale-125 pointer-events-none"
                           style={{
                             backgroundImage: `url('${resolveAsset(
                               currentLang === 'en' && currentMission.availablePages[selectedPlatePage].pageSrcEn
@@ -3491,7 +3491,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               ? currentMission.availablePages[selectedPlatePage].titleEs
                               : currentMission.availablePages[selectedPlatePage].titleEn
                           }
-                          className="relative z-10 max-h-[420px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_16px_36px_rgba(0,0,0,0.95)]"
+                          className="relative z-10 max-h-[560px] xl:max-h-[620px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_20px_48px_rgba(0,0,0,0.98)]"
                         />
 
                         {/* Floating Nav Arrows when multiple pages exist */}
@@ -3505,7 +3505,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                     (prev - 1 + currentMission.availablePages!.length) % currentMission.availablePages!.length
                                 );
                               }}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
                               title={currentLang === 'es' ? 'Foto anterior' : 'Previous picture'}
                             >
                               <ChevronLeft className="w-5 h-5" />
@@ -3516,19 +3516,19 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                 e.stopPropagation();
                                 setSelectedPlatePage((prev) => (prev + 1) % currentMission.availablePages!.length);
                               }}
-                              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
                               title={currentLang === 'es' ? 'Foto siguiente' : 'Next picture'}
                             >
                               <ChevronRight className="w-5 h-5" />
                             </button>
 
-                            <div className="absolute bottom-3 left-3 right-3 z-20 px-3 py-1.5 rounded-lg bg-black/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono shadow-lg">
+                            <div className="absolute bottom-3 left-3 right-3 z-20 px-3.5 py-1.5 rounded-lg bg-black/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono shadow-lg">
                               <span className="text-white font-bold truncate pr-2 text-xs">
                                 {currentLang === 'es'
                                   ? currentMission.availablePages[selectedPlatePage].titleEs
                                   : currentMission.availablePages[selectedPlatePage].titleEn}
                               </span>
-                              <span className="font-mono text-[10px] text-[#facc15] font-black bg-white/10 px-2 py-0.5 rounded border border-white/10 shrink-0">
+                              <span className="font-mono text-xs text-[#facc15] font-black bg-white/10 px-2 py-0.5 rounded border border-white/10 shrink-0">
                                 {selectedPlatePage + 1}/{currentMission.availablePages.length}
                               </span>
                             </div>
@@ -3537,10 +3537,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       </div>
                     )
                   ) : currentMission.src ? (
-                    /* SINGLE NATURAL PHOTO */
-                    <div className="relative w-full h-full min-h-[300px] sm:min-h-[380px] lg:min-h-[440px] max-h-[520px] flex items-center justify-center bg-black/50 overflow-hidden">
+                    /* SINGLE NATURAL PHOTO (150% AREA) */
+                    <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] xl:min-h-[620px] max-h-[700px] flex items-center justify-center bg-black/60 overflow-hidden">
                       <div
-                        className="absolute inset-0 bg-center bg-cover filter blur-3xl opacity-30 scale-125 pointer-events-none"
+                        className="absolute inset-0 bg-center bg-cover filter blur-3xl opacity-35 scale-125 pointer-events-none"
                         style={{
                           backgroundImage: `url('${resolveAsset(
                             currentLang === 'en' && currentMission.srcEn ? currentMission.srcEn : currentMission.src
@@ -3552,24 +3552,24 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           currentLang === 'en' && currentMission.srcEn ? currentMission.srcEn : currentMission.src
                         )}
                         alt={currentMission.titleEs}
-                        className="relative z-10 max-h-[420px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_16px_36px_rgba(0,0,0,0.95)]"
+                        className="relative z-10 max-h-[560px] xl:max-h-[620px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_20px_48px_rgba(0,0,0,0.98)]"
                       />
                     </div>
                   ) : (
                     /* Classified Pending Blueprint */
-                    <div className="w-full h-full min-h-[260px] p-6 flex flex-col items-center justify-center text-center border-2 border-dashed border-amber-500/35 rounded-xl bg-black/50">
-                      <div className="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 mb-2.5">
-                        <Layers className="w-6 h-6 animate-pulse" />
+                    <div className="w-full h-full min-h-[320px] p-8 flex flex-col items-center justify-center text-center border-2 border-dashed border-amber-500/35 rounded-xl bg-black/50">
+                      <div className="w-14 h-14 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 mb-3">
+                        <Layers className="w-7 h-7 animate-pulse" />
                       </div>
-                      <span className="font-mono text-xs font-bold tracking-widest text-amber-300 uppercase">
+                      <span className="font-mono text-sm font-bold tracking-widest text-amber-300 uppercase">
                         {currentLang === 'es' ? '[ REGISTRO VISUAL PENDIENTE ]' : '[ PENDING VISUAL ARCHIVE ]'}
                       </span>
-                      <p className="text-xs font-mono text-neutral-300 max-w-sm mt-1.5 leading-relaxed">
+                      <p className="text-xs font-mono text-neutral-300 max-w-md mt-2 leading-relaxed">
                         {currentLang === 'es'
                           ? 'Hito verificado en CV sin archivo gráfico asignado aún.'
                           : 'Milestone verified in CV without assigned graphic file yet.'}
                       </p>
-                      <div className="mt-3 px-3 py-1 rounded bg-white/5 border border-white/10 font-mono text-[9px] text-neutral-400">
+                      <div className="mt-4 px-3 py-1 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-400">
                         ID: <span className="text-white font-bold">{currentMission.code}</span> • {currentMission.city}, {currentMission.country}
                       </div>
                     </div>
@@ -3577,17 +3577,17 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 </div>
 
                 {/* Pinned Photo Handwritten Marker Caption at Bottom */}
-                <div className="pt-2.5 flex flex-col space-y-0.5 border-t border-black/15 mt-2.5">
+                <div className="pt-3 flex flex-col space-y-0.5 border-t border-black/15 mt-3">
                   <div className="flex items-center justify-between font-mono text-xs font-bold text-neutral-700">
-                    <div className="flex items-center space-x-1">
+                    <div className="flex items-center space-x-1.5">
                       <span className="text-emerald-700 font-black">✔</span>
-                      <span className="uppercase tracking-tight text-neutral-900 font-black truncate max-w-[240px]">
+                      <span className="uppercase tracking-tight text-neutral-900 font-black truncate max-w-[280px]">
                         {currentMission.flag} {currentMission.city}, {currentMission.country}
                       </span>
                     </div>
-                    <span className="text-neutral-500 text-[10px]">{currentMission.date}</span>
+                    <span className="text-neutral-500 text-xs">{currentMission.date}</span>
                   </div>
-                  <h3 className="font-mono font-black text-sm text-neutral-900 line-clamp-1 uppercase">
+                  <h3 className="font-mono font-black text-sm sm:text-base text-neutral-900 line-clamp-1 uppercase">
                     {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
                   </h3>
                 </div>
@@ -3595,9 +3595,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </div>
 
             {/* ======================================================== */}
-            {/* B. RIGHT SECTOR: TACTICAL DOSSIER BRIEFING CARD (50%)    */}
+            {/* B. RIGHT SECTOR: TACTICAL DOSSIER BRIEFING CARD (40%)    */}
             {/* ======================================================== */}
-            <div className="w-full lg:w-1/2 max-h-[76vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[10px_10px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
+            <div className="w-full lg:w-[42%] xl:w-[40%] max-h-[82vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[10px_10px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
               
               {/* Comic Panel Header */}
               <div className="px-4 py-2.5 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
