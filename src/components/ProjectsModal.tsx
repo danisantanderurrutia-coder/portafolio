@@ -16,9 +16,11 @@ import {
   Cpu,
   Mail,
   Zap,
-  Target
+  Target,
+  Camera
 } from 'lucide-react';
 import { Language } from '../types';
+import { resolveAsset } from '../utils';
 
 const GithubIcon = ({ className = "w-3.5 h-3.5" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" className={className}>
@@ -60,6 +62,8 @@ export interface SideProject {
   notesEs: string;
   githubUrl?: string;
   liveUrl?: string;
+  imageSrc?: string;
+  imageGallery?: { src: string; captionEs: string; captionEn: string }[];
 }
 
 export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
@@ -101,7 +105,15 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Python', 'Sentinel-2 API', 'IoT LoRaWAN', 'FastAPI', 'QGIS', 'PostGIS', 'Next.js'],
     notesEn: 'Scalable to orchards, vineyards, and cooperative water user associations (WUA).',
     notesEs: 'Escalable a viñedos, huertos comerciales y asociaciones de canalistas (Juntas de Vigilancia).',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
+    imageSrc: '/expeditions/cauquenes_rain_gauge.jpg',
+    imageGallery: [
+      {
+        src: '/expeditions/cauquenes_rain_gauge.jpg',
+        captionEs: 'Instalación de estación pluviométrica y telemetría hídrica en Cerro Molco, Cauquenes',
+        captionEn: 'Rain gauge station and water telemetry installation at Cerro Molco, Cauquenes'
+      }
+    ]
   },
   {
     id: 'lauwersmeer',
@@ -138,7 +150,15 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Delft3D', 'Python Hydro', 'LiDAR DEM', 'QGIS', 'Copernicus Marine', 'NetCDF'],
     notesEn: 'Grounding European coastal resilience frameworks for international ports and estuaries.',
     notesEs: 'Articulación de metodologías de resiliencia costera europea para puertos y estuarios.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
+    imageSrc: '/expeditions/wadden_sea_birding.jpg',
+    imageGallery: [
+      {
+        src: '/expeditions/wadden_sea_birding.jpg',
+        captionEs: 'Monitoreo de planicies intermareales y avifauna migratoria en el Mar de Wadden (UNESCO)',
+        captionEn: 'Intertidal mudflat and migratory bird monitoring in the UNESCO Wadden Sea'
+      }
+    ]
   },
   {
     id: 'rewild',
@@ -175,7 +195,65 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Google Earth Engine', 'Python GIS', 'Sentinel-2', 'GeoPandas', 'Streamlit', 'Rasterio'],
     notesEn: 'Empirical decision tool for public policy and territorial risk management.',
     notesEs: 'Herramienta de soporte técnico para políticas públicas de ordenamiento territorial.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof',
+    imageSrc: '/expeditions/longavi_biodiversity_survey.jpg',
+    imageGallery: [
+      {
+        src: '/expeditions/longavi_biodiversity_survey.jpg',
+        captionEs: 'Evaluación ecológica y catastro de bosque nativo esclerófilo en Cerro Longaví',
+        captionEn: 'Ecological assessment and native sclerophyll forest inventory at Cerro Longaví'
+      }
+    ]
+  },
+  {
+    id: 'smart-food-parks',
+    emoji: '🌱',
+    titleEn: 'Smart Food Parks: Urban IoT & Digital Twin',
+    titleEs: 'Smart Food Parks: Gemelo Digital & Agro-IoT Urbano',
+    subtitleEn: 'Digital twin telemetry and closed-loop hydroponic microclimate control — UN Citiverse Global Semifinalist',
+    subtitleEs: 'Gemelo digital de telemetría y control microclimático hidropónico de ciclo cerrado — Semifinalista Global UN Citiverse',
+    categoryEn: 'Digital Twin & Urban Food Systems',
+    categoryEs: 'Gemelo Digital & Sistemas Agroalimentarios',
+    categoryColor: 'bg-teal-600 text-white',
+    branch: 'science',
+    statusBadgeEn: 'UN CITIVERSE GLOBAL SEMIFINALIST',
+    statusBadgeEs: 'SEMIFINALISTA GLOBAL UN CITIVERSE',
+    statusBadgeColor: 'bg-teal-400 text-black',
+    clientEn: 'UN-Habitat, European SDG Cities & Urban Resilience Consortia',
+    clientEs: 'ONU-Hábitat, Ciudades Europeas ODS & Consorcios de Resiliencia Urbana',
+    valuePropEn: 'Pioneering cyber-physical food park design integrating IoT sensor mesh networks, AI-assisted predictive microclimate management, and Unity 3D digital twins for urban zero-km food sovereignty.',
+    valuePropEs: 'Diseño ciberfísico pionero de parques agroalimentarios urbanos que integra redes de sensores IoT, gestión microclimática predictiva con IA y gemelos digitales en Unity 3D para la soberanía alimentaria urbana.',
+    deliverablesEn: [
+      'Unity 3D real-time digital twin visualization of vertical hydroponic towers',
+      'Micro-meteorological and root-zone telemetry architecture (LoRaWAN / MQTT)',
+      'Predictive yield and evapotranspiration optimization neural algorithms',
+      'Scalable modular blueprint for European municipal SDG green corridors'
+    ],
+    deliverablesEs: [
+      'Gemelo digital en Unity 3D con visualización en tiempo real de torres hidropónicas verticales',
+      'Arquitectura de telemetría micrometeorológica y radicular (LoRaWAN / MQTT)',
+      'Algoritmos neuronales predictivos de rendimiento y optimización de evapotranspiración',
+      'Plan maestro modular para corredores verdes y parques urbanos sostenibles en Europa'
+    ],
+    impactMetricEn: 'UN Citiverse Challenge Semifinalist • Zero-KM Food Architecture',
+    impactMetricEs: 'Semifinalista Desafío UN Citiverse • Arquitectura Alimentaria Km Cero',
+    techStack: ['Unity 3D', 'IoT Telemetry', 'MQTT', 'Python AI', 'Digital Twin', 'Cloud Pipelines', 'Permaculture CDP'],
+    notesEn: 'Developed through CAU Kiel Environmental Management & Chilean Permaculture School (EPAC) research.',
+    notesEs: 'Desarrollado a partir de investigación en CAU Kiel y diseño permacultural certificado (EPAC).',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder',
+    imageSrc: '/expeditions/smart_food_parks_ui.jpg',
+    imageGallery: [
+      {
+        src: '/expeditions/smart_food_parks_ui.jpg',
+        captionEs: 'Interfaz de telemetría y gemelo digital en tiempo real (UN Citiverse)',
+        captionEn: 'Real-time telemetry interface and digital twin dashboard (UN Citiverse)'
+      },
+      {
+        src: '/expeditions/smart_food_parks_architecture.jpg',
+        captionEs: 'Diagrama de arquitectura técnica del sistema: IoT, nube y Unity 3D',
+        captionEn: 'System technical architecture diagram: IoT, cloud pipelines, and Unity 3D'
+      }
+    ]
   },
   {
     id: 'paper_fisica',
@@ -422,7 +500,7 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({
                   selectedBranch === 'all' ? 'bg-[#facc15] text-black shadow-sm' : 'text-neutral-300 hover:text-white'
                 }`}
               >
-                {currentLang === 'es' ? 'TODOS (8)' : 'ALL (8)'}
+                {currentLang === 'es' ? `TODOS (${ACTIVE_INNOVATION_PROJECTS.length})` : `ALL (${ACTIVE_INNOVATION_PROJECTS.length})`}
               </button>
               <button
                 onClick={() => setSelectedBranch('science')}
@@ -430,7 +508,9 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({
                   selectedBranch === 'science' ? 'bg-blue-500 text-white shadow-sm' : 'text-neutral-300 hover:text-white'
                 }`}
               >
-                🔬 {currentLang === 'es' ? 'CIENCIA & I+D (4)' : 'SCIENCE & R&D (4)'}
+                🔬 {currentLang === 'es' 
+                  ? `CIENCIA & I+D (${ACTIVE_INNOVATION_PROJECTS.filter(p => p.branch === 'science').length})` 
+                  : `SCIENCE & R&D (${ACTIVE_INNOVATION_PROJECTS.filter(p => p.branch === 'science').length})`}
               </button>
               <button
                 onClick={() => setSelectedBranch('comms')}
@@ -438,7 +518,9 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({
                   selectedBranch === 'comms' ? 'bg-orange-500 text-white shadow-sm' : 'text-neutral-300 hover:text-white'
                 }`}
               >
-                📢 {currentLang === 'es' ? 'MEDIOS & CAMPAÑAS (4)' : 'COMMS & CAMPAIGNS (4)'}
+                📢 {currentLang === 'es' 
+                  ? `MEDIOS & CAMPAÑAS (${ACTIVE_INNOVATION_PROJECTS.filter(p => p.branch === 'comms').length})` 
+                  : `COMMS & CAMPAIGNS (${ACTIVE_INNOVATION_PROJECTS.filter(p => p.branch === 'comms').length})`}
               </button>
             </div>
 
@@ -580,6 +662,38 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({
                 {currentLang === 'es' ? 'RESULTADO VERIFICADO' : 'VERIFIED ROI'}
               </span>
             </div>
+
+            {/* Visual Evidence / Telemetry Showcase */}
+            {(currentProj.imageGallery || currentProj.imageSrc) && (
+              <div className="bg-[#080b10] border-2 border-black rounded-xl p-3 sm:p-4 shadow-[4px_4px_0px_#facc15] space-y-2.5">
+                <div className="flex items-center justify-between font-mono text-[10px] text-amber-400 font-bold uppercase tracking-wider">
+                  <span className="flex items-center space-x-1.5">
+                    <Camera className="w-3.5 h-3.5" />
+                    <span>{currentLang === 'es' ? 'REGISTRO VISUAL, TERRENO & TELEMETRÍA' : 'FIELD ARCHIVE & TECHNICAL TELEMETRY'}</span>
+                  </span>
+                  <span className="text-neutral-400 text-[9px]">[EXPEDITION EVIDENCE]</span>
+                </div>
+                <div className={`grid gap-3 ${(currentProj.imageGallery?.length || 1) > 1 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+                  {(currentProj.imageGallery || [{ src: currentProj.imageSrc!, captionEs: '', captionEn: '' }]).map((imgItem, iIdx) => (
+                    <div key={iIdx} className="relative rounded-lg overflow-hidden border border-white/15 bg-black group flex flex-col">
+                      <div className="relative w-full h-44 sm:h-48 overflow-hidden bg-black">
+                        <img
+                          src={resolveAsset(imgItem.src)}
+                          alt={currentLang === 'es' ? imgItem.captionEs : imgItem.captionEn}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                      {(imgItem.captionEs || imgItem.captionEn) && (
+                        <div className="p-2.5 bg-[#121620] border-t border-white/10 text-[11px] font-mono text-neutral-300 leading-snug">
+                          {currentLang === 'es' ? imgItem.captionEs : imgItem.captionEn}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Commercial Value Proposition / Problem Solved */}
             <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2">

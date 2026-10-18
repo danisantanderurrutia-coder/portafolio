@@ -107,7 +107,15 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023-2025',
     roleEs: 'Estudiante de Maestría & Investigador',
     roleEn: 'Master’s Student & Researcher',
-    mediaType: 'pending',
+    mediaType: 'plate',
+    src: '/expeditions/kiel_soil_lab.png',
+    availablePages: [
+      {
+        titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo (CAU Kiel)',
+        titleEn: 'Soil Physics Laboratory & Column Flux Analysis (CAU Kiel)',
+        pageSrc: '/expeditions/kiel_soil_lab.png'
+      }
+    ],
     url: 'https://www.uni-kiel.de',
     code: 'OPS-SCI-01',
     source: 'Christian Albrechts University (CAU Kiel)',
@@ -178,7 +186,30 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023-2025',
     roleEs: 'Estudiante de Maestría & Tesista',
     roleEn: 'Master’s Student & Thesis Researcher',
-    mediaType: 'pending',
+    mediaType: 'plate',
+    src: '/expeditions/poland_lake_sampling.jpg',
+    availablePages: [
+      {
+        titleEs: 'Muestreo Limnológico de Perifiton en Lago',
+        titleEn: 'Limnological Biofilm & Periphyton Lake Sampling',
+        pageSrc: '/expeditions/poland_lake_sampling.jpg'
+      },
+      {
+        titleEs: 'Identificación de Protozoos al Microscopio Zeiss',
+        titleEn: 'Zeiss Microscopy of Protozoa and Ciliates',
+        pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
+      },
+      {
+        titleEs: 'Clasificación de Macroinvertebrados Bentónicos',
+        titleEn: 'Benthic Macroinvertebrate Field Sorting',
+        pageSrc: '/expeditions/poznan_lake_benthos.jpg'
+      },
+      {
+        titleEs: 'Expedición en Bote a Remo y Batimetría Lacustre',
+        titleEn: 'Lake Expedition by Rowboat & Depth Profiling',
+        pageSrc: '/expeditions/poland_lake_rowing.jpg'
+      }
+    ],
     url: 'https://amu.edu.pl',
     code: 'OPS-SCI-02',
     source: 'Adam Mickiewicz University (AMU Poznań)',
@@ -249,7 +280,19 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Ponente Oficial',
     roleEn: 'Official Speaker',
     mediaType: 'press',
-    src: '/press_covers/desconcierto_noruega_screen.png',
+    src: '/expeditions/oslo_degrowth_logo.png',
+    availablePages: [
+      {
+        titleEs: '10ª Conferencia Internacional de Decrecimiento (Oslo)',
+        titleEn: '10th International Degrowth Conference (Oslo)',
+        pageSrc: '/expeditions/oslo_degrowth_logo.png'
+      },
+      {
+        titleEs: 'Cobertura de Prensa Oficial (El Desconcierto)',
+        titleEn: 'Official Press Coverage (El Desconcierto)',
+        pageSrc: '/press_covers/desconcierto_noruega_screen.png'
+      }
+    ],
     url: 'https://eldesconcierto.cl/2025/07/06/paises-tan-ricos-que-no-quieren-crecer-mas-noruega-acoge-mayor-debate-mundial-sobre-alternativas-al-crecimiento-economico-infinito',
     code: 'OPS-GLO-01',
     source: 'Degrowth Conference Oslo 2025 (CV)',
@@ -285,7 +328,24 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Investigador Expositor',
     roleEn: 'Researcher & Speaker',
     mediaType: 'press',
-    src: '/press_covers/epn_screen.png',
+    src: '/expeditions/hamburg_enjust_library.jpg',
+    availablePages: [
+      {
+        titleEs: 'Mesa Plenaria en Biblioteca Histórica de Hamburgo (ENJUST)',
+        titleEn: 'Plenary Session in Hamburg Historical Library (ENJUST)',
+        pageSrc: '/expeditions/hamburg_enjust_library.jpg'
+      },
+      {
+        titleEs: 'Red Europea de Justicia Ambiental (ENJUST Bonn/Hamburgo)',
+        titleEn: 'European Environmental Justice Network (ENJUST)',
+        pageSrc: '/expeditions/enjust_logo.png'
+      },
+      {
+        titleEs: 'Informe Internacional EPN & Impacto de Biomasa',
+        titleEn: 'EPN International Report on Biomass Impacts',
+        pageSrc: '/press_covers/epn_screen.png'
+      }
+    ],
     url: 'https://environmentalpaper.org/2023/06/spotlight-on-burning-biomass-for-energy-in-south-america-community-opposition-to-a-power-plant-in-parral-chile/',
     code: 'OPS-GLO-02',
     source: 'Environmental Justice Conference Bonn 2025 (CV)',
@@ -321,7 +381,24 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Representante de Organizaciones Ambientales',
     roleEn: 'Environmental Organizations Delegate',
     mediaType: 'press',
-    src: '/press_covers/olca_screen.png',
+    src: '/expeditions/colombia_climate_justice_group.jpg',
+    availablePages: [
+      {
+        titleEs: 'Plenaria de la Plataforma Latinoamericana por la Justicia Climática',
+        titleEn: 'Latin American Climate Justice Platform Plenary',
+        pageSrc: '/expeditions/colombia_climate_justice_group.jpg'
+      },
+      {
+        titleEs: 'Círculo de Diálogo Territorial y Dinámica de Tejido de Redes',
+        titleEn: 'Territorial Dialogue Circle & Network Weaving Dynamic',
+        pageSrc: '/expeditions/colombia_climate_justice_circle.jpg'
+      },
+      {
+        titleEs: 'Cobertura OLCA & Mandatos Socioambientales',
+        titleEn: 'OLCA Coverage & Socioenvironmental Mandates',
+        pageSrc: '/press_covers/olca_screen.png'
+      }
+    ],
     url: 'https://olca.cl',
     code: 'OPS-GLO-03',
     source: 'Censat Colombia / RESUMOF (CV)',
@@ -357,7 +434,19 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Representante de Organizaciones Ambientales',
     roleEn: 'Environmental Organizations Delegate',
     mediaType: 'press',
-    src: '/press_covers/delfino_screen.png',
+    src: '/expeditions/costa_rica_wycj_summit.jpg',
+    availablePages: [
+      {
+        titleEs: 'Panel en Cumbre de Justicia Climática Intergeneracional (WYCJ)',
+        titleEn: 'Intergenerational Climate Justice Summit Panel (WYCJ)',
+        pageSrc: '/expeditions/costa_rica_wycj_summit.jpg'
+      },
+      {
+        titleEs: 'Cobertura de Prensa Oficial (Delfino Costa Rica)',
+        titleEn: 'Official Press Coverage (Delfino Costa Rica)',
+        pageSrc: '/press_covers/delfino_screen.png'
+      }
+    ],
     url: 'https://delfino.cr/2023/04/jovenes-activistas-climaticos-de-latinoamerica-tuvieron-encuentro-de-trabajo-en-costa-rica',
     code: 'OPS-GLO-04',
     source: 'Foro Internacional de Organizaciones Ambientales (CV)',
@@ -426,7 +515,20 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Investigador Certificado WSL',
     roleEn: 'WSL Certified Researcher',
-    mediaType: 'pending',
+    mediaType: 'plate',
+    src: '/expeditions/davos_stream_fieldwork.jpg',
+    availablePages: [
+      {
+        titleEs: 'Relevamiento Ripario y Fluvial en Valle Flüela (Davos)',
+        titleEn: 'Riparian Stream Survey in Flüela Valley (Davos)',
+        pageSrc: '/expeditions/davos_stream_fieldwork.jpg'
+      },
+      {
+        titleEs: 'Cohorte de Investigación WSL BlueGreen Biodiversity',
+        titleEn: 'WSL Davos Research Cohort • BlueGreen Biodiversity',
+        pageSrc: '/expeditions/davos_wsl_group.png'
+      }
+    ],
     url: 'https://www.wsl.ch',
     code: 'OPS-SCI-03',
     source: 'WSL Davos (CV)',
@@ -535,7 +637,8 @@ export const GAME_MISSIONS: GameMission[] = [
     srcEn: '/portfolio_pages_en/page_1.png',
     availablePages: [
       { titleEs: 'Lámina 1: Perfil Geofísica FCFM U. de Chile', titleEn: 'Plate 1: FCFM Geophysics Profile', pageSrc: '/portfolio_pages/page_1.png', pageSrcEn: '/portfolio_pages_en/page_1.png' },
-      { titleEs: 'Lámina 4: Asesoría Convención Constitucional', titleEn: 'Plate 4: Constitutional Convention Advisory', pageSrc: '/portfolio_pages/page_4.png', pageSrcEn: '/portfolio_pages_en/page_4.png' }
+      { titleEs: 'Lámina 4: Asesoría Convención Constitucional', titleEn: 'Plate 4: Constitutional Convention Advisory', pageSrc: '/portfolio_pages/page_4.png', pageSrcEn: '/portfolio_pages_en/page_4.png' },
+      { titleEs: 'Fotografía: Presentación de Norma Constitucional de Residuos', titleEn: 'Photograph: Zero-Waste Constitutional Norm Presentation', pageSrc: '/expeditions/convencion_norma_residuos.jpg' }
     ],
     code: 'OPS-SCI-06',
     source: 'Universidad de Chile & Convención Constitucional (CV)',
@@ -605,7 +708,20 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2019-2023',
     roleEs: 'Coordinador de Campaña & Recaudación',
     roleEn: 'Campaign Coordinator & Fundraising',
-    mediaType: 'pending',
+    mediaType: 'plate',
+    src: '/expeditions/ong_raiz_wetland_group.jpg',
+    availablePages: [
+      {
+        titleEs: 'Monitoreo Comunitario de Humedales (ONG Raíz EcoAcción)',
+        titleEn: 'Community Wetland Monitoring (ONG Raíz EcoAcción)',
+        pageSrc: '/expeditions/ong_raiz_wetland_group.jpg'
+      },
+      {
+        titleEs: 'Reforestación Comunitaria con Especies Nativas',
+        titleEn: 'Community Native Tree Reforestation',
+        pageSrc: '/expeditions/ong_raiz_native_tree_planting.jpg'
+      }
+    ],
     code: 'OPS-COM-05',
     source: 'Campaña de Solidaridad Comunitaria (CV)',
     impactEs: 'Coordinación y recaudación de fondos para la campaña "Solo el pueblo ayuda al pueblo": campañas de ayuda a víctimas de incendios e inundaciones desplegadas en Maule, Biobío, Ñuble y Santiago en distintos años (según CV).',
@@ -756,7 +872,25 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2024-2025',
     roleEs: 'Investigador de Proyecto (Concursos y Competiciones)',
     roleEn: 'Project Researcher (Contests & Competitions)',
-    mediaType: 'pending',
+    mediaType: 'plate',
+    src: '/expeditions/cauquenes_geophysics_ves.jpg',
+    availablePages: [
+      {
+        titleEs: 'Sondaje Eléctrico Vertical (SEV / VES) en Cauquenes',
+        titleEn: 'Vertical Electrical Sounding (VES) in Cauquenes',
+        pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
+      },
+      {
+        titleEs: 'Monitoreo Pluviométrico en Cerro Molco, Cauquenes',
+        titleEn: 'Rain Gauge Installation at Cerro Molco, Cauquenes',
+        pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
+      },
+      {
+        titleEs: 'Evaluación Ecológica y Biodiversidad en Cerro Longaví',
+        titleEn: 'Ecological Biodiversity Assessment at Cerro Longaví',
+        pageSrc: '/expeditions/longavi_biodiversity_survey.jpg'
+      }
+    ],
     code: 'OPS-RD-01',
     source: 'Projects in development (CV)',
     impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Integrating geophysics and plant bioacoustics for ecosystem health assessment", orientado a la cuantificación del estado biofísico y estrés hídrico en bosques nativos y cuencas del centro-sur de Chile (según CV).',
@@ -790,7 +924,20 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023-2025',
     roleEs: 'Diseñador en Permacultura Certificado (CDP)',
     roleEn: 'Certified Permaculture Designer (CDP)',
-    mediaType: 'pending',
+    mediaType: 'plate',
+    src: '/expeditions/smart_food_parks_ui.jpg',
+    availablePages: [
+      {
+        titleEs: 'Gemelo Digital y Telemetría IoT en Smart Food Parks',
+        titleEn: 'Digital Twin & IoT Telemetry in Smart Food Parks',
+        pageSrc: '/expeditions/smart_food_parks_ui.jpg'
+      },
+      {
+        titleEs: 'Arquitectura de Datos y Gemelo Digital en Unity 3D',
+        titleEn: 'Data Architecture & Digital Twin Engine Blueprint',
+        pageSrc: '/expeditions/smart_food_parks_architecture.jpg'
+      }
+    ],
     code: 'OPS-RD-02',
     source: 'Projects in development & Education EPAC (CV)',
     impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Smart Food Parks: Uniting nature and technology for SDG cities" concebido para ciudades europeas en el marco de los ODS, articulando diseño permacultural (CDP EPAC 2023) con tecnologías abiertas (según CV).',
