@@ -13,7 +13,8 @@ import {
   Microscope,
   BookOpen,
   GraduationCap,
-  Award
+  Award,
+  Scale
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -24,6 +25,7 @@ interface PunkMainMenuProps {
   onToggleLanguage: () => void;
   onSelectSciencePlanet: () => void;
   onSelectSummits: () => void;
+  onSelectPolicy?: () => void;
   onSelectCommsArts: () => void;
   onSelectGrassroots: () => void;
   onSelectProjects: () => void;
@@ -204,6 +206,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   onToggleLanguage,
   onSelectSciencePlanet,
   onSelectSummits,
+  onSelectPolicy,
   onSelectCommsArts,
   onSelectGrassroots,
   onSelectProjects,
@@ -334,6 +337,21 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               onClick={onSelectSummits}
               title={currentLang === 'es' ? 'Ver Cumbres y Política Global 3D' : 'View Summits & Global Policy 3D'}
             />
+
+            {/* 2B. SIGN 02B: POLICY ADVISORY (Points Right ➔) */}
+            {onSelectPolicy && (
+              <WoodenSignSlat
+                direction="right"
+                bgColor="#7c3aed"
+                textColor="#ffffff"
+                rotationClass="-rotate-2"
+                offsetClass="translate-x-1"
+                icon={<Scale className="w-4 h-4" />}
+                label={currentLang === 'es' ? 'ASESORÍA EN POLÍTICAS PÚBLICAS' : 'POLICY ADVISORY'}
+                onClick={onSelectPolicy}
+                title={currentLang === 'es' ? 'Ver Asesoría Parlamentaria, Convención Constitucional y Cuencas en el Globo 3D' : 'Explore Policy Advisory, Parliamentary Testimony & Constitutional Convention on 3D Globe'}
+              />
+            )}
 
             {/* 3. SIGN 03: COMMUNICATIONS & ARTS (Points Right ➔) */}
             <WoodenSignSlat

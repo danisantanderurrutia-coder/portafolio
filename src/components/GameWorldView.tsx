@@ -21,7 +21,7 @@ import {
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
 import { TechBadge, TechLogo } from './TechLogos';
-export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture' | 'publications' | 'titles' | 'certifications' | 'skills';
+export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture' | 'publications' | 'titles' | 'certifications' | 'skills' | 'policy';
 
 export interface GameMission {
   id: string;
@@ -58,10 +58,10 @@ export interface GameMission {
 }
 
 export const GAME_MISSIONS: GameMission[] = [
-  // 1. COMUNICACIONES: Cámara de Diputadas/os - Valparaíso
+  // 1. ASESORÍA EN POLÍTICAS PÚBLICAS: Cámara de Diputadas/os - Valparaíso
   {
     id: 'congreso-valparaiso',
-    type: 'comms',
+    type: 'policy',
     titleEs: 'Intervención Oficial en Cámara de Diputadas/os: Megaincendios y Monocultivo',
     titleEn: 'Official Testimony at Chamber of Deputies: Wildfires & Forestry Monoculture',
     subtitleEs: 'Comisión Especial de Emergencia, Desastres y Bomberos // Asesoría Parlamentaria',
@@ -651,10 +651,10 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Dresden', 'Alemania', 'Interlinked Justice', 'Certificación']
   },
 
-  // 13. CIENCIA: Universidad de Chile & Asesoría a la Convención Constitucional
+  // 13. ASESORÍA EN POLÍTICAS PÚBLICAS: Universidad de Chile & Convención Constitucional
   {
     id: 'uchile-convencion',
-    type: 'science',
+    type: 'policy',
     titleEs: 'Geofísico con Distinción & Asesoría a la Convención Constitucional',
     titleEn: 'Geophysicist with Distinction & Advisor to Constitutional Convention',
     subtitleEs: 'Universidad de Chile (2021) // Asesor en Política Ambiental',
@@ -1145,10 +1145,10 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Incendios', 'Cuencas', 'Balance Hídrico', 'Suelos', 'Chile', 'I+D']
   },
 
-  // 22. I+D & ASESORÍA: Ordenamiento de Cuencas & Transición Productiva (CV)
+  // 22. ASESORÍA EN POLÍTICAS PÚBLICAS: Ordenamiento de Cuencas & Transición Productiva (CV)
   {
     id: 'rd-transicion-cuencas',
-    type: 'rd',
+    type: 'policy',
     titleEs: 'Planes de Ordenamiento de Cuencas y Transición Productiva',
     titleEn: 'Watershed Management Plans & Agricultural Production Transition',
     subtitleEs: 'Gestión de Cuencas y Transición Agroforestal // Permacultura (EPAC)',
@@ -2402,6 +2402,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
   const CATEGORIES_LIST: { id: 'all' | MissionType; labelEs: string; labelEn: string; color: string; count: number }[] = [
     { id: 'all', labelEs: 'TODAS LAS EXPEDICIONES', labelEn: 'ALL FIELD DOSSIERS', color: 'bg-[#facc15]', count: GAME_MISSIONS.length },
+    { id: 'policy', labelEs: 'ASESORÍA EN POLÍTICAS PÚBLICAS', labelEn: 'POLICY ADVISORY', color: 'bg-violet-600', count: GAME_MISSIONS.filter((m) => m.type === 'policy').length },
     { id: 'science', labelEs: 'CIENCIA & GEOFÍSICA', labelEn: 'SCIENCE & GEOPHYSICS', color: 'bg-red-600', count: GAME_MISSIONS.filter((m) => m.type === 'science').length },
     { id: 'global', labelEs: 'CUMBRES CLIMÁTICAS', labelEn: 'CLIMATE SUMMITS', color: 'bg-amber-500', count: GAME_MISSIONS.filter((m) => m.type === 'global').length },
     { id: 'culture', labelEs: 'MEDIOS & ARTE', labelEn: 'MEDIA & ARTS', color: 'bg-orange-600', count: GAME_MISSIONS.filter((m) => m.type === 'culture' || m.id === 'plp-prensa').length },
@@ -2666,6 +2667,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       const norm = pos.clone().normalize();
       const colorHex = 
         m.type === 'science' ? 0xef4444 :
+        m.type === 'policy' ? 0x8b5cf6 :
         m.type === 'comms' ? 0x22c55e :
         m.type === 'global' ? 0xf59e0b :
         m.type === 'culture' ? 0xf97316 :
@@ -2766,6 +2768,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     // 10.5 High-Energy Volumetric Beams of Light & Plasma Pulses by Category
     const BEAM_PALETTE: Record<MissionType, { beam: number; core: number; halo: number }> = {
       science:      { beam: 0xff2a5f, core: 0xffffff, halo: 0xff6688 }, // Laser Crimson
+      policy:       { beam: 0x8b5cf6, core: 0xf5f3ff, halo: 0xa78bfa }, // Violet Imperial
       global:       { beam: 0xfbbf24, core: 0xfffbeb, halo: 0xfcd34d }, // Solar Amber
       culture:      { beam: 0xf97316, core: 0xffedd5, halo: 0xfb923c }, // Tangerine Fire
       comms:        { beam: 0x10b981, core: 0xecfdf5, halo: 0x34d399 }, // Bio-Emerald
@@ -2791,7 +2794,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     const energyBeamArcs: EnergyBeamArc[] = [];
     const flightGroup = new THREE.Group();
 
-    const missionCategories: MissionType[] = ['science', 'global', 'comms', 'culture', 'rd', 'publications', 'titles', 'certifications', 'skills'];
+    const missionCategories: MissionType[] = ['science', 'policy', 'global', 'comms', 'culture', 'rd', 'publications', 'titles', 'certifications', 'skills'];
 
     missionCategories.forEach((cat, catIdx) => {
       const catMissions = GAME_MISSIONS.filter((m) => m.type === cat && !m.isStatic);
@@ -3083,6 +3086,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
   const heroPinColor =
     currentMission.type === 'science' ? 'bg-red-600 border-red-900' :
+    currentMission.type === 'policy' ? 'bg-violet-600 border-violet-900' :
     currentMission.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
     currentMission.type === 'global' ? 'bg-amber-500 border-amber-800' :
     currentMission.type === 'culture' ? 'bg-orange-500 border-orange-800' :
@@ -3792,6 +3796,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
                     const pinColor = 
                       m.type === 'science' ? 'bg-red-600 border-red-900' :
+                      m.type === 'policy' ? 'bg-violet-600 border-violet-900' :
                       m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
                       m.type === 'global' ? 'bg-amber-500 border-amber-800' :
                       m.type === 'culture' ? 'bg-orange-500 border-orange-800' :

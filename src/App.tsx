@@ -44,6 +44,10 @@ export function App() {
             setSelectedCategory('global');
             setViewMode('game');
           }}
+          onSelectPolicy={() => {
+            setSelectedCategory('policy');
+            setViewMode('game');
+          }}
           onSelectCommsArts={() => {
             setSelectedCategory('culture');
             setViewMode('game');
