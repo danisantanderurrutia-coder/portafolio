@@ -3134,12 +3134,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         
         {/* Main Tactical Stage: Pinned Photo on Left + Dossier Briefing & 3-Col Grid on Right (Vertically Centered & Detached from Menus) */}
         {isDossierOpen && (
-          <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 my-auto pointer-events-auto">
+          <div className="w-full flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-8 my-auto pointer-events-auto">
             
             {/* ======================================================== */}
             {/* A. LEFT COLUMN: PINNED HERO PHOTO (SMALLER & DETACHED)   */}
             {/* ======================================================== */}
-            <div className="w-full lg:w-[40%] xl:w-[38%] max-w-[480px] flex flex-col items-center justify-center self-center">
+            <div className="w-full lg:w-[40%] xl:w-[38%] max-w-[480px] flex flex-col items-center justify-center self-center lg:self-end">
               <div className="relative group w-full -rotate-1 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-4 pb-4 border-4 border-black shadow-[0_16px_36px_rgba(0,0,0,0.85),_8px_8px_0px_#000000] flex flex-col justify-between">
                 
                 {/* Pushpin pinned through the photo paper onto the wall */}
@@ -3426,7 +3426,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             {/* ========================================================================= */}
             {/* B. RIGHT COLUMN: TRIGGER BAR & 3-COL PINNED CARDS (HALF SIZE, SQUARE)     */}
             {/* ========================================================================= */}
-            <div className="w-full lg:w-[48%] xl:w-[46%] max-w-[460px] lg:max-w-[480px] flex flex-col space-y-2 self-center">
+            <div className="w-full lg:w-[48%] xl:w-[46%] max-w-[460px] lg:max-w-[480px] flex flex-col space-y-2 self-center lg:self-end">
               
               {/* Trigger Bar to open More Information Drawer */}
               <div className="flex items-center justify-between bg-black/85 border-2 border-black p-1.5 shadow-[4px_4px_0px_#000000] -rotate-0.5 backdrop-blur-md">
@@ -3506,7 +3506,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               )}
 
               {/* 3 COLUMNS GRID OF SQUARE PINNED POLAROIDS (HALF SIZE, FREELY PINNED) */}
-              <div className="w-full max-h-[36vh] sm:max-h-[40vh] overflow-y-auto no-scrollbar grid grid-cols-3 gap-2 sm:gap-2.5 p-1 pt-2">
+              <div className="w-full max-h-[36vh] sm:max-h-[40vh] overflow-y-auto no-scrollbar grid grid-cols-3 gap-2 sm:gap-2.5 p-1 pt-2 pb-2">
                 {currentMission.type === 'skills' ? (
                   /* ★ SKILLS AS SQUARE PINNED CARDS ★ */
                   (() => {
