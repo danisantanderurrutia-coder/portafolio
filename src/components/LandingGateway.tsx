@@ -87,13 +87,18 @@ export const LandingGateway: React.FC<LandingGatewayProps> = ({
                 ● OPEN TO ROLES (EU & LATAM)
               </span>
             </div>
-            <p className="text-[10px] sm:text-[11px] font-mono text-neutral-400 flex items-center space-x-1.5">
-              <span>Catchment Hydrogeophysics</span>
-              <span className="text-neutral-600">•</span>
-              <span>European Dual M.Sc.</span>
-              <span className="text-neutral-600">•</span>
-              <span className="text-amber-400">Strategic Media</span>
-            </p>
+            <div className="flex flex-col space-y-0.5 pt-0.5">
+              <p className="text-[10px] sm:text-[11px] font-mono text-amber-300 font-bold tracking-tight">
+                {currentLang === 'es'
+                  ? 'Geofísico, Doble M.Sc. en Gestión y Protección Ambiental, Permacultor'
+                  : 'Geophysicist, Double Ms.C. Environmental Manager & Protector, Permaculturist'}
+              </p>
+              <p className="text-[9.5px] sm:text-[10px] font-mono text-neutral-300">
+                {currentLang === 'es'
+                  ? 'Desde Chile, actualmente en Hannover, Alemania'
+                  : 'From Chile, currently in Hannover Germany'}
+              </p>
+            </div>
           </div>
         </div>
 

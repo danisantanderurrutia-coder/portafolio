@@ -268,7 +268,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           </div>
 
           {/* Identity & Career Details */}
-          <div className="flex flex-col space-y-2 text-center sm:text-left">
+          <div className="flex flex-col space-y-1.5 text-center sm:text-left max-w-xs sm:max-w-sm">
             {/* Stencil Name */}
             <div className="bg-white text-black px-2.5 py-1 border-2 border-black shadow-[3px_3px_0px_#facc15] -rotate-1 inline-block self-center sm:self-start">
               <h1 className="font-mono font-black text-sm sm:text-base md:text-lg tracking-tight uppercase leading-none">
@@ -277,17 +277,17 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             </div>
 
             {/* Disciplines & Specialties */}
-            <div className="text-[10px] sm:text-[11px] font-mono text-amber-300 font-bold tracking-wide uppercase leading-snug drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
+            <div className="text-[10px] sm:text-[11px] font-mono text-amber-300 font-bold tracking-normal leading-snug drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
               {currentLang === 'es' 
-                ? 'GEOFÍSICA DE CUENCAS • COMUNICACIONES • CUMBRES'
-                : 'CATCHMENT HYDROGEOPHYSICS • COMMUNICATIONS • SUMMITS'}
+                ? 'Geofísico, Doble M.Sc. en Gestión y Protección Ambiental, Permacultor'
+                : 'Geophysicist, Double Ms.C. Environmental Manager & Protector, Permaculturist'}
             </div>
 
             {/* Credentials / Location Brief */}
-            <div className="text-[9px] sm:text-[9.5px] font-mono text-neutral-300 bg-black/60 px-2 py-1 rounded border border-white/20 inline-block self-center sm:self-start">
+            <div className="text-[9.5px] sm:text-[10px] font-mono text-neutral-200 bg-black/75 px-2 py-0.5 rounded border border-white/25 inline-block self-center sm:self-start shadow-sm">
               {currentLang === 'es'
-                ? 'Utrecht • Santiago | Ciencia, Política & Arte'
-                : 'Utrecht • Santiago | Science, Policy & Art'}
+                ? 'Desde Chile, actualmente en Hannover, Alemania'
+                : 'From Chile, currently in Hannover Germany'}
             </div>
           </div>
 
