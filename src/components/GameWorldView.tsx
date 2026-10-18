@@ -2218,6 +2218,24 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState<boolean>(false);
   const categoryMenuRef = useRef<HTMLDivElement | null>(null);
+  const carouselRef = useRef<HTMLDivElement | null>(null);
+
+  const scrollCarouselLeft = () => {
+    carouselRef.current?.scrollBy({ left: -260, behavior: 'smooth' });
+  };
+
+  const scrollCarouselRight = () => {
+    carouselRef.current?.scrollBy({ left: 260, behavior: 'smooth' });
+  };
+
+  // Auto-scroll active card into view in carousel
+  useEffect(() => {
+    if (!carouselRef.current) return;
+    const activeElem = carouselRef.current.querySelector('[data-selected="true"]');
+    if (activeElem) {
+      activeElem.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [selectedMissionId, activeSkillToolIndex]);
 
   const CATEGORIES_LIST: { id: 'all' | MissionType; labelEs: string; labelEn: string; color: string; count: number }[] = [
     { id: 'all', labelEs: 'TODAS LAS EXPEDICIONES', labelEn: 'ALL FIELD DOSSIERS', color: 'bg-[#facc15]', count: GAME_MISSIONS.length },
@@ -3130,16 +3148,16 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         </div>
       </header>
 
-      <main className="relative z-20 flex-1 w-full max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-center overflow-y-auto no-scrollbar pointer-events-none">
+      <main className="relative z-20 flex-1 w-full max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-8 pt-2 pb-2 sm:pb-3 flex flex-col justify-between overflow-y-auto lg:overflow-visible no-scrollbar pointer-events-none">
         
-        {/* Main Tactical Stage: Pinned Photo on Left + Dossier Briefing & 3-Col Grid on Right (Vertically Centered & Detached from Menus) */}
+        {/* Main Tactical Stage: Pinned Photo on Left + Dossier Briefing & 1-Row Carousel on Right */}
         {isDossierOpen && (
-          <div className="w-full flex flex-col lg:flex-row items-center lg:items-end justify-center gap-6 lg:gap-8 my-auto pointer-events-auto">
+          <div className="w-full flex-1 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-6 lg:gap-8 pointer-events-auto h-full">
             
             {/* ======================================================== */}
             {/* A. LEFT COLUMN: PINNED HERO PHOTO (SMALLER & DETACHED)   */}
             {/* ======================================================== */}
-            <div className="w-full lg:w-[40%] xl:w-[38%] max-w-[480px] flex flex-col items-center justify-center self-center lg:self-end">
+            <div className="w-full lg:w-[38%] xl:w-[36%] max-w-[460px] flex flex-col items-center justify-center self-center my-auto">
               <div className="relative group w-full -rotate-1 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-4 pb-4 border-4 border-black shadow-[0_16px_36px_rgba(0,0,0,0.85),_8px_8px_0px_#000000] flex flex-col justify-between">
                 
                 {/* Pushpin pinned through the photo paper onto the wall */}
@@ -3424,9 +3442,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </div>
 
             {/* ========================================================================= */}
-            {/* B. RIGHT COLUMN: TRIGGER BAR & 3-COL PINNED CARDS (HALF SIZE, SQUARE)     */}
+            {/* B. RIGHT COLUMN: TRIGGER BAR & 1-ROW PINNED CAROUSEL (DOCKED AT BOTTOM)   */}
             {/* ========================================================================= */}
-            <div className="w-full lg:w-[48%] xl:w-[46%] max-w-[460px] lg:max-w-[480px] flex flex-col space-y-2 self-center lg:self-end">
+            <div className="w-full lg:w-[58%] xl:w-[54%] max-w-[660px] xl:max-w-[740px] flex flex-col space-y-1.5 self-center lg:self-end pb-1">
               
               {/* Trigger Bar to open More Information Drawer */}
               <div className="flex items-center justify-between bg-black/85 border-2 border-black p-1.5 shadow-[4px_4px_0px_#000000] -rotate-0.5 backdrop-blur-md">
@@ -3444,14 +3462,20 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     {currentMission.code}
                   </span>
                   <button
-                    onClick={handlePrev}
+                    onClick={() => {
+                      handlePrev();
+                      scrollCarouselLeft();
+                    }}
                     className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000] cursor-pointer"
                     title={currentLang === 'es' ? 'Ficha anterior' : 'Previous mission'}
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                   </button>
                   <button
-                    onClick={handleNext}
+                    onClick={() => {
+                      handleNext();
+                      scrollCarouselRight();
+                    }}
                     className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000] cursor-pointer"
                     title={currentLang === 'es' ? 'Ficha siguiente' : 'Next mission'}
                   >
@@ -3505,8 +3529,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 </div>
               )}
 
-              {/* 3 COLUMNS GRID OF SQUARE PINNED POLAROIDS (HALF SIZE, FREELY PINNED) */}
-              <div className="w-full max-h-[36vh] sm:max-h-[40vh] overflow-y-auto no-scrollbar grid grid-cols-3 gap-2 sm:gap-2.5 p-1 pt-2 pb-2">
+              {/* SINGLE ROW HORIZONTAL CAROUSEL OF SQUARE PINNED POLAROIDS */}
+              <div 
+                ref={carouselRef}
+                className="w-full flex flex-row items-stretch overflow-x-auto no-scrollbar gap-2.5 p-1 pt-2.5 pb-2 scroll-smooth"
+                style={{ WebkitOverflowScrolling: 'touch' }}
+              >
                 {currentMission.type === 'skills' ? (
                   /* ★ SKILLS AS SQUARE PINNED CARDS ★ */
                   (() => {
@@ -3525,11 +3553,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       return (
                         <div
                           key={tool.name}
+                          data-selected={isToolActive}
                           onClick={() => {
                             setActiveSkillToolIndex(tIdx);
                             setSelectedPlatePage(0);
                           }}
-                          className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                          className={`group relative cursor-pointer shrink-0 w-[122px] sm:w-[130px] bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
                             isToolActive
                               ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
                               : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
@@ -3611,8 +3640,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     return (
                       <div
                         key={m.id}
+                        data-selected={isSelected}
                         onClick={() => handleSelectMission(m.id)}
-                        className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                        className={`group relative cursor-pointer shrink-0 w-[122px] sm:w-[130px] bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
                           isSelected
                             ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
                             : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
@@ -3706,7 +3736,6 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                   })
                 )}
               </div>
-
             </div>
           </div>
         )}
