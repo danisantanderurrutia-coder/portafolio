@@ -2443,7 +2443,6 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const [selectedPlatePage, setSelectedPlatePage] = useState<number>(0);
   const [activeSkillToolIndex, setActiveSkillToolIndex] = useState<number>(0);
   const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
-  const [rightPanelTab, setRightPanelTab] = useState<'grid' | 'dossier' | 'both'>('grid');
   const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState<boolean>(false);
   const categoryMenuRef = useRef<HTMLDivElement | null>(null);
 
@@ -3596,488 +3595,472 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </div>
 
             {/* ========================================================================= */}
-            {/* B. RIGHT COLUMN: COMPACT 50% AREA TACTICAL HUD (SEES PLANET ROTATE BEHIND)*/}
+            {/* B. RIGHT COLUMN: SPLIT INTO UPPER (DOSSIER) & LOWER (3-COL PHOTO GRID)    */}
             {/* ========================================================================= */}
-            <div className="w-full lg:w-[60%] xl:w-[62%] flex flex-col space-y-2 self-center max-w-[760px] lg:max-w-none">
+            <div className="w-full lg:w-[60%] xl:w-[62%] flex flex-col space-y-3.5 self-center max-w-[760px] lg:max-w-none">
               
-              <div className="w-full max-h-[38vh] sm:max-h-[42vh] bg-[#0c0f14]/85 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
+              {/* ------------------------------------------------------------- */}
+              {/* B1. UPPER SECTION: DOSSIER BRIEFING CARD (CENTERED / COMPACT)  */}
+              {/* ------------------------------------------------------------- */}
+              <div className="w-full max-h-[34vh] sm:max-h-[36vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
                 
-                {/* Comic Panel Header with Integrated Tabs */}
-                <div className="px-3 py-2 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0 flex-wrap gap-1.5">
-                  {/* Left: Code, City & Verification Badge */}
-                  <div className="flex items-center space-x-1.5">
+                {/* Comic Panel Header */}
+                <div className="px-3.5 py-2 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
+                  <div className="flex items-center space-x-2">
+                    {/* Yellow Slanted Stencil Tape */}
                     <div className="bg-[#facc15] text-black font-mono font-black text-xs px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
-                      {currentMission.code}
+                      {currentMission.code} // {currentMission.city.toUpperCase()}
                     </div>
+                    
+                    {/* Country Badge */}
                     <div className="bg-white/10 text-neutral-200 font-mono text-[10px] px-2 py-0.5 border border-white/20">
-                      {currentMission.flag} {currentMission.city.toUpperCase()}
+                      {currentMission.flag} {currentMission.country.toUpperCase()}
                     </div>
+
+                    {/* Verification Stamp */}
                     {currentMission.src || currentMission.embedUrl || (currentMission.availablePages && currentMission.availablePages.length > 0) ? (
                       <span className="hidden sm:inline bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider rotate-1">
-                        {currentLang === 'es' ? 'VERIFICADO' : 'VERIFIED'}
+                        {currentLang === 'es' ? 'REGISTRO REAL' : 'VERIFIED'}
                       </span>
                     ) : (
                       <span className="hidden sm:inline bg-red-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider -rotate-1">
-                        {currentLang === 'es' ? 'PENDIENTE' : 'PENDING'}
+                        {currentLang === 'es' ? 'REGISTRO PENDIENTE' : 'PENDING'}
                       </span>
                     )}
                   </div>
 
-                  {/* Center: Tactical Mode Selector (50% Area Tabs) */}
-                  <div className="flex items-center space-x-1 bg-black/90 p-0.5 rounded border border-white/20">
-                    <button
-                      onClick={() => setRightPanelTab('grid')}
-                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer flex items-center space-x-1 ${
-                        rightPanelTab === 'grid'
-                          ? 'bg-[#facc15] text-black shadow-[1px_1px_0px_#000]'
-                          : 'text-neutral-400 hover:text-white hover:bg-white/10'
-                      }`}
-                      title={currentLang === 'es' ? 'Ver cuadrícula de 3 columnas (mitad de altura)' : 'View 3-column grid (half area)'}
-                    >
-                      <span>⚡ {currentMission.type === 'skills' ? 'SKILLS (3 COL)' : 'TABLERO (3 COL)'}</span>
-                    </button>
-                    <button
-                      onClick={() => setRightPanelTab('dossier')}
-                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer flex items-center space-x-1 ${
-                        rightPanelTab === 'dossier'
-                          ? 'bg-[#facc15] text-black shadow-[1px_1px_0px_#000]'
-                          : 'text-neutral-400 hover:text-white hover:bg-white/10'
-                      }`}
-                      title={currentLang === 'es' ? 'Ver ficha técnica completa' : 'View briefing dossier'}
-                    >
-                      <span>📄 {currentLang === 'es' ? 'FICHA' : 'DOSSIER'}</span>
-                    </button>
-                    <button
-                      onClick={() => setRightPanelTab('both')}
-                      className={`px-1.5 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer ${
-                        rightPanelTab === 'both'
-                          ? 'bg-[#facc15] text-black shadow-[1px_1px_0px_#000]'
-                          : 'text-neutral-400 hover:text-white hover:bg-white/10'
-                      }`}
-                      title={currentLang === 'es' ? 'Ver ambos compactos' : 'View both compact'}
-                    >
-                      <span>☷ {currentLang === 'es' ? 'AMBOS' : 'BOTH'}</span>
-                    </button>
-                  </div>
-
-                  {/* Right: Prev / Next & Close */}
-                  <div className="flex items-center space-x-1">
+                  {/* Prev / Next & Close */}
+                  <div className="flex items-center space-x-1.5">
                     <button
                       onClick={handlePrev}
                       className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
                       title="Misión anterior"
                     >
-                      <ChevronLeft className="w-3.5 h-3.5" />
+                      <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                       onClick={handleNext}
                       className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
                       title="Misión siguiente"
                     >
-                      <ChevronRight className="w-3.5 h-3.5" />
+                      <ChevronRight className="w-4 h-4" />
                     </button>
                     <button
                       onClick={() => setIsDossierOpen(false)}
-                      className="p-1 bg-black hover:bg-red-600 text-white border border-white/40 hover:border-black transition ml-0.5 font-mono font-black shadow-[1px_1px_0px_#000]"
-                      title="Minimizar panel para ver el planeta completo"
+                      className="p-1 bg-black hover:bg-red-600 text-white border border-white/40 hover:border-black transition ml-1 font-mono font-black shadow-[1px_1px_0px_#000]"
+                      title="Minimizar panel para ver el planeta"
                     >
-                      <X className="w-3.5 h-3.5" />
+                      <X className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
 
-                {/* Content Container (50% Area, Smoothly Scrollable) */}
-                <div className="overflow-hidden flex-1 flex flex-col">
-                  {/* TAB 1: DOSSIER FICHA TÉCNICA */}
-                  {(rightPanelTab === 'dossier' || rightPanelTab === 'both') && (
-                    <div className={`overflow-y-auto p-3 sm:p-3.5 space-y-2.5 no-scrollbar ${rightPanelTab === 'both' ? 'max-h-[16vh] border-b-2 border-black/80' : 'max-h-[32vh] sm:max-h-[35vh]'}`}>
-                      {/* Title & Metadata */}
-                      <div>
-                        <div className="flex items-center space-x-2 font-mono text-[10px] text-amber-400 mb-0.5">
-                          <span className="bg-[#facc15] text-black font-mono font-black px-1.5 py-0.2 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
-                            {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
+                {/* Dossier Body Scrollable */}
+                <div className="overflow-y-auto p-3.5 sm:p-4 space-y-3 no-scrollbar">
+                  {/* Title & Metadata */}
+                  <div>
+                    <div className="flex items-center space-x-2 font-mono text-[10px] text-amber-400 mb-0.5">
+                      <span className="bg-[#facc15] text-black font-mono font-black px-1.5 py-0.2 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
+                        {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
+                      </span>
+                      <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
+                    </div>
+
+                    <h2 className="text-base sm:text-lg font-mono font-black text-white uppercase tracking-tight leading-snug">
+                      {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
+                    </h2>
+
+                    <p className="text-xs font-mono text-neutral-300 mt-0.5">
+                      {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
+                    </p>
+                  </div>
+
+                  {/* ⚡ TECH STACK & TOOLS SELECTOR (ARRIBA A LA DERECHA) ⚡ */}
+                  {currentMission.techStack && currentMission.techStack.length > 0 && (
+                    <div className="p-2.5 rounded-lg bg-black/80 border-2 border-[#facc15]/70 shadow-[2px_2px_0px_#000] space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse" />
+                          <span className="font-mono text-xs font-black uppercase text-[#facc15] tracking-wider">
+                            {currentLang === 'es' ? '⚡ HERRAMIENTAS & LOGOS TÉCNICOS:' : '⚡ TECH STACK & TOOLS:'}
                           </span>
-                          <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
                         </div>
-
-                        <h2 className="text-base sm:text-lg font-mono font-black text-white uppercase tracking-tight leading-snug">
-                          {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
-                        </h2>
-
-                        <p className="text-xs font-mono text-neutral-300 mt-0.5">
-                          {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
-                        </p>
+                        <span className="font-mono text-[9px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase">
+                          {currentMission.techStack.length} {currentLang === 'es' ? 'HERRAMIENTAS' : 'TOOLS'}
+                        </span>
                       </div>
-
-                      {/* ⚡ TECH STACK & TOOLS SELECTOR ⚡ */}
-                      {currentMission.techStack && currentMission.techStack.length > 0 && (
-                        <div className="p-2 rounded-lg bg-black/80 border-2 border-[#facc15]/70 shadow-[2px_2px_0px_#000] space-y-1">
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-1.5">
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse" />
-                              <span className="font-mono text-xs font-black uppercase text-[#facc15] tracking-wider">
-                                {currentLang === 'es' ? '⚡ HERRAMIENTAS & LOGOS:' : '⚡ TECH STACK & TOOLS:'}
-                              </span>
-                            </div>
-                            <span className="font-mono text-[9px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase">
-                              {currentMission.techStack.length} {currentLang === 'es' ? 'HERRAMIENTAS' : 'TOOLS'}
-                            </span>
-                          </div>
-                          <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                            {currentMission.techStack.map((tech, tIdx) => {
-                              const isCurrent = currentMission.type === 'skills' && activeSkillToolIndex === tIdx;
-                              return (
-                                <button
-                                  key={tIdx}
-                                  onClick={() => {
-                                    setActiveSkillToolIndex(tIdx);
-                                    setSelectedPlatePage(0);
-                                  }}
-                                  className={`cursor-pointer transition-all ${
-                                    isCurrent
-                                      ? 'ring-2 ring-[#facc15] scale-105 shadow-[0_0_8px_rgba(250,204,21,0.6)]'
-                                      : 'hover:scale-105 opacity-85 hover:opacity-100'
-                                  }`}
-                                  title={`Ver logo y ficha técnica de ${tech}`}
-                                >
-                                  <TechBadge name={tech} size="sm" />
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Impact Synopsis Box */}
-                      <div className="p-2 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-0.5">
-                        <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black">
-                          {currentLang === 'es' ? '[ SINOPSIS METODOLÓGICA & IMPACTO ]' : '[ METHODOLOGY & IMPACT SYNOPSIS ]'}
-                        </div>
-                        <p className="text-xs font-serif text-neutral-200 leading-relaxed">
-                          {currentLang === 'es' ? currentMission.impactEs : currentMission.impactEn}
-                        </p>
+                      <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                        {currentMission.techStack.map((tech, tIdx) => {
+                          const isCurrent = currentMission.type === 'skills' && activeSkillToolIndex === tIdx;
+                          return (
+                            <button
+                              key={tIdx}
+                              onClick={() => {
+                                setActiveSkillToolIndex(tIdx);
+                                setSelectedPlatePage(0);
+                              }}
+                              className={`cursor-pointer transition-all ${
+                                isCurrent
+                                  ? 'ring-2 ring-[#facc15] scale-105 shadow-[0_0_8px_rgba(250,204,21,0.6)]'
+                                  : 'hover:scale-105 opacity-85 hover:opacity-100'
+                              }`}
+                              title={`Ver logo y ficha técnica de ${tech}`}
+                            >
+                              <TechBadge name={tech} size="sm" />
+                            </button>
+                          );
+                        })}
                       </div>
+                    </div>
+                  )}
 
-                      {/* Methodology Bullets */}
+                  {/* Impact Synopsis Box */}
+                  <div className="p-2.5 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-1">
+                    <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black">
+                      {currentLang === 'es' ? '[ SINOPSIS METODOLÓGICA & IMPACTO ]' : '[ METHODOLOGY & IMPACT SYNOPSIS ]'}
+                    </div>
+                    <p className="text-xs font-serif text-neutral-200 leading-relaxed">
+                      {currentLang === 'es' ? currentMission.impactEs : currentMission.impactEn}
+                    </p>
+                  </div>
+
+                  {/* Methodology Bullets */}
+                  <ul className="space-y-1 text-xs font-mono text-neutral-300">
+                    {(currentLang === 'es' ? currentMission.methodologyEs : currentMission.methodologyEn).map((m, mIdx) => (
+                      <li key={mIdx} className="flex items-start space-x-2 bg-black/50 p-1.5 border border-white/10">
+                        <span className="bg-[#facc15] text-black font-mono font-black text-[9px] px-1 border border-black shrink-0">
+                          0{mIdx + 1}
+                        </span>
+                        <span>{m}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Deliverables Box if present */}
+                  {currentMission.deliverablesEs && currentMission.deliverablesEs.length > 0 && (
+                    <div className="p-2.5 rounded-lg bg-black/70 border-2 border-dashed border-[#facc15]/40 space-y-1">
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black flex items-center space-x-1.5">
+                        <Sparkles className="w-3 h-3 text-[#facc15]" />
+                        <span>{currentLang === 'es' ? '[ ENTREGABLES & RESULTADOS TÉCNICOS ]' : '[ DELIVERABLES & TECHNICAL OUTPUTS ]'}</span>
+                      </div>
                       <ul className="space-y-1 text-xs font-mono text-neutral-300">
-                        {(currentLang === 'es' ? currentMission.methodologyEs : currentMission.methodologyEn).map((m, mIdx) => (
-                          <li key={mIdx} className="flex items-start space-x-2 bg-black/50 p-1.5 border border-white/10">
-                            <span className="bg-[#facc15] text-black font-mono font-black text-[9px] px-1 border border-black shrink-0">
-                              0{mIdx + 1}
-                            </span>
-                            <span>{m}</span>
+                        {(currentLang === 'es' ? currentMission.deliverablesEs : currentMission.deliverablesEn || currentMission.deliverablesEs).map((d, dIdx) => (
+                          <li key={dIdx} className="flex items-start space-x-2 bg-black/40 p-1.5 border border-white/5 rounded">
+                            <span className="text-[#facc15] font-black">✔</span>
+                            <span>{d}</span>
                           </li>
                         ))}
                       </ul>
-
-                      {/* Deliverables Box if present */}
-                      {currentMission.deliverablesEs && currentMission.deliverablesEs.length > 0 && (
-                        <div className="p-2 rounded-lg bg-black/70 border-2 border-dashed border-[#facc15]/40 space-y-1">
-                          <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black flex items-center space-x-1.5">
-                            <Sparkles className="w-3 h-3 text-[#facc15]" />
-                            <span>{currentLang === 'es' ? '[ ENTREGABLES & RESULTADOS TÉCNICOS ]' : '[ DELIVERABLES & TECHNICAL OUTPUTS ]'}</span>
-                          </div>
-                          <ul className="space-y-1 text-xs font-mono text-neutral-300">
-                            {(currentLang === 'es' ? currentMission.deliverablesEs : currentMission.deliverablesEn || currentMission.deliverablesEs).map((d, dIdx) => (
-                              <li key={dIdx} className="flex items-start space-x-2 bg-black/40 p-1.5 border border-white/5 rounded">
-                                <span className="text-[#facc15] font-black">✔</span>
-                                <span>{d}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-
-                      {/* Links & Tags */}
-                      <div className="pt-1.5 border-t-2 border-black flex flex-wrap items-center justify-between gap-1.5">
-                        <div className="flex flex-wrap gap-1">
-                          {currentMission.tags.map((t, idx) => (
-                            <span key={idx} className="px-2 py-0.5 font-mono text-[9px] bg-white/10 text-neutral-300 border border-white/15">
-                              #{t}
-                            </span>
-                          ))}
-                        </div>
-
-                        <div className="flex items-center space-x-2">
-                          {onOpenArtDirector && (currentMission.type === 'culture' || currentMission.id.includes('beauchef') || currentMission.id.includes('cuarentena')) && (
-                            <button
-                              onClick={onOpenArtDirector}
-                              className="px-2.5 py-1 bg-[#f97316] hover:bg-white text-black font-mono font-black text-[11px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95 cursor-pointer -rotate-1"
-                              title="Saber más: Arquitectura cultural, Rap Beauchef y Cuarentena Rap"
-                            >
-                              <span>⚡ {currentLang === 'es' ? 'SABER MÁS // RAP' : 'DEEP DIVE // RAP'}</span>
-                            </button>
-                          )}
-
-                          {currentMission.url && (
-                            <a
-                              href={currentMission.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-[11px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
-                            >
-                              <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
-                              <ExternalLink className="w-3 h-3" />
-                            </a>
-                          )}
-                        </div>
-                      </div>
                     </div>
                   )}
 
-                  {/* TAB 2: GRID DE 3 COLUMNAS (SKILLS / MISIONES) */}
-                  {(rightPanelTab === 'grid' || rightPanelTab === 'both') && (
-                    <div className="flex flex-col flex-1 overflow-hidden">
-                      {/* Quick Track Switcher when inside Skills */}
-                      {currentMission.type === 'skills' && (
-                        <div className="flex items-center space-x-1.5 bg-black/70 px-3 py-1.5 border-b border-white/10 overflow-x-auto no-scrollbar shrink-0">
-                          <button
-                            onClick={() => {
-                              handleSelectMission('skills-ciencia-geofisica');
-                              setActiveSkillToolIndex(0);
-                            }}
-                            className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
-                              currentMission.id === 'skills-ciencia-geofisica'
-                                ? 'bg-red-600 text-white shadow-sm ring-1 ring-white/50'
-                                : 'bg-white/10 text-neutral-300 hover:bg-white/20'
-                            }`}
-                          >
-                            ⚡ CIENCIA (9)
-                          </button>
-                          <button
-                            onClick={() => {
-                              handleSelectMission('skills-comms-cultura');
-                              setActiveSkillToolIndex(0);
-                            }}
-                            className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
-                              currentMission.id === 'skills-comms-cultura'
-                                ? 'bg-emerald-600 text-white shadow-sm ring-1 ring-white/50'
-                                : 'bg-white/10 text-neutral-300 hover:bg-white/20'
-                            }`}
-                          >
-                            🎬 MEDIOS (6)
-                          </button>
-                          <button
-                            onClick={() => {
-                              handleSelectMission('skills-equipos-idiomas');
-                              setActiveSkillToolIndex(0);
-                            }}
-                            className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
-                              currentMission.id === 'skills-equipos-idiomas'
-                                ? 'bg-cyan-600 text-white shadow-sm ring-1 ring-white/50'
-                                : 'bg-white/10 text-neutral-300 hover:bg-white/20'
-                            }`}
-                          >
-                            🔬 INSTRUMENTAL (6)
-                          </button>
-                        </div>
+                  {/* Links & Tags & Comic Barcode */}
+                  <div className="pt-2 border-t-2 border-black flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex flex-wrap gap-1">
+                      {currentMission.tags.map((t, idx) => (
+                        <span key={idx} className="px-2 py-0.5 font-mono text-[9px] bg-white/10 text-neutral-300 border border-white/15">
+                          #{t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      {onOpenArtDirector && (currentMission.type === 'culture' || currentMission.id.includes('beauchef') || currentMission.id.includes('cuarentena')) && (
+                        <button
+                          onClick={onOpenArtDirector}
+                          className="px-2.5 py-1 bg-[#f97316] hover:bg-white text-black font-mono font-black text-[11px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95 cursor-pointer -rotate-1"
+                          title="Saber más: Arquitectura cultural, Rap Beauchef y Cuarentena Rap"
+                        >
+                          <span>⚡ {currentLang === 'es' ? 'SABER MÁS // RAP' : 'DEEP DIVE // RAP'}</span>
+                        </button>
                       )}
 
-                      {/* 3 COLUMNS GRID OF PINNED CARDS */}
-                      <div className={`overflow-y-auto p-2 sm:p-2.5 pt-3 no-scrollbar grid grid-cols-3 gap-2 sm:gap-2.5 ${rightPanelTab === 'both' ? 'max-h-[19vh]' : 'max-h-[31vh] sm:max-h-[34vh]'}`}>
-                        {currentMission.type === 'skills' ? (
-                          /* ★ SKILLS AS SEPARATE 3-COL CARDS ★ */
-                          (() => {
-                            const activeToolList =
-                              currentMission.id === 'skills-comms-cultura' ? TOOLS_COMMS :
-                              currentMission.id === 'skills-equipos-idiomas' ? TOOLS_EQUIPOS :
-                              TOOLS_CIENCIA;
-
-                            return activeToolList.map((tool, tIdx) => {
-                              const isToolActive = activeSkillToolIndex === tIdx;
-                              const rotation =
-                                tIdx % 3 === 0 ? '-rotate-1' :
-                                tIdx % 3 === 1 ? 'rotate-1' :
-                                '-rotate-0.5';
-
-                              return (
-                                <div
-                                  key={tool.name}
-                                  onClick={() => {
-                                    setActiveSkillToolIndex(tIdx);
-                                    setSelectedPlatePage(0);
-                                  }}
-                                  className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
-                                    isToolActive
-                                      ? 'scale-102 -rotate-1 z-20 shadow-[4px_4px_0px_#000000] ring-2 ring-red-600'
-                                      : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[2px_2px_0px_#000000] opacity-90 hover:opacity-100`
-                                  }`}
-                                  title={`Ver ficha técnica de ${tool.name}`}
-                                >
-                                  {/* Pushpin pinned through top edge */}
-                                  <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                                    <div className="w-3 h-3 rounded-full bg-cyan-500 border border-black shadow-[0_1px_3px_rgba(0,0,0,0.8)] flex items-center justify-center">
-                                      <div className="w-0.5 h-0.5 rounded-full bg-white/90" />
-                                    </div>
-                                  </div>
-
-                                  {/* Single Logo Frame - MASSIVE HERO LOGO, ALMOST ZERO EMPTY BACKGROUND */}
-                                  <div className="relative w-full h-[96px] sm:h-[108px] bg-[#090d16] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-0.5 group-hover:border-cyan-300">
-                                    <div
-                                      className="absolute inset-0 rounded blur-xl opacity-40 pointer-events-none"
-                                      style={{ backgroundColor: tool.color }}
-                                    />
-                                    <TechLogo name={tool.name} size={88} className="relative z-10 drop-shadow-[0_4px_16px_rgba(0,0,0,0.98)] transition-transform duration-200 group-hover:scale-108" />
-                                    
-                                    {/* Mini index */}
-                                    <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[7px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
-                                      #{tIdx + 1}
-                                    </div>
-                                  </div>
-
-                                  {/* Caption */}
-                                  <div className="flex flex-col space-y-0.5">
-                                    <div className="flex items-center space-x-1 font-mono text-[8px] font-bold text-neutral-800">
-                                      <span className="text-cyan-700 font-black">★</span>
-                                      <span className="uppercase tracking-tight truncate font-black text-[9px] text-neutral-900">
-                                        {tool.name}
-                                      </span>
-                                    </div>
-
-                                    <div className="relative pt-0.5">
-                                      {isToolActive ? (
-                                        <div className="border border-red-600 rounded-[5px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
-                                          <h4 className="font-mono font-black text-[8px] text-red-700 line-clamp-1 leading-tight uppercase">
-                                            {tool.name}
-                                          </h4>
-                                        </div>
-                                      ) : (
-                                        <h4 className="font-mono font-bold text-[8px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
-                                          {tool.name}
-                                        </h4>
-                                      )}
-                                    </div>
-
-                                    <div className="text-[7px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
-                                      <span className="text-[#b45309] font-black">{tool.level.split(' ')[0]}</span>
-                                      <span className="text-neutral-400 truncate max-w-[60px]">{tool.tags.split(',')[0]}</span>
-                                    </div>
-                                  </div>
-                                </div>
-                              );
-                            });
-                          })()
-                        ) : (
-                          /* ★ EXPEDITIONS / MISSIONS AS 3-COL CARDS ★ */
-                          filteredMissions.map((m, idx) => {
-                            const isSelected = m.id === selectedMissionId;
-
-                            const pinColor = 
-                              m.type === 'science' ? 'bg-red-600 border-red-900' :
-                              m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
-                              m.type === 'global' ? 'bg-amber-500 border-amber-800' :
-                              m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
-                              m.type === 'titles' ? 'bg-pink-600 border-pink-900' :
-                              m.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
-                              'bg-purple-600 border-purple-900';
-
-                            const rotation = 
-                              idx % 3 === 0 ? '-rotate-1' :
-                              idx % 3 === 1 ? 'rotate-1' :
-                              '-rotate-0.5';
-
-                            return (
-                              <div
-                                key={m.id}
-                                onClick={() => handleSelectMission(m.id)}
-                                className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
-                                  isSelected
-                                    ? 'scale-102 -rotate-1 z-20 shadow-[4px_4px_0px_#000000] ring-2 ring-red-600'
-                                    : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[2px_2px_0px_#000000] opacity-90 hover:opacity-100`
-                                }`}
-                              >
-                                {/* Pushpin pinned through top edge */}
-                                <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                                  <div className={`w-3 h-3 rounded-full ${pinColor} border border-black shadow-[0_1px_3px_rgba(0,0,0,0.8)] flex items-center justify-center`}>
-                                    <div className="w-0.5 h-0.5 rounded-full bg-white/90" />
-                                  </div>
-                                </div>
-
-                                {/* Image / Preview Frame */}
-                                <div className="relative w-full aspect-[4/3] bg-[#12161f] border border-black/40 overflow-hidden mb-1 flex items-center justify-center">
-                                  {m.mediaType === 'video' ? (
-                                    <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
-                                      <Play className="w-4 h-4 text-red-500 fill-red-500/30" />
-                                      <span className="absolute bottom-0.5 right-0.5 font-mono text-[5px] bg-red-600 text-white px-0.5 font-black uppercase">
-                                        REC
-                                      </span>
-                                    </div>
-                                  ) : m.mediaType === 'audio' ? (
-                                    <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center text-center text-emerald-400">
-                                      <Volume2 className="w-4 h-4" />
-                                      <span className="font-mono text-[6px] font-bold">96.3 FM</span>
-                                    </div>
-                                  ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
-                                    <div className="w-full h-full bg-[#090d16] p-1 flex flex-col items-center justify-center">
-                                      <TechLogo name={m.techStack?.[0] || 'Python'} size={76} className="drop-shadow-[0_4px_14px_rgba(0,0,0,0.98)]" />
-                                      <span className="font-mono text-[7px] text-cyan-300 font-bold mt-0.5 uppercase">
-                                        {m.city}
-                                      </span>
-                                    </div>
-                                  ) : m.availablePages && m.availablePages.length > 0 ? (
-                                    <img
-                                      src={resolveAsset(m.availablePages[0].pageSrc)}
-                                      alt={m.titleEs}
-                                      className="w-full h-full object-cover filter contrast-105"
-                                    />
-                                  ) : m.src ? (
-                                    <img
-                                      src={resolveAsset(m.src)}
-                                      alt={m.titleEs}
-                                      className="w-full h-full object-cover filter contrast-105"
-                                    />
-                                  ) : (
-                                    <div className="w-full h-full bg-[#0f172a] border border-dashed border-cyan-500/40 p-0.5 flex flex-col items-center justify-center text-center">
-                                      <span className="font-mono text-[6px] font-black text-cyan-400 uppercase">
-                                        [DOC]
-                                      </span>
-                                    </div>
-                                  )}
-
-                                  {/* Mini Sticky Note */}
-                                  <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[7px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-2 uppercase">
-                                    {m.code}
-                                  </div>
-                                </div>
-
-                                {/* Caption */}
-                                <div className="flex flex-col space-y-0.5">
-                                  <div className="flex items-center space-x-1 font-mono text-[8px] font-bold text-neutral-800">
-                                    <span className="text-emerald-700 font-black">✔</span>
-                                    <span className="uppercase tracking-tight truncate">
-                                      {m.flag} {m.city}
-                                    </span>
-                                  </div>
-
-                                  {/* Title with Red Marker Oval if Selected */}
-                                  <div className="relative pt-0.5">
-                                    {isSelected ? (
-                                      <div className="border border-red-600 rounded-[5px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
-                                        <h4 className="font-mono font-black text-[8px] text-red-700 line-clamp-1 leading-tight uppercase">
-                                          {currentLang === 'es' ? m.titleEs : m.titleEn}
-                                        </h4>
-                                      </div>
-                                    ) : (
-                                      <h4 className="font-mono font-bold text-[8px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
-                                        {currentLang === 'es' ? m.titleEs : m.titleEn}
-                                      </h4>
-                                    )}
-                                  </div>
-
-                                  <div className="text-[7px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
-                                    <span className="truncate">{m.date}</span>
-                                    <span className="font-bold text-[7px] text-neutral-600 uppercase">{m.type}</span>
-                                  </div>
-                                </div>
-                              </div>
-                            );
-                          })
-                        )}
-                      </div>
+                      {currentMission.url && (
+                        <a
+                          href={currentMission.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-[11px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
+                        >
+                          <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
                     </div>
-                  )}
+                  </div>
+                </div>
+              </div>
+
+              {/* ------------------------------------------------------------- */}
+              {/* B2. LOWER SECTION: REST OF PHOTOS / MISSIONS IN 3 COLUMNS      */}
+              {/* ------------------------------------------------------------- */}
+              <div className="w-full max-h-[40vh] sm:max-h-[42vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
+                
+                {/* Header with Title and Counter */}
+                <div className="px-3.5 py-2 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
+                  <div className="flex items-center space-x-2">
+                    <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
+                    <span className="font-mono font-black text-xs text-[#facc15] uppercase tracking-wide">
+                      {currentMission.type === 'skills'
+                        ? (currentLang === 'es' ? '★ HERRAMIENTAS & SKILLS (3 COLUMNAS) ★' : '★ SKILLS & TOOLS (3 COLUMNS) ★')
+                        : (currentLang === 'es' ? '★ EXPEDIENTES & MISIONES (3 COLUMNAS) ★' : '★ FIELD CONTRACTS (3 COLUMNS) ★')}
+                    </span>
+                  </div>
+                  <div className="flex items-center space-x-1.5">
+                    <span className="font-mono text-[10px] bg-[#facc15] text-black px-2 py-0.5 font-black uppercase">
+                      {currentMission.type === 'skills'
+                        ? (currentMission.id === 'skills-comms-cultura' ? TOOLS_COMMS.length : currentMission.id === 'skills-equipos-idiomas' ? TOOLS_EQUIPOS.length : TOOLS_CIENCIA.length)
+                        : filteredMissions.length} {currentLang === 'es' ? 'ELEMENTOS' : 'ITEMS'}
+                    </span>
+                  </div>
                 </div>
 
+                {/* Quick Track Switcher when inside Skills */}
+                {currentMission.type === 'skills' && (
+                  <div className="flex items-center space-x-1.5 bg-black/70 px-3 py-1.5 border-b border-white/10 overflow-x-auto no-scrollbar shrink-0">
+                    <button
+                      onClick={() => {
+                        handleSelectMission('skills-ciencia-geofisica');
+                        setActiveSkillToolIndex(0);
+                      }}
+                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
+                        currentMission.id === 'skills-ciencia-geofisica'
+                          ? 'bg-red-600 text-white shadow-sm ring-1 ring-white/50'
+                          : 'bg-white/10 text-neutral-300 hover:bg-white/20'
+                      }`}
+                    >
+                      ⚡ CIENCIA (9)
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleSelectMission('skills-comms-cultura');
+                        setActiveSkillToolIndex(0);
+                      }}
+                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
+                        currentMission.id === 'skills-comms-cultura'
+                          ? 'bg-emerald-600 text-white shadow-sm ring-1 ring-white/50'
+                          : 'bg-white/10 text-neutral-300 hover:bg-white/20'
+                      }`}
+                    >
+                      🎬 MEDIOS (6)
+                    </button>
+                    <button
+                      onClick={() => {
+                        handleSelectMission('skills-equipos-idiomas');
+                        setActiveSkillToolIndex(0);
+                      }}
+                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
+                        currentMission.id === 'skills-equipos-idiomas'
+                          ? 'bg-cyan-600 text-white shadow-sm ring-1 ring-white/50'
+                          : 'bg-white/10 text-neutral-300 hover:bg-white/20'
+                      }`}
+                    >
+                      🔬 INSTRUMENTAL (6)
+                    </button>
+                  </div>
+                )}
+
+                {/* 3 COLUMNS GRID OF PINNED CARDS */}
+                <div className="overflow-y-auto p-2.5 pt-3.5 no-scrollbar grid grid-cols-3 gap-2 sm:gap-2.5">
+                  {currentMission.type === 'skills' ? (
+                    /* ★ SKILLS AS SEPARATE 3-COL CARDS ★ */
+                    (() => {
+                      const activeToolList =
+                        currentMission.id === 'skills-comms-cultura' ? TOOLS_COMMS :
+                        currentMission.id === 'skills-equipos-idiomas' ? TOOLS_EQUIPOS :
+                        TOOLS_CIENCIA;
+
+                      return activeToolList.map((tool, tIdx) => {
+                        const isToolActive = activeSkillToolIndex === tIdx;
+                        const rotation =
+                          tIdx % 3 === 0 ? '-rotate-1' :
+                          tIdx % 3 === 1 ? 'rotate-1' :
+                          '-rotate-0.5';
+
+                        return (
+                          <div
+                            key={tool.name}
+                            onClick={() => {
+                              setActiveSkillToolIndex(tIdx);
+                              setSelectedPlatePage(0);
+                            }}
+                            className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                              isToolActive
+                                ? 'scale-102 -rotate-1 z-20 shadow-[4px_4px_0px_#000000] ring-2 ring-red-600'
+                                : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[2px_2px_0px_#000000] opacity-90 hover:opacity-100`
+                            }`}
+                            title={`Ver ficha técnica de ${tool.name}`}
+                          >
+                            {/* Pushpin pinned through top edge */}
+                            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                              <div className="w-3 h-3 rounded-full bg-cyan-500 border border-black shadow-[0_1px_3px_rgba(0,0,0,0.8)] flex items-center justify-center">
+                                <div className="w-0.5 h-0.5 rounded-full bg-white/90" />
+                              </div>
+                            </div>
+
+                            {/* Single Logo Frame - MASSIVE HERO LOGO, ALMOST ZERO EMPTY BACKGROUND */}
+                            <div className="relative w-full h-[96px] sm:h-[108px] bg-[#090d16] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-0.5 group-hover:border-cyan-300">
+                              <div
+                                className="absolute inset-0 rounded blur-xl opacity-40 pointer-events-none"
+                                style={{ backgroundColor: tool.color }}
+                              />
+                              <TechLogo name={tool.name} size={88} className="relative z-10 drop-shadow-[0_4px_16px_rgba(0,0,0,0.98)] transition-transform duration-200 group-hover:scale-108" />
+                              
+                              {/* Mini index */}
+                              <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[7px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
+                                #{tIdx + 1}
+                              </div>
+                            </div>
+
+                            {/* Caption */}
+                            <div className="flex flex-col space-y-0.5">
+                              <div className="flex items-center space-x-1 font-mono text-[8px] font-bold text-neutral-800">
+                                <span className="text-cyan-700 font-black">★</span>
+                                <span className="uppercase tracking-tight truncate font-black text-[9px] text-neutral-900">
+                                  {tool.name}
+                                </span>
+                              </div>
+
+                              <div className="relative pt-0.5">
+                                {isToolActive ? (
+                                  <div className="border border-red-600 rounded-[5px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
+                                    <h4 className="font-mono font-black text-[8px] text-red-700 line-clamp-1 leading-tight uppercase">
+                                      {tool.name}
+                                    </h4>
+                                  </div>
+                                ) : (
+                                  <h4 className="font-mono font-bold text-[8px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
+                                    {tool.name}
+                                  </h4>
+                                )}
+                              </div>
+
+                              <div className="text-[7px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
+                                <span className="text-[#b45309] font-black">{tool.level.split(' ')[0]}</span>
+                                <span className="text-neutral-400 truncate max-w-[60px]">{tool.tags.split(',')[0]}</span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      });
+                    })()
+                  ) : (
+                    /* ★ EXPEDITIONS / MISSIONS AS 3-COL CARDS ★ */
+                    filteredMissions.map((m, idx) => {
+                      const isSelected = m.id === selectedMissionId;
+
+                      const pinColor = 
+                        m.type === 'science' ? 'bg-red-600 border-red-900' :
+                        m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
+                        m.type === 'global' ? 'bg-amber-500 border-amber-800' :
+                        m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
+                        m.type === 'titles' ? 'bg-pink-600 border-pink-900' :
+                        m.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
+                        'bg-purple-600 border-purple-900';
+
+                      const rotation = 
+                        idx % 3 === 0 ? '-rotate-1' :
+                        idx % 3 === 1 ? 'rotate-1' :
+                        '-rotate-0.5';
+
+                      return (
+                        <div
+                          key={m.id}
+                          onClick={() => handleSelectMission(m.id)}
+                          className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                            isSelected
+                              ? 'scale-102 -rotate-1 z-20 shadow-[4px_4px_0px_#000000] ring-2 ring-red-600'
+                              : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[2px_2px_0px_#000000] opacity-90 hover:opacity-100`
+                          }`}
+                        >
+                          {/* Pushpin pinned through top edge */}
+                          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                            <div className={`w-3 h-3 rounded-full ${pinColor} border border-black shadow-[0_1px_3px_rgba(0,0,0,0.8)] flex items-center justify-center`}>
+                              <div className="w-0.5 h-0.5 rounded-full bg-white/90" />
+                            </div>
+                          </div>
+
+                          {/* Image / Preview Frame */}
+                          <div className="relative w-full aspect-[4/3] bg-[#12161f] border border-black/40 overflow-hidden mb-1 flex items-center justify-center">
+                            {m.mediaType === 'video' ? (
+                              <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
+                                <Play className="w-4 h-4 text-red-500 fill-red-500/30" />
+                                <span className="absolute bottom-0.5 right-0.5 font-mono text-[5px] bg-red-600 text-white px-0.5 font-black uppercase">
+                                  REC
+                                </span>
+                              </div>
+                            ) : m.mediaType === 'audio' ? (
+                              <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center text-center text-emerald-400">
+                                <Volume2 className="w-4 h-4" />
+                                <span className="font-mono text-[6px] font-bold">96.3 FM</span>
+                              </div>
+                            ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
+                              <div className="w-full h-full bg-[#090d16] p-1 flex flex-col items-center justify-center">
+                                <TechLogo name={m.techStack?.[0] || 'Python'} size={76} className="drop-shadow-[0_4px_14px_rgba(0,0,0,0.98)]" />
+                                <span className="font-mono text-[7px] text-cyan-300 font-bold mt-0.5 uppercase">
+                                  {m.city}
+                                </span>
+                              </div>
+                            ) : m.availablePages && m.availablePages.length > 0 ? (
+                              <img
+                                src={resolveAsset(m.availablePages[0].pageSrc)}
+                                alt={m.titleEs}
+                                className="w-full h-full object-cover filter contrast-105"
+                              />
+                            ) : m.src ? (
+                              <img
+                                src={resolveAsset(m.src)}
+                                alt={m.titleEs}
+                                className="w-full h-full object-cover filter contrast-105"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-[#0f172a] border border-dashed border-cyan-500/40 p-0.5 flex flex-col items-center justify-center text-center">
+                                <span className="font-mono text-[6px] font-black text-cyan-400 uppercase">
+                                  [DOC]
+                                </span>
+                              </div>
+                            )}
+
+                            {/* Mini Sticky Note */}
+                            <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[7px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-2 uppercase">
+                              {m.code}
+                            </div>
+                          </div>
+
+                          {/* Caption */}
+                          <div className="flex flex-col space-y-0.5">
+                            <div className="flex items-center space-x-1 font-mono text-[8px] font-bold text-neutral-800">
+                              <span className="text-emerald-700 font-black">✔</span>
+                              <span className="uppercase tracking-tight truncate">
+                                {m.flag} {m.city}
+                              </span>
+                            </div>
+
+                            {/* Title with Red Marker Oval if Selected */}
+                            <div className="relative pt-0.5">
+                              {isSelected ? (
+                                <div className="border border-red-600 rounded-[5px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
+                                  <h4 className="font-mono font-black text-[8px] text-red-700 line-clamp-1 leading-tight uppercase">
+                                    {currentLang === 'es' ? m.titleEs : m.titleEn}
+                                  </h4>
+                                </div>
+                              ) : (
+                                <h4 className="font-mono font-bold text-[8px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
+                                  {currentLang === 'es' ? m.titleEs : m.titleEn}
+                                </h4>
+                              )}
+                            </div>
+
+                            <div className="text-[7px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
+                              <span className="truncate">{m.date}</span>
+                              <span className="font-bold text-[7px] text-neutral-600 uppercase">{m.type}</span>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })
+                  )}
+                </div>
               </div>
 
             </div>
