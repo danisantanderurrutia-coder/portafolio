@@ -21,7 +21,7 @@ import {
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
 import { TechBadge, TechLogo } from './TechLogos';
-export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture' | 'publications' | 'titles' | 'skills';
+export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture' | 'publications' | 'titles' | 'certifications' | 'skills';
 
 export interface GameMission {
   id: string;
@@ -498,10 +498,10 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Costa Rica', 'San José', 'Justicia Climática', 'Organizaciones Ambientales']
   },
 
-  // 10. CIENCIA: WSL BlueGreen Biodiversity - Davos, Suiza
+  // 10. CERTIFICACIONES ADICIONALES: WSL BlueGreen Biodiversity - Davos, Suiza
   {
     id: 'wsl-davos',
-    type: 'science',
+    type: 'certifications',
     titleEs: 'Certificación: BlueGreen Biodiversity // WSL Davos, Suiza',
     titleEn: 'Certification: BlueGreen Biodiversity // WSL Davos, Switzerland',
     subtitleEs: 'WSL Swiss Federal Research Institute | 2025',
@@ -515,21 +515,21 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Investigador Certificado WSL',
     roleEn: 'WSL Certified Researcher',
     mediaType: 'plate',
-    src: '/expeditions/davos_stream_fieldwork.jpg',
+    src: '/expeditions/davos_wsl_group.png',
     availablePages: [
-      {
-        titleEs: 'Relevamiento Ripario y Fluvial en Valle Flüela (Davos)',
-        titleEn: 'Riparian Stream Survey in Flüela Valley (Davos)',
-        pageSrc: '/expeditions/davos_stream_fieldwork.jpg'
-      },
       {
         titleEs: 'Cohorte de Investigación WSL BlueGreen Biodiversity',
         titleEn: 'WSL Davos Research Cohort • BlueGreen Biodiversity',
         pageSrc: '/expeditions/davos_wsl_group.png'
+      },
+      {
+        titleEs: 'Relevamiento Ripario y Fluvial en Valle Flüela (Davos)',
+        titleEn: 'Riparian Stream Survey in Flüela Valley (Davos)',
+        pageSrc: '/expeditions/davos_stream_fieldwork.jpg'
       }
     ],
     url: 'https://www.wsl.ch',
-    code: 'OPS-SCI-03',
+    code: 'OPS-CERT-01',
     source: 'WSL Davos (CV)',
     impactEs: 'Certificación en BlueGreen Biodiversity obtenida en el Instituto Federal Suizo de Investigación WSL (Davos, Suiza, 2025, según CV).',
     impactEn: 'Certification in BlueGreen Biodiversity from WSL Swiss Federal Research Institute (Davos, Switzerland, 2025, from CV).',
@@ -546,10 +546,10 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Davos', 'Suiza', 'WSL', 'BlueGreen Biodiversity', 'Certificación']
   },
 
-  // 11. CIENCIA: Doughnut Economics - Copenhague, Dinamarca
+  // 11. CERTIFICACIONES ADICIONALES: Doughnut Economics - Copenhague, Dinamarca
   {
     id: 'deal-copenhagen',
-    type: 'science',
+    type: 'certifications',
     titleEs: 'Certificación: Doughnut Economics // DEAL Copenhague',
     titleEn: 'Certification: Doughnut Economics // DEAL Copenhagen',
     subtitleEs: 'DEAL Copenhagen, Dinamarca | 2025',
@@ -562,9 +562,22 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2025',
     roleEs: 'Especialista Certificado DEAL',
     roleEn: 'DEAL Certified Specialist',
-    mediaType: 'pending',
+    mediaType: 'plate',
+    src: '/expeditions/oslo_degrowth_logo.png',
+    availablePages: [
+      {
+        titleEs: '10ª Conferencia Internacional de Decrecimiento (Oslo)',
+        titleEn: '10th International Degrowth Conference (Oslo)',
+        pageSrc: '/expeditions/oslo_degrowth_logo.png'
+      },
+      {
+        titleEs: 'Prensa Oficial: Modelación de Límites Planetarios (El Desconcierto)',
+        titleEn: 'Official Press: Planetary Boundaries Modeling (El Desconcierto)',
+        pageSrc: '/press_covers/desconcierto_noruega_screen.png'
+      }
+    ],
     url: 'https://doughnuteconomics.org',
-    code: 'OPS-SCI-04',
+    code: 'OPS-CERT-02',
     source: 'Doughnut Economics Action Lab (DEAL Copenhagen, CV)',
     impactEs: 'Certificación en Doughnut Economics (DEAL Copenhague, Dinamarca, 2025, según CV).',
     impactEn: 'Certification in Doughnut Economics (DEAL Copenhagen, Denmark, 2025, from CV).',
@@ -581,10 +594,10 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Copenhague', 'Dinamarca', 'Doughnut Economics', 'DEAL', 'Certificación']
   },
 
-  // 12. CIENCIA: Interlinked Justice - Dresden, Alemania
+  // 12. CERTIFICACIONES ADICIONALES: Interlinked Justice - Dresden, Alemania
   {
     id: 'dresden-justice',
-    type: 'science',
+    type: 'certifications',
     titleEs: 'Certificación: Interlinked Justice // Dresden, Alemania',
     titleEn: 'Certification: Interlinked Justice // Dresden, Germany',
     subtitleEs: 'Programa Académico en Dresden | Certificación Oficial',
@@ -597,8 +610,21 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2024-2025',
     roleEs: 'Participante Certificado',
     roleEn: 'Certified Participant',
-    mediaType: 'pending',
-    code: 'OPS-SCI-05',
+    mediaType: 'plate',
+    src: '/expeditions/hamburg_enjust_library.jpg',
+    availablePages: [
+      {
+        titleEs: 'Mesa Plenaria en Biblioteca Histórica de Hamburgo (ENJUST)',
+        titleEn: 'Plenary Session in Hamburg Historical Library (ENJUST)',
+        pageSrc: '/expeditions/hamburg_enjust_library.jpg'
+      },
+      {
+        titleEs: 'Red Europea de Justicia Ambiental (ENJUST Bonn/Hamburgo)',
+        titleEn: 'European Environmental Justice Network (ENJUST)',
+        pageSrc: '/expeditions/enjust_logo.png'
+      }
+    ],
+    code: 'OPS-CERT-03',
     source: 'Interlinked Justice Dresden (CV)',
     impactEs: 'Certificación académica en Interlinked Justice (Dresden - Alemania, según sección Additional Information del CV).',
     impactEn: 'Academic certification in Interlinked Justice (Dresden - Germany, from CV Additional Information section).',
@@ -1404,227 +1430,171 @@ export const GAME_MISSIONS: GameMission[] = [
   },
 
   // ==============================================================
-  // SECCIÓN: TÍTULOS ACADÉMICOS, CERTIFICACIONES & EXPEDICIONES (4)
+  // SECCIÓN: TÍTULOS ACADÉMICOS UNIVERSITARIOS (3)
   // ==============================================================
 
-  // 34. TÍTULOS ACADÉMICOS: Grados Universitarios Oficiales (Kiel, AMU & U. de Chile)
+  // 34. TÍTULOS ACADÉMICOS: Universidad de Chile - Geofísica
   {
-    id: 'titulos-oficiales',
+    id: 'titulo-uchile',
     type: 'titles',
-    titleEs: 'Grados Universitarios Oficiales: Dual M.Sc. Europa & Geofísico U. de Chile',
-    titleEn: 'Official University Degrees: Dual European M.Sc. & Geophysicist U. of Chile',
-    subtitleEs: 'CAU Kiel (Alemania) • AMU Poznań (Polonia) • FCFM U. de Chile (Distinción Máxima)',
-    subtitleEn: 'CAU Kiel (Germany) • AMU Poznań (Poland) • FCFM U. of Chile (Highest Distinction)',
-    country: 'Alemania / Chile',
-    city: 'Kiel • Santiago',
-    flag: '🎓',
-    lat: 54.32,
-    lng: 10.13,
-    date: '2015-2026',
-    roleEs: 'Doble Máster en Ciencias & Geofísico',
-    roleEn: 'Dual Master of Science & Geophysicist',
+    titleEs: 'Geofísico. Licenciatura en Ciencias, mención Geofísica',
+    titleEn: 'Geophysicist. Bachelor of Science in Geophysics',
+    subtitleEs: 'Universidad de Chile • Aprobado con distinción (2021)',
+    subtitleEn: 'University of Chile • Awarded with distinction (2021)',
+    country: 'Chile',
+    city: 'Santiago',
+    flag: '🇨🇱',
+    lat: -33.45,
+    lng: -70.66,
+    date: '2021',
+    roleEs: 'Geofísico (Aprobado con Distinción)',
+    roleEn: 'Geophysicist (Awarded with Distinction)',
     mediaType: 'plate',
-    src: '/expeditions/kiel_soil_lab.png',
+    src: '/logos/universidad_de_chile_logo.svg',
     availablePages: [
       {
-        titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo (CAU Kiel, Alemania)',
-        titleEn: 'Soil Physics Laboratory & Flow Column Diagnostics (CAU Kiel, Germany)',
-        pageSrc: '/expeditions/kiel_soil_lab.png'
+        titleEs: 'Logotipo Oficial • Universidad de Chile',
+        titleEn: 'Official Logo • University of Chile',
+        pageSrc: '/logos/universidad_de_chile_logo.svg'
       },
       {
-        titleEs: 'Muestreo Limnológico de Perifiton en Lago (AMU Poznań, Polonia)',
-        titleEn: 'Limnological Periphyton Lake Sampling (AMU Poznań, Poland)',
-        pageSrc: '/expeditions/poland_lake_sampling.jpg'
+        titleEs: 'Facultad de Ciencias Físicas y Matemáticas (FCFM)',
+        titleEn: 'Faculty of Physical & Mathematical Sciences (FCFM)',
+        pageSrc: '/logos/fcfm_uchile_logo.jpg'
       },
       {
-        titleEs: 'Lámina 1: Perfil Académico y Geofísica FCFM Universidad de Chile',
-        titleEn: 'Plate 1: Academic Profile & Geophysics FCFM University of Chile',
+        titleEs: 'Lámina 1: Perfil Académico y Geofísica FCFM',
+        titleEn: 'Plate 1: Academic Profile & Geophysics FCFM',
         pageSrc: '/portfolio_pages/page_1.png'
       }
     ],
-    url: 'https://www.uni-kiel.de',
+    url: 'https://uchile.cl',
     code: 'OPS-TIT-01',
-    source: 'Registros Universitarios Oficiales (Kiel, Poznań, Santiago)',
-    impactEs: 'Doble Maestría Europea en Gestión y Protección Ambiental (CAU Kiel, Alemania / AMU Poznań, Polonia) con especialización en balance hídrico y turberas; Licenciatura en Ciencias de la Ingeniería mención Geofísica (FCFM U. de Chile) con Distinción Máxima.',
-    impactEn: 'Dual European Master of Science in Environmental Management & Protection (CAU Kiel, Germany / AMU Poznań, Poland) and Bachelor of Science in Geophysics (FCFM U. of Chile) with Highest Distinction.',
+    source: 'Universidad de Chile (FCFM)',
+    impactEs: 'Geofísico. Licenciatura en Ciencias, mención Geofísica, aprobado con distinción por la Universidad de Chile (2021). Formación rigurosa en física de la Tierra, sismología, prospección electromagnética y gravimétrica (SEV/TEM) y modelación computacional avanzada.',
+    impactEn: 'Geophysicist. Bachelor of Science in Geophysics, awarded with distinction by the University of Chile (2021). Rigorous foundation in Earth physics, applied electromagnetic geophysics (VES/TEM), seismology, and advanced computational modeling.',
     methodologyEs: [
-      'Dual M.Sc. CAU Kiel (Alemania) & AMU Poznań (Polonia): 120 ECTS',
-      'Geofísica con Distinción Máxima en FCFM Universidad de Chile (2015-2021)',
-      'Modelación física computacional, balance hídrico y métodos electromagnéticos'
+      'Licenciatura en Ciencias, mención Geofísica (2021)',
+      'Aprobado con distinción en la FCFM Universidad de Chile',
+      'Prospección electromagnética, balance hídrico y modelación computacional'
     ],
     methodologyEn: [
-      'Dual M.Sc. CAU Kiel (Germany) & AMU Poznań (Poland): 120 ECTS curriculum',
-      'Geophysics with Highest Distinction at FCFM University of Chile (2015-2021)',
-      'Computational physics modeling, water budget dynamics, and electromagnetic exploration'
+      'Bachelor of Science in Geophysics (2021)',
+      'Awarded with distinction at FCFM University of Chile',
+      'Applied electromagnetic exploration, water balance, and computational physics'
     ],
-    tags: ['Dual M.Sc.', 'CAU Kiel', 'AMU Poznań', 'U. de Chile', 'Geofísica', 'Títulos']
+    tags: ['Universidad de Chile', 'Geofísico', 'Licenciatura en Ciencias', 'Distinción', '2021', 'FCFM']
   },
 
-  // 35. TÍTULOS ACADÉMICOS: Certificaciones de Postgrado (WSL Davos, DEAL, IOER)
+  // 35. TÍTULOS ACADÉMICOS: Universidad de Kiel (Alemania) - Manejo Ambiental
   {
-    id: 'certificaciones-postgrado',
+    id: 'titulo-kiel',
     type: 'titles',
-    titleEs: 'Certificaciones Ejecutivas de Postgrado: WSL Davos, DEAL & IOER',
-    titleEn: 'Executive Postgraduate Certifications: WSL Davos, DEAL & IOER',
-    subtitleEs: 'WSL Davos (Suiza) • DEAL Copenhague (Dinamarca) • IOER Dresden (Alemania) • EPAC',
-    subtitleEn: 'WSL Davos (Switzerland) • DEAL Copenhagen (Denmark) • IOER Dresden (Germany) • EPAC',
-    country: 'Europa',
-    city: 'Davos • Copenhague • Dresden',
-    flag: '📜',
-    lat: 46.80,
-    lng: 9.83,
-    date: '2023-2025',
-    roleEs: 'Especialista Certificado',
-    roleEn: 'Certified Specialist',
-    mediaType: 'plate',
-    src: '/expeditions/davos_wsl_group.png',
-    availablePages: [
-      {
-        titleEs: 'Cohorte de Investigación WSL BlueGreen Biodiversity (Davos, Suiza)',
-        titleEn: 'WSL BlueGreen Biodiversity Research Cohort (Davos, Switzerland)',
-        pageSrc: '/expeditions/davos_wsl_group.png'
-      },
-      {
-        titleEs: 'Monitoreo Ripario en el Valle Alpino Flüela (Davos, Suiza)',
-        titleEn: 'Riparian Stream Monitoring in Flüela Alpine Valley (Davos, Switzerland)',
-        pageSrc: '/expeditions/davos_stream_fieldwork.jpg'
-      },
-      {
-        titleEs: 'Logotipo de la Red Europea de Justicia Ambiental (ENJUST)',
-        titleEn: 'European Environmental Justice Network (ENJUST) Logo',
-        pageSrc: '/expeditions/enjust_logo.png'
-      }
-    ],
-    url: 'https://www.wsl.ch',
-    code: 'OPS-TIT-02',
-    source: 'Institutos de Postgrado de Suiza, Dinamarca y Alemania',
-    impactEs: 'Certificaciones de excelencia: WSL BlueGreen Biodiversity (Instituto Federal Suizo, Davos); DEAL Doughnut Economics (Copenhague); Interlinked Justice (Dresden); Diseñador en Permacultura CDP (EPAC).',
-    impactEn: 'Postgraduate credentials: WSL BlueGreen Biodiversity (Swiss Federal Institute, Davos); DEAL Doughnut Economics (Copenhagen); Interlinked Justice (Dresden); Certified Permaculture Designer CDP (EPAC).',
-    methodologyEs: [
-      'Certificación WSL en dinámicas de biodiversidad y sistemas dulceacuícolas',
-      'DEAL Doughnut Economics: modelación de techos ecológicos y bases sociales',
-      'Planificación espacial para la resiliencia climática y gobernanza de paisajes'
-    ],
-    methodologyEn: [
-      'WSL certification in alpine biodiversity dynamics and freshwater systems',
-      'DEAL Doughnut Economics: planetary boundary modeling and social foundations',
-      'Spatial planning for climate resilience and territorial landscape governance'
-    ],
-    tags: ['WSL Davos', 'DEAL Copenhague', 'IOER Dresden', 'Permacultura', 'Certificaciones']
-  },
-
-  // 36. TÍTULOS ACADÉMICOS: Avales Institucionales & Cartas de Referencia
-  {
-    id: 'avales-cartas',
-    type: 'titles',
-    titleEs: 'Avales Institucionales & Cartas de Referencia Verificables',
-    titleEn: 'Verified Institutional Endorsements & Recommendation Letters',
-    subtitleEs: 'Dr. Sebastian Jordan (CAU Kiel) • Janaina Uemura (GFC) • Francisca Arauna (Convencional)',
-    subtitleEn: 'Dr. Sebastian Jordan (CAU Kiel) • Janaina Uemura (GFC) • Francisca Arauna (Constitutional Delegate)',
-    country: 'Alemania / Chile',
-    city: 'Kiel • Santiago',
-    flag: '✍️',
+    titleEs: 'Master en Ciencias en Manejo Ambiental',
+    titleEn: 'Master of Science in Environmental Management',
+    subtitleEs: 'Christian-Albrechts-Universität zu Kiel (Alemania) • 2026',
+    subtitleEn: 'Christian-Albrechts-Universität zu Kiel (Germany) • 2026',
+    country: 'Alemania',
+    city: 'Kiel',
+    flag: '🇩🇪',
     lat: 54.32,
     lng: 10.13,
-    date: '2022-2025',
-    roleEs: 'Investigador Respaldado',
-    roleEn: 'Endorsed Researcher',
+    date: '2026',
+    roleEs: 'Master en Ciencias (M.Sc.)',
+    roleEn: 'Master of Science (M.Sc.)',
     mediaType: 'plate',
-    src: '/expeditions/hamburg_enjust_library.jpg',
+    src: '/logos/kiel_university_logo.svg',
     availablePages: [
       {
-        titleEs: 'Mesa Plenaria en Biblioteca Histórica de Hamburgo (ENJUST)',
-        titleEn: 'Plenary Session at Historical Library in Hamburg (ENJUST)',
-        pageSrc: '/expeditions/hamburg_enjust_library.jpg'
+        titleEs: 'Logotipo Oficial • Christian-Albrechts-Universität zu Kiel',
+        titleEn: 'Official Logo • Christian-Albrechts-Universität zu Kiel',
+        pageSrc: '/logos/kiel_university_logo.svg'
       },
       {
-        titleEs: 'Presentación de Norma en la Convención Constitucional (Chile)',
-        titleEn: 'Constitutional Convention Presentation (Chile)',
-        pageSrc: '/expeditions/convencion_norma_residuos.jpg'
+        titleEs: 'Sello Histórico CAU Kiel',
+        titleEn: 'Historical Seal of CAU Kiel',
+        pageSrc: '/logos/cau_kiel_seal.svg'
       },
       {
-        titleEs: 'Círculo de Diálogo Territorial y Redes Comunitarias (Colombia)',
-        titleEn: 'Territorial Dialogue Circle & Community Networks (Colombia)',
-        pageSrc: '/expeditions/colombia_climate_justice_circle.jpg'
+        titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo',
+        titleEn: 'Soil Physics Laboratory & Column Diagnostics',
+        pageSrc: '/expeditions/kiel_soil_lab.png'
       }
     ],
     url: 'https://www.uni-kiel.de',
-    code: 'OPS-TIT-03',
-    source: 'Cartas Oficiales de Respaldo Académico y Político',
-    impactEs: 'Cartas de recomendación y avales oficiales del Dr. Sebastian Jordan (Investigador Principal CAU Kiel), Janaina Uemura (Coordinadora Global GFC) y Francisca Arauna (Ex Convencional Constituyente de Chile), acreditando solvencia cuantitativa y liderazgo en terreno.',
-    impactEn: 'Official letters of reference from Dr. Sebastian Jordan (Lead Researcher CAU Kiel), Janaina Uemura (Global Coordinator GFC), and Francisca Arauna (Constitutional Delegate of Chile), attesting to quantitative rigor and field leadership.',
+    code: 'OPS-TIT-02',
+    source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel)',
+    impactEs: 'Master en Ciencias en Manejo Ambiental (M.Sc. in Environmental Management) por la Universidad de Kiel (Alemania), 2026. Especialización en balance hídrico de cuencas, hidrofísica de suelos y modelación ambiental de degradación.',
+    impactEn: 'Master of Science in Environmental Management from Kiel University (Germany), 2026. Specialization in catchment water balance, soil hydro-physical laboratory diagnostics, and environmental modeling.',
     methodologyEs: [
-      'Carta de respaldo de CAU Kiel: rigor en laboratorio de suelos y análisis numérico',
-      'Referencia GFC: liderazgo en investigación de campo e informes internacionales',
-      'Testimonio Convención Constitucional: asesoría legislativa y ordenamiento por cuencas'
+      'Master en Ciencias en Manejo Ambiental (2026)',
+      'Christian-Albrechts-Universität zu Kiel (Alemania)',
+      'Dinámica de suelos, hidrofísica y balance hídrico de cuencas'
     ],
     methodologyEn: [
-      'CAU Kiel letter: analytical rigor in soil physics laboratory and numerical modeling',
-      'GFC reference: field research leadership on international environmental reports',
-      'Constitutional Convention testimonial: legislative advisory and watershed planning'
+      'Master of Science in Environmental Management (2026)',
+      'Christian-Albrechts-Universität zu Kiel (Germany)',
+      'Soil dynamics, hydro-physics, and catchment water balance'
     ],
-    tags: ['Avales', 'Cartas de Referencia', 'CAU Kiel', 'GFC', 'Convención Constitucional']
+    tags: ['CAU Kiel', 'Alemania', 'Master en Ciencias', 'Manejo Ambiental', '2026']
   },
 
-  // 37. TÍTULOS ACADÉMICOS: Archivo Completo de 23 Fotos de Expedición (ESTÁTICO)
+  // 36. TÍTULOS ACADÉMICOS: Universidad de Poznań (Polonia) - Protección Ambiental
   {
-    id: 'expedicion-galeria-23',
+    id: 'titulo-amu-poznan',
     type: 'titles',
-    titleEs: 'Evidencia en Terreno: Archivo de 23 Fotografías Auténticas',
-    titleEn: 'Fieldwork Evidence: Archive of 23 Authentic Photographs',
-    subtitleEs: 'Registro gráfico completo de laboratorios, expediciones lacustres, cumbres y prospección',
-    subtitleEn: 'Comprehensive photographic archive of laboratories, lake expeditions, summits & geophysics',
-    country: 'Global',
-    city: '23 Fotos de Campo',
-    flag: '📸',
-    lat: 0,
-    lng: 0,
-    isStatic: true,
-    date: '2019-2026',
-    roleEs: 'Investigador en Terreno',
-    roleEn: 'Field Researcher',
+    titleEs: 'Master en Ciencias en Protección Ambiental',
+    titleEn: 'Master of Science in Environmental Protection',
+    subtitleEs: 'Adam Mickiewicz University (AMU Poznań, Polonia) • 2026',
+    subtitleEn: 'Adam Mickiewicz University (AMU Poznań, Poland) • 2026',
+    country: 'Polonia',
+    city: 'Poznań',
+    flag: '🇵🇱',
+    lat: 52.41,
+    lng: 16.93,
+    date: '2026',
+    roleEs: 'Master en Ciencias (M.Sc.)',
+    roleEn: 'Master of Science (M.Sc.)',
     mediaType: 'plate',
-    src: '/expeditions/davos_stream_fieldwork.jpg',
+    src: '/logos/amu_poznan_logo.png',
     availablePages: [
-      { titleEs: '1. Laboratorio de Física de Suelos (Kiel, Alemania)', titleEn: '1. Soil Physics Lab (Kiel, Germany)', pageSrc: '/expeditions/kiel_soil_lab.png' },
-      { titleEs: '2. Microscopía Zeiss Protozoos (Poznań, Polonia)', titleEn: '2. Zeiss Microscopy Protozoa (Poznań, Poland)', pageSrc: '/expeditions/poland_microscope_zeiss.jpg' },
-      { titleEs: '3. Muestreo de Perifiton en Lago (Polonia)', titleEn: '3. Periphyton Lake Sampling (Poland)', pageSrc: '/expeditions/poland_lake_sampling.jpg' },
-      { titleEs: '4. Clasificación de Bentos y Macroinvertebrados (Polonia)', titleEn: '4. Benthic Macroinvertebrates (Poland)', pageSrc: '/expeditions/poznan_lake_benthos.jpg' },
-      { titleEs: '5. Sondaje Eléctrico Vertical SEV (Cauquenes, Chile)', titleEn: '5. Vertical Electrical Sounding VES (Chile)', pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg' },
-      { titleEs: '6. Instalación de Pluviómetro en Cerro Molco (Cauquenes)', titleEn: '6. Digital Rain Gauge at Cerro Molco (Chile)', pageSrc: '/expeditions/cauquenes_rain_gauge.jpg' },
-      { titleEs: '7. Monitoreo Ripario en Valle Alpino Flüela (Davos, Suiza)', titleEn: '7. Riparian Stream Survey in Davos (Switzerland)', pageSrc: '/expeditions/davos_stream_fieldwork.jpg' },
-      { titleEs: '8. Cohorte de Investigación WSL (Davos, Suiza)', titleEn: '8. WSL Davos Research Cohort (Switzerland)', pageSrc: '/expeditions/davos_wsl_group.png' },
-      { titleEs: '9. Expedición en Bote a Remo en Lago Polaco', titleEn: '9. Rowboat Expedition on Polish Lake', pageSrc: '/expeditions/poland_lake_rowing.jpg' },
-      { titleEs: '10. Planicies Intermareales en Mar de Wadden (Alemania)', titleEn: '10. Wadden Sea Intertidal Flats (Germany)', pageSrc: '/expeditions/wadden_sea_birding.jpg' },
-      { titleEs: '11. Catastro Ecológico en Cerro Longaví (Maule, Chile)', titleEn: '11. Ecological Survey at Cerro Longaví (Chile)', pageSrc: '/expeditions/longavi_biodiversity_survey.jpg' },
-      { titleEs: '12. Plenaria en Biblioteca Histórica de Hamburgo (ENJUST)', titleEn: '12. Hamburg Historical Library Plenary (ENJUST)', pageSrc: '/expeditions/hamburg_enjust_library.jpg' },
-      { titleEs: '13. Cumbre de Justicia Climática WYCJ (Costa Rica)', titleEn: '13. WYCJ Climate Justice Summit (Costa Rica)', pageSrc: '/expeditions/costa_rica_wycj_summit.jpg' },
-      { titleEs: '14. Plenaria de Justicia Climática en Bogotá (Colombia)', titleEn: '14. Climate Justice Plenary in Bogotá (Colombia)', pageSrc: '/expeditions/colombia_climate_justice_group.jpg' },
-      { titleEs: '15. Círculo de Diálogo Territorial y Redes (Colombia)', titleEn: '15. Territorial Dialogue Circle (Colombia)', pageSrc: '/expeditions/colombia_climate_justice_circle.jpg' },
-      { titleEs: '16. Norma de Residuos en Convención Constitucional (Chile)', titleEn: '16. Zero-Waste Norm at Constitutional Convention', pageSrc: '/expeditions/convencion_norma_residuos.jpg' },
-      { titleEs: '17. Conferencia de Biomasa Forestal en Concepción (Chile)', titleEn: '17. Biomass Keynote in Concepción (Chile)', pageSrc: '/expeditions/concepcion_biomass_talk.png' },
-      { titleEs: '18. Logotipo de la 10ª Conferencia de Decrecimiento (Oslo)', titleEn: '18. 10th Degrowth Conference Logo (Oslo)', pageSrc: '/expeditions/oslo_degrowth_logo.png' },
-      { titleEs: '19. Logotipo de la Red Europea ENJUST (Bonn/Hamburgo)', titleEn: '19. ENJUST European Network Logo (Germany)', pageSrc: '/expeditions/enjust_logo.png' },
-      { titleEs: '20. Monitoreo Comunitario con ONG Raíz EcoAcción (Maule)', titleEn: '20. Community Monitoring with ONG Raíz (Chile)', pageSrc: '/expeditions/ong_raiz_wetland_group.jpg' },
-      { titleEs: '21. Reforestación Comunitaria de Bosque Nativo (Maule)', titleEn: '21. Native Reforestation Day with ONG Raíz', pageSrc: '/expeditions/ong_raiz_native_tree_planting.jpg' },
-      { titleEs: '22. Gemelo Digital UI Smart Food Parks (ONU Citiverse)', titleEn: '22. Digital Twin UI Smart Food Parks (UN)', pageSrc: '/expeditions/smart_food_parks_ui.jpg' },
-      { titleEs: '23. Arquitectura Técnica de Datos en Unity 3D', titleEn: '23. Technical Data Blueprint in Unity 3D', pageSrc: '/expeditions/smart_food_parks_architecture.jpg' }
+      {
+        titleEs: 'Logotipo Oficial • Adam Mickiewicz University (AMU Poznań)',
+        titleEn: 'Official Logo • Adam Mickiewicz University (AMU Poznań)',
+        pageSrc: '/logos/amu_poznan_logo.png'
+      },
+      {
+        titleEs: 'Muestreo Limnológico de Perifiton en Lago',
+        titleEn: 'Limnological Periphyton Lake Sampling',
+        pageSrc: '/expeditions/poland_lake_sampling.jpg'
+      },
+      {
+        titleEs: 'Microscopía Óptica Zeiss e Identificación de Protozoos',
+        titleEn: 'Zeiss Optical Microscopy & Protozoa Taxonomy',
+        pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
+      },
+      {
+        titleEs: 'Clasificación de Bentos y Macroinvertebrados',
+        titleEn: 'Benthic Macroinvertebrate Sorting & Biodiversity',
+        pageSrc: '/expeditions/poznan_lake_benthos.jpg'
+      }
     ],
-    code: 'OPS-TIT-04',
-    source: 'Archivo Gráfico Completo de Expediciones Científicas (2019-2026)',
-    impactEs: 'Galería fotográfica completa con 23 registros auténticos documentando estancias de laboratorio en Alemania y Polonia, relevamientos en los Alpes Suizos, prospección geofísica en Chile y cumbres internacionales.',
-    impactEn: 'Comprehensive photographic archive of 23 authentic pictures documenting research stays in Germany and Poland, alpine surveys in Switzerland, geophysics in Chile, and global policy summits.',
+    url: 'https://amu.edu.pl',
+    code: 'OPS-TIT-03',
+    source: 'Adam Mickiewicz University (AMU Poznań)',
+    impactEs: 'Master en Ciencias en Protección Ambiental (M.Sc. in Environmental Protection) por la Universidad Adam Mickiewicz de Poznań (Polonia), 2026. Especialización en dinámicas de secuestro de carbono en humedales y calidad ecológica dulceacuícola.',
+    impactEn: 'Master of Science in Environmental Protection from Adam Mickiewicz University in Poznań (Poland), 2026. Specialization in carbon sequestration in wetlands and freshwater ecological quality.',
     methodologyEs: [
-      'Documentación fotográfica en terreno con georreferenciación',
-      'Validación de instrumental científico y trabajo con comunidades',
-      'Registro histórico de incidencias públicas y cumbres internacionales'
+      'Master en Ciencias en Protección Ambiental (2026)',
+      'Adam Mickiewicz University (AMU Poznań, Polonia)',
+      'Secuestro de carbono en humedales e indicadores limnológicos'
     ],
     methodologyEn: [
-      'Georeferenced scientific fieldwork photo documentation',
-      'Field testing of sensors, probes, and community engagement',
-      'Historical visual record of policy summits and international diplomacy'
+      'Master of Science in Environmental Protection (2026)',
+      'Adam Mickiewicz University (AMU Poznań, Poland)',
+      'Carbon sequestration in wetlands and limnological indicators'
     ],
-    tags: ['23 Fotos Reales', 'Expediciones', 'Laboratorios', 'Cumbres', 'Fototeca']
+    tags: ['AMU Poznań', 'Polonia', 'Master en Ciencias', 'Protección Ambiental', '2026']
   },
 
   // ==============================================================
@@ -2380,7 +2350,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     { id: 'comms', labelEs: 'COMUNIDADES & ECOLOGÍA', labelEn: 'GRASSROOTS & ECOLOGY', color: 'bg-emerald-600', count: GAME_MISSIONS.filter((m) => m.type === 'comms').length },
     { id: 'rd', labelEs: 'PROYECTOS & I+D', labelEn: 'PROJECTS & R&D', color: 'bg-purple-600', count: GAME_MISSIONS.filter((m) => m.type === 'rd').length },
     { id: 'publications', labelEs: 'PUBLICACIONES & ENSAYOS', labelEn: 'PUBLICATIONS & TREATISES', color: 'bg-indigo-600', count: GAME_MISSIONS.filter((m) => m.type === 'publications').length },
-    { id: 'titles', labelEs: 'TÍTULOS & 23 FOTOS CAMPO', labelEn: 'DEGREES & 23 FIELD PHOTOS', color: 'bg-pink-600', count: GAME_MISSIONS.filter((m) => m.type === 'titles').length },
+    { id: 'titles', labelEs: 'TÍTULOS UNIVERSITARIOS', labelEn: 'ACADEMIC DEGREES', color: 'bg-pink-600', count: GAME_MISSIONS.filter((m) => m.type === 'titles').length },
+    { id: 'certifications', labelEs: 'CERTIFICACIONES ADICIONALES', labelEn: 'ADDITIONAL CERTIFICATIONS', color: 'bg-teal-600', count: GAME_MISSIONS.filter((m) => m.type === 'certifications').length },
     { id: 'skills', labelEs: 'SKILLS & TOOLKIT', labelEn: 'SKILLS & TOOLKIT', color: 'bg-cyan-500', count: GAME_MISSIONS.filter((m) => m.type === 'skills').length }
   ];
 
@@ -2642,7 +2613,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         m.type === 'culture' ? 0xf97316 :
         m.type === 'rd' ? 0xa855f7 :
         m.type === 'publications' ? 0x6366f1 :
-        m.type === 'titles' ? 0xec4899 : 0x06b6d4;
+        m.type === 'titles' ? 0xec4899 :
+        m.type === 'certifications' ? 0x0d9488 : 0x06b6d4;
 
       const bGroup = new THREE.Group();
       bGroup.position.copy(pos);
@@ -2742,6 +2714,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       rd:           { beam: 0xa855f7, core: 0xfaf5ff, halo: 0xc084fc }, // Cosmic Violet
       publications: { beam: 0x6366f1, core: 0xeef2ff, halo: 0x818cf8 }, // Electric Indigo
       titles:       { beam: 0xec4899, core: 0xfdf2f8, halo: 0xf472b6 }, // Rose Quartz
+      certifications: { beam: 0x0d9488, core: 0xf0fdfa, halo: 0x2dd4bf }, // Deep Teal
       skills:       { beam: 0x06b6d4, core: 0xecfeff, halo: 0x22d3ee }, // Cyber Cyan
     };
 
@@ -2760,7 +2733,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     const energyBeamArcs: EnergyBeamArc[] = [];
     const flightGroup = new THREE.Group();
 
-    const missionCategories: MissionType[] = ['science', 'global', 'comms', 'culture', 'rd', 'publications', 'titles', 'skills'];
+    const missionCategories: MissionType[] = ['science', 'global', 'comms', 'culture', 'rd', 'publications', 'titles', 'certifications', 'skills'];
 
     missionCategories.forEach((cat, catIdx) => {
       const catMissions = GAME_MISSIONS.filter((m) => m.type === cat && !m.isStatic);
@@ -3056,6 +3029,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     currentMission.type === 'global' ? 'bg-amber-500 border-amber-800' :
     currentMission.type === 'culture' ? 'bg-orange-500 border-orange-800' :
     currentMission.type === 'titles' ? 'bg-pink-600 border-pink-900' :
+    currentMission.type === 'certifications' ? 'bg-teal-600 border-teal-900' :
     currentMission.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
     'bg-purple-600 border-purple-900';
 
@@ -3764,6 +3738,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       m.type === 'global' ? 'bg-amber-500 border-amber-800' :
                       m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
                       m.type === 'titles' ? 'bg-pink-600 border-pink-900' :
+                      m.type === 'certifications' ? 'bg-teal-600 border-teal-900' :
                       m.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
                       'bg-purple-600 border-purple-900';
 

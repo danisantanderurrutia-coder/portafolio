@@ -12,7 +12,8 @@ import {
   Users,
   Microscope,
   BookOpen,
-  GraduationCap
+  GraduationCap,
+  Award
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -29,6 +30,7 @@ interface PunkMainMenuProps {
   onSelectPublications: () => void;
   onSelectSkills: () => void;
   onSelectTitles: () => void;
+  onSelectCertifications?: () => void;
   onSelectScienceDossier: () => void;
   onOpenHireMe?: () => void;
   onOpenSkills?: () => void;
@@ -208,6 +210,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   onSelectPublications,
   onSelectSkills,
   onSelectTitles,
+  onSelectCertifications,
   onSelectScienceDossier,
   onOpenHireMe,
   onOpenArtDirector
@@ -422,7 +425,22 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               title={currentLang === 'es' ? 'Ver Títulos Académicos y Grados en el Globo 3D' : 'View Academic Degrees & Diplomas'}
             />
 
-            {/* 9. SIGN 09: ACADEMIC DOSSIER PAPER (Points Right ➔) */}
+            {/* 9. SIGN 09: ADDITIONAL CERTIFICATIONS (Points Right ➔) */}
+            {onSelectCertifications && (
+              <WoodenSignSlat
+                direction="right"
+                bgColor="#0d9488"
+                textColor="#ffffff"
+                rotationClass="-rotate-2"
+                offsetClass="translate-x-1.5"
+                icon={<Award className="w-4 h-4" />}
+                label={currentLang === 'es' ? 'CERTIFICACIONES ADICIONALES' : 'ADDITIONAL CERTIFICATIONS'}
+                onClick={onSelectCertifications}
+                title={currentLang === 'es' ? 'Ver Certificaciones de Postgrado (Davos, Dresden, Copenhague) en el Globo 3D' : 'Explore Postgraduate Certifications (Davos, Dresden, Copenhagen) on 3D Globe'}
+              />
+            )}
+
+            {/* 10. SIGN 10: ACADEMIC DOSSIER PAPER (Points Left ⬅) */}
             <WoodenSignSlat
               direction="right"
               bgColor="#c2410c"

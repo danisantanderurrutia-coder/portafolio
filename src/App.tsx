@@ -68,6 +68,10 @@ export function App() {
             setSelectedCategory('titles');
             setViewMode('game');
           }}
+          onSelectCertifications={() => {
+            setSelectedCategory('certifications');
+            setViewMode('game');
+          }}
           onSelectScienceDossier={() => {
             setViewMode('dossier');
           }}
@@ -151,6 +155,10 @@ export function App() {
         isOpen={isTitlesOpen}
         onClose={() => setIsTitlesOpen(false)}
         currentLang={currentLang}
+        onOpenCertificationsGlobe={() => {
+          setSelectedCategory('certifications');
+          setViewMode('game');
+        }}
       />
 
       {/* MODAL GLOBAL DE DIRECCIÓN DE ARTE, RAP BEAUCHEF & CUARENTENA RAP (SABER MÁS) */}
