@@ -177,7 +177,7 @@ export function ClassicDossierView({
             <button
               onClick={onOpenHireMe}
               className="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-sans font-bold transition shadow-sm active:scale-95 cursor-pointer"
-              title="Contratar // Contact Daniel"
+              title={currentLang === 'es' ? 'Contratar // Contacto Directo' : 'Hire Me // Direct Contact'}
             >
               <span>💼</span>
               <span className="hidden sm:inline">{currentLang === 'es' ? 'CONTRATAR' : 'HIRE ME'}</span>
@@ -188,7 +188,7 @@ export function ClassicDossierView({
           <button
             onClick={toggleLanguage}
             className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full border border-[#d0c4b0] bg-[#ede5d6]/80 text-neutral-800 hover:bg-[#e4dcce] text-xs font-sans transition shadow-sm cursor-pointer"
-            title="Cambiar idioma // Switch Language"
+            title={currentLang === 'es' ? 'Cambiar idioma' : 'Switch Language'}
           >
             <Globe className="w-3.5 h-3.5 text-[#2d5a3c]" />
             <span className="font-bold">{currentLang === 'es' ? 'ES' : 'EN'}</span>
@@ -399,7 +399,7 @@ export function ClassicDossierView({
                       <button
                         onClick={handlePrevSlide}
                         className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 hover:border-amber-400 text-xs font-sans text-slate-200 hover:text-white transition flex items-center space-x-1 shadow-sm"
-                        title="Anterior (←)"
+                        title={currentLang === 'es' ? 'Anterior (←)' : 'Previous (←)'}
                       >
                         <ChevronLeft className="w-3.5 h-3.5" />
                         <span>{currentLang === 'es' ? 'Anterior' : 'Prev'}</span>
@@ -407,7 +407,7 @@ export function ClassicDossierView({
                       <button
                         onClick={handleNextSlide}
                         className="px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 hover:border-amber-400 text-xs font-sans text-slate-200 hover:text-white transition flex items-center space-x-1 shadow-sm"
-                        title="Siguiente (→)"
+                        title={currentLang === 'es' ? 'Siguiente (→)' : 'Next (→)'}
                       >
                         <span>{currentLang === 'es' ? 'Siguiente' : 'Next'}</span>
                         <ChevronRight className="w-3.5 h-3.5" />
@@ -422,7 +422,7 @@ export function ClassicDossierView({
                 <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 border-b border-amber-500/20 pb-4 mb-4">
                   <div>
                     <div className="flex items-center space-x-2 text-xs font-serif font-bold text-amber-400 uppercase tracking-wider mb-1">
-                      <span>{currentItem.authorOrSource || 'Prensa de Investigación'}</span>
+                      <span>{currentItem.authorOrSource || (currentLang === 'es' ? 'Prensa de Investigación' : 'Investigative Press')}</span>
                       {currentItem.date && <span className="opacity-60">• {currentItem.date}</span>}
                     </div>
 
@@ -641,7 +641,7 @@ export function ClassicDossierView({
                               ? 'w-6 bg-amber-400'
                               : 'w-2 bg-slate-700 hover:bg-slate-600'
                           }`}
-                          title={`Ir a ficha ${dotIdx + 1}`}
+                          title={currentLang === 'es' ? `Ir a ficha ${dotIdx + 1}` : `Go to card ${dotIdx + 1}`}
                         />
                       ))}
                     </div>
@@ -650,21 +650,21 @@ export function ClassicDossierView({
                       <button
                         onClick={handlePrevSlide}
                         className="p-1.5 sm:p-2 rounded-full border border-slate-700 hover:border-amber-400 text-slate-200 hover:text-white bg-slate-800 transition shadow-sm hover:scale-105 active:scale-95"
-                        title="Anterior (←)"
+                        title={currentLang === 'es' ? 'Anterior (←)' : 'Previous (←)'}
                       >
                         <ChevronLeft className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={handleNextSlide}
                         className="p-1.5 sm:p-2 rounded-full border border-slate-700 hover:border-amber-400 text-slate-200 hover:text-white bg-slate-800 transition shadow-sm hover:scale-105 active:scale-95"
-                        title="Siguiente (→)"
+                        title={currentLang === 'es' ? 'Siguiente (→)' : 'Next (→)'}
                       >
                         <ChevronRight className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => setSelectedMedia(currentItem)}
                         className="ml-1 px-3 py-1.5 rounded-full font-serif font-bold text-xs bg-amber-400 hover:bg-amber-300 text-slate-950 transition shadow-md flex items-center space-x-1 hover:scale-105 active:scale-95"
-                        title="Expandir modal"
+                        title={currentLang === 'es' ? 'Expandir modal' : 'Expand full view'}
                       >
                         <span>{currentLang === 'es' ? 'Ver Full' : 'Full View'}</span>
                         <Maximize2 className="w-3 h-3" />

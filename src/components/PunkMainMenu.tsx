@@ -348,7 +348,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
                     onOpenArtDirector();
                   }}
                   className="pointer-events-auto bg-black hover:bg-yellow-400 text-yellow-300 hover:text-black font-mono font-black text-[8px] sm:text-[9px] px-1.5 py-0.5 border border-white/60 uppercase shadow-[1px_1px_0px_#000] cursor-pointer"
-                  title="Abrir backstage de Rap"
+                  title={currentLang === 'es' ? 'Abrir backstage de Rap' : 'Open Rap backstage'}
                 >
                   ⚡ RAP
                 </span>

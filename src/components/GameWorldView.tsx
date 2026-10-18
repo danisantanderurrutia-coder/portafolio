@@ -1894,12 +1894,111 @@ const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector
   );
 };
 
+export const formatCountry = (country: string, lang: Language): string => {
+  if (lang === 'es') return country;
+  const map: Record<string, string> = {
+    'Alemania': 'Germany',
+    'Alemania / Chile': 'Germany / Chile',
+    'Dinamarca': 'Denmark',
+    'Polonia': 'Poland',
+    'Suiza': 'Switzerland',
+    'Noruega': 'Norway',
+    'Europa': 'Europe',
+    'Latinoamérica': 'Latin America',
+    'Estados Unidos': 'United States',
+    'Bélgica': 'Belgium',
+    'Egipto': 'Egypt',
+    'Emiratos Árabes': 'United Arab Emirates',
+    'España': 'Spain',
+    'Francia': 'France',
+    'Países Bajos': 'Netherlands'
+  };
+  return map[country] || country;
+};
+
+export const formatCity = (city: string, lang: Language): string => {
+  if (lang === 'es') return city;
+  const map: Record<string, string> = {
+    '23 Fotos de Campo': '23 Field Photographs',
+    'Bosques Nativos Centro-Sur': 'Central-South Native Forests',
+    'Centro-Sur': 'Central-South Chile',
+    'Ciudades Europeas ODS': 'European SDG Cities',
+    'Copenhague': 'Copenhagen',
+    'Dresden': 'Dresden',
+    'Ensayos Filosóficos': 'Philosophical Essays',
+    'Equipos & Idiomas': 'Gear & Languages',
+    'Medios & Arte': 'Media & Arts',
+    'Múnich': 'Munich',
+    'Portal Internacional': 'International Portal',
+    'Poznań': 'Poznan',
+    'Red Federal (Chile, Argentina, Colombia, Perú, México)': 'Federal Network (Chile, Argentina, Colombia, Peru, Mexico)',
+    'Santiago (Plaza Dignidad / Alameda)': 'Santiago (Dignidad Square / Alameda)',
+    'Santiago & Red Internacional (Japón, Perú, Argentina, México)': 'Santiago & Global Network (Japan, Peru, Argentina, Mexico)',
+    'Stack de Modelación': 'Modelling Stack',
+    'Maule, Biobío, Ñuble & Santiago': 'Maule, Biobio, Nuble & Santiago',
+    'Maule Sur': 'South Maule'
+  };
+  return map[city] || city;
+};
+
+export const formatDate = (date: string, lang: Language): string => {
+  if (lang === 'es') return date;
+  if (date === 'Actualizado 2026') return 'Updated 2026';
+  return date;
+};
+
+export const formatTag = (tag: string, lang: Language): string => {
+  if (lang === 'es') return tag;
+  const map: Record<string, string> = {
+    '23 Fotos Reales': '23 Real Photos',
+    'Expediciones': 'Expeditions',
+    'Laboratorios': 'Laboratories',
+    'Cumbres': 'Summits',
+    'Fototeca': 'Photo Archive',
+    'Geofísica': 'Geophysics',
+    'Instrumentación': 'Instrumentation',
+    'Microscopía': 'Microscopy',
+    'Idiomas': 'Languages',
+    'Inglés': 'English',
+    'Alemán': 'German',
+    'Polaco': 'Polish',
+    'Congreso Nacional': 'National Congress',
+    'Megaincendios': 'Mega-wildfires',
+    'Incidencia Política': 'Policy Advocacy',
+    'Comisión Especial': 'Special Commission',
+    'Bosque Nativo': 'Native Forest',
+    'Agua': 'Water',
+    'Cuencas': 'Watersheds',
+    'Comunidades': 'Grassroots',
+    'Incendios Forestales': 'Wildfires',
+    'Cambio Climático': 'Climate Change',
+    'Prensa Independiente': 'Independent Press',
+    'Derechos Humanos': 'Human Rights',
+    'Estallido Social': 'Social Uprising',
+    'Fotoperiodismo': 'Photojournalism',
+    'Radio Comunitaria': 'Community Radio',
+    'Gobernanza del Agua': 'Water Governance',
+    'Modelación Hidrológica': 'Hydrological Modeling',
+    'Sensores': 'Sensors',
+    'Monitoreo Ambiental': 'Environmental Monitoring',
+    'Dirección de Arte': 'Art Direction',
+    'Cultura': 'Culture',
+    'Música': 'Music',
+    'Edición de Video': 'Video Editing',
+    'Transmisión en Vivo': 'Live Streaming'
+  };
+  return map[tag] || tag;
+};
+
 interface SkillToolDetail {
   name: string;
   badge: string;
+  badgeEn?: string;
   level: string;
+  levelEn?: string;
   levelPercent: number;
   tags: string;
+  tagsEn?: string;
   descEs: string;
   descEn: string;
   applicationEs: string;
@@ -1907,13 +2006,20 @@ interface SkillToolDetail {
   color: string;
 }
 
+export const getToolBadge = (tool: SkillToolDetail, lang: Language) => (lang === 'en' && tool.badgeEn ? tool.badgeEn : tool.badge);
+export const getToolLevel = (tool: SkillToolDetail, lang: Language) => (lang === 'en' && tool.levelEn ? tool.levelEn : tool.level);
+export const getToolTags = (tool: SkillToolDetail, lang: Language) => (lang === 'en' && tool.tagsEn ? tool.tagsEn : tool.tags);
+
 const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'Python',
     badge: 'Python 3.12+ // CIENTÍFICO',
+    badgeEn: 'Python 3.12+ // SCIENTIFIC',
     level: '95% • PRODUCCIÓN & RESEARCH',
+    levelEn: '95% • PRODUCTION & RESEARCH',
     levelPercent: 95,
     tags: 'NumPy • SciPy • Pandas • GeoPandas • Rasterio • Matplotlib • Scikit-learn',
+    tagsEn: 'NumPy • SciPy • Pandas • GeoPandas • Rasterio • Matplotlib • Scikit-learn',
     descEs: 'Computación científica, balance hídrico, scripts de automatización satelital y modelos hidrogeofísicos.',
     descEn: 'Scientific computing, water balance modeling, satellite automation pipelines, and hydrogeophysics.',
     applicationEs: 'Desarrollo de scripts de balance de cuencas en Kiel, modelos numéricos de turberas y análisis de datos climáticos.',
@@ -1923,9 +2029,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'QGIS & GIS',
     badge: 'QGIS 3.34 LTR // ESPACIAL',
+    badgeEn: 'QGIS 3.34 LTR // SPATIAL',
     level: '95% • ANÁLISIS VECTORIAL & RASTER',
+    levelEn: '95% • VECTOR & RASTER ANALYSIS',
     levelPercent: 95,
     tags: 'DEMs LiDAR • Mapeo Cuencas • Grass GIS • SAGA • ModelBuilder',
+    tagsEn: 'LiDAR DEMs • Catchment Mapping • Grass GIS • SAGA • ModelBuilder',
     descEs: 'Cartografía vectorial y raster avanzada, delimitación hidrológica de cuencas y cálculo de índices espectrales.',
     descEn: 'Advanced raster & vector cartography, hydrological catchment delineation, and spectral index calculations.',
     applicationEs: 'Modelación de cuencas hidrográficas, riesgo de incendios y zonificación territorial comunitaria.',
@@ -1935,9 +2044,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'R & Modelación',
     badge: 'R Studio // MODELACIÓN & SIG',
+    badgeEn: 'R Studio // MODELING & GIS',
     level: '90% • CERTIFICADO ESCUELA GIS',
+    levelEn: '90% • CERTIFIED GIS SCHOOL',
     levelPercent: 90,
     tags: 'R Modeling • Spatial Data • GeoTIFF • Series Temporales • Análisis Estadístico',
+    tagsEn: 'R Modeling • Spatial Data • GeoTIFF • Time Series • Statistical Analysis',
     descEs: 'Modelación cuantitativa y gestión de datos satelitales SIG en lenguaje R (certificación Escuela Ambiental GIS).',
     descEn: 'Quantitative modeling and GIS satellite data management in R (certified by Escuela Ambiental GIS).',
     applicationEs: 'Análisis estadístico ambiental, modelos de balance hídrico y procesamiento de datos satelitales en R.',
@@ -1947,9 +2059,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'Docker',
     badge: 'Docker Engine // REPRODUCIBILIDAD',
+    badgeEn: 'Docker Engine // REPRODUCIBILITY',
     level: '90% • VIRTUALIZACIÓN & CI/CD',
+    levelEn: '90% • VIRTUALIZATION & CI/CD',
     levelPercent: 90,
     tags: 'Contenedores • Multi-stage Builds • Docker Compose • Pipelines Reproducibles',
+    tagsEn: 'Containers • Multi-stage Builds • Docker Compose • Reproducible Pipelines',
     descEs: 'Virtualización de modelos matemáticos, empaquetado de servicios científicos y reproducibilidad computacional.',
     descEn: 'Virtualization of mathematical models, scientific service packaging, and computational reproducibility.',
     applicationEs: 'Ambientes aislados para correr simulaciones hidrodinámicas Delft3D y APIs geoespaciales en producción.',
@@ -1959,9 +2074,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'PostGIS',
     badge: 'PostgreSQL 16 + PostGIS 3.4',
+    badgeEn: 'PostgreSQL 16 + PostGIS 3.4',
     level: '85% • BASES ESPACIALES SQL',
+    levelEn: '85% • SPATIAL SQL DATABASES',
     levelPercent: 85,
     tags: 'Consultas Espaciales ST_* • Índices GiST • Topología de Redes Hídricas',
+    tagsEn: 'Spatial Queries ST_* • GiST Indexes • River Network Topology',
     descEs: 'Bases de datos espaciales masivas, análisis relacional geográfico y almacenamiento de nubes de puntos.',
     descEn: 'Massive spatial databases, topological network routing, and geographic relational queries.',
     applicationEs: 'Almacenamiento y consulta de millones de polígonos catastrales forestales y redes de drenaje en el Maule.',
@@ -1971,9 +2089,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'Earth Engine (GEE)',
     badge: 'Google Earth Engine // CLOUD',
+    badgeEn: 'Google Earth Engine // CLOUD',
     level: '85% • PROCESAMIENTO PETABYTE',
+    levelEn: '85% • PETABYTE PROCESSING',
     levelPercent: 85,
     tags: 'Sentinel-2 MSI • Landsat 8/9 • Índices dNBR, NDVI, NDWI • Reducciones Espaciales',
+    tagsEn: 'Sentinel-2 MSI • Landsat 8/9 • dNBR, NDVI, NDWI • Spatial Reducers',
     descEs: 'Análisis multitemporal de series de satélites en la nube, severidad de incendios forestales y estrés hídrico.',
     descEn: 'Multitemporal satellite time-series analysis in the cloud, wildfire severity burn index, and drought monitoring.',
     applicationEs: 'Evaluación satelital del megaincendio de Valparaíso (2024) y monocultivos en el Maule con Sentinel-2.',
@@ -1983,9 +2104,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'Delft3D',
     badge: 'Deltares Delft3D 4.04 // 2D/3D',
+    badgeEn: 'Deltares Delft3D 4.04 // 2D/3D',
     level: '80% • MODELACIÓN HIDRODINÁMICA',
+    levelEn: '80% • HYDRODYNAMIC MODELING',
     levelPercent: 80,
     tags: 'Mallas Curvilíneas • Batimetría • Transporte de Sedimentos • Forzamiento de Mareas',
+    tagsEn: 'Curvilinear Grids • Bathymetry • Sediment Transport • Tidal Forcing',
     descEs: 'Simulación física de hidrodinámica de fluidos, propagación de ondas mareales y morfología costera y estuarina.',
     descEn: 'Physics-based hydrodynamic simulation, tidal surge propagation, and estuarine sediment morphodynamics.',
     applicationEs: 'Modelación del estuario del río Eider en Alemania y dinámicas de intrusión salina.',
@@ -1995,9 +2119,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'Unity 3D',
     badge: 'Unity Engine // GEMELOS DIGITALES',
+    badgeEn: 'Unity Engine // DIGITAL TWINS',
     level: '85% • INTERACCIÓN & 3D REAL-TIME',
+    levelEn: '85% • REAL-TIME 3D & INTERACTION',
     levelPercent: 85,
     tags: 'C# • Shaders HLSL • Modelado Procedural • Telemetría IoT en Tiempo Real',
+    tagsEn: 'C# • HLSL Shaders • Procedural Modeling • Real-Time IoT Telemetry',
     descEs: 'Construcción de gemelos digitales interactivos y visualización espacial inmersiva para planificación urbana.',
     descEn: 'Interactive digital twin authoring and immersive real-time spatial visualization for urban resilience.',
     applicationEs: 'Gemelo Digital Smart Food Parks presentado para la iniciativa ONU Citiverse (Copenhague/Barcelona).',
@@ -2007,9 +2134,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'Next.js & React',
     badge: 'Next.js 14 / React 19 // FRONTEND',
+    badgeEn: 'Next.js 14 / React 19 // FRONTEND',
     level: '90% • ARQUITECTURA WEB REACTIVA',
+    levelEn: '90% • REACTIVE WEB ARCHITECTURE',
     levelPercent: 90,
     tags: 'TypeScript • Tailwind CSS • Three.js • Mapbox GL • Visualización Dinámica',
+    tagsEn: 'TypeScript • Tailwind CSS • Three.js • Mapbox GL • Dynamic Visualization',
     descEs: 'Desarrollo de interfaces de alto rendimiento, plataformas científicas interactivas y visualizadores geoespaciales.',
     descEn: 'High-performance interactive scientific interfaces, geospatial map viewers, and responsive portals.',
     applicationEs: 'Desarrollo de portales de cartografía comunitaria, visores satelitales y portafolio interactivo Three.js.',
@@ -2019,9 +2149,12 @@ const TOOLS_CIENCIA: SkillToolDetail[] = [
   {
     name: 'FastAPI',
     badge: 'FastAPI + Python // ASYNC REST',
+    badgeEn: 'FastAPI + Python // ASYNC REST',
     level: '90% • SERVICIOS WEB DE ALTA VELOCIDAD',
+    levelEn: '90% • HIGH-SPEED WEB SERVICES',
     levelPercent: 90,
     tags: 'Pydantic • AsyncIO • Uvicorn • Endpoints de Telemetría • GeoJSON Serializers',
+    tagsEn: 'Pydantic • AsyncIO • Uvicorn • Telemetry Endpoints • GeoJSON Serializers',
     descEs: 'APIs asíncronas de microsegundos para disponibilizar datos de modelos matemáticos y sensores en terreno.',
     descEn: 'High-throughput async APIs delivering mathematical model inferences and field sensor telemetry.',
     applicationEs: 'Backend de ingesta de datos meteorológicos IoT y endpoints de cálculo hidrológico en tiempo real.',
@@ -2034,9 +2167,12 @@ const TOOLS_COMMS: SkillToolDetail[] = [
   {
     name: 'DaVinci Resolve',
     badge: 'Blackmagic DaVinci // COLOR & 4K',
+    badgeEn: 'Blackmagic DaVinci // COLOR & 4K',
     level: '95% • EDICIÓN & COLOR GRADING',
+    levelEn: '95% • EDITING & COLOR GRADING',
     levelPercent: 95,
     tags: 'Corte Cinematográfico • Fairlight Audio • Nodos de Color • HDR Delivery',
+    tagsEn: 'Cinematic Cut • Fairlight Audio • Color Nodes • HDR Delivery',
     descEs: 'Montaje cinematográfico y corrección de color profesional para piezas de cine documental y reportajes de campo.',
     descEn: 'Cinematic editing and color grading for documentary films and on-the-ground investigative reporting.',
     applicationEs: 'Edición y etalonaje en 4K para piezas audiovisuales sobre el estallido social y cumbres de justicia climática.',
@@ -2046,9 +2182,12 @@ const TOOLS_COMMS: SkillToolDetail[] = [
   {
     name: 'OBS Studio',
     badge: 'OBS Studio // BROADCAST EN VIVO',
+    badgeEn: 'OBS Studio // LIVE BROADCAST',
     level: '90% • TRANSMISIÓN MULTICÁMARA',
+    levelEn: '90% • MULTI-CAMERA BROADCAST',
     levelPercent: 90,
     tags: 'Streaming RTMP • Overlays NDI • Mezcla de Audio Digital • Baja Latencia',
+    tagsEn: 'RTMP Streaming • NDI Overlays • Digital Audio Mixing • Low Latency',
     descEs: 'Transmisión en vivo de eventos multitudinarios, torneos culturales de freestyle y conferencias académicas.',
     descEn: 'Multi-camera live streaming for mass cultural freestyle championships and international summits.',
     applicationEs: 'Emisión en vivo con múltiples cámaras de torneos de freestyle en el Teatro Caupolicán (+5.000 espectadores).',
@@ -2058,9 +2197,12 @@ const TOOLS_COMMS: SkillToolDetail[] = [
   {
     name: 'Sony 4K',
     badge: 'Sony Alpha Cine // CÁMARA & ÓPTICA',
+    badgeEn: 'Sony Alpha Cine // CAMERA & OPTICS',
     level: '90% • REGISTRO EN TERRENO',
+    levelEn: '90% • FIELD CINEMATOGRAPHY',
     levelPercent: 90,
     tags: 'Perfiles S-Log3 • Ópticas Cine • Estabilización Gimbal • Audio Shotgun XLR',
+    tagsEn: 'S-Log3 Profiles • Cinema Lenses • Gimbal Stabilization • XLR Audio',
     descEs: 'Operación de cámaras cinematográficas en condiciones adversas de campo, protestas y entornos rurales.',
     descEn: 'Cinematography in adverse outdoor field conditions, frontline protests, and remote rural territories.',
     applicationEs: 'Dirección de fotografía y cámara en las calles de Santiago durante el estallido de 2019.',
@@ -2070,9 +2212,12 @@ const TOOLS_COMMS: SkillToolDetail[] = [
   {
     name: 'Premiere Pro',
     badge: 'Adobe Premiere Pro // NEWSROOM',
+    badgeEn: 'Adobe Premiere Pro // NEWSROOM',
     level: '90% • FLUJO DE PRENSA DIGITAL',
+    levelEn: '90% • DIGITAL NEWSROOM WORKFLOW',
     levelPercent: 90,
     tags: 'Edición Ágil • Subtitulado Automático • Sincronización Multi-cámara • Redes',
+    tagsEn: 'Agile Editing • Auto Subtitling • Multi-Camera Sync • Social Formats',
     descEs: 'Flujo de trabajo de prensa digital para producción de despachos y cápsulas noticiosas de entrega inmediata.',
     descEn: 'Fast-paced newsroom workflow generating immediate breaking news reels and video reports.',
     applicationEs: 'Producción de cientos de despachos de prensa para Primera Línea Prensa (+700k personas de audiencia).',
@@ -2082,9 +2227,12 @@ const TOOLS_COMMS: SkillToolDetail[] = [
   {
     name: 'Radio FM',
     badge: 'Broadcast FM // RADIODIFUSIÓN',
+    badgeEn: 'Broadcast FM // BROADCASTING',
     level: '95% • ESTUDIOS COMUNITARIOS',
+    levelEn: '95% • COMMUNITY RADIO STUDIOS',
     levelPercent: 95,
     tags: 'Transmisores FM • Antenas Dipolo • Consolas Behringer • Locución Técnica',
+    tagsEn: 'FM Transmitters • Dipole Antennas • Audio Consoles • Technical Voiceover',
     descEs: 'Instalación y operación de estaciones de radio comunitaria, edición de podcasts y transmisión radial campesina.',
     descEn: 'Installation and operation of community radio stations, podcast mastering, and rural FM broadcast.',
     applicationEs: 'Emisión de cápsulas ambientales y transmisiones en Radio Cristalina 96.3 FM (Constitución, Maule).',
@@ -2094,9 +2242,12 @@ const TOOLS_COMMS: SkillToolDetail[] = [
   {
     name: 'Dirección Creativa',
     badge: 'Dirección de Arte // PROPAGANDA',
+    badgeEn: 'Art Direction // MEDIA & PRINT',
     level: '95% • IDENTIDAD & SERIGRAFÍA',
+    levelEn: '95% • IDENTITY & SCREENPRINTING',
     levelPercent: 95,
     tags: 'Serigrafía Textil y Papel • Tipografía Editorial • Escenografía • Muralismo',
+    tagsEn: 'Textile & Paper Screenprinting • Editorial Typography • Scenography • Murals',
     descEs: 'Diseño integral de campañas visuales, cartelería callejera, portadas editoriales y dirección de arte.',
     descEn: 'Comprehensive visual campaign branding, street flyposting, editorial covers, and stage art direction.',
     applicationEs: 'Libro impreso "Relatos de la revuelta popular", estética de brigadas y afiches políticos.',
@@ -2109,9 +2260,12 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
   {
     name: 'Syscal SEV / VES',
     badge: 'Syscal Pro / Resistivímetro // GEOFÍSICA',
+    badgeEn: 'Syscal Pro / Resistivity Meter // GEOPHYSICS',
     level: '95% • PROSPECCIÓN DE AGUAS',
+    levelEn: '95% • GROUNDWATER EXPLORATION',
     levelPercent: 95,
     tags: 'Sondaje Eléctrico Vertical • Arreglo Schlumberger • Resistividad Aparente • Curvas de Inversión',
+    tagsEn: 'Vertical Electrical Sounding • Schlumberger Array • Apparent Resistivity • Inversion Curves',
     descEs: 'Prospección hidrogeofísica en corriente continua para detección de napas freáticas y estratigrafía.',
     descEn: 'Direct-current hydrogeophysical sounding for groundwater aquifer detection and stratigraphic mapping.',
     applicationEs: 'Campañas de prospección en Cauquenes para comités de agua potable rural y pequeños agricultores.',
@@ -2121,9 +2275,12 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
   {
     name: 'IoT LoRaWAN',
     badge: 'LoRaWAN & Microcontroladores // TELEMETRÍA',
+    badgeEn: 'LoRaWAN & Microcontrollers // TELEMETRY',
     level: '90% • REDES DE SENSORES',
+    levelEn: '90% • SENSOR NETWORKS',
     levelPercent: 90,
     tags: 'Pluviómetros Digitales de Balancín • Balizas ESP32 • Baterías Solares • Telemetría Rural',
+    tagsEn: 'Digital Rain Gauges • ESP32 Beacons • Solar Batteries • Rural Telemetry',
     descEs: 'Despliegue de estaciones meteorológicas comunitarias y sensores de humedad de bajo costo en cerros aislados.',
     descEn: 'Deployment of community weather stations and low-cost soil moisture probes on remote mountains.',
     applicationEs: 'Instalación de pluviómetro digital en Cerro Molco (Cauquenes) transmitiendo datos en tiempo real.',
@@ -2133,9 +2290,12 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
   {
     name: 'Zeiss Microscopio',
     badge: 'Zeiss Primo Star // LIMNOLOGÍA',
+    badgeEn: 'Zeiss Primo Star // LIMNOLOGY',
     level: '90% • TAXONOMÍA DE MICROFAUNA',
+    levelEn: '90% • MICROFAUNA TAXONOMY',
     levelPercent: 90,
     tags: 'Óptica de Campo Claro • Conteo Utermöhl • Protozoos • Ciliados • Algas Bentónicas',
+    tagsEn: 'Brightfield Optics • Utermöhl Counting • Protozoa • Ciliates • Benthic Algae',
     descEs: 'Identificación taxonómica de bioindicadores acuáticos en lagos y humedales para evaluar calidad ecológica.',
     descEn: 'Taxonomic identification of freshwater bioindicators in lakes and peatlands for ecological status diagnosis.',
     applicationEs: 'Diagnóstico de perifiton y macroinvertebrados en lagos de Poznań (Polonia) y humedales del Maule.',
@@ -2145,9 +2305,12 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
   {
     name: 'LiDAR DEM',
     badge: 'LiDAR Aerotransportado // RELIEVE',
+    badgeEn: 'Airborne LiDAR // ELEVATION & RELIEF',
     level: '95% • NUBES DE PUNTOS LÁSER',
+    levelEn: '95% • LASER POINT CLOUDS',
     levelPercent: 95,
     tags: 'Modelos Digitales de Terreno (DTM) • Detección de Cárcavas • Pendientes • Sombras de Relieve',
+    tagsEn: 'Digital Terrain Models (DTM) • Gully Detection • Slope Analysis • Hillshading',
     descEs: 'Procesamiento de nubes de puntos LiDAR para calcular micro-relieve, erosión de suelos y flujos hídricos.',
     descEn: 'LiDAR point cloud filtering generating high-res bare-earth DTMs, gully erosion, and hydrologic flow.',
     applicationEs: 'Modelación de erosión en laderas deforestadas por monocultivos forestales en la Cordillera de la Costa.',
@@ -2157,9 +2320,12 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
   {
     name: 'Garmin GPS',
     badge: 'Garmin GNSS // GEORREFERENCIACIÓN',
+    badgeEn: 'Garmin GNSS // GEOREFERENCING',
     level: '95% • PUNTOS DE CONTROL',
+    levelEn: '95% • GROUND CONTROL POINTS',
     levelPercent: 95,
     tags: 'Waypoints de Precisión • Tracks de Expedición • Coordenadas WGS84 / UTM • Ground Truth',
+    tagsEn: 'Precision Waypoints • Expedition Tracks • WGS84 / UTM Coordinates • Ground Truth',
     descEs: 'Georreferenciación milimétrica de pozos, calicatas, sensores y transectos de biodiversidad.',
     descEn: 'Precise ground-truth coordinate logging for wells, soil pits, weather stations, and biodiversity transects.',
     applicationEs: 'Relevamiento de terreno en expediciones a lagos polacos, Alpes suizos y cerros del Maule.',
@@ -2169,9 +2335,12 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
   {
     name: 'Idiomas',
     badge: 'Idiomas // DIPLOMACIA & INVESTIGACIÓN',
+    badgeEn: 'Languages // DIPLOMACY & RESEARCH',
     level: 'ES / EN / DE / PL • CERTIFICADO',
+    levelEn: 'ES / EN / DE / PL • CERTIFIED',
     levelPercent: 100,
     tags: 'Español (Nativo) • Inglés (IELTS Academic – C1) • Alemán (A2-B1) • Polaco (Básico)',
+    tagsEn: 'Spanish (Native) • English (IELTS Academic – C1) • German (A2-B1) • Polish (Basic)',
     descEs: 'Competencia lingüística para investigación en consorcios internacionales, redacción científica y diplomacia climática.',
     descEn: 'Linguistic proficiency for international research consortia, scientific reporting, and climate diplomacy.',
     applicationEs: 'Expositor en cumbres de Bonn, Hamburgo, Oslo, Costa Rica y Múnich; trabajo de investigación en Kiel y Poznań.',
@@ -2971,7 +3140,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <button
               onClick={onBackToMenu}
               className="px-2.5 sm:px-3 py-1 bg-black hover:bg-[#facc15] text-[#facc15] hover:text-black border-2 border-[#facc15] hover:border-black font-mono text-xs font-black tracking-wider uppercase transition shadow-[2px_2px_0px_#ffffff] flex items-center space-x-1 active:scale-95"
-              title="Volver al menú principal"
+              title={currentLang === 'es' ? 'Volver al menú principal' : 'Return to main menu'}
             >
               <span>←</span>
               <span>{currentLang === 'es' ? 'MENÚ' : 'MENU'}</span>
@@ -2990,7 +3159,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             {/* Geofrecuencia Official Insignia */}
             <div 
               className="absolute -top-1 -left-1 w-5 h-5 rounded-md bg-[#090b0e] border border-white shadow-[1.5px_1.5px_0px_#facc15] p-0.5 flex items-center justify-center -rotate-6"
-              title="Geofrecuencia: Pulso Geofísico & Frecuencia de Comunicación"
+              title={currentLang === 'es' ? 'Geofrecuencia: Pulso Geofísico & Frecuencia de Comunicación' : 'Geofrecuencia: Geophysical Pulse & Communication Frequency'}
             >
               <img src={resolveAsset('/favicon.svg')} alt="Geofrecuencia Logo" className="w-full h-full object-contain" />
             </div>
@@ -3000,16 +3169,16 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           <div className="flex flex-col">
             <div className="bg-white text-black px-2.5 sm:px-3 py-0.5 border-2 border-black shadow-[2px_2px_0px_#facc15] -rotate-1 inline-block self-start">
               <h1 className="font-mono font-black text-xs sm:text-sm tracking-tight uppercase leading-none">
-                [DANIEL SANTANDER // EL PLANETA]
+                [DANIEL SANTANDER // {currentLang === 'es' ? 'EL PLANETA' : 'THE PLANET'}]
               </h1>
             </div>
             {currentMission.isStatic ? (
               <div className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-cyan-400 uppercase mt-0.5">
-                🌐 {currentMission.city.toUpperCase()} • {currentMission.country.toUpperCase()}
+                🌐 {formatCity(currentMission.city, currentLang).toUpperCase()} • {formatCountry(currentMission.country, currentLang).toUpperCase()}
               </div>
             ) : (
               <div className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-amber-400 uppercase mt-0.5">
-                SECTOR: {currentMission.city.toUpperCase()} ({Math.abs(currentMission.lat).toFixed(1)}°{currentMission.lat >= 0 ? 'N' : 'S'} {Math.abs(currentMission.lng).toFixed(1)}°{currentMission.lng >= 0 ? 'E' : 'W'})
+                SECTOR: {formatCity(currentMission.city, currentLang).toUpperCase()} ({Math.abs(currentMission.lat).toFixed(1)}°{currentMission.lat >= 0 ? 'N' : 'S'} {Math.abs(currentMission.lng).toFixed(1)}°{currentMission.lng >= 0 ? 'E' : 'W'})
               </div>
             )}
           </div>
@@ -3104,7 +3273,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <button
               onClick={onExitToDossier}
               className="px-2 py-1 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
-              title="Volver a versión documento"
+              title={currentLang === 'es' ? 'Volver a versión documento' : 'Switch to document view'}
             >
               <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
               <span className="hidden lg:inline">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
@@ -3118,7 +3287,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             className="px-2.5 py-1 bg-[#22c55e] hover:bg-[#16a34a] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 rotate-1"
-            title="Descargar Currículum Vitae oficial (PDF)"
+            title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
           >
             <Download className="w-3.5 h-3.5 text-black" />
             <span className="hidden sm:inline">{currentLang === 'es' ? 'CV (PDF)' : 'CV (PDF)'}</span>
@@ -3129,7 +3298,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <button
               onClick={onOpenHireMe}
               className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
-              title="Contratar // Contact Daniel"
+              title={currentLang === 'es' ? 'Contratar // Contactar a Daniel' : 'Hire Me // Contact Daniel'}
             >
               <span>💼</span>
               <span className="hidden xl:inline">{currentLang === 'es' ? 'HIRE ME' : 'HIRE ME'}</span>
@@ -3140,7 +3309,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           <button
             onClick={onToggleLanguage}
             className="px-2 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
-            title="Cambiar idioma // Switch Language"
+            title={currentLang === 'es' ? 'Cambiar a Inglés' : 'Switch to Spanish'}
           >
             <Globe2 className="w-3.5 h-3.5" />
             <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
@@ -3169,7 +3338,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
                 {/* Yellow Sticky Note / Post-it on Top Left Corner */}
                 <div className="absolute top-3 left-3 z-20 bg-[#fef08a] text-black font-mono font-black text-xs px-2.5 py-1 border border-black shadow-[2px_2px_0px_#000] -rotate-3 uppercase">
-                  {currentMission.code} // {currentMission.city}
+                  {currentMission.code} // {formatCity(currentMission.city, currentLang).toUpperCase()}
                 </div>
 
                 {/* Media Viewport Frame - BALANCED & PROPORTIONED */}
@@ -3178,7 +3347,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     <div className="w-full h-full aspect-video min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]">
                       <iframe
                         src={currentMission.embedUrl}
-                        title={currentMission.titleEs}
+                        title={currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
                         className="w-full h-full border-0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
@@ -3188,8 +3357,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     /* Pletina de Casete de Radio Campesina */
                     <div className="w-full h-full p-8 sm:p-12 bg-[#161b22] text-white flex flex-col items-center justify-center space-y-6">
                       <div className="flex items-center justify-between w-full font-mono text-xs text-emerald-400 border-b border-white/10 pb-2">
-                        <span>RADIO CRISTALINA 96.3 FM • MAULE SUR</span>
-                        <span>SIDE A • CÁPSULA RURAL (TRANSMISIÓN DE CAMPO)</span>
+                        <span>RADIO CRISTALINA 96.3 FM • {formatCity('Maule Sur', currentLang).toUpperCase()}</span>
+                        <span>{currentLang === 'es' ? 'SIDE A • CÁPSULA RURAL (TRANSMISIÓN DE CAMPO)' : 'SIDE A • RURAL BROADCAST (FIELD TRANSMISSION)'}</span>
                       </div>
                       <div className="flex items-center justify-center space-x-12 py-6">
                         <div className="w-20 h-20 rounded-full border-3 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
@@ -3202,7 +3371,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       </div>
                       <audio controls className="w-full max-w-md">
                         <source src={resolveAsset('/audio/corte_constitucion.mp3')} type="audio/mp3" />
-                        Audio no disponible.
+                        {currentLang === 'es' ? 'Audio no disponible.' : 'Audio unavailable.'}
                       </audio>
                     </div>
                   ) : currentMission.availablePages && currentMission.availablePages.length > 0 ? (
@@ -3250,12 +3419,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                   {currentTool.name}
                                 </h3>
                                 <span className="font-mono text-xs font-black px-2 py-0.5 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
-                                  ★ {currentTool.level}
+                                  ★ {getToolLevel(currentTool, currentLang)}
                                 </span>
                               </div>
 
                               <p className="font-mono text-xs text-cyan-300 font-bold leading-tight">
-                                {currentTool.tags}
+                                {getToolTags(currentTool, currentLang)}
                               </p>
 
                               <p className="text-xs text-neutral-200 leading-relaxed pt-0.5 line-clamp-3">
@@ -3274,8 +3443,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           {/* Footer Help text */}
                           <div className="text-center pt-0.5 text-[11px] font-mono text-neutral-400">
                             ★ {currentLang === 'es'
-                              ? 'Selecciona herramientas desde el panel superior derecho o la matriz 3-col'
-                              : 'Select tools from the top-right panel or 3-col grid'}
+                              ? 'Selecciona herramientas desde el panel inferior derecho o la barra carrusel'
+                              : 'Select tools from the bottom-right panel or carousel bar'}
                           </div>
                         </div>
                       );
@@ -3364,7 +3533,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         src={resolveAsset(
                           currentLang === 'en' && currentMission.srcEn ? currentMission.srcEn : currentMission.src
                         )}
-                        alt={currentMission.titleEs}
+                        alt={currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
                         className="relative z-10 max-h-[280px] sm:max-h-[320px] lg:max-h-[350px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_16px_36px_rgba(0,0,0,0.98)]"
                       />
                     </div>
@@ -3383,7 +3552,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           : 'Milestone verified in CV without assigned graphic file yet.'}
                       </p>
                       <div className="mt-4 px-3 py-1 rounded bg-white/5 border border-white/10 font-mono text-xs text-neutral-400">
-                        ID: <span className="text-white font-bold">{currentMission.code}</span> • {currentMission.city}, {currentMission.country}
+                        ID: <span className="text-white font-bold">{currentMission.code}</span> • {formatCity(currentMission.city, currentLang)}, {formatCountry(currentMission.country, currentLang)}
                       </div>
                     </div>
                   )}
@@ -3396,7 +3565,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     <div className="flex items-center space-x-1.5 truncate pr-2">
                       <span className="text-emerald-700 font-black">✔</span>
                       <span className="uppercase tracking-tight text-neutral-900 font-black truncate max-w-[200px] sm:max-w-[240px]">
-                        {currentMission.flag} {currentMission.city}, {currentMission.country}
+                        {currentMission.flag} {formatCity(currentMission.city, currentLang)}, {formatCountry(currentMission.country, currentLang)}
                       </span>
                     </div>
 
@@ -3424,7 +3593,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
                     </span>
                     <span className="text-neutral-500 font-mono text-[10px] sm:text-[11px] font-bold">
-                      • {currentMission.date}
+                      • {formatDate(currentMission.date, currentLang)}
                     </span>
                   </div>
 
@@ -3498,7 +3667,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         : 'bg-black/80 hover:bg-black text-neutral-200'
                     }`}
                   >
-                    ⚡ CIENCIA (9)
+                    {currentLang === 'es' ? '⚡ CIENCIA (9)' : '⚡ SCIENCE (9)'}
                   </button>
                   <button
                     onClick={() => {
@@ -3511,7 +3680,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         : 'bg-black/80 hover:bg-black text-neutral-200'
                     }`}
                   >
-                    🎬 MEDIOS (6)
+                    {currentLang === 'es' ? '🎬 MEDIOS (6)' : '🎬 MEDIA (6)'}
                   </button>
                   <button
                     onClick={() => {
@@ -3524,7 +3693,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         : 'bg-black/80 hover:bg-black text-neutral-200'
                     }`}
                   >
-                    🔬 INSTRUMENTAL (6)
+                    {currentLang === 'es' ? '🔬 INSTRUMENTAL (6)' : '🔬 INSTRUMENTS (6)'}
                   </button>
                 </div>
               )}
@@ -3563,7 +3732,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
                               : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
                           }`}
-                          title={`Ver ficha técnica de ${tool.name}`}
+                          title={currentLang === 'es' ? `Ver ficha técnica de ${tool.name}` : `View technical datasheet for ${tool.name}`}
                         >
                           {/* Pushpin pinned through top edge */}
                           <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
@@ -3610,8 +3779,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                             </div>
 
                             <div className="text-[6.5px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
-                              <span className="text-[#b45309] font-black">{tool.level.split(' ')[0]}</span>
-                              <span className="text-neutral-400 truncate max-w-[50px]">{tool.tags.split(',')[0]}</span>
+                              <span className="text-[#b45309] font-black">{getToolLevel(tool, currentLang).split(' ')[0]}</span>
+                              <span className="text-neutral-400 truncate max-w-[50px]">{getToolTags(tool, currentLang).split(',')[0]}</span>
                             </div>
                           </div>
                         </div>
@@ -3673,19 +3842,19 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                             <div className="w-full h-full bg-[#090d16] p-0.5 flex flex-col items-center justify-center">
                               <TechLogo name={m.techStack?.[0] || 'Python'} size={44} className="drop-shadow-[0_3px_10px_rgba(0,0,0,0.98)]" />
                               <span className="font-mono text-[6px] text-cyan-300 font-bold mt-0.2 uppercase">
-                                {m.city}
+                                {formatCity(m.city, currentLang)}
                               </span>
                             </div>
                           ) : m.availablePages && m.availablePages.length > 0 ? (
                             <img
                               src={resolveAsset(m.availablePages[0].pageSrc)}
-                              alt={m.titleEs}
+                              alt={currentLang === 'es' ? m.titleEs : m.titleEn}
                               className="w-full h-full object-cover filter contrast-105"
                             />
                           ) : m.src ? (
                             <img
                               src={resolveAsset(m.src)}
-                              alt={m.titleEs}
+                              alt={currentLang === 'es' ? m.titleEs : m.titleEn}
                               className="w-full h-full object-cover filter contrast-105"
                             />
                           ) : (
@@ -3707,7 +3876,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           <div className="flex items-center space-x-1 font-mono text-[7.5px] font-bold text-neutral-800">
                             <span className="text-emerald-700 font-black">✔</span>
                             <span className="uppercase tracking-tight truncate">
-                              {m.flag} {m.city}
+                              {m.flag} {formatCity(m.city, currentLang)}
                             </span>
                           </div>
 
@@ -3727,7 +3896,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           </div>
 
                           <div className="text-[6.5px] font-mono text-neutral-500 pt-0.5 flex items-center justify-between">
-                            <span className="truncate">{m.date}</span>
+                            <span className="truncate">{formatDate(m.date, currentLang)}</span>
                             <span className="font-bold text-[6.5px] text-neutral-600 uppercase">{m.type}</span>
                           </div>
                         </div>
@@ -3757,10 +3926,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           <div className="px-4 py-3 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
             <div className="flex items-center space-x-2">
               <div className="bg-[#facc15] text-black font-mono font-black text-xs px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
-                {currentMission.code} // {currentMission.city.toUpperCase()}
+                {currentMission.code} // {formatCity(currentMission.city, currentLang).toUpperCase()}
               </div>
               <div className="bg-white/10 text-neutral-200 font-mono text-[10px] px-2 py-0.5 border border-white/20">
-                {currentMission.flag} {currentMission.country.toUpperCase()}
+                {currentMission.flag} {formatCountry(currentMission.country, currentLang).toUpperCase()}
               </div>
               <span className="bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider rotate-1">
                 {currentLang === 'es' ? 'VERIFICADO' : 'VERIFIED'}
@@ -3800,7 +3969,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 <span className="bg-[#facc15] text-black font-mono font-black px-2 py-0.5 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
                   {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
                 </span>
-                <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
+                <span className="text-neutral-400 font-mono font-bold">• {formatDate(currentMission.date, currentLang)}</span>
               </div>
 
               <h2 className="text-lg sm:text-xl font-mono font-black text-white uppercase tracking-tight leading-snug">
@@ -3879,7 +4048,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               <div className="flex flex-wrap gap-1">
                 {currentMission.tags.map((t, idx) => (
                   <span key={idx} className="px-2 py-0.5 font-mono text-[9px] bg-white/10 text-neutral-300 border border-white/15">
-                    #{t}
+                    #{formatTag(t, currentLang)}
                   </span>
                 ))}
               </div>
@@ -3908,8 +4077,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <Maximize2 className="w-4 h-4" />
             <span>
               {currentLang === 'es'
-                ? `ABRIR FICHA // ${currentMission.city.toUpperCase()}`
-                : `OPEN DOSSIER // ${currentMission.city.toUpperCase()}`}
+                ? `ABRIR FICHA // ${formatCity(currentMission.city, 'es').toUpperCase()}`
+                : `OPEN DOSSIER // ${formatCity(currentMission.city, 'en').toUpperCase()}`}
             </span>
           </button>
         )}

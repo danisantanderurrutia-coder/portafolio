@@ -55,7 +55,7 @@ export const ModalViewer: React.FC<ModalViewerProps> = ({ item, currentLang, onC
             <button
               onClick={onClose}
               className="p-1.5 text-[#63584e] hover:text-[#1c1917] rounded-full hover:bg-[#e2d8c6] transition"
-              title="Cerrar (Esc)"
+              title={currentLang === 'es' ? 'Cerrar (Esc)' : 'Close (Esc)'}
             >
               <X className="w-5 h-5" />
             </button>
@@ -149,7 +149,7 @@ export const ModalViewer: React.FC<ModalViewerProps> = ({ item, currentLang, onC
           <div className="space-y-4">
             <div>
               <div className="flex items-center space-x-2 text-xs font-serif font-bold text-[#9c4928] uppercase tracking-wider mb-1">
-                <span>{item.authorOrSource || 'Archivo de Campo'}</span>
+                <span>{item.authorOrSource || (currentLang === 'es' ? 'Archivo de Campo' : 'Field Archive')}</span>
                 {item.date && <span className="opacity-60">• {item.date}</span>}
               </div>
 

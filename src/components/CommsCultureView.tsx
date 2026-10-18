@@ -260,7 +260,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
             <button
               onClick={() => onSwitchToGameView(activeMode === 'comms_arts' ? 'culture' : 'comms')}
               className="px-2.5 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer"
-              title="Explorar coordenadas en el Planeta 3D"
+              title={currentLang === 'es' ? 'Explorar coordenadas en el Planeta 3D' : 'Explore coordinates on 3D Globe'}
             >
               <Globe className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">{currentLang === 'es' ? 'VER EN 3D' : '3D GLOBE'}</span>
@@ -273,7 +273,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
             target="_blank"
             rel="noopener noreferrer"
             className="px-2.5 py-1.5 bg-[#22c55e] hover:bg-[#16a34a] text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
-            title="Descargar CV en PDF"
+            title={currentLang === 'es' ? 'Descargar CV en PDF' : 'Download CV (PDF)'}
           >
             <Download className="w-3.5 h-3.5" />
             <span className="hidden md:inline">CV</span>
@@ -283,7 +283,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
             <button
               onClick={onOpenHireMe}
               className="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 cursor-pointer"
-              title="Contacto Directo"
+              title={currentLang === 'es' ? 'Contacto Directo' : 'Direct Contact'}
             >
               <span>💼</span>
               <span className="hidden lg:inline">{currentLang === 'es' ? 'CONTRATAR' : 'HIRE ME'}</span>
@@ -417,7 +417,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
             <div className="px-4 py-2 bg-neutral-900 border-b-2 border-black flex items-center justify-between font-mono text-xs">
               <div className="flex items-center space-x-2">
                 <span className="bg-[#facc15] text-black font-mono font-black px-1.5 py-0.5 text-[10px] border border-black uppercase">
-                  {currentMedia?.type?.toUpperCase() || 'DOCUMENTO'}
+                  {currentMedia?.type ? currentMedia.type.toUpperCase() : (currentLang === 'es' ? 'DOCUMENTO' : 'DOCUMENT')}
                 </span>
                 <span className="text-neutral-300 text-[11px] truncate max-w-[220px] sm:max-w-xs font-bold">
                   {currentLang === 'es' ? currentMedia?.titleEs : currentMedia?.titleEn}
@@ -433,14 +433,14 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
                   <button
                     onClick={handlePrevMedia}
                     className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/30 transition cursor-pointer"
-                    title="Anterior"
+                    title={currentLang === 'es' ? 'Anterior' : 'Previous'}
                   >
                     <ChevronLeft className="w-3.5 h-3.5" />
                   </button>
                   <button
                     onClick={handleNextMedia}
                     className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/30 transition cursor-pointer"
-                    title="Siguiente"
+                    title={currentLang === 'es' ? 'Siguiente' : 'Next'}
                   >
                     <ChevronRight className="w-3.5 h-3.5" />
                   </button>
@@ -467,7 +467,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
                 <div 
                   className="relative group cursor-pointer max-h-[460px] flex items-center justify-center"
                   onClick={() => setSelectedMedia(currentMedia)}
-                  title="Click para ampliar en alta resolución"
+                  title={currentLang === 'es' ? 'Click para ampliar en alta resolución' : 'Click to enlarge in high resolution'}
                 >
                   <img
                     src={resolveAsset(currentMedia.src)}
