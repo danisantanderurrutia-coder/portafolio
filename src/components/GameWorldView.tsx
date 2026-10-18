@@ -2443,6 +2443,35 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const [selectedPlatePage, setSelectedPlatePage] = useState<number>(0);
   const [activeSkillToolIndex, setActiveSkillToolIndex] = useState<number>(0);
   const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
+  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState<boolean>(false);
+  const categoryMenuRef = useRef<HTMLDivElement | null>(null);
+
+  const CATEGORIES_LIST: { id: 'all' | MissionType; labelEs: string; labelEn: string; color: string; count: number }[] = [
+    { id: 'all', labelEs: 'TODAS LAS EXPEDICIONES', labelEn: 'ALL FIELD DOSSIERS', color: 'bg-[#facc15]', count: GAME_MISSIONS.length },
+    { id: 'science', labelEs: 'CIENCIA & GEOFÍSICA', labelEn: 'SCIENCE & GEOPHYSICS', color: 'bg-red-600', count: GAME_MISSIONS.filter((m) => m.type === 'science').length },
+    { id: 'global', labelEs: 'CUMBRES CLIMÁTICAS', labelEn: 'CLIMATE SUMMITS', color: 'bg-amber-500', count: GAME_MISSIONS.filter((m) => m.type === 'global').length },
+    { id: 'culture', labelEs: 'MEDIOS & ARTE', labelEn: 'MEDIA & ARTS', color: 'bg-orange-600', count: GAME_MISSIONS.filter((m) => m.type === 'culture' || m.id === 'plp-prensa').length },
+    { id: 'comms', labelEs: 'COMUNIDADES & ECOLOGÍA', labelEn: 'GRASSROOTS & ECOLOGY', color: 'bg-emerald-600', count: GAME_MISSIONS.filter((m) => m.type === 'comms').length },
+    { id: 'rd', labelEs: 'PROYECTOS & I+D', labelEn: 'PROJECTS & R&D', color: 'bg-purple-600', count: GAME_MISSIONS.filter((m) => m.type === 'rd').length },
+    { id: 'publications', labelEs: 'PUBLICACIONES & ENSAYOS', labelEn: 'PUBLICATIONS & TREATISES', color: 'bg-indigo-600', count: GAME_MISSIONS.filter((m) => m.type === 'publications').length },
+    { id: 'titles', labelEs: 'TÍTULOS & 23 FOTOS CAMPO', labelEn: 'DEGREES & 23 FIELD PHOTOS', color: 'bg-pink-600', count: GAME_MISSIONS.filter((m) => m.type === 'titles').length },
+    { id: 'skills', labelEs: 'SKILLS & TOOLKIT', labelEn: 'SKILLS & TOOLKIT', color: 'bg-cyan-500', count: GAME_MISSIONS.filter((m) => m.type === 'skills').length }
+  ];
+
+  // Close category dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (categoryMenuRef.current && !categoryMenuRef.current.contains(e.target as Node)) {
+        setIsCategoryMenuOpen(false);
+      }
+    };
+    if (isCategoryMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isCategoryMenuOpen]);
 
   // Filtered list for mission rail
   const filteredMissions = GAME_MISSIONS.filter((m) => {
@@ -3165,111 +3194,73 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </div>
         </div>
 
-        {/* Center: Category Filter Slanted Tape Strips (Direct Access to All Portfolio Tracks) */}
-        <div className="flex items-center gap-1 sm:gap-1.5 p-1 bg-black/60 border border-white/20 overflow-x-auto no-scrollbar">
-          <button
-            onClick={() => handleFilterChange('all')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
-              activeFilter === 'all'
-                ? 'bg-[#facc15] text-black shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-white hover:bg-white hover:text-black'
-            }`}
-          >
-            {currentLang === 'es' ? `TODAS (${GAME_MISSIONS.length})` : `ALL (${GAME_MISSIONS.length})`}
-          </button>
+        {/* Center: Category Filter Dropdown Menu */}
+        {(() => {
+          const activeCategoryItem = CATEGORIES_LIST.find((c) => c.id === activeFilter) || CATEGORIES_LIST[0];
+          return (
+            <div className="relative" ref={categoryMenuRef}>
+              <button
+                onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
+                className="px-3 py-1.5 bg-black/95 hover:bg-black text-[#facc15] border-2 border-[#facc15] shadow-[2px_2px_0px_#ffffff] font-mono font-black text-xs uppercase tracking-wider flex items-center space-x-2 transition cursor-pointer active:scale-95"
+                title={currentLang === 'es' ? 'Menú desplegable de categorías' : 'Category filter dropdown'}
+              >
+                <span className={`w-2.5 h-2.5 rounded-full ${activeCategoryItem.color} animate-pulse shrink-0`} />
+                <span className="truncate max-w-[150px] sm:max-w-[220px]">
+                  {currentLang === 'es' ? activeCategoryItem.labelEs : activeCategoryItem.labelEn} ({activeCategoryItem.count})
+                </span>
+                <span className={`text-[10px] text-[#facc15] transition-transform duration-150 ${isCategoryMenuOpen ? 'rotate-180' : ''}`}>
+                  ▼
+                </span>
+              </button>
 
-          <button
-            onClick={() => handleFilterChange('science')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
-              activeFilter === 'science'
-                ? 'bg-red-600 text-white shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-red-500 hover:text-white'
-            }`}
-          >
-            {currentLang === 'es' ? '[CIENCIA]' : '[SCIENCE]'}
-          </button>
+              {isCategoryMenuOpen && (
+                <div className="absolute left-0 mt-2 w-64 sm:w-72 bg-[#0c1017] border-2 border-black rounded-lg shadow-[8px_8px_0px_#000000] z-50 py-1 overflow-hidden animate-fadeIn">
+                  <div className="px-3 py-1.5 border-b border-white/10 text-[9px] font-mono text-neutral-400 font-bold uppercase tracking-wider flex items-center justify-between">
+                    <span>{currentLang === 'es' ? 'CATEGORÍAS DE PORTAFOLIO:' : 'PORTFOLIO TRACKS:'}</span>
+                    <span className="text-[#facc15]">{GAME_MISSIONS.length} {currentLang === 'es' ? 'TOTAL' : 'TOTAL'}</span>
+                  </div>
+                  <div className="max-h-72 overflow-y-auto no-scrollbar py-1">
+                    {CATEGORIES_LIST.map((cat) => {
+                      const isSelected = cat.id === activeFilter;
+                      return (
+                        <button
+                          key={cat.id}
+                          onClick={() => {
+                            handleFilterChange(cat.id);
+                            setIsCategoryMenuOpen(false);
+                          }}
+                          className={`w-full px-3 py-2 text-left font-mono text-xs flex items-center justify-between transition cursor-pointer ${
+                            isSelected
+                              ? 'bg-white/15 text-[#facc15] font-black border-l-4 border-[#facc15]'
+                              : 'text-neutral-200 hover:bg-white/10 hover:text-white'
+                          }`}
+                        >
+                          <div className="flex items-center space-x-2 truncate pr-2">
+                            <span className={`w-2.5 h-2.5 rounded-full ${cat.color} shrink-0`} />
+                            <span className="truncate uppercase font-bold text-[11px]">
+                              {currentLang === 'es' ? cat.labelEs : cat.labelEn}
+                            </span>
+                          </div>
+                          <span
+                            className={`text-[10px] font-bold px-1.5 py-0.2 rounded shrink-0 ${
+                              isSelected ? 'bg-[#facc15] text-black font-black' : 'bg-white/10 text-neutral-400'
+                            }`}
+                          >
+                            {cat.count}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })()}
 
-          <button
-            onClick={() => handleFilterChange('global')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 cursor-pointer shrink-0 ${
-              activeFilter === 'global'
-                ? 'bg-amber-500 text-black shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-amber-400 hover:text-black'
-            }`}
-          >
-            {currentLang === 'es' ? '[CUMBRES]' : '[SUMMITS]'}
-          </button>
-
-          <button
-            onClick={() => handleFilterChange('culture')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
-              activeFilter === 'culture'
-                ? 'bg-orange-600 text-white shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-orange-500 hover:text-white'
-            }`}
-          >
-            {currentLang === 'es' ? '[MEDIOS & ARTE]' : '[MEDIA & ARTS]'}
-          </button>
-
-          <button
-            onClick={() => handleFilterChange('comms')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
-              activeFilter === 'comms'
-                ? 'bg-emerald-600 text-white shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-emerald-500 hover:text-white'
-            }`}
-          >
-            {currentLang === 'es' ? '[COMUNIDADES]' : '[GRASSROOTS]'}
-          </button>
-
-          <button
-            onClick={() => handleFilterChange('rd')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-1 cursor-pointer shrink-0 ${
-              activeFilter === 'rd'
-                ? 'bg-purple-600 text-white shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-purple-500 hover:text-white'
-            }`}
-          >
-            {currentLang === 'es' ? '[PROYECTOS & I+D]' : '[PROJECTS & R&D]'}
-          </button>
-
-          <button
-            onClick={() => handleFilterChange('publications')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 cursor-pointer shrink-0 ${
-              activeFilter === 'publications'
-                ? 'bg-indigo-600 text-white shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-indigo-500 hover:text-white'
-            }`}
-          >
-            {currentLang === 'es' ? '[PUBLICACIONES]' : '[PUBLICATIONS]'}
-          </button>
-
-          <button
-            onClick={() => handleFilterChange('titles')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
-              activeFilter === 'titles'
-                ? 'bg-pink-600 text-white shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-pink-500 hover:text-white'
-            }`}
-          >
-            {currentLang === 'es' ? '[TÍTULOS & AVALES]' : '[DEGREES & FIELD]'}
-          </button>
-
-          <button
-            onClick={() => handleFilterChange('skills')}
-            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
-              activeFilter === 'skills'
-                ? 'bg-cyan-500 text-black shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-cyan-400 hover:text-black'
-            }`}
-          >
-            {currentLang === 'es' ? '[SKILLS & TOOLKIT]' : '[SKILLS & TOOLKIT]'}
-          </button>
-        </div>
-
-        {/* Right: Actions (Tour, R&D Filter, CV, Lang, Dossier) */}
-        <div className="flex items-center space-x-1.5 sm:space-x-2">
-          {/* Guided Tour Auto-Play Toggle (Suggestion B) */}
+        {/* Right: Actions (Tour, Dossier, CV, Hire Me, Language on Far Right) */}
+        <div className="flex items-center space-x-1.5 sm:space-x-2 ml-auto">
+          {/* Guided Tour Auto-Play Toggle */}
           <button
             onClick={() => setIsTourPlaying(!isTourPlaying)}
             className={`px-2.5 py-1 font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1.5 ${
@@ -3287,17 +3278,19 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </span>
           </button>
 
-          {/* Quick R&D Filter Toggle */}
-          <button
-            onClick={() => handleFilterChange('rd')}
-            className="px-2.5 py-1 bg-purple-600 hover:bg-purple-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 -rotate-1 cursor-pointer"
-            title={currentLang === 'es' ? 'Filtrar Proyectos & Innovación (I+D)' : 'Filter Projects & Innovation (R&D)'}
-          >
-            <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-            <span className="hidden sm:inline">{currentLang === 'es' ? 'I+D' : 'R&D'}</span>
-          </button>
+          {/* Dossier Document View Button */}
+          {onExitToDossier && (
+            <button
+              onClick={onExitToDossier}
+              className="px-2 py-1 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
+              title="Volver a versión documento"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
+              <span className="hidden lg:inline">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
+            </button>
+          )}
 
-          {/* One-Click CV Loot Download (Suggestion E) */}
+          {/* One-Click CV Loot Download (Kept on Right) */}
           <a
             href={resolveAsset('/Daniel_Santander_CV.pdf')}
             download="Daniel_Santander_CV.pdf"
@@ -3310,17 +3303,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             <span className="hidden sm:inline">{currentLang === 'es' ? 'CV (PDF)' : 'CV (PDF)'}</span>
           </a>
 
-          {/* Language Switcher */}
-          <button
-            onClick={onToggleLanguage}
-            className="px-2 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
-            title="Cambiar idioma // Switch Language"
-          >
-            <Globe2 className="w-3.5 h-3.5" />
-            <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
-          </button>
-
-          {/* Hire Me Direct Button */}
+          {/* Hire Me Direct Button (Kept on Right) */}
           {onOpenHireMe && (
             <button
               onClick={onOpenHireMe}
@@ -3332,38 +3315,15 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </button>
           )}
 
-          {/* Skills Button (Filters directly into the carousel & 3D view) */}
+          {/* Language Switcher (Moved to Far Top-Right) */}
           <button
-            onClick={() => handleFilterChange('skills')}
-            className="px-2 py-1 bg-white/10 hover:bg-white hover:text-black text-white font-mono font-bold text-xs uppercase tracking-wider border border-white/20 active:scale-95 transition-all hidden md:flex items-center space-x-1 cursor-pointer"
-            title="Ficha Técnica & Skills"
+            onClick={onToggleLanguage}
+            className="px-2 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
+            title="Cambiar idioma // Switch Language"
           >
-            <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-            <span>SKILLS</span>
+            <Globe2 className="w-3.5 h-3.5" />
+            <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
           </button>
-
-          {onExitToDossier && (
-            <button
-              onClick={onExitToDossier}
-              className="px-2 py-1 bg-[#ede5d6] hover:bg-white text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
-              title="Volver a versión documento"
-            >
-              <FileText className="w-3.5 h-3.5 text-[#7f3419]" />
-              <span className="hidden lg:inline">{currentLang === 'es' ? 'DOSSIER' : 'DOSSIER'}</span>
-            </button>
-          )}
-
-          {/* Home / Gateway Button */}
-          {onBackToGateway && (
-            <button
-              onClick={onBackToGateway}
-              className="px-2 py-1 bg-white hover:bg-neutral-200 text-black font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1"
-              title="Volver a Portada Principal // Home Gateway"
-            >
-              <span>🏠</span>
-              <span className="hidden sm:inline">{currentLang === 'es' ? 'INICIO' : 'HOME'}</span>
-            </button>
-          )}
         </div>
       </header>
 
