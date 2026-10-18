@@ -2134,6 +2134,280 @@ const latLngToVector3 = (lat: number, lng: number, radius: number): THREE.Vector
   );
 };
 
+interface SkillToolDetail {
+  name: string;
+  badge: string;
+  level: string;
+  levelPercent: number;
+  tags: string;
+  descEs: string;
+  descEn: string;
+  applicationEs: string;
+  applicationEn: string;
+  color: string;
+}
+
+const TOOLS_CIENCIA: SkillToolDetail[] = [
+  {
+    name: 'Python',
+    badge: 'Python 3.12+ // CIENTÍFICO',
+    level: '95% • PRODUCCIÓN & RESEARCH',
+    levelPercent: 95,
+    tags: 'NumPy • SciPy • Pandas • GeoPandas • Rasterio • Matplotlib • Scikit-learn',
+    descEs: 'Computación científica, balance hídrico, scripts de automatización satelital y modelos hidrogeofísicos.',
+    descEn: 'Scientific computing, water balance modeling, satellite automation pipelines, and hydrogeophysics.',
+    applicationEs: 'Desarrollo de scripts de balance de cuencas en Kiel, modelos numéricos de turberas y análisis de datos climáticos.',
+    applicationEn: 'Watershed balance modeling at Kiel, numerical peatland dynamics, and climate time-series analysis.',
+    color: '#387eb8'
+  },
+  {
+    name: 'QGIS & GIS',
+    badge: 'QGIS 3.34 LTR // ESPACIAL',
+    level: '95% • ANÁLISIS VECTORIAL & RASTER',
+    levelPercent: 95,
+    tags: 'DEMs LiDAR • Mapeo Cuencas • Grass GIS • SAGA • ModelBuilder',
+    descEs: 'Cartografía vectorial y raster avanzada, delimitación hidrológica de cuencas y cálculo de índices espectrales.',
+    descEn: 'Advanced raster & vector cartography, hydrological catchment delineation, and spectral index calculations.',
+    applicationEs: 'StoryMaps de Aljezur (Portugal), modelación de riesgo de incendios y zonificación territorial comunitaria.',
+    applicationEn: 'Aljezur StoryMaps (Portugal), wildfire risk modeling, and community land-use zoning.',
+    color: '#589632'
+  },
+  {
+    name: 'Docker',
+    badge: 'Docker Engine // REPRODUCIBILIDAD',
+    level: '90% • VIRTUALIZACIÓN & CI/CD',
+    levelPercent: 90,
+    tags: 'Contenedores • Multi-stage Builds • Docker Compose • Pipelines Reproducibles',
+    descEs: 'Virtualización de modelos matemáticos, empaquetado de servicios científicos y reproducibilidad computacional.',
+    descEn: 'Virtualization of mathematical models, scientific service packaging, and computational reproducibility.',
+    applicationEs: 'Ambientes aislados para correr simulaciones hidrodinámicas Delft3D y APIs geoespaciales en producción.',
+    applicationEn: 'Isolated runtime environments for hydrodynamic Delft3D simulations and production geospatial APIs.',
+    color: '#2496ED'
+  },
+  {
+    name: 'PostGIS',
+    badge: 'PostgreSQL 16 + PostGIS 3.4',
+    level: '85% • BASES ESPACIALES SQL',
+    levelPercent: 85,
+    tags: 'Consultas Espaciales ST_* • Índices GiST • Topología de Redes Hídricas',
+    descEs: 'Bases de datos espaciales masivas, análisis relacional geográfico y almacenamiento de nubes de puntos.',
+    descEn: 'Massive spatial databases, topological network routing, and geographic relational queries.',
+    applicationEs: 'Almacenamiento y consulta de millones de polígonos catastrales forestales y redes de drenaje en el Maule.',
+    applicationEn: 'Querying and storage of millions of cadastral forest plots and drainage networks across central Chile.',
+    color: '#336791'
+  },
+  {
+    name: 'Earth Engine (GEE)',
+    badge: 'Google Earth Engine // CLOUD',
+    level: '85% • PROCESAMIENTO PETABYTE',
+    levelPercent: 85,
+    tags: 'Sentinel-2 MSI • Landsat 8/9 • Índices dNBR, NDVI, NDWI • Reducciones Espaciales',
+    descEs: 'Análisis multitemporal de series de satélites en la nube, severidad de incendios forestales y estrés hídrico.',
+    descEn: 'Multitemporal satellite time-series analysis in the cloud, wildfire severity burn index, and drought monitoring.',
+    applicationEs: 'Evaluación satelital del megaincendio de Valparaíso (2024) y monocultivos en el Maule con Sentinel-2.',
+    applicationEn: 'Satellite burn severity mapping of Valparaíso wildfires (2024) and pine plantations using Sentinel-2.',
+    color: '#1A73E8'
+  },
+  {
+    name: 'Delft3D',
+    badge: 'Deltares Delft3D 4.04 // 2D/3D',
+    level: '80% • MODELACIÓN HIDRODINÁMICA',
+    levelPercent: 80,
+    tags: 'Mallas Curvilíneas • Batimetría • Transporte de Sedimentos • Forzamiento de Mareas',
+    descEs: 'Simulación física de hidrodinámica de fluidos, propagación de ondas mareales y morfología costera y estuarina.',
+    descEn: 'Physics-based hydrodynamic simulation, tidal surge propagation, and estuarine sediment morphodynamics.',
+    applicationEs: 'Modelación del estuario del río Eider en Alemania y dinámicas de intrusión salina.',
+    applicationEn: 'Hydrodynamic flow modeling of the Eider River estuary in Germany and saltwater intrusion dynamics.',
+    color: '#00A3E0'
+  },
+  {
+    name: 'Unity 3D',
+    badge: 'Unity Engine // GEMELOS DIGITALES',
+    level: '85% • INTERACCIÓN & 3D REAL-TIME',
+    levelPercent: 85,
+    tags: 'C# • Shaders HLSL • Modelado Procedural • Telemetría IoT en Tiempo Real',
+    descEs: 'Construcción de gemelos digitales interactivos y visualización espacial inmersiva para planificación urbana.',
+    descEn: 'Interactive digital twin authoring and immersive real-time spatial visualization for urban resilience.',
+    applicationEs: 'Gemelo Digital Smart Food Parks presentado para la iniciativa ONU Citiverse (Copenhague/Barcelona).',
+    applicationEn: 'Smart Food Parks Digital Twin developed for the UN Citiverse track (Copenhagen/Barcelona).',
+    color: '#ffffff'
+  },
+  {
+    name: 'Next.js & React',
+    badge: 'Next.js 14 / React 19 // FRONTEND',
+    level: '90% • ARQUITECTURA WEB REACTIVA',
+    levelPercent: 90,
+    tags: 'TypeScript • Tailwind CSS • Three.js • Mapbox GL • Visualización Dinámica',
+    descEs: 'Desarrollo de interfaces de alto rendimiento, plataformas científicas interactivas y visualizadores geoespaciales.',
+    descEn: 'High-performance interactive scientific interfaces, geospatial map viewers, and responsive portals.',
+    applicationEs: 'Desarrollo de portales de cartografía comunitaria, visores satelitales y portafolio interactivo Three.js.',
+    applicationEn: 'Development of community cartography portals, satellite viewers, and interactive Three.js applications.',
+    color: '#06b6d4'
+  },
+  {
+    name: 'FastAPI',
+    badge: 'FastAPI + Python // ASYNC REST',
+    level: '90% • SERVICIOS WEB DE ALTA VELOCIDAD',
+    levelPercent: 90,
+    tags: 'Pydantic • AsyncIO • Uvicorn • Endpoints de Telemetría • GeoJSON Serializers',
+    descEs: 'APIs asíncronas de microsegundos para disponibilizar datos de modelos matemáticos y sensores en terreno.',
+    descEn: 'High-throughput async APIs delivering mathematical model inferences and field sensor telemetry.',
+    applicationEs: 'Backend de ingesta de datos meteorológicos IoT y endpoints de cálculo hidrológico en tiempo real.',
+    applicationEn: 'Backend ingesting IoT weather telemetry and real-time hydrological calculation microservices.',
+    color: '#009688'
+  }
+];
+
+const TOOLS_COMMS: SkillToolDetail[] = [
+  {
+    name: 'DaVinci Resolve',
+    badge: 'Blackmagic DaVinci // COLOR & 4K',
+    level: '95% • EDICIÓN & COLOR GRADING',
+    levelPercent: 95,
+    tags: 'Corte Cinematográfico • Fairlight Audio • Nodos de Color • HDR Delivery',
+    descEs: 'Montaje cinematográfico y corrección de color profesional para piezas de cine documental y reportajes de campo.',
+    descEn: 'Cinematic editing and color grading for documentary films and on-the-ground investigative reporting.',
+    applicationEs: 'Edición y etalonaje en 4K para piezas audiovisuales sobre el estallido social y cumbres de justicia climática.',
+    applicationEn: '4K editing and grading for socio-environmental video journalism and climate justice summits.',
+    color: '#FF6B00'
+  },
+  {
+    name: 'OBS Studio',
+    badge: 'OBS Studio // BROADCAST EN VIVO',
+    level: '90% • TRANSMISIÓN MULTICÁMARA',
+    levelPercent: 90,
+    tags: 'Streaming RTMP • Overlays NDI • Mezcla de Audio Digital • Baja Latencia',
+    descEs: 'Transmisión en vivo de eventos multitudinarios, torneos culturales de freestyle y conferencias académicas.',
+    descEn: 'Multi-camera live streaming for mass cultural freestyle championships and international summits.',
+    applicationEs: 'Emisión en vivo con múltiples cámaras de torneos de freestyle en el Teatro Caupolicán (+5.000 espectadores).',
+    applicationEn: 'Multi-cam broadcast for freestyle tournaments at Caupolicán Arena (+5,000 live attendees).',
+    color: '#7000FF'
+  },
+  {
+    name: 'Sony 4K',
+    badge: 'Sony Alpha Cine // CÁMARA & ÓPTICA',
+    level: '90% • REGISTRO EN TERRENO',
+    levelPercent: 90,
+    tags: 'Perfiles S-Log3 • Ópticas Cine • Estabilización Gimbal • Audio Shotgun XLR',
+    descEs: 'Operación de cámaras cinematográficas en condiciones adversas de campo, protestas y entornos rurales.',
+    descEn: 'Cinematography in adverse outdoor field conditions, frontline protests, and remote rural territories.',
+    applicationEs: 'Dirección de fotografía y cámara en las calles de Santiago durante el estallido de 2019.',
+    applicationEn: 'Cinematography and direct field camera work on Santiago streets during 2019 uprising.',
+    color: '#00F0FF'
+  },
+  {
+    name: 'Premiere Pro',
+    badge: 'Adobe Premiere Pro // NEWSROOM',
+    level: '90% • FLUJO DE PRENSA DIGITAL',
+    levelPercent: 90,
+    tags: 'Edición Ágil • Subtitulado Automático • Sincronización Multi-cámara • Redes',
+    descEs: 'Flujo de trabajo de prensa digital para producción de despachos y cápsulas noticiosas de entrega inmediata.',
+    descEn: 'Fast-paced newsroom workflow generating immediate breaking news reels and video reports.',
+    applicationEs: 'Producción de cientos de despachos de prensa para Primera Línea Prensa (+700k personas de audiencia).',
+    applicationEn: 'Production of hundreds of newsreels for Primera Línea Prensa reaching +700k citizens.',
+    color: '#EA77FF'
+  },
+  {
+    name: 'Radio FM',
+    badge: 'Broadcast FM // RADIODIFUSIÓN',
+    level: '95% • ESTUDIOS COMUNITARIOS',
+    levelPercent: 95,
+    tags: 'Transmisores FM • Antenas Dipolo • Consolas Behringer • Locución Técnica',
+    descEs: 'Instalación y operación de estaciones de radio comunitaria, edición de podcasts y transmisión radial campesina.',
+    descEn: 'Installation and operation of community radio stations, podcast mastering, and rural FM broadcast.',
+    applicationEs: 'Emisión de cápsulas ambientales y transmisiones en Radio Cristalina 96.3 FM (Constitución, Maule).',
+    applicationEn: 'Broadcasting environmental awareness episodes on Radio Cristalina 96.3 FM (Maule, Chile).',
+    color: '#22c55e'
+  },
+  {
+    name: 'Dirección Creativa',
+    badge: 'Dirección de Arte // PROPAGANDA',
+    level: '95% • IDENTIDAD & SERIGRAFÍA',
+    levelPercent: 95,
+    tags: 'Serigrafía Textil y Papel • Tipografía Editorial • Escenografía • Muralismo',
+    descEs: 'Diseño integral de campañas visuales, cartelería callejera, portadas editoriales y dirección de arte.',
+    descEn: 'Comprehensive visual campaign branding, street flyposting, editorial covers, and stage art direction.',
+    applicationEs: 'Libro impreso "Relatos de la revuelta popular", estética de brigadas y afiches políticos.',
+    applicationEn: 'Print book "Relatos de la revuelta popular", silkscreen posters, and cultural movement branding.',
+    color: '#facc15'
+  }
+];
+
+const TOOLS_EQUIPOS: SkillToolDetail[] = [
+  {
+    name: 'Syscal SEV / VES',
+    badge: 'Syscal Pro / Resistivímetro // GEOFÍSICA',
+    level: '95% • PROSPECCIÓN DE AGUAS',
+    levelPercent: 95,
+    tags: 'Sondaje Eléctrico Vertical • Arreglo Schlumberger • Resistividad Aparente • Curvas de Inversión',
+    descEs: 'Prospección hidrogeofísica en corriente continua para detección de napas freáticas y estratigrafía.',
+    descEn: 'Direct-current hydrogeophysical sounding for groundwater aquifer detection and stratigraphic mapping.',
+    applicationEs: 'Campañas de prospección en Cauquenes para comités de agua potable rural y pequeños agricultores.',
+    applicationEn: 'Field exploration campaigns in Cauquenes locating groundwater wells for rural peasant communities.',
+    color: '#06b6d4'
+  },
+  {
+    name: 'IoT LoRaWAN',
+    badge: 'LoRaWAN & Microcontroladores // TELEMETRÍA',
+    level: '90% • REDES DE SENSORES',
+    levelPercent: 90,
+    tags: 'Pluviómetros Digitales de Balancín • Balizas ESP32 • Baterías Solares • Telemetría Rural',
+    descEs: 'Despliegue de estaciones meteorológicas comunitarias y sensores de humedad de bajo costo en cerros aislados.',
+    descEn: 'Deployment of community weather stations and low-cost soil moisture probes on remote mountains.',
+    applicationEs: 'Instalación de pluviómetro digital en Cerro Molco (Cauquenes) transmitiendo datos en tiempo real.',
+    applicationEn: 'Installation of autonomous tipping-bucket rain gauge on Cerro Molco (Cauquenes) streaming live rain data.',
+    color: '#22c55e'
+  },
+  {
+    name: 'Zeiss Microscopio',
+    badge: 'Zeiss Primo Star // LIMNOLOGÍA',
+    level: '90% • TAXONOMÍA DE MICROFAUNA',
+    levelPercent: 90,
+    tags: 'Óptica de Campo Claro • Conteo Utermöhl • Protozoos • Ciliados • Algas Bentónicas',
+    descEs: 'Identificación taxonómica de bioindicadores acuáticos en lagos y humedales para evaluar calidad ecológica.',
+    descEn: 'Taxonomic identification of freshwater bioindicators in lakes and peatlands for ecological status diagnosis.',
+    applicationEs: 'Diagnóstico de perifiton y macroinvertebrados en lagos de Poznań (Polonia) y humedales del Maule.',
+    applicationEn: 'Periphyton and macroinvertebrate diagnostics across Poznań lakes (Poland) and Maule wetlands.',
+    color: '#387eb8'
+  },
+  {
+    name: 'LiDAR DEM',
+    badge: 'LiDAR Aerotransportado // RELIEVE',
+    level: '95% • NUBES DE PUNTOS LÁSER',
+    levelPercent: 95,
+    tags: 'Modelos Digitales de Terreno (DTM) • Detección de Cárcavas • Pendientes • Sombras de Relieve',
+    descEs: 'Procesamiento de nubes de puntos LiDAR para calcular micro-relieve, erosión de suelos y flujos hídricos.',
+    descEn: 'LiDAR point cloud filtering generating high-res bare-earth DTMs, gully erosion, and hydrologic flow.',
+    applicationEs: 'Modelación de erosión en laderas deforestadas por monocultivos forestales en la Cordillera de la Costa.',
+    applicationEn: 'Erosion risk modeling on coastal range slopes deforested by industrial timber monocultures.',
+    color: '#f97316'
+  },
+  {
+    name: 'Garmin GPS',
+    badge: 'Garmin GNSS // GEORREFERENCIACIÓN',
+    level: '95% • PUNTOS DE CONTROL',
+    levelPercent: 95,
+    tags: 'Waypoints de Precisión • Tracks de Expedición • Coordenadas WGS84 / UTM • Ground Truth',
+    descEs: 'Georreferenciación milimétrica de pozos, calicatas, sensores y transectos de biodiversidad.',
+    descEn: 'Precise ground-truth coordinate logging for wells, soil pits, weather stations, and biodiversity transects.',
+    applicationEs: 'Relevamiento de terreno en expediciones a lagos polacos, Alpes suizos y cerros del Maule.',
+    applicationEn: 'Expedition fieldwork coordinate logging across Polish lakes, Swiss Alps, and Chilean ranges.',
+    color: '#facc15'
+  },
+  {
+    name: 'Idiomas',
+    badge: 'Trilingüe // DIPLOMACIA CIENTÍFICA',
+    level: 'ES / EN / DE • PROFESIONAL FLUIDO',
+    levelPercent: 100,
+    tags: 'Español (Nativo) • Inglés (C1/C2 Fluido Académico) • Alemán (B1/B2 Técnico Intermedio)',
+    descEs: 'Fluidez trilingüe para articulación de redes científicas, redacción de papers y diplomacia en cumbres de la ONU.',
+    descEn: 'Trilingual proficiency for international research consortia, paper authoring, and UN climate summits.',
+    applicationEs: 'Expositor en cumbres de Bonn, Hamburgo, Oslo y Costa Rica; trabajo de laboratorio en Kiel y Poznań.',
+    applicationEn: 'Keynote speaker at Bonn, Hamburg, Oslo, and Costa Rica; scientific laboratory research in Kiel and Poznań.',
+    color: '#ec4899'
+  }
+];
+
 interface GameWorldViewProps {
   currentLang: Language;
   onToggleLanguage: () => void;
@@ -2167,6 +2441,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   });
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(true);
   const [selectedPlatePage, setSelectedPlatePage] = useState<number>(0);
+  const [activeSkillToolIndex, setActiveSkillToolIndex] = useState<number>(0);
   const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
 
   // Filtered list for mission rail
@@ -2200,6 +2475,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         if (found) {
           setSelectedMissionId(found.id);
           setSelectedPlatePage(0);
+          setActiveSkillToolIndex(0);
         }
       }
     }
@@ -2208,6 +2484,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const handleFilterChange = (newFilter: 'all' | MissionType) => {
     setActiveFilter(newFilter);
     setSelectedPlatePage(0);
+    setActiveSkillToolIndex(0);
     setIsDossierOpen(true);
     if (newFilter === 'all') {
       setSelectedMissionId(GAME_MISSIONS[0].id);
@@ -2224,6 +2501,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     if (filteredMissions.length > 0 && !filteredMissions.some((m) => m.id === selectedMissionId)) {
       setSelectedMissionId(filteredMissions[0].id);
       setSelectedPlatePage(0);
+      setActiveSkillToolIndex(0);
     }
   }, [activeFilter, filteredMissions, selectedMissionId]);
 
@@ -2242,6 +2520,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const handleSelectMission = (missionId: string) => {
     setSelectedMissionId(missionId);
     setSelectedPlatePage(0);
+    setActiveSkillToolIndex(0);
     setIsDossierOpen(true);
   };
 
@@ -3151,8 +3430,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             {/* Mission Body Scrollable */}
             <div className="overflow-y-auto p-5 sm:p-6 space-y-4 no-scrollbar">
               
-              {/* Media Viewport Frame with Comic Ink Border */}
-              <div className="relative w-full rounded-lg bg-black border-3 border-black shadow-[4px_4px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[240px] max-h-[380px]">
+              {/* Media Viewport Frame */}
+              <div className="relative w-full rounded-xl bg-[#080c14] border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[240px] max-h-[380px]">
                 {currentMission.mediaType === 'video' && currentMission.embedUrl ? (
                   <div className="w-full aspect-video">
                     <iframe
@@ -3185,155 +3464,207 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     </audio>
                   </div>
                 ) : currentMission.availablePages && currentMission.availablePages.length > 0 ? (
-                  /* Visor de Láminas de Expediente Científico PNG o Matriz de Skills */
-                  <div className="w-full flex flex-col items-center p-2 bg-[#fdfbf7] rounded-lg">
-                    {currentMission.availablePages[selectedPlatePage].pageSrc === 'TECH_MATRIX_CIENCIA' ? (
-                      /* Interactive Visual Tech Matrix for Code, Science & GIS */
-                      <div className="w-full p-3 bg-[#0d131f] text-white rounded-lg border-2 border-black space-y-2.5">
-                        <div className="flex items-center justify-between border-b border-cyan-500/30 pb-1.5">
-                          <span className="font-mono text-xs font-black text-cyan-400 uppercase tracking-wider">
-                            {currentLang === 'es' ? 'STACK DE PROGRAMACIÓN & SOFTWARE ESPACIAL' : 'PROGRAMMING STACK & GEOSPATIAL ENGINES'}
-                          </span>
-                          <span className="font-mono text-[9px] bg-cyan-400 text-black px-1.5 font-bold uppercase">
-                            100% PRODUCCIÓN
-                          </span>
+                  currentMission.availablePages[selectedPlatePage].pageSrc.startsWith('TECH_MATRIX') ? (() => {
+                    /* ★ SINGLE-LOGO HERO SHOWCASE: UN LOGO A LA VEZ ★ */
+                    const pageCode = currentMission.availablePages[selectedPlatePage].pageSrc;
+                    const toolList = pageCode === 'TECH_MATRIX_CIENCIA' ? TOOLS_CIENCIA : pageCode === 'TECH_MATRIX_COMMS' ? TOOLS_COMMS : TOOLS_EQUIPOS;
+                    const safeIdx = ((activeSkillToolIndex % toolList.length) + toolList.length) % toolList.length;
+                    const currentTool = toolList[safeIdx];
+
+                    return (
+                      <div className="w-full h-full p-4 sm:p-5 flex flex-col justify-between space-y-3 bg-[#0a0f19]">
+                        {/* Top Bar: Category, Counter & Direct Arrows */}
+                        <div className="flex items-center justify-between border-b border-white/10 pb-2">
+                          <div className="flex items-center space-x-2">
+                            <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
+                            <span className="font-mono text-xs font-black text-[#facc15] uppercase tracking-wider">
+                              {pageCode === 'TECH_MATRIX_CIENCIA'
+                                ? (currentLang === 'es' ? 'STACK CIENTÍFICO' : 'SCIENTIFIC STACK')
+                                : pageCode === 'TECH_MATRIX_COMMS'
+                                ? (currentLang === 'es' ? 'PRODUCCIÓN & MEDIOS' : 'MEDIA & BROADCAST')
+                                : (currentLang === 'es' ? 'INSTRUMENTAL DE CAMPO' : 'FIELD GEAR')}
+                            </span>
+                            <span className="font-mono text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded border border-white/15">
+                              {safeIdx + 1} / {toolList.length}
+                            </span>
+                          </div>
+
+                          <div className="flex items-center space-x-1.5">
+                            <button
+                              onClick={() => setActiveSkillToolIndex((prev) => (prev - 1 + toolList.length) % toolList.length)}
+                              className="px-2 py-1 bg-black/80 hover:bg-[#facc15] text-white hover:text-black border border-white/30 rounded font-mono font-black text-xs transition cursor-pointer flex items-center space-x-1"
+                              title="Herramienta anterior"
+                            >
+                              <ChevronLeft className="w-3.5 h-3.5" />
+                              <span className="hidden sm:inline">{currentLang === 'es' ? 'ANT.' : 'PREV'}</span>
+                            </button>
+                            <button
+                              onClick={() => setActiveSkillToolIndex((prev) => (prev + 1) % toolList.length)}
+                              className="px-2 py-1 bg-black/80 hover:bg-[#facc15] text-white hover:text-black border border-white/30 rounded font-mono font-black text-xs transition cursor-pointer flex items-center space-x-1"
+                              title="Herramienta siguiente"
+                            >
+                              <span className="hidden sm:inline">{currentLang === 'es' ? 'SIG.' : 'NEXT'}</span>
+                              <ChevronRight className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
                         </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                          {[
-                            { name: 'Python', level: '95%', tags: 'NumPy • SciPy • GeoPandas' },
-                            { name: 'QGIS & GIS', level: '95%', tags: 'DEMs LiDAR • Mapeo Cuencas' },
-                            { name: 'Docker', level: '90%', tags: 'Contenedores CI/CD' },
-                            { name: 'PostGIS', level: '85%', tags: 'Bases Espaciales SQL' },
-                            { name: 'Earth Engine (GEE)', level: '85%', tags: 'Sentinel-2 & Landsat' },
-                            { name: 'Delft3D', level: '80%', tags: 'Modelación Hidrodinámica' },
-                            { name: 'Unity 3D', level: '85%', tags: 'Gemelos Digitales' },
-                            { name: 'Next.js & React', level: '90%', tags: 'Dashboards Climáticos' },
-                            { name: 'FastAPI', level: '90%', tags: 'APIs Asíncronas REST' }
-                          ].map((t, idx) => (
-                            <div key={idx} className="p-2 rounded bg-black/70 border border-white/10 flex flex-col space-y-1 hover:border-cyan-400 transition-colors">
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-1.5">
-                                  <TechLogo name={t.name} size={16} />
-                                  <span className="font-mono font-bold text-[11px] text-white truncate">{t.name}</span>
-                                </div>
-                                <span className="font-mono text-[9px] text-[#facc15] font-black">{t.level}</span>
-                              </div>
-                              <span className="font-mono text-[8px] text-neutral-400 truncate">{t.tags}</span>
+
+                        {/* Hero Section: ONE LOGO PROMINENTLY DISPLAYED */}
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-3 bg-black/50 rounded-xl border border-white/10">
+                          {/* Large Logo Pedestal */}
+                          <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-gradient-to-b from-white/10 to-black/80 border-2 border-white/20 shadow-xl flex items-center justify-center p-3 group">
+                            <div 
+                              className="absolute inset-0 rounded-xl blur-xl opacity-25 pointer-events-none"
+                              style={{ backgroundColor: currentTool.color }}
+                            />
+                            <TechLogo name={currentTool.name} size={68} className="drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)] transition-transform group-hover:scale-110" />
+                          </div>
+
+                          {/* Tool Info */}
+                          <div className="flex-1 flex flex-col space-y-1.5 text-center sm:text-left min-w-0">
+                            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                              <h3 className="font-mono font-black text-base sm:text-lg text-white uppercase tracking-tight">
+                                {currentTool.name}
+                              </h3>
+                              <span className="font-mono text-[9px] font-black px-2 py-0.5 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
+                                ★ {currentTool.level}
+                              </span>
                             </div>
-                          ))}
+
+                            <p className="font-mono text-[11px] text-cyan-300 font-bold leading-snug">
+                              {currentTool.tags}
+                            </p>
+
+                            <p className="text-xs text-neutral-200 leading-relaxed pt-0.5">
+                              {currentLang === 'es' ? currentTool.descEs : currentTool.descEn}
+                            </p>
+
+                            <div className="pt-1 flex items-start space-x-1.5 text-[11px] font-mono text-emerald-400 border-t border-white/10">
+                              <span className="font-bold shrink-0">{currentLang === 'es' ? '▶ APLICACIÓN:' : '▶ APPLICATION:'}</span>
+                              <span className="text-neutral-300 italic truncate sm:whitespace-normal">
+                                {currentLang === 'es' ? currentTool.applicationEs : currentTool.applicationEn}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Interactive Mini-Strip to Jump to Any Tool Directly */}
+                        <div className="pt-0.5">
+                          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+                            {toolList.map((t, idx) => {
+                              const isCurrent = idx === safeIdx;
+                              return (
+                                <button
+                                  key={idx}
+                                  onClick={() => setActiveSkillToolIndex(idx)}
+                                  className={`px-2 py-1 rounded-lg border transition-all cursor-pointer flex items-center space-x-1.5 shrink-0 ${
+                                    isCurrent
+                                      ? 'bg-white/20 border-[#facc15] shadow-[0_0_8px_rgba(250,204,21,0.6)] scale-105'
+                                      : 'bg-black/50 border-white/10 hover:border-white/30 opacity-70 hover:opacity-100'
+                                  }`}
+                                  title={t.name}
+                                >
+                                  <TechLogo name={t.name} size={16} />
+                                  <span className={`font-mono text-[10px] font-bold ${isCurrent ? 'text-[#facc15]' : 'text-neutral-300'}`}>
+                                    {t.name}
+                                  </span>
+                                </button>
+                              );
+                            })}
+                          </div>
                         </div>
                       </div>
-                    ) : currentMission.availablePages[selectedPlatePage].pageSrc === 'TECH_MATRIX_COMMS' ? (
-                      /* Interactive Visual Tech Matrix for Comms & Media */
-                      <div className="w-full p-3 bg-[#18110b] text-white rounded-lg border-2 border-black space-y-2.5">
-                        <div className="flex items-center justify-between border-b border-orange-500/30 pb-1.5">
-                          <span className="font-mono text-xs font-black text-orange-400 uppercase tracking-wider">
-                            {currentLang === 'es' ? 'MATRIZ DE PRODUCCIÓN AUDIOVISUAL & BROADCAST' : 'AUDIOVISUAL & BROADCAST PRODUCTION MATRIX'}
-                          </span>
-                          <span className="font-mono text-[9px] bg-orange-400 text-black px-1.5 font-bold uppercase">
-                            BROADCAST 4K
-                          </span>
-                        </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                          {[
-                            { name: 'DaVinci Resolve', level: '95%', tags: 'Montaje & Color 4K' },
-                            { name: 'OBS Studio', level: '90%', tags: 'Streaming Multicámara' },
-                            { name: 'Sony 4K', level: '90%', tags: 'Óptica & Rigging' },
-                            { name: 'Premiere Pro', level: '90%', tags: 'Edición Periodística' },
-                            { name: 'Radio FM', level: '95%', tags: 'Transmisores & Mezcla' },
-                            { name: 'Dirección Creativa', level: '95%', tags: 'Serigrafía & Editorial' }
-                          ].map((t, idx) => (
-                            <div key={idx} className="p-2 rounded bg-black/70 border border-white/10 flex flex-col space-y-1 hover:border-orange-400 transition-colors">
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-1.5">
-                                  <TechLogo name={t.name} size={16} />
-                                  <span className="font-mono font-bold text-[11px] text-white truncate">{t.name}</span>
-                                </div>
-                                <span className="font-mono text-[9px] text-[#facc15] font-black">{t.level}</span>
-                              </div>
-                              <span className="font-mono text-[8px] text-neutral-400 truncate">{t.tags}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ) : currentMission.availablePages[selectedPlatePage].pageSrc === 'TECH_MATRIX_EQUIPOS' ? (
-                      /* Interactive Visual Tech Matrix for Field Equipment & Languages */
-                      <div className="w-full p-3 bg-[#0c1810] text-white rounded-lg border-2 border-black space-y-2.5">
-                        <div className="flex items-center justify-between border-b border-green-500/30 pb-1.5">
-                          <span className="font-mono text-xs font-black text-green-400 uppercase tracking-wider">
-                            {currentLang === 'es' ? 'INSTRUMENTAL DE CAMPO & FLUIDEZ LINGÜÍSTICA' : 'FIELD INSTRUMENTATION & LANGUAGES'}
-                          </span>
-                          <span className="font-mono text-[9px] bg-green-400 text-black px-1.5 font-bold uppercase">
-                            CALIBRADO
-                          </span>
-                        </div>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                          {[
-                            { name: 'Syscal SEV / VES', level: '95%', tags: 'Tomografía Resistividad' },
-                            { name: 'IoT LoRaWAN', level: '90%', tags: 'Pluviómetros Digitales' },
-                            { name: 'Zeiss Microscopio', level: '90%', tags: 'Taxonomía Protozoos' },
-                            { name: 'LiDAR DEM', level: '95%', tags: 'Nubes de Puntos Láser' },
-                            { name: 'Garmin GPS', level: '95%', tags: 'Georreferenciación' },
-                            { name: 'Idiomas', level: 'ES/EN/DE', tags: 'Trilingüe Técnico' }
-                          ].map((t, idx) => (
-                            <div key={idx} className="p-2 rounded bg-black/70 border border-white/10 flex flex-col space-y-1 hover:border-green-400 transition-colors">
-                              <div className="flex items-center justify-between">
-                                <div className="flex items-center space-x-1.5">
-                                  <TechLogo name={t.name} size={16} />
-                                  <span className="font-mono font-bold text-[11px] text-white truncate">{t.name}</span>
-                                </div>
-                                <span className="font-mono text-[9px] text-[#facc15] font-black">{t.level}</span>
-                              </div>
-                              <span className="font-mono text-[8px] text-neutral-400 truncate">{t.tags}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    ) : (
+                    );
+                  })() : (
+                    /* NATURAL PHOTO & PLATE VIEWER (NO WHITE RECTANGLE, NO CLUTTER) */
+                    <div className="relative w-full h-full min-h-[240px] max-h-[380px] flex items-center justify-center bg-black/50 overflow-hidden group">
+                      {/* Ambient blurred backdrop for natural contrast and zero letterbox harshness */}
+                      <div
+                        className="absolute inset-0 bg-center bg-cover filter blur-2xl opacity-20 scale-125 pointer-events-none"
+                        style={{
+                          backgroundImage: `url('${resolveAsset(
+                            currentLang === 'en' && currentMission.availablePages[selectedPlatePage].pageSrcEn
+                              ? currentMission.availablePages[selectedPlatePage].pageSrcEn
+                              : currentMission.availablePages[selectedPlatePage].pageSrc
+                          )}')`
+                        }}
+                      />
+
+                      {/* Main Natural Photo */}
                       <img
                         src={resolveAsset(
                           currentLang === 'en' && currentMission.availablePages[selectedPlatePage].pageSrcEn
                             ? currentMission.availablePages[selectedPlatePage].pageSrcEn
                             : currentMission.availablePages[selectedPlatePage].pageSrc
                         )}
-                        alt="Expediente Científico Oficial"
-                        className="max-h-[300px] w-auto object-contain rounded"
+                        alt={
+                          currentLang === 'es'
+                            ? currentMission.availablePages[selectedPlatePage].titleEs
+                            : currentMission.availablePages[selectedPlatePage].titleEn
+                        }
+                        className="relative z-10 max-h-[340px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_12px_28px_rgba(0,0,0,0.95)]"
                       />
-                    )}
-                    {/* Caption for active plate */}
-                    {currentMission.availablePages[selectedPlatePage] && (
-                      <div className="mt-2 text-center px-3 py-1 bg-black/85 rounded border border-black/40 text-[10px] font-mono font-bold text-neutral-200 shadow-sm max-w-full truncate">
-                        {currentLang === 'es'
-                          ? currentMission.availablePages[selectedPlatePage].titleEs
-                          : currentMission.availablePages[selectedPlatePage].titleEn}
-                      </div>
-                    )}
 
-                    <div className="flex gap-1.5 pt-2 flex-wrap justify-center">
-                      {currentMission.availablePages.map((pg, pIdx) => (
-                        <button
-                          key={pIdx}
-                          onClick={() => setSelectedPlatePage(pIdx)}
-                          className={`px-2 py-0.5 rounded font-mono text-[9px] sm:text-[10px] font-bold transition cursor-pointer border ${
-                            selectedPlatePage === pIdx
-                              ? 'bg-[#facc15] text-black border-black shadow-[1px_1px_0px_#000]'
-                              : 'bg-neutral-800 text-neutral-300 border-neutral-700 hover:bg-neutral-700'
-                          }`}
-                          title={currentLang === 'es' ? pg.titleEs : pg.titleEn}
-                        >
-                          {pIdx + 1}
-                        </button>
-                      ))}
+                      {/* Floating Nav Arrows when multiple pages exist */}
+                      {currentMission.availablePages.length > 1 && (
+                        <>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedPlatePage(
+                                (prev) =>
+                                  (prev - 1 + currentMission.availablePages!.length) % currentMission.availablePages!.length
+                              );
+                            }}
+                            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                            title={currentLang === 'es' ? 'Foto anterior' : 'Previous picture'}
+                          >
+                            <ChevronLeft className="w-5 h-5" />
+                          </button>
+
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedPlatePage((prev) => (prev + 1) % currentMission.availablePages!.length);
+                            }}
+                            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                            title={currentLang === 'es' ? 'Foto siguiente' : 'Next picture'}
+                          >
+                            <ChevronRight className="w-5 h-5" />
+                          </button>
+
+                          {/* Elegant, discreet bottom HUD pill */}
+                          <div className="absolute bottom-2.5 left-3 right-3 z-20 px-3 py-1.5 rounded-lg bg-black/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono shadow-lg">
+                            <span className="text-white font-bold truncate pr-3 text-[11px]">
+                              {currentLang === 'es'
+                                ? currentMission.availablePages[selectedPlatePage].titleEs
+                                : currentMission.availablePages[selectedPlatePage].titleEn}
+                            </span>
+                            <span className="font-mono text-[10px] text-[#facc15] font-black bg-white/10 px-2 py-0.5 rounded border border-white/10 shrink-0">
+                              {selectedPlatePage + 1} / {currentMission.availablePages.length}
+                            </span>
+                          </div>
+                        </>
+                      )}
                     </div>
-                  </div>
+                  )
                 ) : currentMission.src ? (
-                  <div className="w-full flex items-center justify-center p-2 bg-[#fdfbf7] rounded-lg">
+                  /* SINGLE NATURAL PHOTO (NO WHITE FRAME) */
+                  <div className="relative w-full h-full min-h-[220px] max-h-[380px] flex items-center justify-center bg-black/50 overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-center bg-cover filter blur-2xl opacity-20 scale-125 pointer-events-none"
+                      style={{
+                        backgroundImage: `url('${resolveAsset(
+                          currentLang === 'en' && currentMission.srcEn ? currentMission.srcEn : currentMission.src
+                        )}')`
+                      }}
+                    />
                     <img
                       src={resolveAsset(
                         currentLang === 'en' && currentMission.srcEn ? currentMission.srcEn : currentMission.src
                       )}
                       alt={currentMission.titleEs}
-                      className="max-h-[320px] w-auto object-contain rounded"
+                      className="relative z-10 max-h-[340px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_12px_28px_rgba(0,0,0,0.95)]"
                     />
                   </div>
                 ) : (
@@ -3401,9 +3732,26 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     </span>
                   </div>
                   <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                    {currentMission.techStack.map((tech, tIdx) => (
-                      <TechBadge key={tIdx} name={tech} size="md" />
-                    ))}
+                    {currentMission.techStack.map((tech, tIdx) => {
+                      const isCurrent = currentMission.type === 'skills' && activeSkillToolIndex === tIdx;
+                      return (
+                        <button
+                          key={tIdx}
+                          onClick={() => {
+                            setActiveSkillToolIndex(tIdx);
+                            setSelectedPlatePage(0);
+                          }}
+                          className={`cursor-pointer transition-all ${
+                            isCurrent
+                              ? 'ring-2 ring-[#facc15] scale-105 shadow-[0_0_8px_rgba(250,204,21,0.6)]'
+                              : 'hover:scale-105 opacity-85 hover:opacity-100'
+                          }`}
+                          title={`Ver logo y ficha técnica de ${tech}`}
+                        >
+                          <TechBadge name={tech} size="md" />
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               )}
