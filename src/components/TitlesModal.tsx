@@ -98,6 +98,7 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       titleEs: 'BlueGreen Biodiversity Summit',
       titleEn: 'BlueGreen Biodiversity Summit',
       year: '2025',
+      image: '/expeditions/davos_wsl_group.png',
       descEs: 'Dinámicas de biodiversidad y humedales alpinos de alta montaña.',
       descEn: 'Alpine wetland dynamics and riparian biodiversity indicators.'
     },
@@ -109,6 +110,7 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       titleEs: 'Interlinked Justice & Resilient Landscapes',
       titleEn: 'Interlinked Justice & Resilient Landscapes',
       year: '2024 - 2025',
+      image: '/expeditions/dresden_interlinked_justice_cohort.jpg',
       descEs: 'Gobernanza territorial, justicia espacial y transiciones ecológicas.',
       descEn: 'Spatial planning, territorial equity, and ecological transitions.'
     },
@@ -120,6 +122,7 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       titleEs: 'Doughnut Economics Practitioner',
       titleEn: 'Doughnut Economics Practitioner',
       year: '2025',
+      image: '/expeditions/copenhagen_doughnut_economics_book.jpg',
       descEs: 'Modelación de techos ecológicos y bases sociales para la planificación territorial.',
       descEn: 'Planetary boundaries modeling and regenerative economic foundations.'
     }
@@ -272,9 +275,18 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
               {postgraduateCertifications.map((cert) => (
                 <div 
                   key={cert.id} 
-                  className="bg-[#121620] border-2 border-black p-3.5 rounded-xl shadow-[3px_3px_0px_#000] flex flex-col justify-between"
+                  className="bg-[#121620] border-2 border-black p-3.5 rounded-xl shadow-[3px_3px_0px_#000] flex flex-col justify-between group hover:border-[#facc15] transition-colors"
                 >
                   <div>
+                    {/* Visual thumbnail */}
+                    <div className="w-full h-28 mb-3 rounded-lg overflow-hidden border border-black/80 shadow-[1px_1px_0px_#000] bg-black">
+                      <img 
+                        src={resolveAsset(cert.image)} 
+                        alt={cert.titleEs} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                      />
+                    </div>
+
                     <div className="flex items-center justify-between text-[10px] font-mono mb-1.5">
                       <span className="text-[#facc15] font-black">{cert.locationEs}</span>
                       <span className="text-neutral-400 font-bold">{cert.year}</span>

@@ -563,8 +563,13 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Especialista Certificado DEAL',
     roleEn: 'DEAL Certified Specialist',
     mediaType: 'plate',
-    src: '/expeditions/oslo_degrowth_logo.png',
+    src: '/expeditions/copenhagen_doughnut_economics_book.jpg',
     availablePages: [
+      {
+        titleEs: 'Seminario DEAL Doughnut Economics (Copenhague, Dinamarca)',
+        titleEn: 'DEAL Doughnut Economics Seminar (Copenhagen, Denmark)',
+        pageSrc: '/expeditions/copenhagen_doughnut_economics_book.jpg'
+      },
       {
         titleEs: '10ª Conferencia Internacional de Decrecimiento (Oslo)',
         titleEn: '10th International Degrowth Conference (Oslo)',
@@ -611,8 +616,13 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Participante Certificado',
     roleEn: 'Certified Participant',
     mediaType: 'plate',
-    src: '/expeditions/hamburg_enjust_library.jpg',
+    src: '/expeditions/dresden_interlinked_justice_cohort.jpg',
     availablePages: [
+      {
+        titleEs: 'Cohorte de la Escuela de Verano Interlinked Justice (Dresden)',
+        titleEn: 'Interlinked Justice Summer School Cohort (Dresden)',
+        pageSrc: '/expeditions/dresden_interlinked_justice_cohort.jpg'
+      },
       {
         titleEs: 'Mesa Plenaria en Biblioteca Histórica de Hamburgo (ENJUST)',
         titleEn: 'Plenary Session in Hamburg Historical Library (ENJUST)',
