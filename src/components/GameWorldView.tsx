@@ -3792,41 +3792,22 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               </div>
 
               {/* ------------------------------------------------------------- */}
-              {/* B2. LOWER SECTION: REST OF PHOTOS / MISSIONS IN 3 COLUMNS      */}
+              {/* B2. LOWER SECTION: REST OF PHOTOS PINNED DIRECTLY TO THE WALL  */}
               {/* ------------------------------------------------------------- */}
-              <div className="w-full max-h-[22vh] sm:max-h-[24vh] bg-[#0c0f14]/90 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
+              <div className="w-full max-h-[30vh] sm:max-h-[34vh] flex flex-col overflow-y-auto no-scrollbar pt-2.5 pb-1 px-1">
                 
-                {/* Header with Title and Counter */}
-                <div className="px-3 py-1.5 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
-                  <div className="flex items-center space-x-2">
-                    <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
-                    <span className="font-mono font-black text-[11px] text-[#facc15] uppercase tracking-wide">
-                      {currentMission.type === 'skills'
-                        ? (currentLang === 'es' ? '★ HERRAMIENTAS & SKILLS (3 COLUMNAS) ★' : '★ SKILLS & TOOLS (3 COLUMNS) ★')
-                        : (currentLang === 'es' ? '★ EXPEDIENTES & MISIONES (3 COLUMNAS) ★' : '★ FIELD CONTRACTS (3 COLUMNS) ★')}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-1.5">
-                    <span className="font-mono text-[9px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase">
-                      {currentMission.type === 'skills'
-                        ? (currentMission.id === 'skills-comms-cultura' ? TOOLS_COMMS.length : currentMission.id === 'skills-equipos-idiomas' ? TOOLS_EQUIPOS.length : TOOLS_CIENCIA.length)
-                        : filteredMissions.length} {currentLang === 'es' ? 'ELEMENTOS' : 'ITEMS'}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Quick Track Switcher when inside Skills */}
+                {/* Floating Tape Quick Switcher when inside Skills */}
                 {currentMission.type === 'skills' && (
-                  <div className="flex items-center space-x-1.5 bg-black/70 px-2.5 py-1 border-b border-white/10 overflow-x-auto no-scrollbar shrink-0">
+                  <div className="flex items-center space-x-1.5 pb-2 overflow-x-auto no-scrollbar shrink-0">
                     <button
                       onClick={() => {
                         handleSelectMission('skills-ciencia-geofisica');
                         setActiveSkillToolIndex(0);
                       }}
-                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
+                      className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 ${
                         currentMission.id === 'skills-ciencia-geofisica'
-                          ? 'bg-red-600 text-white shadow-sm ring-1 ring-white/50'
-                          : 'bg-white/10 text-neutral-300 hover:bg-white/20'
+                          ? 'bg-red-600 text-white ring-2 ring-yellow-400'
+                          : 'bg-black/80 hover:bg-black text-neutral-200'
                       }`}
                     >
                       ⚡ CIENCIA (9)
@@ -3836,10 +3817,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         handleSelectMission('skills-comms-cultura');
                         setActiveSkillToolIndex(0);
                       }}
-                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
+                      className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] rotate-1 ${
                         currentMission.id === 'skills-comms-cultura'
-                          ? 'bg-emerald-600 text-white shadow-sm ring-1 ring-white/50'
-                          : 'bg-white/10 text-neutral-300 hover:bg-white/20'
+                          ? 'bg-emerald-600 text-white ring-2 ring-yellow-400'
+                          : 'bg-black/80 hover:bg-black text-neutral-200'
                       }`}
                     >
                       🎬 MEDIOS (6)
@@ -3849,10 +3830,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         handleSelectMission('skills-equipos-idiomas');
                         setActiveSkillToolIndex(0);
                       }}
-                      className={`px-2 py-0.5 rounded font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 ${
+                      className={`px-2.5 py-0.5 font-mono text-[9px] font-black uppercase transition cursor-pointer shrink-0 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1 ${
                         currentMission.id === 'skills-equipos-idiomas'
-                          ? 'bg-cyan-600 text-white shadow-sm ring-1 ring-white/50'
-                          : 'bg-white/10 text-neutral-300 hover:bg-white/20'
+                          ? 'bg-cyan-600 text-white ring-2 ring-yellow-400'
+                          : 'bg-black/80 hover:bg-black text-neutral-200'
                       }`}
                     >
                       🔬 INSTRUMENTAL (6)
@@ -3860,8 +3841,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                   </div>
                 )}
 
-                {/* 3 COLUMNS GRID OF PINNED CARDS */}
-                <div className="overflow-y-auto p-2 pt-2.5 no-scrollbar grid grid-cols-3 gap-1.5 sm:gap-2">
+                {/* 3 COLUMNS GRID OF FREELY PINNED POLAROIDS / FIELD CONTRACTS */}
+                <div className="grid grid-cols-3 gap-2 sm:gap-2.5 pt-1">
                   {currentMission.type === 'skills' ? (
                     /* ★ SKILLS AS SEPARATE 3-COL CARDS ★ */
                     (() => {
@@ -3884,22 +3865,22 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               setActiveSkillToolIndex(tIdx);
                               setSelectedPlatePage(0);
                             }}
-                            className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1 pb-1.5 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                            className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
                               isToolActive
-                                ? 'scale-102 -rotate-1 z-20 shadow-[3px_3px_0px_#000000] ring-2 ring-red-600'
-                                : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[2px_2px_0px_#000000] opacity-90 hover:opacity-100`
+                                ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
+                                : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
                             }`}
                             title={`Ver ficha técnica de ${tool.name}`}
                           >
                             {/* Pushpin pinned through top edge */}
-                            <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                              <div className="w-2.5 h-2.5 rounded-full bg-cyan-500 border border-black shadow-[0_1px_3px_rgba(0,0,0,0.8)] flex items-center justify-center">
-                                <div className="w-0.5 h-0.5 rounded-full bg-white/90" />
+                            <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                              <div className="w-3.5 h-3.5 rounded-full bg-cyan-500 border border-black shadow-[0_2px_4px_rgba(0,0,0,0.9)] flex items-center justify-center">
+                                <div className="w-1 h-1 rounded-full bg-white/90" />
                               </div>
                             </div>
 
                             {/* Single Logo Frame - MASSIVE HERO LOGO, COMPACT CONTAINER */}
-                            <div className="relative w-full h-[62px] sm:h-[70px] bg-[#090d16] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-0.5 group-hover:border-cyan-300">
+                            <div className="relative w-full h-[64px] sm:h-[72px] bg-[#090d16] rounded border border-cyan-500/40 overflow-hidden mb-1 flex items-center justify-center p-0.5 group-hover:border-cyan-300">
                               <div
                                 className="absolute inset-0 rounded blur-xl opacity-40 pointer-events-none"
                                 style={{ backgroundColor: tool.color }}
@@ -3916,7 +3897,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                             <div className="flex flex-col space-y-0.5">
                               <div className="flex items-center space-x-1 font-mono text-[8px] font-bold text-neutral-800">
                                 <span className="text-cyan-700 font-black">★</span>
-                                <span className="uppercase tracking-tight truncate font-black text-[8px] text-neutral-900">
+                                <span className="uppercase tracking-tight truncate font-black text-[8.5px] text-neutral-900">
                                   {tool.name}
                                 </span>
                               </div>
@@ -3924,12 +3905,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               <div className="relative pt-0.2">
                                 {isToolActive ? (
                                   <div className="border border-red-600 rounded-[4px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
-                                    <h4 className="font-mono font-black text-[7px] text-red-700 line-clamp-1 leading-tight uppercase">
+                                    <h4 className="font-mono font-black text-[7.5px] text-red-700 line-clamp-1 leading-tight uppercase">
                                       {tool.name}
                                     </h4>
                                   </div>
                                 ) : (
-                                  <h4 className="font-mono font-bold text-[7px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
+                                  <h4 className="font-mono font-bold text-[7.5px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
                                     {tool.name}
                                   </h4>
                                 )}
@@ -3959,24 +3940,24 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         'bg-purple-600 border-purple-900';
 
                       const rotation = 
-                        idx % 3 === 0 ? '-rotate-1' :
-                        idx % 3 === 1 ? 'rotate-1' :
+                        idx % 3 === 0 ? '-rotate-1.5' :
+                        idx % 3 === 1 ? 'rotate-1.5' :
                         '-rotate-0.5';
 
                       return (
                         <div
                           key={m.id}
                           onClick={() => handleSelectMission(m.id)}
-                          className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1 pb-1.5 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
+                          className={`group relative cursor-pointer w-full bg-[#fbfbf9] p-1.5 pb-2 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
                             isSelected
-                              ? 'scale-102 -rotate-1 z-20 shadow-[3px_3px_0px_#000000] ring-2 ring-red-600'
-                              : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[2px_2px_0px_#000000] opacity-90 hover:opacity-100`
+                              ? 'scale-105 -rotate-1 z-20 shadow-[6px_8px_16px_rgba(0,0,0,1)] ring-2 ring-red-600'
+                              : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[4px_6px_12px_rgba(0,0,0,0.9)] opacity-95 hover:opacity-100 hover:z-20`
                           }`}
                         >
                           {/* Pushpin pinned through top edge */}
-                          <div className="absolute -top-1 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                            <div className={`w-2.5 h-2.5 rounded-full ${pinColor} border border-black shadow-[0_1px_3px_rgba(0,0,0,0.8)] flex items-center justify-center`}>
-                              <div className="w-0.5 h-0.5 rounded-full bg-white/90" />
+                          <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                            <div className={`w-3.5 h-3.5 rounded-full ${pinColor} border border-black shadow-[0_2px_4px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
+                              <div className="w-1 h-1 rounded-full bg-white/90" />
                             </div>
                           </div>
 
