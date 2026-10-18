@@ -19,7 +19,7 @@ import {
   Home,
   FileText
 } from 'lucide-react';
-import { Language, MediaItem } from '../types';
+import { Language, MediaItem, SectionData, SubSectionData } from '../types';
 import { resolveAsset } from '../utils';
 import { ModalViewer } from './ModalViewer';
 import { GeofrecuenciaLogo } from './GeofrecuenciaLogo';
@@ -51,9 +51,25 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
   const [copied, setCopied] = useState(false);
 
   // Filter sections according to active mode
-  // 'comms_arts': Primera Línea Prensa (plp), Intervención, Brigada Paulina Aguirre, Rap Beauchef, Cuarentena Rap, Ensayos
-  // 'grassroots': Apruebo Rural, Red Maule Sur & Radio Cristalina, Corresponsales Populares
-  const commsArtsTabs = [
+  interface CommsTabItem {
+    id: string;
+    labelEn: string;
+    labelEs: string;
+    icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
+    accent: string;
+    badgeEn: string;
+    badgeEs: string;
+    sectionData?: SubSectionData | SectionData;
+    parentSection?: SectionData;
+    logoSrc?: string;
+    customRoleEs?: string;
+    customRoleEn?: string;
+    externalUrl?: string;
+    externalUrlLabelEs?: string;
+    externalUrlLabelEn?: string;
+  }
+
+  const commsArtsTabs: CommsTabItem[] = [
     {
       id: 'plp',
       labelEn: '01. Primera Línea Prensa (+700k)',
@@ -63,7 +79,10 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
       badgeEn: 'Independent Digital Newsroom // +700k Followers',
       badgeEs: 'Redacción Digital Independiente // +700k Seguidores',
       sectionData: communicationsSections.find(s => s.id === 'primera-linea-prensa')?.subSections?.find(sub => sub.id === 'plp'),
-      parentSection: communicationsSections.find(s => s.id === 'primera-linea-prensa')
+      parentSection: communicationsSections.find(s => s.id === 'primera-linea-prensa'),
+      externalUrl: 'https://www.instagram.com/primeralineaprensa/',
+      externalUrlLabelEs: 'Abrir Instagram Oficial (@primeralineaprensa)',
+      externalUrlLabelEn: 'Open Official Instagram (@primeralineaprensa)'
     },
     {
       id: 'intervencion',
@@ -96,7 +115,11 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
       badgeEn: 'University Arena, Female Showcase & Discord League',
       badgeEs: 'Arena Universitaria, Encuentro Femenino & Discord',
       sectionData: communicationsSections.find(s => s.id === 'arte-y-cultura')?.subSections?.find(sub => sub.id === 'rap-beauchef'),
-      parentSection: communicationsSections.find(s => s.id === 'arte-y-cultura')
+      parentSection: communicationsSections.find(s => s.id === 'arte-y-cultura'),
+      logoSrc: '/logos/rap-beauchef.png',
+      externalUrl: 'https://github.com/danisantanderurrutia-coder/Dossier-Rap',
+      externalUrlLabelEs: 'Ver Repositorio Dossier-Rap en GitHub',
+      externalUrlLabelEn: 'View Dossier-Rap Project on GitHub'
     },
     {
       id: 'cuarentena-rap',
@@ -107,7 +130,11 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
       badgeEn: 'Pandemic Streaming League & Socio-Artistic Concept',
       badgeEs: 'Liga Online en Pandemia & Dispositivo Socio-Artístico',
       sectionData: communicationsSections.find(s => s.id === 'arte-y-cultura')?.subSections?.find(sub => sub.id === 'cuarentena-rap'),
-      parentSection: communicationsSections.find(s => s.id === 'arte-y-cultura')
+      parentSection: communicationsSections.find(s => s.id === 'arte-y-cultura'),
+      logoSrc: '/logos/cuarentena-rap-official.png',
+      externalUrl: 'https://github.com/danisantanderurrutia-coder/Dossier-Rap',
+      externalUrlLabelEs: 'Ver Repositorio Dossier-Rap en GitHub',
+      externalUrlLabelEn: 'View Dossier-Rap Project on GitHub'
     },
     {
       id: 'ensayos',
@@ -122,7 +149,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
     }
   ];
 
-  const grassrootsTabs = [
+  const grassrootsTabs: CommsTabItem[] = [
     {
       id: 'apruebo-rural',
       labelEn: '01. Apruebo Rural National Campaign',
@@ -140,10 +167,15 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
       labelEs: '02. Red Maule Sur & Radio Cristalina',
       icon: Radio,
       accent: '#059669',
-      badgeEn: 'Regional Broadcast 96.3 FM & MauleRed Citizen Dispatcher',
-      badgeEs: 'Transmisión 96.3 FM & Avisador de Emergencias MauleRed',
+      badgeEn: 'Maule Community Network Panellist & 96.3 FM Broadcast',
+      badgeEs: 'Panelista Red Comunitaria Maule & Transmisión 96.3 FM',
+      customRoleEs: 'Panelista de la Red de Medios Comunitaria del Maule & Radio Cristalina',
+      customRoleEn: 'Panellist on Maule Community Media Network & Radio Cristalina',
       sectionData: communicationsSections.find(s => s.id === 'primera-linea-prensa')?.subSections?.find(sub => sub.id === 'red-comunitaria-maule'),
-      parentSection: communicationsSections.find(s => s.id === 'primera-linea-prensa')
+      parentSection: communicationsSections.find(s => s.id === 'primera-linea-prensa'),
+      externalUrl: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
+      externalUrlLabelEs: 'Abrir Plataforma MauleRed en GitHub Pages',
+      externalUrlLabelEn: 'Open MauleRed Platform on GitHub Pages'
     },
     {
       id: 'corresponsales',
@@ -345,24 +377,45 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
             </span>
           </div>
 
-          {/* Heading */}
-          <div>
-            <h1 className="font-mono font-black text-xl sm:text-2xl lg:text-3xl tracking-tight uppercase leading-tight text-white drop-shadow-md">
-              {currentLang === 'es' 
-                ? (activeTab.sectionData?.titleEs || activeTab.parentSection?.titleEs || activeTab.labelEs)
-                : (activeTab.sectionData?.titleEn || activeTab.parentSection?.titleEn || activeTab.labelEn)}
-            </h1>
-            <p className="mt-1 text-xs sm:text-sm font-mono text-[#facc15] font-bold">
-              {currentLang === 'es' 
-                ? (activeTab.parentSection?.headlineEs || activeTab.badgeEs)
-                : (activeTab.parentSection?.headlineEn || activeTab.badgeEn)}
-            </p>
+          {/* Heading + Logo if available */}
+          <div className="flex items-start justify-between gap-3">
+            <div>
+              <h1 className="font-mono font-black text-xl sm:text-2xl lg:text-3xl tracking-tight uppercase leading-tight text-white drop-shadow-md">
+                {currentLang === 'es' 
+                  ? (activeTab.sectionData?.titleEs || activeTab.parentSection?.titleEs || activeTab.labelEs)
+                  : (activeTab.sectionData?.titleEn || activeTab.parentSection?.titleEn || activeTab.labelEn)}
+              </h1>
+              <p className="mt-1 text-xs sm:text-sm font-mono text-[#facc15] font-bold">
+                {currentLang === 'es' 
+                  ? (activeTab.parentSection?.headlineEs || activeTab.badgeEs)
+                  : (activeTab.parentSection?.headlineEn || activeTab.badgeEn)}
+              </p>
+            </div>
+            {activeTab.logoSrc && (
+              <a
+                href={activeTab.externalUrl || 'https://github.com/danisantanderurrutia-coder/Dossier-Rap'}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={currentLang === 'es' ? 'Ver proyecto Dossier-Rap en GitHub' : 'View Dossier-Rap project on GitHub'}
+                className="shrink-0 p-1.5 bg-black/90 hover:bg-[#facc15] border-2 border-white/20 hover:border-black rounded-xl transition-all shadow-[3px_3px_0px_#000] group cursor-pointer"
+              >
+                <img 
+                  src={resolveAsset(activeTab.logoSrc)} 
+                  alt="Official Logo" 
+                  className="w-12 h-12 sm:w-14 sm:h-14 object-contain filter contrast-125 group-hover:scale-105 transition-transform" 
+                />
+              </a>
+            )}
           </div>
 
           {/* Role Pill */}
           <div className="bg-white/5 border border-white/10 p-2.5 rounded-lg font-mono text-xs text-neutral-300">
             <span className="text-[#facc15] font-black">{currentLang === 'es' ? 'ROL // DIRECCIÓN: ' : 'ROLE // LEADERSHIP: '}</span>
-            <span>{currentLang === 'es' ? activeTab.parentSection?.roleEs : activeTab.parentSection?.roleEn}</span>
+            <span>
+              {activeTab.customRoleEs && activeTab.customRoleEn
+                ? (currentLang === 'es' ? activeTab.customRoleEs : activeTab.customRoleEn)
+                : (currentLang === 'es' ? activeTab.parentSection?.roleEs : activeTab.parentSection?.roleEn)}
+            </span>
           </div>
 
           {/* Narrative Body */}
@@ -448,6 +501,28 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
               )}
             </div>
 
+            {/* Quick Action External Banner */}
+            {(activeTab.externalUrl || currentMedia?.url) && (
+              <a
+                href={currentMedia?.url || activeTab.externalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider flex items-center justify-between border-b-2 border-black transition-all group cursor-pointer"
+              >
+                <div className="flex items-center space-x-2 truncate">
+                  <ExternalLink className="w-4 h-4 text-black shrink-0 group-hover:scale-110 transition-transform" />
+                  <span className="truncate">
+                    {activeTab.externalUrlLabelEs && activeTab.externalUrlLabelEn
+                      ? (currentLang === 'es' ? activeTab.externalUrlLabelEs : activeTab.externalUrlLabelEn)
+                      : (currentLang === 'es' ? 'ABRIR ENLACE OFICIAL' : 'OPEN OFFICIAL LINK')}
+                  </span>
+                </div>
+                <span className="text-[10px] bg-black text-white px-2 py-0.5 rounded font-mono font-bold shrink-0 ml-2">
+                  {(currentMedia?.url || activeTab.externalUrl)?.includes('github') ? 'GITHUB ↗' : (currentMedia?.url || activeTab.externalUrl)?.includes('instagram') ? 'INSTAGRAM ↗' : 'ONLINE ↗'}
+                </span>
+              </a>
+            )}
+
             {/* Media Canvas Body */}
             <div className="relative w-full min-h-[300px] sm:min-h-[400px] max-h-[520px] bg-neutral-950 flex items-center justify-center p-2 sm:p-4 overflow-hidden">
               
@@ -466,8 +541,19 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
                 /* HIGH RES IMAGE / PRESS / SILKSCREEN */
                 <div 
                   className="relative group cursor-pointer max-h-[460px] flex items-center justify-center"
-                  onClick={() => setSelectedMedia(currentMedia)}
-                  title={currentLang === 'es' ? 'Click para ampliar en alta resolución' : 'Click to enlarge in high resolution'}
+                  onClick={() => {
+                    const targetUrl = currentMedia.url || activeTab.externalUrl;
+                    if (targetUrl) {
+                      window.open(targetUrl, '_blank');
+                    } else {
+                      setSelectedMedia(currentMedia);
+                    }
+                  }}
+                  title={
+                    (currentMedia.url || activeTab.externalUrl)
+                      ? (currentLang === 'es' ? 'Click para abrir enlace oficial' : 'Click to open official link')
+                      : (currentLang === 'es' ? 'Click para ampliar en alta resolución' : 'Click to enlarge in high resolution')
+                  }
                 >
                   <img
                     src={resolveAsset(currentMedia.src)}
@@ -477,9 +563,24 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
                       (e.target as HTMLImageElement).src = resolveAsset('/plp/plp_logo.jpg');
                     }}
                   />
-                  <div className="absolute bottom-2 right-2 bg-black/80 hover:bg-black text-white text-[10px] font-mono px-2 py-1 border border-white/40 flex items-center space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Sparkles className="w-3 h-3 text-yellow-300" />
-                    <span>{currentLang === 'es' ? 'AMPLIAR' : 'EXPAND'}</span>
+                  <div className="absolute bottom-2 right-2 flex items-center space-x-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {(currentMedia.url || activeTab.externalUrl) && (
+                      <div className="bg-[#facc15] text-black text-[10px] font-mono font-bold px-2 py-1 border border-black flex items-center space-x-1 shadow-md">
+                        <ExternalLink className="w-3 h-3 text-black" />
+                        <span>{currentLang === 'es' ? 'IR AL ENLACE' : 'OPEN LINK'}</span>
+                      </div>
+                    )}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedMedia(currentMedia);
+                      }}
+                      className="bg-black/90 hover:bg-black text-white text-[10px] font-mono px-2 py-1 border border-white/40 flex items-center space-x-1 shadow-md cursor-pointer"
+                      title={currentLang === 'es' ? 'Ampliar en visor modal' : 'Expand in modal viewer'}
+                    >
+                      <Sparkles className="w-3 h-3 text-yellow-300" />
+                      <span>{currentLang === 'es' ? 'AMPLIAR' : 'EXPAND'}</span>
+                    </button>
                   </div>
                 </div>
               ) : (

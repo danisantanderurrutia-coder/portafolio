@@ -490,53 +490,6 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Costa Rica', 'San José', 'Justicia Climática', 'Organizaciones Ambientales']
   },
 
-  // 9b. CUMBRES & POLÍTICA: Justicia y Cambio Climático - Múnich, Alemania (CV)
-  {
-    id: 'munich-justicia',
-    type: 'global',
-    titleEs: 'Foro sobre Justicia y Cambio Climático // Múnich, Alemania',
-    titleEn: 'Justice & Climate Change Forum // Munich, Germany',
-    subtitleEs: 'Representación ante Organizaciones Ambientales (2025)',
-    subtitleEn: 'Representation to Environmental Organizations (2025)',
-    country: 'Alemania',
-    city: 'Múnich',
-    flag: '🇩🇪',
-    lat: 48.137,
-    lng: 11.576,
-    date: '2025',
-    roleEs: 'Representante de Organizaciones Ambientales',
-    roleEn: 'Environmental Organizations Delegate',
-    mediaType: 'press',
-    src: '/expeditions/hamburg_enjust_library.jpg',
-    availablePages: [
-      {
-        titleEs: 'Redes de Justicia Ambiental y Cambio Climático en Alemania',
-        titleEn: 'Environmental Justice & Climate Networks in Germany',
-        pageSrc: '/expeditions/hamburg_enjust_library.jpg'
-      },
-      {
-        titleEs: 'Logotipo Oficial Red ENJUST Alemania',
-        titleEn: 'Official ENJUST Network Logo Germany',
-        pageSrc: '/expeditions/enjust_logo.png'
-      }
-    ],
-    code: 'OPS-GLO-05',
-    source: 'Representations: Conferences and forums on justice and Climate Change (Munich, Germany, 2025 - CV)',
-    impactEs: 'Representación ante organizaciones ambientales en conferencias y foros sobre justicia y Cambio Climático (Múnich, Alemania, 2025, según CV).',
-    impactEn: 'Representation to environmental organizations at conferences and forums on justice and Climate Change (Munich, Germany, 2025, from CV).',
-    methodologyEs: [
-      'Representación ante organizaciones ambientales en foros sobre justicia y Cambio Climático en Múnich (CV)',
-      'Debate sobre transición energética, justicia climática y economía ecológica',
-      'Articulación de redes territoriales internacionales'
-    ],
-    methodologyEn: [
-      'Representation to environmental organizations at justice and Climate Change forums in Munich (CV)',
-      'Debate on energy transition, climate justice, and ecological economics',
-      'Cross-border territorial network coordination'
-    ],
-    tags: ['Múnich', 'Alemania', 'Justicia Climática', 'Organizaciones Ambientales']
-  },
-
   // 10. CIENCIA: WSL BlueGreen Biodiversity - Davos, Suiza
   {
     id: 'wsl-davos',
@@ -709,25 +662,26 @@ export const GAME_MISSIONS: GameMission[] = [
     lat: -35.85,
     lng: -71.80,
     date: '2021-2023',
-    roleEs: 'Panelista Radial & Capacitador Comunitario',
-    roleEn: 'Radio Panellist & Grassroots Trainer',
-    mediaType: 'audio',
-    src: '/maulered_logo.png',
+    roleEs: 'Panelista de la Red de Medios Comunitaria del Maule & Radio Cristalina',
+    roleEn: 'Panellist on Maule Community Media Network & Radio Cristalina',
+    mediaType: 'plate',
+    src: '/maule_sur_radio.jpg',
+    url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
     availablePages: [
+      {
+        titleEs: 'Panelista en Estudio de Transmisión Radial • Maule Sur (MauleRed)',
+        titleEn: 'Panellist in Radio Broadcasting Studio • Maule Sur (MauleRed)',
+        pageSrc: '/maule_sur_radio.jpg'
+      },
+      {
+        titleEs: 'Plataforma Digital de Noticias Maule Red (GitHub Pages)',
+        titleEn: 'Maule Red Digital Grassroots News Platform (GitHub Pages)',
+        pageSrc: '/maulered_web.png'
+      },
       {
         titleEs: 'Logotipo Oficial • Red Maule Sur & Radio Cristalina',
         titleEn: 'Official Logo • Maule Sur Network & Radio Cristalina',
         pageSrc: '/maulered_logo.png'
-      },
-      {
-        titleEs: 'Estudio de Transmisión Radial FM en Maule Sur',
-        titleEn: 'FM Radio Broadcasting Studio in Maule Sur',
-        pageSrc: '/maule_sur_radio.jpg'
-      },
-      {
-        titleEs: 'Plataforma Digital de Noticias Maule Red',
-        titleEn: 'Maule Red Digital Grassroots News Platform',
-        pageSrc: '/maulered_web.png'
       }
     ],
     code: 'OPS-COM-04',
@@ -857,9 +811,9 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/youtube_covers/NcDejj3NKXo.jpg',
     availablePages: [
       {
-        titleEs: 'Logotipo Oficial • Rap Beauchef Arena FCFM',
-        titleEn: 'Official Logo • Rap Beauchef Arena FCFM',
-        pageSrc: '/instagram_covers/B3ZZ8sGgaJX.jpg'
+        titleEs: 'Logotipo Oficial • Rap Beauchef (Dossier-Rap GitHub)',
+        titleEn: 'Official Logo • Rap Beauchef (Dossier-Rap GitHub)',
+        pageSrc: '/logos/rap-beauchef.png'
       },
       {
         titleEs: 'Gran Final "Dueñas de la Voz" • Queena (Registro Audiovisual 4K)',
@@ -914,9 +868,9 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/youtube_covers/B2XrNxHxwrA.jpg',
     availablePages: [
       {
-        titleEs: 'Logotipo Oficial • Cuarentena Rap Liga Latinoamericana',
-        titleEn: 'Official Logo • Cuarentena Rap Pan-American League',
-        pageSrc: '/instagram_covers/CKu2R9qgy3Q.jpg'
+        titleEs: 'Logotipo Oficial • Cuarentena Rap (Dossier-Rap GitHub)',
+        titleEn: 'Official Logo • Cuarentena Rap (Dossier-Rap GitHub)',
+        pageSrc: '/logos/cuarentena-rap-official.png'
       },
       {
         titleEs: 'Streaming en Vivo • Batalla de Maestros y Cuartos de Final',
@@ -1928,7 +1882,6 @@ export const formatCity = (city: string, lang: Language): string => {
     'Ensayos Filosóficos': 'Philosophical Essays',
     'Equipos & Idiomas': 'Gear & Languages',
     'Medios & Arte': 'Media & Arts',
-    'Múnich': 'Munich',
     'Portal Internacional': 'International Portal',
     'Poznań': 'Poznan',
     'Red Federal (Chile, Argentina, Colombia, Perú, México)': 'Federal Network (Chile, Argentina, Colombia, Peru, Mexico)',
@@ -2343,8 +2296,8 @@ const TOOLS_EQUIPOS: SkillToolDetail[] = [
     tagsEn: 'Spanish (Native) • English (IELTS Academic – C1) • German (A2-B1) • Polish (Basic)',
     descEs: 'Competencia lingüística para investigación en consorcios internacionales, redacción científica y diplomacia climática.',
     descEn: 'Linguistic proficiency for international research consortia, scientific reporting, and climate diplomacy.',
-    applicationEs: 'Expositor en cumbres de Bonn, Hamburgo, Oslo, Costa Rica y Múnich; trabajo de investigación en Kiel y Poznań.',
-    applicationEn: 'Speaker at Bonn, Hamburg, Oslo, Costa Rica, and Munich; scientific research in Kiel and Poznań.',
+    applicationEs: 'Expositor en cumbres de Bonn, Hamburgo, Oslo y Costa Rica; trabajo de investigación en Kiel y Poznań.',
+    applicationEn: 'Speaker at Bonn, Hamburg, Oslo, and Costa Rica; scientific research in Kiel and Poznań.',
     color: '#ec4899'
   }
 ];

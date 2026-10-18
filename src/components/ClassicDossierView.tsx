@@ -581,7 +581,10 @@ export function ClassicDossierView({
                   </div>
                 ) : (
                   <div 
-                    onClick={() => setSelectedMedia(currentItem)}
+                    onClick={() => {
+                      if (currentItem.url) window.open(currentItem.url, '_blank');
+                      else setSelectedMedia(currentItem);
+                    }}
                     className="relative w-full h-full flex items-center justify-center bg-slate-950/60 cursor-pointer"
                   >
                     <img

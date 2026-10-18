@@ -151,8 +151,9 @@ export const communicationsSections: SectionData[] = [
             subtitleEn: 'Independent Digital Media // +700k Verified Followers Network',
             subtitleEs: 'Medio Digital Independiente // Red con +700k Seguidores',
             src: '/plp/plp_logo.jpg',
-            captionEn: 'Official identity and profile of Primera Línea Prensa. Scaled into one of Chile’s most followed citizen journalism feeds with +700,000 active community members across Instagram and Facebook. Follow their official social platforms below:',
-            captionEs: 'Perfil e identidad oficial de Primera Línea Prensa. Medio de comunicación digital autogestionado que superó los 700.000 seguidores en sus canales oficiales de Instagram y Facebook, cubriendo de primera mano la contingencia social, política y de derechos humanos en Chile.',
+            url: 'https://www.instagram.com/primeralineaprensa/',
+            captionEn: 'Official identity and profile of Primera Línea Prensa. Scaled into one of Chile’s most followed citizen journalism feeds with +700,000 active community members across Instagram and Facebook. Click to visit the official Instagram profile (@primeralineaprensa):',
+            captionEs: 'Perfil e identidad oficial de Primera Línea Prensa. Medio de comunicación digital autogestionado que superó los 700.000 seguidores en sus canales oficiales de Instagram y Facebook. Haz clic para ir directamente al Instagram oficial (@primeralineaprensa):',
             authorOrSource: 'Primera Línea Prensa // Redes Oficiales',
             date: '2019-2022',
             metrics: [
@@ -231,13 +232,14 @@ export const communicationsSections: SectionData[] = [
           {
             id: 'maule-radio-broadcast',
             type: 'image',
-            titleEn: 'Weekly Panellist on Regional Broadcast: "El Maule Sur También Existe"',
-            titleEs: 'Panelista Semanal en Programa Regional: "El Maule Sur También Existe"',
-            subtitleEn: 'Live Studio Transmission // Radio Cristalina 96.3 FM & Regional Transmitters',
-            subtitleEs: 'Transmisión en Vivo en Estudio // Radio Cristalina 96.3 FM y Emisoras Regionales',
+            titleEn: 'Panellist on Maule Community Media Network & Radio Cristalina',
+            titleEs: 'Panelista de la Red de Medios Comunitaria del Maule & Radio Cristalina',
+            subtitleEn: 'Live Studio Transmission // Radio Cristalina 96.3 FM & MauleRed Platform',
+            subtitleEs: 'Transmisión en Vivo en Estudio // Radio Cristalina 96.3 FM y Plataforma MauleRed',
             src: '/maule_sur_radio.jpg',
-            captionEn: 'Weekly panellist on regional broadcast "El Maule Sur También Existe".\n\n• Creative & Strategic Execution: Directed editorial agendas, real-time crisis coverage, visual storytelling, and counter-disinformation frameworks against industry greenwashing.\n• Grassroots Network Architecture: Founded a decentralized community media network across the Maule region: trained local assembly members as active correspondents in citizen journalism and ethical reporting.',
-            captionEs: 'Panelista semanal en el programa radial regional "El Maule Sur También Existe".\n\n• Ejecución Creativa y Estratégica: Dirección de agendas editoriales, cobertura de crisis en tiempo real, narrativa visual y marcos contra la desinformación y el "greenwashing" corporativo e industrial.\n• Arquitectura de Red Comunitaria: Fundó una red descentralizada de medios comunitarios en toda la región del Maule: capacitó a miembros de asambleas locales y organizaciones de base como corresponsales activos en periodismo ciudadano y reportería ética.',
+            url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
+            captionEn: 'Panelist on the Maule Community Media Network and weekly broadcaster on "El Maule Sur También Existe" (Radio Cristalina 96.3 FM). Click to open the MauleRed platform directly on GitHub Pages (https://danisantanderurrutia-coder.github.io/MauleRed/).\n\n• Creative & Strategic Execution: Directed editorial agendas, real-time crisis coverage, visual storytelling, and counter-disinformation frameworks against industry greenwashing.\n• Grassroots Network Architecture: Founded a decentralized community media network across the Maule region: trained local assembly members as active correspondents in citizen journalism and ethical reporting.',
+            captionEs: 'Panelista de la Red de Medios Comunitaria del Maule y conductor radial semanal en el programa "El Maule Sur También Existe" (Radio Cristalina 96.3 FM). Haz clic para abrir directamente la plataforma MauleRed en GitHub Pages (https://danisantanderurrutia-coder.github.io/MauleRed/).\n\n• Ejecución Creativa y Estratégica: Dirección de agendas editoriales, cobertura de crisis en tiempo real, narrativa visual y marcos contra la desinformación y el "greenwashing" corporativo e industrial.\n• Arquitectura de Red Comunitaria: Fundó una red descentralizada de medios comunitarios en toda la región del Maule: capacitó a miembros de asambleas locales y organizaciones de base como corresponsales activos en periodismo ciudadano y reportería ética.',
             authorOrSource: 'Radio Cristalina 96.3 FM & Red Comunitaria Maule Sur',
             date: '2022-Presente',
             detailsEn: [
@@ -616,6 +618,29 @@ export const communicationsSections: SectionData[] = [
         badgeEs: 'Arena Universitaria & Liga Digital',
         mediaItems: [
           {
+            id: 'rap-beauchef-logo-dossier',
+            type: 'image',
+            src: '/logos/rap-beauchef.png',
+            url: 'https://github.com/danisantanderurrutia-coder/Dossier-Rap',
+            titleEn: 'Official Logo & Brandmark: Rap Beauchef',
+            titleEs: 'Logotipo Oficial & Identidad: Rap Beauchef',
+            subtitleEn: 'University Freestyle Arena & Cultural Platform // Open Dossier-Rap on GitHub',
+            subtitleEs: 'Arena Universitaria de Freestyle & Plataforma Cultural // Abrir Dossier-Rap en GitHub',
+            captionEn: 'Official brandmark and emblem of Rap Beauchef extracted from the Dossier-Rap archive. Conceived, produced, and directed at FCFM Universidad de Chile. Click this item to open the interactive Dossier-Rap repository on GitHub (https://github.com/danisantanderurrutia-coder/Dossier-Rap).',
+            captionEs: 'Identidad y logotipo oficial de Rap Beauchef extraído del archivo Dossier-Rap. Concebido, producido y dirigido en la FCFM (Universidad de Chile). Haz clic en este elemento para abrir el repositorio del proyecto Dossier-Rap en GitHub (https://github.com/danisantanderurrutia-coder/Dossier-Rap).',
+            authorOrSource: 'Dossier-Rap // Repositorio GitHub',
+            date: '2019-2021',
+            tags: ['Rap Beauchef', 'Logo Oficial', 'Dossier-Rap', 'GitHub', 'FCFM'],
+            subLinks: [
+              {
+                titleEn: 'Dossier-Rap Project on GitHub',
+                titleEs: 'Proyecto Dossier-Rap en GitHub',
+                url: 'https://github.com/danisantanderurrutia-coder/Dossier-Rap',
+                src: '/logos/rap-beauchef.png'
+              }
+            ]
+          },
+          {
             id: 'rap-beauchef-batallas-vivo',
             type: 'instagram',
             instagramId: 'B9ljgLMngum',
@@ -780,6 +805,29 @@ export const communicationsSections: SectionData[] = [
         badgeEn: 'Pandemic Streaming League & Socio-Artistic Concept',
         badgeEs: 'Liga Online en Pandemia & Dispositivo Socio-Artístico',
         mediaItems: [
+          {
+            id: 'cuarentena-rap-logo-dossier',
+            type: 'image',
+            src: '/logos/cuarentena-rap-official.png',
+            url: 'https://github.com/danisantanderurrutia-coder/Dossier-Rap',
+            titleEn: 'Official Logo & Insignia: Cuarentena Rap',
+            titleEs: 'Logotipo Oficial & Emblema: Cuarentena Rap',
+            subtitleEn: 'Latin American Digital Streaming Championship // Open Dossier-Rap on GitHub',
+            subtitleEs: 'Liga Latinoamericana de Streaming en Pandemia // Abrir Dossier-Rap en GitHub',
+            captionEn: 'Official insignia and visual identity of Cuarentena Rap extracted from the Dossier-Rap archive. Conceptual socio-artistic league created during COVID-19 lockdowns. Click this item to open the interactive Dossier-Rap repository on GitHub (https://github.com/danisantanderurrutia-coder/Dossier-Rap).',
+            captionEs: 'Emblema e identidad visual oficial de Cuarentena Rap extraído del archivo Dossier-Rap. Dispositivo socio-artístico y liga digital creada durante la pandemia. Haz clic en este elemento para abrir el repositorio del proyecto Dossier-Rap en GitHub (https://github.com/danisantanderurrutia-coder/Dossier-Rap).',
+            authorOrSource: 'Dossier-Rap // Repositorio GitHub',
+            date: '2020-2021',
+            tags: ['Cuarentena Rap', 'Logo Oficial', 'Dossier-Rap', 'GitHub', 'Streaming'],
+            subLinks: [
+              {
+                titleEn: 'Dossier-Rap Project on GitHub',
+                titleEs: 'Proyecto Dossier-Rap en GitHub',
+                url: 'https://github.com/danisantanderurrutia-coder/Dossier-Rap',
+                src: '/logos/cuarentena-rap-official.png'
+              }
+            ]
+          },
           {
             id: 'cr-video-promocion',
             type: 'video',
