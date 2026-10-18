@@ -74,7 +74,15 @@ export const GAME_MISSIONS: GameMission[] = [
     date: '2023',
     roleEs: 'Asesor Técnico Parlamentario & Vocero',
     roleEn: 'Parliamentary Technical Advisor & Spokesperson',
-    mediaType: 'video',
+    mediaType: 'plate',
+    src: '/congreso_valparaiso.jpg',
+    availablePages: [
+      {
+        titleEs: 'Fotografía Oficial: Intervención en Sala (CDTV)',
+        titleEn: 'Official Photography: Chamber Hearing (CDTV)',
+        pageSrc: '/congreso_valparaiso.jpg'
+      }
+    ],
     embedUrl: 'https://www.youtube.com/embed/7eJ-pQ3qe8o',
     url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
     code: 'OPS-COM-01',
@@ -669,6 +677,11 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
     availablePages: [
       {
+        titleEs: 'Logotipo Oficial • Red Maule Sur & Radio Comunitaria (Chucao de los Andes)',
+        titleEn: 'Official Logo • Maule Sur Network & Community Radio (Chucao de los Andes)',
+        pageSrc: '/logos/logo_chucao_andes.png'
+      },
+      {
         titleEs: 'Panelista en Estudio de Transmisión Radial • Maule Sur (MauleRed)',
         titleEn: 'Panellist in Radio Broadcasting Studio • Maule Sur (MauleRed)',
         pageSrc: '/maule_sur_radio.jpg'
@@ -677,11 +690,6 @@ export const GAME_MISSIONS: GameMission[] = [
         titleEs: 'Plataforma Digital de Noticias Maule Red (GitHub Pages)',
         titleEn: 'Maule Red Digital Grassroots News Platform (GitHub Pages)',
         pageSrc: '/maulered_web.png'
-      },
-      {
-        titleEs: 'Logotipo Oficial • Red Maule Sur & Radio Cristalina',
-        titleEn: 'Official Logo • Maule Sur Network & Radio Cristalina',
-        pageSrc: '/maulered_logo.png'
       }
     ],
     code: 'OPS-COM-04',
@@ -718,8 +726,13 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Coordinador de Campaña & Recaudación',
     roleEn: 'Campaign Coordinator & Fundraising',
     mediaType: 'plate',
-    src: '/expeditions/ong_raiz_wetland_group.jpg',
+    src: '/campana_solo_el_pueblo_ayuda.jpg',
     availablePages: [
+      {
+        titleEs: 'Fotografía: Caravana 4x4 y Logística de Terreno "Solo el pueblo ayuda al pueblo"',
+        titleEn: 'Photography: 4x4 Caravan & Field Logistics "Solo el pueblo ayuda al pueblo"',
+        pageSrc: '/campana_solo_el_pueblo_ayuda.jpg'
+      },
       {
         titleEs: 'Monitoreo Comunitario de Humedales (ONG Raíz EcoAcción)',
         titleEn: 'Community Wetland Monitoring (ONG Raíz EcoAcción)',

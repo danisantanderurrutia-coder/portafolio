@@ -173,6 +173,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
       customRoleEn: 'Panellist on Maule Community Media Network & Radio Cristalina',
       sectionData: communicationsSections.find(s => s.id === 'primera-linea-prensa')?.subSections?.find(sub => sub.id === 'red-comunitaria-maule'),
       parentSection: communicationsSections.find(s => s.id === 'primera-linea-prensa'),
+      logoSrc: '/logos/logo_chucao_andes.png',
       externalUrl: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
       externalUrlLabelEs: 'Abrir Plataforma MauleRed en GitHub Pages',
       externalUrlLabelEn: 'Open MauleRed Platform on GitHub Pages'
@@ -187,6 +188,19 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
       badgeEs: '45+ Dirigentas/es Rurales Capacitados en Reportería Móvil',
       sectionData: communicationsSections.find(s => s.id === 'primera-linea-prensa'),
       parentSection: communicationsSections.find(s => s.id === 'primera-linea-prensa')
+    },
+    {
+      id: 'solo-el-pueblo',
+      labelEn: '04. "Only the People Help the People"',
+      labelEs: '04. "Solo el pueblo ayuda al pueblo"',
+      icon: Users,
+      accent: '#f97316',
+      badgeEn: 'Disaster Relief Logistics // Wildfires & Floods',
+      badgeEs: 'Gestión en Catástrofes // Incendios e Inundaciones',
+      customRoleEs: 'Coordinador General & Gestión Territorial de Ayuda en Catástrofes',
+      customRoleEn: 'Lead Coordinator & Grassroots Disaster Relief Manager',
+      sectionData: communicationsSections.find(s => s.id === 'solo-el-pueblo'),
+      parentSection: communicationsSections.find(s => s.id === 'solo-el-pueblo')
     }
   ];
 

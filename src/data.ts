@@ -87,6 +87,21 @@ export const communicationsSections: SectionData[] = [
     ],
     mediaItems: [
       {
+        id: 'intervencion-valparaiso-foto',
+        type: 'image',
+        titleEn: 'Official Testimony at National Congress: Emergencies & Disasters Commission (Valparaíso)',
+        titleEs: 'Intervención Oficial en el Congreso Nacional: Comisión de Emergencia y Desastres (Valparaíso)',
+        subtitleEn: 'Chamber of Deputies of Chile // Valparaíso Congressional Headquarters',
+        subtitleEs: 'Cámara de Diputadas y Diputados de Chile // Sede del Congreso Nacional en Valparaíso',
+        src: '/congreso_valparaiso.jpg',
+        url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
+        captionEn: 'Daniel Santander testifying before the Special Commission on Emergencies, Disasters and Firefighters at Chile\'s Chamber of Deputies in Valparaíso. Presenting technical evidence and community testimonies linking pine and eucalyptus monoculture expansions to accelerated wildfire propagation and water depletion.',
+        captionEs: 'Daniel Santander exponiendo como vocero técnico ante la Comisión Especial de Emergencia, Desastres y Bomberos de la Cámara de Diputadas y Diputados en el Congreso Nacional en Valparaíso. Presentación de evidencia empírica que correlaciona el avance del monocultivo forestal con la voracidad de los megaincendios y la sequía en cuencas rurales.',
+        authorOrSource: 'Cámara de Diputadas y Diputados // CDTV.CL (Valparaíso)',
+        date: '2023',
+        tags: ['Valparaíso', 'Congreso Nacional', 'CDTV', 'Megaincendios', 'Fiscalización']
+      },
+      {
         id: 'camara-diputadas-forestal',
         type: 'video',
         titleEn: 'Testimony at Chile\'s Chamber of Deputies: Forestry Model & Wildfire Risk',
@@ -261,6 +276,21 @@ export const communicationsSections: SectionData[] = [
             ]
           },
           {
+            id: 'maule-radio-chucao-logo',
+            type: 'image',
+            titleEn: 'Official Brandmark: Maule Community Radio Network (Chucao de los Andes)',
+            titleEs: 'Logotipo Oficial: Red de Radios Comunitarias del Maule (Chucao de los Andes)',
+            subtitleEn: 'MauleRed Community Identity // Native Chucao Bird & Andean Cordillera',
+            subtitleEs: 'Identidad Gráfica MauleRed // Chucao Nativo y Cordillera de los Andes',
+            src: '/logos/logo_chucao_andes.png',
+            url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
+            captionEn: 'Official brandmark for the Maule community radio network and citizen platform (MauleRed), featuring the native Chucao bird against the Andean mountain range. Directly extracted from the MauleRed open-source repository.',
+            captionEs: 'Isotipo y emblema oficial de la Red de Medios y Radios Comunitarias del Maule Sur (MauleRed), destacando al Chucao nativo sobre la cordillera andina. Extraído directamente del repositorio abierto de MauleRed.',
+            authorOrSource: 'MauleRed // Archivo de Identidad Gráfica',
+            date: '2024',
+            tags: ['Logotipo Oficial', 'Chucao de los Andes', 'Radio Comunitaria', 'MauleRed']
+          },
+          {
             id: 'maule-red-platform',
             type: 'image',
             titleEn: 'Digital Community Platform: Red Comunitaria Maule Sur (In Development)',
@@ -285,7 +315,7 @@ export const communicationsSections: SectionData[] = [
                 titleEn: 'Identidad Gráfica y Logotipo Oficial',
                 titleEs: 'Identidad Gráfica y Logotipo Oficial',
                 url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
-                src: '/maulered_logo.png'
+                src: '/logos/logo_chucao_andes.png'
               }
             ]
           }
@@ -505,6 +535,57 @@ export const communicationsSections: SectionData[] = [
         authorOrSource: 'Daniel Santander Personal Documentary Archive',
         date: 'Septiembre 2022',
         tags: ['Intergenerational', 'Community Life', 'Human Rights']
+      }
+    ]
+  },
+
+  // SECTION: CATÁSTROFES & SOLIDARIDAD ("SOLO EL PUEBLO AYUDA AL PUEBLO")
+  {
+    id: 'solo-el-pueblo',
+    tabKey: '04. CATÁSTROFES & SOLIDARIDAD',
+    tabTitleEn: 'Disaster Relief Campaigns',
+    tabTitleEs: 'Ayuda en Catástrofes',
+    badgeEn: 'DISASTER RELIEF LOGISTICS // WILDFIRES & FLOODS',
+    badgeEs: 'GESTIÓN EN CATÁSTROFES // INCENDIOS E INUNDACIONES',
+    roleEn: 'General Coordinator & Frontline Disaster Relief Logistics Manager',
+    roleEs: 'Coordinador General y Gestión Territorial de Ayuda en Catástrofes',
+    titleEn: '"Solo el pueblo ayuda al pueblo" Disaster Relief Campaigns',
+    titleEs: 'Campaña de Solidaridad Territorial "Solo el pueblo ayuda al pueblo"',
+    headlineEn: 'Grassroots Mutual Aid, Emergency Logistics, and Direct Relief for Wildfire and Flood Victims',
+    headlineEs: 'Solidaridad Popular Autogestionada, Logística de Emergencia y Ayuda Directa a Familias Damnificadas por Megaincendios e Inundaciones',
+    narrativeEn: 'Spearheaded and coordinated emergency disaster response and territorial mutual aid campaigns under the banner "Solo el pueblo ayuda al pueblo". Directed field operations, collection centers, and 4x4 transport caravans delivering essential food supplies, medical kits, construction materials, and firefighting gear directly to remote agrarian families and isolated rural communities hit by catastrophic wildfires and river floods across the Maule, Biobío, Ñuble, and Santiago metropolitan regions.',
+    narrativeEs: 'Lideró y coordinó campañas de ayuda directa y respuesta comunitaria ante catástrofes bajo la consigna "Solo el pueblo ayuda al pueblo". Despliegue en terreno de centros de acopio, logística de transporte en camionetas 4x4 y distribución mano a mano de víveres, herramientas de reconstrucción, kits de primeros auxilios e insumos de emergencia para familias damnificadas y brigadas comunitarias frente a megaincendios forestales e inundaciones en Maule, Biobío, Ñuble y Santiago.',
+    keyOutcomesEn: [
+      'Coordinated grassroots humanitarian supply chains and relief caravans delivering tens of tons of food, water, and building tools.',
+      'Operated direct distribution points in isolated rural hamlets and forestry border zones cut off by infrastructure collapse.',
+      'Supported local volunteer fire brigades and frontline community shelters across Maule, Biobío, Ñuble, and Santiago.',
+      'Pioneered community-managed recovery protocols based on popular solidarity, autonomy, and mutual aid without bureaucratic delays.'
+    ],
+    keyOutcomesEs: [
+      'Coordinación de cadenas de acopio popular y caravanas solidarias transportando decenas de toneladas de alimentos, agua y herramientas.',
+      'Operación de puntos de entrega directa en caseríos rurales aislados y zonas de interfase forestal incomunicadas.',
+      'Apoyo logístico a brigadas voluntarias de combate de incendios y albergues vecinales en Maule, Biobío, Ñuble y Santiago.',
+      'Implementación de protocolos comunitarios de reconstrucción basados en la autoorganización territorial y la solidaridad efectiva.'
+    ],
+    stats: [
+      { value: '4 Regiones', labelEn: 'Maule, Biobío, Ñuble & Santiago', labelEs: 'Maule, Biobío, Ñuble y Stgo' },
+      { value: '100% Directo', labelEn: 'Mutual Aid & Autonomy', labelEs: 'Ayuda Directa y Autogestión' },
+      { value: '4x4 Terreno', labelEn: 'Emergency Logistics Caravans', labelEs: 'Caravanas de Emergencia' }
+    ],
+    mediaItems: [
+      {
+        id: 'campana-solo-el-pueblo-foto',
+        type: 'image',
+        titleEn: 'Field Logistics: "Solo el pueblo ayuda al pueblo" Emergency Relief Truck',
+        titleEs: 'Logística de Terreno: Camioneta de Ayuda "Solo el pueblo ayuda al pueblo"',
+        subtitleEn: '4x4 Relief Caravan // Wildfires & Floods Mutual Aid Operation',
+        subtitleEs: 'Caravana de Ayuda 4x4 // Operación de Emergencia ante Incendios e Inundaciones',
+        src: '/campana_solo_el_pueblo_ayuda.jpg',
+        captionEn: 'Daniel Santander with fellow comrades and community coordinators alongside a fully loaded 4x4 pickup truck carrying emergency supplies, food parcels, and relief tools for families impacted by catastrophic wildfires and floods.',
+        captionEs: 'Daniel Santander junto a compañeros y coordinadores comunitarios frente a la camioneta 4x4 cargada con víveres, bidones de agua, herramientas y suministros esenciales para familias damnificadas por megaincendios e inundaciones.',
+        authorOrSource: 'Archivo Personal Daniel Santander // Campaña "Solo el pueblo ayuda al pueblo"',
+        date: '2019-2023',
+        tags: ['Solo el Pueblo Ayuda al Pueblo', 'Ayuda en Catástrofes', 'Incendios', 'Inundaciones', 'Solidaridad Popular', 'Maule', 'Biobío']
       }
     ]
   },
