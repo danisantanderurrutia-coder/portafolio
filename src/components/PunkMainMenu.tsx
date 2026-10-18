@@ -454,7 +454,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
                 icon={<Award className="w-4 h-4" />}
                 label={currentLang === 'es' ? 'CERTIFICACIONES ADICIONALES' : 'ADDITIONAL CERTIFICATIONS'}
                 onClick={onSelectCertifications}
-                title={currentLang === 'es' ? 'Ver Certificaciones de Postgrado (Davos, Dresden, Copenhague) en el Globo 3D' : 'Explore Postgraduate Certifications (Davos, Dresden, Copenhagen) on 3D Globe'}
+                title={currentLang === 'es' ? 'Ver Certificaciones Adicionales (Davos, Dresden, Copenhague, Aljezur, Permacultura) en el Globo 3D' : 'Explore Additional Certifications (Davos, Dresden, Copenhagen, Aljezur, Permaculture) on 3D Globe'}
               />
             )}
 

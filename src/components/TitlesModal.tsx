@@ -125,6 +125,30 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       image: '/expeditions/copenhagen_doughnut_economics_book.jpg',
       descEs: 'Modelación de techos ecológicos y bases sociales para la planificación territorial.',
       descEn: 'Planetary boundaries modeling and regenerative economic foundations.'
+    },
+    {
+      id: 'cert-aljezur',
+      locationEs: 'Aljezur, Portugal 🇵🇹',
+      locationEn: 'Aljezur, Portugal 🇵🇹',
+      institution: 'Plano de Gestão Florestal & StoryMaps',
+      titleEs: 'Rewilding & Gestión Forestal',
+      titleEn: 'Rewilding & Forest Management',
+      year: '2024',
+      image: '/expeditions/aljezur_rewilding_portugal.png',
+      descEs: 'Modelación satelital (Sentinel-2, GEDI LiDAR) y diseño de cortafuegos biológicos para resiliencia ante megaincendios.',
+      descEn: 'Multi-temporal satellite modeling (Sentinel-2, GEDI LiDAR) and biological firebreak planning for wildfire resilience.'
+    },
+    {
+      id: 'cert-permacultura',
+      locationEs: 'Maule, Chile 🇨🇱',
+      locationEn: 'Maule, Chile 🇨🇱',
+      institution: 'Escuela Chilena de Permacultura y Agroecología (EPAC)',
+      titleEs: 'Diseñador en Permacultura (CDP)',
+      titleEn: 'Certified Permaculture Designer (CDP)',
+      year: '2023',
+      image: '/expeditions/ong_raiz_native_tree_planting.jpg',
+      descEs: 'Zonificación predial regenerativa de 5 zonas, diseño hidrológico Keyline, cosecha de aguas y regeneración edáfica.',
+      descEn: 'Regenerative 5-zone farm planning, Keyline hydrological design, rainwater harvesting, and living soil biology.'
     }
   ];
 
@@ -252,8 +276,8 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
                 </h3>
                 <p className="text-[11px] font-mono text-neutral-400 mt-0.5">
                   {currentLang === 'es' 
-                    ? 'Acreditaciones internacionales de centros de investigación en Suiza, Alemania y Dinamarca.' 
-                    : 'International credentials from premier research institutes in Switzerland, Germany, and Denmark.'}
+                    ? 'Acreditaciones y certificaciones internacionales en Suiza, Alemania, Dinamarca, Portugal y Chile.' 
+                    : 'International credentials and certifications from Switzerland, Germany, Denmark, Portugal, and Chile.'}
                 </p>
               </div>
 
@@ -270,8 +294,8 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
               )}
             </div>
 
-            {/* Certifications Grid (Davos, Dresden, Copenhague) */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+            {/* Certifications Grid (Davos, Dresden, Copenhague, Aljezur, Permacultura) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {postgraduateCertifications.map((cert) => (
                 <div 
                   key={cert.id} 

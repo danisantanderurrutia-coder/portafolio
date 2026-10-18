@@ -656,6 +656,107 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Dresden', 'Alemania', 'Interlinked Justice', 'Certificación']
   },
 
+  // 12b. CERTIFICACIONES ADICIONALES: Rewilding & Gestión Forestal - Aljezur, Portugal
+  {
+    id: 'cert-aljezur',
+    type: 'certifications',
+    titleEs: 'Certificación: Rewilding & Gestión Forestal // Aljezur, Portugal',
+    titleEn: 'Certification: Rewilding & Forest Management // Aljezur, Portugal',
+    subtitleEs: 'Plano de Gestão Florestal & StoryMaps | Algarve, Portugal | 2024',
+    subtitleEn: 'Forest Management Plan & StoryMaps | Algarve, Portugal | 2024',
+    country: 'Portugal',
+    city: 'Aljezur',
+    flag: '🇵🇹',
+    lat: 37.31,
+    lng: -8.80,
+    date: '2024',
+    roleEs: 'Especialista en Rewilding & SIG Forestal',
+    roleEn: 'Rewilding & Forestry GIS Specialist',
+    mediaType: 'plate',
+    src: '/expeditions/aljezur_rewilding_portugal.png',
+    availablePages: [
+      {
+        titleEs: 'Imagen Satelital True Color (Sentinel-2) • Aljezur, Algarve',
+        titleEn: 'Sentinel-2 True Color Satellite Imagery • Aljezur, Algarve',
+        pageSrc: '/expeditions/aljezur_rewilding_portugal.png'
+      },
+      {
+        titleEs: 'Índice de Vegetación NDVI y Análisis de Combustible Forestal',
+        titleEn: 'NDVI Vegetation Index & Fuel Load Analysis',
+        pageSrc: '/expeditions/aljezur_ndvi_portugal.png'
+      }
+    ],
+    url: 'https://cm-aljezur.pt',
+    code: 'OPS-CERT-04',
+    source: 'Plano de Gestão Florestal Aljezur (StoryMaps & GIS)',
+    impactEs: 'Certificación y modelación espacial aplicada en Aljezur (Algarve, Portugal): desarrollo del Plano de Gestão Florestal, StoryMaps interactivo y análisis satelital (Sentinel-2, GEDI LiDAR) para mitigación de incendios mediante renaturalización activa.',
+    impactEn: 'Field certification and applied spatial modeling in Aljezur (Algarve, Portugal): development of the Forest Management Plan (Plano de Gestão Florestal), interactive StoryMaps, and satellite analysis (Sentinel-2, GEDI LiDAR) for wildfire resilience through active rewilding.',
+    methodologyEs: [
+      'Modelación multitemporal satelital Sentinel-2 (NDVI, NDRE, SAVI) y LiDAR GEDI de dosel',
+      'Diseño de franjas de gestión de combustible y cortafuegos biológicos con especies autóctonas',
+      'Articulación de herramientas SIG y StoryMaps para planificación territorial comunal'
+    ],
+    methodologyEn: [
+      'Multi-temporal Sentinel-2 satellite analysis (NDVI, NDRE, SAVI) and GEDI LiDAR canopy modeling',
+      'Design of fuelbreak buffer zones and native green firebreaks',
+      'Integration of open GIS workflows and StoryMaps for municipal land-use planning'
+    ],
+    tags: ['Portugal', 'Aljezur', 'Rewilding', 'SIG', 'GEDI', 'Incendios', 'Certificación']
+  },
+
+  // 12c. CERTIFICACIONES ADICIONALES: Diseñador en Permacultura (CDP) - Maule, Chile
+  {
+    id: 'cert-permacultura',
+    type: 'certifications',
+    titleEs: 'Certificación: Diseñador en Permacultura (CDP) // Escuela EPAC',
+    titleEn: 'Certification: Certified Permaculture Designer (CDP) // EPAC School',
+    subtitleEs: 'Escuela Chilena de Permacultura y Agroecología (EPAC) | 2023',
+    subtitleEn: 'Chilean School of Permaculture and Agroecology (EPAC) | 2023',
+    country: 'Chile',
+    city: 'Maule',
+    flag: '🇨🇱',
+    lat: -35.43,
+    lng: -71.66,
+    date: '2023',
+    roleEs: 'Diseñador en Permacultura Certificado (CDP)',
+    roleEn: 'Certified Permaculture Designer (CDP)',
+    mediaType: 'plate',
+    src: '/expeditions/ong_raiz_native_tree_planting.jpg',
+    availablePages: [
+      {
+        titleEs: 'Reforestación Comunitaria y Prácticas Agroecológicas en Terreno',
+        titleEn: 'Community Reforestation & Hands-on Agroecological Practices',
+        pageSrc: '/expeditions/ong_raiz_native_tree_planting.jpg'
+      },
+      {
+        titleEs: 'Monitoreo Pluviométrico y Diseño Hidrológico en Cerro Molco (Cauquenes)',
+        titleEn: 'Rainfall Monitoring & Hydrological Keyline at Cerro Molco (Cauquenes)',
+        pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
+      },
+      {
+        titleEs: 'Prospección Geofísica (SEV) para Hidrología de Cuencas',
+        titleEn: 'Geophysical Sounding (VES) for Watershed Hydrogeology',
+        pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
+      }
+    ],
+    url: 'https://www.facebook.com/EPACPermacultura/',
+    code: 'OPS-CERT-05',
+    source: 'Escuela Chilena de Permacultura y Agroecología EPAC (CV)',
+    impactEs: 'Certificación oficial como Diseñador en Permacultura (CDP) otorgada por la Escuela Chilena de Permacultura y Agroecología (EPAC, 2023). Aplicación de principios de zonificación bioclimática, diseño hidrológico en contorno (Keyline), regeneración de microbiología de suelos y soberanía territorial (según CV).',
+    impactEn: 'Official certification as a Certified Permaculture Designer (CDP) from the Chilean School of Permaculture and Agroecology (EPAC, 2023). Implementation of bioclimatic zoning, Keyline hydrological design, soil living biology regeneration, and territorial resilience (from CV).',
+    methodologyEs: [
+      'Certificación como Diseñador en Permacultura (CDP) por la Escuela EPAC (CV)',
+      'Diseño hidrológico en contorno (Keyline) y cosecha de agua de lluvia en cuencas de secano',
+      'Zonificación predial regenerativa de 5 zonas y transición agroforestal sin agroquímicos'
+    ],
+    methodologyEn: [
+      'Certified Permaculture Designer (CDP) certification by EPAC School (CV)',
+      'Contour Keyline hydrological design and rainwater harvesting in dryland catchments',
+      'Regenerative 5-zone farm planning and pesticide-free agroforestry transitions'
+    ],
+    tags: ['Permacultura', 'EPAC', 'CDP', 'Agroecología', 'Keyline', 'Maule', 'Certificación']
+  },
+
   // 13. ASESORÍA EN POLÍTICAS PÚBLICAS: Universidad de Chile & Convención Constitucional
   {
     id: 'uchile-convencion',
