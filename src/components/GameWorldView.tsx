@@ -3335,17 +3335,17 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         </div>
       </header>
 
-      <main className="relative z-20 flex-1 w-full max-w-[1680px] mx-auto px-2 sm:px-4 lg:px-6 py-2 flex items-center justify-center overflow-hidden pointer-events-none">
+      <main className="relative z-20 flex-1 w-full max-w-[1580px] mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 flex items-center justify-center overflow-y-auto no-scrollbar pointer-events-none">
         
-        {/* Main Tactical Stage: Pinned Photo on Left (150% Visual Area) + Dossier Briefing on Right */}
+        {/* Main Tactical Stage: Pinned Photo on Left + Dossier Briefing & 3-Col Grid on Right (Vertically Centered & Detached from Menus) */}
         {isDossierOpen && (
-          <div className="w-full flex flex-col lg:flex-row items-stretch lg:items-start gap-4 sm:gap-6 max-h-[88vh] overflow-y-auto no-scrollbar pointer-events-auto">
+          <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-8 my-auto pointer-events-auto">
             
             {/* ======================================================== */}
-            {/* A. LEFT COLUMN: PINNED HERO PHOTO / MEDIA CARD (~50%)    */}
+            {/* A. LEFT COLUMN: PINNED HERO PHOTO (SMALLER & DETACHED)   */}
             {/* ======================================================== */}
-            <div className="w-full lg:w-[48%] xl:w-[50%] flex flex-col items-center justify-start mt-1">
-              <div className="relative group w-full -rotate-1 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-4 pb-4 border-4 border-black shadow-[0_20px_40px_rgba(0,0,0,0.85),_10px_10px_0px_#000000] flex flex-col justify-between">
+            <div className="w-full lg:w-[40%] xl:w-[38%] max-w-[480px] flex flex-col items-center justify-center self-center">
+              <div className="relative group w-full -rotate-1 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-4 pb-4 border-4 border-black shadow-[0_16px_36px_rgba(0,0,0,0.85),_8px_8px_0px_#000000] flex flex-col justify-between">
                 
                 {/* Pushpin pinned through the photo paper onto the wall */}
                 <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
@@ -3359,10 +3359,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                   {currentMission.code} // {currentMission.city}
                 </div>
 
-                {/* Media Viewport Frame - MASSIVE VISUAL AREA */}
-                <div className="relative w-full rounded-xl bg-[#080c14] border-2 border-black shadow-[5px_5px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[380px] sm:min-h-[460px] lg:min-h-[520px] xl:min-h-[560px] max-h-[640px]">
+                {/* Media Viewport Frame - BALANCED & PROPORTIONED */}
+                <div className="relative w-full rounded-xl bg-[#080c14] border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[260px] sm:min-h-[300px] lg:min-h-[340px] xl:min-h-[380px] max-h-[440px]">
                   {currentMission.mediaType === 'video' && currentMission.embedUrl ? (
-                    <div className="w-full h-full aspect-video min-h-[420px] sm:min-h-[500px] lg:min-h-[580px]">
+                    <div className="w-full h-full aspect-video min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]">
                       <iframe
                         src={currentMission.embedUrl}
                         title={currentMission.titleEs}
@@ -3419,39 +3419,39 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                             </span>
                           </div>
 
-                          {/* Hero Section: MASSIVE CENTERED LOGO PEDESTAL */}
-                          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 p-5 sm:p-7 bg-black/60 rounded-2xl border border-white/10">
-                            {/* Giant Logo Pedestal */}
-                            <div className="relative shrink-0 w-36 h-36 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-2xl bg-gradient-to-b from-white/10 to-black/80 border-2 border-white/20 shadow-2xl flex items-center justify-center p-4 group">
+                          {/* Hero Section: CENTERED LOGO PEDESTAL */}
+                          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 p-4 sm:p-5 bg-black/60 rounded-xl border border-white/10">
+                            {/* Logo Pedestal */}
+                            <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-gradient-to-b from-white/10 to-black/80 border-2 border-white/20 shadow-xl flex items-center justify-center p-3 group">
                               <div 
-                                className="absolute inset-0 rounded-2xl blur-3xl opacity-35 pointer-events-none"
+                                className="absolute inset-0 rounded-xl blur-2xl opacity-35 pointer-events-none"
                                 style={{ backgroundColor: currentTool.color }}
                               />
-                              <TechLogo name={currentTool.name} size={110} className="drop-shadow-[0_8px_24px_rgba(0,0,0,0.95)] transition-transform group-hover:scale-110" />
+                              <TechLogo name={currentTool.name} size={68} className="drop-shadow-[0_6px_18px_rgba(0,0,0,0.95)] transition-transform group-hover:scale-105" />
                             </div>
 
                             {/* Tool Info */}
-                            <div className="flex-1 flex flex-col space-y-2.5 text-center sm:text-left min-w-0">
-                              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
-                                <h3 className="font-mono font-black text-2xl sm:text-3xl text-white uppercase tracking-tight">
+                            <div className="flex-1 flex flex-col space-y-1.5 text-center sm:text-left min-w-0">
+                              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                                <h3 className="font-mono font-black text-xl sm:text-2xl text-white uppercase tracking-tight">
                                   {currentTool.name}
                                 </h3>
-                                <span className="font-mono text-xs font-black px-2.5 py-0.5 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
+                                <span className="font-mono text-xs font-black px-2 py-0.5 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
                                   ★ {currentTool.level}
                                 </span>
                               </div>
 
-                              <p className="font-mono text-xs sm:text-sm text-cyan-300 font-bold leading-tight">
+                              <p className="font-mono text-xs text-cyan-300 font-bold leading-tight">
                                 {currentTool.tags}
                               </p>
 
-                              <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed pt-1">
+                              <p className="text-xs text-neutral-200 leading-relaxed pt-0.5 line-clamp-3">
                                 {currentLang === 'es' ? currentTool.descEs : currentTool.descEn}
                               </p>
 
-                              <div className="pt-2 flex items-start space-x-2 text-xs sm:text-sm font-mono text-emerald-400 border-t border-white/10">
+                              <div className="pt-1.5 flex items-start space-x-1.5 text-xs font-mono text-emerald-400 border-t border-white/10">
                                 <span className="font-bold shrink-0">{currentLang === 'es' ? '▶ APLICACIÓN:' : '▶ APPLICATION:'}</span>
-                                <span className="text-neutral-300 italic">
+                                <span className="text-neutral-300 italic text-[11px] line-clamp-2">
                                   {currentLang === 'es' ? currentTool.applicationEs : currentTool.applicationEn}
                                 </span>
                               </div>
@@ -3459,16 +3459,16 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           </div>
 
                           {/* Footer Help text */}
-                          <div className="text-center pt-1 text-xs font-mono text-neutral-400">
+                          <div className="text-center pt-0.5 text-[11px] font-mono text-neutral-400">
                             ★ {currentLang === 'es'
-                              ? 'Selecciona herramientas desde el panel superior derecho o el riel inferior'
-                              : 'Select tools from the top-right panel or the bottom rail'}
+                              ? 'Selecciona herramientas desde el panel superior derecho o la matriz 3-col'
+                              : 'Select tools from the top-right panel or 3-col grid'}
                           </div>
                         </div>
                       );
                     })() : (
-                      /* NATURAL PHOTO & PLATE VIEWER (150% AREA, IMMERSIVE BLUR) */
-                      <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] xl:min-h-[620px] max-h-[700px] flex items-center justify-center bg-black/60 overflow-hidden group">
+                      /* NATURAL PHOTO & PLATE VIEWER */
+                      <div className="relative w-full h-full min-h-[260px] sm:min-h-[300px] lg:min-h-[340px] xl:min-h-[380px] max-h-[440px] flex items-center justify-center bg-black/60 overflow-hidden group">
                         <div
                           className="absolute inset-0 bg-center bg-cover filter blur-3xl opacity-35 scale-125 pointer-events-none"
                           style={{
@@ -3491,7 +3491,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               ? currentMission.availablePages[selectedPlatePage].titleEs
                               : currentMission.availablePages[selectedPlatePage].titleEn
                           }
-                          className="relative z-10 max-h-[560px] xl:max-h-[620px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_20px_48px_rgba(0,0,0,0.98)]"
+                          className="relative z-10 max-h-[280px] sm:max-h-[320px] lg:max-h-[350px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_16px_36px_rgba(0,0,0,0.98)]"
                         />
 
                         {/* Floating Nav Arrows when multiple pages exist */}
@@ -3505,10 +3505,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                     (prev - 1 + currentMission.availablePages!.length) % currentMission.availablePages!.length
                                 );
                               }}
-                              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
                               title={currentLang === 'es' ? 'Foto anterior' : 'Previous picture'}
                             >
-                              <ChevronLeft className="w-5 h-5" />
+                              <ChevronLeft className="w-4 h-4" />
                             </button>
 
                             <button
@@ -3516,13 +3516,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                 e.stopPropagation();
                                 setSelectedPlatePage((prev) => (prev + 1) % currentMission.availablePages!.length);
                               }}
-                              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
                               title={currentLang === 'es' ? 'Foto siguiente' : 'Next picture'}
                             >
-                              <ChevronRight className="w-5 h-5" />
+                              <ChevronRight className="w-4 h-4" />
                             </button>
 
-                            <div className="absolute bottom-3 left-3 right-3 z-20 px-3.5 py-1.5 rounded-lg bg-black/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono shadow-lg">
+                            <div className="absolute bottom-2.5 left-2.5 right-2.5 z-20 px-3 py-1 rounded-lg bg-black/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono shadow-lg">
                               <span className="text-white font-bold truncate pr-2 text-xs">
                                 {currentLang === 'es'
                                   ? currentMission.availablePages[selectedPlatePage].titleEs
@@ -3537,8 +3537,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       </div>
                     )
                   ) : currentMission.src ? (
-                    /* SINGLE NATURAL PHOTO (150% AREA) */
-                    <div className="relative w-full h-full min-h-[420px] sm:min-h-[500px] lg:min-h-[580px] xl:min-h-[620px] max-h-[700px] flex items-center justify-center bg-black/60 overflow-hidden">
+                    /* SINGLE NATURAL PHOTO */
+                    <div className="relative w-full h-full min-h-[260px] sm:min-h-[300px] lg:min-h-[340px] xl:min-h-[380px] max-h-[440px] flex items-center justify-center bg-black/60 overflow-hidden">
                       <div
                         className="absolute inset-0 bg-center bg-cover filter blur-3xl opacity-35 scale-125 pointer-events-none"
                         style={{
@@ -3552,7 +3552,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           currentLang === 'en' && currentMission.srcEn ? currentMission.srcEn : currentMission.src
                         )}
                         alt={currentMission.titleEs}
-                        className="relative z-10 max-h-[560px] xl:max-h-[620px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_20px_48px_rgba(0,0,0,0.98)]"
+                        className="relative z-10 max-h-[280px] sm:max-h-[320px] lg:max-h-[350px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_16px_36px_rgba(0,0,0,0.98)]"
                       />
                     </div>
                   ) : (
@@ -3597,12 +3597,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             {/* ========================================================================= */}
             {/* B. RIGHT COLUMN: SPLIT INTO UPPER (DOSSIER) & LOWER (3-COL PHOTO GRID)    */}
             {/* ========================================================================= */}
-            <div className="w-full lg:w-[52%] xl:w-[50%] flex flex-col space-y-3.5">
+            <div className="w-full lg:w-[60%] xl:w-[62%] flex flex-col space-y-3.5 self-center max-w-[760px] lg:max-w-none">
               
               {/* ------------------------------------------------------------- */}
               {/* B1. UPPER SECTION: DOSSIER BRIEFING CARD (CENTERED / COMPACT)  */}
               {/* ------------------------------------------------------------- */}
-              <div className="w-full max-h-[38vh] sm:max-h-[40vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
+              <div className="w-full max-h-[34vh] sm:max-h-[36vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
                 
                 {/* Comic Panel Header */}
                 <div className="px-3.5 py-2 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
@@ -3794,7 +3794,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
               {/* ------------------------------------------------------------- */}
               {/* B2. LOWER SECTION: REST OF PHOTOS / MISSIONS IN 3 COLUMNS      */}
               {/* ------------------------------------------------------------- */}
-              <div className="w-full max-h-[44vh] sm:max-h-[46vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
+              <div className="w-full max-h-[40vh] sm:max-h-[42vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
                 
                 {/* Header with Title and Counter */}
                 <div className="px-3.5 py-2 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
