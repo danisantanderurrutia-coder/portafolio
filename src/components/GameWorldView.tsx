@@ -3102,6 +3102,14 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     };
   }, []);
 
+  const heroPinColor =
+    currentMission.type === 'science' ? 'bg-red-600 border-red-900' :
+    currentMission.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
+    currentMission.type === 'global' ? 'bg-amber-500 border-amber-800' :
+    currentMission.type === 'culture' ? 'bg-orange-500 border-orange-800' :
+    currentMission.type === 'titles' ? 'bg-pink-600 border-pink-900' :
+    currentMission.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
+    'bg-purple-600 border-purple-900';
 
   return (
     <div className="relative w-full h-screen overflow-hidden select-none bg-[#090b0e] text-white font-sans flex flex-col justify-between">
@@ -3327,71 +3335,31 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         </div>
       </header>
 
-      {/* ============================================================== */}
-      {/* 4. MAIN INTERACTIVE HUD STAGE                                  */}
-      {/* ============================================================== */}
-      <main className="relative z-20 flex-1 w-full max-w-7xl mx-auto px-4 sm:px-8 py-3 flex items-center justify-start overflow-hidden pointer-events-none">
+      <main className="relative z-20 flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 py-2 flex items-center justify-start overflow-hidden pointer-events-none">
         
-        {/* Floatable Tactical Dossier Card (Left / Center Stage) */}
+        {/* Main Tactical Stage: Pinned Photo on Left + Dossier Briefing on Right */}
         {isDossierOpen && (
-          <div className="w-full max-w-2xl lg:max-w-3xl max-h-[78vh] bg-[#0c0f14] border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden animate-fadeIn text-white pointer-events-auto">
+          <div className="w-full flex flex-col lg:flex-row items-center lg:items-start gap-4 sm:gap-6 max-h-[75vh] overflow-y-auto no-scrollbar pointer-events-auto">
             
-            {/* Comic Panel Header */}
-            <div className="px-4 py-2.5 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
-              <div className="flex items-center space-x-2.5">
-                {/* Yellow Slanted Stencil Tape */}
-                <div className="bg-[#facc15] text-black font-mono font-black text-xs px-2.5 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
-                  {currentMission.code} // {currentMission.city.toUpperCase()}
-                </div>
-                
-                {/* Country Badge */}
-                <div className="bg-white/10 text-neutral-200 font-mono text-[10px] px-2 py-0.5 border border-white/20">
-                  {currentMission.flag} {currentMission.country.toUpperCase()}
-                </div>
-
-                {/* Verification Stamp */}
-                {currentMission.src || currentMission.embedUrl || (currentMission.availablePages && currentMission.availablePages.length > 0) ? (
-                  <span className="hidden sm:inline bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider rotate-1">
-                    {currentLang === 'es' ? 'REGISTRO REAL' : 'VERIFIED'}
-                  </span>
-                ) : (
-                  <span className="hidden sm:inline bg-red-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider -rotate-1">
-                    {currentLang === 'es' ? 'REGISTRO PENDIENTE' : 'PENDING'}
-                  </span>
-                )}
-              </div>
-
-              {/* Prev / Next & Close */}
-              <div className="flex items-center space-x-1.5">
-                <button
-                  onClick={handlePrev}
-                  className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
-                  title="Misión anterior"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
-                  title="Misión siguiente"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => setIsDossierOpen(false)}
-                  className="p-1 bg-black hover:bg-red-600 text-white border border-white/40 hover:border-black transition ml-1 font-mono font-black shadow-[1px_1px_0px_#000]"
-                  title="Minimizar panel para ver el planeta"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            {/* Mission Body Scrollable */}
-            <div className="overflow-y-auto p-5 sm:p-6 space-y-4 no-scrollbar">
+            {/* ======================================================== */}
+            {/* A. LEFT SECTOR: PINNED FEATURED PHOTO / MEDIA CARD       */}
+            {/* ======================================================== */}
+            <div className="relative group shrink-0 w-full sm:w-[350px] lg:w-[410px] xl:w-[440px] -rotate-2 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-2.5 sm:p-3 pb-3 border-3 border-black shadow-[8px_8px_0px_#000000] flex flex-col justify-between">
               
+              {/* Pushpin at Top Center */}
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                <div className={`w-5 h-5 rounded-full ${heroPinColor} border-2 border-black/80 shadow-[0_3px_6px_rgba(0,0,0,0.7)] flex items-center justify-center`}>
+                  <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+                </div>
+              </div>
+
+              {/* Yellow Sticky Note / Post-it on Top Left Corner */}
+              <div className="absolute top-2 left-2 z-20 bg-[#fef08a] text-black font-mono font-black text-[9px] px-2 py-0.5 border border-black shadow-[2px_2px_0px_#000] -rotate-3 uppercase">
+                {currentMission.code} // {currentMission.city}
+              </div>
+
               {/* Media Viewport Frame */}
-              <div className="relative w-full rounded-xl bg-[#080c14] border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[240px] max-h-[380px]">
+              <div className="relative w-full rounded-md bg-[#080c14] border-2 border-black shadow-[3px_3px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[220px] max-h-[350px]">
                 {currentMission.mediaType === 'video' && currentMission.embedUrl ? (
                   <div className="w-full aspect-video">
                     <iframe
@@ -3404,21 +3372,21 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                   </div>
                 ) : currentMission.mediaType === 'audio' ? (
                   /* Pletina de Casete de Radio Campesina */
-                  <div className="w-full p-6 bg-[#161b22] text-white flex flex-col items-center justify-center space-y-4">
-                    <div className="flex items-center justify-between w-full font-mono text-[10px] text-emerald-400 border-b border-white/10 pb-1">
-                      <span>RADIO CRISTALINA 96.3 FM • MAULE SUR</span>
+                  <div className="w-full p-5 bg-[#161b22] text-white flex flex-col items-center justify-center space-y-3">
+                    <div className="flex items-center justify-between w-full font-mono text-[9px] text-emerald-400 border-b border-white/10 pb-1">
+                      <span>RADIO CRISTALINA 96.3 FM • MAULE</span>
                       <span>SIDE A • CÁPSULA RURAL</span>
                     </div>
                     <div className="flex items-center justify-center space-x-6 py-2">
-                      <div className="w-12 h-12 rounded-full border-2 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
-                        <div className="w-4 h-4 bg-emerald-400 rounded-full" />
+                      <div className="w-10 h-10 rounded-full border-2 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
+                        <div className="w-3.5 h-3.5 bg-emerald-400 rounded-full" />
                       </div>
                       <span className="font-mono text-xs text-emerald-300">96.3 MHz FM</span>
-                      <div className="w-12 h-12 rounded-full border-2 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
-                        <div className="w-4 h-4 bg-emerald-400 rounded-full" />
+                      <div className="w-10 h-10 rounded-full border-2 border-emerald-400 flex items-center justify-center animate-spin" style={{ animationDuration: '6s' }}>
+                        <div className="w-3.5 h-3.5 bg-emerald-400 rounded-full" />
                       </div>
                     </div>
-                    <audio controls className="w-full max-w-sm">
+                    <audio controls className="w-full max-w-xs">
                       <source src={resolveAsset('/audio/corte_constitucion.mp3')} type="audio/mp3" />
                       Audio no disponible.
                     </audio>
@@ -3432,75 +3400,75 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     const currentTool = toolList[safeIdx];
 
                     return (
-                      <div className="w-full h-full p-4 sm:p-5 flex flex-col justify-between space-y-3 bg-[#0a0f19]">
+                      <div className="w-full h-full p-3 sm:p-4 flex flex-col justify-between space-y-2.5 bg-[#0a0f19]">
                         {/* Top Bar: Category, Counter & Direct Arrows */}
-                        <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                          <div className="flex items-center space-x-2">
+                        <div className="flex items-center justify-between border-b border-white/10 pb-1.5">
+                          <div className="flex items-center space-x-1.5">
                             <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
-                            <span className="font-mono text-xs font-black text-[#facc15] uppercase tracking-wider">
+                            <span className="font-mono text-[11px] font-black text-[#facc15] uppercase tracking-wider">
                               {pageCode === 'TECH_MATRIX_CIENCIA'
                                 ? (currentLang === 'es' ? 'STACK CIENTÍFICO' : 'SCIENTIFIC STACK')
                                 : pageCode === 'TECH_MATRIX_COMMS'
                                 ? (currentLang === 'es' ? 'PRODUCCIÓN & MEDIOS' : 'MEDIA & BROADCAST')
                                 : (currentLang === 'es' ? 'INSTRUMENTAL DE CAMPO' : 'FIELD GEAR')}
                             </span>
-                            <span className="font-mono text-[10px] bg-white/10 text-neutral-300 px-2 py-0.5 rounded border border-white/15">
-                              {safeIdx + 1} / {toolList.length}
+                            <span className="font-mono text-[9px] bg-white/10 text-neutral-300 px-1.5 py-0.2 rounded border border-white/15">
+                              {safeIdx + 1}/{toolList.length}
                             </span>
                           </div>
 
-                          <div className="flex items-center space-x-1.5">
+                          <div className="flex items-center space-x-1">
                             <button
                               onClick={() => setActiveSkillToolIndex((prev) => (prev - 1 + toolList.length) % toolList.length)}
-                              className="px-2 py-1 bg-black/80 hover:bg-[#facc15] text-white hover:text-black border border-white/30 rounded font-mono font-black text-xs transition cursor-pointer flex items-center space-x-1"
+                              className="px-1.5 py-0.5 bg-black/80 hover:bg-[#facc15] text-white hover:text-black border border-white/30 rounded font-mono font-black text-[10px] transition cursor-pointer flex items-center space-x-0.5"
                               title="Herramienta anterior"
                             >
-                              <ChevronLeft className="w-3.5 h-3.5" />
+                              <ChevronLeft className="w-3 h-3" />
                               <span className="hidden sm:inline">{currentLang === 'es' ? 'ANT.' : 'PREV'}</span>
                             </button>
                             <button
                               onClick={() => setActiveSkillToolIndex((prev) => (prev + 1) % toolList.length)}
-                              className="px-2 py-1 bg-black/80 hover:bg-[#facc15] text-white hover:text-black border border-white/30 rounded font-mono font-black text-xs transition cursor-pointer flex items-center space-x-1"
+                              className="px-1.5 py-0.5 bg-black/80 hover:bg-[#facc15] text-white hover:text-black border border-white/30 rounded font-mono font-black text-[10px] transition cursor-pointer flex items-center space-x-0.5"
                               title="Herramienta siguiente"
                             >
                               <span className="hidden sm:inline">{currentLang === 'es' ? 'SIG.' : 'NEXT'}</span>
-                              <ChevronRight className="w-3.5 h-3.5" />
+                              <ChevronRight className="w-3 h-3" />
                             </button>
                           </div>
                         </div>
 
                         {/* Hero Section: ONE LOGO PROMINENTLY DISPLAYED */}
-                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-3 bg-black/50 rounded-xl border border-white/10">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 p-2.5 bg-black/50 rounded-xl border border-white/10">
                           {/* Large Logo Pedestal */}
-                          <div className="relative shrink-0 w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-gradient-to-b from-white/10 to-black/80 border-2 border-white/20 shadow-xl flex items-center justify-center p-3 group">
+                          <div className="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-gradient-to-b from-white/10 to-black/80 border-2 border-white/20 shadow-xl flex items-center justify-center p-2.5 group">
                             <div 
                               className="absolute inset-0 rounded-xl blur-xl opacity-25 pointer-events-none"
                               style={{ backgroundColor: currentTool.color }}
                             />
-                            <TechLogo name={currentTool.name} size={68} className="drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)] transition-transform group-hover:scale-110" />
+                            <TechLogo name={currentTool.name} size={56} className="drop-shadow-[0_4px_14px_rgba(0,0,0,0.9)] transition-transform group-hover:scale-110" />
                           </div>
 
                           {/* Tool Info */}
-                          <div className="flex-1 flex flex-col space-y-1.5 text-center sm:text-left min-w-0">
-                            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                              <h3 className="font-mono font-black text-base sm:text-lg text-white uppercase tracking-tight">
+                          <div className="flex-1 flex flex-col space-y-1 text-center sm:text-left min-w-0">
+                            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
+                              <h3 className="font-mono font-black text-sm sm:text-base text-white uppercase tracking-tight">
                                 {currentTool.name}
                               </h3>
-                              <span className="font-mono text-[9px] font-black px-2 py-0.5 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
+                              <span className="font-mono text-[8px] font-black px-1.5 py-0.2 rounded border border-[#facc15]/40 text-[#facc15] bg-[#facc15]/10">
                                 ★ {currentTool.level}
                               </span>
                             </div>
 
-                            <p className="font-mono text-[11px] text-cyan-300 font-bold leading-snug">
+                            <p className="font-mono text-[10px] text-cyan-300 font-bold leading-tight">
                               {currentTool.tags}
                             </p>
 
-                            <p className="text-xs text-neutral-200 leading-relaxed pt-0.5">
+                            <p className="text-[11px] text-neutral-200 leading-snug pt-0.5 line-clamp-3">
                               {currentLang === 'es' ? currentTool.descEs : currentTool.descEn}
                             </p>
 
-                            <div className="pt-1 flex items-start space-x-1.5 text-[11px] font-mono text-emerald-400 border-t border-white/10">
-                              <span className="font-bold shrink-0">{currentLang === 'es' ? '▶ APLICACIÓN:' : '▶ APPLICATION:'}</span>
+                            <div className="pt-0.5 flex items-start space-x-1 text-[10px] font-mono text-emerald-400 border-t border-white/10">
+                              <span className="font-bold shrink-0">{currentLang === 'es' ? '▶' : '▶'}</span>
                               <span className="text-neutral-300 italic truncate sm:whitespace-normal">
                                 {currentLang === 'es' ? currentTool.applicationEs : currentTool.applicationEn}
                               </span>
@@ -3510,22 +3478,22 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
                         {/* Interactive Mini-Strip to Jump to Any Tool Directly */}
                         <div className="pt-0.5">
-                          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1">
+                          <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
                             {toolList.map((t, idx) => {
                               const isCurrent = idx === safeIdx;
                               return (
                                 <button
                                   key={idx}
                                   onClick={() => setActiveSkillToolIndex(idx)}
-                                  className={`px-2 py-1 rounded-lg border transition-all cursor-pointer flex items-center space-x-1.5 shrink-0 ${
+                                  className={`px-1.5 py-0.5 rounded border transition-all cursor-pointer flex items-center space-x-1 shrink-0 ${
                                     isCurrent
                                       ? 'bg-white/20 border-[#facc15] shadow-[0_0_8px_rgba(250,204,21,0.6)] scale-105'
                                       : 'bg-black/50 border-white/10 hover:border-white/30 opacity-70 hover:opacity-100'
                                   }`}
                                   title={t.name}
                                 >
-                                  <TechLogo name={t.name} size={16} />
-                                  <span className={`font-mono text-[10px] font-bold ${isCurrent ? 'text-[#facc15]' : 'text-neutral-300'}`}>
+                                  <TechLogo name={t.name} size={13} />
+                                  <span className={`font-mono text-[9px] font-bold ${isCurrent ? 'text-[#facc15]' : 'text-neutral-300'}`}>
                                     {t.name}
                                   </span>
                                 </button>
@@ -3536,9 +3504,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       </div>
                     );
                   })() : (
-                    /* NATURAL PHOTO & PLATE VIEWER (NO WHITE RECTANGLE, NO CLUTTER) */
-                    <div className="relative w-full h-full min-h-[240px] max-h-[380px] flex items-center justify-center bg-black/50 overflow-hidden group">
-                      {/* Ambient blurred backdrop for natural contrast and zero letterbox harshness */}
+                    /* NATURAL PHOTO & PLATE VIEWER (NO CLUTTER, AMBIENT BLUR) */
+                    <div className="relative w-full h-full min-h-[220px] max-h-[350px] flex items-center justify-center bg-black/50 overflow-hidden group">
                       <div
                         className="absolute inset-0 bg-center bg-cover filter blur-2xl opacity-20 scale-125 pointer-events-none"
                         style={{
@@ -3550,7 +3517,6 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         }}
                       />
 
-                      {/* Main Natural Photo */}
                       <img
                         src={resolveAsset(
                           currentLang === 'en' && currentMission.availablePages[selectedPlatePage].pageSrcEn
@@ -3562,7 +3528,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                             ? currentMission.availablePages[selectedPlatePage].titleEs
                             : currentMission.availablePages[selectedPlatePage].titleEn
                         }
-                        className="relative z-10 max-h-[340px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_12px_28px_rgba(0,0,0,0.95)]"
+                        className="relative z-10 max-h-[310px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_12px_28px_rgba(0,0,0,0.95)]"
                       />
 
                       {/* Floating Nav Arrows when multiple pages exist */}
@@ -3576,10 +3542,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                                   (prev - 1 + currentMission.availablePages!.length) % currentMission.availablePages!.length
                               );
                             }}
-                            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                            className="absolute left-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
                             title={currentLang === 'es' ? 'Foto anterior' : 'Previous picture'}
                           >
-                            <ChevronLeft className="w-5 h-5" />
+                            <ChevronLeft className="w-4 h-4" />
                           </button>
 
                           <button
@@ -3587,21 +3553,20 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                               e.stopPropagation();
                               setSelectedPlatePage((prev) => (prev + 1) % currentMission.availablePages!.length);
                             }}
-                            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
+                            className="absolute right-2.5 top-1/2 -translate-y-1/2 z-20 w-7 h-7 rounded-full bg-black/75 hover:bg-[#facc15] text-white hover:text-black border border-white/30 flex items-center justify-center transition shadow-lg cursor-pointer"
                             title={currentLang === 'es' ? 'Foto siguiente' : 'Next picture'}
                           >
-                            <ChevronRight className="w-5 h-5" />
+                            <ChevronRight className="w-4 h-4" />
                           </button>
 
-                          {/* Elegant, discreet bottom HUD pill */}
-                          <div className="absolute bottom-2.5 left-3 right-3 z-20 px-3 py-1.5 rounded-lg bg-black/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono shadow-lg">
-                            <span className="text-white font-bold truncate pr-3 text-[11px]">
+                          <div className="absolute bottom-2 left-2 right-2 z-20 px-2.5 py-1 rounded-lg bg-black/85 backdrop-blur-md border border-white/15 flex items-center justify-between text-xs font-mono shadow-lg">
+                            <span className="text-white font-bold truncate pr-2 text-[10px]">
                               {currentLang === 'es'
                                 ? currentMission.availablePages[selectedPlatePage].titleEs
                                 : currentMission.availablePages[selectedPlatePage].titleEn}
                             </span>
-                            <span className="font-mono text-[10px] text-[#facc15] font-black bg-white/10 px-2 py-0.5 rounded border border-white/10 shrink-0">
-                              {selectedPlatePage + 1} / {currentMission.availablePages.length}
+                            <span className="font-mono text-[9px] text-[#facc15] font-black bg-white/10 px-1.5 py-0.2 rounded border border-white/10 shrink-0">
+                              {selectedPlatePage + 1}/{currentMission.availablePages.length}
                             </span>
                           </div>
                         </>
@@ -3609,8 +3574,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                     </div>
                   )
                 ) : currentMission.src ? (
-                  /* SINGLE NATURAL PHOTO (NO WHITE FRAME) */
-                  <div className="relative w-full h-full min-h-[220px] max-h-[380px] flex items-center justify-center bg-black/50 overflow-hidden">
+                  /* SINGLE NATURAL PHOTO */
+                  <div className="relative w-full h-full min-h-[220px] max-h-[350px] flex items-center justify-center bg-black/50 overflow-hidden">
                     <div
                       className="absolute inset-0 bg-center bg-cover filter blur-2xl opacity-20 scale-125 pointer-events-none"
                       style={{
@@ -3624,201 +3589,249 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         currentLang === 'en' && currentMission.srcEn ? currentMission.srcEn : currentMission.src
                       )}
                       alt={currentMission.titleEs}
-                      className="relative z-10 max-h-[340px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_12px_28px_rgba(0,0,0,0.95)]"
+                      className="relative z-10 max-h-[310px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_12px_28px_rgba(0,0,0,0.95)]"
                     />
                   </div>
                 ) : (
-                  /* Slot limpio y explícito para detectar material faltante */
-                  <div className="w-full h-full min-h-[220px] p-6 flex flex-col items-center justify-center text-center border-2 border-dashed border-amber-500/35 rounded-xl bg-black/50">
-                    <div className="w-11 h-11 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 mb-2.5">
-                      <Layers className="w-5 h-5 animate-pulse" />
+                  /* Classified Pending Blueprint */
+                  <div className="w-full h-full min-h-[200px] p-5 flex flex-col items-center justify-center text-center border-2 border-dashed border-amber-500/35 rounded-xl bg-black/50">
+                    <div className="w-9 h-9 rounded-full bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 mb-2">
+                      <Layers className="w-4 h-4 animate-pulse" />
                     </div>
-                    <span className="font-mono text-xs font-bold tracking-widest text-amber-300 uppercase">
+                    <span className="font-mono text-[11px] font-bold tracking-widest text-amber-300 uppercase">
                       {currentLang === 'es' ? '[ REGISTRO VISUAL PENDIENTE ]' : '[ PENDING VISUAL ARCHIVE ]'}
                     </span>
-                    <p className="text-[11px] font-mono text-neutral-300 max-w-md mt-1.5 leading-relaxed">
+                    <p className="text-[10px] font-mono text-neutral-300 max-w-xs mt-1 leading-snug">
                       {currentLang === 'es'
-                        ? 'Hito verificado en CV sin archivo gráfico asignado aún. Espacio reservado para fotografía, certificado o enlace oficial.'
-                        : 'Milestone verified in CV without assigned graphic file yet. Reserved slot for photograph, certificate, or official link.'}
+                        ? 'Hito verificado en CV sin archivo gráfico asignado aún.'
+                        : 'Milestone verified in CV without assigned graphic file yet.'}
                     </p>
-                    <div className="mt-3 px-3 py-1 rounded bg-white/5 border border-white/10 font-mono text-[9px] text-neutral-400">
+                    <div className="mt-2.5 px-2.5 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-[8px] text-neutral-400">
                       ID: <span className="text-white font-bold">{currentMission.code}</span> • {currentMission.city}, {currentMission.country}
                     </div>
-                    {currentMission.url && (
-                      <a
-                        href={currentMission.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2.5 inline-flex items-center space-x-1.5 text-xs text-amber-400 hover:text-white underline font-mono"
-                      >
-                        <span>{currentLang === 'es' ? 'Ver sitio web oficial' : 'Visit official website'}</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    )}
                   </div>
                 )}
               </div>
 
-              {/* Title & Metadata */}
-              <div>
-                <div className="flex items-center space-x-2 font-mono text-[10px] text-amber-400 mb-1">
-                  <span className="bg-[#facc15] text-black font-mono font-black px-1.5 py-0.5 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
-                    {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
-                  </span>
-                  <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
+              {/* Pinned Photo Handwritten Marker Caption at Bottom */}
+              <div className="pt-2 flex flex-col space-y-0.5 border-t border-black/15 mt-2">
+                <div className="flex items-center justify-between font-mono text-[10px] font-bold text-neutral-700">
+                  <div className="flex items-center space-x-1">
+                    <span className="text-emerald-700 font-black">✔</span>
+                    <span className="uppercase tracking-tight text-neutral-900 font-black truncate max-w-[200px]">
+                      {currentMission.flag} {currentMission.city}, {currentMission.country}
+                    </span>
+                  </div>
+                  <span className="text-neutral-500 text-[9px]">{currentMission.date}</span>
+                </div>
+                <h3 className="font-mono font-black text-xs text-neutral-900 line-clamp-1 uppercase">
+                  {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
+                </h3>
+              </div>
+            </div>
+
+            {/* ======================================================== */}
+            {/* B. RIGHT SECTOR: TACTICAL DOSSIER BRIEFING CARD          */}
+            {/* ======================================================== */}
+            <div className="flex-1 min-w-0 w-full lg:max-w-xl xl:max-w-2xl max-h-[74vh] bg-[#0c0f14]/95 border-3 border-black rounded-xl shadow-[8px_8px_0px_#000000] flex flex-col overflow-hidden text-white backdrop-blur-md">
+              
+              {/* Comic Panel Header */}
+              <div className="px-4 py-2.5 bg-black border-b-2 border-black flex items-center justify-between font-mono text-xs shrink-0">
+                <div className="flex items-center space-x-2.5">
+                  {/* Yellow Slanted Stencil Tape */}
+                  <div className="bg-[#facc15] text-black font-mono font-black text-xs px-2.5 py-0.5 border-2 border-black shadow-[2px_2px_0px_#000] -rotate-1">
+                    {currentMission.code} // {currentMission.city.toUpperCase()}
+                  </div>
+                  
+                  {/* Country Badge */}
+                  <div className="bg-white/10 text-neutral-200 font-mono text-[10px] px-2 py-0.5 border border-white/20">
+                    {currentMission.flag} {currentMission.country.toUpperCase()}
+                  </div>
+
+                  {/* Verification Stamp */}
+                  {currentMission.src || currentMission.embedUrl || (currentMission.availablePages && currentMission.availablePages.length > 0) ? (
+                    <span className="hidden sm:inline bg-emerald-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider rotate-1">
+                      {currentLang === 'es' ? 'REGISTRO REAL' : 'VERIFIED'}
+                    </span>
+                  ) : (
+                    <span className="hidden sm:inline bg-red-600 text-white font-mono font-black text-[9px] px-1.5 py-0.5 border border-white uppercase tracking-wider -rotate-1">
+                      {currentLang === 'es' ? 'REGISTRO PENDIENTE' : 'PENDING'}
+                    </span>
+                  )}
                 </div>
 
-                <h2 className="text-xl sm:text-2xl font-mono font-black text-white uppercase tracking-tight leading-snug">
-                  {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
-                </h2>
-
-                <p className="text-xs font-mono text-neutral-300 mt-1">
-                  {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
-                </p>
+                {/* Prev / Next & Close */}
+                <div className="flex items-center space-x-1.5">
+                  <button
+                    onClick={handlePrev}
+                    className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
+                    title="Misión anterior"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="p-1 bg-black hover:bg-[#facc15] text-white hover:text-black border border-white/40 hover:border-black transition font-mono font-black shadow-[1px_1px_0px_#000]"
+                    title="Misión siguiente"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={() => setIsDossierOpen(false)}
+                    className="p-1 bg-black hover:bg-red-600 text-white border border-white/40 hover:border-black transition ml-1 font-mono font-black shadow-[1px_1px_0px_#000]"
+                    title="Minimizar panel para ver el planeta"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
 
-              {/* ⚡ PROMINENT TECH STACK & LOGOS AT TOP OF CARD ⚡ */}
-              {currentMission.techStack && currentMission.techStack.length > 0 && (
-                <div className="p-3 rounded-xl bg-black/85 border-2 border-[#facc15]/70 shadow-[3px_3px_0px_#000] space-y-2">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <span className="w-2 h-2 rounded-full bg-[#facc15] animate-pulse" />
-                      <span className="font-mono text-xs font-black uppercase text-[#facc15] tracking-wider">
-                        {currentLang === 'es' ? '⚡ HERRAMIENTAS & LOGOS TÉCNICOS:' : '⚡ TECH STACK & TOOLS:'}
+              {/* Dossier Body Scrollable */}
+              <div className="overflow-y-auto p-4 sm:p-5 space-y-3.5 no-scrollbar">
+                {/* Title & Metadata */}
+                <div>
+                  <div className="flex items-center space-x-2 font-mono text-[10px] text-amber-400 mb-1">
+                    <span className="bg-[#facc15] text-black font-mono font-black px-1.5 py-0.5 border border-black shadow-[1px_1px_0px_#000] uppercase -rotate-0.5">
+                      {currentLang === 'es' ? currentMission.roleEs : currentMission.roleEn}
+                    </span>
+                    <span className="text-neutral-400 font-mono font-bold">• {currentMission.date}</span>
+                  </div>
+
+                  <h2 className="text-lg sm:text-xl font-mono font-black text-white uppercase tracking-tight leading-snug">
+                    {currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
+                  </h2>
+
+                  <p className="text-xs font-mono text-neutral-300 mt-0.5">
+                    {currentLang === 'es' ? currentMission.subtitleEs : currentMission.subtitleEn}
+                  </p>
+                </div>
+
+                {/* Tech Stack & Logos */}
+                {currentMission.techStack && currentMission.techStack.length > 0 && (
+                  <div className="p-2.5 rounded-lg bg-black/80 border-2 border-[#facc15]/70 shadow-[2px_2px_0px_#000] space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse" />
+                        <span className="font-mono text-[11px] font-black uppercase text-[#facc15] tracking-wider">
+                          {currentLang === 'es' ? '⚡ HERRAMIENTAS & LOGOS TÉCNICOS:' : '⚡ TECH STACK & TOOLS:'}
+                        </span>
+                      </div>
+                      <span className="font-mono text-[9px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase">
+                        {currentMission.techStack.length} {currentLang === 'es' ? 'HERRAMIENTAS' : 'TOOLS'}
                       </span>
                     </div>
-                    <span className="font-mono text-[9px] bg-[#facc15] text-black px-1.5 py-0.2 font-black uppercase shadow-[1px_1px_0px_#000]">
-                      {currentMission.techStack.length} {currentLang === 'es' ? 'HERRAMIENTAS' : 'TOOLS'}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-                    {currentMission.techStack.map((tech, tIdx) => {
-                      const isCurrent = currentMission.type === 'skills' && activeSkillToolIndex === tIdx;
-                      return (
-                        <button
-                          key={tIdx}
-                          onClick={() => {
-                            setActiveSkillToolIndex(tIdx);
-                            setSelectedPlatePage(0);
-                          }}
-                          className={`cursor-pointer transition-all ${
-                            isCurrent
-                              ? 'ring-2 ring-[#facc15] scale-105 shadow-[0_0_8px_rgba(250,204,21,0.6)]'
-                              : 'hover:scale-105 opacity-85 hover:opacity-100'
-                          }`}
-                          title={`Ver logo y ficha técnica de ${tech}`}
-                        >
-                          <TechBadge name={tech} size="md" />
-                        </button>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-
-              {/* Impact Synopsis Box */}
-              <div className="p-3.5 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-1.5">
-                <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black">
-                  {currentLang === 'es' ? '[ SINOPSIS METODOLÓGICA & IMPACTO ]' : '[ METHODOLOGY & IMPACT SYNOPSIS ]'}
-                </div>
-                <p className="text-xs font-serif text-neutral-200 leading-relaxed">
-                  {currentLang === 'es' ? currentMission.impactEs : currentMission.impactEn}
-                </p>
-              </div>
-
-              {/* Methodology Bullets */}
-              <ul className="space-y-1.5 text-xs font-mono text-neutral-300">
-                {(currentLang === 'es' ? currentMission.methodologyEs : currentMission.methodologyEn).map((m, mIdx) => (
-                  <li key={mIdx} className="flex items-start space-x-2 bg-black/50 p-2 border border-white/10">
-                    <span className="bg-[#facc15] text-black font-mono font-black text-[9px] px-1 border border-black shrink-0">
-                      0{mIdx + 1}
-                    </span>
-                    <span>{m}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {/* Deliverables Box if present */}
-              {currentMission.deliverablesEs && currentMission.deliverablesEs.length > 0 && (
-                <div className="p-3.5 rounded-lg bg-black/70 border-2 border-dashed border-[#facc15]/40 space-y-2">
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black flex items-center space-x-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-[#facc15]" />
-                    <span>{currentLang === 'es' ? '[ ENTREGABLES & RESULTADOS TÉCNICOS ]' : '[ DELIVERABLES & TECHNICAL OUTPUTS ]'}</span>
-                  </div>
-                  <ul className="space-y-1 text-xs font-mono text-neutral-300">
-                    {(currentLang === 'es' ? currentMission.deliverablesEs : currentMission.deliverablesEn || currentMission.deliverablesEs).map((d, dIdx) => (
-                      <li key={dIdx} className="flex items-start space-x-2 bg-black/40 p-1.5 border border-white/5 rounded">
-                        <span className="text-[#facc15] font-black">✔</span>
-                        <span>{d}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Tech Stack Badges with Authentic Vector Brand Logos */}
-              {currentMission.techStack && currentMission.techStack.length > 0 && (
-                <div className="flex flex-col gap-1.5 p-2 bg-black/60 border border-white/10 rounded-lg">
-                  <div className="flex items-center space-x-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse" />
-                    <span className="text-[10px] font-mono text-[#facc15] font-black uppercase tracking-wider">
-                      {currentLang === 'es' ? 'TECNOLOGÍAS & HERRAMIENTAS:' : 'TECH STACK & TOOLS:'}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    {currentMission.techStack.map((tech, tIdx) => (
-                      <TechBadge key={tIdx} name={tech} size="sm" />
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Links & Tags & Comic Barcode */}
-              <div className="pt-2 border-t-2 border-black flex flex-wrap items-center justify-between gap-2">
-                <div className="flex flex-wrap gap-1">
-                  {currentMission.tags.map((t, idx) => (
-                    <span key={idx} className="px-2 py-0.5 font-mono text-[10px] bg-white/10 text-neutral-300 border border-white/15">
-                      #{t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex items-center space-x-2">
-                  {onOpenArtDirector && (currentMission.type === 'culture' || currentMission.id.includes('beauchef') || currentMission.id.includes('cuarentena')) && (
-                    <button
-                      onClick={onOpenArtDirector}
-                      className="px-3 py-1.5 bg-[#f97316] hover:bg-white text-black font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95 cursor-pointer -rotate-1"
-                      title="Saber más: Arquitectura cultural, Rap Beauchef y Cuarentena Rap"
-                    >
-                      <span>⚡ {currentLang === 'es' ? 'SABER MÁS // RAP & BACKSTAGE' : 'DEEP DIVE // RAP & BACKSTAGE'}</span>
-                    </button>
-                  )}
-
-                  {currentMission.url && (
-                    <a
-                      href={currentMission.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="px-3.5 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
-                    >
-                      <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  )}
-
-                  {/* Barcode Stamp [REDACTED] 2294 */}
-                  <div className="hidden sm:flex flex-col items-end opacity-70">
-                    <div className="flex space-x-0.5 h-4 items-center">
-                      <div className="w-0.5 h-full bg-white" />
-                      <div className="w-1 h-full bg-white" />
-                      <div className="w-0.5 h-full bg-white" />
-                      <div className="w-1.5 h-full bg-white" />
-                      <div className="w-0.5 h-full bg-white" />
-                      <div className="w-1 h-full bg-white" />
-                      <div className="w-0.5 h-full bg-white" />
-                      <div className="w-2 h-full bg-white" />
+                    <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+                      {currentMission.techStack.map((tech, tIdx) => {
+                        const isCurrent = currentMission.type === 'skills' && activeSkillToolIndex === tIdx;
+                        return (
+                          <button
+                            key={tIdx}
+                            onClick={() => {
+                              setActiveSkillToolIndex(tIdx);
+                              setSelectedPlatePage(0);
+                            }}
+                            className={`cursor-pointer transition-all ${
+                              isCurrent
+                                ? 'ring-2 ring-[#facc15] scale-105 shadow-[0_0_8px_rgba(250,204,21,0.6)]'
+                                : 'hover:scale-105 opacity-85 hover:opacity-100'
+                            }`}
+                            title={`Ver logo y ficha técnica de ${tech}`}
+                          >
+                            <TechBadge name={tech} size="sm" />
+                          </button>
+                        );
+                      })}
                     </div>
-                    <span className="text-[7px] font-mono tracking-widest text-neutral-400">DS-2294</span>
+                  </div>
+                )}
+
+                {/* Impact Synopsis Box */}
+                <div className="p-3 rounded-lg bg-black/70 border-2 border-dashed border-white/30 space-y-1">
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black">
+                    {currentLang === 'es' ? '[ SINOPSIS METODOLÓGICA & IMPACTO ]' : '[ METHODOLOGY & IMPACT SYNOPSIS ]'}
+                  </div>
+                  <p className="text-xs font-serif text-neutral-200 leading-relaxed">
+                    {currentLang === 'es' ? currentMission.impactEs : currentMission.impactEn}
+                  </p>
+                </div>
+
+                {/* Methodology Bullets */}
+                <ul className="space-y-1 text-xs font-mono text-neutral-300">
+                  {(currentLang === 'es' ? currentMission.methodologyEs : currentMission.methodologyEn).map((m, mIdx) => (
+                    <li key={mIdx} className="flex items-start space-x-2 bg-black/50 p-1.5 border border-white/10">
+                      <span className="bg-[#facc15] text-black font-mono font-black text-[9px] px-1 border border-black shrink-0">
+                        0{mIdx + 1}
+                      </span>
+                      <span>{m}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Deliverables Box if present */}
+                {currentMission.deliverablesEs && currentMission.deliverablesEs.length > 0 && (
+                  <div className="p-3 rounded-lg bg-black/70 border-2 border-dashed border-[#facc15]/40 space-y-1.5">
+                    <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black flex items-center space-x-1.5">
+                      <Sparkles className="w-3 h-3 text-[#facc15]" />
+                      <span>{currentLang === 'es' ? '[ ENTREGABLES & RESULTADOS TÉCNICOS ]' : '[ DELIVERABLES & TECHNICAL OUTPUTS ]'}</span>
+                    </div>
+                    <ul className="space-y-1 text-xs font-mono text-neutral-300">
+                      {(currentLang === 'es' ? currentMission.deliverablesEs : currentMission.deliverablesEn || currentMission.deliverablesEs).map((d, dIdx) => (
+                        <li key={dIdx} className="flex items-start space-x-2 bg-black/40 p-1.5 border border-white/5 rounded">
+                          <span className="text-[#facc15] font-black">✔</span>
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {/* Links & Tags & Comic Barcode */}
+                <div className="pt-2 border-t-2 border-black flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap gap-1">
+                    {currentMission.tags.map((t, idx) => (
+                      <span key={idx} className="px-2 py-0.5 font-mono text-[9px] bg-white/10 text-neutral-300 border border-white/15">
+                        #{t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center space-x-2">
+                    {onOpenArtDirector && (currentMission.type === 'culture' || currentMission.id.includes('beauchef') || currentMission.id.includes('cuarentena')) && (
+                      <button
+                        onClick={onOpenArtDirector}
+                        className="px-2.5 py-1 bg-[#f97316] hover:bg-white text-black font-mono font-black text-[11px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95 cursor-pointer -rotate-1"
+                        title="Saber más: Arquitectura cultural, Rap Beauchef y Cuarentena Rap"
+                      >
+                        <span>⚡ {currentLang === 'es' ? 'SABER MÁS // RAP & BACKSTAGE' : 'DEEP DIVE // RAP & BACKSTAGE'}</span>
+                      </button>
+                    )}
+
+                    {currentMission.url && (
+                      <a
+                        href={currentMission.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-[11px] border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
+                      >
+                        <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    )}
+
+                    {/* Barcode Stamp */}
+                    <div className="hidden sm:flex flex-col items-end opacity-70">
+                      <div className="flex space-x-0.5 h-3.5 items-center">
+                        <div className="w-0.5 h-full bg-white" />
+                        <div className="w-1 h-full bg-white" />
+                        <div className="w-0.5 h-full bg-white" />
+                        <div className="w-1.5 h-full bg-white" />
+                        <div className="w-0.5 h-full bg-white" />
+                        <div className="w-1 h-full bg-white" />
+                        <div className="w-0.5 h-full bg-white" />
+                        <div className="w-2 h-full bg-white" />
+                      </div>
+                      <span className="text-[7px] font-mono tracking-widest text-neutral-400">DS-2294</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -3844,207 +3857,159 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       </main>
 
       {/* ============================================================== */}
-      {/* 5. GTA MISSION PLANNING BOARD // PINNED DIRECTLY ON DARK STAGE */}
+      {/* 5. GTA MISSION PLANNING BOARD // PINNED AT BOTTOM-RIGHT        */}
       {/* ============================================================== */}
-      <footer className="relative z-30 w-full px-3 sm:px-6 pt-2 pb-3 bg-gradient-to-t from-black via-black/85 to-transparent border-t border-white/10 select-none flex flex-col space-y-2">
+      <footer className="relative z-30 w-full px-3 sm:px-6 pt-1 pb-2 select-none flex flex-col items-end pointer-events-none">
         
-        {/* Top Header: Stencil Banner + Counter + Legend (Centered & Aligned) */}
-        <div className="flex items-center justify-between w-full max-w-7xl mx-auto px-1 font-mono text-xs">
-          
-          {/* Left: Punk Stencil Header */}
-          <div className="flex items-center space-x-2">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <span className="font-mono font-black text-xs sm:text-sm tracking-tight text-[#facc15] uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
-              {currentLang === 'es' ? '★ RUTA DE CAMPO & EXPEDIENTES DISPONIBLES ★' : '★ AVAILABLE FIELD CONTRACTS & DOSSIERS ★'}
-            </span>
-          </div>
-
-          {/* Right: Heist Completed Counter (GTA Style) & Category Pushpin Legend */}
-          <div className="flex items-center space-x-3 sm:space-x-4">
-            <div className="hidden lg:flex items-center space-x-2.5 text-[10px] font-mono font-bold text-neutral-300">
-              <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-600 border border-white/40 shadow-sm" />
-                <span>{currentLang === 'es' ? 'CIENCIA' : 'SCIENCE'}</span>
-              </span>
-              <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 border border-white/40 shadow-sm" />
-                <span>{currentLang === 'es' ? 'MEDIOS' : 'COMMS'}</span>
-              </span>
-              <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500 border border-white/40 shadow-sm" />
-                <span>{currentLang === 'es' ? 'CUMBRES' : 'SUMMITS'}</span>
-              </span>
-              <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-orange-500 border border-white/40 shadow-sm" />
-                <span>{currentLang === 'es' ? 'ARTE' : 'ARTS'}</span>
-              </span>
-              <span className="flex items-center space-x-1">
-                <span className="w-2.5 h-2.5 rounded-full bg-purple-600 border border-white/40 shadow-sm" />
-                <span>{currentLang === 'es' ? 'I+D' : 'R&D'}</span>
+        <div className="w-full max-w-xl sm:max-w-2xl lg:max-w-3xl ml-auto flex flex-col space-y-1 pointer-events-auto bg-black/80 backdrop-blur-sm p-1.5 sm:p-2 rounded-t-xl border-t border-l border-r border-white/15 shadow-[0_-4px_16px_rgba(0,0,0,0.8)]">
+          {/* Top Header: Stencil Banner + Counter */}
+          <div className="flex items-center justify-between w-full px-1 font-mono text-xs">
+            <div className="flex items-center space-x-1.5">
+              <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+              <span className="font-mono font-black text-[11px] sm:text-xs tracking-tight text-[#facc15] uppercase">
+                {currentLang === 'es' ? '★ EXPEDIENTES DISPONIBLES ★' : '★ FIELD CONTRACTS ★'}
               </span>
             </div>
 
-            {/* Total Contracts Done Box (Like "COMPLETED: 773" in GTA Image 1) */}
-            <div className="flex items-center space-x-1.5 bg-black/90 text-white px-2.5 py-0.5 border border-white/30 shadow-[2px_2px_0px_#facc15]">
-              <span className="font-mono font-bold text-[10px] text-neutral-300 uppercase">
-                {currentLang === 'es' ? 'COMPLETADAS:' : 'COMPLETED:'}
-              </span>
-              <span className="font-mono font-black text-xs text-[#facc15]">
-                {filteredMissions.length}
-              </span>
+            <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-1 bg-black text-white px-2 py-0.5 border border-white/30 shadow-[1px_1px_0px_#facc15]">
+                <span className="font-mono font-bold text-[9px] text-neutral-300 uppercase">
+                  {currentLang === 'es' ? 'COMPLETADAS:' : 'COMPLETED:'}
+                </span>
+                <span className="font-mono font-black text-[10px] text-[#facc15]">
+                  {filteredMissions.length}
+                </span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Polaroids & Contracts Horizontal Prep Rail (Always Centered via mx-auto flex wrapper) */}
-        <div className="w-full overflow-x-auto no-scrollbar py-1 px-1">
-          <div className="flex items-center gap-2.5 sm:gap-3.5 mx-auto w-max justify-center min-w-full">
-          {filteredMissions.map((m, idx) => {
-            const isSelected = m.id === selectedMissionId;
+          {/* Polaroids Rail: Half the size (w-[84px] sm:w-[94px]), pinned with colored pushpins */}
+          <div className="w-full overflow-x-auto no-scrollbar py-1 px-0.5">
+            <div className="flex items-center gap-1.5 sm:gap-2 w-max">
+              {filteredMissions.map((m, idx) => {
+                const isSelected = m.id === selectedMissionId;
 
-            // Colored pushpin matching category
-            const pinColor = 
-              m.type === 'science' ? 'bg-red-600 border-red-900' :
-              m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
-              m.type === 'global' ? 'bg-amber-500 border-amber-800' :
-              m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
-              'bg-purple-600 border-purple-900';
+                const pinColor = 
+                  m.type === 'science' ? 'bg-red-600 border-red-900' :
+                  m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
+                  m.type === 'global' ? 'bg-amber-500 border-amber-800' :
+                  m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
+                  m.type === 'titles' ? 'bg-pink-600 border-pink-900' :
+                  m.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
+                  'bg-purple-600 border-purple-900';
 
-            // Natural slight Polaroid angle
-            const rotation = 
-              idx % 4 === 0 ? '-rotate-1' :
-              idx % 4 === 1 ? 'rotate-1' :
-              idx % 4 === 2 ? '-rotate-2' : 'rotate-2';
+                const rotation = 
+                  idx % 4 === 0 ? '-rotate-1' :
+                  idx % 4 === 1 ? 'rotate-1' :
+                  idx % 4 === 2 ? '-rotate-2' : 'rotate-2';
 
-            return (
-              <React.Fragment key={m.id}>
-                {/* Hand-drawn marker arrow > between polaroids (from GTA Image 3) */}
-                {idx > 0 && (
-                  <span className="text-neutral-500 font-black text-base select-none shrink-0 -mx-1">
-                    ›
-                  </span>
-                )}
-
-                {/* The Polaroid Card */}
-                <div
-                  onClick={() => handleSelectMission(m.id)}
-                  className={`group relative cursor-pointer shrink-0 w-[170px] sm:w-[190px] bg-[#fbfbf9] p-2 pb-2.5 border-2 border-black transition-all duration-200 flex flex-col justify-between ${
-                    isSelected
-                      ? `scale-105 -rotate-1 z-20 shadow-[6px_6px_0px_#000000] ring-2 ring-red-600`
-                      : `${rotation} hover:rotate-0 hover:scale-[1.03] shadow-[3px_3px_0px_#222222] opacity-90 hover:opacity-100`
-                  }`}
-                >
-                  {/* Pushpin / Magnet on Top Center */}
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                    <div className={`w-3.5 h-3.5 rounded-full ${pinColor} border-2 shadow-[0_2px_4px_rgba(0,0,0,0.6)] flex items-center justify-center`}>
-                      <div className="w-1 h-1 rounded-full bg-white/70" />
-                    </div>
-                  </div>
-
-                  {/* Polaroid Photo Image Frame */}
-                  <div className="relative w-full aspect-[4/3] bg-[#1a1e24] border border-black/40 overflow-hidden mb-1.5 flex items-center justify-center">
-                    {m.mediaType === 'video' ? (
-                      <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
-                        <Play className="w-6 h-6 text-red-600 fill-red-600/30" />
-                        <span className="absolute bottom-1 right-1 font-mono text-[7px] bg-red-600 text-white px-1 font-black uppercase">
-                          VIDEO REC
-                        </span>
-                      </div>
-                    ) : m.mediaType === 'audio' ? (
-                      <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center p-2 text-center text-emerald-400">
-                        <Volume2 className="w-5 h-5 mb-0.5" />
-                        <span className="font-mono text-[7px] font-bold">96.3 FM AUDIO</span>
-                      </div>
-                    ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
-                      <div className="w-full h-full bg-[#0a0f1d] p-1.5 flex flex-col justify-between border border-cyan-500/40">
-                        <div className="flex items-center justify-between">
-                          <span className="font-mono text-[7px] text-cyan-400 font-bold uppercase tracking-wider">
-                            TECH STACK
-                          </span>
-                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                        </div>
-                        <div className="grid grid-cols-3 gap-1 place-items-center py-0.5">
-                          {(m.techStack || ['Python', 'QGIS', 'Docker', 'GEE', 'Delft3D', 'Unity 3D']).slice(0, 6).map((tech, tIdx) => (
-                            <div key={tIdx} className="w-6 h-6 rounded bg-black/70 border border-white/20 flex items-center justify-center p-0.5" title={tech}>
-                              <TechLogo name={tech} size={15} />
-                            </div>
-                          ))}
-                        </div>
-                        <div className="text-[7px] font-mono text-cyan-300 font-bold truncate text-center bg-black/60 px-1 py-0.5 rounded">
-                          {(m.techStack || []).slice(0, 3).join(' • ')}
-                        </div>
-                      </div>
-                    ) : m.availablePages && m.availablePages.length > 0 ? (
-                      <img
-                        src={resolveAsset(m.availablePages[0].pageSrc)}
-                        alt={m.titleEs}
-                        className="w-full h-full object-cover filter contrast-105"
-                      />
-                    ) : m.src ? (
-                      <img
-                        src={resolveAsset(m.src)}
-                        alt={m.titleEs}
-                        className="w-full h-full object-cover filter contrast-105"
-                      />
-                    ) : (
-                      /* Blueprint style for pending */
-                      <div className="w-full h-full bg-[#0f172a] border border-dashed border-cyan-500/40 p-1 flex flex-col items-center justify-center text-center">
-                        <span className="font-mono text-[8px] font-black text-cyan-400 uppercase tracking-tighter">
-                          [REGISTRO PENDIENTE]
-                        </span>
-                        <span className="text-[7px] font-mono text-neutral-400 mt-0.5">DOC CLASIFICADO</span>
-                      </div>
+                return (
+                  <React.Fragment key={m.id}>
+                    {idx > 0 && (
+                      <span className="text-neutral-600 font-bold text-xs select-none shrink-0 -mx-0.5">
+                        ›
+                      </span>
                     )}
 
-                    {/* Small Yellow Sticky Note (Post-it) on Corner */}
-                    <div className="absolute top-1 left-1 bg-[#fef08a] text-black font-mono font-black text-[8px] px-1 py-0.2 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
-                      {m.code}
-                    </div>
-                  </div>
+                    {/* Half-size Mini Polaroid Card */}
+                    <div
+                      onClick={() => handleSelectMission(m.id)}
+                      className={`group relative cursor-pointer shrink-0 w-[84px] sm:w-[94px] bg-[#fbfbf9] p-1 pb-1.5 border border-black transition-all duration-200 flex flex-col justify-between ${
+                        isSelected
+                          ? `scale-105 -rotate-1 z-20 shadow-[4px_4px_0px_#000000] ring-2 ring-red-600`
+                          : `${rotation} hover:rotate-0 hover:scale-[1.04] shadow-[2px_2px_0px_#222222] opacity-90 hover:opacity-100`
+                      }`}
+                    >
+                      {/* Pushpin on Top Center */}
+                      <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                        <div className={`w-2.5 h-2.5 rounded-full ${pinColor} border border-black/70 shadow-[0_1px_2px_rgba(0,0,0,0.6)] flex items-center justify-center`}>
+                          <div className="w-0.5 h-0.5 rounded-full bg-white/80" />
+                        </div>
+                      </div>
 
-                  {/* Polaroid Handwritten Marker Caption */}
-                  <div className="flex flex-col space-y-1">
-                    
-                    {/* Checkbox item (like [✔] ALPHA MAIL DISGUISE in GTA Image 3) */}
-                    <div className="flex items-center space-x-1 font-mono text-[10px] font-bold text-neutral-700">
-                      <span className="text-emerald-700 font-black">✔</span>
-                      <span className="uppercase tracking-tight text-neutral-900 font-black truncate">
-                        {m.flag} {m.city}
-                      </span>
-                    </div>
-
-                    {/* Mission Target Name - with Hand-drawn RED MARKER OVAL when Active (From GTA Image 1 & 2) */}
-                    <div className="relative pt-0.5">
-                      {isSelected ? (
-                        <div className="relative inline-block w-full">
-                          {/* Red hand-drawn marker oval outline */}
-                          <div className="border-2 border-red-600 rounded-[14px] px-1.5 py-0.5 bg-red-50/80 -rotate-1 shadow-sm">
-                            <h4 className="font-mono font-black text-[10px] text-red-700 line-clamp-1 leading-tight uppercase">
-                              {currentLang === 'es' ? m.titleEs : m.titleEn}
-                            </h4>
+                      {/* Polaroid Photo Image Frame */}
+                      <div className="relative w-full aspect-[4/3] bg-[#1a1e24] border border-black/30 overflow-hidden mb-1 flex items-center justify-center">
+                        {m.mediaType === 'video' ? (
+                          <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
+                            <Play className="w-3.5 h-3.5 text-red-500 fill-red-500/30" />
+                            <span className="absolute bottom-0.5 right-0.5 font-mono text-[5px] bg-red-600 text-white px-0.5 font-black uppercase">
+                              REC
+                            </span>
                           </div>
-                          <span className="absolute -bottom-2 -right-1 font-mono text-[7px] bg-red-600 text-white px-1 font-black uppercase rotate-3">
-                            {currentLang === 'es' ? 'EN CURSO' : 'ACTIVE'}
+                        ) : m.mediaType === 'audio' ? (
+                          <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center text-center text-emerald-400">
+                            <Volume2 className="w-3.5 h-3.5" />
+                            <span className="font-mono text-[6px] font-bold">96.3 FM</span>
+                          </div>
+                        ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
+                          <div className="w-full h-full bg-[#0a0f1d] p-0.5 flex flex-col justify-between">
+                            <div className="grid grid-cols-2 gap-0.5 place-items-center py-0.5">
+                              {(m.techStack || ['Python', 'QGIS', 'Docker', 'GEE']).slice(0, 4).map((tech, tIdx) => (
+                                <div key={tIdx} className="w-3.5 h-3.5 rounded bg-black/70 flex items-center justify-center" title={tech}>
+                                  <TechLogo name={tech} size={11} />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ) : m.availablePages && m.availablePages.length > 0 ? (
+                          <img
+                            src={resolveAsset(m.availablePages[0].pageSrc)}
+                            alt={m.titleEs}
+                            className="w-full h-full object-cover filter contrast-105"
+                          />
+                        ) : m.src ? (
+                          <img
+                            src={resolveAsset(m.src)}
+                            alt={m.titleEs}
+                            className="w-full h-full object-cover filter contrast-105"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-[#0f172a] border border-dashed border-cyan-500/40 p-0.5 flex flex-col items-center justify-center text-center">
+                            <span className="font-mono text-[6px] font-black text-cyan-400 uppercase">
+                              [DOC]
+                            </span>
+                          </div>
+                        )}
+
+                        {/* Mini Sticky Note */}
+                        <div className="absolute top-0.5 left-0.5 bg-[#fef08a] text-black font-mono font-black text-[6px] px-0.5 py-0 border border-black shadow-[1px_1px_0px_#000] -rotate-3 uppercase">
+                          {m.code}
+                        </div>
+                      </div>
+
+                      {/* Handwritten Caption */}
+                      <div className="flex flex-col space-y-0.5">
+                        <div className="flex items-center space-x-0.5 font-mono text-[7px] font-bold text-neutral-800">
+                          <span className="text-emerald-700 font-black">✔</span>
+                          <span className="uppercase tracking-tight truncate">
+                            {m.flag} {m.city}
                           </span>
                         </div>
-                      ) : (
-                        <h4 className="font-mono font-bold text-[10px] text-neutral-800 line-clamp-1 leading-tight group-hover:text-black">
-                          {currentLang === 'es' ? m.titleEs : m.titleEn}
-                        </h4>
-                      )}
-                    </div>
 
-                    {/* Bottom Metadata */}
-                    <div className="flex items-center justify-between text-[8px] font-mono text-neutral-500 pt-0.5">
-                      <span>{m.date}</span>
-                      <span className="font-bold text-neutral-700">{m.country}</span>
-                    </div>
+                        {/* Title with Red Marker Oval if Selected */}
+                        <div className="relative pt-0.5">
+                          {isSelected ? (
+                            <div className="border border-red-600 rounded-[6px] px-1 py-0.2 bg-red-50/90 -rotate-1 shadow-sm">
+                              <h4 className="font-mono font-black text-[7px] text-red-700 line-clamp-1 leading-tight uppercase">
+                                {currentLang === 'es' ? m.titleEs : m.titleEn}
+                              </h4>
+                            </div>
+                          ) : (
+                            <h4 className="font-mono font-bold text-[7px] text-neutral-700 line-clamp-1 leading-tight group-hover:text-black">
+                              {currentLang === 'es' ? m.titleEs : m.titleEn}
+                            </h4>
+                          )}
+                        </div>
 
-                  </div>
-                </div>
-              </React.Fragment>
-            );
-          })}
+                        <div className="text-[6px] font-mono text-neutral-500 pt-0.5 truncate">
+                          {m.date}
+                        </div>
+                      </div>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
+            </div>
           </div>
         </div>
       </footer>
