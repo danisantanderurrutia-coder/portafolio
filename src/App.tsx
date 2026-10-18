@@ -52,13 +52,26 @@ export function App() {
             setSelectedCategory('comms');
             setViewMode('game');
           }}
+          onSelectProjects={() => {
+            setSelectedCategory('rd');
+            setViewMode('game');
+          }}
+          onSelectPublications={() => {
+            setSelectedCategory('publications');
+            setViewMode('game');
+          }}
+          onSelectSkills={() => {
+            setSelectedCategory('skills');
+            setViewMode('game');
+          }}
+          onSelectTitles={() => {
+            setSelectedCategory('titles');
+            setViewMode('game');
+          }}
           onSelectScienceDossier={() => {
             setViewMode('dossier');
           }}
           onOpenHireMe={() => setIsHireMeOpen(true)}
-          onOpenSkills={() => setIsSkillsOpen(true)}
-          onOpenPublications={() => setIsPublicationsOpen(true)}
-          onOpenTitles={() => setIsTitlesOpen(true)}
           onOpenArtDirector={() => setIsArtDirectorOpen(true)}
         />
       )}

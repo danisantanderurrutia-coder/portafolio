@@ -403,7 +403,7 @@ export const CONTINENT_LAND_MATRIX: LatLng[] = [
   [54, -125], [55, -100], [58, -115], [61, -135], [64, -147], [65, -150], [68, -152],
   // Germany, Poland, Denmark, Norway, Switzerland
   [46.8, 8.2],   // Switzerland (Zürich)
-  [48.1, 11.5],  // South Germany (Munich)
+  [48.1, 11.5],  // South Germany
   [50.1, 8.6],   // Central Germany (Frankfurt)
   [52.5, 13.4],  // Berlin
   [54.3, 10.1],  // Kiel (CAU)

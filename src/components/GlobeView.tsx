@@ -44,8 +44,8 @@ export const GEO_LOCATIONS: Record<string, GeoLocation> = {
   },
   germany: {
     id: 'germany',
-    nameEs: 'Alemania (Kiel / Bonn / Múnich / Dresde)',
-    nameEn: 'Germany (Kiel / Bonn / Munich / Dresden)',
+    nameEs: 'Alemania (Kiel / Bonn / Hamburgo / Dresde)',
+    nameEn: 'Germany (Kiel / Bonn / Hamburg / Dresden)',
     country: 'Alemania',
     flag: '🇩🇪',
     lat: 54.3,
@@ -55,15 +55,15 @@ export const GEO_LOCATIONS: Record<string, GeoLocation> = {
     highlightsEs: [
       'Doble Maestría en Gestión y Protección Ambiental (CAU Kiel, 2023-2025)',
       'Modelación de balances ecohidrológicos e impactos de plantaciones forestales',
-      'Conferencia de Justicia Ambiental (Bonn 2025) sobre monocultivos y biomasa',
-      'Representación en foros de transición y cambio climático (Múnich 2025)',
+      'Conferencias de la Red Europea de Justicia Ambiental ENJUST (Hamburgo & Bonn)',
+      'Investigación sobre impactos de celulosa y biomasa junto a EPN & GFC',
       'Certificación Interlinked Justice (Dresde)'
     ],
     highlightsEn: [
       'Dual Master Program in Environmental Management (CAU Kiel, 2023-2025)',
       'Ecohydrological catchment modeling and pine/eucalyptus balance simulations',
-      'Environmental Justice Conference presentation (Bonn 2025)',
-      'Climate justice delegation and international forums (Munich 2025)',
+      'European Environmental Justice Network ENJUST Conferences (Hamburg & Bonn)',
+      'Forest biomass and pulp trade investigations with EPN & GFC',
       'Interlinked Justice Certification (Dresden)'
     ]
   },

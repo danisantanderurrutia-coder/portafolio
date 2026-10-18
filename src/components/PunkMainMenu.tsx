@@ -16,7 +16,6 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
-import { ProjectsModal } from './ProjectsModal';
 import { TopocatchmentLogo } from './TopocatchmentLogo';
 
 interface PunkMainMenuProps {
@@ -26,6 +25,10 @@ interface PunkMainMenuProps {
   onSelectSummits: () => void;
   onSelectCommsArts: () => void;
   onSelectGrassroots: () => void;
+  onSelectProjects: () => void;
+  onSelectPublications: () => void;
+  onSelectSkills: () => void;
+  onSelectTitles: () => void;
   onSelectScienceDossier: () => void;
   onOpenHireMe?: () => void;
   onOpenSkills?: () => void;
@@ -201,14 +204,14 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   onSelectSummits,
   onSelectCommsArts,
   onSelectGrassroots,
+  onSelectProjects,
+  onSelectPublications,
+  onSelectSkills,
+  onSelectTitles,
   onSelectScienceDossier,
   onOpenHireMe,
-  onOpenSkills,
-  onOpenPublications,
-  onOpenTitles,
   onOpenArtDirector
 }) => {
-  const [isProjectsModalOpen, setIsProjectsModalOpen] = useState(false);
 
   return (
     <div className="relative w-full h-screen overflow-hidden select-none bg-[#07090d] text-white font-sans flex flex-col justify-between">
@@ -376,54 +379,48 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               offsetClass="translate-x-1.5"
               icon={<Sparkles className="w-4 h-4" />}
               label={currentLang === 'es' ? 'PROYECTOS & INNOVACIÓN' : 'PROJECTS & INNOVATION'}
-              onClick={() => setIsProjectsModalOpen(true)}
-              title={currentLang === 'es' ? 'Ver Portafolio de Proyectos y Soluciones Comerciales' : 'View Commercial Projects Portfolio'}
+              onClick={onSelectProjects}
+              title={currentLang === 'es' ? 'Ver Portafolio de Proyectos y Soluciones Comerciales en el Globo 3D' : 'View Commercial Projects Portfolio on the 3D Globe'}
             />
 
             {/* 6. SIGN 06: PUBLICATIONS & PRESS (Points Left ⬅) */}
-            {onOpenPublications && (
-              <WoodenSignSlat
-                direction="left"
-                bgColor="#1e1b4b"
-                textColor="#fef08a"
-                rotationClass="rotate-2"
-                offsetClass="-translate-x-0.5"
-                icon={<BookOpen className="w-4 h-4" />}
-                label={currentLang === 'es' ? 'PUBLICACIONES & PRENSA' : 'PUBLICATIONS & PRESS'}
-                onClick={onOpenPublications}
-                title={currentLang === 'es' ? 'Ver Publicaciones, Libros y Prensa' : 'View Publications & Press'}
-              />
-            )}
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#1e1b4b"
+              textColor="#fef08a"
+              rotationClass="rotate-2"
+              offsetClass="-translate-x-0.5"
+              icon={<BookOpen className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'PUBLICACIONES & PRENSA' : 'PUBLICATIONS & PRESS'}
+              onClick={onSelectPublications}
+              title={currentLang === 'es' ? 'Ver Publicaciones, Libros y Prensa en el Globo 3D' : 'View Publications & Press on the 3D Globe'}
+            />
 
             {/* 7. SIGN 07: SKILLS & TOOLKIT (Points Right ➔) */}
-            {onOpenSkills && (
-              <WoodenSignSlat
-                direction="right"
-                bgColor="#0891b2"
-                textColor="#ffffff"
-                rotationClass="-rotate-3.5"
-                offsetClass="translate-x-2"
-                icon={<Terminal className="w-4 h-4" />}
-                label={currentLang === 'es' ? 'FICHA TÉCNICA & SKILLS' : 'SKILLS & TOOLKIT'}
-                onClick={onOpenSkills}
-                title={currentLang === 'es' ? 'Ver Ficha Técnica de Habilidades y Software' : 'View Skills & Technical Toolkit'}
-              />
-            )}
+            <WoodenSignSlat
+              direction="right"
+              bgColor="#0891b2"
+              textColor="#ffffff"
+              rotationClass="-rotate-3.5"
+              offsetClass="translate-x-2"
+              icon={<Terminal className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'FICHA TÉCNICA & SKILLS' : 'SKILLS & TOOLKIT'}
+              onClick={onSelectSkills}
+              title={currentLang === 'es' ? 'Ver Ficha Técnica de Habilidades y Software en el Globo' : 'View Skills & Technical Toolkit'}
+            />
 
             {/* 8. SIGN 08: ACADEMIC TITLES (Points Left ⬅) */}
-            {onOpenTitles && (
-              <WoodenSignSlat
-                direction="left"
-                bgColor="#831843"
-                textColor="#ffffff"
-                rotationClass="rotate-2.5"
-                offsetClass="-translate-x-1.5"
-                icon={<GraduationCap className="w-4 h-4" />}
-                label={currentLang === 'es' ? 'TÍTULOS ACADÉMICOS' : 'ACADEMIC TITLES'}
-                onClick={onOpenTitles}
-                title={currentLang === 'es' ? 'Ver Títulos Académicos y Grados' : 'View Academic Degrees & Diplomas'}
-              />
-            )}
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#831843"
+              textColor="#ffffff"
+              rotationClass="rotate-2.5"
+              offsetClass="-translate-x-1.5"
+              icon={<GraduationCap className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'TÍTULOS ACADÉMICOS' : 'ACADEMIC TITLES'}
+              onClick={onSelectTitles}
+              title={currentLang === 'es' ? 'Ver Títulos Académicos y Grados en el Globo 3D' : 'View Academic Degrees & Diplomas'}
+            />
 
             {/* 9. SIGN 09: ACADEMIC DOSSIER PAPER (Points Right ➔) */}
             <WoodenSignSlat
@@ -471,14 +468,6 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           </div>
         </div>
       </main>
-
-
-      {/* Commercial Projects Modal */}
-      <ProjectsModal
-        isOpen={isProjectsModalOpen}
-        onClose={() => setIsProjectsModalOpen(false)}
-        currentLang={currentLang}
-      />
 
     </div>
   );

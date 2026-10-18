@@ -20,9 +20,8 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
-import { ProjectsModal } from './ProjectsModal';
-
-export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture';
+import { TechBadge, TechLogo } from './TechLogos';
+export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture' | 'publications' | 'titles' | 'skills';
 
 export interface GameMission {
   id: string;
@@ -52,6 +51,10 @@ export interface GameMission {
   methodologyEn: string[];
   tags: string[];
   availablePages?: { titleEs: string; titleEn: string; pageSrc: string; pageSrcEn?: string }[];
+  isStatic?: boolean;
+  deliverablesEs?: string[];
+  deliverablesEn?: string[];
+  techStack?: string[];
 }
 
 export const GAME_MISSIONS: GameMission[] = [
@@ -151,7 +154,29 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Fundador & Director de Redacción',
     roleEn: 'Founder & Newsroom Director',
     mediaType: 'press',
-    src: '/plp/plp_header_consigna.png',
+    src: '/plp/plp_logo.jpg',
+    availablePages: [
+      {
+        titleEs: 'Logotipo Oficial • Primera Línea Prensa',
+        titleEn: 'Official Logo • Primera Línea Prensa',
+        pageSrc: '/plp/plp_logo.jpg'
+      },
+      {
+        titleEs: 'Cabecera Editorial & Consigna Popular',
+        titleEn: 'Editorial Header & Popular Slogan',
+        pageSrc: '/plp/plp_header_consigna.png'
+      },
+      {
+        titleEs: 'Lanzamiento del Libro Impreso "Relatos de la Revuelta"',
+        titleEn: 'Print Book Release "Relatos de la Revuelta"',
+        pageSrc: '/plp/plp_articulo_revuelta.png'
+      },
+      {
+        titleEs: 'Afiche de Contra-Información y Agitación Gráfica',
+        titleEn: 'Counter-Information Poster & Graphic Agitation',
+        pageSrc: '/plp/plp_afiche_inflacion.jpg'
+      }
+    ],
     url: 'https://www.primeralineaprensa.cl',
     code: 'OPS-COM-02',
     source: 'Archivo Histórico Primera Línea Prensa',
@@ -167,7 +192,7 @@ export const GAME_MISSIONS: GameMission[] = [
       'Community correspondent network infrastructure',
       'Independent editorial agenda and digital advocacy'
     ],
-    tags: ['+700k', 'Primera Línea Prensa', 'Periodismo Ciudadano', 'Santiago']
+    tags: ['+700k', 'Primera Línea Prensa', 'Periodismo Ciudadano', 'Santiago', 'Logo Oficial']
   },
 
   // 4. CIENCIA: AMU Poznań - Tesis de Maestría en Carbono y Humedales
@@ -465,41 +490,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Costa Rica', 'San José', 'Justicia Climática', 'Organizaciones Ambientales']
   },
 
-  // 10. CUMBRES & POLÍTICA: Justicia y Cambio Climático - Munich, Alemania
-  {
-    id: 'munich-clima',
-    type: 'global',
-    titleEs: 'Foro sobre Justicia y Cambio Climático // Munich, Alemania',
-    titleEn: 'Justice & Climate Change Forum // Munich, Germany',
-    subtitleEs: 'Representación ante Organizaciones Ambientales (2025)',
-    subtitleEn: 'Representation to Environmental Organizations (2025)',
-    country: 'Alemania',
-    city: 'Munich',
-    flag: '🇩🇪',
-    lat: 48.14,
-    lng: 11.58,
-    date: '2025',
-    roleEs: 'Representante de Organizaciones Ambientales',
-    roleEn: 'Environmental Organizations Delegate',
-    mediaType: 'pending',
-    code: 'OPS-GLO-05',
-    source: 'Conferencia sobre Justicia y Clima Munich (CV)',
-    impactEs: 'Representación ante organizaciones ambientales en conferencias y foros sobre justicia y Cambio Climático (Munich, Alemania, 2025, según CV).',
-    impactEn: 'Representation to environmental organizations at conferences and forums on justice and Climate Change (Munich, Germany, 2025, from CV).',
-    methodologyEs: [
-      'Representación ante organizaciones ambientales en foros sobre justicia y Cambio Climático (CV)',
-      'Incidencia internacional en políticas de transición ecológica',
-      'Enlace entre realidades del Sur Global y redes de la sociedad civil europea'
-    ],
-    methodologyEn: [
-      'Representation to environmental organizations at climate justice forums (CV)',
-      'International advocacy on ecological transition policies',
-      'Connecting Global South realities with European civil society networks'
-    ],
-    tags: ['Munich', 'Alemania', 'Justicia Climática', 'Foros Ambientales']
-  },
-
-  // 11. CIENCIA: WSL BlueGreen Biodiversity - Davos, Suiza
+  // 10. CIENCIA: WSL BlueGreen Biodiversity - Davos, Suiza
   {
     id: 'wsl-davos',
     type: 'science',
@@ -547,7 +538,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Davos', 'Suiza', 'WSL', 'BlueGreen Biodiversity', 'Certificación']
   },
 
-  // 12. CIENCIA: Doughnut Economics - Copenhague, Dinamarca
+  // 11. CIENCIA: Doughnut Economics - Copenhague, Dinamarca
   {
     id: 'deal-copenhagen',
     type: 'science',
@@ -582,7 +573,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Copenhague', 'Dinamarca', 'Doughnut Economics', 'DEAL', 'Certificación']
   },
 
-  // 13. CIENCIA: Interlinked Justice - Dresden, Alemania
+  // 12. CIENCIA: Interlinked Justice - Dresden, Alemania
   {
     id: 'dresden-justice',
     type: 'science',
@@ -616,7 +607,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Dresden', 'Alemania', 'Interlinked Justice', 'Certificación']
   },
 
-  // 14. CIENCIA: Universidad de Chile & Asesoría a la Convención Constitucional
+  // 13. CIENCIA: Universidad de Chile & Asesoría a la Convención Constitucional
   {
     id: 'uchile-convencion',
     type: 'science',
@@ -657,7 +648,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['U. de Chile', 'Geofísica', 'Convención Constitucional', 'Cuencas']
   },
 
-  // 15. COMUNICACIONES: Radio Cristalina 96.3 FM - Maule Sur
+  // 14. COMUNICACIONES: Radio Cristalina 96.3 FM - Maule Sur
   {
     id: 'radio-cristalina',
     type: 'comms',
@@ -674,7 +665,24 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Panelista Radial & Capacitador Comunitario',
     roleEn: 'Radio Panellist & Grassroots Trainer',
     mediaType: 'audio',
-    src: '/maule_sur_radio.jpg',
+    src: '/maulered_logo.png',
+    availablePages: [
+      {
+        titleEs: 'Logotipo Oficial • Red Maule Sur & Radio Cristalina',
+        titleEn: 'Official Logo • Maule Sur Network & Radio Cristalina',
+        pageSrc: '/maulered_logo.png'
+      },
+      {
+        titleEs: 'Estudio de Transmisión Radial FM en Maule Sur',
+        titleEn: 'FM Radio Broadcasting Studio in Maule Sur',
+        pageSrc: '/maule_sur_radio.jpg'
+      },
+      {
+        titleEs: 'Plataforma Digital de Noticias Maule Red',
+        titleEn: 'Maule Red Digital Grassroots News Platform',
+        pageSrc: '/maulered_web.png'
+      }
+    ],
     code: 'OPS-COM-04',
     source: 'Radio Cristalina 96.3 FM & Red Maule Sur (Portafolio Comms)',
     impactEs: 'Panelista regular en el programa radial "El Maule Sur También Existe" en Radio Cristalina 96.3 FM y creador del Taller de Corresponsales Populares, capacitando a vecinos rurales en reportería comunitaria.',
@@ -689,10 +697,10 @@ export const GAME_MISSIONS: GameMission[] = [
       'Grassroots Reporters Workshop empowering agricultural neighbors',
       'Educational dissemination on local water and ecological challenges'
     ],
-    tags: ['Radio Cristalina', 'Maule Sur', 'Corresponsales', 'Comunitaria']
+    tags: ['Radio Cristalina', 'Maule Sur', 'Corresponsales', 'Comunitaria', 'Logo Oficial']
   },
 
-  // 16. COMUNICACIONES: Campaña "Solo el pueblo ayuda al pueblo"
+  // 15. COMUNICACIONES: Campaña "Solo el pueblo ayuda al pueblo"
   {
     id: 'campana-victimas',
     type: 'comms',
@@ -739,7 +747,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Maule', 'Biobío', 'Ñuble', 'Santiago', 'Solidaridad', 'Incendios', 'Inundaciones']
   },
 
-  // 17. ARTE & CULTURA: Brigada Paulina Aguirre - Propaganda & Serigrafía Callejera
+  // 16. ARTE & CULTURA: Brigada Paulina Aguirre - Propaganda & Serigrafía Callejera
   {
     id: 'brigada-paulina-aguirre',
     type: 'culture',
@@ -780,7 +788,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Brigada Paulina Aguirre', 'Evadir No Pagar', 'Muralismo', 'No Más AFP', 'Santiago', 'Cultura']
   },
 
-  // 18. ARTE & CULTURA: Rap Beauchef & Dueñas de la Voz - Arena Universitaria & Circuito Internacional
+  // 17. ARTE & CULTURA: Rap Beauchef & Dueñas de la Voz - Arena Universitaria & Circuito Internacional
   {
     id: 'rap-beauchef',
     type: 'culture',
@@ -800,6 +808,24 @@ export const GAME_MISSIONS: GameMission[] = [
     embedUrl: 'https://www.youtube.com/embed/NcDejj3NKXo',
     url: 'https://www.youtube.com/watch?v=NcDejj3NKXo',
     src: '/youtube_covers/NcDejj3NKXo.jpg',
+    availablePages: [
+      {
+        titleEs: 'Logotipo Oficial • Rap Beauchef Arena FCFM',
+        titleEn: 'Official Logo • Rap Beauchef Arena FCFM',
+        pageSrc: '/instagram_covers/B3ZZ8sGgaJX.jpg'
+      },
+      {
+        titleEs: 'Gran Final "Dueñas de la Voz" • Queena (Registro Audiovisual 4K)',
+        titleEn: 'Grand Final "Dueñas de la Voz" • Queena (Official 4K Record)',
+        pageSrc: '/youtube_covers/NcDejj3NKXo.jpg'
+      },
+      {
+        titleEs: 'Cyphers y Encuentro de Rimas Internacional',
+        titleEn: 'Cyphers & International Rhyme Sessions',
+        pageSrc: '/instagram_covers/B3YgyJxgiBS.jpg'
+      }
+    ],
+    techStack: ['Sony 4K', 'DaVinci Resolve', 'OBS Studio', 'Audio Multicanal'],
     code: 'OPS-CUL-02',
     source: '@rapbeauchef // FCFM U. de Chile & Dueñas de la Voz',
     impactEs: 'Dirección y producción general de Rap Beauchef en el anfiteatro de la FCFM (U. de Chile) y certamen femenino "Dueñas de la Voz" (registro audiovisual oficial de la Gran Final por Queena), articulando competencias en vivo, conciertos y proyección internacional online con colaboraciones en Japón, Perú, Argentina y México.',
@@ -819,7 +845,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Rap Beauchef', 'Dueñas de la Voz', 'Queena', 'FCFM', 'Santiago', 'Hip-Hop', 'Cultura']
   },
 
-  // 19. ARTE & CULTURA: Cuarentena Rap - Liga Federal Latinoamericana en Streaming
+  // 18. ARTE & CULTURA: Cuarentena Rap - Liga Federal Latinoamericana en Streaming
   {
     id: 'cuarentena-rap',
     type: 'culture',
@@ -839,6 +865,24 @@ export const GAME_MISSIONS: GameMission[] = [
     embedUrl: 'https://www.youtube.com/embed/B2XrNxHxwrA',
     url: 'https://www.youtube.com/watch?v=B2XrNxHxwrA',
     src: '/youtube_covers/B2XrNxHxwrA.jpg',
+    availablePages: [
+      {
+        titleEs: 'Logotipo Oficial • Cuarentena Rap Liga Latinoamericana',
+        titleEn: 'Official Logo • Cuarentena Rap Pan-American League',
+        pageSrc: '/instagram_covers/CKu2R9qgy3Q.jpg'
+      },
+      {
+        titleEs: 'Streaming en Vivo • Batalla de Maestros y Cuartos de Final',
+        titleEn: 'Live Streaming • Masters Battle & Quarterfinals',
+        pageSrc: '/youtube_covers/B2XrNxHxwrA.jpg'
+      },
+      {
+        titleEs: 'Fase de Karmas • Torneo Panamericano de Beatbox & Spoken Word',
+        titleEn: 'Karma Phase • Pan-American Beatbox Tournament & Spoken Word',
+        pageSrc: '/instagram_covers/CFqKMjHnKDc.jpg'
+      }
+    ],
+    techStack: ['OBS Studio', 'DaVinci Resolve', 'YouTube Live', 'Discord API'],
     code: 'OPS-CUL-03',
     source: 'Cuarentena Rap // Streaming & Red Federal',
     impactEs: 'Diseño y dirección de la liga digital durante la pandemia con narrativa conceptual ("fase de karmas" y renacer artístico), federando colectivos y plazas underground de Chile, Argentina, Colombia, Perú y México en disciplinas de freestyle, batallas escritas y beatbox.',
@@ -856,7 +900,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Cuarentena Rap', 'Red Latinoamericana', 'Chile', 'Argentina', 'Colombia', 'Perú', 'México', 'Beatbox']
   },
 
-  // 18. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
+  // 19. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
   {
     id: 'rd-bioacustica',
     type: 'rd',
@@ -908,7 +952,7 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Chile', 'Bosques Nativos', 'Centro-Sur', 'Geofísica', 'Bioacústica', 'I+D']
   },
 
-  // 19. I+D & INNOVACIÓN: Smart Food Parks & Permacultura para Ciudades Europeas ODS
+  // 20. I+D & INNOVACIÓN: Smart Food Parks & Permacultura para Ciudades Europeas ODS
   {
     id: 'rd-smart-food-parks',
     type: 'rd',
@@ -953,6 +997,1113 @@ export const GAME_MISSIONS: GameMission[] = [
       'Regenerative design for SDG urban ecosystems'
     ],
     tags: ['Ciudades Europeas ODS', 'Europa', 'Smart Food Parks', 'Permacultura', 'EPAC', 'I+D']
+  },
+
+  // 21. I+D & INNOVACIÓN: Chile Agrotech & Plataforma AgriTwin (Maule, Chile)
+  {
+    id: 'rd-agritwin',
+    type: 'rd',
+    titleEs: 'Chile Agrotech & Plataforma AgriTwin',
+    titleEn: 'Chile Agrotech & AgriTwin Platform',
+    subtitleEs: 'Tecnología Agrícola de Precisión & Gemelo Digital IoT — Maule, Chile',
+    subtitleEn: 'Precision Agriculture IoT & Soil Telemetry Digital Twin — Maule, Chile',
+    country: 'Chile',
+    city: 'Maule',
+    flag: '🇨🇱',
+    lat: -35.43,
+    lng: -71.66,
+    date: '2023-2025',
+    roleEs: 'Arquitecto de Plataforma & Modelador',
+    roleEn: 'Platform Architect & Modeler',
+    mediaType: 'plate',
+    src: '/expeditions/cauquenes_rain_gauge.jpg',
+    availablePages: [
+      {
+        titleEs: 'Instalación de Telemetría y Pluviómetro en Cerro Molco (Cauquenes)',
+        titleEn: 'Telemetry & Rain Gauge Installation at Cerro Molco (Cauquenes)',
+        pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
+      },
+      {
+        titleEs: 'Sondaje Eléctrico Vertical (SEV) para Mapeo de Acuíferos',
+        titleEn: 'Vertical Electrical Sounding (VES) for Aquifer Mapping',
+        pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
+    code: 'OPS-RD-03',
+    source: 'Portafolio de Soluciones Comerciales e Innovación',
+    impactEs: 'Plataforma de ingeniería ambiental de precisión que reduce hasta un 35% el consumo de agua de riego combinando telemetría de suelo IoT LoRaWAN con índices de vegetación satelitales automáticos (Copernicus Sentinel-2 NDVI/NDRE).',
+    impactEn: 'Precision environmental engineering platform slashing up to 35% of irrigation water consumption by combining LoRaWAN soil telemetry with automated Sentinel-2 multispectral vegetation indices (NDVI/NDRE).',
+    methodologyEs: [
+      'Gemelo digital de telemetría de humedad y potencial mátrico en tiempo real',
+      'Pipeline automatizado de monitoreo multiespectral Sentinel-2 (NDVI/NDRE) para vigor vegetal',
+      'Diseño hidrológico regenerativo Keyline y cálculo predictivo de tasas óptimas de riego'
+    ],
+    methodologyEn: [
+      'Real-time IoT soil moisture & matric potential digital twin dashboard',
+      'Automated Sentinel-2 multispectral crop stress & canopy vigor tracking pipeline',
+      'Keyline regenerative water contour engineering and predictive irrigation schedules'
+    ],
+    deliverablesEs: [
+      'Panel de control y gemelo digital de telemetría de humedad en tiempo real',
+      'Pipeline automatizado de monitoreo multiespectral Sentinel-2 (NDVI/NDRE)',
+      'Diseño hidrológico regenerativo Keyline y cálculo predictivo de tasas de riego',
+      'Auditoría y certificación de reducción de huella hídrica para estándares ESG'
+    ],
+    deliverablesEn: [
+      'Real-time IoT soil moisture & matric potential digital twin dashboard',
+      'Automated Sentinel-2 multispectral crop stress & canopy vigor tracking pipeline',
+      'Keyline regenerative water contour engineering and predictive irrigation schedules',
+      'Certified ESG water footprint audit and regulatory compliance documentation'
+    ],
+    techStack: ['Python', 'Sentinel-2 API', 'IoT LoRaWAN', 'FastAPI', 'QGIS', 'PostGIS', 'Next.js'],
+    tags: ['AgriTwin', 'Maule', 'Agrotech', 'IoT', 'Satélites', 'Sentinel-2']
+  },
+
+  // 22. I+D & INNOVACIÓN: Lauwersmeer Coastal Risk & Storm Surge Engine (Delft3D)
+  {
+    id: 'rd-lauwersmeer',
+    type: 'rd',
+    titleEs: 'Lauwersmeer: Simulación de Riesgo Costero & Marejadas',
+    titleEn: 'Lauwersmeer Coastal Climate Risk & SLR Engine',
+    subtitleEs: 'Modelación hidrodinámica 2D de marejadas de tempestad y aumento del nivel del mar (Delft3D)',
+    subtitleEn: 'Hydrodynamic 2D modeling of storm surges and sea level rise in the Wadden Sea basin',
+    country: 'Países Bajos / Alemania',
+    city: 'Mar de Wadden (UNESCO)',
+    flag: '🌊',
+    lat: 53.40,
+    lng: 6.20,
+    date: '2024',
+    roleEs: 'Modelador Hidrodinámico & Consultor',
+    roleEn: 'Hydrodynamic Modeler & Consultant',
+    mediaType: 'plate',
+    src: '/expeditions/wadden_sea_birding.jpg',
+    availablePages: [
+      {
+        titleEs: 'Monitoreo de Planicies Intermareales y Avifauna en Mar de Wadden',
+        titleEn: 'Intertidal Mudflat & Avifauna Monitoring in the Wadden Sea',
+        pageSrc: '/expeditions/wadden_sea_birding.jpg'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
+    code: 'OPS-RD-04',
+    source: 'Investigación Costera CAU Kiel & Delft3D',
+    impactEs: 'Plataforma de modelación hidrodinámica de alta resolución que proporciona a ingenieros costeros, autoridades portuarias y municipios pronósticos físicos de inundación bajo escenarios IPCC de cambio climático.',
+    impactEn: 'High-resolution hydrodynamic modeling platform providing coastal engineers, port authorities, and municipalities with physics-grounded flood risk forecasts under IPCC sea level rise scenarios.',
+    methodologyEs: [
+      'Simulación hidrodinámica 2D de batimetría y propagación de oleaje extremo en Delft3D',
+      'Cartografía de riesgo de inundación para periodos de retorno de marejada de 100 y 500 años',
+      'Auditoría de vulnerabilidad de infraestructura crítica y diagnóstico de diques costeros'
+    ],
+    methodologyEn: [
+      'High-resolution hydrodynamic bathymetry and wave propagation simulations (Delft3D)',
+      '100-year and 500-year storm surge return period inundation hazard mapping',
+      'Critical infrastructure vulnerability audit and coastal barrier failure diagnostics'
+    ],
+    deliverablesEs: [
+      'Simulación hidrodinámica 2D de batimetría y propagación de oleaje extremo en Delft3D',
+      'Cartografía de riesgo de inundación para periodos de retorno de 100 y 500 años',
+      'Auditoría de vulnerabilidad de infraestructura crítica y diagnóstico de diques costeros',
+      'Informe ejecutivo de riesgo climático para autoridades marítimas y comisiones ambientales'
+    ],
+    deliverablesEn: [
+      'High-resolution hydrodynamic bathymetry and wave propagation simulations (Delft3D)',
+      '100-year and 500-year storm surge return period inundation hazard mapping',
+      'Critical infrastructure vulnerability audit and coastal barrier failure diagnostics',
+      'Policy-ready executive climate risk briefing for maritime and environmental authorities'
+    ],
+    techStack: ['Delft3D', 'Python Hydro', 'LiDAR DEM', 'QGIS', 'Copernicus Marine', 'NetCDF'],
+    tags: ['Lauwersmeer', 'Delft3D', 'Mar de Wadden', 'Marejadas', 'Ingeniería Costera']
+  },
+
+  // 23. I+D & INNOVACIÓN: ReWild: Analítica de Incendios & Mosaicos Nativos (Chile)
+  {
+    id: 'rd-rewild',
+    type: 'rd',
+    titleEs: 'ReWild: Analítica de Incendios & Mosaicos Nativos',
+    titleEn: 'ReWild: Forestry Model & Megafire Overhaul',
+    subtitleEs: 'Modelación predictiva de megaincendios y reconversión de monocultivos a mosaicos nativos',
+    subtitleEn: 'Predictive wildfire risk modeling and transition from timber monocultures to native forest mosaics',
+    country: 'Chile',
+    city: 'Centro-Sur',
+    flag: '🇨🇱',
+    lat: -36.20,
+    lng: -71.90,
+    date: '2023-2025',
+    roleEs: 'Científico de Datos Espaciales & Diseñador',
+    roleEn: 'Spatial Data Scientist & Designer',
+    mediaType: 'plate',
+    src: '/expeditions/longavi_biodiversity_survey.jpg',
+    availablePages: [
+      {
+        titleEs: 'Catastro Ecológico y Parches de Bosque Nativo en Cerro Longaví',
+        titleEn: 'Ecological Inventory & Native Forest Patches at Cerro Longaví',
+        pageSrc: '/expeditions/longavi_biodiversity_survey.jpg'
+      },
+      {
+        titleEs: 'Monitoreo de Humedales Comunitarios con ONG Raíz',
+        titleEn: 'Community Wetland Monitoring with ONG Raíz',
+        pageSrc: '/expeditions/ong_raiz_wetland_group.jpg'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder/resumof',
+    code: 'OPS-RD-05',
+    source: 'Iniciativa ReWild & Red de Superación del Modelo Forestal',
+    impactEs: 'Marco de ingeniería espacial y analítica territorial para reemplazar monocultivos combustibles de pino y eucalipto por franjas de amortiguación biológica nativa, cuantificando la reducción en la velocidad del fuego en más de 100.000 ha.',
+    impactEn: 'Strategic engineering and spatial analytics framework designed to replace combustible pine/eucalyptus monocultures with fire-resilient biological buffers across +100,000 hectares.',
+    methodologyEs: [
+      'Cartografía de carga de combustible y vulnerabilidad en la interfaz urbano-forestal (IUF)',
+      'Algoritmos de optimización espacial para la restauración de parches de bosque esclerófilo',
+      'Hojas de ruta institucionales para la transición forestal y restauración de cuencas'
+    ],
+    methodologyEn: [
+      'Wildland-Urban Interface (WUI) combustible fuel-load risk cartography',
+      'Species-specific sclerophyllous native reforestation optimization algorithms',
+      'Institutional roadmaps for sustainable timber transition and watershed restoration'
+    ],
+    deliverablesEs: [
+      'Cartografía de carga de combustible y vulnerabilidad en la interfaz urbano-forestal (IUF)',
+      'Algoritmos de optimización espacial para la restauración de bosque esclerófilo',
+      'Aplicación espacial web y móvil para monitoreo comunitario y alerta temprana',
+      'Hojas de ruta institucionales para la transición forestal y restauración de cuencas'
+    ],
+    deliverablesEn: [
+      'Wildland-Urban Interface (WUI) combustible fuel-load risk cartography',
+      'Species-specific sclerophyllous native reforestation optimization algorithms',
+      'Mobile & Web Spatial App for community vegetation monitoring and early hazard alert',
+      'Institutional roadmaps for sustainable timber transition and watershed restoration'
+    ],
+    techStack: ['Google Earth Engine', 'Python GIS', 'Sentinel-2', 'GeoPandas', 'Streamlit', 'Rasterio'],
+    tags: ['ReWild', 'Incendios', 'Mosaicos Nativos', 'GEE', 'Sentinel-2', 'Maule']
+  },
+
+  // 24. I+D & INNOVACIÓN: Física Teórica & Termodinámica de No Equilibrio (ESTÁTICO)
+  {
+    id: 'rd-termodinamica',
+    type: 'rd',
+    titleEs: 'Física Teórica: Termodinámica & Transporte No Lineal',
+    titleEn: 'Theoretical Physics: Non-Equilibrium Thermodynamics & Transport',
+    subtitleEs: 'Modelación matemática de disipación estocástica y producción de entropía territorial',
+    subtitleEn: 'Mathematical modeling of stochastic dissipation and entropy production in natural systems',
+    country: 'Universal',
+    city: 'I+D Teórico',
+    flag: '⚛️',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: '2023-2025',
+    roleEs: 'Investigador en Física Teórica',
+    roleEn: 'Theoretical Physics Researcher',
+    mediaType: 'plate',
+    src: '/portfolio_pages/page_1.png',
+    availablePages: [
+      {
+        titleEs: 'Lámina Académica Oficial Geofísica FCFM U. de Chile',
+        titleEn: 'Official Academic Plate FCFM U. of Chile',
+        pageSrc: '/portfolio_pages/page_1.png'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder',
+    code: 'OPS-RD-06',
+    source: 'Laboratorio de Sistemas Complejos & Modelación Teórica',
+    impactEs: 'Investigación rigurosa de física teórica que aplica mecánica estadística de no equilibrio a procesos estocásticos de transporte territorial y disipación de energía, vinculando fluctuaciones microscópicas con el comportamiento macroscópico de cuencas.',
+    impactEn: 'Rigorous theoretical physics investigation applying non-equilibrium statistical mechanics to spatial dissipation and hydrological transport equations, bridging microscopic fluctuations with macroscopic watershed behavior.',
+    methodologyEs: [
+      'Ecuaciones diferenciales estocásticas para transporte no lineal en medios porosos',
+      'Modelos analíticos de producción de entropía para estados hidrológicos termodinámicos',
+      'Solucionadores numéricos en Python / NumPy para ecuaciones de Fokker-Planck'
+    ],
+    methodologyEn: [
+      'Governing stochastic differential equations for non-linear landscape transport',
+      'Entropy production calculation models for thermodynamic hydrological states',
+      'Numerical solver scripts in Python / NumPy for Fokker-Planck equations'
+    ],
+    deliverablesEs: [
+      'Ecuaciones diferenciales estocásticas para transporte no lineal en medios porosos',
+      'Modelos analíticos de producción de entropía para estados hidrológicos termodinámicos',
+      'Solucionadores numéricos en Python / NumPy para ecuaciones de Fokker-Planck',
+      'Manuscrito científico listo para someter a revisión por pares en revistas internacionales'
+    ],
+    deliverablesEn: [
+      'Governing stochastic differential equations for non-linear landscape transport',
+      'Entropy production calculation models for thermodynamic hydrological states',
+      'Numerical solver scripts in Python / NumPy for Fokker-Planck equations',
+      'Peer-reviewed manuscript ready for submission to scientific physics journals'
+    ],
+    techStack: ['Python NumPy', 'SciPy', 'SymPy', 'LaTeX / Typst', 'Differential Equations'],
+    tags: ['Física Teórica', 'Termodinámica', 'Sistemas Complejos', 'Fokker-Planck', 'Modelación']
+  },
+
+  // 25. I+D & INNOVACIÓN: Los Manejadores: Estrategia de Medios & IA Generativa (ESTÁTICO)
+  {
+    id: 'rd-los-manejadores',
+    type: 'rd',
+    titleEs: 'Los Manejadores: Estrategia de Medios & IA Generativa',
+    titleEn: 'Los Manejadores: Generative AI & Digital Media Strategy',
+    subtitleEs: 'Creadores virtuales de IA, pipelines automáticos de divulgación y narrativa digital de alta retención',
+    subtitleEn: 'Virtual AI creators, automated technical knowledge pipelines & high-retention digital storytelling',
+    country: 'Digital',
+    city: 'IA & Medios',
+    flag: '🤖',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: '2024-2026',
+    roleEs: 'Director de Estrategia de Medios & IA',
+    roleEn: 'Media Strategy & AI Director',
+    mediaType: 'plate',
+    src: '/press_covers/tomaterojo_screen.png',
+    availablePages: [
+      {
+        titleEs: 'Portal de Análisis y Divulgación Socioambiental',
+        titleEn: 'Socioenvironmental Analysis & Dissemination Portal',
+        pageSrc: '/press_covers/tomaterojo_screen.png'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder',
+    code: 'OPS-RD-07',
+    source: 'Agencia Digital Los Manejadores',
+    impactEs: 'Agencia de medios digitales que combina precisión analítica con pipelines de producción asistida por IA para desarrollar canales de divulgación técnica, propiedad intelectual de personajes virtuales y posicionamiento estratégico de marcas.',
+    impactEn: 'Digital media agency coupling European analytical rigor with generative AI production pipelines to build high-retention educational feeds, synthetic character IP, and narrative positioning for commercial clients.',
+    methodologyEs: [
+      'Pipelines de creación sintética de personajes (clonación neural de voz, sincronización labial, avatares)',
+      'Guionización técnica de alta retención e ingeniería de carruseles de datos para LinkedIn y YouTube',
+      'Automatización de distribución multicanal y analítica predictiva de retención de audiencia'
+    ],
+    methodologyEn: [
+      'Synthetic virtual creator pipelines (neural voice cloning, automated lip-sync, visual consistency)',
+      'High-retention technical scriptwriting and data-driven carousel engineering for LinkedIn & YouTube',
+      'Automated multi-platform content scheduling and audience engagement analytics'
+    ],
+    deliverablesEs: [
+      'Pipelines de creación sintética de personajes (clonación neural de voz, sincronización labial, avatares)',
+      'Guionización técnica de alta retención e ingeniería de carruseles de datos para LinkedIn y YouTube',
+      'Automatización de distribución multicanal y analítica predictiva de retención de audiencia',
+      'Consultoría estratégica de posicionamiento de marca y adopción de IA para empresas corporativas'
+    ],
+    deliverablesEn: [
+      'Synthetic virtual creator pipelines (neural voice cloning, automated lip-sync, visual consistency)',
+      'High-retention technical scriptwriting and data-driven carousel engineering for LinkedIn & YouTube',
+      'Automated multi-platform content scheduling and audience engagement analytics',
+      'Executive brand consulting and AI implementation roadmap for corporate enterprises'
+    ],
+    techStack: ['Generative AI', 'ElevenLabs', 'RunwayML', 'Python Automation', 'Next.js', 'Tailwind CSS'],
+    tags: ['IA Generativa', 'Storytelling', 'Pipelines Digitales', 'Divulgación', 'Los Manejadores']
+  },
+
+  // ==============================================================
+  // SECCIÓN: PUBLICACIONES, INFORMES INTERNACIONALES & PRENSA (8)
+  // ==============================================================
+
+  // 26. PUBLICACIONES: EPN 2024 Biomass Report - Bonn & Sudamérica
+  {
+    id: 'pub-epn-biomass',
+    type: 'publications',
+    titleEs: 'Spotlight on Burning Biomass for Energy in South America (Informe EPN 2024)',
+    titleEn: 'Spotlight on Burning Biomass for Energy in South America (EPN 2024 Report)',
+    subtitleEs: 'Environmental Paper Network (EPN) // Investigación Internacional sobre Carbon Accounting',
+    subtitleEn: 'Environmental Paper Network (EPN) // International Investigation on Carbon Accounting',
+    country: 'Alemania / Chile',
+    city: 'Bonn / Santiago',
+    flag: '📑',
+    lat: 50.73,
+    lng: 7.10,
+    date: '2024',
+    roleEs: 'Autor Técnico Principal',
+    roleEn: 'Lead Technical Author',
+    mediaType: 'press',
+    src: '/press_covers/epn_cover.png',
+    availablePages: [
+      {
+        titleEs: 'Portada Oficial del Informe Internacional EPN 2024',
+        titleEn: 'Official Cover of EPN 2024 International Report',
+        pageSrc: '/press_covers/epn_cover.png'
+      },
+      {
+        titleEs: 'Investigación sobre Central de Biomasa en Parral, Maule',
+        titleEn: 'Investigation on Parral Biomass Power Plant, Maule',
+        pageSrc: '/press_covers/epn_screen.png'
+      },
+      {
+        titleEs: 'Logotipo de la Red Europea de Justicia Ambiental (ENJUST)',
+        titleEn: 'European Environmental Justice Network (ENJUST) Logo',
+        pageSrc: '/expeditions/enjust_logo.png'
+      }
+    ],
+    url: 'https://environmentalpaper.org/biomass/',
+    code: 'OPS-PUB-01',
+    source: 'Environmental Paper Network (EPN) & Global Forest Coalition',
+    impactEs: 'Informe investigativo internacional que expone las fallas críticas de contabilidad de carbono bajo la Directiva de Energías Renovables de la UE (RED III) y el mercado ETS sobre la extracción de biomasa forestal en Sudamérica.',
+    impactEn: 'Landmark international investigative report exposing critical carbon accounting loopholes under the EU Renewable Energy Directive (RED III) and EU ETS regarding industrial forestry biomass extraction across South America.',
+    methodologyEs: [
+      'Investigación empírica en terreno en Maule, Biobío, Ñuble y Araucanía',
+      'Desglose del balance de carbono bajo la directiva europea RED III',
+      'Auditoría a subsidios de bioenergía y conflictividad socioambiental'
+    ],
+    methodologyEn: [
+      'Empirical fieldwork across Maule, Biobío, Ñuble, and Araucanía',
+      'Carbon balance audit under the European RED III directive',
+      'Scrutiny of bioenergy subsidies and socio-environmental conflicts'
+    ],
+    tags: ['EPN', 'Biomasa', 'RED III', 'Carbon Accounting', 'UE', 'Publicación']
+  },
+
+  // 27. PUBLICACIONES: Tetralogía OLCA: Ser libres al borde del abismo (ESTÁTICO)
+  {
+    id: 'pub-olca-tetralogia',
+    type: 'publications',
+    titleEs: 'Ser libres al borde del abismo (Tetralogía de Ensayos Político-Ecológicos)',
+    titleEn: 'Being Free on the Brink of the Abyss (4-Part Political Ecology Treatise)',
+    subtitleEs: 'Observatorio Latinoamericano de Conflictos Ambientales (OLCA, 2025)',
+    subtitleEn: 'Latin American Observatory of Environmental Conflicts (OLCA, 2025)',
+    country: 'Latinoamérica',
+    city: 'Ensayos Filosóficos',
+    flag: '📚',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: '2025',
+    roleEs: 'Autor del Tratado',
+    roleEn: 'Author of the Treatise',
+    mediaType: 'press',
+    src: '/press_covers/olca_screen.png',
+    availablePages: [
+      {
+        titleEs: 'Portada y Publicación Oficial en el Portal OLCA',
+        titleEn: 'Official Cover & Publication on OLCA Portal',
+        pageSrc: '/press_covers/olca_screen.png'
+      },
+      {
+        titleEs: 'Segunda Entrega: Se hunde el Titanic (La agonía estatal)',
+        titleEn: 'Part 2: The Sinking Titanic (The State in Agony)',
+        pageSrc: '/press_covers/olca_1_screen.png'
+      }
+    ],
+    url: 'https://olca.cl/articulo/nota.php?id=111288',
+    code: 'OPS-PUB-02',
+    source: 'Observatorio Latinoamericano de Conflictos Ambientales (OLCA)',
+    impactEs: 'Obra ensayística de cuatro partes sobre la crisis civilizatoria: 1. El colapso económico; 2. Se hunde el Titanic (la agonía de los Estados); 3. Cariño, ¿qué nos pasó? (la domesticación moderna); 4. La llamada de la selva (autonomía comunitaria y ecología regenerativa).',
+    impactEn: 'Four-part philosophical and political ecology work: 1. Economic Collapse; 2. The Sinking Titanic (Leviathan agony); 3. Darling, What Happened to Us? (Modern domestication); 4. The Call of the Wild (Community autonomy and regenerative ecology).',
+    methodologyEs: [
+      'Crítica a la economía política extractivista y límites del crecimiento',
+      'Genealogía de la domesticación urbana y alienación ecosistémica',
+      'Propuestas de autonomía territorial comunitaria y Buen Vivir'
+    ],
+    methodologyEn: [
+      'Critique of extractivist political economy and limits to growth',
+      'Genealogy of urban domestication and ecosystem alienation',
+      'Community territorial autonomy and Good Living alternatives'
+    ],
+    tags: ['OLCA', 'Autonomía', 'Decrecimiento', 'Ecología Política', 'Buen Vivir', 'Ensayos']
+  },
+
+  // 28. PUBLICACIONES: Conservación de Suelos Agrícolas con Dirk Kock-Rohwer (Alemania)
+  {
+    id: 'pub-kock-rohwer',
+    type: 'publications',
+    titleEs: 'Conservación de Suelos Agrícolas con diputado Dirk Kock-Rohwer',
+    titleEn: 'Agricultural Soil Conservation with German MP Dirk Kock-Rohwer',
+    subtitleEs: 'Publicación conjunta en el parlamento de Schleswig-Holstein (Alemania, 2024)',
+    subtitleEn: 'Joint parliamentary paper in Schleswig-Holstein, Germany (2024)',
+    country: 'Alemania',
+    city: 'Kiel (Schleswig-Holstein)',
+    flag: '🇩🇪',
+    lat: 54.32,
+    lng: 10.13,
+    date: '2024',
+    roleEs: 'Coautor Parlamentario & Investigador',
+    roleEn: 'Parliamentary Co-Author & Researcher',
+    mediaType: 'plate',
+    src: '/expeditions/kiel_soil_lab.png',
+    availablePages: [
+      {
+        titleEs: 'Laboratorio de Física de Suelos de CAU Kiel',
+        titleEn: 'Soil Physics Laboratory at CAU Kiel',
+        pageSrc: '/expeditions/kiel_soil_lab.png'
+      },
+      {
+        titleEs: 'Lámina 5: Publicaciones Internacionales y Policy Briefs',
+        titleEn: 'Plate 5: International Publications & Policy Briefs',
+        pageSrc: '/portfolio_pages/page_5.png'
+      }
+    ],
+    url: 'https://www.dirk-kock-rohwer.de/',
+    code: 'OPS-PUB-03',
+    source: 'Parlamento de Schleswig-Holstein & CAU Kiel',
+    impactEs: 'Documento técnico-político sobre fertilidad orgánica de suelos, agroecología y transición post-química en el parlamento de Schleswig-Holstein, Alemania.',
+    impactEn: 'Technical and political brief addressing sustainable soil fertility, agroecology, and the post-chemical agricultural transition in Northern Germany (Schleswig-Holstein parliament).',
+    methodologyEs: [
+      'Diagnóstico de compactación de suelos y pérdida de materia orgánica',
+      'Estrategias de rotación de cultivos y reducción de pesticidas sintéticos',
+      'Articulación legislativa para subsidios agrícolas verdes en la UE'
+    ],
+    methodologyEn: [
+      'Soil compaction diagnosis and organic matter loss quantification',
+      'Crop rotation strategies and synthetic pesticide phase-out roadmaps',
+      'Legislative advocacy for green agricultural subsidies in the EU'
+    ],
+    tags: ['Schleswig-Holstein', 'Alemania', 'Suelos', 'Agroecología', 'Los Verdes', 'Publicación']
+  },
+
+  // 29. PUBLICACIONES: El Desconcierto: Humedales, Turberas y Megaincendios (Chile)
+  {
+    id: 'pub-desconcierto',
+    type: 'publications',
+    titleEs: 'El Desconcierto: Rehumectación de Humedales, Turberas y Prevención de Incendios',
+    titleEn: 'El Desconcierto: Wetland Rewetting, Peatlands & Wildfire Prevention',
+    subtitleEs: 'Periodismo de investigación nacional sobre amortiguadores climáticos y cuencas',
+    subtitleEn: 'National investigative journalism on climate sponge buffers and catchments',
+    country: 'Chile',
+    city: 'Santiago',
+    flag: '🇨🇱',
+    lat: -33.44,
+    lng: -70.65,
+    date: '2026',
+    roleEs: 'Autor & Analista Socioambiental',
+    roleEn: 'Author & Socio-Environmental Analyst',
+    mediaType: 'press',
+    src: '/press_covers/desconcierto_cover.png',
+    availablePages: [
+      {
+        titleEs: 'Portada de Reportaje en El Desconcierto',
+        titleEn: 'Cover Article in El Desconcierto',
+        pageSrc: '/press_covers/desconcierto_cover.png'
+      },
+      {
+        titleEs: 'Reportaje sobre Cobertura en Noruega y Decrecimiento',
+        titleEn: 'Article on Norway Coverage & Degrowth',
+        pageSrc: '/press_covers/desconcierto_noruega_screen.png'
+      }
+    ],
+    url: 'https://www.eldesconcierto.cl',
+    code: 'OPS-PUB-04',
+    source: 'El Desconcierto // Periodismo de Investigación Nacional',
+    impactEs: 'Análisis sobre la rehumectación de turberas como amortiguadores naturales frente a megaincendios, articulando la investigación europea con la realidad hídrica de Chile.',
+    impactEn: 'Analysis of peatland restoration as natural climate buffers against catastrophic fires, combining European research with Chilean watershed reality.',
+    methodologyEs: [
+      'Modelación del efecto esponja de humedales ante olas de calor extremo',
+      'Comparativa de políticas de restauración entre el norte de Europa y Chile',
+      'Propuestas de cortafuegos biológicos y conservación de cabeceras de cuenca'
+    ],
+    methodologyEn: [
+      'Peatland hydrological sponge modeling under extreme heatwaves',
+      'Comparative policy analysis between Northern Europe and Chile',
+      'Biological fire barrier blueprints and headwater catchment protection'
+    ],
+    tags: ['El Desconcierto', 'Turberas', 'Incendios', 'Cuencas', 'Prensa']
+  },
+
+  // 30. PUBLICACIONES: Tomaterojo: Monocultivos Forestales y Agotamiento del Agua
+  {
+    id: 'pub-tomaterojo',
+    type: 'publications',
+    titleEs: 'Tomaterojo: Monocultivos Forestales y Agotamiento del Agua',
+    titleEn: 'Tomaterojo: Industrial Tree Monocultures & Water Exhaustion',
+    subtitleEs: 'Desglose empírico del déficit hídrico por pino y eucalipto en el Maule',
+    subtitleEn: 'Empirical analysis of pine/eucalyptus groundwater deficit in the Maule basin',
+    country: 'Chile',
+    city: 'Maule',
+    flag: '🇨🇱',
+    lat: -35.43,
+    lng: -71.66,
+    date: '2023',
+    roleEs: 'Investigador & Autor',
+    roleEn: 'Researcher & Author',
+    mediaType: 'press',
+    src: '/press_covers/tomaterojo_screen.png',
+    availablePages: [
+      {
+        titleEs: 'Artículo Investigativo en Tomaterojo',
+        titleEn: 'Investigative Article on Tomaterojo',
+        pageSrc: '/press_covers/tomaterojo_screen.png'
+      },
+      {
+        titleEs: 'Portada Editorial de Prensa Socioambiental',
+        titleEn: 'Editorial Cover Socioenvironmental Press',
+        pageSrc: '/press_covers/tomaterojo_cover.jpg'
+      }
+    ],
+    url: 'https://tomaterojo.cl',
+    code: 'OPS-PUB-05',
+    source: 'Tomaterojo // Prensa Socioambiental',
+    impactEs: 'Desglose empírico del déficit hídrico y agotamiento de napas subterráneas por plantaciones de pino y eucalipto en la Región del Maule.',
+    impactEn: 'Empirical breakdown of the water deficit caused by extensive pine and eucalyptus plantations in the Maule region and central-southern Chile.',
+    methodologyEs: [
+      'Balance hídrico comparado entre cuencas forestadas y bosque esclerófilo nativo',
+      'Análisis de datos de caudal histórico de la Dirección General de Aguas (DGA)',
+      'Documentación de testimonios de comités de agua potable rural damnificados'
+    ],
+    methodologyEn: [
+      'Comparative water balance between timber plantations and native sclerophyll forest',
+      'Historical streamflow data analysis from the General Directorate of Water (DGA)',
+      'Ground truth documentation with affected rural drinking water committees'
+    ],
+    tags: ['Tomaterojo', 'Monocultivo', 'Maule', 'Agua', 'Prensa']
+  },
+
+  // 31. PUBLICACIONES: ClimateCC: Monocultivos Arbóreos y Falsas Soluciones (ESTÁTICO)
+  {
+    id: 'pub-climatecc',
+    type: 'publications',
+    titleEs: 'ClimateCC: Monocultivos Forestales y Falsas Soluciones Climáticas',
+    titleEn: 'ClimateCC: Global Tree Monocultures & False Climate Solutions',
+    subtitleEs: 'Serie analítica internacional sobre compensaciones de carbono y justicia climática',
+    subtitleEn: 'International analytical series on carbon offsets and climate justice',
+    country: 'Global',
+    city: 'Portal Internacional',
+    flag: '🌐',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: '2024',
+    roleEs: 'Analista Internacional de Política Climática',
+    roleEn: 'International Climate Policy Analyst',
+    mediaType: 'press',
+    src: '/press_covers/climatecc_screen.png',
+    availablePages: [
+      {
+        titleEs: 'Publicación en el Portal Internacional ClimateCC',
+        titleEn: 'Publication on ClimateCC Global Portal',
+        pageSrc: '/press_covers/climatecc_screen.png'
+      }
+    ],
+    url: 'https://www.climatecc.org/forests/tree-monocultures',
+    code: 'OPS-PUB-06',
+    source: 'ClimateCC // International Climate Portal',
+    impactEs: 'Serie analítica internacional que disecciona los monocultivos arbóreos, los créditos de carbono y la justicia climática desde Latinoamérica.',
+    impactEn: 'International analytical series dissecting tree monocultures, carbon credits, and environmental justice from Latin America to global climate summits.',
+    methodologyEs: [
+      'Desmitificación de los bonos de carbono forestal como herramienta de greenwashing',
+      'Auditoría a los impactos del monocultivo en comunidades indígenas y campesinas',
+      'Articulación de propuestas de decrecimiento y soberanía de los pueblos'
+    ],
+    methodologyEn: [
+      'Demystification of forest carbon credits as corporate greenwashing tools',
+      'Audit of timber monoculture impacts on indigenous and peasant populations',
+      'Advocacy for degrowth frameworks and people’s climate sovereignty'
+    ],
+    tags: ['ClimateCC', 'Falsas Soluciones', 'Carbon Credits', 'Bosques', 'Internacional']
+  },
+
+  // 32. PUBLICACIONES: Rewilding Aljezur (Concejo Municipal de Aljezur, Portugal)
+  {
+    id: 'pub-aljezur',
+    type: 'publications',
+    titleEs: 'Rewilding Aljezur: Transición Ecológica Municipal y Resiliencia al Fuego',
+    titleEn: 'Rewilding Aljezur: Municipal Ecological Transition & Fire Resilience',
+    subtitleEs: 'Policy brief y StoryMaps SIG entregados al Concejo Municipal de Aljezur, Portugal',
+    subtitleEn: 'Comprehensive policy brief and GIS StoryMaps delivered to Aljezur Council, Portugal',
+    country: 'Portugal',
+    city: 'Aljezur (Algarve)',
+    flag: '🇵🇹',
+    lat: 37.31,
+    lng: -8.80,
+    date: '2024',
+    roleEs: 'Consultor de Planificación Espacial & Rewilding',
+    roleEn: 'Spatial Planning & Rewilding Consultant',
+    mediaType: 'plate',
+    src: '/portfolio_pages/page_5.png',
+    availablePages: [
+      {
+        titleEs: 'Lámina 5: Publicaciones Internacionales y StoryMaps de Aljezur',
+        titleEn: 'Plate 5: International Publications & Aljezur StoryMaps',
+        pageSrc: '/portfolio_pages/page_5.png'
+      }
+    ],
+    url: 'https://cm-aljezur.pt',
+    code: 'OPS-PUB-07',
+    source: 'Concejo Municipal de Aljezur (Algarve, Portugal) & CAU Kiel',
+    impactEs: 'Policy brief y StoryMaps SIG entregados al Concejo Municipal de Aljezur en Portugal, delineando estrategias de renaturalización activa para mitigar incendios forestales recurrentes.',
+    impactEn: 'Comprehensive policy brief and GIS StoryMaps delivered to the Aljezur Municipal Council in Portugal, outlining active rewilding strategies to curb recurrent wildfire devastation.',
+    methodologyEs: [
+      'Modelación SIG de carga combustible en el Parque Natural del Sudoeste Alentejano',
+      'Plan maestro de sustitución de eucaliptales por franjas de encinas y alcornoques',
+      'Visualización interactiva en ArcGIS StoryMaps para autoridades comunales'
+    ],
+    methodologyEn: [
+      'GIS fuel-load modeling in Southwest Alentejo and Vicentine Coast Natural Park',
+      'Master plan replacing eucalyptus stands with native cork oak (sobreiro) buffers',
+      'ArcGIS StoryMaps interactive briefings for municipal council members'
+    ],
+    tags: ['Portugal', 'Aljezur', 'Rewilding', 'SIG', 'Incendios', 'Policy Brief']
+  },
+
+  // 33. PUBLICACIONES: Libro Impreso "Relatos de la revuelta popular" (PLP)
+  {
+    id: 'pub-plp-libro',
+    type: 'publications',
+    titleEs: 'Libro Impreso: "Relatos de la revuelta popular" (Editorial PLP)',
+    titleEn: 'Print Book Release: "Relatos de la revuelta popular" (PLP Publishing)',
+    subtitleEs: 'Publicación física y distribución autogestionada de 44 crónicas y testimonios',
+    subtitleEn: 'Physical publication and street distribution of 44 grassroots micro-narratives',
+    country: 'Chile',
+    city: 'Santiago',
+    flag: '🇨🇱',
+    lat: -33.44,
+    lng: -70.65,
+    date: '2020',
+    roleEs: 'Editor General & Diseñador',
+    roleEn: 'Editor-in-Chief & Book Designer',
+    mediaType: 'press',
+    src: '/plp/plp_articulo_revuelta.png',
+    availablePages: [
+      {
+        titleEs: 'Página de Lanzamiento del Libro en Primera Línea Prensa',
+        titleEn: 'Book Release Feature on Primera Línea Prensa',
+        pageSrc: '/plp/plp_articulo_revuelta.png'
+      },
+      {
+        titleEs: 'Logotipo Oficial • Primera Línea Prensa',
+        titleEn: 'Official Logo • Primera Línea Prensa',
+        pageSrc: '/plp/plp_logo.jpg'
+      }
+    ],
+    url: 'https://www.primeralineaprensa.cl/?p=5542',
+    code: 'OPS-PUB-08',
+    source: 'Editorial Primera Línea Prensa',
+    impactEs: 'Publicación física y distribución autogestionada del libro «Relatos de la revuelta popular», antología con 44 microtextos y crónicas sobre el estallido social en Chile.',
+    impactEn: 'Physical publication and street distribution of "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising.',
+    methodologyEs: [
+      'Curaduría editorial y compilación de relatos ciudadanos en primera persona',
+      'Diseño tipográfico, maquetación editorial y diagramación para imprenta',
+      'Distribución autogestionada mano a mano en ferias del libro y plazas públicas'
+    ],
+    methodologyEn: [
+      'Editorial curation and compilation of first-person grassroots chronicles',
+      'Typography design, print layout, and prepress production',
+      'Self-managed independent distribution at street book fairs and public squares'
+    ],
+    tags: ['Libro', 'Estallido Social', 'PLP', 'Editorial', 'Crónicas']
+  },
+
+  // ==============================================================
+  // SECCIÓN: TÍTULOS ACADÉMICOS, CERTIFICACIONES & EXPEDICIONES (4)
+  // ==============================================================
+
+  // 34. TÍTULOS ACADÉMICOS: Grados Universitarios Oficiales (Kiel, AMU & U. de Chile)
+  {
+    id: 'titulos-oficiales',
+    type: 'titles',
+    titleEs: 'Grados Universitarios Oficiales: Dual M.Sc. Europa & Geofísico U. de Chile',
+    titleEn: 'Official University Degrees: Dual European M.Sc. & Geophysicist U. of Chile',
+    subtitleEs: 'CAU Kiel (Alemania) • AMU Poznań (Polonia) • FCFM U. de Chile (Distinción Máxima)',
+    subtitleEn: 'CAU Kiel (Germany) • AMU Poznań (Poland) • FCFM U. of Chile (Highest Distinction)',
+    country: 'Alemania / Chile',
+    city: 'Kiel • Santiago',
+    flag: '🎓',
+    lat: 54.32,
+    lng: 10.13,
+    date: '2015-2026',
+    roleEs: 'Doble Máster en Ciencias & Geofísico',
+    roleEn: 'Dual Master of Science & Geophysicist',
+    mediaType: 'plate',
+    src: '/expeditions/kiel_soil_lab.png',
+    availablePages: [
+      {
+        titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo (CAU Kiel, Alemania)',
+        titleEn: 'Soil Physics Laboratory & Flow Column Diagnostics (CAU Kiel, Germany)',
+        pageSrc: '/expeditions/kiel_soil_lab.png'
+      },
+      {
+        titleEs: 'Muestreo Limnológico de Perifiton en Lago (AMU Poznań, Polonia)',
+        titleEn: 'Limnological Periphyton Lake Sampling (AMU Poznań, Poland)',
+        pageSrc: '/expeditions/poland_lake_sampling.jpg'
+      },
+      {
+        titleEs: 'Lámina 1: Perfil Académico y Geofísica FCFM Universidad de Chile',
+        titleEn: 'Plate 1: Academic Profile & Geophysics FCFM University of Chile',
+        pageSrc: '/portfolio_pages/page_1.png'
+      }
+    ],
+    url: 'https://www.uni-kiel.de',
+    code: 'OPS-TIT-01',
+    source: 'Registros Universitarios Oficiales (Kiel, Poznań, Santiago)',
+    impactEs: 'Doble Maestría Europea en Gestión y Protección Ambiental (CAU Kiel, Alemania / AMU Poznań, Polonia) con especialización en balance hídrico y turberas; Licenciatura en Ciencias de la Ingeniería mención Geofísica (FCFM U. de Chile) con Distinción Máxima.',
+    impactEn: 'Dual European Master of Science in Environmental Management & Protection (CAU Kiel, Germany / AMU Poznań, Poland) and Bachelor of Science in Geophysics (FCFM U. of Chile) with Highest Distinction.',
+    methodologyEs: [
+      'Dual M.Sc. CAU Kiel (Alemania) & AMU Poznań (Polonia): 120 ECTS',
+      'Geofísica con Distinción Máxima en FCFM Universidad de Chile (2015-2021)',
+      'Modelación física computacional, balance hídrico y métodos electromagnéticos'
+    ],
+    methodologyEn: [
+      'Dual M.Sc. CAU Kiel (Germany) & AMU Poznań (Poland): 120 ECTS curriculum',
+      'Geophysics with Highest Distinction at FCFM University of Chile (2015-2021)',
+      'Computational physics modeling, water budget dynamics, and electromagnetic exploration'
+    ],
+    tags: ['Dual M.Sc.', 'CAU Kiel', 'AMU Poznań', 'U. de Chile', 'Geofísica', 'Títulos']
+  },
+
+  // 35. TÍTULOS ACADÉMICOS: Certificaciones de Postgrado (WSL Davos, DEAL, IOER)
+  {
+    id: 'certificaciones-postgrado',
+    type: 'titles',
+    titleEs: 'Certificaciones Ejecutivas de Postgrado: WSL Davos, DEAL & IOER',
+    titleEn: 'Executive Postgraduate Certifications: WSL Davos, DEAL & IOER',
+    subtitleEs: 'WSL Davos (Suiza) • DEAL Copenhague (Dinamarca) • IOER Dresden (Alemania) • EPAC',
+    subtitleEn: 'WSL Davos (Switzerland) • DEAL Copenhagen (Denmark) • IOER Dresden (Germany) • EPAC',
+    country: 'Europa',
+    city: 'Davos • Copenhague • Dresden',
+    flag: '📜',
+    lat: 46.80,
+    lng: 9.83,
+    date: '2023-2025',
+    roleEs: 'Especialista Certificado',
+    roleEn: 'Certified Specialist',
+    mediaType: 'plate',
+    src: '/expeditions/davos_wsl_group.png',
+    availablePages: [
+      {
+        titleEs: 'Cohorte de Investigación WSL BlueGreen Biodiversity (Davos, Suiza)',
+        titleEn: 'WSL BlueGreen Biodiversity Research Cohort (Davos, Switzerland)',
+        pageSrc: '/expeditions/davos_wsl_group.png'
+      },
+      {
+        titleEs: 'Monitoreo Ripario en el Valle Alpino Flüela (Davos, Suiza)',
+        titleEn: 'Riparian Stream Monitoring in Flüela Alpine Valley (Davos, Switzerland)',
+        pageSrc: '/expeditions/davos_stream_fieldwork.jpg'
+      },
+      {
+        titleEs: 'Logotipo de la Red Europea de Justicia Ambiental (ENJUST)',
+        titleEn: 'European Environmental Justice Network (ENJUST) Logo',
+        pageSrc: '/expeditions/enjust_logo.png'
+      }
+    ],
+    url: 'https://www.wsl.ch',
+    code: 'OPS-TIT-02',
+    source: 'Institutos de Postgrado de Suiza, Dinamarca y Alemania',
+    impactEs: 'Certificaciones de excelencia: WSL BlueGreen Biodiversity (Instituto Federal Suizo, Davos); DEAL Doughnut Economics (Copenhague); Interlinked Justice (Dresden); Diseñador en Permacultura CDP (EPAC).',
+    impactEn: 'Postgraduate credentials: WSL BlueGreen Biodiversity (Swiss Federal Institute, Davos); DEAL Doughnut Economics (Copenhagen); Interlinked Justice (Dresden); Certified Permaculture Designer CDP (EPAC).',
+    methodologyEs: [
+      'Certificación WSL en dinámicas de biodiversidad y sistemas dulceacuícolas',
+      'DEAL Doughnut Economics: modelación de techos ecológicos y bases sociales',
+      'Planificación espacial para la resiliencia climática y gobernanza de paisajes'
+    ],
+    methodologyEn: [
+      'WSL certification in alpine biodiversity dynamics and freshwater systems',
+      'DEAL Doughnut Economics: planetary boundary modeling and social foundations',
+      'Spatial planning for climate resilience and territorial landscape governance'
+    ],
+    tags: ['WSL Davos', 'DEAL Copenhague', 'IOER Dresden', 'Permacultura', 'Certificaciones']
+  },
+
+  // 36. TÍTULOS ACADÉMICOS: Avales Institucionales & Cartas de Referencia
+  {
+    id: 'avales-cartas',
+    type: 'titles',
+    titleEs: 'Avales Institucionales & Cartas de Referencia Verificables',
+    titleEn: 'Verified Institutional Endorsements & Recommendation Letters',
+    subtitleEs: 'Dr. Sebastian Jordan (CAU Kiel) • Janaina Uemura (GFC) • Francisca Arauna (Convencional)',
+    subtitleEn: 'Dr. Sebastian Jordan (CAU Kiel) • Janaina Uemura (GFC) • Francisca Arauna (Constitutional Delegate)',
+    country: 'Alemania / Chile',
+    city: 'Kiel • Santiago',
+    flag: '✍️',
+    lat: 54.32,
+    lng: 10.13,
+    date: '2022-2025',
+    roleEs: 'Investigador Respaldado',
+    roleEn: 'Endorsed Researcher',
+    mediaType: 'plate',
+    src: '/expeditions/hamburg_enjust_library.jpg',
+    availablePages: [
+      {
+        titleEs: 'Mesa Plenaria en Biblioteca Histórica de Hamburgo (ENJUST)',
+        titleEn: 'Plenary Session at Historical Library in Hamburg (ENJUST)',
+        pageSrc: '/expeditions/hamburg_enjust_library.jpg'
+      },
+      {
+        titleEs: 'Presentación de Norma en la Convención Constitucional (Chile)',
+        titleEn: 'Constitutional Convention Presentation (Chile)',
+        pageSrc: '/expeditions/convencion_norma_residuos.jpg'
+      },
+      {
+        titleEs: 'Círculo de Diálogo Territorial y Redes Comunitarias (Colombia)',
+        titleEn: 'Territorial Dialogue Circle & Community Networks (Colombia)',
+        pageSrc: '/expeditions/colombia_climate_justice_circle.jpg'
+      }
+    ],
+    url: 'https://www.uni-kiel.de',
+    code: 'OPS-TIT-03',
+    source: 'Cartas Oficiales de Respaldo Académico y Político',
+    impactEs: 'Cartas de recomendación y avales oficiales del Dr. Sebastian Jordan (Investigador Principal CAU Kiel), Janaina Uemura (Coordinadora Global GFC) y Francisca Arauna (Ex Convencional Constituyente de Chile), acreditando solvencia cuantitativa y liderazgo en terreno.',
+    impactEn: 'Official letters of reference from Dr. Sebastian Jordan (Lead Researcher CAU Kiel), Janaina Uemura (Global Coordinator GFC), and Francisca Arauna (Constitutional Delegate of Chile), attesting to quantitative rigor and field leadership.',
+    methodologyEs: [
+      'Carta de respaldo de CAU Kiel: rigor en laboratorio de suelos y análisis numérico',
+      'Referencia GFC: liderazgo en investigación de campo e informes internacionales',
+      'Testimonio Convención Constitucional: asesoría legislativa y ordenamiento por cuencas'
+    ],
+    methodologyEn: [
+      'CAU Kiel letter: analytical rigor in soil physics laboratory and numerical modeling',
+      'GFC reference: field research leadership on international environmental reports',
+      'Constitutional Convention testimonial: legislative advisory and watershed planning'
+    ],
+    tags: ['Avales', 'Cartas de Referencia', 'CAU Kiel', 'GFC', 'Convención Constitucional']
+  },
+
+  // 37. TÍTULOS ACADÉMICOS: Archivo Completo de 23 Fotos de Expedición (ESTÁTICO)
+  {
+    id: 'expedicion-galeria-23',
+    type: 'titles',
+    titleEs: 'Evidencia en Terreno: Archivo de 23 Fotografías Auténticas',
+    titleEn: 'Fieldwork Evidence: Archive of 23 Authentic Photographs',
+    subtitleEs: 'Registro gráfico completo de laboratorios, expediciones lacustres, cumbres y prospección',
+    subtitleEn: 'Comprehensive photographic archive of laboratories, lake expeditions, summits & geophysics',
+    country: 'Global',
+    city: '23 Fotos de Campo',
+    flag: '📸',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: '2019-2026',
+    roleEs: 'Investigador en Terreno',
+    roleEn: 'Field Researcher',
+    mediaType: 'plate',
+    src: '/expeditions/davos_stream_fieldwork.jpg',
+    availablePages: [
+      { titleEs: '1. Laboratorio de Física de Suelos (Kiel, Alemania)', titleEn: '1. Soil Physics Lab (Kiel, Germany)', pageSrc: '/expeditions/kiel_soil_lab.png' },
+      { titleEs: '2. Microscopía Zeiss Protozoos (Poznań, Polonia)', titleEn: '2. Zeiss Microscopy Protozoa (Poznań, Poland)', pageSrc: '/expeditions/poland_microscope_zeiss.jpg' },
+      { titleEs: '3. Muestreo de Perifiton en Lago (Polonia)', titleEn: '3. Periphyton Lake Sampling (Poland)', pageSrc: '/expeditions/poland_lake_sampling.jpg' },
+      { titleEs: '4. Clasificación de Bentos y Macroinvertebrados (Polonia)', titleEn: '4. Benthic Macroinvertebrates (Poland)', pageSrc: '/expeditions/poznan_lake_benthos.jpg' },
+      { titleEs: '5. Sondaje Eléctrico Vertical SEV (Cauquenes, Chile)', titleEn: '5. Vertical Electrical Sounding VES (Chile)', pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg' },
+      { titleEs: '6. Instalación de Pluviómetro en Cerro Molco (Cauquenes)', titleEn: '6. Digital Rain Gauge at Cerro Molco (Chile)', pageSrc: '/expeditions/cauquenes_rain_gauge.jpg' },
+      { titleEs: '7. Monitoreo Ripario en Valle Alpino Flüela (Davos, Suiza)', titleEn: '7. Riparian Stream Survey in Davos (Switzerland)', pageSrc: '/expeditions/davos_stream_fieldwork.jpg' },
+      { titleEs: '8. Cohorte de Investigación WSL (Davos, Suiza)', titleEn: '8. WSL Davos Research Cohort (Switzerland)', pageSrc: '/expeditions/davos_wsl_group.png' },
+      { titleEs: '9. Expedición en Bote a Remo en Lago Polaco', titleEn: '9. Rowboat Expedition on Polish Lake', pageSrc: '/expeditions/poland_lake_rowing.jpg' },
+      { titleEs: '10. Planicies Intermareales en Mar de Wadden (Alemania)', titleEn: '10. Wadden Sea Intertidal Flats (Germany)', pageSrc: '/expeditions/wadden_sea_birding.jpg' },
+      { titleEs: '11. Catastro Ecológico en Cerro Longaví (Maule, Chile)', titleEn: '11. Ecological Survey at Cerro Longaví (Chile)', pageSrc: '/expeditions/longavi_biodiversity_survey.jpg' },
+      { titleEs: '12. Plenaria en Biblioteca Histórica de Hamburgo (ENJUST)', titleEn: '12. Hamburg Historical Library Plenary (ENJUST)', pageSrc: '/expeditions/hamburg_enjust_library.jpg' },
+      { titleEs: '13. Cumbre de Justicia Climática WYCJ (Costa Rica)', titleEn: '13. WYCJ Climate Justice Summit (Costa Rica)', pageSrc: '/expeditions/costa_rica_wycj_summit.jpg' },
+      { titleEs: '14. Plenaria de Justicia Climática en Bogotá (Colombia)', titleEn: '14. Climate Justice Plenary in Bogotá (Colombia)', pageSrc: '/expeditions/colombia_climate_justice_group.jpg' },
+      { titleEs: '15. Círculo de Diálogo Territorial y Redes (Colombia)', titleEn: '15. Territorial Dialogue Circle (Colombia)', pageSrc: '/expeditions/colombia_climate_justice_circle.jpg' },
+      { titleEs: '16. Norma de Residuos en Convención Constitucional (Chile)', titleEn: '16. Zero-Waste Norm at Constitutional Convention', pageSrc: '/expeditions/convencion_norma_residuos.jpg' },
+      { titleEs: '17. Conferencia de Biomasa Forestal en Concepción (Chile)', titleEn: '17. Biomass Keynote in Concepción (Chile)', pageSrc: '/expeditions/concepcion_biomass_talk.png' },
+      { titleEs: '18. Logotipo de la 10ª Conferencia de Decrecimiento (Oslo)', titleEn: '18. 10th Degrowth Conference Logo (Oslo)', pageSrc: '/expeditions/oslo_degrowth_logo.png' },
+      { titleEs: '19. Logotipo de la Red Europea ENJUST (Bonn/Hamburgo)', titleEn: '19. ENJUST European Network Logo (Germany)', pageSrc: '/expeditions/enjust_logo.png' },
+      { titleEs: '20. Monitoreo Comunitario con ONG Raíz EcoAcción (Maule)', titleEn: '20. Community Monitoring with ONG Raíz (Chile)', pageSrc: '/expeditions/ong_raiz_wetland_group.jpg' },
+      { titleEs: '21. Reforestación Comunitaria de Bosque Nativo (Maule)', titleEn: '21. Native Reforestation Day with ONG Raíz', pageSrc: '/expeditions/ong_raiz_native_tree_planting.jpg' },
+      { titleEs: '22. Gemelo Digital UI Smart Food Parks (ONU Citiverse)', titleEn: '22. Digital Twin UI Smart Food Parks (UN)', pageSrc: '/expeditions/smart_food_parks_ui.jpg' },
+      { titleEs: '23. Arquitectura Técnica de Datos en Unity 3D', titleEn: '23. Technical Data Blueprint in Unity 3D', pageSrc: '/expeditions/smart_food_parks_architecture.jpg' }
+    ],
+    code: 'OPS-TIT-04',
+    source: 'Archivo Gráfico Completo de Expediciones Científicas (2019-2026)',
+    impactEs: 'Galería fotográfica completa con 23 registros auténticos documentando estancias de laboratorio en Alemania y Polonia, relevamientos en los Alpes Suizos, prospección geofísica en Chile y cumbres internacionales.',
+    impactEn: 'Comprehensive photographic archive of 23 authentic pictures documenting research stays in Germany and Poland, alpine surveys in Switzerland, geophysics in Chile, and global policy summits.',
+    methodologyEs: [
+      'Documentación fotográfica en terreno con georreferenciación',
+      'Validación de instrumental científico y trabajo con comunidades',
+      'Registro histórico de incidencias públicas y cumbres internacionales'
+    ],
+    methodologyEn: [
+      'Georeferenced scientific fieldwork photo documentation',
+      'Field testing of sensors, probes, and community engagement',
+      'Historical visual record of policy summits and international diplomacy'
+    ],
+    tags: ['23 Fotos Reales', 'Expediciones', 'Laboratorios', 'Cumbres', 'Fototeca']
+  },
+
+  // ==============================================================
+  // SECCIÓN: FICHA TÉCNICA, SKILLS & HERRAMIENTAS (3)
+  // ==============================================================
+
+  // 38. SKILLS: Ciencia, Código, Modelación Numérica & SIG (ESTÁTICO)
+  {
+    id: 'skills-ciencia-codigo',
+    type: 'skills',
+    titleEs: 'Ficha Técnica: Ciencia, Código, Modelación & SIG',
+    titleEn: 'Technical Matrix: Science, Code, Modeling & GIS',
+    subtitleEs: 'Python (NumPy, SciPy, GeoPandas) • Delft3D • Google Earth Engine • QGIS • PostGIS • Unity 3D',
+    subtitleEn: 'Python (NumPy, SciPy, GeoPandas) • Delft3D • Google Earth Engine • QGIS • PostGIS • Unity 3D',
+    country: 'Toolkit',
+    city: 'Stack de Modelación',
+    flag: '💻',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: 'Actualizado 2026',
+    roleEs: 'Ingeniero de Software Científico & Modelador',
+    roleEn: 'Scientific Software Engineer & Modeler',
+    mediaType: 'plate',
+    src: '/expeditions/smart_food_parks_architecture.jpg',
+    availablePages: [
+      {
+        titleEs: 'Arquitectura de Datos y Pipeline Técnico (IoT, Cloud, Unity 3D)',
+        titleEn: 'Technical Data Pipeline & Cloud Architecture (IoT, 3D)',
+        pageSrc: '/expeditions/smart_food_parks_architecture.jpg'
+      },
+      {
+        titleEs: 'Lámina 2: Modelación Hidrológica y Geofísica',
+        titleEn: 'Plate 2: Hydrological & Geophysical Modeling',
+        pageSrc: '/portfolio_pages/page_2.png'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder',
+    code: 'OPS-SKI-01',
+    source: 'Matriz Técnica de Habilidades y Software',
+    impactEs: 'Dominio avanzado de computación científica para análisis ambiental: modelación hidrodinámica 2D (Delft3D), procesamiento de imágenes satelitales (GEE / Sentinel-2), pipelines de datos geoespaciales (Python / PostGIS) y gemelos digitales en tiempo real.',
+    impactEn: 'Advanced scientific computing for environmental analysis: 2D hydrodynamic simulations (Delft3D), satellite image processing (GEE / Sentinel-2), geospatial data pipelines (Python / PostGIS), and real-time digital twins.',
+    methodologyEs: [
+      'Python Científico: NumPy, SciPy, Pandas, GeoPandas, Rasterio, Matplotlib, Scikit-learn',
+      'Modelación Hidrodinámica: Delft3D (mallas curvilíneas, batimetría, forzamiento de mareas)',
+      'Sistemas de Información Geográfica: QGIS Desktop, PostGIS, Google Earth Engine, LiDAR DEM',
+      'Desarrollo Web & Cloud: Next.js, React, TypeScript, FastAPI, Docker, Tailwind CSS'
+    ],
+    methodologyEn: [
+      'Scientific Python: NumPy, SciPy, Pandas, GeoPandas, Rasterio, Matplotlib, Scikit-learn',
+      'Hydrodynamic Modeling: Delft3D (curvilinear grids, bathymetry, tidal surge forcing)',
+      'Geographic Information Systems: QGIS Desktop, PostGIS, Google Earth Engine, LiDAR DEM',
+      'Web & Cloud Stack: Next.js, React, TypeScript, FastAPI, Docker, Tailwind CSS'
+    ],
+    deliverablesEs: [
+      'Modelos numéricos hidrológicos e hidrodinámicos calibrados',
+      'Pipelines automatizados de procesamiento satelital Sentinel-2 / Landsat',
+      'Bases de datos espaciales y servidores de mapas vectoriales',
+      'Dashboards interactivos y gemelos digitales en tiempo real'
+    ],
+    deliverablesEn: [
+      'Calibrated hydrological & hydrodynamic numerical models',
+      'Automated satellite processing pipelines (Sentinel-2 / Landsat)',
+      'Geospatial databases and vector tile map servers',
+      'Interactive dashboards and real-time digital twins'
+    ],
+    techStack: ['Python', 'Delft3D', 'GEE', 'QGIS', 'PostGIS', 'Unity 3D', 'FastAPI', 'Docker'],
+    tags: ['Python', 'Delft3D', 'GEE', 'QGIS', 'PostGIS', 'Unity 3D', 'Skills']
+  },
+
+  // 39. SKILLS: Comunicaciones Estratégicas & Dirección Creativa (ESTÁTICO)
+  {
+    id: 'skills-comms-medios',
+    type: 'skills',
+    titleEs: 'Ficha Técnica: Comunicaciones Estratégicas & Dirección de Arte',
+    titleEn: 'Technical Matrix: Strategic Comms & Art Direction',
+    subtitleEs: 'Periodismo de Investigación • Producción 4K • Transmisión en Vivo • Campañas de Incidencia',
+    subtitleEn: 'Investigative Journalism • 4K Video Production • Live Broadcasting • Grassroots Campaigns',
+    country: 'Toolkit',
+    city: 'Medios & Arte',
+    flag: '📡',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: 'Actualizado 2026',
+    roleEs: 'Director Creativo & Estratega de Comunicaciones',
+    roleEn: 'Creative Director & Communications Strategist',
+    mediaType: 'plate',
+    src: '/plp/plp_header_consigna.png',
+    availablePages: [
+      {
+        titleEs: 'Cabecera Editorial y Estrategia de Redacción (+700k Audiencia)',
+        titleEn: 'Editorial Header & Newsroom Strategy (+700k Audience)',
+        pageSrc: '/plp/plp_header_consigna.png'
+      },
+      {
+        titleEs: 'Producción Cultural y Dirección Creativa de Freestyle',
+        titleEn: 'Cultural Production & Freestyle Creative Direction',
+        pageSrc: '/youtube_covers/NcDejj3NKXo.jpg'
+      },
+      {
+        titleEs: 'Identidad Visual y Propaganda Callejera',
+        titleEn: 'Visual Identity & Street Agitation',
+        pageSrc: '/brigada/brigada_mural_no_afp.png'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder',
+    code: 'OPS-SKI-02',
+    source: 'Matriz Técnica de Comunicaciones y Medios',
+    impactEs: 'Capacidad demostrada en dirección de medios independientes (+700k personas de audiencia), producción audiovisual en 4K multicámara, transmisión de torneos en vivo, radiodifusión comunitaria FM y diseño de campañas políticas.',
+    impactEn: 'Demonstrated leadership directing independent media outlets (+700k audience reach), multi-camera 4K broadcast production, live streaming championships, community FM radio, and grassroots campaigns.',
+    methodologyEs: [
+      'Producción Audiovisual: Sony 4K, DaVinci Resolve, Premiere Pro, OBS Studio Multicámara',
+      'Radiodifusión Comunitaria: Mezcla de audio en vivo, transmisores FM, locución y edición de podcasts',
+      'Estrategia de Redes: Guiones de alta retención para YouTube/TikTok, carruseles de datos para LinkedIn',
+      'Dirección Creativa: Serigrafía callejera, muralismo, escenografía e iluminación para auditorios'
+    ],
+    methodologyEn: [
+      'Audiovisual Production: Sony 4K, DaVinci Resolve, Premiere Pro, OBS Studio Live Streaming',
+      'Community Radio: Live audio mixing, FM transmitters, voice recording, podcast editing',
+      'Social Strategy: High-retention technical scriptwriting, data-driven LinkedIn carousels',
+      'Creative Direction: Silkscreen flyposting, facade murals, stage design, and venue lighting'
+    ],
+    deliverablesEs: [
+      'Campañas de comunicación estratégica y planes de difusión territorial',
+      'Producción audiovisual completa de eventos y certámenes en 4K',
+      'Piezas editoriales, libros impresos y publicaciones de investigación',
+      'Infraestructura técnica para transmisiones globales de baja latencia'
+    ],
+    deliverablesEn: [
+      'Strategic communications campaigns and territorial outreach roadmaps',
+      'End-to-end 4K audiovisual production for cultural and academic events',
+      'Investigative publications, print books, and editorial assets',
+      'Low-latency technical infrastructure for international live broadcasts'
+    ],
+    techStack: ['DaVinci Resolve', 'OBS Studio', 'Sony 4K', 'Premiere Pro', 'Radio FM', 'Storytelling'],
+    tags: ['Audiovisual', 'OBS Studio', 'DaVinci', 'Radio FM', 'Comunicaciones', 'Dirección de Arte']
+  },
+
+  // 40. SKILLS: Equipos de Campo, Instrumental & Idiomas (ESTÁTICO)
+  {
+    id: 'skills-equipos-idiomas',
+    type: 'skills',
+    titleEs: 'Ficha Técnica: Equipamiento de Campo, Instrumental & Idiomas',
+    titleEn: 'Technical Matrix: Field Equipment, Instrumentation & Languages',
+    subtitleEs: 'SEV/VES resistivímetro • Sondas multiparámetro • Pluviómetros digitales • Microscopía Zeiss',
+    subtitleEn: 'DC Resistivity VES sounders • Multiparameter probes • Digital rain gauges • Zeiss microscopy',
+    country: 'Global',
+    city: 'Equipos & Idiomas',
+    flag: '🔬',
+    lat: 0,
+    lng: 0,
+    isStatic: true,
+    date: 'Actualizado 2026',
+    roleEs: 'Operador de Instrumental Científico',
+    roleEn: 'Scientific Instrument Operator',
+    mediaType: 'plate',
+    src: '/expeditions/cauquenes_geophysics_ves.jpg',
+    availablePages: [
+      {
+        titleEs: 'Sondaje Eléctrico Vertical (SEV / VES) en Terreno (Cauquenes)',
+        titleEn: 'Vertical Electrical Sounding (VES) in the Field (Cauquenes)',
+        pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
+      },
+      {
+        titleEs: 'Estación Pluviométrica Digital en Cerro Molco (Cauquenes)',
+        titleEn: 'Digital Rain Gauge Station at Cerro Molco (Cauquenes)',
+        pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
+      },
+      {
+        titleEs: 'Microscopía Binocular Zeiss Primo Star para Taxonomía Acuática',
+        titleEn: 'Zeiss Primo Star Binocular Microscopy for Aquatic Taxonomy',
+        pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder',
+    code: 'OPS-SKI-03',
+    source: 'Catálogo de Instrumental Científico y Certificaciones Lingüísticas',
+    impactEs: 'Experiencia directa en despliegue de instrumentación hidrogeofísica y ambiental en cuencas de Chile y Europa, con fluidez trilingüe para articulación de redes científicas y diplomacia ambiental.',
+    impactEn: 'Hands-on experience deploying hydrogeophysical and environmental field instruments across Chile and Europe, with trilingual proficiency for international scientific networks and climate diplomacy.',
+    methodologyEs: [
+      'Geofísica de Terreno: SEV/VES corriente continua, arreglo Schlumberger/Wenner, resistivímetro',
+      'Hidrometría & Clima: Balancines pluviométricos automáticos, molinetes de aforo, sondas multiparámetro YSI',
+      'Laboratorio: Microscopios ópticos Zeiss Primo Star, muestreadores de sedimento Van Veen, filtrado de bentos',
+      'Idiomas: Español (Nativo) • Inglés (C1/C2 Fluido Profesional) • Alemán (B1/B2 Técnico Intermedio)'
+    ],
+    methodologyEn: [
+      'Field Geophysics: DC VES sounding, Schlumberger/Wenner electrode arrays, resistivity meters',
+      'Hydrometry & Climate: Automated tipping-bucket rain gauges, streamflow meters, YSI multiparameter probes',
+      'Laboratory: Zeiss Primo Star optical microscopes, Van Veen sediment grabs, benthic sieve sorting',
+      'Languages: Spanish (Native) • English (C1/C2 Fluent Professional) • German (B1/B2 Intermediate Technical)'
+    ],
+    deliverablesEs: [
+      'Campañas de prospección hidrogeofísica para captación de aguas subterráneas',
+      'Redes de telemetría y estaciones meteorológicas comunitarias calibradas',
+      'Diagnósticos taxonómicos de microfauna para bioindicación lacustre',
+      'Negociación técnica trilingüe (Español, Inglés, Alemán) con delegaciones internacionales'
+    ],
+    deliverablesEn: [
+      'Hydrogeophysical exploration campaigns for groundwater extraction planning',
+      'Calibrated community meteorological and telemetry station networks',
+      'Microfauna taxonomic diagnostics for freshwater bioindication',
+      'Trilingual technical negotiation (Spanish, English, German) with international delegations'
+    ],
+    techStack: ['VES Geophysics', 'Schlumberger', 'Zeiss Primo Star', 'YSI Probes', 'Rain Gauges', 'Languages'],
+    tags: ['SEV', 'Geofísica', 'Instrumentación', 'Microscopía', 'Idiomas', 'Inglés', 'Alemán']
   }
 ];
 
@@ -1002,7 +2153,6 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(true);
   const [selectedPlatePage, setSelectedPlatePage] = useState<number>(0);
   const [isTourPlaying, setIsTourPlaying] = useState<boolean>(false);
-  const [isProjectsModalOpen, setIsProjectsModalOpen] = useState<boolean>(false);
 
   // Filtered list for mission rail
   const filteredMissions = GAME_MISSIONS.filter((m) => {
@@ -1182,13 +2332,18 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     const beaconMeshes: { missionId: string; type: MissionType; group: THREE.Group }[] = [];
 
     GAME_MISSIONS.forEach((m) => {
+      if (m.isStatic) return; // Non-geographical items do not create pushpins on the globe
+
       const pos = latLngToVector3(m.lat, m.lng, earthRadius * 1.002);
       const norm = pos.clone().normalize();
       const colorHex = 
         m.type === 'science' ? 0xef4444 :
         m.type === 'comms' ? 0x22c55e :
         m.type === 'global' ? 0xf59e0b :
-        m.type === 'culture' ? 0xf97316 : 0xa855f7;
+        m.type === 'culture' ? 0xf97316 :
+        m.type === 'rd' ? 0xa855f7 :
+        m.type === 'publications' ? 0x6366f1 :
+        m.type === 'titles' ? 0xec4899 : 0x06b6d4;
 
       const bGroup = new THREE.Group();
       bGroup.position.copy(pos);
@@ -1281,11 +2436,14 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
     // 10.5 High-Energy Volumetric Beams of Light & Plasma Pulses by Category
     const BEAM_PALETTE: Record<MissionType, { beam: number; core: number; halo: number }> = {
-      science: { beam: 0xff2a5f, core: 0xffffff, halo: 0xff6688 }, // Laser Crimson / Particle Accelerator
-      global:  { beam: 0xfbbf24, core: 0xfffbeb, halo: 0xfcd34d }, // Solar Amber / Golden Ray
-      comms:   { beam: 0x10b981, core: 0xecfdf5, halo: 0x34d399 }, // Bio-Emerald / Cyber Matrix
-      culture: { beam: 0xf97316, core: 0xffedd5, halo: 0xfb923c }, // Tangerine Fire / Neon Flame
-      rd:      { beam: 0xa855f7, core: 0xfaf5ff, halo: 0xc084fc }, // Cosmic Violet / Quantum Plasma
+      science:      { beam: 0xff2a5f, core: 0xffffff, halo: 0xff6688 }, // Laser Crimson
+      global:       { beam: 0xfbbf24, core: 0xfffbeb, halo: 0xfcd34d }, // Solar Amber
+      culture:      { beam: 0xf97316, core: 0xffedd5, halo: 0xfb923c }, // Tangerine Fire
+      comms:        { beam: 0x10b981, core: 0xecfdf5, halo: 0x34d399 }, // Bio-Emerald
+      rd:           { beam: 0xa855f7, core: 0xfaf5ff, halo: 0xc084fc }, // Cosmic Violet
+      publications: { beam: 0x6366f1, core: 0xeef2ff, halo: 0x818cf8 }, // Electric Indigo
+      titles:       { beam: 0xec4899, core: 0xfdf2f8, halo: 0xf472b6 }, // Rose Quartz
+      skills:       { beam: 0x06b6d4, core: 0xecfeff, halo: 0x22d3ee }, // Cyber Cyan
     };
 
     interface EnergyBeamArc {
@@ -1303,10 +2461,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     const energyBeamArcs: EnergyBeamArc[] = [];
     const flightGroup = new THREE.Group();
 
-    const missionCategories: MissionType[] = ['science', 'global', 'comms', 'culture', 'rd'];
+    const missionCategories: MissionType[] = ['science', 'global', 'comms', 'culture', 'rd', 'publications', 'titles', 'skills'];
 
     missionCategories.forEach((cat, catIdx) => {
-      const catMissions = GAME_MISSIONS.filter((m) => m.type === cat);
+      const catMissions = GAME_MISSIONS.filter((m) => m.type === cat && !m.isStatic);
       if (catMissions.length < 2) return;
 
       const palette = BEAM_PALETTE[cat];
@@ -1414,9 +2572,9 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
     earthGroup.add(flightGroup);
 
-    // Initial Globe Orientation (Focus on first mission)
+    // Initial Globe Orientation (Focus on first mission or calm neutral perspective)
     const initM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
-    const initVec = latLngToVector3(initM.lat, initM.lng, 1).normalize();
+    const initVec = latLngToVector3(initM.isStatic ? 20 : initM.lat, initM.isStatic ? -30 : initM.lng, 1).normalize();
     const currentQuat = new THREE.Quaternion().setFromUnitVectors(initVec, new THREE.Vector3(0, 0, 1));
     const targetQuat = currentQuat.clone();
     earthGroup.quaternion.copy(currentQuat);
@@ -1493,14 +2651,16 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     // 11. Animation Loop
     let lastMissionId = selectedMissionRef.current;
     const render = () => {
-      // If active mission changed, smoothly slerp to target coordinates
+      // If active mission changed, smoothly slerp to target coordinates (only if not static)
       if (selectedMissionRef.current !== lastMissionId) {
         lastMissionId = selectedMissionRef.current;
         const curM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
-        const v = latLngToVector3(curM.lat, curM.lng, 1).normalize();
-        targetQuat.setFromUnitVectors(v, new THREE.Vector3(0, 0, 1));
-        velX = 0;
-        velY = 0;
+        if (!curM.isStatic) {
+          const v = latLngToVector3(curM.lat, curM.lng, 1).normalize();
+          targetQuat.setFromUnitVectors(v, new THREE.Vector3(0, 0, 1));
+          velX = 0;
+          velY = 0;
+        }
       }
 
       if (isDragging) {
@@ -1521,15 +2681,20 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       // Atmospheric cloud drift
       cloudsMesh.rotation.y += 0.0003;
 
-      // Update target reticle position and pulse animation
+      // Update target reticle position and pulse animation (hide if static item)
       const activeM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
-      const activePos = latLngToVector3(activeM.lat, activeM.lng, earthRadius * 1.004);
-      reticleGroup.position.copy(activePos);
-      reticleGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), activePos.clone().normalize());
+      if (activeM.isStatic) {
+        reticleGroup.visible = false;
+      } else {
+        reticleGroup.visible = true;
+        const activePos = latLngToVector3(activeM.lat, activeM.lng, earthRadius * 1.004);
+        reticleGroup.position.copy(activePos);
+        reticleGroup.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), activePos.clone().normalize());
 
-      const pulse = (Date.now() % 1400) / 1400;
-      pulseRing.scale.setScalar(1 + pulse * 2.2);
-      pulseRingMat.opacity = 1 - pulse;
+        const pulse = (Date.now() % 1400) / 1400;
+        pulseRing.scale.setScalar(1 + pulse * 2.2);
+        pulseRingMat.opacity = 1 - pulse;
+      }
 
       // Update high-energy beams of light & trailing plasma streams
       const fTime = Date.now() * 0.001;
@@ -1666,17 +2831,23 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 [DANIEL SANTANDER // EL PLANETA]
               </h1>
             </div>
-            <div className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-amber-400 uppercase mt-0.5">
-              SECTOR: {currentMission.city.toUpperCase()} ({Math.abs(currentMission.lat).toFixed(1)}°{currentMission.lat >= 0 ? 'N' : 'S'} {Math.abs(currentMission.lng).toFixed(1)}°{currentMission.lng >= 0 ? 'E' : 'W'})
-            </div>
+            {currentMission.isStatic ? (
+              <div className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-cyan-400 uppercase mt-0.5">
+                🌐 {currentMission.city.toUpperCase()} • {currentMission.country.toUpperCase()}
+              </div>
+            ) : (
+              <div className="text-[9px] sm:text-[10px] font-mono font-bold tracking-wider text-amber-400 uppercase mt-0.5">
+                SECTOR: {currentMission.city.toUpperCase()} ({Math.abs(currentMission.lat).toFixed(1)}°{currentMission.lat >= 0 ? 'N' : 'S'} {Math.abs(currentMission.lng).toFixed(1)}°{currentMission.lng >= 0 ? 'E' : 'W'})
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Center: Category Filter Slanted Tape Strips */}
+        {/* Center: Category Filter Slanted Tape Strips (Direct Access to All Portfolio Tracks) */}
         <div className="flex items-center gap-1 sm:gap-1.5 p-1 bg-black/60 border border-white/20 overflow-x-auto no-scrollbar">
           <button
             onClick={() => setActiveFilter('all')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 ${
+            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
               activeFilter === 'all'
                 ? 'bg-[#facc15] text-black shadow-[2px_2px_0px_#000]'
                 : 'bg-white/10 text-white hover:bg-white hover:text-black'
@@ -1687,7 +2858,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
           <button
             onClick={() => setActiveFilter('science')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 ${
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'science'
                 ? 'bg-red-600 text-white shadow-[2px_2px_0px_#000]'
                 : 'bg-white/10 text-neutral-300 hover:bg-red-500 hover:text-white'
@@ -1698,10 +2869,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
           <button
             onClick={() => setActiveFilter('global')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 ${
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'global'
-                ? 'bg-[#facc15] text-black shadow-[2px_2px_0px_#000]'
-                : 'bg-white/10 text-neutral-300 hover:bg-[#facc15] hover:text-black'
+                ? 'bg-amber-500 text-black shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-amber-400 hover:text-black'
             }`}
           >
             {currentLang === 'es' ? '[CUMBRES]' : '[SUMMITS]'}
@@ -1709,7 +2880,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
           <button
             onClick={() => setActiveFilter('culture')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 ${
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
               activeFilter === 'culture'
                 ? 'bg-orange-600 text-white shadow-[2px_2px_0px_#000]'
                 : 'bg-white/10 text-neutral-300 hover:bg-orange-500 hover:text-white'
@@ -1720,7 +2891,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
           <button
             onClick={() => setActiveFilter('comms')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 ${
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
               activeFilter === 'comms'
                 ? 'bg-emerald-600 text-white shadow-[2px_2px_0px_#000]'
                 : 'bg-white/10 text-neutral-300 hover:bg-emerald-500 hover:text-white'
@@ -1731,17 +2902,50 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
           <button
             onClick={() => setActiveFilter('rd')}
-            className={`px-2.5 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 ${
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-1 cursor-pointer shrink-0 ${
               activeFilter === 'rd'
                 ? 'bg-purple-600 text-white shadow-[2px_2px_0px_#000]'
                 : 'bg-white/10 text-neutral-300 hover:bg-purple-500 hover:text-white'
             }`}
           >
-            {currentLang === 'es' ? '[I+D]' : '[R&D]'}
+            {currentLang === 'es' ? '[PROYECTOS & I+D]' : '[PROJECTS & R&D]'}
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('publications')}
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-0.5 cursor-pointer shrink-0 ${
+              activeFilter === 'publications'
+                ? 'bg-indigo-600 text-white shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-indigo-500 hover:text-white'
+            }`}
+          >
+            {currentLang === 'es' ? '[PUBLICACIONES]' : '[PUBLICATIONS]'}
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('titles')}
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black rotate-0.5 cursor-pointer shrink-0 ${
+              activeFilter === 'titles'
+                ? 'bg-pink-600 text-white shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-pink-500 hover:text-white'
+            }`}
+          >
+            {currentLang === 'es' ? '[TÍTULOS & AVALES]' : '[DEGREES & FIELD]'}
+          </button>
+
+          <button
+            onClick={() => setActiveFilter('skills')}
+            className={`px-2 py-0.5 font-mono font-black text-[10px] sm:text-[11px] uppercase transition-all border-2 border-black -rotate-1 cursor-pointer shrink-0 ${
+              activeFilter === 'skills'
+                ? 'bg-cyan-500 text-black shadow-[2px_2px_0px_#000]'
+                : 'bg-white/10 text-neutral-300 hover:bg-cyan-400 hover:text-black'
+            }`}
+          >
+            {currentLang === 'es' ? '[SKILLS & TOOLKIT]' : '[SKILLS & TOOLKIT]'}
           </button>
         </div>
 
-        {/* Right: Actions (Tour, Projects, CV, Lang, Dossier) */}
+        {/* Right: Actions (Tour, R&D Filter, CV, Lang, Dossier) */}
         <div className="flex items-center space-x-1.5 sm:space-x-2">
           {/* Guided Tour Auto-Play Toggle (Suggestion B) */}
           <button
@@ -1761,15 +2965,14 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </span>
           </button>
 
-          {/* Projects & Innovation Hub (R&D Initiatives) */}
+          {/* Quick R&D Filter Toggle */}
           <button
-            onClick={() => setIsProjectsModalOpen(true)}
-            className="px-2.5 py-1 bg-red-600 hover:bg-red-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 -rotate-1 cursor-pointer"
-            title={currentLang === 'es' ? 'Ver Proyectos & Innovación (I+D)' : 'View Projects & Innovation (R&D)'}
+            onClick={() => setActiveFilter('rd')}
+            className="px-2.5 py-1 bg-purple-600 hover:bg-purple-500 text-white font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000] active:scale-95 transition-all flex items-center space-x-1 -rotate-1 cursor-pointer"
+            title={currentLang === 'es' ? 'Filtrar Proyectos & Innovación (I+D)' : 'Filter Projects & Innovation (R&D)'}
           >
             <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-            <span className="hidden sm:inline">{currentLang === 'es' ? 'PROYECTOS' : 'PROJECTS'}</span>
-            <span className="text-[10px] bg-black text-yellow-300 px-1 font-mono rounded">8</span>
+            <span className="hidden sm:inline">{currentLang === 'es' ? 'I+D' : 'R&D'}</span>
           </button>
 
           {/* One-Click CV Loot Download (Suggestion E) */}
@@ -1807,17 +3010,19 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             </button>
           )}
 
-          {/* Skills Button */}
-          {onOpenSkills && (
-            <button
-              onClick={onOpenSkills}
-              className="px-2 py-1 bg-white/10 hover:bg-white hover:text-black text-white font-mono font-bold text-xs uppercase tracking-wider border border-white/20 active:scale-95 transition-all hidden md:flex items-center space-x-1"
-              title="Ficha Técnica & Skills"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
-              <span>SKILLS</span>
-            </button>
-          )}
+          {/* Skills Button (Filters directly into the carousel & 3D view) */}
+          <button
+            onClick={() => {
+              setActiveFilter('skills');
+              const sm = GAME_MISSIONS.find((m) => m.type === 'skills');
+              if (sm) setSelectedMissionId(sm.id);
+            }}
+            className="px-2 py-1 bg-white/10 hover:bg-white hover:text-black text-white font-mono font-bold text-xs uppercase tracking-wider border border-white/20 active:scale-95 transition-all hidden md:flex items-center space-x-1 cursor-pointer"
+            title="Ficha Técnica & Skills"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+            <span>SKILLS</span>
+          </button>
 
           {onExitToDossier && (
             <button
@@ -1952,18 +3157,28 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       alt="Expediente Científico Oficial"
                       className="max-h-[300px] w-auto object-contain rounded"
                     />
+                    {/* Caption for active plate */}
+                    {currentMission.availablePages[selectedPlatePage] && (
+                      <div className="mt-2 text-center px-3 py-1 bg-black/85 rounded border border-black/40 text-[10px] font-mono font-bold text-neutral-200 shadow-sm max-w-full truncate">
+                        {currentLang === 'es'
+                          ? currentMission.availablePages[selectedPlatePage].titleEs
+                          : currentMission.availablePages[selectedPlatePage].titleEn}
+                      </div>
+                    )}
+
                     <div className="flex gap-1.5 pt-2 flex-wrap justify-center">
                       {currentMission.availablePages.map((pg, pIdx) => (
                         <button
                           key={pIdx}
                           onClick={() => setSelectedPlatePage(pIdx)}
-                          className={`px-2.5 py-0.5 rounded font-mono text-[10px] transition ${
+                          className={`px-2 py-0.5 rounded font-mono text-[9px] sm:text-[10px] font-bold transition cursor-pointer border ${
                             selectedPlatePage === pIdx
-                              ? 'bg-red-700 text-white font-bold'
-                              : 'bg-neutral-200 text-neutral-700 hover:bg-neutral-300'
+                              ? 'bg-[#facc15] text-black border-black shadow-[1px_1px_0px_#000]'
+                              : 'bg-neutral-800 text-neutral-300 border-neutral-700 hover:bg-neutral-700'
                           }`}
+                          title={currentLang === 'es' ? pg.titleEs : pg.titleEn}
                         >
-                          {currentLang === 'es' ? 'LÁMINA' : 'PLATE'} {pIdx + 1}
+                          {pIdx + 1}
                         </button>
                       ))}
                     </div>
@@ -2049,6 +3264,41 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                   </li>
                 ))}
               </ul>
+
+              {/* Deliverables Box if present */}
+              {currentMission.deliverablesEs && currentMission.deliverablesEs.length > 0 && (
+                <div className="p-3.5 rounded-lg bg-black/70 border-2 border-dashed border-[#facc15]/40 space-y-2">
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-[#facc15] font-black flex items-center space-x-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#facc15]" />
+                    <span>{currentLang === 'es' ? '[ ENTREGABLES & RESULTADOS TÉCNICOS ]' : '[ DELIVERABLES & TECHNICAL OUTPUTS ]'}</span>
+                  </div>
+                  <ul className="space-y-1 text-xs font-mono text-neutral-300">
+                    {(currentLang === 'es' ? currentMission.deliverablesEs : currentMission.deliverablesEn || currentMission.deliverablesEs).map((d, dIdx) => (
+                      <li key={dIdx} className="flex items-start space-x-2 bg-black/40 p-1.5 border border-white/5 rounded">
+                        <span className="text-[#facc15] font-black">✔</span>
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Tech Stack Badges with Authentic Vector Brand Logos */}
+              {currentMission.techStack && currentMission.techStack.length > 0 && (
+                <div className="flex flex-col gap-1.5 p-2 bg-black/60 border border-white/10 rounded-lg">
+                  <div className="flex items-center space-x-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#facc15] animate-pulse" />
+                    <span className="text-[10px] font-mono text-[#facc15] font-black uppercase tracking-wider">
+                      {currentLang === 'es' ? 'TECNOLOGÍAS & HERRAMIENTAS:' : 'TECH STACK & TOOLS:'}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {currentMission.techStack.map((tech, tIdx) => (
+                      <TechBadge key={tIdx} name={tech} size="sm" />
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* Links & Tags & Comic Barcode */}
               <div className="pt-2 border-t-2 border-black flex flex-wrap items-center justify-between gap-2">
@@ -2306,13 +3556,6 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
           </div>
         </div>
       </footer>
-
-      {/* Projects / Side Quests Modal (Caballero Jaguar ground truth) */}
-      <ProjectsModal
-        isOpen={isProjectsModalOpen}
-        onClose={() => setIsProjectsModalOpen(false)}
-        currentLang={currentLang}
-      />
 
     </div>
   );
