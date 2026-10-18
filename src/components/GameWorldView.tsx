@@ -1508,12 +1508,12 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Geofísico (Aprobado con Distinción)',
     roleEn: 'Geophysicist (Awarded with Distinction)',
     mediaType: 'plate',
-    src: '/logos/universidad_de_chile_logo.svg',
+    src: '/logos/universidad_de_chile_logo.png',
     availablePages: [
       {
         titleEs: 'Logotipo Oficial • Universidad de Chile',
         titleEn: 'Official Logo • University of Chile',
-        pageSrc: '/logos/universidad_de_chile_logo.svg'
+        pageSrc: '/logos/universidad_de_chile_logo.png'
       },
       {
         titleEs: 'Facultad de Ciencias Físicas y Matemáticas (FCFM)',
@@ -1561,12 +1561,12 @@ export const GAME_MISSIONS: GameMission[] = [
     roleEs: 'Master en Ciencias (M.Sc.)',
     roleEn: 'Master of Science (M.Sc.)',
     mediaType: 'plate',
-    src: '/logos/kiel_university_logo.svg',
+    src: '/logos/kiel_university_logo.png',
     availablePages: [
       {
-        titleEs: 'Logotipo Oficial • Christian-Albrechts-Universität zu Kiel',
-        titleEn: 'Official Logo • Christian-Albrechts-Universität zu Kiel',
-        pageSrc: '/logos/kiel_university_logo.svg'
+        titleEs: 'Sello Histórico Oficial • Christian-Albrechts-Universität zu Kiel',
+        titleEn: 'Official Historical Seal • Christian-Albrechts-Universität zu Kiel',
+        pageSrc: '/logos/kiel_university_logo.png'
       },
       {
         titleEs: 'Sello Histórico CAU Kiel',
