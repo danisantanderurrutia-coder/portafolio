@@ -154,7 +154,7 @@ export function ClassicDossierView({
           title={currentLang === 'es' ? 'Volver al Inicio // Return to Home' : 'Return to Home'}
         >
           <div className="w-9 h-9 rounded-2xl flex items-center justify-center shadow-md transition-all group-hover:scale-105 overflow-hidden bg-[#eae3d5] border border-[#d0c4b0] p-1">
-            <img src={resolveAsset('/favicon.svg')} alt="Topocatchment" className="w-full h-full object-contain" />
+            <img src={resolveAsset('/favicon.svg')} alt="Geofrecuencia Logo" className="w-full h-full object-contain" />
           </div>
           <div>
             <h1 className="text-sm sm:text-base font-serif font-bold tracking-wide flex items-center gap-2">

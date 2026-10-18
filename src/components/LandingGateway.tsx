@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
-import { TopocatchmentLogo } from './TopocatchmentLogo';
+import { GeofrecuenciaLogo } from './GeofrecuenciaLogo';
 
 interface LandingGatewayProps {
   currentLang: Language;
@@ -59,11 +59,11 @@ export const LandingGateway: React.FC<LandingGatewayProps> = ({
       {/* 1. TOP HEADER NAVIGATION */}
       <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 pt-5 pb-3.5 flex items-center justify-between border-b border-white/10">
         
-        {/* Identity & Topocatchment Logo */}
+        {/* Identity & Geofrecuencia Logo */}
         <div className="flex items-center space-x-3.5">
-          {/* Official Topocatchment Brand Symbol */}
-          <div className="group relative cursor-pointer" title="Topocatchment Lab Emblem">
-            <TopocatchmentLogo 
+          {/* Official Geofrecuencia Brand Symbol */}
+          <div className="group relative cursor-pointer" title="Geofrecuencia Lab Emblem">
+            <GeofrecuenciaLogo 
               variant="badge" 
               className="w-11 h-11 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-105" 
             />
@@ -137,8 +137,8 @@ export const LandingGateway: React.FC<LandingGatewayProps> = ({
           <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
           <span className="tracking-wide">
             {currentLang === 'es'
-              ? 'TOPOCATCHMENT // INVESTIGACIÓN DE CAMPO Y COMUNICACIONES DE IMPACTO'
-              : 'TOPOCATCHMENT // FIELD RESEARCH DOSSIER & STRATEGIC MEDIA'}
+              ? 'GEOFrecuencia // CIENCIA GEOFÍSICA & COMUNICACIÓN ESTRATÉGICA'
+              : 'GEOFrecuencia // GEOPHYSICAL SCIENCE & STRATEGIC COMMUNICATIONS'}
           </span>
         </div>
 

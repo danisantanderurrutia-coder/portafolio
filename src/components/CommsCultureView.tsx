@@ -22,7 +22,7 @@ import {
 import { Language, MediaItem } from '../types';
 import { resolveAsset } from '../utils';
 import { ModalViewer } from './ModalViewer';
-import { TopocatchmentLogo } from './TopocatchmentLogo';
+import { GeofrecuenciaLogo } from './GeofrecuenciaLogo';
 import { communicationsSections } from '../data';
 
 export type CommsCultureMode = 'comms_arts' | 'grassroots';
@@ -205,7 +205,7 @@ export const CommsCultureView: React.FC<CommsCultureViewProps> = ({
           </button>
 
           <div className="flex items-center space-x-2.5">
-            <TopocatchmentLogo variant="badge" className="w-9 h-9 border border-white/20" />
+            <GeofrecuenciaLogo variant="badge" className="w-9 h-9 border border-white/20" />
             <div className="flex flex-col">
               <span className="font-mono font-black text-xs uppercase tracking-tight text-[#facc15]">
                 DANIEL SANTANDER URRUTIA

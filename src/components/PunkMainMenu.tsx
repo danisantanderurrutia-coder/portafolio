@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
-import { TopocatchmentLogo } from './TopocatchmentLogo';
+import { GeofrecuenciaLogo } from './GeofrecuenciaLogo';
 
 interface PunkMainMenuProps {
   currentLang: Language;
@@ -252,12 +252,12 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               />
             </div>
 
-            {/* Topocatchment Official Brandmark Stamp (Clean integration on photo corner) */}
+            {/* Geofrecuencia Official Brandmark Stamp (Clean integration on photo corner) */}
             <div 
               className="absolute -top-2.5 -left-2.5 transition-transform hover:scale-110 cursor-pointer -rotate-6" 
-              title="Topocatchment Brandmark"
+              title="Geofrecuencia Brandmark"
             >
-              <TopocatchmentLogo variant="badge" className="w-8 h-8 sm:w-9 sm:h-9 shadow-[2px_2px_0px_#facc15]" />
+              <GeofrecuenciaLogo variant="badge" className="w-8 h-8 sm:w-9 sm:h-9 shadow-[2px_2px_0px_#facc15]" />
             </div>
 
             {/* Active Status Beacon */}
