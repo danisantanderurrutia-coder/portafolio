@@ -3150,10 +3150,10 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       {/* ============================================================== */}
       {/* 3. COMIC PUNK HEADER (ESTILO [REDACTED] // KRAFTON)            */}
       {/* ============================================================== */}
-      <header className="relative z-30 w-full px-4 sm:px-8 pt-3.5 pb-2 flex flex-wrap items-center justify-between gap-2.5 bg-black/90 border-b-2 border-black shadow-[0_4px_0px_#000000]">
+      <header className="relative z-30 w-full px-3 sm:px-6 pt-3 pb-1 flex flex-wrap items-center justify-between gap-2.5 bg-transparent border-none shadow-none pointer-events-none">
         
         {/* Left: Identity Sticker Box & Back Button */}
-        <div className="flex items-center space-x-2.5 sm:space-x-3">
+        <div className="flex items-center space-x-2.5 sm:space-x-3 pointer-events-auto">
           {onBackToMenu && (
             <button
               onClick={onBackToMenu}
@@ -3206,7 +3206,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         {(() => {
           const activeCategoryItem = CATEGORIES_LIST.find((c) => c.id === activeFilter) || CATEGORIES_LIST[0];
           return (
-            <div className="relative" ref={categoryMenuRef}>
+            <div className="relative pointer-events-auto" ref={categoryMenuRef}>
               <button
                 onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
                 className="px-3 py-1.5 bg-black/95 hover:bg-black text-[#facc15] border-2 border-[#facc15] shadow-[2px_2px_0px_#ffffff] font-mono font-black text-xs uppercase tracking-wider flex items-center space-x-2 transition cursor-pointer active:scale-95"
@@ -3267,7 +3267,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         })()}
 
         {/* Right: Actions (Tour, Dossier, CV, Hire Me, Language on Far Right) */}
-        <div className="flex items-center space-x-1.5 sm:space-x-2 ml-auto">
+        <div className="flex items-center space-x-1.5 sm:space-x-2 ml-auto pointer-events-auto">
           {/* Guided Tour Auto-Play Toggle */}
           <button
             onClick={() => setIsTourPlaying(!isTourPlaying)}
@@ -3344,13 +3344,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
             {/* ======================================================== */}
             {/* A. LEFT SECTOR: PINNED FEATURED PHOTO / MEDIA CARD (60%) */}
             {/* ======================================================== */}
-            <div className="w-full lg:w-[58%] xl:w-[60%] flex flex-col items-center justify-start">
-              <div className="relative group w-full -rotate-1 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-5 pb-5 border-4 border-black shadow-[12px_12px_0px_#000000] flex flex-col justify-between">
+            <div className="w-full lg:w-[58%] xl:w-[60%] flex flex-col items-center justify-start mt-1 sm:mt-2">
+              <div className="relative group w-full -rotate-1 hover:rotate-0 transition-transform duration-200 bg-[#fbfbf9] p-3 sm:p-5 pb-5 border-4 border-black shadow-[0_20px_40px_rgba(0,0,0,0.85),_10px_10px_0px_#000000] flex flex-col justify-between">
                 
-                {/* Pushpin at Top Center */}
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                  <div className={`w-6 h-6 rounded-full ${heroPinColor} border-2 border-black/80 shadow-[0_4px_8px_rgba(0,0,0,0.7)] flex items-center justify-center`}>
-                    <div className="w-2 h-2 rounded-full bg-white/80" />
+                {/* Pushpin pinned through the photo paper onto the wall */}
+                <div className="absolute top-2.5 sm:top-3 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
+                  <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full ${heroPinColor} border-2 border-black shadow-[0_3px_6px_rgba(0,0,0,0.9)] flex items-center justify-center`}>
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white/80" />
                   </div>
                 </div>
 
