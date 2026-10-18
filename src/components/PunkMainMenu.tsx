@@ -223,61 +223,75 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
       <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-black/75 pointer-events-none z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 pointer-events-none z-0" />
 
-      {/* 2. TOP HEADER BAR: COMPACT IDENTITY & LANGUAGE SWITCH */}
-      <header className="relative z-30 w-full px-4 sm:px-8 pt-2.5 pb-2 flex items-center justify-between shrink-0 border-b border-black/40 bg-black/60 backdrop-blur-md">
-        
-        {/* Profile Card & Identity Plaque */}
-        <div className="flex items-center space-x-3 sm:space-x-4">
-          
-          {/* Topocatchment Brandmark */}
-          <div className="shrink-0 transition-transform hover:scale-105 cursor-pointer -rotate-2" title="Topocatchment Brandmark">
-            <TopocatchmentLogo variant="badge" className="w-9 h-9 sm:w-10 sm:h-10 shadow-[2px_2px_0px_#facc15]" />
-          </div>
+      {/* 2. TOP RIGHT: LANGUAGE SWITCHER */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-8 z-40">
+        <button
+          onClick={onToggleLanguage}
+          className="px-3 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer"
+          title={currentLang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
+        >
+          <Globe className="w-3.5 h-3.5" />
+          <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
+        </button>
+      </div>
 
-          {/* Daniel Santander Real Portrait (Curriculum/Passport size) */}
+      {/* 3. TOP-LEFT THIRD: HEROIC PORTRAIT (7X LARGER), NAME, LOGO STAMP & DETAILS */}
+      <div className="relative lg:absolute lg:top-8 lg:left-8 xl:left-12 z-30 max-w-sm sm:max-w-md pt-4 sm:pt-6 lg:pt-0 px-4 sm:px-6 lg:px-0 pointer-events-auto">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 bg-black/65 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border-2 sm:border-[2.5px] border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)] -rotate-1 hover:rotate-0 transition-transform duration-200">
+          
+          {/* Portrait Frame (7x larger than old thumbnail) */}
           <div className="relative shrink-0 group">
-            <div className="w-9 h-11 sm:w-10 sm:h-12 rounded-lg bg-black p-0.5 border-2 border-white shadow-[2px_2px_0px_#000] overflow-hidden -rotate-1 group-hover:rotate-0 transition-transform">
+            <div className="w-28 h-36 sm:w-36 sm:h-46 md:w-40 md:h-50 rounded-xl bg-black p-1 border-2 sm:border-3 border-white shadow-[3px_3px_0px_#000] overflow-hidden -rotate-1 group-hover:rotate-0 transition-transform">
               <img 
                 src={resolveAsset('/profile.jpg')} 
                 alt="Daniel Santander Urrutia" 
                 className="w-full h-full object-cover object-top filter contrast-105"
               />
             </div>
+
+            {/* Topocatchment Official Brandmark Stamp (Clean integration on photo corner) */}
+            <div 
+              className="absolute -top-2.5 -left-2.5 transition-transform hover:scale-110 cursor-pointer -rotate-6" 
+              title="Topocatchment Brandmark"
+            >
+              <TopocatchmentLogo variant="badge" className="w-8 h-8 sm:w-9 sm:h-9 shadow-[2px_2px_0px_#facc15]" />
+            </div>
+
             {/* Active Status Beacon */}
-            <div className="absolute -bottom-1 -right-1 bg-red-600 text-white font-mono font-black text-[7px] px-1 py-0.2 rounded border border-black uppercase tracking-wider">
-              {currentLang === 'es' ? 'ACTIVO' : 'ACTIVE'}
+            <div className="absolute -bottom-1.5 -right-1.5 bg-red-600 text-white font-mono font-black text-[8px] sm:text-[9px] px-2 py-0.5 rounded border border-black uppercase tracking-wider shadow-[2px_2px_0px_#000] flex items-center space-x-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              <span>{currentLang === 'es' ? 'ACTIVO' : 'ACTIVE'}</span>
             </div>
           </div>
 
-          {/* Stencil Title */}
-          <div className="flex flex-col">
-            <div className="bg-white text-black px-2 py-0.5 border-2 border-black shadow-[2px_2px_0px_#facc15] -rotate-1 inline-block self-start">
-              <h1 className="font-mono font-black text-xs sm:text-base tracking-tighter uppercase leading-none">
+          {/* Identity & Career Details */}
+          <div className="flex flex-col space-y-2 text-center sm:text-left">
+            {/* Stencil Name */}
+            <div className="bg-white text-black px-2.5 py-1 border-2 border-black shadow-[3px_3px_0px_#facc15] -rotate-1 inline-block self-center sm:self-start">
+              <h1 className="font-mono font-black text-sm sm:text-base md:text-lg tracking-tight uppercase leading-none">
                 [DANIEL SANTANDER]
               </h1>
             </div>
-            <div className="text-[9px] sm:text-[10px] font-mono text-amber-300 font-bold tracking-wider uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] mt-0.5">
+
+            {/* Disciplines & Specialties */}
+            <div className="text-[10px] sm:text-[11px] font-mono text-amber-300 font-bold tracking-wide uppercase leading-snug drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
               {currentLang === 'es' 
                 ? 'GEOFÍSICA DE CUENCAS • COMUNICACIONES • CUMBRES'
                 : 'CATCHMENT HYDROGEOPHYSICS • COMMUNICATIONS • SUMMITS'}
             </div>
+
+            {/* Credentials / Location Brief */}
+            <div className="text-[9px] sm:text-[9.5px] font-mono text-neutral-300 bg-black/60 px-2 py-1 rounded border border-white/20 inline-block self-center sm:self-start">
+              {currentLang === 'es'
+                ? 'Utrecht • Santiago | Ciencia, Política & Arte'
+                : 'Utrecht • Santiago | Science, Policy & Art'}
+            </div>
           </div>
-        </div>
 
-        {/* Top Right: Language Switcher */}
-        <div className="flex items-center space-x-2">
-          <button
-            onClick={onToggleLanguage}
-            className="px-2.5 sm:px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[2px_2px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer"
-            title={currentLang === 'es' ? 'Switch to English' : 'Cambiar a Español'}
-          >
-            <Globe className="w-3.5 h-3.5" />
-            <span>{currentLang === 'es' ? 'ES' : 'EN'}</span>
-          </button>
         </div>
-      </header>
+      </div>
 
-      {/* 3. MAIN STAGE: DIRECTIONAL WOODEN SLATS MOUNTED OVER THE TIMBER POST (CLEAN, NO FOOTER, NO EXTRA BOXES) */}
+      {/* 4. MAIN STAGE: DIRECTIONAL WOODEN SLATS MOUNTED OVER THE TIMBER POST (CLEAN, NO FOOTER) */}
       <main className="relative z-20 flex-1 w-full px-4 sm:px-8 lg:px-12 flex flex-col justify-center items-center my-auto overflow-y-auto no-scrollbar py-2">
         
         {/* RIGHT AREA: DIRECTIONAL WOODEN SLATS MOUNTED DIRECTLY ON THE TIMBER POST */}
