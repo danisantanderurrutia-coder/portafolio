@@ -14,7 +14,8 @@ import {
   BookOpen,
   GraduationCap,
   Award,
-  Scale
+  Scale,
+  Lock
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -39,6 +40,7 @@ interface PunkMainMenuProps {
   onOpenPublications?: () => void;
   onOpenTitles?: () => void;
   onOpenArtDirector?: () => void;
+  onOpenAdmin?: () => void;
 }
 
 interface WoodenSignSlatProps {
@@ -216,7 +218,8 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   onSelectCertifications,
   onSelectScienceDossier,
   onOpenHireMe,
-  onOpenArtDirector
+  onOpenArtDirector,
+  onOpenAdmin
 }) => {
 
   return (
@@ -232,8 +235,17 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
       <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/25 to-black/75 pointer-events-none z-0" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50 pointer-events-none z-0" />
 
-      {/* 2. TOP RIGHT: LANGUAGE SWITCHER */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-8 z-40">
+      {/* 2. TOP RIGHT: SILENT PADLOCK (ICON ONLY, NO TEXT) & LANGUAGE SWITCHER */}
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-8 z-40 flex items-center gap-2">
+        {onOpenAdmin && (
+          <button
+            type="button"
+            onClick={onOpenAdmin}
+            className="p-1.5 bg-black/75 hover:bg-[#facc15] text-neutral-400 hover:text-black border-2 border-black shadow-[3px_3px_0px_#000000] active:scale-95 transition-all flex items-center justify-center cursor-pointer"
+          >
+            <Lock className="w-3.5 h-3.5" />
+          </button>
+        )}
         <button
           onClick={onToggleLanguage}
           className="px-3 py-1.5 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#000000] active:scale-95 transition-all flex items-center space-x-1.5 cursor-pointer"

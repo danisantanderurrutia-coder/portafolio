@@ -29,12 +29,15 @@ const TitlesModal = lazy(() =>
 const ArtDirectorModal = lazy(() =>
   import('./components/ArtDirectorModal').then((m) => ({ default: m.ArtDirectorModal }))
 );
+const AdminCareerPanel = lazy(() =>
+  import('./components/AdminCareerPanel').then((m) => ({ default: m.AdminCareerPanel }))
+);
 
 export { resolveAsset } from './utils';
 
-type ViewMode = 'punk' | 'game' | 'dossier' | 'comms_culture';
+type ViewMode = 'punk' | 'game' | 'dossier' | 'comms_culture' | 'admin';
 
-const VALID_VIEWS: ViewMode[] = ['punk', 'game', 'dossier', 'comms_culture'];
+const VALID_VIEWS: ViewMode[] = ['punk', 'game', 'dossier', 'comms_culture', 'admin'];
 const VALID_CATEGORIES: ('all' | MissionType)[] = [
   'all',
   'science',
@@ -57,9 +60,14 @@ function parseUrlState() {
   const missionParam = params.get('mission') || undefined;
   const modalParam = params.get('modal');
 
+  const cleanPath = window.location.pathname.replace(/\/+$/, '');
+  const cleanHash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
+  const isPathAdmin = cleanPath.endsWith('/admin') || cleanHash === 'admin';
+
   const lang: Language = langParam === 'es' || langParam === 'en' ? langParam : 'en';
-  const view: ViewMode =
-    viewParam && VALID_VIEWS.includes(viewParam)
+  const view: ViewMode = isPathAdmin
+    ? 'admin'
+    : viewParam && VALID_VIEWS.includes(viewParam)
       ? viewParam
       : catParam || missionParam
         ? 'game'
@@ -109,8 +117,14 @@ export function App() {
     else if (isTitlesOpen) params.set('modal', 'titles');
     else if (isArtDirectorOpen) params.set('modal', 'art');
 
+    let basePath = window.location.pathname;
+    if (viewMode !== 'admin' && /\/admin\/?$/.test(basePath)) {
+      basePath = basePath.replace(/\/admin\/?$/, '/');
+    }
+
     const searchStr = params.toString();
-    const newUrl = `${window.location.pathname}${searchStr ? `?${searchStr}` : ''}${window.location.hash}`;
+    const hashStr = viewMode !== 'admin' && /^#\/?admin$/i.test(window.location.hash) ? '' : window.location.hash;
+    const newUrl = `${basePath}${searchStr ? `?${searchStr}` : ''}${hashStr}`;
     const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     if (newUrl !== currentUrl) {
       window.history.pushState(null, '', newUrl);
@@ -182,6 +196,26 @@ export function App() {
           onSelectScienceDossier={() => setViewMode('dossier')}
           onOpenHireMe={() => setIsHireMeOpen(true)}
           onOpenArtDirector={() => setIsArtDirectorOpen(true)}
+          onOpenAdmin={() => setViewMode('admin')}
+        />
+      )}
+
+      {/* 1B. PANEL DE ADMINISTRADOR: PLAYBOOK DE BÚSQUEDA DE EMPLEO (EUROPA & CHILE) */}
+      {viewMode === 'admin' && (
+        <AdminCareerPanel
+          currentLang={currentLang}
+          onToggleLanguage={toggleLanguage}
+          onBackToHome={() => setViewMode('punk')}
+          onOpenDeepLinkView={(view, cat, mission, lang) => {
+            if (lang) setCurrentLang(lang);
+            if (view === 'dossier') {
+              setViewMode('dossier');
+            } else {
+              setSelectedCategory((cat as 'all' | MissionType) || 'all');
+              setSelectedMissionId(mission);
+              setViewMode('game');
+            }
+          }}
         />
       )}
 
