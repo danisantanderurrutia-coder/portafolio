@@ -308,10 +308,39 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           {/* 11 Hectic Directional Signboards (Mounted on the background artwork's post) */}
           <div className="relative z-10 w-full flex flex-col space-y-1 sm:space-y-1.5 py-1">
             
-            {/* 1. SIGN 01: SCIENCE & GEOPHYSICS (Points Right ➔) */}
+            {/* 1. SIGN 01: PROFESSIONAL DOSSIER (Top, Pure White, Points Right ➔) */}
             <WoodenSignSlat
               direction="right"
-              bgColor="#1d4ed8"
+              bgColor="#ffffff"
+              textColor="#000000"
+              rotationClass="-rotate-2"
+              offsetClass="translate-x-1"
+              icon={<FileText className="w-4 h-4 text-black" />}
+              label={currentLang === 'es' ? 'DOSSIER PROFESIONAL' : 'PROFESSIONAL DOSSIER'}
+              onClick={onSelectScienceDossier}
+              title={currentLang === 'es' ? 'Ver Dossier Profesional Formato Fanzine Papel' : 'View Professional Dossier Paper Format'}
+              isSpecial={true}
+            />
+
+            {/* 2. SIGN 02: CURRICULUM VITAE PDF (Fluorescent Yellow, Points Left ⬅) */}
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#facc15"
+              textColor="#000000"
+              rotationClass="rotate-2"
+              offsetClass="-translate-x-1.5"
+              icon={<Download className="w-4 h-4 text-black" />}
+              label={currentLang === 'es' ? 'CURRÍCULUM VITAE (PDF)' : 'CURRICULUM VITAE (PDF)'}
+              href={resolveAsset('/Daniel_Santander_CV.pdf')}
+              download="Daniel_Santander_CV.pdf"
+              title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
+              isSpecial={true}
+            />
+
+            {/* 3. SIGN 03: SCIENCE & GEOPHYSICS (Vivid Electric Blue, Points Right ➔) */}
+            <WoodenSignSlat
+              direction="right"
+              bgColor="#2563eb"
               textColor="#ffffff"
               rotationClass="-rotate-2.5"
               offsetClass="translate-x-1"
@@ -321,10 +350,10 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               title={currentLang === 'es' ? 'Explorar Planeta Ciencia & Geofísica 3D' : 'Explore 3D Science & Geophysics Planet'}
             />
 
-            {/* 2. SIGN 02: SUMMITS & GLOBAL POLICY (Points Left ⬅) */}
+            {/* 4. SIGN 04: SUMMITS & GLOBAL POLICY (Vivid Red, Points Left ⬅) */}
             <WoodenSignSlat
               direction="left"
-              bgColor="#991b1b"
+              bgColor="#ef4444"
               textColor="#ffffff"
               rotationClass="rotate-3"
               offsetClass="-translate-x-1.5"
@@ -334,11 +363,11 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               title={currentLang === 'es' ? 'Ver Cumbres y Política Global 3D' : 'View Summits & Global Policy 3D'}
             />
 
-            {/* 2B. SIGN 02B: POLICY ADVISORY (Points Left ⬅) */}
+            {/* 4B. SIGN 04B: POLICY ADVISORY (Vivid Carmine Red, Points Left ⬅) */}
             {onSelectPolicy && (
               <WoodenSignSlat
                 direction="left"
-                bgColor="#831843"
+                bgColor="#e11d48"
                 textColor="#ffffff"
                 rotationClass="rotate-1.5"
                 offsetClass="-translate-x-1"
@@ -349,10 +378,39 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               />
             )}
 
-            {/* 3. SIGN 03: GRASSROOTS & WATER (Points Right ➔) */}
+            {/* 5. SIGN 05: SKILLS & TOOLKIT (Vivid Electric Cyan, Points Right ➔) */}
             <WoodenSignSlat
               direction="right"
-              bgColor="#15803d"
+              bgColor="#0284c7"
+              textColor="#ffffff"
+              rotationClass="-rotate-2"
+              offsetClass="translate-x-1.5"
+              icon={<Terminal className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'FICHA TÉCNICA & SKILLS' : 'SKILLS & TOOLKIT'}
+              onClick={onSelectSkills}
+              title={currentLang === 'es' ? 'Ver Ficha Técnica de Habilidades y Software en el Globo' : 'View Skills & Technical Toolkit'}
+            />
+
+            {/* 6. SIGN 06: ACADEMIC TITLES (Vivid Fluorescent Purple, Points Left ⬅) */}
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#9333ea"
+              textColor="#ffffff"
+              rotationClass="rotate-2.5"
+              offsetClass="-translate-x-1"
+              icon={<GraduationCap className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'TÍTULOS ACADÉMICOS' : 'ACADEMIC TITLES'}
+              onClick={onSelectTitles}
+              title={currentLang === 'es' ? 'Ver Títulos Académicos y Grados en el Globo 3D' : 'View Academic Degrees & Diplomas'}
+            />
+
+            {/* ESPACIO DE UN LETRERO (Visual Pause / Separation on Timber Post) */}
+            <div className="h-[36px] sm:h-[39px] w-full flex items-center justify-center select-none pointer-events-none" aria-hidden="true" />
+
+            {/* 7. SIGN 07: GRASSROOTS & WATER (Vivid Neon Green, Points Right ➔) */}
+            <WoodenSignSlat
+              direction="right"
+              bgColor="#16a34a"
               textColor="#ffffff"
               rotationClass="-rotate-2"
               offsetClass="translate-x-1.5"
@@ -362,10 +420,10 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               title={currentLang === 'es' ? 'Ver Comunidades y Defensa del Agua' : 'View Grassroots & Water Governance'}
             />
 
-            {/* 4. SIGN 04: PROJECTS & INNOVATION (Points Right ➔) */}
+            {/* 8. SIGN 08: PROJECTS & INNOVATION (Vivid Mint Green, Points Right ➔) */}
             <WoodenSignSlat
               direction="right"
-              bgColor="#047857"
+              bgColor="#059669"
               textColor="#ffffff"
               rotationClass="-rotate-3"
               offsetClass="translate-x-1"
@@ -375,10 +433,23 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               title={currentLang === 'es' ? 'Ver Portafolio de Proyectos y Soluciones Comerciales en el Globo 3D' : 'View Commercial Projects Portfolio on the 3D Globe'}
             />
 
-            {/* 5. SIGN 05: COMMUNICATIONS & ARTS (Points Right ➔) */}
+            {/* 9. SIGN 09: PUBLICATIONS & PRESS (Vivid Neon Orange, Points Left ⬅) */}
+            <WoodenSignSlat
+              direction="left"
+              bgColor="#f97316"
+              textColor="#ffffff"
+              rotationClass="rotate-2.5"
+              offsetClass="-translate-x-1.5"
+              icon={<BookOpen className="w-4 h-4" />}
+              label={currentLang === 'es' ? 'PUBLICACIONES & PRENSA' : 'PUBLICATIONS & PRESS'}
+              onClick={onSelectPublications}
+              title={currentLang === 'es' ? 'Ver Publicaciones, Libros y Prensa en el Globo 3D' : 'View Publications & Press on the 3D Globe'}
+            />
+
+            {/* 10. SIGN 10: COMMUNICATIONS & ARTS (Vivid Flame Terracotta, Points Right ➔) */}
             <WoodenSignSlat
               direction="right"
-              bgColor="#c2410c"
+              bgColor="#ea580c"
               textColor="#ffffff"
               rotationClass="-rotate-1.5"
               offsetClass="translate-x-2"
@@ -400,86 +471,20 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               title={currentLang === 'es' ? 'Ver Medios, Música y Arte' : 'View Communications & Arts'}
             />
 
-            {/* 6. SIGN 06: PUBLICATIONS & PRESS (Points Left ⬅) */}
-            <WoodenSignSlat
-              direction="left"
-              bgColor="#b45309"
-              textColor="#ffffff"
-              rotationClass="rotate-2.5"
-              offsetClass="-translate-x-1"
-              icon={<BookOpen className="w-4 h-4" />}
-              label={currentLang === 'es' ? 'PUBLICACIONES & PRENSA' : 'PUBLICATIONS & PRESS'}
-              onClick={onSelectPublications}
-              title={currentLang === 'es' ? 'Ver Publicaciones, Libros y Prensa en el Globo 3D' : 'View Publications & Press on the 3D Globe'}
-            />
-
-            {/* 7. SIGN 07: SKILLS & TOOLKIT (Points Left ⬅) */}
-            <WoodenSignSlat
-              direction="left"
-              bgColor="#0369a1"
-              textColor="#ffffff"
-              rotationClass="rotate-1.5"
-              offsetClass="-translate-x-1.5"
-              icon={<Terminal className="w-4 h-4" />}
-              label={currentLang === 'es' ? 'FICHA TÉCNICA & SKILLS' : 'SKILLS & TOOLKIT'}
-              onClick={onSelectSkills}
-              title={currentLang === 'es' ? 'Ver Ficha Técnica de Habilidades y Software en el Globo' : 'View Skills & Technical Toolkit'}
-            />
-
-            {/* 8. SIGN 08: ACADEMIC TITLES (Points Left ⬅) */}
-            <WoodenSignSlat
-              direction="left"
-              bgColor="#4c1d95"
-              textColor="#ffffff"
-              rotationClass="rotate-3"
-              offsetClass="-translate-x-1"
-              icon={<GraduationCap className="w-4 h-4" />}
-              label={currentLang === 'es' ? 'TÍTULOS ACADÉMICOS' : 'ACADEMIC TITLES'}
-              onClick={onSelectTitles}
-              title={currentLang === 'es' ? 'Ver Títulos Académicos y Grados en el Globo 3D' : 'View Academic Degrees & Diplomas'}
-            />
-
-            {/* 9. SIGN 09: ADDITIONAL CERTIFICATIONS (Points Right ➔) */}
+            {/* 11. SIGN 11: ADDITIONAL CERTIFICATIONS (Vivid Aqua Teal, Bottom, Points Left ⬅) */}
             {onSelectCertifications && (
               <WoodenSignSlat
-                direction="right"
-                bgColor="#0f766e"
+                direction="left"
+                bgColor="#0d9488"
                 textColor="#ffffff"
-                rotationClass="-rotate-2"
-                offsetClass="translate-x-1.5"
+                rotationClass="rotate-2"
+                offsetClass="-translate-x-1"
                 icon={<Award className="w-4 h-4" />}
                 label={currentLang === 'es' ? 'CERTIFICACIONES ADICIONALES' : 'ADDITIONAL CERTIFICATIONS'}
                 onClick={onSelectCertifications}
                 title={currentLang === 'es' ? 'Ver Certificaciones Adicionales (Davos, Dresden, Copenhague, Aljezur, Permacultura) en el Globo 3D' : 'Explore Additional Certifications (Davos, Dresden, Copenhagen, Aljezur, Permaculture) on 3D Globe'}
               />
             )}
-
-            {/* 10. SIGN 10: ACADEMIC DOSSIER PAPER (Points Right ➔) */}
-            <WoodenSignSlat
-              direction="right"
-              bgColor="#78350f"
-              textColor="#ffffff"
-              rotationClass="-rotate-1.5"
-              offsetClass="translate-x-1"
-              icon={<FileText className="w-4 h-4" />}
-              label={currentLang === 'es' ? 'EXPEDIENTE ACADÉMICO' : 'ACADEMIC DOSSIER'}
-              onClick={onSelectScienceDossier}
-              title={currentLang === 'es' ? 'Ver Expediente Académico Formato Fanzine Papel' : 'View Academic Dossier Paper Format'}
-            />
-
-            {/* 11. SIGN 11: CURRICULUM VITAE PDF (Points Left ⬅) */}
-            <WoodenSignSlat
-              direction="left"
-              bgColor="#166534"
-              textColor="#ffffff"
-              rotationClass="rotate-2.5"
-              offsetClass="-translate-x-2"
-              icon={<Download className="w-4 h-4" />}
-              label={currentLang === 'es' ? 'CURRÍCULUM VITAE (PDF)' : 'CURRICULUM VITAE (PDF)'}
-              href={resolveAsset('/Daniel_Santander_CV.pdf')}
-              download="Daniel_Santander_CV.pdf"
-              title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
-            />
 
           </div>
 
