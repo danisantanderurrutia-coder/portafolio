@@ -444,14 +444,14 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
         <div className="bg-black/88 backdrop-blur-md px-4 py-3 rounded-xl border-[2.5px] border-black shadow-[5px_5px_0px_#facc15]">
           <div className="flex items-center justify-between gap-2 mb-1">
             <span className="bg-[#facc15] text-black font-mono font-black text-[10px] px-2 py-0.5 uppercase tracking-wider border border-black">
-              SCIENCE × POLICY × COMMUNICATION
+              SCIENCE × POLICY × PEOPLE
             </span>
             <span className="font-mono font-bold text-[10px] text-emerald-400 tracking-wider uppercase flex items-center gap-1">
               <Globe className="w-3 h-3" /> INTERACTIVE 3D PORTFOLIO &amp; EXECUTIVE DOSSIER
             </span>
           </div>
-          <p className="font-mono text-[11.5px] text-neutral-100 leading-snug">
-            Where <strong className="text-[#facc15]">soil physics, catchment hydrology, and numerical modeling</strong> bridge the gap to drive <strong className="text-emerald-400">evidence-based climate policy, water governance, and mass communication</strong>.
+          <p className="font-mono text-[13px] font-bold text-neutral-100 leading-snug">
+            Being the bridge between <strong className="text-[#facc15]">Earth science</strong>, <strong className="text-emerald-400">policy decisions</strong>, and <strong className="text-sky-300">people</strong>.
           </p>
         </div>
 
