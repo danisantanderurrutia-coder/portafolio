@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://danisantanderurrutia-coder.github.io/portafolio/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://danisantanderurrutia-coder.github.io/portafolio/?view=game&amp;cat=science</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://danisantanderurrutia-coder.github.io/portafolio/?view=game&amp;cat=policy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://danisantanderurrutia-coder.github.io/portafolio/?view=dossier</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>
