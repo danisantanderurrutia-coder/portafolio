@@ -1107,14 +1107,14 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['U. de Chile', 'Geofísica', 'Convención Constitucional', 'Cuencas']
   },
 
-  // 14. COMUNICACIONES: Radio Cristalina 96.3 FM - Maule Sur
+  // 14. COMUNICACIONES & MEDIOS: Red Comunitaria del Maule & Radio Cristalina 96.3 FM
   {
     id: 'radio-cristalina',
     type: 'comms',
-    titleEs: 'Red Comunitaria Maule Sur & Radio Cristalina 96.3 FM',
-    titleEn: 'Maule Sur Community Network & Radio Cristalina 96.3 FM',
-    subtitleEs: 'Programa "El Maule Sur También Existe" y Taller de Corresponsales Populares',
-    subtitleEn: '"El Maule Sur También Existe" Radio Series & Popular Reporters Workshop',
+    titleEs: 'Red Comunitaria del Maule & Radio Cristalina 96.3 FM',
+    titleEn: 'Maule Community Network & Radio Cristalina 96.3 FM',
+    subtitleEs: 'MauleRed, Radio Comunitaria y Taller de Corresponsales Populares',
+    subtitleEn: 'MauleRed Digital News Platform, Community Radio & Popular Reporters Workshop',
     country: 'Chile',
     city: 'Maule Sur',
     flag: '🇨🇱',
@@ -1128,36 +1128,48 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://danisantanderurrutia-coder.github.io/MauleRed/',
     availablePages: [
       {
-        titleEs: 'Logotipo Oficial • Red Maule Sur & Radio Comunitaria (Chucao de los Andes)',
-        titleEn: 'Official Logo • Maule Sur Network & Community Radio (Chucao de los Andes)',
-        pageSrc: '/logos/logo_chucao_andes.png'
-      },
-      {
-        titleEs: 'Panelista en Estudio de Transmisión Radial • Maule Sur (MauleRed)',
-        titleEn: 'Panellist in Radio Broadcasting Studio • Maule Sur (MauleRed)',
+        titleEs: 'Panelista en Estudio de Transmisión Radial • Maule Sur (Radio Cristalina 96.3 FM)',
+        titleEn: 'Panellist in Radio Broadcasting Studio • Maule Sur (Radio Cristalina 96.3 FM)',
         pageSrc: '/maule_sur_radio.jpg'
       },
       {
         titleEs: 'Plataforma Digital de Noticias Maule Red (GitHub Pages)',
         titleEn: 'Maule Red Digital Grassroots News Platform (GitHub Pages)',
         pageSrc: '/maulered_web.png'
+      },
+      {
+        titleEs: 'Logotipo Oficial • MauleRed Red de Medios Comunitaria',
+        titleEn: 'Official Logo • MauleRed Community Media Network',
+        pageSrc: '/maulered_logo.png'
+      },
+      {
+        titleEs: 'Aplicación Móvil y PWA • MauleRed Comunitaria',
+        titleEn: 'Mobile App & PWA • MauleRed Community',
+        pageSrc: '/logos/maulered_app_icon.png'
+      },
+      {
+        titleEs: 'Logotipo Oficial • Red Maule Sur & Radio Comunitaria (Chucao de los Andes)',
+        titleEn: 'Official Logo • Maule Sur Network & Community Radio (Chucao de los Andes)',
+        pageSrc: '/logos/logo_chucao_andes.png'
       }
     ],
     code: 'OPS-COM-04',
-    source: 'Radio Cristalina 96.3 FM & Red Maule Sur (Portafolio Comms)',
-    impactEs: 'Panelista regular en el programa radial "El Maule Sur También Existe" en Radio Cristalina 96.3 FM y creador del Taller de Corresponsales Populares, capacitando a vecinos rurales en reportería comunitaria.',
-    impactEn: 'Regular broadcaster on "El Maule Sur También Existe" on Radio Cristalina 96.3 FM and instructor of the Grassroots Reporters Workshop, training rural residents.',
+    source: 'Red de Medios Comunitaria del Maule & Radio Cristalina 96.3 FM',
+    impactEs: 'Fundación y coordinación de la Red de Medios Comunitaria del Maule (MauleRed) y panelista regular en el programa radial "El Maule Sur También Existe" en Radio Cristalina 96.3 FM. Creador del Taller de Corresponsales Populares, capacitando a vecinos rurales en reportería comunitaria, defensa del agua y soberanía de la información.',
+    impactEn: 'Founder and coordinator of the Maule Community Media Network (MauleRed) and regular broadcaster on "El Maule Sur También Existe" on Radio Cristalina 96.3 FM. Creator of the Popular Reporters Workshop training rural neighbors in grassroots journalism, water defense, and community information sovereignty.',
     methodologyEs: [
-      'Emisiones radiales en frecuencia modulada comunitaria en el Maule Sur',
+      'Plataforma digital independiente de noticias MauleRed (web y PWA comunitaria)',
+      'Emisiones radiales en frecuencia modulada comunitaria 96.3 FM en el Maule Sur',
       'Taller de Corresponsales Populares para vocerías y vecinos del campo',
-      'Difusión pedagógica de problemas hídricos y ambientales territoriales'
+      'Difusión pedagógica de problemas hídricos, monocultivos y derechos territoriales'
     ],
     methodologyEn: [
-      'Community FM radio broadcasting in rural Maule Sur',
-      'Grassroots Reporters Workshop empowering agricultural neighbors',
-      'Educational dissemination on local water and ecological challenges'
+      'Independent grassroots news platform MauleRed (web and community PWA)',
+      'Community FM radio broadcasting on 96.3 FM across rural Maule Sur',
+      'Grassroots Reporters Workshop empowering agricultural neighbors and youth',
+      'Educational dissemination on local water struggles, timber plantations, and territorial rights'
     ],
-    tags: ['Radio Cristalina', 'Maule Sur', 'Corresponsales', 'Comunitaria', 'Logo Oficial']
+    tags: ['Red Comunitaria del Maule', 'MauleRed', 'Radio Cristalina', 'Maule Sur', 'Corresponsales', 'Comunitaria', 'Logo Oficial']
   },
 
   // 15. COMUNICACIONES: Campaña "Solo el pueblo ayuda al pueblo"
@@ -1320,21 +1332,31 @@ export const GAME_MISSIONS: GameMission[] = [
     mediaType: 'video',
     embedUrl: 'https://www.youtube.com/embed/NcDejj3NKXo',
     url: 'https://www.youtube.com/watch?v=NcDejj3NKXo',
-    src: '/youtube_covers/NcDejj3NKXo.jpg',
+    src: '/logos/duenas-de-la-voz.jpg',
     availablePages: [
       {
-        titleEs: 'Logotipo Oficial • Rap Beauchef (Dossier-Rap GitHub)',
-        titleEn: 'Official Logo • Rap Beauchef (Dossier-Rap GitHub)',
-        pageSrc: '/logos/rap-beauchef.png'
+        titleEs: 'Gran Final "Dueñas de la Voz" • Logotipo & Afiche Oficial',
+        titleEn: 'Grand Final "Dueñas de la Voz" • Official Logo & Artwork',
+        pageSrc: '/logos/duenas-de-la-voz.jpg'
       },
       {
-        titleEs: 'Gran Final "Dueñas de la Voz" • Queena (Registro Audiovisual 4K)',
-        titleEn: 'Grand Final "Dueñas de la Voz" • Queena (Official 4K Record)',
+        titleEs: 'Rap Beauchef en Vivo • Batalla de Rimas en Anfiteatro FCFM',
+        titleEn: 'Rap Beauchef Live • Freestyle Battle in FCFM Amphitheater',
+        pageSrc: '/logos/rap-beauchef.jpg'
+      },
+      {
+        titleEs: 'Sticker & Tipografía Oficial • Rap Beauchef (Dossier-Rap GitHub)',
+        titleEn: 'Official Sticker & Typography • Rap Beauchef (Dossier-Rap GitHub)',
+        pageSrc: '/logos/rap-beauchef-sticker.png'
+      },
+      {
+        titleEs: 'Registro Audiovisual 4K • Gran Final Queena en YouTube',
+        titleEn: 'Official 4K Video Record • Queena Grand Final on YouTube',
         pageSrc: '/youtube_covers/NcDejj3NKXo.jpg'
       },
       {
-        titleEs: 'Cyphers y Encuentro de Rimas Internacional',
-        titleEn: 'Cyphers & International Rhyme Sessions',
+        titleEs: 'Cyphers y Encuentro de Rimas Internacional (Japón, Perú, México, Argentina)',
+        titleEn: 'International Cyphers & Rhyme Sessions (Japan, Peru, Mexico, Argentina)',
         pageSrc: '/instagram_covers/B3YgyJxgiBS.jpg'
       }
     ],
@@ -1377,11 +1399,16 @@ export const GAME_MISSIONS: GameMission[] = [
     mediaType: 'video',
     embedUrl: 'https://www.youtube.com/embed/B2XrNxHxwrA',
     url: 'https://www.youtube.com/watch?v=B2XrNxHxwrA',
-    src: '/youtube_covers/B2XrNxHxwrA.jpg',
+    src: '/logos/cuarentena-rap.jpg',
     availablePages: [
       {
-        titleEs: 'Logotipo Oficial • Cuarentena Rap (Dossier-Rap GitHub)',
-        titleEn: 'Official Logo • Cuarentena Rap (Dossier-Rap GitHub)',
+        titleEs: 'Emblema Oficial de la Corona y Micrófono • Cuarentena Rap',
+        titleEn: 'Official Crown & Microphone Emblem • Cuarentena Rap',
+        pageSrc: '/logos/cuarentena-rap.jpg'
+      },
+      {
+        titleEs: 'Logotipo Oficial Vectorial • Cuarentena Rap (Dossier-Rap GitHub)',
+        titleEn: 'Official Vector Logo • Cuarentena Rap (Dossier-Rap GitHub)',
         pageSrc: '/logos/cuarentena-rap-official.png'
       },
       {
@@ -2888,6 +2915,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   onBackToGateway
 }) => {
   const [activeFilter, setActiveFilter] = useState<'all' | MissionType>(initialFilter);
+  const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
   const [selectedMissionId, setSelectedMissionId] = useState<string>(() => {
     if (initialFilter !== 'all') {
       const found = GAME_MISSIONS.find((m) => m.type === initialFilter);
@@ -2926,7 +2954,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     { id: 'policy', labelEs: 'ASESORÍA EN POLÍTICAS PÚBLICAS', labelEn: 'POLICY ADVISORY', color: 'bg-violet-600', count: GAME_MISSIONS.filter((m) => m.type === 'policy').length },
     { id: 'science', labelEs: 'CIENCIA & GEOFÍSICA', labelEn: 'SCIENCE & GEOPHYSICS', color: 'bg-red-600', count: GAME_MISSIONS.filter((m) => m.type === 'science').length },
     { id: 'global', labelEs: 'CUMBRES CLIMÁTICAS', labelEn: 'CLIMATE SUMMITS', color: 'bg-amber-500', count: GAME_MISSIONS.filter((m) => m.type === 'global').length },
-    { id: 'culture', labelEs: 'MEDIOS & ARTE', labelEn: 'MEDIA & ARTS', color: 'bg-orange-600', count: GAME_MISSIONS.filter((m) => m.type === 'culture' || m.id === 'plp-prensa').length },
+    { id: 'culture', labelEs: 'MEDIOS & ARTE', labelEn: 'MEDIA & ARTS', color: 'bg-orange-600', count: GAME_MISSIONS.filter((m) => m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina').length },
     { id: 'comms', labelEs: 'COMUNIDADES & ECOLOGÍA', labelEn: 'GRASSROOTS & ECOLOGY', color: 'bg-emerald-600', count: GAME_MISSIONS.filter((m) => m.type === 'comms').length },
     { id: 'rd', labelEs: 'PROYECTOS & I+D', labelEn: 'PROJECTS & R&D', color: 'bg-purple-600', count: GAME_MISSIONS.filter((m) => m.type === 'rd').length },
     { id: 'publications', labelEs: 'PUBLICACIONES & ENSAYOS', labelEn: 'PUBLICATIONS & TREATISES', color: 'bg-indigo-600', count: GAME_MISSIONS.filter((m) => m.type === 'publications').length },
@@ -2953,7 +2981,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   // Filtered list for mission rail
   const filteredMissions = GAME_MISSIONS.filter((m) => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa';
+    if (activeFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina';
     return m.type === activeFilter;
   });
 
@@ -2975,13 +3003,14 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       setActiveFilter(initialFilter);
       if (initialFilter !== 'all') {
         const found = GAME_MISSIONS.find((m) => {
-          if (initialFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa';
+          if (initialFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina';
           return m.type === initialFilter;
         });
         if (found) {
           setSelectedMissionId(found.id);
           setSelectedPlatePage(0);
           setActiveSkillToolIndex(0);
+          setIsVideoPlaying(false);
         }
       }
     }
@@ -2992,11 +3021,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     setSelectedPlatePage(0);
     setActiveSkillToolIndex(0);
     setIsDossierOpen(true);
+    setIsVideoPlaying(false);
     if (newFilter === 'all') {
       setSelectedMissionId(GAME_MISSIONS[0].id);
     } else {
       const match = GAME_MISSIONS.find((m) => {
-        if (newFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa';
+        if (newFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina';
         return m.type === newFilter;
       });
       if (match) setSelectedMissionId(match.id);
@@ -3008,6 +3038,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       setSelectedMissionId(filteredMissions[0].id);
       setSelectedPlatePage(0);
       setActiveSkillToolIndex(0);
+      setIsVideoPlaying(false);
     }
   }, [activeFilter, filteredMissions, selectedMissionId]);
 
@@ -3028,6 +3059,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     setSelectedPlatePage(0);
     setActiveSkillToolIndex(0);
     setIsDossierOpen(true);
+    setIsVideoPlaying(false);
   };
 
   const handleNext = () => {
@@ -3610,7 +3642,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     currentMission.type === 'policy' ? 'bg-violet-600 border-violet-900' :
     currentMission.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
     currentMission.type === 'global' ? 'bg-amber-500 border-amber-800' :
-    currentMission.type === 'culture' ? 'bg-orange-500 border-orange-800' :
+    currentMission.type === 'culture' || (activeFilter === 'culture' && (currentMission.id === 'plp-prensa' || currentMission.id === 'radio-cristalina')) ? 'bg-orange-500 border-orange-800' :
     currentMission.type === 'titles' ? 'bg-pink-600 border-pink-900' :
     currentMission.type === 'certifications' ? 'bg-teal-600 border-teal-900' :
     currentMission.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
@@ -3866,15 +3898,22 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
                 {/* Media Viewport Frame - BALANCED & PROPORTIONED */}
                 <div className="relative w-full rounded-xl bg-[#080c14] border-2 border-black shadow-[4px_4px_0px_#000000] overflow-hidden flex items-center justify-center min-h-[260px] sm:min-h-[300px] lg:min-h-[340px] xl:min-h-[380px] max-h-[440px]">
-                  {currentMission.mediaType === 'video' && currentMission.embedUrl ? (
-                    <div className="w-full h-full aspect-video min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]">
+                  {currentMission.mediaType === 'video' && currentMission.embedUrl && isVideoPlaying ? (
+                    <div className="relative w-full h-full aspect-video min-h-[260px] sm:min-h-[300px] lg:min-h-[340px] bg-black">
                       <iframe
-                        src={currentMission.embedUrl}
+                        src={`${currentMission.embedUrl}${currentMission.embedUrl.includes('?') ? '&' : '?'}autoplay=1`}
                         title={currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
                         className="w-full h-full border-0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                       />
+                      <button
+                        onClick={() => setIsVideoPlaying(false)}
+                        className="absolute top-3 right-3 z-30 px-3 py-1.5 bg-black/90 hover:bg-[#facc15] text-white hover:text-black font-mono font-black text-xs uppercase border border-white/40 rounded shadow-lg transition flex items-center space-x-1.5 cursor-pointer"
+                        title={currentLang === 'es' ? 'Cerrar reproductor y ver fotografías' : 'Close player and view photos'}
+                      >
+                        <span>✕ {currentLang === 'es' ? 'VER FOTOS' : 'VIEW PHOTOS'}</span>
+                      </button>
                     </div>
                   ) : currentMission.mediaType === 'audio' ? (
                     /* Pletina de Casete de Radio Campesina */
@@ -3999,6 +4038,38 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                           className="relative z-10 max-h-[280px] sm:max-h-[320px] lg:max-h-[350px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_16px_36px_rgba(0,0,0,0.98)]"
                         />
 
+                        {/* Play Video Controls overlay when mediaType is video */}
+                        {currentMission.mediaType === 'video' && currentMission.embedUrl && (
+                          <>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setIsVideoPlaying(true);
+                              }}
+                              className="absolute top-3 right-3 z-30 px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white font-mono font-black text-xs uppercase border border-black rounded shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 active:scale-95 transition cursor-pointer"
+                              title={currentLang === 'es' ? 'Reproducir video en vivo' : 'Play live video'}
+                            >
+                              <Play className="w-3.5 h-3.5 fill-white" />
+                              <span>{currentLang === 'es' ? '▶ REPRODUCIR VIDEO' : '▶ PLAY VIDEO'}</span>
+                            </button>
+
+                            <div
+                              onClick={() => setIsVideoPlaying(true)}
+                              className="absolute inset-0 z-10 flex items-center justify-center cursor-pointer group/vidhero bg-black/20 hover:bg-black/10 transition-colors"
+                              title={currentLang === 'es' ? 'Click para reproducir video' : 'Click to play video'}
+                            >
+                              <div className="flex flex-col items-center space-y-2 transform group-hover/vidhero:scale-105 transition-all">
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-600/95 hover:bg-red-500 text-white border-2 border-white shadow-[0_8px_30px_rgba(0,0,0,0.95)] flex items-center justify-center">
+                                  <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white ml-1" />
+                                </div>
+                                <span className="font-mono text-xs sm:text-sm font-black text-white bg-black/85 px-3 py-1 rounded border border-white/30 uppercase tracking-wider shadow-lg">
+                                  {currentLang === 'es' ? 'VER REGISTRO EN VIVO 4K' : 'WATCH 4K LIVE RECORD'}
+                                </span>
+                              </div>
+                            </div>
+                          </>
+                        )}
+
                         {/* Floating Nav Arrows when multiple pages exist */}
                         {currentMission.availablePages.length > 1 && (
                           <>
@@ -4059,6 +4130,36 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         alt={currentLang === 'es' ? currentMission.titleEs : currentMission.titleEn}
                         className="relative z-10 max-h-[280px] sm:max-h-[320px] lg:max-h-[350px] w-auto max-w-full object-contain rounded-lg drop-shadow-[0_16px_36px_rgba(0,0,0,0.98)]"
                       />
+                      {currentMission.mediaType === 'video' && currentMission.embedUrl && (
+                        <>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setIsVideoPlaying(true);
+                            }}
+                            className="absolute top-3 right-3 z-30 px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white font-mono font-black text-xs uppercase border border-black rounded shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 active:scale-95 transition cursor-pointer"
+                            title={currentLang === 'es' ? 'Reproducir video en vivo' : 'Play live video'}
+                          >
+                            <Play className="w-3.5 h-3.5 fill-white" />
+                            <span>{currentLang === 'es' ? '▶ REPRODUCIR VIDEO' : '▶ PLAY VIDEO'}</span>
+                          </button>
+
+                          <div
+                            onClick={() => setIsVideoPlaying(true)}
+                            className="absolute inset-0 z-10 flex items-center justify-center cursor-pointer group/vidhero bg-black/20 hover:bg-black/10 transition-colors"
+                            title={currentLang === 'es' ? 'Click para reproducir video' : 'Click to play video'}
+                          >
+                            <div className="flex flex-col items-center space-y-2 transform group-hover/vidhero:scale-105 transition-all">
+                              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-red-600/95 hover:bg-red-500 text-white border-2 border-white shadow-[0_8px_30px_rgba(0,0,0,0.95)] flex items-center justify-center">
+                                <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-white text-white ml-1" />
+                              </div>
+                              <span className="font-mono text-xs sm:text-sm font-black text-white bg-black/85 px-3 py-1 rounded border border-white/30 uppercase tracking-wider shadow-lg">
+                                {currentLang === 'es' ? 'VER REGISTRO EN VIVO 4K' : 'WATCH 4K LIVE RECORD'}
+                              </span>
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   ) : (
                     /* Classified Pending Blueprint */
@@ -4320,7 +4421,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                       m.type === 'policy' ? 'bg-violet-600 border-violet-900' :
                       m.type === 'comms' ? 'bg-emerald-600 border-emerald-900' :
                       m.type === 'global' ? 'bg-amber-500 border-amber-800' :
-                      m.type === 'culture' ? 'bg-orange-500 border-orange-800' :
+                      m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina' ? 'bg-orange-500 border-orange-800' :
                       m.type === 'titles' ? 'bg-pink-600 border-pink-900' :
                       m.type === 'certifications' ? 'bg-teal-600 border-teal-900' :
                       m.type === 'publications' ? 'bg-indigo-600 border-indigo-900' :
@@ -4352,16 +4453,45 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                         {/* Square Image / Preview Frame */}
                         <div className="relative w-full aspect-square bg-[#0c1017] rounded border border-black/40 overflow-hidden mb-1 flex items-center justify-center">
                           {m.mediaType === 'video' ? (
-                            <div className="relative w-full h-full bg-[#12161f] flex flex-col items-center justify-center">
-                              <Play className="w-4 h-4 text-red-500 fill-red-500/30" />
-                              <span className="absolute bottom-0.5 right-0.5 font-mono text-[5px] bg-red-600 text-white px-0.5 font-black uppercase">
-                                REC
+                            <div className="relative w-full h-full overflow-hidden flex items-center justify-center bg-black group/thumb">
+                              {m.src ? (
+                                <img
+                                  src={resolveAsset(m.src)}
+                                  alt={currentLang === 'es' ? m.titleEs : m.titleEn}
+                                  className="w-full h-full object-cover filter contrast-105 group-hover/thumb:scale-105 transition-transform duration-300"
+                                />
+                              ) : m.availablePages && m.availablePages.length > 0 ? (
+                                <img
+                                  src={resolveAsset(m.availablePages[0].pageSrc)}
+                                  alt={currentLang === 'es' ? m.titleEs : m.titleEn}
+                                  className="w-full h-full object-cover filter contrast-105 group-hover/thumb:scale-105 transition-transform duration-300"
+                                />
+                              ) : (
+                                <div className="w-full h-full bg-[#12161f]" />
+                              )}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+                              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <div className="w-6 h-6 rounded-full bg-red-600/90 border-2 border-white shadow-[0_2px_8px_rgba(0,0,0,0.8)] flex items-center justify-center group-hover/thumb:scale-110 transition-transform">
+                                  <Play className="w-3 h-3 text-white fill-white ml-0.5" />
+                                </div>
+                              </div>
+                              <span className="absolute bottom-1 right-1 font-mono text-[6px] sm:text-[7px] bg-red-600 text-white px-1 py-0.2 rounded font-black uppercase tracking-wider shadow">
+                                4K VIDEO
                               </span>
                             </div>
                           ) : m.mediaType === 'audio' ? (
-                            <div className="w-full h-full bg-[#1e293b] flex flex-col items-center justify-center text-center text-emerald-400">
-                              <Volume2 className="w-4 h-4" />
-                              <span className="font-mono text-[6px] font-bold">96.3 FM</span>
+                            <div className="relative w-full h-full overflow-hidden flex items-center justify-center bg-[#1e293b]">
+                              {m.src ? (
+                                <img
+                                  src={resolveAsset(m.src)}
+                                  alt={currentLang === 'es' ? m.titleEs : m.titleEn}
+                                  className="w-full h-full object-cover filter contrast-105"
+                                />
+                              ) : null}
+                              <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center text-emerald-400">
+                                <Volume2 className="w-4 h-4" />
+                                <span className="font-mono text-[6px] font-bold">96.3 FM</span>
+                              </div>
                             </div>
                           ) : (m.availablePages && m.availablePages.length > 0 && m.availablePages[0].pageSrc.startsWith('TECH_MATRIX')) || m.type === 'skills' ? (
                             <div className="w-full h-full bg-[#090d16] p-0.5 flex flex-col items-center justify-center">
