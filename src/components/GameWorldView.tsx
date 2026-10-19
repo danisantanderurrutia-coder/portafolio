@@ -704,25 +704,30 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Portugal', 'Aljezur', 'Rewilding', 'SIG', 'GEDI', 'Incendios', 'Certificación']
   },
 
-  // 12c. CERTIFICACIONES ADICIONALES: Diseñador en Permacultura (CDP) - Maule, Chile
+  // 12c. CERTIFICACIONES ADICIONALES: Diseñador en Permacultura (CDP) - Curarrehue & Maule, Chile
   {
     id: 'cert-permacultura',
     type: 'certifications',
-    titleEs: 'Certificación: Diseñador en Permacultura (CDP) // Escuela EPAC',
-    titleEn: 'Certification: Certified Permaculture Designer (CDP) // EPAC School',
-    subtitleEs: 'Escuela Chilena de Permacultura y Agroecología (EPAC) | 2023',
-    subtitleEn: 'Chilean School of Permaculture and Agroecology (EPAC) | 2023',
+    titleEs: 'Certificación: Curso de Diseño en Permacultura (80 hrs) // EPAC & Fundación Suelo',
+    titleEn: 'Certification: Permaculture Design Course (80 hrs) // EPAC & Fundación Suelo',
+    subtitleEs: 'Escuela de Permacultura Aplicada Chile & Fundación Suelo | Curarrehue, 2023',
+    subtitleEn: 'Applied Permaculture School of Chile & Soil Foundation | Curarrehue, 2023',
     country: 'Chile',
-    city: 'Maule',
+    city: 'Curarrehue / Maule',
     flag: '🇨🇱',
-    lat: -35.43,
-    lng: -71.66,
+    lat: -39.36,
+    lng: -71.58,
     date: '2023',
-    roleEs: 'Diseñador en Permacultura Certificado (CDP)',
-    roleEn: 'Certified Permaculture Designer (CDP)',
+    roleEs: 'Diseñador en Permacultura Certificado (CDP • 80 hrs)',
+    roleEn: 'Certified Permaculture Designer (CDP • 80 hrs)',
     mediaType: 'plate',
-    src: '/expeditions/ong_raiz_native_tree_planting.jpg',
+    src: '/certificates/permacultura_epac_curarrehue.jpg',
     availablePages: [
+      {
+        titleEs: 'Diploma Oficial: Curso Certificado de Diseño en Permacultura (EPAC & Fundación Suelo)',
+        titleEn: 'Official Diploma: Certified Permaculture Design Course (EPAC & Soil Foundation)',
+        pageSrc: '/certificates/permacultura_epac_curarrehue.jpg'
+      },
       {
         titleEs: 'Reforestación Comunitaria y Prácticas Agroecológicas en Terreno',
         titleEn: 'Community Reforestation & Hands-on Agroecological Practices',
@@ -741,20 +746,159 @@ export const GAME_MISSIONS: GameMission[] = [
     ],
     url: 'https://www.facebook.com/EPACPermacultura/',
     code: 'OPS-CERT-05',
-    source: 'Escuela Chilena de Permacultura y Agroecología EPAC (CV)',
-    impactEs: 'Certificación oficial como Diseñador en Permacultura (CDP) otorgada por la Escuela Chilena de Permacultura y Agroecología (EPAC, 2023). Aplicación de principios de zonificación bioclimática, diseño hidrológico en contorno (Keyline), regeneración de microbiología de suelos y soberanía territorial (según CV).',
-    impactEn: 'Official certification as a Certified Permaculture Designer (CDP) from the Chilean School of Permaculture and Agroecology (EPAC, 2023). Implementation of bioclimatic zoning, Keyline hydrological design, soil living biology regeneration, and territorial resilience (from CV).',
+    source: 'Escuela de Permacultura Aplicada Chile (EPAC) & Fundación Suelo (Diploma)',
+    impactEs: 'Certificación oficial de 80 horas de formación presencial y online en Diseño en Permacultura (CDP), facilitada por Julio E. Pérez Díaz, María Carolina Miranda, Raymond Lodge y equipo en Curarrehue (febrero 2023). Aplicación de zonificación de 5 zonas, diseño hidrológico Keyline y regeneración de suelos.',
+    impactEn: 'Official 80-hour on-site and online certification as a Certified Permaculture Designer (CDP), facilitated by Julio E. Pérez Díaz, María Carolina Miranda, Raymond Lodge, and design team in Curarrehue (February 2023).',
     methodologyEs: [
-      'Certificación como Diseñador en Permacultura (CDP) por la Escuela EPAC (CV)',
+      'Diploma oficial de 80 horas presenciales y online (EPAC & Fundación Suelo)',
       'Diseño hidrológico en contorno (Keyline) y cosecha de agua de lluvia en cuencas de secano',
       'Zonificación predial regenerativa de 5 zonas y transición agroforestal sin agroquímicos'
     ],
     methodologyEn: [
-      'Certified Permaculture Designer (CDP) certification by EPAC School (CV)',
+      'Official 80-hour on-site and online diploma (EPAC & Soil Foundation)',
       'Contour Keyline hydrological design and rainwater harvesting in dryland catchments',
       'Regenerative 5-zone farm planning and pesticide-free agroforestry transitions'
     ],
-    tags: ['Permacultura', 'EPAC', 'CDP', 'Agroecología', 'Keyline', 'Maule', 'Certificación']
+    tags: ['Permacultura', 'EPAC', 'Fundación Suelo', 'CDP', 'Curarrehue', 'Maule', 'Certificación']
+  },
+
+  // 12d. CERTIFICACIONES ADICIONALES: (CR)2 Summer School - Costas Resilientes (Concepción, Chile)
+  {
+    id: 'cert-cr2',
+    type: 'certifications',
+    titleEs: 'Certificación: Escuela de Verano (CR)2 Costas Resilientes (57 hrs)',
+    titleEn: 'Certification: (CR)2 Resilient Coasts Summer School (57 hrs)',
+    subtitleEs: 'Centro de Ciencia del Clima y la Resiliencia (CR)2 • Universidad de Chile | 2023',
+    subtitleEn: 'Center for Climate and Resilience Research (CR)2 • University of Chile | 2023',
+    country: 'Chile',
+    city: 'Concepción',
+    flag: '🇨🇱',
+    lat: -36.82,
+    lng: -73.05,
+    date: '2023',
+    roleEs: 'Investigador Participante (57 hrs presenciales)',
+    roleEn: 'Participant Researcher (57 on-site hrs)',
+    mediaType: 'plate',
+    src: '/certificates/cr2_summer_school_costas_resilientes.png',
+    availablePages: [
+      {
+        titleEs: 'Certificado Oficial (CR)2: 3ª Escuela de Verano Costas Resilientes',
+        titleEn: 'Official (CR)2 Certificate: 3rd Resilient Coasts Summer School',
+        pageSrc: '/certificates/cr2_summer_school_costas_resilientes.png'
+      },
+      {
+        titleEs: 'Exposición y Trabajo de Campo en Cuencas y Zonas Costeras del Biobío',
+        titleEn: 'Fieldwork and Presentations across Biobío Watersheds & Coasts',
+        pageSrc: '/expeditions/concepcion_biomass_talk.png'
+      }
+    ],
+    url: 'https://www.cr2.cl',
+    code: 'OPS-CERT-06',
+    source: 'Centro de Ciencia del Clima y la Resiliencia (CR)2 (Diploma Oficial)',
+    impactEs: 'Certificación presencial de 57 horas académicas en la 3ª Escuela de Verano «Con los pies en el mar: Hacia el co-diseño de costas resilientes. Riesgos climáticos y respuestas a lo largo de las zonas costeras», dirigida por el climatólogo René Garreaud S. en Concepción, Chile (enero 2023).',
+    impactEn: '57-hour certified on-site summer school on resilient coastal co-design and climate hazards organized by the Center for Climate and Resilience Research (CR)2 / University of Chile, directed by René Garreaud S. in Concepción (January 2023).',
+    methodologyEs: [
+      'Co-diseño de respuestas adaptativas ante eventos climáticos extremos en zonas costeras',
+      'Modelación de amenazas climáticas costeras, oleaje extremo y erosión de playas',
+      'Articulación transdisciplinar entre oceanografía física, geofísica y gobernanza local'
+    ],
+    methodologyEn: [
+      'Co-design of adaptive responses to extreme climate events along coastal zones',
+      'Modeling coastal climate hazards, extreme wave regimes, and beach erosion',
+      'Transdisciplinary integration between physical oceanography, geophysics, and local governance'
+    ],
+    tags: ['(CR)2', 'U. de Chile', 'René Garreaud', 'Costas Resilientes', 'Concepción', 'Certificación']
+  },
+
+  // 12e. CERTIFICACIONES ADICIONALES: Instituto Ambiental GIS - Nicho Ecológico & R (Online)
+  {
+    id: 'cert-instituto-gis',
+    type: 'certifications',
+    titleEs: 'Certificación: Modelado de Nicho Ecológico, Teledetección & R (20 hrs)',
+    titleEn: 'Certification: Ecological Niche Modeling, Remote Sensing & R (20 hrs)',
+    subtitleEs: 'Instituto Ambiental GIS // QGIS, ArcGIS PRO, Radar & GEE | 2022',
+    subtitleEn: 'Environmental GIS Institute // QGIS, ArcGIS PRO, Radar & GEE | 2022',
+    country: 'Chile / Internacional',
+    city: 'Online / GIS',
+    flag: '🌐',
+    lat: -33.45,
+    lng: -70.66,
+    date: '2022',
+    roleEs: 'Especialista en Modelado de Biodiversidad & SIG',
+    roleEn: 'Biodiversity Modeling & GIS Specialist',
+    mediaType: 'plate',
+    src: '/certificates/instituto_ambiental_gis_r_qgis.png',
+    availablePages: [
+      {
+        titleEs: 'Diploma Oficial: El Desafío en Biodiversidad y Medio Ambiente (Instituto Ambiental GIS)',
+        titleEn: 'Official Diploma: Biodiversity & Environmental Challenge (Environmental GIS Institute)',
+        pageSrc: '/certificates/instituto_ambiental_gis_r_qgis.png'
+      }
+    ],
+    url: 'https://escuelaambiental.com',
+    code: 'OPS-CERT-07',
+    source: 'Instituto Ambiental GIS (Diploma Oficial)',
+    impactEs: 'Diploma de culminación satisfactoria del Desafío en Biodiversidad y Medio Ambiente: modelado de nicho ecológico, descarga de datos de biodiversidad GBIF, teledetección y clasificación satelital con QGIS y ArcGIS PRO, análisis EDA en R y procesamiento de imágenes Radar con Google Earth Engine (20 horas académicas).',
+    impactEn: 'Official certification diploma in Biodiversity and Environmental Modeling: GBIF biodiversity data extraction, satellite classification via ArcGIS PRO and QGIS, exploratory data analysis in R, and Radar / Google Earth Engine workflows.',
+    methodologyEs: [
+      'Descarga e integración de bases de datos de biodiversidad mundial GBIF',
+      'Clasificación supervisada y no supervisada de imágenes satelitales en QGIS y ArcGIS PRO',
+      'Análisis exploratorio de datos espaciales (EDA) con R y teledetección Radar en Google Earth Engine'
+    ],
+    methodologyEn: [
+      'Extraction and spatial mapping of global GBIF biodiversity occurrence databases',
+      'Supervised and unsupervised satellite imagery classification in QGIS and ArcGIS PRO',
+      'Exploratory spatial data analysis (EDA) in R and Radar remote sensing via Google Earth Engine'
+    ],
+    tags: ['QGIS', 'R', 'GEE', 'Radar', 'GBIF', 'Nicho Ecológico', 'ArcGIS', 'Certificación']
+  },
+
+  // 12f. CERTIFICACIONES ADICIONALES: Censat Agua Viva - Economía Verde y Financiarización (Bogotá)
+  {
+    id: 'cert-censat',
+    type: 'certifications',
+    titleEs: 'Certificación: Economía Verde y Financiarización de la Naturaleza (16 hrs)',
+    titleEn: 'Certification: Green Economy & Nature Financialization (16 hrs)',
+    subtitleEs: 'Censat Agua Viva & Amigos de la Tierra Internacional | Bogotá, 2022',
+    subtitleEn: 'Censat Agua Viva & Friends of the Earth International | Bogotá, 2022',
+    country: 'Colombia',
+    city: 'Bogotá',
+    flag: '🇨🇴',
+    lat: 4.71,
+    lng: -74.07,
+    date: '2022',
+    roleEs: 'Participante Certificado (16 hrs)',
+    roleEn: 'Certified Participant (16 hrs)',
+    mediaType: 'plate',
+    src: '/certificates/censat_economia_verde_financiarizacion.png',
+    availablePages: [
+      {
+        titleEs: 'Certificado Oficial: Curso sobre Economía Verde y Financiarización de la Naturaleza',
+        titleEn: 'Official Certificate: Green Economy & Nature Financialization Course',
+        pageSrc: '/certificates/censat_economia_verde_financiarizacion.png'
+      },
+      {
+        titleEs: 'Círculo de Diálogo y Formación Territorial en Colombia (Censat Agua Viva)',
+        titleEn: 'Territorial Dialogue & Training Circle in Colombia (Censat Agua Viva)',
+        pageSrc: '/expeditions/colombia_climate_justice_circle.jpg'
+      }
+    ],
+    url: 'https://censat.org',
+    code: 'OPS-CERT-08',
+    source: 'Censat Agua Viva & Amigos de la Tierra (Diploma Oficial)',
+    impactEs: 'Certificación otorgada por Censat Agua Viva, Amigos de la Tierra Internacional, Green Livelihoods Alliance, Profundo, Fundación Heinrich Böll y la Universidad Nacional de Colombia (UNAL) por la culminación del curso sobre economía verde, mercados de carbono y financiarización de bienes comunes.',
+    impactEn: 'Official certification awarded by Censat Agua Viva, Friends of the Earth International, Green Livelihoods Alliance, Profundo, Heinrich Böll Foundation, and National University of Colombia (UNAL) analyzing green economy and nature financialization.',
+    methodologyEs: [
+      'Auditoría crítica a los mecanismos de compensación y créditos de carbono forestal',
+      'Desmitificación de la financiarización de ecosistemas y servicios ambientales',
+      'Articulación con movimientos socioambientales de América Latina y defensa territorial'
+    ],
+    methodologyEn: [
+      'Critical audit of carbon offset mechanisms and corporate forest carbon credits',
+      'Demystification of ecosystem financialization and market-based natural capital',
+      'Networking with Latin American environmental justice and grassroots territorial defense'
+    ],
+    tags: ['Censat Agua Viva', 'Colombia', 'Bogotá', 'Economía Verde', 'Mercados de Carbono', 'UNAL', 'Certificación']
   },
 
   // 13. ASESORÍA EN POLÍTICAS PÚBLICAS: Universidad de Chile & Convención Constitucional

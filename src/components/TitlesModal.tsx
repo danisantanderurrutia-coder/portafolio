@@ -140,15 +140,51 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
     },
     {
       id: 'cert-permacultura',
-      locationEs: 'Maule, Chile 🇨🇱',
-      locationEn: 'Maule, Chile 🇨🇱',
-      institution: 'Escuela Chilena de Permacultura y Agroecología (EPAC)',
-      titleEs: 'Diseñador en Permacultura (CDP)',
-      titleEn: 'Certified Permaculture Designer (CDP)',
+      locationEs: 'Curarrehue & Maule, Chile 🇨🇱',
+      locationEn: 'Curarrehue & Maule, Chile 🇨🇱',
+      institution: 'Escuela de Permacultura Aplicada Chile (EPAC) & Fundación Suelo',
+      titleEs: 'Curso Certificado de Diseño en Permacultura (80 hrs)',
+      titleEn: 'Certified Permaculture Design Course (80 hrs)',
       year: '2023',
-      image: '/expeditions/ong_raiz_native_tree_planting.jpg',
-      descEs: 'Zonificación predial regenerativa de 5 zonas, diseño hidrológico Keyline, cosecha de aguas y regeneración edáfica.',
-      descEn: 'Regenerative 5-zone farm planning, Keyline hydrological design, rainwater harvesting, and living soil biology.'
+      image: '/certificates/permacultura_epac_curarrehue.jpg',
+      descEs: '80 hrs de formación presencial y online en diseño permacultural, zonificación y resiliencia campesina (Curarrehue, Feb 2023).',
+      descEn: '80-hour on-site and online permaculture design, spatial zoning, and agroecological resilience (Curarrehue, Feb 2023).'
+    },
+    {
+      id: 'cert-cr2',
+      locationEs: 'Concepción, Chile 🇨🇱',
+      locationEn: 'Concepción, Chile 🇨🇱',
+      institution: 'Centro de Ciencia del Clima y la Resiliencia (CR)2 • U. de Chile',
+      titleEs: '3ª Escuela de Verano: Costas Resilientes (57 hrs)',
+      titleEn: '3rd Summer School: Resilient Coasts (57 hrs)',
+      year: '2023',
+      image: '/certificates/cr2_summer_school_costas_resilientes.png',
+      descEs: '«Con los pies en el mar: Hacia el co-diseño de costas resilientes. Riesgos climáticos en zonas costeras», dir. René Garreaud.',
+      descEn: '"With feet in the sea: Towards co-designing resilient coasts - Climate hazards on coastal zones", dir. René Garreaud.'
+    },
+    {
+      id: 'cert-instituto-gis',
+      locationEs: 'Escuela Ambiental GIS 🌐',
+      locationEn: 'Environmental GIS Institute 🌐',
+      institution: 'Instituto Ambiental GIS (Steven Mora / Orlando Advíncula)',
+      titleEs: 'Modelado de Nicho Ecológico, Teledetección & R (20 hrs)',
+      titleEn: 'Ecological Niche Modeling, Remote Sensing & R (20 hrs)',
+      year: '2022',
+      image: '/certificates/instituto_ambiental_gis_r_qgis.png',
+      descEs: 'Datos GBIF, clasificación satelital con ArcGIS PRO/QGIS, análisis exploratorio EDA en R e imágenes Radar / GEE.',
+      descEn: 'GBIF biodiversity data, satellite classification via ArcGIS/QGIS, EDA analysis in R, and Radar / Google Earth Engine.'
+    },
+    {
+      id: 'cert-censat',
+      locationEs: 'Bogotá, Colombia 🇨🇴',
+      locationEn: 'Bogotá, Colombia 🇨🇴',
+      institution: 'Censat Agua Viva & Amigos de la Tierra Internacional',
+      titleEs: 'Economía Verde y Financiarización de la Naturaleza (16 hrs)',
+      titleEn: 'Green Economy & Nature Financialization (16 hrs)',
+      year: '2022',
+      image: '/certificates/censat_economia_verde_financiarizacion.png',
+      descEs: 'Análisis crítico de mercados de carbono, compensaciones financieras y soberanía territorial junto a UNAL y Fundación Heinrich Böll.',
+      descEn: 'Critical analysis of carbon markets, financial offset schemes, and territorial sovereignty supported by UNAL and Heinrich Böll.'
     }
   ];
 
@@ -303,13 +339,19 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
                 >
                   <div>
                     {/* Visual thumbnail */}
-                    <div className="w-full h-28 mb-3 rounded-lg overflow-hidden border border-black/80 shadow-[1px_1px_0px_#000] bg-black">
+                    <a 
+                      href={resolveAsset(cert.image)} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block w-full h-36 mb-3 rounded-lg overflow-hidden border border-black/80 shadow-[1px_1px_0px_#000] bg-black group-hover:border-[#facc15] transition-colors cursor-zoom-in"
+                      title={currentLang === 'es' ? 'Click para ver diploma en alta resolución' : 'Click to view diploma in high resolution'}
+                    >
                       <img 
                         src={resolveAsset(cert.image)} 
                         alt={cert.titleEs} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" 
                       />
-                    </div>
+                    </a>
 
                     <div className="flex items-center justify-between text-[10px] font-mono mb-1.5">
                       <span className="text-[#facc15] font-black">{cert.locationEs}</span>
