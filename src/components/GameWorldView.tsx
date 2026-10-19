@@ -102,22 +102,22 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Congreso Nacional', 'Fiscalización', 'Megaincendios', 'Políticas Públicas']
   },
 
-  // 2. CIENCIA: CAU Kiel - Doble Maestría en Gestión Ambiental
+  // 1. CIENCIA 01: Rewetting wetlands and Greenhouse gas analysis (CAU Kiel - Master en Manejo Ambiental)
   {
     id: 'kiel-cau',
     type: 'science',
-    titleEs: 'Doble Maestría en Gestión Ambiental // CAU Kiel',
-    titleEn: 'Dual Master’s Degree in Environmental Management // CAU Kiel',
-    subtitleEs: 'Christian Albrechts University (Kiel, Alemania) | 2023-2025',
-    subtitleEn: 'Christian Albrechts University (Kiel, Germany) | 2023-2025',
+    titleEs: 'Rewetting wetlands and Greenhouse gas analysis',
+    titleEn: 'Rewetting wetlands and Greenhouse gas analysis',
+    subtitleEs: 'Tesis de Maestría en Manejo Ambiental | CAU Kiel (Alemania) | 2023-2025',
+    subtitleEn: 'Master’s Thesis in Environmental Management | CAU Kiel (Germany) | 2023-2025',
     country: 'Alemania',
     city: 'Kiel',
     flag: '🇩🇪',
     lat: 54.32,
     lng: 10.13,
     date: '2023-2025',
-    roleEs: 'Estudiante de Maestría & Investigador',
-    roleEn: 'Master’s Student & Researcher',
+    roleEs: 'Investigador de Tesis de Maestría en Manejo Ambiental',
+    roleEn: 'Master’s Thesis Researcher in Environmental Management',
     mediaType: 'plate',
     src: '/expeditions/kiel_soil_lab.png',
     availablePages: [
@@ -125,24 +125,246 @@ export const GAME_MISSIONS: GameMission[] = [
         titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo (CAU Kiel)',
         titleEn: 'Soil Physics Laboratory & Column Flux Analysis (CAU Kiel)',
         pageSrc: '/expeditions/kiel_soil_lab.png'
+      },
+      {
+        titleEs: 'Dinámica de Humedales y Aves del Mar de Wadden',
+        titleEn: 'Wetlands Dynamics & Wadden Sea Fieldwork',
+        pageSrc: '/expeditions/wadden_sea_birding.jpg'
       }
     ],
     url: 'https://www.uni-kiel.de',
     code: 'OPS-SCI-01',
-    source: 'Christian Albrechts University (CAU Kiel)',
-    impactEs: 'Investigación en balance hídrico y dinámica de suelos integrando sistemas acuáticos y terrestres, y modelación del impacto de incendios forestales en ecosistemas de cuencas (según CV).',
-    impactEn: 'Research on water balance and soil dynamics integrating aquatic and terrestrial systems, and modeling forest fire impacts on watershed ecosystems (from CV).',
+    source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel)',
+    impactEs: 'Tema de tesis de maestría desarrollado para el Master en Manejo Ambiental (M.Sc. Environmental Management) en CAU Kiel. Investigación cuantitativa en rehumedecimiento de humedales y turberas degradadas (rewetting wetlands), balance biogeoquímico y análisis dinámico de flujos de gases de efecto invernadero (CO2, CH4, N2O) mediante cámaras y sistemas micrometeorológicos.',
+    impactEn: 'Master’s thesis research conducted for the Master in Environmental Management at CAU Kiel (Germany). Focuses on rewetting wetlands and degraded peatlands, soil biogeochemistry, and greenhouse gas (GHG) exchange analytics (CO2, CH4, N2O) integrating laboratory soil columns and micrometeorological flux methodologies.',
     methodologyEs: [
-      'Balance hídrico y dinámica de suelos integrando sistemas acuáticos y terrestres (CV)',
-      'Modelación del impacto de incendios forestales en ecosistemas de cuencas (CV)',
-      'Doble maestría europea en gestión y protección ambiental (CV)'
+      'Análisis de flujos de gases de efecto invernadero (GEI) y rehumedecimiento de turberas (Rewetting wetlands)',
+      'Tesis desarrollada para el Master en Manejo Ambiental en CAU Kiel (Alemania)',
+      'Física de suelos, columnas de flujo y dinámica de carbono en ecosistemas acuático-terrestres'
     ],
     methodologyEn: [
-      'Water balance and soil dynamics integrating aquatic and terrestrial systems (CV)',
-      'Model of forest fire impacts on watershed ecosystems (CV)',
-      'Dual European Master’s program in environmental management (CV)'
+      'Rewetting wetlands and greenhouse gas exchange analysis (CO2, CH4)',
+      'Master’s thesis research for the Master in Environmental Management at CAU Kiel (Germany)',
+      'Soil physics, column flux experiments, and carbon dynamics across aquatic-terrestrial boundaries'
     ],
-    tags: ['CAU Kiel', 'Alemania', 'Dinámica de Suelos', 'Balance Hídrico', 'Incendios']
+    tags: ['Rewetting Wetlands', 'Greenhouse Gas Analysis', 'CAU Kiel', 'Master Manejo Ambiental', 'Alemania']
+  },
+
+  // 2. CIENCIA 02: Research on Protozoos, zooplankton, fitoplankton y micrófitas (AMU Poznań - Master en Protección Ambiental)
+  {
+    id: 'poznan-amu',
+    type: 'science',
+    titleEs: 'Research on Protozoos, zooplankton, fitoplankton y micrófitas',
+    titleEn: 'Research on Protozoa, zooplankton, phytoplankton and macrophytes',
+    subtitleEs: 'Tesis de Maestría en Protección Ambiental | AMU Poznań (Polonia) | 2023-2025',
+    subtitleEn: 'Master’s Thesis in Environmental Protection | AMU Poznań (Poland) | 2023-2025',
+    country: 'Polonia',
+    city: 'Poznań',
+    flag: '🇵🇱',
+    lat: 52.41,
+    lng: 16.93,
+    date: '2023-2025',
+    roleEs: 'Investigador de Tesis de Maestría en Protección Ambiental',
+    roleEn: 'Master’s Thesis Researcher in Environmental Protection',
+    mediaType: 'plate',
+    src: '/expeditions/poland_microscope_zeiss.jpg',
+    availablePages: [
+      {
+        titleEs: 'Identificación de Protozoos y Ciliados al Microscopio Zeiss',
+        titleEn: 'Zeiss Microscopy of Protozoa and Ciliates',
+        pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
+      },
+      {
+        titleEs: 'Muestreo Limnológico de Fitoplancton y Perifiton en Lago',
+        titleEn: 'Limnological Phytoplankton & Biofilm Lake Sampling',
+        pageSrc: '/expeditions/poland_lake_sampling.jpg'
+      },
+      {
+        titleEs: 'Clasificación de Macroinvertebrados Bentónicos y Micrófitas',
+        titleEn: 'Benthic Macroinvertebrate & Macrophyte Field Sorting',
+        pageSrc: '/expeditions/poznan_lake_benthos.jpg'
+      },
+      {
+        titleEs: 'Expedición en Bote a Remo y Batimetría Lacustre',
+        titleEn: 'Lake Expedition by Rowboat & Depth Profiling',
+        pageSrc: '/expeditions/poland_lake_rowing.jpg'
+      }
+    ],
+    url: 'https://amu.edu.pl',
+    code: 'OPS-SCI-02',
+    source: 'Adam Mickiewicz University (AMU Poznań)',
+    impactEs: 'Investigación de tesis desarrollada para el Master en Protección Ambiental (M.Sc. Environmental Protection) en la Universidad Adam Mickiewicz de Poznań (AMU). Caracterización limnológica e identificación microscópica de protozoos, zooplancton, fitoplancton y micrófitas/macrofitas en humedales y cuencas lacustres de Polonia como bioindicadores de calidad ecosistémica y secuestro de carbono.',
+    impactEn: 'Thesis research developed for the Master’s in Environmental Protection at Adam Mickiewicz University in Poznań (AMU). Limnological monitoring and microscopic identification of protozoa, zooplankton, phytoplankton, and macrophytes/microphytes across Polish lakes and wetlands as bioindicators of trophic health and carbon sequestration.',
+    methodologyEs: [
+      'Microscopía óptica Zeiss de alta resolución e identificación taxonómica de protozoos y ciliados',
+      'Muestreo limnológico in situ de fitoplancton, zooplancton y micrófitas acuáticas',
+      'Tesis desarrollada para el Master en Protección Ambiental en AMU Poznań (Polonia)'
+    ],
+    methodologyEn: [
+      'High-resolution Zeiss optical microscopy and taxonomic identification of protozoa and ciliates',
+      'In situ limnological sampling of phytoplankton, zooplankton, and aquatic macrophytes',
+      'Master’s thesis research for the Master in Environmental Protection at AMU Poznań (Poland)'
+    ],
+    tags: ['AMU Poznań', 'Protozoos', 'Zooplancton', 'Fitoplancton', 'Micrófitas', 'Protección Ambiental']
+  },
+
+  // 3. CIENCIA 03: Estudios geofísicos, hídricos y de resistividad de suelos (U. de Chile - Geofísica)
+  {
+    id: 'science-geophysics-soils',
+    type: 'science',
+    titleEs: 'Estudios geofísicos, hídricos y de resistividad de suelos',
+    titleEn: 'Geophysical, Hydrological & Soil Resistivity Studies',
+    subtitleEs: 'Tesis de Licenciatura en Geofísica | FCFM Universidad de Chile | Maule & Santiago',
+    subtitleEn: 'Bachelor’s Thesis in Geophysics | FCFM Universidad de Chile | Maule & Santiago',
+    country: 'Chile',
+    city: 'Cauquenes / Santiago',
+    flag: '🇨🇱',
+    lat: -35.97,
+    lng: -72.31,
+    date: '2016-2021',
+    roleEs: 'Geofísico de Terreno & Tesista de Pregrado (FCFM U. de Chile)',
+    roleEn: 'Field Geophysicist & Undergraduate Thesis Researcher (FCFM U. de Chile)',
+    mediaType: 'plate',
+    src: '/expeditions/cauquenes_rain_gauge.jpg',
+    availablePages: [
+      {
+        titleEs: 'Instalación de Pluviómetro y Estación Hidrometeorológica en Terreno',
+        titleEn: 'Field Installation of Rain Gauge & Hydrometeorological Station',
+        pageSrc: '/expeditions/cauquenes_rain_gauge.jpg'
+      },
+      {
+        titleEs: 'Sondeo Eléctrico Vertical (SEV) y Resistividad Geoeléctrica de Suelos',
+        titleEn: 'Vertical Electrical Sounding (VES) & Soil Geoelectrical Resistivity',
+        pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
+      }
+    ],
+    url: 'https://ingenieria.uchile.cl',
+    code: 'OPS-SCI-03',
+    source: 'FCFM Universidad de Chile (Departamento de Geofísica)',
+    impactEs: 'Investigación empírica desarrollada para el grado de Licenciado en Geofísica en la Universidad de Chile (FCFM), aprobada con distinción máxima. Evaluación hidrogeofísica de cuencas en el secano interior de Cauquenes (Región del Maule), mediante instalación y calibración de pluviómetros de terreno, sensores meteorológicos y sondeos eléctricos verticales (SEV) para mapear resistividad de suelos, acuíferos someros y déficit hídrico por plantaciones forestales.',
+    impactEn: 'Empirical research developed for the Bachelor’s in Geophysics at Universidad de Chile (FCFM), awarded with highest distinction. Hydrogeophysical assessment of catchments in Cauquenes (Maule Region), deploying rain gauges, meteorological stations, and vertical electrical soundings (VES Schlumberger) to profile soil resistivity, shallow aquifers, and severe water deficits under industrial forestry plantations.',
+    methodologyEs: [
+      'Instalación, nivelación y monitoreo continuo con pluviómetros e instrumental hidroclimático',
+      'Sondeos Eléctricos Verticales (SEV) de resistividad aparente e inversión geofísica 1D/2D del subsuelo',
+      'Evaluación cuantitativa del estrés hídrico y agotamiento de napas por monocultivo forestal (U. de Chile)'
+    ],
+    methodologyEn: [
+      'Field installation, calibration, and continuous logging with rain gauges and hydroclimatic sensors',
+      'Vertical Electrical Soundings (VES) for apparent resistivity and 1D/2D geophysical subsurface inversion',
+      'Quantitative assessment of soil moisture deficit and aquifer depletion under industrial forestry (U. de Chile)'
+    ],
+    tags: ['Geofísica', 'U. de Chile', 'Pluviómetro', 'Resistividad de Suelos', 'Sondeos Eléctricos', 'Cauquenes']
+  },
+
+  // 4. CIENCIA 04: Biomass, Pulp and Paper risk assessment and supply chains (BAN, EPN, GFC)
+  {
+    id: 'science-biomass-risk',
+    type: 'science',
+    titleEs: 'Biomass, Pulp and Paper risk assessment and supply chains',
+    titleEn: 'Biomass, Pulp and Paper risk assessment and supply chains',
+    subtitleEs: 'Investigación Internacional con BAN, EPN y Global Forest Coalition (GFC)',
+    subtitleEn: 'International Research with BAN, EPN & Global Forest Coalition (GFC)',
+    country: 'Chile / Global',
+    city: 'Biobío / Parral',
+    flag: '🌐',
+    lat: -36.82,
+    lng: -73.05,
+    date: '2022-2025',
+    roleEs: 'Investigador de Cadenas de Suministro & Riesgo Biofísico',
+    roleEn: 'Supply Chain & Biophysical Risk Researcher',
+    mediaType: 'plate',
+    src: '/expeditions/epn_parral_biomass.jpg',
+    availablePages: [
+      {
+        titleEs: 'Auditoría en Terreno: Plantas de Biomasa y Aserraderos Industriales (Parral)',
+        titleEn: 'Field Audit: Biomass Plants & Industrial Sawmills (Parral)',
+        pageSrc: '/expeditions/epn_parral_biomass.jpg'
+      },
+      {
+        titleEs: 'Conferencia y Exposición sobre Cadenas Globales de Celulosa y Papel (Concepción)',
+        titleEn: 'Conference & Briefing on Global Pulp & Paper Chains (Concepción)',
+        pageSrc: '/expeditions/concepcion_biomass_talk.png'
+      },
+      {
+        titleEs: 'Informe de Investigación: Environmental Paper Network (EPN)',
+        titleEn: 'Research Brief: Environmental Paper Network (EPN)',
+        pageSrc: '/press_covers/epn_cover.png'
+      },
+      {
+        titleEs: 'Red Internacional Enjust y Alianzas de Justicia Ecosocial',
+        titleEn: 'Enjust Network & Ecosocial Alliances',
+        pageSrc: '/expeditions/enjust_logo.png'
+      }
+    ],
+    url: 'https://environmentalpaper.org',
+    code: 'OPS-SCI-04',
+    source: 'Biomass Action Network (BAN), EPN & Global Forest Coalition (GFC)',
+    impactEs: 'Investigación científica y auditoría de cadenas de suministro globales de biomasa leñosa, pulpa de celulosa y papel en el Cono Sur y los mercados de exportación globales. Desarrollada en estrecha colaboración con Biomass Action Network (BAN), Environmental Paper Network (EPN) y Global Forest Coalition (GFC), evaluando la contabilidad real de emisiones de carbono, degradación de suelos, estrés hídrico y las falsas soluciones bioenergéticas.',
+    impactEn: 'Scientific research and international supply chain audit of woody biomass, pulp, and paper flows across the Southern Cone and export markets. Developed in collaboration with Biomass Action Network (BAN), Environmental Paper Network (EPN), and Global Forest Coalition (GFC), evaluating true carbon accounting balances, soil degradation, watershed water stress, and bioenergy false solutions.',
+    methodologyEs: [
+      'Auditoría y trazabilidad en terreno de aserraderos, acopios y plantas de biomasa en Chile',
+      'Evaluación de riesgos ecológicos y cadenas globales junto a BAN, EPN y Global Forest Coalition',
+      'Modelación de balances de carbono y flujos biofísicos de exportación de biomasa y celulosa'
+    ],
+    methodologyEn: [
+      'Field auditing and supply chain tracing of sawmills, stockyards, and biomass facilities in Chile',
+      'Ecological risk evaluation and international trade mapping alongside BAN, EPN, and Global Forest Coalition',
+      'Biophysical flow modeling, carbon balance accounting, and pulp export lifecycle analysis'
+    ],
+    tags: ['Biomass Action Network', 'EPN', 'Global Forest Coalition', 'Cadenas de Suministro', 'Riesgo Biofísico', 'Celulosa']
+  },
+
+  // 5. CIENCIA 05: Climate risks: Wildfires and Fires (Red Plurinacional de Humedales & Modelo Forestal)
+  {
+    id: 'science-wildfires-risks',
+    type: 'science',
+    titleEs: 'Climate risks: Wildfires and Fires',
+    titleEn: 'Climate risks: Wildfires and Fires',
+    subtitleEs: 'Red Plurinacional de Humedales & Red de Superación al Modelo Forestal | Chile',
+    subtitleEn: 'Plurinational Wetland Network & Network Overcoming the Forestry Model | Chile',
+    country: 'Chile',
+    city: 'Maule / Biobío',
+    flag: '🇨🇱',
+    lat: -36.20,
+    lng: -72.10,
+    date: '2021-2025',
+    roleEs: 'Modelador Geoespacial & Asesor Científico de Riesgo',
+    roleEn: 'Geospatial Modeler & Scientific Risk Advisor',
+    mediaType: 'plate',
+    src: '/press_covers/tomaterojo_humedales_fuego.jpg',
+    availablePages: [
+      {
+        titleEs: 'Humedales en Llamas: Impacto de Megaincendios en Ecosistemas Acuáticos',
+        titleEn: 'Wetlands in Flames: Megafire Impacts on Aquatic Ecosystems',
+        pageSrc: '/press_covers/tomaterojo_humedales_fuego.jpg'
+      },
+      {
+        titleEs: 'Propuestas Técnicas y Franjas de Protección ante el Congreso y la Convención',
+        titleEn: 'Technical Proposals & Buffer Zones Presented to Congress & Convention',
+        pageSrc: '/expeditions/convencion_norma_residuos.jpg'
+      },
+      {
+        titleEs: 'Relevamiento de Biodiversidad y Vulnerabilidad en Cuencas del Centro-Sur',
+        titleEn: 'Biodiversity & Vulnerability Survey in Central-Southern Basins',
+        pageSrc: '/expeditions/longavi_biodiversity_survey.jpg'
+      }
+    ],
+    url: 'https://tomaterojo.cl',
+    code: 'OPS-SCI-05',
+    source: 'Red Plurinacional de Humedales en Chile & Red de Superación al Modelo Forestal',
+    impactEs: 'Modelación de riesgos climáticos extremos enfocada en la dinámica de megaincendios forestales y su impacto crítico sobre humedales, cuencas abastecedoras de agua y comunidades en Chile. Realizado en estrecha articulación con la Red Plurinacional de Humedales en Chile y la Red de Superación al Modelo Forestal, integrando teledetección satelital de severidad de fuego, pirogeomorfología y propuestas normativas de cortafuegos y restauración ecológica.',
+    impactEn: 'Extreme climate risk modeling focused on forest wildfire dynamics and their severe downstream impacts on wetlands, drinking water catchments, and communities across Chile. Conducted in partnership with Red Plurinacional de Humedales en Chile and Red de Superación al Modelo Forestal, combining satellite burn severity analysis, pyrogeomorphology, and evidence-based ecological buffer zone proposals.',
+    methodologyEs: [
+      'Modelación de severidad espectral y propagación de megaincendios sobre cuencas y humedales',
+      'Articulación técnica con la Red Plurinacional de Humedales y la Red de Superación al Modelo Forestal',
+      'Desarrollo de propuestas científicas de ordenamiento territorial, amortiguamiento y cortafuegos biológicos'
+    ],
+    methodologyEn: [
+      'Satellite burn severity modeling and wildfire propagation dynamics across watersheds and wetlands',
+      'Technical partnership with Red Plurinacional de Humedales and Red de Superación al Modelo Forestal',
+      'Development of science-based land use zoning, ecological buffer zones, and biological firebreaks'
+    ],
+    tags: ['Climate Risks', 'Wildfires', 'Red Plurinacional de Humedales', 'Modelo Forestal', 'Chile', 'Incendios']
   },
 
   // 3. COMUNICACIONES: Primera Línea Prensa (+700k) - Santiago
@@ -203,63 +425,6 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['+700k', 'Primera Línea Prensa', 'Periodismo Ciudadano', 'Santiago', 'Logo Oficial']
   },
 
-  // 4. CIENCIA: AMU Poznań - Tesis de Maestría en Carbono y Humedales
-  {
-    id: 'poznan-amu',
-    type: 'science',
-    titleEs: 'Tesis de Maestría: Secuestro de Carbono en Humedales // AMU Poznań',
-    titleEn: 'Master’s Thesis: Carbon Sequestration in Wetlands // AMU Poznań',
-    subtitleEs: 'Adam Mickiewicz University (Poznań, Polonia) | 2023-2025',
-    subtitleEn: 'Adam Mickiewicz University (Poznań, Poland) | 2023-2025',
-    country: 'Polonia',
-    city: 'Poznań',
-    flag: '🇵🇱',
-    lat: 52.41,
-    lng: 16.93,
-    date: '2023-2025',
-    roleEs: 'Estudiante de Maestría & Tesista',
-    roleEn: 'Master’s Student & Thesis Researcher',
-    mediaType: 'plate',
-    src: '/expeditions/poland_lake_sampling.jpg',
-    availablePages: [
-      {
-        titleEs: 'Muestreo Limnológico de Perifiton en Lago',
-        titleEn: 'Limnological Biofilm & Periphyton Lake Sampling',
-        pageSrc: '/expeditions/poland_lake_sampling.jpg'
-      },
-      {
-        titleEs: 'Identificación de Protozoos al Microscopio Zeiss',
-        titleEn: 'Zeiss Microscopy of Protozoa and Ciliates',
-        pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
-      },
-      {
-        titleEs: 'Clasificación de Macroinvertebrados Bentónicos',
-        titleEn: 'Benthic Macroinvertebrate Field Sorting',
-        pageSrc: '/expeditions/poznan_lake_benthos.jpg'
-      },
-      {
-        titleEs: 'Expedición en Bote a Remo y Batimetría Lacustre',
-        titleEn: 'Lake Expedition by Rowboat & Depth Profiling',
-        pageSrc: '/expeditions/poland_lake_rowing.jpg'
-      }
-    ],
-    url: 'https://amu.edu.pl',
-    code: 'OPS-SCI-02',
-    source: 'Adam Mickiewicz University (AMU Poznań)',
-    impactEs: 'Tesis de Maestría: Secuestro de carbono en humedales y su relación con ecosistemas terrestres adyacentes (Master\'s Thesis: Carbon sequestration in wetlands and its relationship with adjacent terrestrial ecosystems, según CV).',
-    impactEn: 'Master’s Thesis: Carbon sequestration in wetlands and its relationship with adjacent terrestrial ecosystems (from CV).',
-    methodologyEs: [
-      'Secuestro de carbono en humedales (CV)',
-      'Relación con ecosistemas terrestres adyacentes (CV)',
-      'Maestría en Protección Ambiental en AMU Poznań (CV)'
-    ],
-    methodologyEn: [
-      'Carbon sequestration in wetlands (CV)',
-      'Coupling with adjacent terrestrial ecosystems (CV)',
-      'Master’s Program in Environmental Protection at AMU Poznań (CV)'
-    ],
-    tags: ['AMU Poznań', 'Polonia', 'Carbono', 'Humedales', 'Tesis de Maestría']
-  },
 
   // 5. COMUNICACIONES: Apruebo Rural - Maule
   {

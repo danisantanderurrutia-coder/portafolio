@@ -308,7 +308,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           {/* 11 Hectic Directional Signboards (Mounted on the background artwork's post) */}
           <div className="relative z-10 w-full flex flex-col space-y-1 sm:space-y-1.5 py-1">
             
-            {/* 1. SIGN 01: SCIENCE & ACADEMY (Points Right ➔) */}
+            {/* 1. SIGN 01: SCIENCE & GEOPHYSICS (Points Right ➔) */}
             <WoodenSignSlat
               direction="right"
               bgColor="#1d4ed8"
@@ -316,9 +316,9 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               rotationClass="-rotate-2.5"
               offsetClass="translate-x-1"
               icon={<Microscope className="w-4 h-4" />}
-              label={currentLang === 'es' ? 'CIENCIA & ACADEMIA' : 'SCIENCE & ACADEMY'}
+              label={currentLang === 'es' ? 'CIENCIA & GEOFÍSICA' : 'SCIENCE & GEOPHYSICS'}
               onClick={onSelectSciencePlanet}
-              title={currentLang === 'es' ? 'Explorar Planeta Ciencia 3D' : 'Explore 3D Science Planet'}
+              title={currentLang === 'es' ? 'Explorar Planeta Ciencia & Geofísica 3D' : 'Explore 3D Science & Geophysics Planet'}
             />
 
             {/* 2. SIGN 02: SUMMITS & GLOBAL POLICY (Points Left ⬅) */}

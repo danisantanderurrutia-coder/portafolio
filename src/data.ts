@@ -1691,17 +1691,21 @@ export const scientificSections: SectionData[] = [
     titleEs: 'Sistemas Biofísicos, Dinámica de GEI en Turberas y Balance de Cuencas',
     headlineEn: 'Empirical Quantification of Greenhouse Gas Exchanges and Forest Monoculture Water Stress',
     headlineEs: 'Cuantificación Empírica de Flujos de Gases de Efecto Invernadero y Estrés Hídrico por Monocultivos',
-    narrativeEn: 'Interdisciplinary research bridging geophysics with European double-degree environmental science. Specializing in eddy covariance GHG flux towers in rewetted peatlands, vertical electrical sounding (VES) for soil moisture depletion in Chilean forestry megadroughts, and post-fire erosion/socio-ecological disturbance modeling.',
-    narrativeEs: 'Investigación interdisciplinaria articulando geofísica con doble maestría europea en gestión ambiental. Especializado en torres de covarianza de torbellinos (Eddy Covariance) para flujos de GEI en turberas rehumedecidas, sondeos eléctricos verticales para agotamiento hídrico por monocultivos forestales en Chile y modelos socioecológicos post-incendio.',
+    narrativeEn: 'Interdisciplinary research bridging geophysics (FCFM Universidad de Chile) with a European dual master’s degree in environmental management and protection (CAU Kiel and AMU Poznań). Five core scientific pillars: 1) Rewetting wetlands and greenhouse gas analysis (CAU Kiel); 2) Limnological research on protozoa, zooplankton, phytoplankton, and microphytes (AMU Poznań); 3) Geophysical, hydrological, and soil resistivity studies with rain gauges and VES (U. de Chile); 4) Biomass, pulp, and paper risk assessments and supply chains (BAN, EPN, GFC); 5) Climate risks: Wildfires and wetland fire impacts (Red Plurinacional de Humedales and Red de Superación al Modelo Forestal).',
+    narrativeEs: 'Investigación interdisciplinaria articulando geofísica (FCFM U. de Chile) con doble maestría europea en gestión y protección ambiental (CAU Kiel y AMU Poznań). Cinco pilares científicos fundamentales: 1) Rewetting wetlands y análisis de gases de efecto invernadero (CAU Kiel); 2) Investigación limnológica en protozoos, zooplancton, fitoplancton y micrófitas (AMU Poznań); 3) Estudios geofísicos, hídricos y de resistividad de suelos con pluviómetros y sondeos eléctricos (U. de Chile); 4) Evaluación de riesgos y cadenas de suministro de biomasa, celulosa y papel (BAN, EPN, GFC); 5) Riesgos climáticos: Incendios forestales y humedales (Red Plurinacional de Humedales y Red de Superación al Modelo Forestal).',
     keyOutcomesEn: [
-      'Advanced quantification of peatland GHG exchange (CO2/CH4) using eddy covariance and static flux chambers.',
-      'Hydrogeophysical assessment of water deficit in central-southern Chile basins under industrial eucalyptus/pine plantations.',
-      'Socio-ecological disturbance modeling assessing fire severity, biodiversity loss, and climate change vulnerability.'
+      'Rewetting wetlands & Greenhouse gas analysis (M.Sc. Environmental Management thesis at CAU Kiel, Germany).',
+      'Research on Protozoa, zooplankton, phytoplankton and macrophytes/microphytes (M.Sc. Environmental Protection thesis at AMU Poznań, Poland).',
+      'Hydrogeophysical, hydrological & soil resistivity field surveys with rain gauges and vertical electrical soundings (B.Sc. Geophysics at Universidad de Chile).',
+      'Biomass, Pulp and Paper risk assessment and global supply chains (in partnership with BAN, EPN, and Global Forest Coalition).',
+      'Climate risks: Wildfires and fires impacting wetlands and watersheds (in collaboration with Red Plurinacional de Humedales and Red de Superación al Modelo Forestal).'
     ],
     keyOutcomesEs: [
-      'Cuantificación avanzada de flujos de GEI (CO2/CH4) en turberas en transición mediante covarianza de torbellinos y cámaras estáticas.',
-      'Diagnóstico hidrogeofísico del estrés hídrico y agotamiento de humedad edáfica en cuencas del centro-sur de Chile.',
-      'Modelación de perturbaciones socioecológicas y severidad de megaincendios forestales bajo escenarios de cambio climático.'
+      'Rewetting wetlands y análisis de gases de efecto invernadero (Tesis de Maestría en Manejo Ambiental, CAU Kiel, Alemania).',
+      'Investigación limnológica en Protozoos, zooplancton, fitoplancton y micrófitas (Tesis de Maestría en Protección Ambiental, AMU Poznań, Polonia).',
+      'Estudios geofísicos, hídricos y de resistividad de suelos con pluviómetros y sondeos eléctricos (Lic. en Geofísica, FCFM Universidad de Chile).',
+      'Evaluación de riesgos y cadenas de suministro de biomasa, celulosa y papel (BAN Biomass Action Network, EPN y Global Forest Coalition).',
+      'Riesgos climáticos: Incendios forestales y humedales en llamas (Red Plurinacional de Humedales en Chile y Red de Superación al Modelo Forestal).'
     ],
     stats: [
       { value: 'EddyCov', labelEn: 'Flux Tower Analytics', labelEs: 'Análisis Micrometeorológico' },
