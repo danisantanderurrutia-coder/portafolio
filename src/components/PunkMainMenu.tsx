@@ -513,6 +513,28 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
         </div>
       </main>
 
+      {/* 5. BOTTOM BASE SLOGAN / MANIFESTO: BRIDGING HARD SCIENCE & PUBLIC IMPACT */}
+      <footer className="relative lg:absolute lg:bottom-5 lg:left-8 xl:left-12 z-30 max-w-xl px-4 pb-3 sm:px-6 lg:p-0 pointer-events-auto mx-auto lg:mx-0">
+        <div className="bg-black/80 backdrop-blur-md px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border-2 border-black shadow-[4px_4px_0px_#facc15] rotate-[0.4deg] hover:rotate-0 transition-transform duration-200">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="bg-[#facc15] text-black font-mono font-black text-[9px] sm:text-[10px] px-1.5 py-0.5 uppercase tracking-wider border border-black">
+              {currentLang === 'es' ? 'CIENCIA × POLÍTICA × COMUNICACIÓN' : 'SCIENCE × POLICY × COMMUNICATION'}
+            </span>
+          </div>
+          <p className="font-mono text-[10px] sm:text-[11px] text-neutral-100 leading-snug">
+            {currentLang === 'es' ? (
+              <>
+                Donde la <strong className="text-[#facc15]">física de suelos, la hidrología y la modelación numérica</strong> salen del laboratorio para convertirse en <strong className="text-emerald-400">políticas públicas, defensa del agua y comunicación de alto impacto</strong>.
+              </>
+            ) : (
+              <>
+                Where <strong className="text-[#facc15]">soil physics, catchment hydrology, and numerical modeling</strong> bridge the gap to drive <strong className="text-emerald-400">evidence-based climate policy, water governance, and mass communication</strong>.
+              </>
+            )}
+          </p>
+        </div>
+      </footer>
+
     </div>
   );
 };

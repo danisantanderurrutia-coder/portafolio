@@ -39,6 +39,7 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
   currentLang
 }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedDeepLink, setCopiedDeepLink] = useState<string | null>(null);
   const email = 'danisantander.urrutia@gmail.com';
   const githubUrl = 'https://github.com/danisantanderurrutia-coder';
   const linkedinUrl = 'https://www.linkedin.com/in/santanderurrutia/';
@@ -49,6 +50,13 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
     navigator.clipboard.writeText(email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleCopyDeepLink = (key: string, query: string) => {
+    const base = `${window.location.origin}${window.location.pathname}`;
+    navigator.clipboard.writeText(`${base}${query}`);
+    setCopiedDeepLink(key);
+    setTimeout(() => setCopiedDeepLink(null), 2200);
   };
 
   return (
@@ -63,7 +71,7 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
             <span className="w-3 h-3 rounded-full bg-emerald-500 animate-ping" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 -ml-4" />
             <span className="font-mono font-black text-xs sm:text-sm uppercase tracking-wider text-emerald-400">
-              {currentLang === 'es' ? 'DISPONIBLE PARA CONTRATACIÓN & CONSULTORÍAS' : 'AVAILABLE FOR ROLES & CONSULTING'}
+              {currentLang === 'es' ? 'DISPONIBLE PARA CONTRATACIÓN & CONSULTORÍAS (UE / GLOBAL)' : 'AVAILABLE FOR ROLES & CONSULTING (EU / GLOBAL)'}
             </span>
           </div>
 
@@ -97,65 +105,129 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
                   Daniel Santander Urrutia
                 </h3>
                 <span className="bg-[#facc15] text-black font-mono font-black text-[10px] px-2 py-0.5 border border-black shadow-[1px_1px_0px_#000]">
-                  DUAL M.SC. & ING.
+                  DUAL M.SC. &amp; ING.
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-neutral-300 font-sans mt-1 leading-relaxed">
                 {currentLang === 'es'
-                  ? 'Ingeniero Geofísico (U. de Chile) y Doble Máster Europeo en Gestión Ambiental y Cuencas (CAU Kiel, Alemania & AMU Poznań, Polonia).'
-                  : 'Geophysical Engineer (Univ. of Chile) & European Double M.Sc. in Environmental & Catchment Management (CAU Kiel, Germany & AMU Poznań, Poland).'}
+                  ? 'Ingeniero Geofísico (U. de Chile) y Doble Máster Europeo en Gestión y Protección Ambiental (CAU Kiel, Alemania & AMU Poznań, Polonia).'
+                  : 'Geophysical Engineer (Univ. of Chile) & European Double M.Sc. in Environmental Management & Protection (CAU Kiel, Germany & AMU Poznań, Poland).'}
               </p>
-              <div className="flex flex-wrap gap-2 mt-2 font-mono text-[10px] text-neutral-400">
-                <span>📍 Santiago, Chile • CET Friendly</span>
+              <div className="flex flex-wrap gap-2 mt-2 font-mono text-[10px] text-neutral-300">
+                <span className="text-emerald-400 font-bold">📍 Hannover, Germany (EU) &amp; Chile • CET</span>
                 <span>•</span>
-                <span>🗣️ {currentLang === 'es' ? 'Español (Nativo), English (C1), Deutsch (B1/B2)' : 'Spanish (Native), English (C1), German (B1/B2)'}</span>
+                <span>🗣️ {currentLang === 'es' ? 'Español (Nativo), English (C1), Deutsch (B1), Polski (A1)' : 'Spanish (Native), English (C1), German (B1), Polish (A1)'}</span>
               </div>
             </div>
           </div>
 
-          {/* Value Proposition: 2 High-Impact Tracks */}
+          {/* Value Proposition: 3 High-Impact Tracks */}
           <div className="space-y-2.5">
             <h4 className="font-mono font-black text-xs uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
               <Briefcase className="w-3.5 h-3.5" />
-              <span>{currentLang === 'es' ? 'ÁREAS DONDE APORTO VALOR INMEDIATO' : 'AREAS OF IMMEDIATE IMPACT'}</span>
+              <span>{currentLang === 'es' ? '3 LÍNEAS DE VALOR E IMPACTO INMEDIATO' : '3 CORE TRACKS OF IMMEDIATE IMPACT'}</span>
             </h4>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
               {/* Card 1: Science & Data */}
-              <div className="p-3.5 rounded-xl bg-[#0f172a] border border-blue-500/30 space-y-1.5">
-                <div className="flex items-center space-x-1.5 text-blue-400 font-mono font-black text-xs uppercase">
-                  <span>🔬</span>
-                  <span>{currentLang === 'es' ? 'Ciencia & Modelación de Datos' : 'Science & Environmental Data'}</span>
+              <div className="p-3 rounded-xl bg-[#0f172a] border border-blue-500/30 space-y-1.5 flex flex-col justify-between">
+                <div className="space-y-1.5">
+                  <div className="flex items-center space-x-1.5 text-blue-400 font-mono font-black text-[11px] uppercase">
+                    <span>🔬</span>
+                    <span>{currentLang === 'es' ? 'Ciencia, Hidro & SIG' : 'Science, Hydro & GIS'}</span>
+                  </div>
+                  <p className="text-[11px] text-neutral-300 leading-relaxed font-sans">
+                    {currentLang === 'es'
+                      ? 'Rehumedecimiento de turberas, flujos GEI (CO₂/CH₄), hidrogeofísica de cuencas, limnología y modelación en Python/R/QGIS.'
+                      : 'Peatland rewetting, GHG flux analytics (CO₂/CH₄), catchment hydrogeophysics, limnology & Python/R/QGIS modeling.'}
+                  </p>
                 </div>
-                <p className="text-[11px] text-neutral-300 leading-relaxed font-sans">
-                  {currentLang === 'es'
-                    ? 'Evaluación de riesgo climático (marejadas, SLR), modelación hidrogeofísica de cuencas, análisis espacial en Python/R/QGIS y gemelos digitales.'
-                    : 'Climate risk assessments (storm surges, SLR), catchment hydrogeophysics, spatial modeling in Python/R/QGIS & digital twins.'}
-                </p>
                 <div className="pt-1 flex flex-wrap gap-1 font-mono text-[9px] text-blue-300">
-                  <span className="px-1.5 py-0.5 bg-blue-950/80 rounded border border-blue-800/40">Python</span>
-                  <span className="px-1.5 py-0.5 bg-blue-950/80 rounded border border-blue-800/40">QGIS / Earth Engine</span>
-                  <span className="px-1.5 py-0.5 bg-blue-950/80 rounded border border-blue-800/40">Delft3D / Hydro</span>
+                  <span className="px-1.5 py-0.5 bg-blue-950/80 rounded border border-blue-800/40">Python / R</span>
+                  <span className="px-1.5 py-0.5 bg-blue-950/80 rounded border border-blue-800/40">QGIS / GEE</span>
+                  <span className="px-1.5 py-0.5 bg-blue-950/80 rounded border border-blue-800/40">GHG &amp; Hydro</span>
                 </div>
               </div>
 
-              {/* Card 2: Strategic Comms */}
-              <div className="p-3.5 rounded-xl bg-[#2a1309] border border-orange-500/30 space-y-1.5">
-                <div className="flex items-center space-x-1.5 text-orange-400 font-mono font-black text-xs uppercase">
-                  <span>📢</span>
-                  <span>{currentLang === 'es' ? 'Comunicaciones & Campañas' : 'Strategic Communications'}</span>
+              {/* Card 2: Public Policy & Governance */}
+              <div className="p-3 rounded-xl bg-[#1e1035] border border-violet-500/30 space-y-1.5 flex flex-col justify-between">
+                <div className="space-y-1.5">
+                  <div className="flex items-center space-x-1.5 text-violet-300 font-mono font-black text-[11px] uppercase">
+                    <span>⚖️</span>
+                    <span>{currentLang === 'es' ? 'Políticas & Gobernanza' : 'Policy & Governance'}</span>
+                  </div>
+                  <p className="text-[11px] text-neutral-300 leading-relaxed font-sans">
+                    {currentLang === 'es'
+                      ? 'Traducción ciencia-política, Directiva Marco del Agua UE, asesoría parlamentaria, evaluación de riesgo climático y ESG.'
+                      : 'Science-policy translation, EU Water Framework Directive, parliamentary testimony, climate risk & ESG advisory.'}
+                  </p>
                 </div>
-                <p className="text-[11px] text-neutral-300 leading-relaxed font-sans">
-                  {currentLang === 'es'
-                    ? 'Dirección de campañas masivas (+700k audiencia), vocería técnica en el Congreso, divulgación transmedia, periodismo de investigación e IA.'
-                    : 'Large-scale campaign leadership (+700k reach), parliamentary spokesperson, transmedia science outreach, investigative journalism & AI.'}
-                </p>
-                <div className="pt-1 flex flex-wrap gap-1 font-mono text-[9px] text-orange-300">
-                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">{currentLang === 'es' ? '+700K Audiencia' : '+700K Audience Reach'}</span>
-                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">{currentLang === 'es' ? 'Vocería Prensa' : 'Press Spokesperson'}</span>
-                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">{currentLang === 'es' ? 'Narrativa Transmedia' : 'Transmedia Storytelling'}</span>
+                <div className="pt-1 flex flex-wrap gap-1 font-mono text-[9px] text-violet-300">
+                  <span className="px-1.5 py-0.5 bg-violet-950/80 rounded border border-violet-800/40">Policy Briefs</span>
+                  <span className="px-1.5 py-0.5 bg-violet-950/80 rounded border border-violet-800/40">EU WFD / ESG</span>
                 </div>
               </div>
+
+              {/* Card 3: Strategic Comms */}
+              <div className="p-3 rounded-xl bg-[#2a1309] border border-orange-500/30 space-y-1.5 flex flex-col justify-between">
+                <div className="space-y-1.5">
+                  <div className="flex items-center space-x-1.5 text-orange-400 font-mono font-black text-[11px] uppercase">
+                    <span>📢</span>
+                    <span>{currentLang === 'es' ? 'Comunicaciones & Medios' : 'Strategic Comms'}</span>
+                  </div>
+                  <p className="text-[11px] text-neutral-300 leading-relaxed font-sans">
+                    {currentLang === 'es'
+                      ? 'Dirección de campañas (+700k audiencia), vocería técnica, divulgación científica transmedia y periodismo de datos.'
+                      : 'Large-scale campaign direction (+700k reach), technical spokesperson, transmedia science outreach & data journalism.'}
+                  </p>
+                </div>
+                <div className="pt-1 flex flex-wrap gap-1 font-mono text-[9px] text-orange-300">
+                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">+700K Reach</span>
+                  <span className="px-1.5 py-0.5 bg-orange-950/80 rounded border border-orange-800/40">Transmedia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Shareable Tailored Deep-Links for Recruiters */}
+          <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 space-y-2">
+            <div className="flex items-center justify-between">
+              <span className="font-mono font-bold text-[10px] uppercase tracking-wider text-neutral-300 flex items-center gap-1.5">
+                <Globe2 className="w-3.5 h-3.5 text-[#facc15]" />
+                {currentLang === 'es' ? 'ENLACES DIRECTOS POR PERFIL (CLIC PARA COPIAR URL)' : 'TAILORED PORTFOLIO DEEP-LINKS (CLICK TO COPY URL)'}
+              </span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => handleCopyDeepLink('science', `?lang=${currentLang}&view=game&cat=science`)}
+                className="px-2.5 py-1.5 rounded-lg bg-blue-950/50 hover:bg-blue-900/60 border border-blue-500/30 text-left font-mono text-[10px] text-blue-200 flex items-center justify-between transition cursor-pointer"
+              >
+                <span className="truncate">🔬 {currentLang === 'es' ? 'Link Ciencia 3D' : '3D Science Link'}</span>
+                <span className="text-[9px] text-emerald-400 font-bold ml-1">
+                  {copiedDeepLink === 'science' ? '✓' : 'COPY'}
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleCopyDeepLink('policy', `?lang=${currentLang}&view=game&cat=policy`)}
+                className="px-2.5 py-1.5 rounded-lg bg-violet-950/50 hover:bg-violet-900/60 border border-violet-500/30 text-left font-mono text-[10px] text-violet-200 flex items-center justify-between transition cursor-pointer"
+              >
+                <span className="truncate">⚖️ {currentLang === 'es' ? 'Link Políticas 3D' : '3D Policy Link'}</span>
+                <span className="text-[9px] text-emerald-400 font-bold ml-1">
+                  {copiedDeepLink === 'policy' ? '✓' : 'COPY'}
+                </span>
+              </button>
+              <button
+                type="button"
+                onClick={() => handleCopyDeepLink('dossier', `?lang=${currentLang}&view=dossier`)}
+                className="px-2.5 py-1.5 rounded-lg bg-amber-950/50 hover:bg-amber-900/60 border border-amber-500/30 text-left font-mono text-[10px] text-amber-200 flex items-center justify-between transition cursor-pointer"
+              >
+                <span className="truncate">📄 {currentLang === 'es' ? 'Dossier Ejecutivo' : 'Executive Dossier'}</span>
+                <span className="text-[9px] text-emerald-400 font-bold ml-1">
+                  {copiedDeepLink === 'dossier' ? '✓' : 'COPY'}
+                </span>
+              </button>
             </div>
           </div>
 

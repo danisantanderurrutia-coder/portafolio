@@ -106,64 +106,151 @@ export const GAME_MISSIONS: GameMission[] = [
   {
     id: 'kiel-cau',
     type: 'science',
-    titleEs: 'Rewetting wetlands and Greenhouse gas analysis',
-    titleEn: 'Rewetting wetlands and Greenhouse gas analysis',
-    subtitleEs: 'Tesis de Maestría en Manejo Ambiental | CAU Kiel (Alemania) | 2023-2025',
-    subtitleEn: 'Master’s Thesis in Environmental Management | CAU Kiel (Germany) | 2023-2025',
+    titleEs: 'Rehumedecimiento de humedales y análisis de gases de efecto invernadero (GEI)',
+    titleEn: 'Rewetting Wetlands & Greenhouse Gas (GHG) Exchange Analysis',
+    subtitleEs: 'Tesis de Maestría en Manejo Ambiental & App Wetland Monitor | CAU Kiel (Alemania) | 2023-2026',
+    subtitleEn: 'Master’s Thesis in Environmental Management & Wetland Monitor App | CAU Kiel (Germany) | 2023-2026',
     country: 'Alemania',
-    city: 'Kiel',
+    city: 'Kiel (Wallener Au)',
     flag: '🇩🇪',
     lat: 54.32,
     lng: 10.13,
-    date: '2023-2025',
-    roleEs: 'Investigador de Tesis de Maestría en Manejo Ambiental',
-    roleEn: 'Master’s Thesis Researcher in Environmental Management',
+    date: '2023-2026',
+    roleEs: 'Investigador de Tesis de Maestría & Creador de Wetland Monitor (CAU Kiel)',
+    roleEn: 'Master’s Thesis Researcher & Wetland Monitor Creator (CAU Kiel)',
     mediaType: 'plate',
     src: '/expeditions/kiel_soil_lab.png',
     availablePages: [
       {
-        titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo (CAU Kiel)',
-        titleEn: 'Soil Physics Laboratory & Column Flux Analysis (CAU Kiel)',
+        titleEs: 'Laboratorio de Física de Suelos, Permeabilidad y Columnas de Flujo (CAU Kiel)',
+        titleEn: 'Soil Physics Laboratory, Air Permeability & Column Flux Analysis (CAU Kiel)',
         pageSrc: '/expeditions/kiel_soil_lab.png'
       },
       {
-        titleEs: 'Dinámica de Humedales y Aves del Mar de Wadden',
+        titleEs: 'Wetland Monitor (Humedal Monitor) • Logotipo Oficial del Gemelo Digital de Tesis',
+        titleEn: 'Wetland Monitor • Official Logo of the Peatland Digital Twin & Thesis Studio',
+        pageSrc: '/logos/wetland_monitor_logo.png'
+      },
+      {
+        titleEs: 'Interfaz Suelo-Atmósfera y Estratigrafía en Wallener Au (Wetland Monitor)',
+        titleEn: 'Soil-Atmosphere Interface & Stratigraphy at Wallener Au (Wetland Monitor)',
+        pageSrc: '/expeditions/wallener_au_digital_twin.png'
+      },
+      {
+        titleEs: 'Dinámica de Humedales y Ecosistemas Costeros del Mar de Wadden',
         titleEn: 'Wetlands Dynamics & Wadden Sea Fieldwork',
         pageSrc: '/expeditions/wadden_sea_birding.jpg'
       }
     ],
-    url: 'https://www.uni-kiel.de',
+    url: 'https://danisantanderurrutia-coder.github.io/wetland-monitor/',
     code: 'OPS-SCI-01',
-    source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel)',
-    impactEs: 'Tema de tesis de maestría desarrollado para el Master en Manejo Ambiental (M.Sc. Environmental Management) en CAU Kiel. Investigación cuantitativa en rehumedecimiento de humedales y turberas degradadas (rewetting wetlands), balance biogeoquímico y análisis dinámico de flujos de gases de efecto invernadero (CO2, CH4, N2O) mediante cámaras y sistemas micrometeorológicos.',
-    impactEn: 'Master’s thesis research conducted for the Master in Environmental Management at CAU Kiel (Germany). Focuses on rewetting wetlands and degraded peatlands, soil biogeochemistry, and greenhouse gas (GHG) exchange analytics (CO2, CH4, N2O) integrating laboratory soil columns and micrometeorological flux methodologies.',
+    source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel) • App: Wetland Monitor',
+    impactEs: 'Tesis de Maestría en Manejo Ambiental (CAU Kiel) en la turbera Wallener Au (Schleswig-Holstein) junto al desarrollo de la aplicación interactiva "Wetland Monitor" (Humedal Monitor). Observamos y cuantificamos la transición del humedal entre sumidero y fuente de carbono durante la etapa de rehumedecimiento (rewetting) debido al pulso agudo de metano (CH₄ hasta +145 nmol m⁻² s⁻¹ por chimeneas de aerénquima en inundación invernal) y picos otoñales de N₂O (>50% del total anual), analizando el intercambio de GEI (CO₂, CH₄, N₂O) bajo efectos micrometeorológicos y edáficos (Eddy Covariance R² = 0.94 y cámaras cerradas). Asimismo, cuantificamos el legado de antiguos usos de paludicultura y drenaje previo sobre la estructura ecosistémica y evaluamos la compactación mecánica por maquinaria agrícola (horizonte de arado con tensión de precompresión σp = 62.4 kPa).',
+    impactEn: 'Master’s thesis in Environmental Management (CAU Kiel) at Wallener Au Peatland alongside the interactive web app "Wetland Monitor". We observed and quantified the peatland’s transition between carbon sink and source during managed rewetting driven by acute methane spikes (CH₄ up to +145 nmol m⁻² s⁻¹ via open aerenchyma chimneys) and autumn N₂O pulses (>50% of annual budget), analyzing GHG exchange (CO₂, CH₄, N₂O) under micrometeorological and soil controls (Eddy Covariance R² = 0.94 & closed chambers). We also quantified the legacy of historical drainage and paludiculture land uses on ecosystem structure and evaluated soil compaction from agricultural machinery (plow pan precompression stress σp = 62.4 kPa).',
     methodologyEs: [
-      'Análisis de flujos de gases de efecto invernadero (GEI) y rehumedecimiento de turberas (Rewetting wetlands)',
-      'Tesis desarrollada para el Master en Manejo Ambiental en CAU Kiel (Alemania)',
-      'Física de suelos, columnas de flujo y dinámica de carbono en ecosistemas acuático-terrestres'
+      'Cuantificación de la transición sumidero-fuente en rehumedecimiento por pulsos de metano (CH₄) y balance radiativo GWP₂₀/GWP₁₀₀',
+      'Análisis del intercambio de gases (CO₂, CH₄, N₂O) bajo forzantes micrometeorológicos (Eddy Covariance) y de suelo (cámaras cerradas)',
+      'Evaluación de antiguos usos de suelo (drenaje previo y paludicultura) y compactación por maquinaria agrícola (edómetro σp = 62.4 kPa, permeámetro de aire)',
+      'Desarrollo de la app "Wetland Monitor" (Humedal Monitor): Gemelo Digital interactivo 24h/365d y estudio de defensa en GitHub'
     ],
     methodologyEn: [
-      'Rewetting wetlands and greenhouse gas exchange analysis (CO2, CH4)',
-      'Master’s thesis research for the Master in Environmental Management at CAU Kiel (Germany)',
-      'Soil physics, column flux experiments, and carbon dynamics across aquatic-terrestrial boundaries'
+      'Quantified sink-to-source transitions during rewetting driven by methane (CH₄) spikes and GWP₂₀/GWP₁₀₀ radiative balances',
+      'Analyzed gas exchange (CO₂, CH₄, N₂O) under micrometeorological (Eddy Covariance) and soil physical controls (closed chambers)',
+      'Assessed legacy drainage, paludiculture land-use history, and agricultural machinery compaction (oedometer σp = 62.4 kPa, air permeametry)',
+      'Built the "Wetland Monitor" web application: 24h/365d interactive peatland digital twin and thesis defense studio on GitHub'
     ],
-    tags: ['Rewetting Wetlands', 'Greenhouse Gas Analysis', 'CAU Kiel', 'Master Manejo Ambiental', 'Alemania']
+    deliverablesEs: [
+      'App interactiva Wetland Monitor (Humedal Monitor): https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+      'Repositorio abierto y pipelines científicos: https://github.com/danisantanderurrutia-coder/wetland-monitor',
+      'Cuantificación empírica de presupuestos anuales de CO₂, CH₄ y N₂O y estratigrafía mecánica de turberas'
+    ],
+    deliverablesEn: [
+      'Interactive Wetland Monitor Web App: https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+      'Open-source repository & scientific pipelines: https://github.com/danisantanderurrutia-coder/wetland-monitor',
+      'Empirical annual CO₂, CH₄, and N₂O budgets and peat soil mechanical stratigraphy'
+    ],
+    techStack: ['Python', 'Eddy Covariance', 'Wetland Monitor App', 'Soil Physics', 'GHG Chambers', 'CAU Kiel'],
+    tags: ['Wetland Monitor', 'Humedal Monitor', 'Rehumedecimiento', 'Metano CH4', 'Paludicultura', 'CAU Kiel', 'Alemania']
   },
 
-  // 2. CIENCIA 02: Research on Protozoos, zooplankton, fitoplankton y micrófitas (AMU Poznań - Master en Protección Ambiental)
+  // 1B. CIENCIA 01B: App Wetland Monitor (Humedal Monitor - Gemelo Digital en Tesis CAU Kiel)
+  {
+    id: 'wetland-monitor-app',
+    type: 'science',
+    titleEs: 'App Humedal Monitor (Wetland Monitor): Gemelo Digital de Turberas',
+    titleEn: 'Wetland Monitor App: Peatland Ecohydrological Digital Twin',
+    subtitleEs: 'Plataforma Interactiva de Simulación Diurna/Anual de GEI y Estratigrafía | Tesis CAU Kiel',
+    subtitleEn: 'Interactive Diurnal/Seasonal GHG Simulation & Soil Stratigraphy Platform | CAU Kiel Thesis',
+    country: 'Alemania',
+    city: 'Wallener Au / Kiel',
+    flag: '🌿',
+    lat: 54.28,
+    lng: 9.38,
+    date: '2025-2026',
+    roleEs: 'Autor Científico & Desarrollador Full-Stack (Wetland Monitor)',
+    roleEn: 'Scientific Author & Full-Stack Developer (Wetland Monitor)',
+    mediaType: 'plate',
+    src: '/logos/wetland_monitor_logo.png',
+    availablePages: [
+      {
+        titleEs: 'Logotipo Oficial • Wetland Monitor (Humedal Monitor)',
+        titleEn: 'Official Logo • Wetland Monitor Digital Twin',
+        pageSrc: '/logos/wetland_monitor_logo.png'
+      },
+      {
+        titleEs: 'Simulador de Interfaz Suelo-Atmósfera y Estratigrafía (Horizontes O, A, B, R)',
+        titleEn: 'Soil-Atmosphere Interface & Horizon Stratigraphy Simulator (O, A, B, R)',
+        pageSrc: '/expeditions/wallener_au_digital_twin.png'
+      },
+      {
+        titleEs: 'Laboratorio de Física de Suelos y Columnas en CAU Kiel',
+        titleEn: 'Soil Physics & Column Laboratory at CAU Kiel',
+        pageSrc: '/expeditions/kiel_soil_lab.png'
+      }
+    ],
+    url: 'https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+    code: 'OPS-SCI-01B',
+    source: 'GitHub: danisantanderurrutia-coder/wetland-monitor • CAU Kiel',
+    impactEs: 'Aplicación web científica e interactiva ("Humedal Monitor / Wetland Monitor") desarrollada para la defensa de tesis de maestría en CAU Kiel. Simula en tiempo real el ciclo diurno de 24 horas y la evolución estacional de 365 días en la turbera Wallener Au, visualizando cómo el rehumedecimiento, las fluctuaciones del nivel freático (-44 cm en sequía estival a +2 cm en invierno) y el horizonte compactado por maquinaria agrícola (σp = 62.4 kPa) gobiernan la transición entre sumidero y emisor de CO₂, CH₄ y N₂O.',
+    impactEn: 'Interactive scientific web application ("Wetland Monitor") built for the Master’s thesis defense at CAU Kiel. Simulates in real time the 24-hour diurnal cycle and 365-day seasonal evolution at Wallener Au Peatland, visualizing how managed rewetting, water table fluctuations (-44 cm summer drawdown to +2 cm winter ponding), and the machinery-compacted plow pan (σp = 62.4 kPa) govern the net sink-to-source transition of CO₂, CH₄, and N₂O.',
+    methodologyEs: [
+      'Motor de simulación ecohidrológica de 24 horas (cierre estomático por VPD > 1.2 kPa e inversión térmica nocturna u* < 0.12 m/s)',
+      'Evolución anual de 365 días calibrada empíricamente con datos de torre Eddy Covariance y cámaras estáticas',
+      'Visualización interactiva de mecánica de suelos (precompresión por maquinaria agrícola y antiguos usos de paludicultura)',
+      'Repositorio y demo pública en vivo en GitHub Pages (danisantanderurrutia-coder/wetland-monitor)'
+    ],
+    methodologyEn: [
+      '24-hour diurnal ecohydrological simulation engine (midday VPD > 1.2 kPa stomatal closure & nocturnal decoupling u* < 0.12 m/s)',
+      '365-day seasonal evolution empirically calibrated to Eddy Covariance tower and closed-chamber datasets',
+      'Interactive soil mechanics visualizer (agricultural machinery precompression & historical paludiculture legacy)',
+      'Open-source repository and live web app hosted on GitHub Pages (danisantanderurrutia-coder/wetland-monitor)'
+    ],
+    deliverablesEs: [
+      'Aplicación Web en Vivo: https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+      'Código Fuente y Figuras en GitHub: https://github.com/danisantanderurrutia-coder/wetland-monitor'
+    ],
+    deliverablesEn: [
+      'Live Web Application: https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+      'Source Code & Thesis Figures on GitHub: https://github.com/danisantanderurrutia-coder/wetland-monitor'
+    ],
+    techStack: ['Python', 'JavaScript', 'HTML5 Canvas', 'Eddy Covariance', 'Soil Mechanics', 'GitHub Pages'],
+    tags: ['Wetland Monitor', 'Humedal Monitor', 'Gemelo Digital', 'CAU Kiel', 'GitHub', 'Turberas']
+  },
+
+  // 2. CIENCIA 02: Investigación sobre protozoos, zooplancton, fitoplancton y macrófitas (AMU Poznań)
   {
     id: 'poznan-amu',
     type: 'science',
-    titleEs: 'Research on Protozoos, zooplankton, fitoplankton y micrófitas',
-    titleEn: 'Research on Protozoa, zooplankton, phytoplankton and macrophytes',
-    subtitleEs: 'Tesis de Maestría en Protección Ambiental | AMU Poznań (Polonia) | 2023-2025',
-    subtitleEn: 'Master’s Thesis in Environmental Protection | AMU Poznań (Poland) | 2023-2025',
+    titleEs: 'Calidad del agua y bioindicadores: protozoos, zooplancton, fitoplancton y macrófitas',
+    titleEn: 'Water Quality & Bioindicators: Protozoa, Zooplankton, Phytoplankton & Macrophytes',
+    subtitleEs: 'Tesis de Maestría en Protección Ambiental | AMU Poznań (Polonia) | 2023-2026',
+    subtitleEn: 'Master’s Thesis in Environmental Protection | AMU Poznań (Poland) | 2023-2026',
     country: 'Polonia',
-    city: 'Poznań',
+    city: 'Poznań (Lagos y Estanques)',
     flag: '🇵🇱',
     lat: 52.41,
     lng: 16.93,
-    date: '2023-2025',
+    date: '2023-2026',
     roleEs: 'Investigador de Tesis de Maestría en Protección Ambiental',
     roleEn: 'Master’s Thesis Researcher in Environmental Protection',
     mediaType: 'plate',
@@ -180,7 +267,7 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/poland_lake_sampling.jpg'
       },
       {
-        titleEs: 'Clasificación de Macroinvertebrados Bentónicos y Micrófitas',
+        titleEs: 'Clasificación de Macroinvertebrados Bentónicos y Macrófitas',
         titleEn: 'Benthic Macroinvertebrate & Macrophyte Field Sorting',
         pageSrc: '/expeditions/poznan_lake_benthos.jpg'
       },
@@ -193,31 +280,31 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://amu.edu.pl',
     code: 'OPS-SCI-02',
     source: 'Adam Mickiewicz University (AMU Poznań)',
-    impactEs: 'Investigación de tesis desarrollada para el Master en Protección Ambiental (M.Sc. Environmental Protection) en la Universidad Adam Mickiewicz de Poznań (AMU). Caracterización limnológica e identificación microscópica de protozoos, zooplancton, fitoplancton y micrófitas/macrofitas en humedales y cuencas lacustres de Polonia como bioindicadores de calidad ecosistémica y secuestro de carbono.',
-    impactEn: 'Thesis research developed for the Master’s in Environmental Protection at Adam Mickiewicz University in Poznań (AMU). Limnological monitoring and microscopic identification of protozoa, zooplankton, phytoplankton, and macrophytes/microphytes across Polish lakes and wetlands as bioindicators of trophic health and carbon sequestration.',
+    impactEs: 'Investigación de tesis para el Master en Protección Ambiental (M.Sc. Environmental Protection) en la Universidad Adam Mickiewicz de Poznań (AMU). Verificamos cuantitativamente la calidad ecológica del agua mediante múltiples examinaciones en laboratorio e in situ a través de diferentes lagos y cuerpos de agua menores (ponds) de Polonia, diagnosticando comunidades de protozoos, zooplancton, fitoplancton y macrófitas para fundamentar su protección y cuidado como áreas clave de refugio de biodiversidad.',
+    impactEn: 'Master’s thesis research in Environmental Protection at Adam Mickiewicz University in Poznań (AMU). We quantitatively verified ecological water quality through comprehensive laboratory and in-situ examinations across diverse lakes and ponds in Poland, diagnosing protozoa, zooplankton, phytoplankton, and macrophyte assemblages to guide their conservation and protection as vital biodiversity refugia.',
     methodologyEs: [
-      'Microscopía óptica Zeiss de alta resolución e identificación taxonómica de protozoos y ciliados',
-      'Muestreo limnológico in situ de fitoplancton, zooplancton y micrófitas acuáticas',
-      'Tesis desarrollada para el Master en Protección Ambiental en AMU Poznań (Polonia)'
+      'Verificación de la calidad del agua mediante examinaciones físico-químicas y biológicas en laboratorio e in situ',
+      'Monitoreo comparativo en diferentes lagos y estanques (ponds) para su protección y cuidado como áreas de biodiversidad',
+      'Microscopía óptica Zeiss de alta resolución e identificación taxonómica de protozoos, zooplancton, fitoplancton y macrófitas'
     ],
     methodologyEn: [
-      'High-resolution Zeiss optical microscopy and taxonomic identification of protozoa and ciliates',
-      'In situ limnological sampling of phytoplankton, zooplankton, and aquatic macrophytes',
-      'Master’s thesis research for the Master in Environmental Protection at AMU Poznań (Poland)'
+      'Water quality verification through multi-parameter laboratory and in-situ examinations across diverse lakes and ponds',
+      'Ecological status assessment aimed at habitat protection and management as freshwater biodiversity hotspots',
+      'High-resolution Zeiss optical microscopy and taxonomic profiling of protozoa, zooplankton, phytoplankton, and macrophytes'
     ],
-    tags: ['AMU Poznań', 'Protozoos', 'Zooplancton', 'Fitoplancton', 'Micrófitas', 'Protección Ambiental']
+    tags: ['AMU Poznań', 'Calidad del Agua', 'Biodiversidad', 'Lagos y Estanques', 'Bioindicadores', 'Polonia']
   },
 
   // 3. CIENCIA 03: Estudios geofísicos, hídricos y de resistividad de suelos (U. de Chile - Geofísica)
   {
     id: 'science-geophysics-soils',
     type: 'science',
-    titleEs: 'Estudios geofísicos, hídricos y de resistividad de suelos',
-    titleEn: 'Geophysical, Hydrological & Soil Resistivity Studies',
+    titleEs: 'Estudios hidrogeofísicos, resistividad de suelos y nivel freático (Cuenca del Maule)',
+    titleEn: 'Hydrogeophysical, Soil Resistivity & Water Table Studies (Maule Basin)',
     subtitleEs: 'Tesis de Licenciatura en Geofísica | FCFM Universidad de Chile | Maule & Santiago',
     subtitleEn: 'Bachelor’s Thesis in Geophysics | FCFM Universidad de Chile | Maule & Santiago',
     country: 'Chile',
-    city: 'Cauquenes / Santiago',
+    city: 'Cuenca del Maule (Cauquenes)',
     flag: '🇨🇱',
     lat: -35.97,
     lng: -72.31,
@@ -241,27 +328,27 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://ingenieria.uchile.cl',
     code: 'OPS-SCI-03',
     source: 'FCFM Universidad de Chile (Departamento de Geofísica)',
-    impactEs: 'Investigación empírica desarrollada para el grado de Licenciado en Geofísica en la Universidad de Chile (FCFM), aprobada con distinción máxima. Evaluación hidrogeofísica de cuencas en el secano interior de Cauquenes (Región del Maule), mediante instalación y calibración de pluviómetros de terreno, sensores meteorológicos y sondeos eléctricos verticales (SEV) para mapear resistividad de suelos, acuíferos someros y déficit hídrico por plantaciones forestales.',
-    impactEn: 'Empirical research developed for the Bachelor’s in Geophysics at Universidad de Chile (FCFM), awarded with highest distinction. Hydrogeophysical assessment of catchments in Cauquenes (Maule Region), deploying rain gauges, meteorological stations, and vertical electrical soundings (VES Schlumberger) to profile soil resistivity, shallow aquifers, and severe water deficits under industrial forestry plantations.',
+    impactEs: 'Investigación empírica para el grado de Licenciado en Geofísica en la Universidad de Chile (FCFM), aprobada con distinción máxima. En los estudios en la cuenca del Maule (secano interior de Cauquenes), pudimos observar y cuantificar directamente el efecto combinado de la actividad agroforestal intensiva y el cambio climático sobre las anomalías de resistividad eléctrica de los suelos y el abatimiento crítico del nivel freático, integrando Sondeos Eléctricos Verticales (SEV) y redes pluviométricas de terreno.',
+    impactEn: 'Empirical research for the Bachelor’s in Geophysics at Universidad de Chile (FCFM), awarded with highest distinction. Across the Maule River Basin (Cauquenes interior dryland), we observed and quantified the combined impact of intensive agroforestry plantations and climate change on soil electrical resistivity profiles and severe water table drawdown, integrating Vertical Electrical Soundings (VES) with in-situ rain gauge telemetry.',
     methodologyEs: [
-      'Instalación, nivelación y monitoreo continuo con pluviómetros e instrumental hidroclimático',
-      'Sondeos Eléctricos Verticales (SEV) de resistividad aparente e inversión geofísica 1D/2D del subsuelo',
-      'Evaluación cuantitativa del estrés hídrico y agotamiento de napas por monocultivo forestal (U. de Chile)'
+      'Cuantificación en la cuenca del Maule del efecto de la actividad agroforestal y el cambio climático sobre la resistividad de suelos y el nivel freático',
+      'Sondeos Eléctricos Verticales (SEV Schlumberger) e inversión geofísica 1D/2D para perfilar humedad edáfica y profundidad de acuíferos someros',
+      'Instalación, nivelación y monitoreo continuo con pluviómetros e instrumental hidroclimático en terreno (FCFM U. de Chile)'
     ],
     methodologyEn: [
-      'Field installation, calibration, and continuous logging with rain gauges and hydroclimatic sensors',
-      'Vertical Electrical Soundings (VES) for apparent resistivity and 1D/2D geophysical subsurface inversion',
-      'Quantitative assessment of soil moisture deficit and aquifer depletion under industrial forestry (U. de Chile)'
+      'Quantified the combined impact of agroforestry plantations and climate change on soil resistivity and water table depth in the Maule Basin',
+      'Vertical Electrical Soundings (VES Schlumberger) and 1D/2D geophysical inversion to profile soil moisture and shallow aquifer depth',
+      'Field deployment, calibration, and continuous logging with rain gauges and hydroclimatic sensors (FCFM U. de Chile)'
     ],
-    tags: ['Geofísica', 'U. de Chile', 'Pluviómetro', 'Resistividad de Suelos', 'Sondeos Eléctricos', 'Cauquenes']
+    tags: ['Geofísica', 'U. de Chile', 'Cuenca del Maule', 'Nivel Freático', 'Resistividad de Suelos', 'Actividad Agroforestal']
   },
 
-  // 4. CIENCIA 04: Biomass, Pulp and Paper risk assessment and supply chains (BAN, EPN, GFC)
+  // 4. CIENCIA 04: Evaluación de riesgos y cadenas de suministro de biomasa, celulosa y papel (BAN, EPN, GFC)
   {
     id: 'science-biomass-risk',
     type: 'science',
-    titleEs: 'Biomass, Pulp and Paper risk assessment and supply chains',
-    titleEn: 'Biomass, Pulp and Paper risk assessment and supply chains',
+    titleEs: 'Evaluación de riesgos y cadenas de suministro de biomasa, celulosa y papel',
+    titleEn: 'Biomass, Pulp and Paper Risk Assessment & Supply Chains',
     subtitleEs: 'Investigación Internacional con BAN, EPN y Global Forest Coalition (GFC)',
     subtitleEn: 'International Research with BAN, EPN & Global Forest Coalition (GFC)',
     country: 'Chile / Global',
@@ -314,12 +401,12 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Biomass Action Network', 'EPN', 'Global Forest Coalition', 'Cadenas de Suministro', 'Riesgo Biofísico', 'Celulosa']
   },
 
-  // 5. CIENCIA 05: Climate risks: Wildfires and Fires (Red Plurinacional de Humedales & Modelo Forestal)
+  // 5. CIENCIA 05: Riesgos climáticos: Megaincendios forestales y humedales
   {
     id: 'science-wildfires-risks',
     type: 'science',
-    titleEs: 'Climate risks: Wildfires and Fires',
-    titleEn: 'Climate risks: Wildfires and Fires',
+    titleEs: 'Riesgos climáticos: Megaincendios forestales e impacto en humedales',
+    titleEn: 'Climate Risks: Wildfires & Impacts on Wetland Catchments',
     subtitleEs: 'Red Plurinacional de Humedales & Red de Superación al Modelo Forestal | Chile',
     subtitleEn: 'Plurinational Wetland Network & Network Overcoming the Forestry Model | Chile',
     country: 'Chile',
@@ -364,7 +451,7 @@ export const GAME_MISSIONS: GameMission[] = [
       'Technical partnership with Red Plurinacional de Humedales and Red de Superación al Modelo Forestal',
       'Development of science-based land use zoning, ecological buffer zones, and biological firebreaks'
     ],
-    tags: ['Climate Risks', 'Wildfires', 'Red Plurinacional de Humedales', 'Modelo Forestal', 'Chile', 'Incendios']
+    tags: ['Riesgo Climático', 'Megaincendios', 'Red Plurinacional de Humedales', 'Modelo Forestal', 'Chile', 'Incendios']
   },
 
   // 3. COMUNICACIONES: Primera Línea Prensa (+700k) - Santiago
@@ -1475,68 +1562,70 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/longavi_biodiversity_survey.jpg'
       }
     ],
+    url: 'https://github.com/danisantanderurrutia-coder',
     code: 'OPS-RD-01',
-    source: 'Projects in development (CV)',
-    impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Integrating geophysics and plant bioacoustics for ecosystem health assessment", orientado a la cuantificación del estado biofísico y estrés hídrico en bosques nativos y cuencas del centro-sur de Chile (según CV).',
-    impactEn: 'Project in development (in contests and competitions): "Integrating geophysics and plant bioacoustics for ecosystem health assessment", focused on native forests and catchments in central-southern Chile (from CV).',
+    source: 'Proyectos de I+D en Desarrollo',
+    impactEs: 'Proyecto de I+D en desarrollo (concursos de innovación): Integración de geofísica y bioacústica vegetal para la evaluación de la salud de los ecosistemas, orientado a cuantificar el estado biofísico, la resistividad radicular y el estrés hídrico en bosques nativos y cuencas del centro-sur de Chile.',
+    impactEn: 'R&D project in development (innovation contests): Integrating geophysics and plant bioacoustics for ecosystem health assessment, focused on quantifying biophysical status, root-zone resistivity, and water stress in native forests and catchments of central-southern Chile.',
     methodologyEs: [
-      'Integración de geofísica y bioacústica vegetal (CV)',
-      'Evaluación de la salud de ecosistemas en bosques nativos del centro-sur de Chile',
-      'Proyectos en desarrollo en concursos y competiciones (CV)'
+      'Integración de prospección geofísica (SEV) y sensores de bioacústica vegetal no invasiva',
+      'Evaluación cuantitativa de la salud de ecosistemas y estrés hídrico en bosques nativos del centro-sur de Chile',
+      'Formulación técnica para fondos de innovación y competiciones internacionales'
     ],
     methodologyEn: [
-      'Integrating geophysics and plant bioacoustics (CV)',
-      'Ecosystem health assessment in native forests of central-southern Chile',
-      'Projects in development in contests and competitions (CV)'
+      'Integration of geophysical prospecting (VES) and non-invasive plant bioacoustics sensors',
+      'Quantitative ecosystem health and water stress assessment in native forests of central-southern Chile',
+      'Technical formulation for international innovation grants and competitions'
     ],
     tags: ['Chile', 'Bosques Nativos', 'Centro-Sur', 'Geofísica', 'Bioacústica', 'I+D']
   },
 
-  // 20. I+D & INNOVACIÓN: Smart Food Parks & Permacultura para Ciudades Europeas ODS
+  // 20. I+D & INNOVACIÓN: Smart Food Parks, AgriTwin 3D & Permacultura para Ciudades Europeas ODS
   {
     id: 'rd-smart-food-parks',
     type: 'rd',
-    titleEs: 'Smart Food Parks: Ciudades Europeas ODS & Permacultura (EPAC)',
-    titleEn: 'Smart Food Parks: European SDG Cities & Permaculture (EPAC)',
-    subtitleEs: 'Uniendo Naturaleza y Tecnología para Ciudades Europeas ODS // Permacultura (EPAC)',
-    subtitleEn: 'Uniting Nature & Technology for European SDG Cities // Permaculture Design (EPAC)',
+    titleEs: 'Smart Food Parks & AgriTwin 3D: Ciudades ODS y Gemelo Digital Agrícola',
+    titleEn: 'Smart Food Parks & AgriTwin 3D: SDG Cities & Agricultural Digital Twin',
+    subtitleEs: 'Uniendo Naturaleza, Simulación Hidrológica y Tecnología para Ciudades ODS // Permacultura (EPAC)',
+    subtitleEn: 'Uniting Nature, Hydrological Simulation & Technology for SDG Cities // Permaculture Design (EPAC)',
     country: 'Europa',
     city: 'Ciudades Europeas ODS',
     flag: '🇪🇺',
     lat: 53.55,
     lng: 9.99,
-    date: '2023-2025',
-    roleEs: 'Diseñador en Permacultura Certificado (CDP)',
-    roleEn: 'Certified Permaculture Designer (CDP)',
+    date: '2023-2026',
+    roleEs: 'Arquitecto de Gemelos Digitales & Diseñador en Permacultura (CDP)',
+    roleEn: 'Digital Twin Architect & Certified Permaculture Designer (CDP)',
     mediaType: 'plate',
     src: '/expeditions/smart_food_parks_ui.jpg',
     availablePages: [
       {
-        titleEs: 'Gemelo Digital y Telemetría IoT en Smart Food Parks',
-        titleEn: 'Digital Twin & IoT Telemetry in Smart Food Parks',
+        titleEs: 'Gemelo Digital y Telemetría IoT en Smart Food Parks / AgriTwin 3D',
+        titleEn: 'Digital Twin & IoT Telemetry in Smart Food Parks / AgriTwin 3D',
         pageSrc: '/expeditions/smart_food_parks_ui.jpg'
       },
       {
-        titleEs: 'Arquitectura de Datos y Gemelo Digital en Unity 3D',
-        titleEn: 'Data Architecture & Digital Twin Engine Blueprint',
+        titleEs: 'Arquitectura de Datos y Gemelo Digital en 3D',
+        titleEn: 'Data Architecture & 3D Digital Twin Engine Blueprint',
         pageSrc: '/expeditions/smart_food_parks_architecture.jpg'
       }
     ],
+    url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
     code: 'OPS-RD-02',
-    source: 'Projects in development & Education EPAC (CV)',
-    impactEs: 'Proyecto en desarrollo (en concursos y competiciones): "Smart Food Parks: Uniting nature and technology for SDG cities" concebido para ciudades europeas en el marco de los ODS, articulando diseño permacultural (CDP EPAC 2023) con tecnologías abiertas (según CV).',
-    impactEn: 'Project in development (in contests and competitions): "Smart Food Parks: Uniting nature and technology for SDG cities" designed for European SDG cities, integrating permaculture design (CDP EPAC 2023) and open-source solutions (from CV).',
+    source: 'GitHub: danisantanderurrutia-coder/agritwin-app • EPAC',
+    impactEs: 'Desarrollo del ecosistema "Smart Food Parks" para ciudades europeas en el marco de los ODS y del repositorio abierto "AgriTwin 3D" (Gemelo Digital Agrícola, Simulación Hidrológica y Manejo Regenerativo), articulando diseño permacultural certificado (CDP EPAC) con telemetría IoT y visualización 3D interactiva.',
+    impactEn: 'Development of the "Smart Food Parks" initiative for European SDG cities and the open-source "AgriTwin 3D" platform (Agricultural Digital Twin, Hydrological Simulation & Regenerative Management), combining certified permaculture design (CDP EPAC) with IoT telemetry and interactive 3D visualization.',
     methodologyEs: [
-      'Smart Food Parks: uniendo naturaleza y tecnología para ciudades europeas ODS (CV)',
-      'Certificado como Diseñador en Permacultura (CDP) por la Escuela Chilena de Permacultura y Agroecología EPAC (CV)',
-      'Diseño regenerativo para entornos urbanos ODS'
+      'Smart Food Parks: integración de infraestructura verde y tecnología abierta para ciudades europeas ODS',
+      'AgriTwin 3D (GitHub): Gemelo digital agrícola, simulación hidrológica y manejo regenerativo',
+      'Diseño en Permacultura Certificado (CDP) por la Escuela Chilena de Permacultura y Agroecología (EPAC)'
     ],
     methodologyEn: [
-      'Smart Food Parks: uniting nature and technology for European SDG cities (CV)',
-      'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology EPAC (CV)',
-      'Regenerative design for SDG urban ecosystems'
+      'Smart Food Parks: uniting green infrastructure and open-source technology for European SDG cities',
+      'AgriTwin 3D (GitHub): Agricultural digital twin, hydrological simulation, and regenerative management',
+      'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology (EPAC)'
     ],
-    tags: ['Ciudades Europeas ODS', 'Europa', 'Smart Food Parks', 'Permacultura', 'EPAC', 'I+D']
+    tags: ['AgriTwin 3D', 'Smart Food Parks', 'Ciudades Europeas ODS', 'Permacultura', 'GitHub', 'I+D']
   },
 
   // 21. I+D & INVESTIGACIÓN: Modelación de Impacto de Incendios en Cuencas (CV)
@@ -1544,17 +1633,17 @@ export const GAME_MISSIONS: GameMission[] = [
     id: 'rd-incendios-cuencas',
     type: 'rd',
     titleEs: 'Modelación del Impacto de Incendios en Ecosistemas de Cuencas',
-    titleEn: 'Model of Forest Fire Impacts on Watershed Ecosystems',
-    subtitleEs: 'Investigación Científica en Cuencas del Centro-Sur // Balance Hídrico y Suelos (CV)',
-    subtitleEn: 'Scientific Research on Central-Southern Watersheds // Water Balance & Soil Dynamics (CV)',
+    titleEn: 'Modeling Forest Fire Impacts on Watershed Ecosystems',
+    subtitleEs: 'Investigación Científica en Cuencas del Centro-Sur // Balance Hídrico y Suelos',
+    subtitleEn: 'Scientific Research on Central-Southern Watersheds // Water Balance & Soil Dynamics',
     country: 'Chile',
     city: 'Centro-Sur',
     flag: '🇨🇱',
     lat: -36.20,
     lng: -71.90,
     date: '2023-2025',
-    roleEs: 'Investigador (Researcher)',
-    roleEn: 'Researcher',
+    roleEs: 'Investigador Principal (Modelación de Cuencas)',
+    roleEn: 'Lead Researcher (Watershed Modeling)',
     mediaType: 'plate',
     src: '/expeditions/longavi_biodiversity_survey.jpg',
     availablePages: [
@@ -1569,19 +1658,20 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/ong_raiz_wetland_group.jpg'
       }
     ],
+    url: 'https://github.com/danisantanderurrutia-coder/resumof',
     code: 'OPS-RD-03',
-    source: 'Researcher: Model of forest fire impacts on watershed ecosystems (CV)',
-    impactEs: 'Investigación orientada a modelar el impacto de los incendios forestales en ecosistemas de cuencas, integrando dinámica de suelos y balance hídrico entre sistemas acuáticos y terrestres en el centro-sur de Chile (según CV).',
-    impactEn: 'Research focused on modeling forest fire impacts on watershed ecosystems, integrating soil dynamics and water balance between aquatic and terrestrial systems in central-southern Chile (from CV).',
+    source: 'Investigación de Cuencas Hidrográficas & Balance Hídrico',
+    impactEs: 'Investigación orientada a modelar cuantitativamente el impacto de los incendios forestales en ecosistemas de cuencas, integrando física de suelos, escorrentía post-fuego y balance hídrico entre sistemas acuáticos y terrestres en el centro-sur de Chile.',
+    impactEn: 'Research focused on quantitatively modeling forest fire impacts on watershed ecosystems, integrating soil physics, post-fire runoff, and water balance between aquatic and terrestrial systems in central-southern Chile.',
     methodologyEs: [
-      'Model of forest fire impacts on watershed ecosystems (CV)',
-      'Water balance and soil dynamics, integrating aquatic and terrestrial systems (CV)',
-      'Análisis de degradación post-fuego y resiliencia de cabeceras de cuenca'
+      'Modelación del impacto de incendios forestales sobre el balance hídrico de cuencas hidrográficas',
+      'Acoplamiento de la dinámica física de suelos entre sistemas acuáticos y terrestres',
+      'Evaluación de severidad post-fuego, erosión y resiliencia hidrológica en cabeceras de cuenca'
     ],
     methodologyEn: [
-      'Model of forest fire impacts on watershed ecosystems (CV)',
-      'Water balance and soil dynamics, integrating aquatic and terrestrial systems (CV)',
-      'Post-fire degradation analysis and headwater catchment resilience'
+      'Modeling of forest fire impacts on watershed hydrological balances',
+      'Coupled soil physical dynamics across aquatic and terrestrial ecosystem boundaries',
+      'Post-fire burn severity, erosion, and headwater catchment resilience assessment'
     ],
     techStack: ['QGIS', 'R Modeling', 'Python', 'Balance Hídrico'],
     tags: ['Incendios', 'Cuencas', 'Balance Hídrico', 'Suelos', 'Chile', 'I+D']
@@ -1617,19 +1707,20 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/cauquenes_geophysics_ves.jpg'
       }
     ],
+    url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
     code: 'OPS-RD-04',
-    source: 'Environmental Policy Advisor & Permaculture EPAC (CV)',
-    impactEs: 'Desarrollo de planes de ordenamiento de cuencas y gestión de la transición productiva agrícola y agroforestal, aplicando diseño permacultural (CDP EPAC 2023) y prospección hidrogeofísica en comunidades rurales (según CV).',
-    impactEn: 'Development of watershed management plans and management of agricultural production transition, applying permaculture design (CDP EPAC 2023) and hydrogeophysical exploration in rural communities (from CV).',
+    source: 'Asesoría en Política Ambiental & Permacultura EPAC',
+    impactEs: 'Desarrollo de planes de ordenamiento de cuencas y gestión de la transición productiva agrícola y agroforestal frente al déficit hídrico, aplicando diseño permacultural (CDP EPAC) y prospección hidrogeofísica de resistividad y nivel freático en comunidades rurales.',
+    impactEn: 'Development of watershed management plans and agricultural production transition strategies under water scarcity, applying permaculture design (CDP EPAC) and hydrogeophysical resistivity and water table exploration in rural communities.',
     methodologyEs: [
-      'Development of watershed management plans and agricultural production transition (CV)',
-      'Diseño en Permacultura Certificado (CDP) Escuela Chilena de Permacultura y Agroecología EPAC (CV)',
-      'Integración hidrogeofísica (SEV) y balance hídrico territorial'
+      'Formulación de planes de ordenamiento de cuencas y transición productiva agroecológica',
+      'Diseño en Permacultura Certificado (CDP) por la Escuela Chilena de Permacultura y Agroecología (EPAC)',
+      'Integración de prospección hidrogeofísica (SEV/VES), nivel freático y balance hídrico territorial'
     ],
     methodologyEn: [
-      'Development of watershed management plans and agricultural production transition (CV)',
-      'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology EPAC (CV)',
-      'Hydrogeophysical exploration (VES) and watershed water balance'
+      'Development of watershed management plans and agroecological production transition',
+      'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology (EPAC)',
+      'Integration of hydrogeophysical exploration (VES), water table profiling, and watershed water balance'
     ],
     techStack: ['QGIS', 'SEV / VES', 'Permacultura', 'Agroecología', 'Planificación Territorial'],
     tags: ['Ordenamiento de Cuencas', 'Transición Agrícola', 'Permacultura', 'EPAC', 'Maule', 'I+D']
@@ -2897,6 +2988,8 @@ interface GameWorldViewProps {
   onExitToDossier?: () => void;
   onBackToMenu?: () => void;
   initialFilter?: 'all' | MissionType;
+  initialMissionId?: string;
+  onStateChange?: (filter: 'all' | MissionType, missionId: string) => void;
   onOpenHireMe?: () => void;
   onOpenSkills?: () => void;
   onOpenArtDirector?: () => void;
@@ -2909,6 +3002,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   onExitToDossier,
   onBackToMenu,
   initialFilter = 'all',
+  initialMissionId,
+  onStateChange,
   onOpenHireMe,
   onOpenSkills,
   onOpenArtDirector,
@@ -2917,8 +3012,14 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const [activeFilter, setActiveFilter] = useState<'all' | MissionType>(initialFilter);
   const [isVideoPlaying, setIsVideoPlaying] = useState<boolean>(false);
   const [selectedMissionId, setSelectedMissionId] = useState<string>(() => {
+    if (initialMissionId && GAME_MISSIONS.some((m) => m.id === initialMissionId)) {
+      return initialMissionId;
+    }
     if (initialFilter !== 'all') {
-      const found = GAME_MISSIONS.find((m) => m.type === initialFilter);
+      const found = GAME_MISSIONS.find((m) => {
+        if (initialFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina';
+        return m.type === initialFilter;
+      });
       if (found) return found.id;
     }
     return GAME_MISSIONS[0].id;
@@ -2998,49 +3099,23 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     return () => clearInterval(interval);
   }, [isTourPlaying, filteredMissions]);
 
-  useEffect(() => {
-    if (initialFilter) {
-      setActiveFilter(initialFilter);
-      if (initialFilter !== 'all') {
-        const found = GAME_MISSIONS.find((m) => {
-          if (initialFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina';
-          return m.type === initialFilter;
-        });
-        if (found) {
-          setSelectedMissionId(found.id);
-          setSelectedPlatePage(0);
-          setActiveSkillToolIndex(0);
-          setIsVideoPlaying(false);
-        }
-      }
-    }
-  }, [initialFilter]);
-
   const handleFilterChange = (newFilter: 'all' | MissionType) => {
     setActiveFilter(newFilter);
     setSelectedPlatePage(0);
     setActiveSkillToolIndex(0);
     setIsDossierOpen(true);
     setIsVideoPlaying(false);
-    if (newFilter === 'all') {
-      setSelectedMissionId(GAME_MISSIONS[0].id);
-    } else {
+    let nextMissionId = GAME_MISSIONS[0].id;
+    if (newFilter !== 'all') {
       const match = GAME_MISSIONS.find((m) => {
         if (newFilter === 'culture') return m.type === 'culture' || m.id === 'plp-prensa' || m.id === 'radio-cristalina';
         return m.type === newFilter;
       });
-      if (match) setSelectedMissionId(match.id);
+      if (match) nextMissionId = match.id;
     }
+    setSelectedMissionId(nextMissionId);
+    onStateChange?.(newFilter, nextMissionId);
   };
-
-  useEffect(() => {
-    if (filteredMissions.length > 0 && !filteredMissions.some((m) => m.id === selectedMissionId)) {
-      setSelectedMissionId(filteredMissions[0].id);
-      setSelectedPlatePage(0);
-      setActiveSkillToolIndex(0);
-      setIsVideoPlaying(false);
-    }
-  }, [activeFilter, filteredMissions, selectedMissionId]);
 
   const mountRef = useRef<HTMLDivElement | null>(null);
 
@@ -3048,10 +3123,12 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   const currentMissionIndex = GAME_MISSIONS.findIndex((m) => m.id === selectedMissionId);
 
   const selectedMissionRef = useRef(selectedMissionId);
-  selectedMissionRef.current = selectedMissionId;
-
   const activeFilterRef = useRef(activeFilter);
-  activeFilterRef.current = activeFilter;
+
+  useEffect(() => {
+    selectedMissionRef.current = selectedMissionId;
+    activeFilterRef.current = activeFilter;
+  }, [selectedMissionId, activeFilter]);
 
   // Mission selection handler (rotates globe smoothly)
   const handleSelectMission = (missionId: string) => {
@@ -3060,6 +3137,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     setActiveSkillToolIndex(0);
     setIsDossierOpen(true);
     setIsVideoPlaying(false);
+    onStateChange?.(activeFilter, missionId);
   };
 
   const handleNext = () => {
