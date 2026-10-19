@@ -1527,7 +1527,139 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Cuarentena Rap', 'Red Latinoamericana', 'Chile', 'Argentina', 'Colombia', 'Perú', 'México', 'Beatbox']
   },
 
-  // 19. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
+  // 19. I+D & INNOVACIÓN: Agrotech & AgriTwin - Gemelo Digital Agrícola 3D & Telemetría IoT
+  {
+    id: 'rd-agrotech-agritwin',
+    type: 'rd',
+    titleEs: 'Agrotech & AgriTwin: Gemelo Digital Agrícola 3D & Telemetría IoT',
+    titleEn: 'Agrotech & AgriTwin: Agricultural Digital Twin & Soil IoT Telemetry',
+    subtitleEs: 'Arquitectura Principio Árbol: Fundo Meniel 3D, Sensores FDR, PRV y Satélites // Maule, Chile',
+    subtitleEn: 'Tree Principle Architecture: Fundo Meniel 3D, Soil Sensors, PRV & Satellites // Maule, Chile',
+    country: 'Chile',
+    city: 'Valle del Maule / Cuenca Longaví',
+    flag: '🇨🇱',
+    lat: -35.96,
+    lng: -71.68,
+    date: '2023-2026',
+    roleEs: 'Arquitecto de Software & Diseñador de Gemelo Digital 3D',
+    roleEn: 'Lead Software Architect & Digital Twin Designer',
+    mediaType: 'plate',
+    src: '/agrotech/agritwin_3d_twin.jpg',
+    availablePages: [
+      {
+        titleEs: 'Gemelo Digital 3D: Fundo Meniel & Simulación Espacial (CesiumJS / Three.js)',
+        titleEn: '3D Digital Twin: Fundo Meniel & Spatial Simulation (CesiumJS / Three.js)',
+        pageSrc: '/agrotech/agritwin_3d_twin.jpg'
+      },
+      {
+        titleEs: 'Arquitectura del Principio Árbol: Suite AgroTwin y Telemetría Multirrama',
+        titleEn: 'Tree Principle Architecture: AgroTwin Suite & Multi-Branch Telemetry',
+        pageSrc: '/agrotech/agritwin_tree_principle.jpg'
+      },
+      {
+        titleEs: 'Monitoreo de Suelos: Sensores FDR, Telemetría IoT LoRaWAN y Microclima',
+        titleEn: 'Soil Monitoring: FDR Moisture Sensors, IoT LoRaWAN Telemetry & Microclimate',
+        pageSrc: '/agrotech/agritwin_iot_sensors.jpg'
+      },
+      {
+        titleEs: 'Zonificación de Paisaje y Manejo de Pastoreo Racional Voisin (PRV)',
+        titleEn: 'Landscape Zoning & Voisin Rational Grazing (PRV) Simulation',
+        pageSrc: '/agrotech/agritwin_landscape.jpg'
+      },
+      {
+        titleEs: 'Insignia & Logotipo Oficial • Agrotech & AgriTwin Platform',
+        titleEn: 'Official Logo & Insignia • Agrotech & AgriTwin Platform',
+        pageSrc: '/agrotech/agritwin_logo.png'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
+    techStack: ['CesiumJS', 'Three.js', 'React', 'Python', 'FastAPI', 'IoT LoRaWAN', 'Copernicus Sentinel-2', 'QGIS'],
+    code: 'OPS-RD-AGRO',
+    source: 'GitHub: danisantanderurrutia-coder/agritwin-app & agrotech',
+    impactEs: 'Desarrollo de una suite integral de gemelo digital agrícola (AgriTwin / AgroTech) construida bajo la arquitectura del "Principio Árbol". Integra modelación tridimensional interactiva (CesiumJS y shaders Three.js) del predio agrícola (Fundo Meniel en la cuenca del Maule), tranques de acumulación de 18.500 m³, potreros de pastoreo regenerativo (PRV), telemetría de suelo en tiempo real (sensores FDR de humedad, temperatura y potencial mátrico) e índices satelitales automáticos Sentinel-2 (NDVI/NDRE), logrando reducciones proyectadas de hasta 35% en consumo de agua de riego.',
+    impactEn: 'Engineered a comprehensive agricultural digital twin suite (AgriTwin / AgroTech) founded on the "Tree Principle" decoupled architecture. Integrates high-fidelity 3D spatial visualization (CesiumJS & Three.js shaders) of commercial farmland (Fundo Meniel in the Maule basin), 18,500 m³ retention reservoirs, regenerative Voisin grazing (PRV), real-time soil telemetry (FDR moisture, temperature, and matric potential sensors), and automated Sentinel-2 multispectral vegetation indices (NDVI/NDRE), yielding up to 35% irrigation water savings.',
+    methodologyEs: [
+      'Arquitectura Principio Árbol: Soberanía endógena desacoplada (Rama Predio, Rama Mesa Vecinal, Rama Cuenca Longaví)',
+      'Visualización 3D satelital de alta resolución en navegador sin tokens restrictivos (CesiumJS + Esri World Imagery)',
+      'Integración de telemetría IoT de suelo (sondas FDR) con pipeline satelital Sentinel-2 para prevención de estrés hídrico',
+      'Modelación de infraestructura regenerativa: zanjas de infiltración Keyline y tranques de bio-retención'
+    ],
+    methodologyEn: [
+      'Tree Principle Architecture: Decoupled endogenous sovereignty (Farm Twin, Community Board, Longaví Catchment)',
+      'High-resolution browser-based 3D satellite visualization without paywalled tokens (CesiumJS + Esri World Imagery)',
+      'Real-time IoT soil telemetry (FDR probes) coupled with Sentinel-2 satellite pipeline to prevent crop water stress',
+      'Regenerative engineering modeling: Keyline infiltration contours and bio-retention reservoirs'
+    ],
+    tags: ['AgriTwin', 'Agrotech', 'Gemelo Digital 3D', 'CesiumJS', 'Three.js', 'IoT Suelos', 'Copernicus', 'Maule', 'Chile', 'GitHub']
+  },
+
+  // 20. I+D & INNOVACIÓN: Ciencia i Territorio - Soberanía del Conocimiento & Ciencia Popular
+  {
+    id: 'rd-ciencia-territorio',
+    type: 'rd',
+    titleEs: 'Ciencia i Territorio: Soberanía del Conocimiento & Divulgación Popular',
+    titleEn: 'Ciencia i Territorio: Knowledge Sovereignty & Popular Science Platform',
+    subtitleEs: 'Plataforma de Divulgación Biocultural, Justicia Ambiental y Ciencia Abierta sin Paywalls',
+    subtitleEn: 'Biocultural Popular Science, Environmental Justice & Open Science Without Paywalls',
+    country: 'Chile',
+    city: 'Red Territorial (Santiago, Maule, Valdivia, Patagonia)',
+    flag: '🇨🇱',
+    lat: -39.81,
+    lng: -73.24,
+    date: '2023-2026',
+    roleEs: 'Fundador & Director de Plataforma',
+    roleEn: 'Founder & Platform Director',
+    mediaType: 'plate',
+    src: '/ciencia_territorio/earth_concept.jpg',
+    availablePages: [
+      {
+        titleEs: 'Manifiesto Conceptual: Tierra, Evolución y Soberanía Científica Popular',
+        titleEn: 'Conceptual Manifesto: Earth, Evolution & Popular Scientific Sovereignty',
+        pageSrc: '/ciencia_territorio/earth_concept.jpg'
+      },
+      {
+        titleEs: 'Nodo Satelital & Tecnologías Ciborg para la Observación Terrestre',
+        titleEn: 'Satellite Node & Cyborg Technologies for Earth Observation',
+        pageSrc: '/ciencia_territorio/ciborg_satellite.jpg'
+      },
+      {
+        titleEs: 'Nodo Territorio: Cartografía Popular & Ciencia Comunitaria en Cuencas',
+        titleEn: 'Territory Node: Community Cartography & Catchment Citizen Science',
+        pageSrc: '/ciencia_territorio/nodo_territorio.jpg'
+      },
+      {
+        titleEs: 'Expedición Científica en Terreno: Ecosistemas Australes y Patagonia',
+        titleEn: 'Field Scientific Expedition: Austral Ecosystems & Patagonia',
+        pageSrc: '/ciencia_territorio/patagonia_expedition.jpg'
+      },
+      {
+        titleEs: 'Emblema e Identidad Oficial • Ciencia i Territorio',
+        titleEn: 'Official Insignia & Visual Identity • Ciencia i Territorio',
+        pageSrc: '/ciencia_territorio/ciencia_territorio_logo.png'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder',
+    techStack: ['HTML5 / Modern JS', 'CSS Grid', 'GIS Cartography', 'Ciencia Abierta', 'Comms Estratégica'],
+    code: 'OPS-RD-CIT',
+    source: 'Ciencia i Territorio // Plataforma & Nodos Territoriales',
+    impactEs: 'Creación de "Ciencia i Territorio", una plataforma de divulgación científica, justicia ambiental y comunicación comunitaria inspirada en la ciencia abierta sin barreras ni paywalls (en tributo a Paulo Freire y Alexandra Elbakyan). Articula el conocimiento geofísico de cuencas, ecología de suelos, bioacústica y soberanía de datos directamente con asambleas vecinales, escuelas rurales y comités ambientales.',
+    impactEn: 'Founded "Ciencia i Territorio", an open-access scientific dissemination and environmental justice platform designed to break paywalls and bring high-level earth sciences to frontline communities (inspired by Paulo Freire & Alexandra Elbakyan). Connects catchment geophysics, soil ecology, bioacoustics, and data sovereignty directly with rural assemblies and grassroots water committees.',
+    methodologyEs: [
+      'Divulgación popular y ciencia comunitaria: democratización de conceptos geofísicos y ecológicos complejos',
+      'Arquitectura de plataforma web abierta con identidad gráfica de vanguardia y recursos educativos libres',
+      'Nodos territoriales: vinculación de investigaciones en terreno (Patagonia, Maule, cuenca central) con movimientos sociales',
+      'Justicia ambiental y defensa del territorio: insumos técnicos para la participación ciudadana incidente'
+    ],
+    methodologyEn: [
+      'Popular education and community science: translating complex geophysics and ecological data into accessible tools',
+      'Open-web digital architecture featuring vanguard visual identity and free educational assets',
+      'Territorial nodes: bridging empirical fieldwork (Patagonia, Maule, Central Chile) with social movements',
+      'Environmental justice and territorial defense: technical evidence supporting grassroots legal and water advocacy'
+    ],
+    tags: ['Ciencia i Territorio', 'Ciencia Abierta', 'Soberanía del Conocimiento', 'Geofísica', 'Educación Popular', 'Chile', 'I+D']
+  },
+
+  // 21. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
   {
     id: 'rd-bioacustica',
     type: 'rd',
