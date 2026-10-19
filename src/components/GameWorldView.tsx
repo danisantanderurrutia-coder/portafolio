@@ -19,7 +19,7 @@ import {
   Download
 } from 'lucide-react';
 import { Language } from '../types';
-import { resolveAsset } from '../utils';
+import { resolveAsset, createCountryFlagCanvas } from '../utils';
 import { TechBadge, TechLogo } from './TechLogos';
 export type MissionType = 'science' | 'comms' | 'global' | 'rd' | 'culture' | 'publications' | 'titles' | 'certifications' | 'skills' | 'policy';
 
@@ -183,7 +183,7 @@ export const GAME_MISSIONS: GameMission[] = [
     subtitleEn: 'Interactive Diurnal/Seasonal GHG Simulation & Soil Stratigraphy Platform | CAU Kiel Thesis',
     country: 'Alemania',
     city: 'Wallener Au / Kiel',
-    flag: '🌿',
+    flag: '🇩🇪',
     lat: 54.28,
     lng: 9.38,
     date: '2025-2026',
@@ -351,9 +351,9 @@ export const GAME_MISSIONS: GameMission[] = [
     titleEn: 'Biomass, Pulp and Paper Risk Assessment & Supply Chains',
     subtitleEs: 'Investigación Internacional con BAN, EPN y Global Forest Coalition (GFC)',
     subtitleEn: 'International Research with BAN, EPN & Global Forest Coalition (GFC)',
-    country: 'Chile / Global',
+    country: 'Chile',
     city: 'Biobío / Parral',
-    flag: '🌐',
+    flag: '🇨🇱',
     lat: -36.82,
     lng: -73.05,
     date: '2022-2025',
@@ -1070,9 +1070,9 @@ export const GAME_MISSIONS: GameMission[] = [
     titleEn: 'Certification: Ecological Niche Modeling, Remote Sensing & R (20 hrs)',
     subtitleEs: 'Instituto Ambiental GIS // QGIS, ArcGIS PRO, Radar & GEE | 2022',
     subtitleEn: 'Environmental GIS Institute // QGIS, ArcGIS PRO, Radar & GEE | 2022',
-    country: 'Chile / Internacional',
-    city: 'Online / GIS',
-    flag: '🌐',
+    country: 'Chile',
+    city: 'Santiago / Online GIS',
+    flag: '🇨🇱',
     lat: -33.45,
     lng: -70.66,
     date: '2022',
@@ -1475,9 +1475,9 @@ export const GAME_MISSIONS: GameMission[] = [
     titleEn: 'Cuarentena Rap: Pan-American Digital Streaming Championship',
     subtitleEs: 'Red Federal de Ligas Underground: Chile, Argentina, Colombia, Perú y México // Manifiesto Conceptual',
     subtitleEn: 'Federated Underground Leagues: Chile, Argentina, Colombia, Peru & Mexico // Conceptual Manifesto',
-    country: 'Latinoamérica',
+    country: 'Chile / Latinoamérica',
     city: 'Red Federal (Chile, Argentina, Colombia, Perú, México)',
-    flag: '🌎',
+    flag: '🇨🇱',
     lat: -12.04,
     lng: -77.04,
     date: '2020-2021',
@@ -1720,9 +1720,9 @@ export const GAME_MISSIONS: GameMission[] = [
     titleEn: 'Smart Food Parks & AgriTwin 3D: SDG Cities & Agricultural Digital Twin',
     subtitleEs: 'Uniendo Naturaleza, Simulación Hidrológica y Tecnología para Ciudades ODS // Permacultura (EPAC)',
     subtitleEn: 'Uniting Nature, Hydrological Simulation & Technology for SDG Cities // Permaculture Design (EPAC)',
-    country: 'Europa',
+    country: 'Alemania / Europa',
     city: 'Ciudades Europeas ODS',
-    flag: '🇪🇺',
+    flag: '🇩🇪',
     lat: 53.55,
     lng: 9.99,
     date: '2023-2026',
@@ -1872,7 +1872,7 @@ export const GAME_MISSIONS: GameMission[] = [
     subtitleEn: 'Environmental Paper Network & Global Forest Coalition // Parral Case Study, Maule',
     country: 'Chile / Alemania',
     city: 'Parral / Bonn',
-    flag: '📑',
+    flag: '🇨🇱',
     lat: -36.14,
     lng: -71.82,
     date: '2023-2024',
@@ -1928,9 +1928,9 @@ export const GAME_MISSIONS: GameMission[] = [
     titleEn: 'Being Free on the Brink of the Abyss (4-Part Political Ecology Treatise)',
     subtitleEs: 'Observatorio Latinoamericano de Conflictos Ambientales (OLCA, 2025)',
     subtitleEn: 'Latin American Observatory of Environmental Conflicts (OLCA, 2025)',
-    country: 'Latinoamérica',
-    city: 'Ensayos Filosóficos',
-    flag: '📚',
+    country: 'Chile / Latinoamérica',
+    city: 'Santiago',
+    flag: '🇨🇱',
     lat: 0,
     lng: 0,
     isStatic: true,
@@ -2123,7 +2123,7 @@ export const GAME_MISSIONS: GameMission[] = [
     subtitleEn: 'Joint column with Dirk Kock-Rohwer (Schleswig-Holstein MP) // Comestible.info',
     country: 'Alemania / Chile',
     city: 'Kiel / Concepción',
-    flag: '🌱',
+    flag: '🇩🇪',
     lat: 54.32,
     lng: 10.13,
     date: '2024',
@@ -3256,6 +3256,18 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
   const selectedMissionRef = useRef(selectedMissionId);
   const activeFilterRef = useRef(activeFilter);
+  const focusTriggerRef = useRef(0);
+
+  useEffect(() => {
+    setActiveFilter(initialFilter);
+  }, [initialFilter]);
+
+  useEffect(() => {
+    if (initialMissionId && GAME_MISSIONS.some((m) => m.id === initialMissionId)) {
+      setSelectedMissionId(initialMissionId);
+      focusTriggerRef.current += 1;
+    }
+  }, [initialMissionId]);
 
   useEffect(() => {
     selectedMissionRef.current = selectedMissionId;
@@ -3265,6 +3277,8 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
   // Mission selection handler (rotates globe smoothly)
   const handleSelectMission = (missionId: string) => {
     setSelectedMissionId(missionId);
+    selectedMissionRef.current = missionId;
+    focusTriggerRef.current += 1;
     setSelectedPlatePage(0);
     setActiveSkillToolIndex(0);
     setIsDossierOpen(true);
@@ -3464,31 +3478,14 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       cap.position.y = 0.225;
       bGroup.add(cap);
 
-      // 4. Map Pushpin Flag Pennant (Banderita de tablero con bandera y ciudad)
-      const flagCanvas = document.createElement('canvas');
-      flagCanvas.width = 144;
-      flagCanvas.height = 84;
-      const fCtx = flagCanvas.getContext('2d')!;
-      fCtx.fillStyle = '#' + colorHex.toString(16).padStart(6, '0');
-      fCtx.fillRect(0, 0, 144, 84);
-      fCtx.fillStyle = 'rgba(255, 255, 255, 0.2)';
-      fCtx.fillRect(0, 0, 144, 42);
-      fCtx.lineWidth = 6;
-      fCtx.strokeStyle = '#000000';
-      fCtx.strokeRect(3, 3, 138, 78);
-      fCtx.font = '34px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-      fCtx.textAlign = 'center';
-      fCtx.textBaseline = 'middle';
-      fCtx.fillText(m.flag, 42, 42);
-      fCtx.fillStyle = '#ffffff';
-      fCtx.font = 'bold 22px monospace';
-      fCtx.fillText(m.city.slice(0, 4).toUpperCase(), 102, 43);
-
+      // 4. Map Pushpin Flag Pennant (Bandera nacional real del país donde se ubica)
+      const flagCanvas = createCountryFlagCanvas(m.flag, m.country);
       const flagTex = new THREE.CanvasTexture(flagCanvas);
-      const flagGeo = new THREE.PlaneGeometry(0.15, 0.088);
+      flagTex.colorSpace = THREE.SRGBColorSpace;
+      const flagGeo = new THREE.PlaneGeometry(0.155, 0.096);
       const flagMat = new THREE.MeshBasicMaterial({ map: flagTex, side: THREE.DoubleSide });
       const flagMesh = new THREE.Mesh(flagGeo, flagMat);
-      flagMesh.position.set(0.075, 0.165, 0);
+      flagMesh.position.set(0.078, 0.168, 0);
       bGroup.add(flagMesh);
 
       // Invisible Hit-Test Sphere for easy mouse / touch click detection
@@ -3544,7 +3541,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
 
     interface EnergyBeamArc {
       type: MissionType;
-      curve: THREE.QuadraticBezierCurve3;
+      curve: THREE.Curve<THREE.Vector3>;
       speed: number;
       offset: number;
       arcGroup: THREE.Group;
@@ -3568,15 +3565,24 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       for (let i = 0; i < catMissions.length; i++) {
         const fromM = catMissions[i];
         const toM = catMissions[(i + 1) % catMissions.length];
-        const posA = latLngToVector3(fromM.lat, fromM.lng, earthRadius * 1.002);
-        const posB = latLngToVector3(toM.lat, toM.lng, earthRadius * 1.002);
+        const posA = latLngToVector3(fromM.lat, fromM.lng, earthRadius * 1.003);
+        const posB = latLngToVector3(toM.lat, toM.lng, earthRadius * 1.003);
 
-        const mid = new THREE.Vector3().addVectors(posA, posB).multiplyScalar(0.5);
         const dist = posA.distanceTo(posB);
-        // Elevate midpoint above the sphere surface proportionally to distance
-        mid.normalize().multiplyScalar(earthRadius + Math.max(0.20, dist * 0.24));
+        if (dist < 0.01) continue;
 
-        const curve = new THREE.QuadraticBezierCurve3(posA, mid, posB);
+        const maxArchHeight = Math.min(0.45, Math.max(0.12, dist * 0.18));
+        const arcPoints: THREE.Vector3[] = [];
+        const segments = 44;
+        for (let s = 0; s <= segments; s++) {
+          const t = s / segments;
+          const pt = new THREE.Vector3().lerpVectors(posA, posB, t).normalize();
+          const altitude = earthRadius * 1.003 + Math.sin(t * Math.PI) * maxArchHeight;
+          pt.multiplyScalar(altitude);
+          arcPoints.push(pt);
+        }
+
+        const curve = new THREE.CatmullRomCurve3(arcPoints);
 
         const arcGroup = new THREE.Group();
 
@@ -3744,23 +3750,103 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     window.addEventListener('pointerup', onPointerUp);
     window.addEventListener('resize', updateLayout);
 
-    // 11. Animation Loop
+    // 11. Active Point-to-Point Travel Trajectory & Animation Loop
+    const activeTravelGroup = new THREE.Group();
+    earthGroup.add(activeTravelGroup);
+    let activeTravelCurve: THREE.CatmullRomCurve3 | null = null;
+    let activeTravelStartTime = 0;
+
+    const travelCometCore = new THREE.Mesh(
+      new THREE.SphereGeometry(0.024, 12, 12),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, blending: THREE.AdditiveBlending })
+    );
+    const travelCometHalo = new THREE.Mesh(
+      new THREE.SphereGeometry(0.055, 16, 16),
+      new THREE.MeshBasicMaterial({
+        color: 0xfacc15,
+        transparent: true,
+        opacity: 0.85,
+        blending: THREE.AdditiveBlending,
+      })
+    );
+    travelCometCore.visible = false;
+    travelCometHalo.visible = false;
+    earthGroup.add(travelCometCore);
+    earthGroup.add(travelCometHalo);
+
     let lastMissionId = selectedMissionRef.current;
+    let lastFocusTrigger = focusTriggerRef.current;
+    let travelBoost = 0;
+
     const render = () => {
-      // If active mission changed, smoothly slerp to target coordinates (only if not static)
-      if (selectedMissionRef.current !== lastMissionId) {
+      // If active mission changed or user clicked a mission card/pin, smoothly fly to target coordinates
+      if (selectedMissionRef.current !== lastMissionId || focusTriggerRef.current !== lastFocusTrigger) {
+        const prevM = GAME_MISSIONS.find((m) => m.id === lastMissionId);
         lastMissionId = selectedMissionRef.current;
+        lastFocusTrigger = focusTriggerRef.current;
         const curM = GAME_MISSIONS.find((m) => m.id === selectedMissionRef.current) || GAME_MISSIONS[0];
         if (!curM.isStatic) {
           const v = latLngToVector3(curM.lat, curM.lng, 1).normalize();
-          targetQuat.setFromUnitVectors(v, new THREE.Vector3(0, 0, 1));
+          const nextQuat = new THREE.Quaternion().setFromUnitVectors(v, new THREE.Vector3(0, 0, 1));
+          const angleDiff = earthGroup.quaternion.angleTo(nextQuat);
+          targetQuat.copy(nextQuat);
           velX = 0;
           velY = 0;
+          if (angleDiff > 0.08) {
+            travelBoost = Math.min(1, angleDiff / 1.8);
+          }
+
+          // Build point-to-point flight trajectory from previous mission to new mission
+          while (activeTravelGroup.children.length > 0) {
+            const child = activeTravelGroup.children[0] as THREE.Mesh;
+            child.geometry?.dispose();
+            activeTravelGroup.remove(child);
+          }
+          if (prevM && !prevM.isStatic && prevM.id !== curM.id) {
+            const posFrom = latLngToVector3(prevM.lat, prevM.lng, earthRadius * 1.004);
+            const posTo = latLngToVector3(curM.lat, curM.lng, earthRadius * 1.004);
+            const d = posFrom.distanceTo(posTo);
+            if (d > 0.02) {
+              const archH = Math.min(0.48, Math.max(0.14, d * 0.22));
+              const pts: THREE.Vector3[] = [];
+              for (let s = 0; s <= 48; s++) {
+                const t = s / 48;
+                const p = new THREE.Vector3().lerpVectors(posFrom, posTo, t).normalize();
+                p.multiplyScalar(earthRadius * 1.004 + Math.sin(t * Math.PI) * archH);
+                pts.push(p);
+              }
+              activeTravelCurve = new THREE.CatmullRomCurve3(pts);
+              const tGeo = new THREE.TubeGeometry(activeTravelCurve, 48, 0.009, 8, false);
+              const tMat = new THREE.MeshBasicMaterial({
+                color: 0xfacc15,
+                transparent: true,
+                opacity: 0.75,
+                blending: THREE.AdditiveBlending,
+              });
+              activeTravelGroup.add(new THREE.Mesh(tGeo, tMat));
+              activeTravelStartTime = Date.now();
+            }
+          }
+        }
+      }
+
+      if (activeTravelCurve) {
+        const elapsed = (Date.now() - activeTravelStartTime) / 1400;
+        if (elapsed <= 1.2) {
+          const t = Math.min(1, elapsed);
+          const pos = activeTravelCurve.getPoint(t);
+          travelCometCore.position.copy(pos);
+          travelCometHalo.position.copy(pos);
+          travelCometCore.visible = true;
+          travelCometHalo.visible = true;
+        } else {
+          travelCometCore.visible = false;
+          travelCometHalo.visible = false;
         }
       }
 
       if (isDragging) {
-        // Direct tracking
+        travelBoost = 0;
       } else if (Math.abs(velX) > 0.0001 || Math.abs(velY) > 0.0001) {
         // Inertia rotation with natural friction
         const rotY = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), velX);
@@ -3771,7 +3857,13 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
         velX *= 0.92;
         velY *= 0.92;
       } else {
-        earthGroup.quaternion.slerp(targetQuat, 0.055);
+        earthGroup.quaternion.slerp(targetQuat, 0.065);
+        if (travelBoost > 0.005) {
+          travelBoost *= 0.93;
+          camera.position.z = 6.2 + Math.sin(travelBoost * Math.PI) * 0.42;
+        } else {
+          camera.position.z += (6.2 - camera.position.z) * 0.1;
+        }
       }
 
       // Atmospheric cloud drift

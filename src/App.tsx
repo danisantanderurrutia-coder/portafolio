@@ -228,7 +228,6 @@ export function App() {
       {/* 2. VISOR INMERSIVO: EL PLANETA 3D INTERACTIVO */}
       {viewMode === 'game' && (
         <GameWorldView
-          key={`${selectedCategory}-${selectedMissionId || 'default'}`}
           currentLang={currentLang}
           onToggleLanguage={toggleLanguage}
           onExitToDossier={() => setViewMode('dossier')}

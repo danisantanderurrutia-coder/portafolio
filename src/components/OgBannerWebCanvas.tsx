@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
-import { resolveAsset } from '../utils';
+import { resolveAsset, createCountryFlagCanvas } from '../utils';
 import { GeofrecuenciaLogo } from './GeofrecuenciaLogo';
 import { Globe, Sparkles, Microscope, Scale, Radio } from 'lucide-react';
 
@@ -183,27 +183,10 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
       cap.position.y = 0.245;
       bGroup.add(cap);
 
-      const flagCanvas = document.createElement('canvas');
-      flagCanvas.width = 144;
-      flagCanvas.height = 84;
-      const fCtx = flagCanvas.getContext('2d')!;
-      fCtx.fillStyle = '#' + node.color.toString(16).padStart(6, '0');
-      fCtx.fillRect(0, 0, 144, 84);
-      fCtx.fillStyle = 'rgba(255, 255, 255, 0.22)';
-      fCtx.fillRect(0, 0, 144, 42);
-      fCtx.lineWidth = 6;
-      fCtx.strokeStyle = '#000000';
-      fCtx.strokeRect(3, 3, 138, 78);
-      fCtx.font = '34px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-      fCtx.textAlign = 'center';
-      fCtx.textBaseline = 'middle';
-      fCtx.fillText(node.flag, 42, 42);
-      fCtx.fillStyle = '#ffffff';
-      fCtx.font = 'bold 22px monospace';
-      fCtx.fillText(node.city, 102, 43);
-
+      const flagCanvas = createCountryFlagCanvas(node.flag);
       const flagTex = new THREE.CanvasTexture(flagCanvas);
-      const flagGeo = new THREE.PlaneGeometry(0.165, 0.096);
+      flagTex.colorSpace = THREE.SRGBColorSpace;
+      const flagGeo = new THREE.PlaneGeometry(0.165, 0.102);
       const flagMat = new THREE.MeshBasicMaterial({ map: flagTex, side: THREE.DoubleSide });
       const flagMesh = new THREE.Mesh(flagGeo, flagMat);
       flagMesh.position.set(0.082, 0.18, 0);
