@@ -310,6 +310,21 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           </div>
 
         </div>
+
+        {/* FLOATING SLOGAN: SLIGHTLY ABOVE THE MIDDLE, PURE WHITE LETTERS, EDITORIAL SLOGAN TYPOGRAPHY, NO CARD */}
+        <div className="mt-4 sm:mt-5 lg:mt-7 px-1 sm:px-2 text-center lg:text-left max-w-md pointer-events-none">
+          <p
+            className="font-['Newsreader',Georgia,serif] italic font-semibold text-white text-lg sm:text-xl md:text-[23px] leading-[1.28] tracking-wide"
+            style={{
+              textShadow:
+                '0 2px 4px rgba(0,0,0,0.98), 0 4px 14px rgba(0,0,0,0.95), 0 0 24px rgba(0,0,0,0.85), 1.5px 1.5px 0px #000000',
+            }}
+          >
+            {currentLang === 'es'
+              ? '“Siendo el puente entre la ciencia de la Tierra, la decisión política y las personas.”'
+              : '“Being the bridge between Earth science, policy decisions, and people.”'}
+          </p>
+        </div>
       </div>
 
       {/* 4. MAIN STAGE: DIRECTIONAL WOODEN SLATS MOUNTED OVER THE TIMBER POST (CLEAN, NO FOOTER) */}
@@ -524,23 +539,6 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
           )}
         </div>
       </main>
-
-      {/* 5. BOTTOM BASE SLOGAN / MANIFESTO: BRIDGING EARTH SCIENCE, POLICY & PEOPLE */}
-      <footer className="relative lg:absolute lg:bottom-5 lg:left-8 xl:left-12 z-30 max-w-md px-4 pb-3 sm:px-6 lg:p-0 pointer-events-auto mx-auto lg:mx-0">
-        <div className="bg-black/80 backdrop-blur-md px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-xl border-2 border-black shadow-[4px_4px_0px_#facc15] rotate-[0.4deg] hover:rotate-0 transition-transform duration-200">
-          <p className="font-mono text-[11px] sm:text-xs font-bold text-neutral-100 leading-snug">
-            {currentLang === 'es' ? (
-              <>
-                Siendo el puente entre la <strong className="text-[#facc15]">ciencia de la Tierra</strong>, la <strong className="text-emerald-400">decisión política</strong> y las <strong className="text-sky-300">personas</strong>.
-              </>
-            ) : (
-              <>
-                Being the bridge between <strong className="text-[#facc15]">Earth science</strong>, <strong className="text-emerald-400">policy decisions</strong>, and <strong className="text-sky-300">people</strong>.
-              </>
-            )}
-          </p>
-        </div>
-      </footer>
 
     </div>
   );

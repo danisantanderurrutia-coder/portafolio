@@ -3437,7 +3437,7 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
     const hitObjects: THREE.Object3D[] = [];
     const beaconMeshes: { missionId: string; type: MissionType; group: THREE.Group }[] = [];
 
-    GAME_MISSIONS.forEach((m) => {
+    GAME_MISSIONS.forEach((m, mIdx) => {
       if (m.isStatic) return; // Non-geographical items do not create pushpins on the globe
 
       const pos = latLngToVector3(m.lat, m.lng, earthRadius * 1.002);
@@ -3464,32 +3464,43 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
       hole.rotation.x = Math.PI / 2;
       bGroup.add(hole);
 
+      // Inclined Pin Rig so the mast and flag remain 100% visible even when camera is directly overhead (+Y)
+      const pinRig = new THREE.Group();
+      // Planted pushpin tilt (~32 degrees) + slight fan angle to prevent overlap in same city
+      pinRig.rotation.z = -0.34;
+      pinRig.rotation.x = 0.36;
+      pinRig.rotation.y = ((mIdx % 3) - 1) * 0.14;
+      bGroup.add(pinRig);
+
       // 2. Slender Metallic Steel Needle / Mast
-      const needleGeo = new THREE.CylinderGeometry(0.0035, 0.0035, 0.22, 8);
+      const needleGeo = new THREE.CylinderGeometry(0.0038, 0.0038, 0.23, 8);
       const needleMat = new THREE.MeshBasicMaterial({ color: 0xe2e8f0 });
       const needle = new THREE.Mesh(needleGeo, needleMat);
-      needle.position.y = 0.11;
-      bGroup.add(needle);
+      needle.position.y = 0.115;
+      pinRig.add(needle);
 
       // 3. Round Ball Pinhead at top of needle (colored sphere)
-      const capGeo = new THREE.SphereGeometry(0.018, 16, 16);
+      const capGeo = new THREE.SphereGeometry(0.019, 16, 16);
       const capMat = new THREE.MeshBasicMaterial({ color: colorHex });
       const cap = new THREE.Mesh(capGeo, capMat);
-      cap.position.y = 0.225;
-      bGroup.add(cap);
+      cap.position.y = 0.235;
+      pinRig.add(cap);
 
-      // 4. Map Pushpin Flag Pennant (Bandera nacional real del país donde se ubica)
+      // 4. Map Pushpin Flag Pennant (Inclinada hacia la cámara superior para verse siempre de frente)
       const flagCanvas = createCountryFlagCanvas(m.flag, m.country);
       const flagTex = new THREE.CanvasTexture(flagCanvas);
       flagTex.colorSpace = THREE.SRGBColorSpace;
-      const flagGeo = new THREE.PlaneGeometry(0.155, 0.096);
+      const flagGeo = new THREE.PlaneGeometry(0.165, 0.104);
       const flagMat = new THREE.MeshBasicMaterial({ map: flagTex, side: THREE.DoubleSide });
       const flagMesh = new THREE.Mesh(flagGeo, flagMat);
-      flagMesh.position.set(0.078, 0.168, 0);
-      bGroup.add(flagMesh);
+      flagMesh.position.set(0.082, 0.175, 0.015);
+      // Tilt flag plane ~58 degrees toward overhead camera (+Y) so it never collapses into a vertical line
+      flagMesh.rotation.x = -1.02;
+      flagMesh.rotation.y = 0.18;
+      pinRig.add(flagMesh);
 
       // Invisible Hit-Test Sphere for easy mouse / touch click detection
-      const hitGeo = new THREE.SphereGeometry(0.2, 8, 8);
+      const hitGeo = new THREE.SphereGeometry(0.22, 8, 8);
       const hitMat = new THREE.MeshBasicMaterial({ visible: false });
       const hitSphere = new THREE.Mesh(hitGeo, hitMat);
       hitSphere.position.y = 0.14;

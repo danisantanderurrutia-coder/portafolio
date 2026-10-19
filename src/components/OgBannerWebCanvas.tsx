@@ -171,17 +171,22 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
       hole.rotation.x = Math.PI / 2;
       bGroup.add(hole);
 
+      const pinRig = new THREE.Group();
+      pinRig.rotation.z = -0.34;
+      pinRig.rotation.x = 0.36;
+      bGroup.add(pinRig);
+
       const needleGeo = new THREE.CylinderGeometry(0.0045, 0.0045, 0.24, 8);
       const needleMat = new THREE.MeshBasicMaterial({ color: 0xe2e8f0 });
       const needle = new THREE.Mesh(needleGeo, needleMat);
       needle.position.y = 0.12;
-      bGroup.add(needle);
+      pinRig.add(needle);
 
       const capGeo = new THREE.SphereGeometry(0.022, 16, 16);
       const capMat = new THREE.MeshBasicMaterial({ color: node.color });
       const cap = new THREE.Mesh(capGeo, capMat);
       cap.position.y = 0.245;
-      bGroup.add(cap);
+      pinRig.add(cap);
 
       const flagCanvas = createCountryFlagCanvas(node.flag);
       const flagTex = new THREE.CanvasTexture(flagCanvas);
@@ -189,8 +194,10 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
       const flagGeo = new THREE.PlaneGeometry(0.165, 0.102);
       const flagMat = new THREE.MeshBasicMaterial({ map: flagTex, side: THREE.DoubleSide });
       const flagMesh = new THREE.Mesh(flagGeo, flagMat);
-      flagMesh.position.set(0.082, 0.18, 0);
-      bGroup.add(flagMesh);
+      flagMesh.position.set(0.082, 0.18, 0.015);
+      flagMesh.rotation.x = -1.02;
+      flagMesh.rotation.y = 0.18;
+      pinRig.add(flagMesh);
 
       earthGroup.add(bGroup);
     });
@@ -281,9 +288,9 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
       <div ref={mountRef} className="absolute inset-0 z-10 pointer-events-none" />
 
       {/* 3. FOREGROUND NEO-BRUTALIST IDENTITY & CREDENTIALS HUD (LEFT SIDE OF BANNER) */}
-      <div className="relative z-20 w-[768px] h-full flex flex-col justify-between pl-9 pr-3 py-7">
+      <div className="relative z-20 w-[768px] h-full flex flex-col justify-between pl-9 pr-3 py-8">
         
-        {/* TOP ROW: HERO PORTRAIT CARD + NAME & SPECIALTIES (EXACT PORTFOLIO COMPONENT AESTHETIC) */}
+        {/* TOP ROW: HERO PORTRAIT CARD + NAME & SPECIALTIES */}
         <div className="flex items-center gap-5 bg-black/82 backdrop-blur-md p-4.5 rounded-2xl border-[3px] border-black shadow-[7px_7px_0px_#000000]">
           {/* Portrait Frame */}
           <div className="relative shrink-0">
@@ -349,7 +356,20 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
           </div>
         </div>
 
-        {/* MIDDLE ROW: 3 OFFICIAL UNIVERSITY BADGES + WETLAND MONITOR APP (NO TRUNCATION) */}
+        {/* FLOATING WHITE SLOGAN ABOVE THE MIDDLE (NO BACKGROUND CARD, EDITORIAL SLOGAN TYPOGRAPHY) */}
+        <div className="px-2 py-1 max-w-[545px] -mt-5">
+          <p
+            className="font-['Newsreader',Georgia,serif] italic font-semibold text-white text-[26px] leading-[1.24] tracking-wide"
+            style={{
+              textShadow:
+                '0 2px 5px rgba(0,0,0,0.98), 0 4px 16px rgba(0,0,0,0.95), 0 0 28px rgba(0,0,0,0.9), 1.5px 1.5px 0px #000000',
+            }}
+          >
+            “Being the bridge between Earth science, policy decisions, and people.”
+          </p>
+        </div>
+
+        {/* BOTTOM ROW: 3 OFFICIAL UNIVERSITY BADGES + WETLAND MONITOR APP */}
         <div className="grid grid-cols-4 gap-2.5">
           {/* 1. Universidad de Chile */}
           <div className="bg-black/85 backdrop-blur-md px-2.5 py-2.5 rounded-xl border-2 border-black shadow-[4px_4px_0px_#2563eb] flex items-center gap-2">
@@ -419,11 +439,11 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
 
           {/* 4. Wetland Monitor Digital Twin */}
           <div className="bg-black/85 backdrop-blur-md px-2.5 py-2.5 rounded-xl border-2 border-black shadow-[4px_4px_0px_#10b981] flex items-center gap-2">
-            <div className="w-11 h-11 rounded-lg bg-[#071318] p-1 border border-emerald-500/50 shrink-0 flex items-center justify-center overflow-hidden">
+            <div className="w-11 h-11 rounded-lg bg-[#0b192c] p-0.5 border border-emerald-400/60 shrink-0 flex items-center justify-center overflow-hidden">
               <img
                 src={resolveAsset('/logos/wetland_monitor_logo.png')}
                 alt="Wetland Monitor"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover rounded"
               />
             </div>
             <div className="min-w-0">
@@ -438,21 +458,6 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
               </div>
             </div>
           </div>
-        </div>
-
-        {/* BOTTOM ROW: SLOGAN MANIFESTO BAR (IDENTICAL TO HOME FOOTER) */}
-        <div className="bg-black/88 backdrop-blur-md px-4 py-3 rounded-xl border-[2.5px] border-black shadow-[5px_5px_0px_#facc15]">
-          <div className="flex items-center justify-between gap-2 mb-1">
-            <span className="bg-[#facc15] text-black font-mono font-black text-[10px] px-2 py-0.5 uppercase tracking-wider border border-black">
-              SCIENCE × POLICY × PEOPLE
-            </span>
-            <span className="font-mono font-bold text-[10px] text-emerald-400 tracking-wider uppercase flex items-center gap-1">
-              <Globe className="w-3 h-3" /> INTERACTIVE 3D PORTFOLIO &amp; EXECUTIVE DOSSIER
-            </span>
-          </div>
-          <p className="font-mono text-[13px] font-bold text-neutral-100 leading-snug">
-            Being the bridge between <strong className="text-[#facc15]">Earth science</strong>, <strong className="text-emerald-400">policy decisions</strong>, and <strong className="text-sky-300">people</strong>.
-          </p>
         </div>
 
       </div>
