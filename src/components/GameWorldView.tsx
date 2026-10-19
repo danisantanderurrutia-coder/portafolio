@@ -1399,16 +1399,11 @@ export const GAME_MISSIONS: GameMission[] = [
     mediaType: 'video',
     embedUrl: 'https://www.youtube.com/embed/B2XrNxHxwrA',
     url: 'https://www.youtube.com/watch?v=B2XrNxHxwrA',
-    src: '/logos/cuarentena-rap.jpg',
+    src: '/logos/cuarentena-rap-official.png',
     availablePages: [
       {
-        titleEs: 'Emblema Oficial de la Corona y Micrófono • Cuarentena Rap',
-        titleEn: 'Official Crown & Microphone Emblem • Cuarentena Rap',
-        pageSrc: '/logos/cuarentena-rap.jpg'
-      },
-      {
-        titleEs: 'Logotipo Oficial Vectorial • Cuarentena Rap (Dossier-Rap GitHub)',
-        titleEn: 'Official Vector Logo • Cuarentena Rap (Dossier-Rap GitHub)',
+        titleEs: 'Logotipo e Identidad Oficial • Cuarentena Rap (Médico de la Peste QRTN)',
+        titleEn: 'Official Logo & Insignia • Cuarentena Rap (Plague Doctor QRTN)',
         pageSrc: '/logos/cuarentena-rap-official.png'
       },
       {
@@ -1420,6 +1415,11 @@ export const GAME_MISSIONS: GameMission[] = [
         titleEs: 'Fase de Karmas • Torneo Panamericano de Beatbox & Spoken Word',
         titleEn: 'Karma Phase • Pan-American Beatbox Tournament & Spoken Word',
         pageSrc: '/instagram_covers/CFqKMjHnKDc.jpg'
+      },
+      {
+        titleEs: 'Crizzo Campeón • Gran Final y Coronación de Temporada',
+        titleEn: 'Crizzo Champion • Grand Season Finale & Coronation',
+        pageSrc: '/instagram_covers/CKu2R9qgy3Q.jpg'
       }
     ],
     techStack: ['OBS Studio', 'DaVinci Resolve', 'YouTube Live', 'Discord API'],
