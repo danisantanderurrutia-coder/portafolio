@@ -32,12 +32,15 @@ const ArtDirectorModal = lazy(() =>
 const AdminCareerPanel = lazy(() =>
   import('./components/AdminCareerPanel').then((m) => ({ default: m.AdminCareerPanel }))
 );
+const OgBannerWebCanvas = lazy(() =>
+  import('./components/OgBannerWebCanvas').then((m) => ({ default: m.OgBannerWebCanvas }))
+);
 
 export { resolveAsset } from './utils';
 
-type ViewMode = 'punk' | 'game' | 'dossier' | 'comms_culture' | 'admin';
+type ViewMode = 'punk' | 'game' | 'dossier' | 'comms_culture' | 'admin' | 'og_render';
 
-const VALID_VIEWS: ViewMode[] = ['punk', 'game', 'dossier', 'comms_culture', 'admin'];
+const VALID_VIEWS: ViewMode[] = ['punk', 'game', 'dossier', 'comms_culture', 'admin', 'og_render'];
 const VALID_CATEGORIES: ('all' | MissionType)[] = [
   'all',
   'science',
@@ -218,6 +221,9 @@ export function App() {
           }}
         />
       )}
+
+      {/* 1C. LIENZO WEB REAL 1200x630 (REACT + THREE.JS WEBGL) PARA BANNER OG:IMAGE */}
+      {viewMode === 'og_render' && <OgBannerWebCanvas />}
 
       {/* 2. VISOR INMERSIVO: EL PLANETA 3D INTERACTIVO */}
       {viewMode === 'game' && (
