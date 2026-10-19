@@ -303,13 +303,9 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
       {/* 4. MAIN STAGE: DIRECTIONAL WOODEN SLATS MOUNTED OVER THE TIMBER POST (CLEAN, NO FOOTER) */}
       <main className="relative z-20 flex-1 w-full px-4 sm:px-8 lg:px-12 flex flex-col justify-center items-center my-auto overflow-y-auto no-scrollbar py-2">
         
-        {/* RIGHT AREA: DIRECTIONAL WOODEN SLATS MOUNTED DIRECTLY ON THE TIMBER POST */}
+        {/* RIGHT AREA: DIRECTIONAL WOODEN SLATS MOUNTED DIRECTLY ON THE BACKGROUND TIMBER POST */}
         <div className="w-full max-w-sm sm:max-w-md lg:w-[410px] xl:w-[450px] lg:absolute lg:left-[67.7%] lg:-translate-x-1/2 flex flex-col items-center my-auto relative py-1">
-          
-          {/* Slender Timber Post Core Behind the Signs */}
-          <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-4 sm:w-5 bg-gradient-to-r from-[#291c13] via-[#483324] to-[#1c120b] border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,0.85)] z-0 rounded-sm" />
-
-          {/* 11 Hectic Directional Signboards (Non-parallel, Alternating, No Subtitles/KM) */}
+          {/* 11 Hectic Directional Signboards (Mounted on the background artwork's post) */}
           <div className="relative z-10 w-full flex flex-col space-y-1 sm:space-y-1.5 py-1">
             
             {/* 1. SIGN 01: SCIENCE & ACADEMY (Points Right ➔) */}
