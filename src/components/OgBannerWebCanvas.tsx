@@ -335,7 +335,7 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
             </div>
 
             <p className="text-[12px] font-mono text-neutral-200 leading-relaxed">
-              Hydro-Geophysics (VES/ERT), Peatland GHG Fluxes (CH₄ / CO₂), Soil Physics &amp; Limnology — Bridging <strong className="text-[#facc15]">Hard Earth Science</strong>, <strong className="text-emerald-400">Climate Policy</strong> &amp; <strong className="text-sky-300">Digital Twins</strong>.
+              Hydro-Geophysics (VES/ERT), Peatland GHG Fluxes (CH₄ / CO₂), Soil Physics &amp; Limnology — Integrating <strong className="text-[#facc15]">Hard Earth Science</strong>, <strong className="text-emerald-400">Climate Policy</strong> &amp; <strong className="text-sky-300">Digital Twins</strong>.
             </p>
 
             {/* Quick Pillar Pills on a Single Line */}
@@ -365,7 +365,7 @@ export const OgBannerWebCanvas: React.FC<OgBannerWebCanvasProps> = ({ onReady })
                 '0 2px 5px rgba(0,0,0,0.98), 0 4px 16px rgba(0,0,0,0.95), 0 0 28px rgba(0,0,0,0.9), 1.5px 1.5px 0px #000000',
             }}
           >
-            “Being the bridge between Earth science, policy decisions, and people.”
+            “Bridging Earth science, policy decisions, and people.”
           </p>
         </div>
 

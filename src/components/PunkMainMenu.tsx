@@ -321,8 +321,8 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
             }}
           >
             {currentLang === 'es'
-              ? '“Siendo el puente entre la ciencia de la Tierra, la decisión política y las personas.”'
-              : '“Being the bridge between Earth science, policy decisions, and people.”'}
+              ? '“Puente entre la ciencia de la Tierra, la decisión política y las personas.”'
+              : '“Bridging Earth science, policy decisions, and people.”'}
           </p>
         </div>
       </div>
