@@ -8,7 +8,12 @@ import {
   CheckCircle2,
   Sparkles,
   BookOpen,
-  Briefcase
+  Briefcase,
+  Info,
+  Mail,
+  Copy,
+  Check,
+  Send
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -130,8 +135,17 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
   const [selectedLang, setSelectedLang] = useState<Language>(initialCvLang || currentLang);
   const [selectedLength, setSelectedLength] = useState<CvLength>(initialCvLength);
   const [showPreview, setShowPreview] = useState<boolean>(false);
+  const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
 
   if (!isOpen) return null;
+
+  const email = 'danisantander.urrutia@gmail.com';
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
 
   const activeVariant =
     CV_VARIANTS.find((v) => v.lang === selectedLang && v.length === selectedLength) || CV_VARIANTS[0];
@@ -144,16 +158,16 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl bg-[#faf8f4] text-[#1c1917] border-[3px] border-black rounded-2xl shadow-[10px_10px_0px_#facc15] overflow-hidden flex flex-col max-h-[92vh]"
+        className="relative w-full max-w-4xl bg-white text-slate-900 border-2 border-slate-900 rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.65)] overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Header */}
-        <div className="px-5 py-3.5 bg-[#1c1917] text-[#faf8f4] border-b-2 border-black flex items-center justify-between shrink-0">
+        <div className="px-5 py-3.5 bg-[#0f172a] text-white border-b border-slate-800 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
-            <span className="px-2 py-0.5 bg-[#facc15] text-black font-mono font-black text-[10px] uppercase border border-black">
+            <span className="px-2 py-0.5 bg-[#facc15] text-slate-950 font-mono font-black text-[10px] uppercase rounded">
               CV REPOSITORY
             </span>
-            <h2 className="font-mono font-black text-xs sm:text-sm uppercase tracking-wider text-white">
+            <h2 className="font-mono font-bold text-xs sm:text-sm uppercase tracking-wider text-white">
               {currentLang === 'es'
                 ? 'SELECTOR DE CURRÍCULUM VITAE (INGLÉS / ESPAÑOL • 1 O 2 PÁGINAS)'
                 : 'CURRICULUM VITAE SELECTOR (ENGLISH / SPANISH • 1 OR 2 PAGES)'}
@@ -162,7 +176,7 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
 
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg bg-white/10 hover:bg-red-600 text-neutral-300 hover:text-white transition-all border border-white/20 cursor-pointer"
+            className="p-1.5 rounded-lg bg-white/10 hover:bg-red-600 text-slate-300 hover:text-white transition-all cursor-pointer"
             title={currentLang === 'es' ? 'Cerrar' : 'Close'}
           >
             <X className="w-4 h-4" />
@@ -170,22 +184,81 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
         </div>
 
         {/* Body */}
-        <div className="p-5 sm:p-7 overflow-y-auto space-y-6">
-          {/* Step 1 & Step 2 Filters + Quick 4-Card Matrix */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="p-5 sm:p-6 overflow-y-auto space-y-4">
+          {/* IMPORTANT TAILORED CV NOTICE BANNER */}
+          <div className="p-3.5 sm:p-4 rounded-xl bg-[#0f172a] text-white border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-3.5 shadow-sm">
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-lg bg-amber-400/15 border border-amber-400/40 text-[#facc15] flex items-center justify-center shrink-0 mt-0.5">
+                <Info className="w-4 h-4" />
+              </div>
+              <div className="space-y-1">
+                <div className="font-mono font-bold text-[10.5px] uppercase tracking-wider text-[#facc15]">
+                  {currentLang === 'es'
+                    ? 'NOTA IMPORTANTE SOBRE PERSONALIZACIÓN DE CV'
+                    : 'IMPORTANT NOTE ON TAILORED CVs'}
+                </div>
+                <p className="text-xs text-slate-200 leading-relaxed">
+                  {currentLang === 'es' ? (
+                    <>
+                      Los CVs aquí disponibles son <strong className="text-white">referencias generales</strong>, ya que cada currículum es preparado específicamente para cada puesto o proyecto con el fin de ajustar las habilidades, cursos y formación seleccionada. Si busca algo más detallado o específico, por favor comuníquese conmigo a{' '}
+                      <a
+                        href={`mailto:${email}?subject=Solicitud%20de%20CV%20Espec%C3%ADfico%20-%20Daniel%20Santander`}
+                        className="text-emerald-400 font-mono font-bold underline hover:text-emerald-300"
+                      >
+                        {email}
+                      </a>
+                      .
+                    </>
+                  ) : (
+                    <>
+                      These CVs serve as <strong className="text-white">general baseline references</strong>, as each resume is specifically tailored to each role or project to align selected skills, coursework, and academic training. If you are looking for a more detailed or role-specific breakdown, please contact me at{' '}
+                      <a
+                        href={`mailto:${email}?subject=Tailored%20CV%20Request%20-%20Daniel%20Santander`}
+                        className="text-emerald-400 font-mono font-bold underline hover:text-emerald-300"
+                      >
+                        {email}
+                      </a>
+                      .
+                    </>
+                  )}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0 self-end md:self-center">
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono font-bold text-[10.5px] flex items-center gap-1.5 transition-colors cursor-pointer"
+              >
+                {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copiedEmail ? (currentLang === 'es' ? 'Copiado' : 'Copied') : (currentLang === 'es' ? 'Copiar correo' : 'Copy email')}</span>
+              </button>
+              <a
+                href={`mailto:${email}?subject=Solicitud%20de%20CV%20Espec%C3%ADfico%20-%20Daniel%20Santander`}
+                className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-[10.5px] flex items-center gap-1.5 transition-colors"
+              >
+                <Send className="w-3.5 h-3.5" />
+                <span>{currentLang === 'es' ? 'Solicitar CV' : 'Request CV'}</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Step 1 & Step 2 Filters */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
             {/* Language Switcher */}
-            <div className="p-3.5 rounded-xl bg-[#efe9dd] border-2 border-black shadow-[3px_3px_0px_#000]">
-              <div className="font-mono font-black text-[10px] uppercase tracking-wider text-neutral-600 mb-2">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="font-mono font-bold text-[10px] uppercase tracking-wider text-slate-500 mb-2">
                 {currentLang === 'es' ? '1. SELECCIONA IDIOMA DEL CV' : '1. SELECT CV LANGUAGE'}
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => setSelectedLang('en')}
-                  className={`py-2 px-3 rounded-lg font-mono font-black text-xs uppercase border-2 transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  className={`py-2 px-3 rounded-lg font-mono font-bold text-xs uppercase border transition-all flex items-center justify-center gap-2 cursor-pointer ${
                     selectedLang === 'en'
-                      ? 'bg-[#1c1917] text-[#facc15] border-black shadow-[2px_2px_0px_#facc15]'
-                      : 'bg-white text-neutral-700 border-black/30 hover:border-black'
+                      ? 'bg-[#0f172a] text-[#facc15] border-[#0f172a] shadow-sm'
+                      : 'bg-white text-slate-700 border-slate-200 hover:border-slate-400'
                   }`}
                 >
                   <span>🇬🇧</span>
@@ -194,10 +267,10 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedLang('es')}
-                  className={`py-2 px-3 rounded-lg font-mono font-black text-xs uppercase border-2 transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  className={`py-2 px-3 rounded-lg font-mono font-bold text-xs uppercase border transition-all flex items-center justify-center gap-2 cursor-pointer ${
                     selectedLang === 'es'
-                      ? 'bg-[#1c1917] text-[#facc15] border-black shadow-[2px_2px_0px_#facc15]'
-                      : 'bg-white text-neutral-700 border-black/30 hover:border-black'
+                      ? 'bg-[#0f172a] text-[#facc15] border-[#0f172a] shadow-sm'
+                      : 'bg-white text-slate-700 border-slate-200 hover:border-slate-400'
                   }`}
                 >
                   <span>🇪🇸</span>
@@ -207,18 +280,18 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
             </div>
 
             {/* Length Switcher */}
-            <div className="p-3.5 rounded-xl bg-[#efe9dd] border-2 border-black shadow-[3px_3px_0px_#000]">
-              <div className="font-mono font-black text-[10px] uppercase tracking-wider text-neutral-600 mb-2">
+            <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+              <div className="font-mono font-bold text-[10px] uppercase tracking-wider text-slate-500 mb-2">
                 {currentLang === 'es' ? '2. SELECCIONA EXTENSIÓN / FORMATO' : '2. SELECT LENGTH / FORMAT'}
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => setSelectedLength('1p')}
-                  className={`py-2 px-3 rounded-lg font-mono font-black text-xs uppercase border-2 transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  className={`py-2 px-3 rounded-lg font-mono font-bold text-xs uppercase border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                     selectedLength === '1p'
-                      ? 'bg-[#1f4e37] text-white border-black shadow-[2px_2px_0px_#000]'
-                      : 'bg-white text-neutral-700 border-black/30 hover:border-black'
+                      ? 'bg-emerald-600 text-white border-emerald-700 shadow-sm'
+                      : 'bg-white text-slate-700 border-slate-200 hover:border-slate-400'
                   }`}
                 >
                   <Briefcase className="w-3.5 h-3.5" />
@@ -227,10 +300,10 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
                 <button
                   type="button"
                   onClick={() => setSelectedLength('2p')}
-                  className={`py-2 px-3 rounded-lg font-mono font-black text-xs uppercase border-2 transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  className={`py-2 px-3 rounded-lg font-mono font-bold text-xs uppercase border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                     selectedLength === '2p'
-                      ? 'bg-[#1f4e37] text-white border-black shadow-[2px_2px_0px_#000]'
-                      : 'bg-white text-neutral-700 border-black/30 hover:border-black'
+                      ? 'bg-emerald-600 text-white border-emerald-700 shadow-sm'
+                      : 'bg-white text-slate-700 border-slate-200 hover:border-slate-400'
                   }`}
                 >
                   <BookOpen className="w-3.5 h-3.5" />
@@ -241,40 +314,40 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
           </div>
 
           {/* Selected Variant Featured Card */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-white border-2 border-black shadow-[6px_6px_0px_#1c1917] flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
-            <div className="space-y-2.5 flex-1">
+          <div className="p-5 rounded-2xl bg-slate-50/70 border-2 border-slate-900 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5">
+            <div className="space-y-2 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="px-2.5 py-0.5 bg-[#facc15] text-black font-mono font-black text-[11px] uppercase border-2 border-black shadow-[2px_2px_0px_#000]">
+                <span className="px-2.5 py-0.5 bg-[#0f172a] text-[#facc15] font-mono font-bold text-[10.5px] uppercase rounded">
                   {currentLang === 'es' ? activeVariant.badgeEs : activeVariant.badgeEn}
                 </span>
-                <span className="font-mono text-xs text-neutral-500">
+                <span className="font-mono text-xs text-slate-500">
                   {activeVariant.filename}
                 </span>
               </div>
 
-              <h3 className="font-['Newsreader',Georgia,serif] font-bold text-2xl sm:text-3xl text-[#1c1917] leading-tight">
+              <h3 className="font-['Newsreader',Georgia,serif] font-bold text-2xl sm:text-3xl text-slate-900 leading-tight">
                 {currentLang === 'es' ? activeVariant.titleEs : activeVariant.titleEn}
               </h3>
 
-              <p className="font-mono font-bold text-xs text-[#1f4e37]">
+              <p className="font-mono font-bold text-xs text-emerald-700">
                 {currentLang === 'es' ? activeVariant.subtitleEs : activeVariant.subtitleEn}
               </p>
 
-              <p className="text-xs sm:text-sm text-neutral-700 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 {currentLang === 'es' ? activeVariant.descEs : activeVariant.descEn}
               </p>
 
               <div className="pt-1 flex flex-wrap items-center gap-1.5">
-                <span className="font-mono font-bold text-[10px] uppercase text-neutral-500 mr-1">
+                <span className="font-mono font-bold text-[10px] uppercase text-slate-500 mr-1">
                   {currentLang === 'es' ? 'Ideal para:' : 'Recommended for:'}
                 </span>
                 {(currentLang === 'es' ? activeVariant.recommendedForEs : activeVariant.recommendedForEn).map(
                   (tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#f3efe6] border border-[#d6cebf] font-mono text-[10px] font-bold text-[#1c1917]"
+                      className="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white border border-slate-200 font-mono text-[10px] font-bold text-slate-800"
                     >
-                      <CheckCircle2 className="w-3 h-3 text-[#1f4e37]" />
+                      <CheckCircle2 className="w-3 h-3 text-emerald-600" />
                       {tag}
                     </span>
                   )
@@ -283,13 +356,13 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
             </div>
 
             {/* Action Buttons for Active Variant */}
-            <div className="flex flex-col sm:flex-row lg:flex-col gap-2.5 w-full lg:w-56 shrink-0">
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-2 w-full lg:w-56 shrink-0">
               <a
                 href={resolvedPdfUrl}
                 download={activeVariant.filename}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-[#facc15] hover:bg-amber-300 text-black font-mono font-black text-xs uppercase tracking-wider border-2 border-black shadow-[4px_4px_0px_#000] active:translate-y-0.5 transition-all flex items-center justify-center gap-2"
+                className="w-full py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 <span>{currentLang === 'es' ? 'Descargar PDF' : 'Download PDF'}</span>
@@ -298,7 +371,7 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
               <button
                 type="button"
                 onClick={() => setShowPreview((prev) => !prev)}
-                className="w-full py-2.5 px-4 rounded-xl bg-[#1c1917] hover:bg-neutral-800 text-white font-mono font-bold text-xs uppercase tracking-wider border-2 border-black shadow-[3px_3px_0px_#000] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-xl bg-[#0f172a] hover:bg-slate-800 text-white font-mono font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Eye className="w-4 h-4 text-[#facc15]" />
                 <span>
@@ -316,7 +389,7 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
                 href={resolvedPdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2 px-3 rounded-xl bg-[#f3efe6] hover:bg-[#e6dfd1] text-neutral-800 font-mono font-bold text-[11px] uppercase border border-black/40 transition-all flex items-center justify-center gap-1.5"
+                className="w-full py-2 px-3 rounded-xl bg-white hover:bg-slate-100 text-slate-700 font-mono font-bold text-[11px] uppercase border border-slate-200 transition-all flex items-center justify-center gap-1.5"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>{currentLang === 'es' ? 'Abrir en pestaña nueva' : 'Open in new tab'}</span>
@@ -326,11 +399,9 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
 
           {/* Optional Inline PDF Viewer */}
           {showPreview && (
-            <div className="rounded-xl overflow-hidden border-2 border-black bg-neutral-900 shadow-[4px_4px_0px_#000]">
-              <div className="px-4 py-2 bg-black text-white font-mono text-[11px] flex items-center justify-between">
-                <span>
-                  📄 {activeVariant.filename}
-                </span>
+            <div className="rounded-xl overflow-hidden border-2 border-slate-900 bg-slate-900">
+              <div className="px-4 py-2 bg-[#0f172a] text-white font-mono text-[11px] flex items-center justify-between">
+                <span>📄 {activeVariant.filename}</span>
                 <span className="text-[#facc15]">
                   {currentLang === 'es' ? 'Visor PDF Integrado' : 'Embedded PDF Viewer'}
                 </span>
@@ -345,8 +416,8 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
 
           {/* Direct 4-Option Quick Grid */}
           <div className="space-y-2">
-            <div className="font-mono font-black text-[10px] uppercase tracking-wider text-neutral-500 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            <div className="font-mono font-bold text-[10px] uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
               <span>
                 {currentLang === 'es'
                   ? 'ACCESO DIRECTO A LAS 4 VERSIONES DISPONIBLES:'
@@ -365,26 +436,26 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
                       setSelectedLang(variant.lang);
                       setSelectedLength(variant.length);
                     }}
-                    className={`p-3 rounded-xl border-2 transition-all cursor-pointer flex flex-col justify-between gap-2 ${
+                    className={`p-3 rounded-xl border transition-all cursor-pointer flex flex-col justify-between gap-2 ${
                       isSelected
-                        ? 'bg-[#1c1917] text-white border-black shadow-[3px_3px_0px_#facc15]'
-                        : 'bg-white hover:bg-[#f3efe6] text-[#1c1917] border-black/30 hover:border-black'
+                        ? 'bg-[#0f172a] text-white border-[#0f172a] shadow-md'
+                        : 'bg-slate-50 hover:bg-slate-100 text-slate-900 border-slate-200'
                     }`}
                   >
                     <div>
                       <div className="flex items-center justify-between gap-1">
                         <span
-                          className={`font-mono font-black text-[10px] uppercase px-1.5 py-0.5 rounded ${
+                          className={`font-mono font-bold text-[10px] uppercase px-1.5 py-0.5 rounded ${
                             isSelected
-                              ? 'bg-[#facc15] text-black'
-                              : 'bg-[#efe9dd] text-[#1c1917]'
+                              ? 'bg-[#facc15] text-slate-950'
+                              : 'bg-white text-slate-700 border border-slate-200'
                           }`}
                         >
                           {variant.lang.toUpperCase()} • {variant.length.toUpperCase()}
                         </span>
                         <FileText className="w-3.5 h-3.5 opacity-70" />
                       </div>
-                      <div className="font-mono font-bold text-xs mt-1.5 leading-snug">
+                      <div className="font-['Newsreader',Georgia,serif] font-bold text-sm mt-1.5 leading-snug">
                         {currentLang === 'es' ? variant.titleEs : variant.titleEn}
                       </div>
                     </div>
@@ -393,10 +464,10 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
                       href={resolveAsset(variant.path)}
                       download={variant.filename}
                       onClick={(e) => e.stopPropagation()}
-                      className={`mt-1 py-1.5 px-2.5 rounded-lg font-mono font-black text-[10px] uppercase flex items-center justify-center gap-1.5 border transition-all ${
+                      className={`mt-1 py-1.5 px-2.5 rounded-lg font-mono font-bold text-[10px] uppercase flex items-center justify-center gap-1.5 border transition-all ${
                         isSelected
-                          ? 'bg-[#facc15] text-black border-black hover:bg-amber-300'
-                          : 'bg-[#faf8f4] text-[#1c1917] border-black/30 hover:bg-black hover:text-white'
+                          ? 'bg-emerald-600 text-white border-emerald-500 hover:bg-emerald-500'
+                          : 'bg-white text-slate-800 border-slate-200 hover:bg-[#0f172a] hover:text-white'
                       }`}
                     >
                       <Download className="w-3 h-3" />

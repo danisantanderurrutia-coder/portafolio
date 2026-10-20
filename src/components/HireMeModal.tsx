@@ -1,27 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
   X,
   Mail,
-  FileText,
   Copy,
   Check,
   Send,
   Download,
-  ExternalLink,
   Eye,
   MapPin,
   Languages,
-  ArrowUpRight,
   Microscope,
   Scale,
-  Radio
+  Radio,
+  Info
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
 import { CV_VARIANTS } from './CvSelectorModal';
-import { GeofrecuenciaLogo } from './GeofrecuenciaLogo';
-
-export type HireMeAesthetic = 'editorial' | 'brutalist' | 'minimal';
 
 const LinkedinIcon = ({ className = 'w-4 h-4' }: { className?: string }) => (
   <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" className={className}>
@@ -40,31 +35,15 @@ interface HireMeModalProps {
   onClose: () => void;
   currentLang: Language;
   onOpenCvSelector?: (lang?: Language, length?: '1p' | '2p') => void;
-  initialStyle?: HireMeAesthetic;
 }
 
 export const HireMeModal: React.FC<HireMeModalProps> = ({
   isOpen,
   onClose,
   currentLang,
-  onOpenCvSelector,
-  initialStyle
+  onOpenCvSelector
 }) => {
-  const [aesthetic, setAesthetic] = useState<HireMeAesthetic>(() => {
-    const param = new URLSearchParams(window.location.search).get('style');
-    if (param === 'editorial' || param === 'brutalist' || param === 'minimal') {
-      return param;
-    }
-    return initialStyle || 'editorial';
-  });
-
   const [copiedEmail, setCopiedEmail] = useState(false);
-
-  useEffect(() => {
-    if (initialStyle) {
-      setAesthetic(initialStyle);
-    }
-  }, [initialStyle]);
 
   if (!isOpen) return null;
 
@@ -81,7 +60,9 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
   const mandates = [
     {
       num: '01',
-      icon: <Microscope className="w-4 h-4" />,
+      accentBg: 'bg-blue-50 text-blue-700 border-blue-200',
+      tagBg: 'bg-blue-50/80 text-blue-900 border-blue-200/80',
+      icon: <Microscope className="w-4 h-4 text-blue-600" />,
       titleEs: 'Hidrogeofísica, Turberas & Gemelos Digitales',
       titleEn: 'Hydro-Geophysics, Peatlands & Digital Twins',
       descEs:
@@ -92,7 +73,9 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
     },
     {
       num: '02',
-      icon: <Scale className="w-4 h-4" />,
+      accentBg: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+      tagBg: 'bg-emerald-50/80 text-emerald-900 border-emerald-200/80',
+      icon: <Scale className="w-4 h-4 text-emerald-600" />,
       titleEs: 'Política Climática, Agua & Asesoría ESG (UE / LATAM)',
       titleEn: 'Climate Policy, Water Governance & ESG Advisory',
       descEs:
@@ -103,7 +86,9 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
     },
     {
       num: '03',
-      icon: <Radio className="w-4 h-4" />,
+      accentBg: 'bg-amber-50 text-amber-800 border-amber-200',
+      tagBg: 'bg-amber-50/80 text-amber-950 border-amber-200/80',
+      icon: <Radio className="w-4 h-4 text-amber-600" />,
       titleEs: 'Comunicación Científica & Dirección Estratégica',
       titleEn: 'Science Communication & Strategic Direction',
       descEs:
@@ -116,449 +101,156 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center p-2 sm:p-5 bg-black/75 backdrop-blur-md animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-5 bg-black/75 backdrop-blur-md animate-fadeIn"
       onClick={onClose}
     >
-      {/* LIVE AESTHETIC SWITCHER BAR (SO USER CAN PREVIEW ALL 3 DESIGNS INSTANTLY) */}
       <div
-        className="mb-2.5 px-2.5 py-1.5 rounded-full bg-black/90 border border-white/25 shadow-lg flex items-center gap-1.5 z-50"
+        className="relative w-full max-w-4xl bg-white text-slate-900 border-2 border-slate-900 rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.65)] overflow-hidden flex flex-col max-h-[92vh]"
         onClick={(e) => e.stopPropagation()}
       >
-        <span className="font-mono text-[10px] uppercase tracking-wider text-neutral-400 px-2 hidden sm:inline">
-          {currentLang === 'es' ? 'Diseño:' : 'Style:'}
-        </span>
-        <button
-          type="button"
-          onClick={() => setAesthetic('editorial')}
-          className={`px-3 py-1 rounded-full font-mono font-bold text-[10px] uppercase transition-all cursor-pointer ${
-            aesthetic === 'editorial'
-              ? 'bg-[#faf8f4] text-[#1c1917] shadow-sm'
-              : 'text-neutral-300 hover:text-white'
-          }`}
-        >
-          1. Editorial Paper
-        </button>
-        <button
-          type="button"
-          onClick={() => setAesthetic('brutalist')}
-          className={`px-3 py-1 rounded-full font-mono font-bold text-[10px] uppercase transition-all cursor-pointer ${
-            aesthetic === 'brutalist'
-              ? 'bg-[#facc15] text-black shadow-sm'
-              : 'text-neutral-300 hover:text-white'
-          }`}
-        >
-          2. Neo-Brutalist Credential
-        </button>
-        <button
-          type="button"
-          onClick={() => setAesthetic('minimal')}
-          className={`px-3 py-1 rounded-full font-mono font-bold text-[10px] uppercase transition-all cursor-pointer ${
-            aesthetic === 'minimal'
-              ? 'bg-white text-slate-900 shadow-sm'
-              : 'text-neutral-300 hover:text-white'
-          }`}
-        >
-          3. Executive Minimal
-        </button>
-      </div>
-
-      {/* =====================================================================
-          OPTION 1: EDITORIAL PAPER DOSSIER (#faf8f4, Newsreader Serif + Ink)
-         ===================================================================== */}
-      {aesthetic === 'editorial' && (
-        <div
-          className="relative w-full max-w-4xl bg-[#faf8f4] text-[#1c1917] border-2 border-[#1c1917] rounded-xl shadow-[0_25px_70px_rgba(0,0,0,0.65)] overflow-hidden flex flex-col max-h-[88vh]"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Editorial Masthead */}
-          <div className="px-6 py-3.5 bg-[#f2ece1] border-b border-[#d6cebf] flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1f4e37] text-white font-mono text-[10px] font-bold uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-300 animate-pulse" />
-                {currentLang === 'es'
-                  ? 'DISPONIBLE • EUROPA & CHILE'
-                  : 'AVAILABLE • EUROPE & CHILE'}
-              </span>
-              <span className="font-mono text-[11px] text-[#57534e] uppercase tracking-widest hidden sm:inline">
-                {currentLang === 'es'
-                  ? 'EXPEDIENTE DE CONTRATACIÓN & CONSULTORÍA'
-                  : 'EXECUTIVE BRIEF & CONSULTING MANDATE'}
-              </span>
-            </div>
-
-            <button
-              onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-[#e4dcce] text-[#57534e] hover:text-[#1c1917] transition-colors cursor-pointer"
-              title={currentLang === 'es' ? 'Cerrar' : 'Close'}
-            >
-              <X className="w-5 h-5" />
-            </button>
+        {/* High-Contrast Slate Masthead (Option 3 Contrast + Option 1 Editorial Hierarchy) */}
+        <div className="px-6 py-3 bg-[#0f172a] text-white border-b border-slate-800 flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 font-mono text-[10px] font-bold uppercase tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              {currentLang === 'es'
+                ? 'DISPONIBLE • HANNOVER (UE) & CHILE'
+                : 'AVAILABLE • HANNOVER (EU) & CHILE'}
+            </span>
+            <span className="font-mono text-[11px] text-slate-300 uppercase tracking-widest hidden sm:inline">
+              {currentLang === 'es'
+                ? 'EXPEDIENTE DE CONTRATACIÓN & CONSULTORÍA'
+                : 'EXECUTIVE BRIEF & CONSULTING MANDATE'}
+            </span>
           </div>
 
-          {/* Editorial Content */}
-          <div className="p-5 sm:p-6 overflow-y-auto space-y-4">
-            {/* Top Editorial Profile Header */}
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pb-4 border-b border-[#d6cebf]">
-              <div className="flex items-center gap-4">
-                <img
-                  src={resolveAsset('/profile.jpg')}
-                  alt="Daniel Santander Urrutia"
-                  className="w-16 h-20 sm:w-20 sm:h-24 object-cover object-top rounded-lg border border-[#1c1917] shadow-sm shrink-0"
-                />
-                <div className="space-y-1">
-                  <div className="font-mono text-[10px] uppercase tracking-widest text-[#1f4e37] font-bold">
-                    U. DE CHILE (B.SC.) • CAU KIEL (M.SC.) • AMU POZNAŃ (M.SC.)
-                  </div>
-                  <h2 className="font-['Newsreader',Georgia,serif] font-bold text-2xl sm:text-3xl text-[#1c1917] tracking-tight leading-none">
-                    Daniel Santander Urrutia
-                  </h2>
-                  <p className="font-['Newsreader',Georgia,serif] italic text-sm sm:text-base text-[#44403c]">
-                    {currentLang === 'es'
-                      ? '“Puente entre la ciencia de la Tierra, la decisión política y las personas.”'
-                      : '“Bridging Earth science, policy decisions, and people.”'}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-3 pt-0.5 font-mono text-[10.5px] text-[#57534e]">
-                    <span className="inline-flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-[#1f4e37]" />
-                      Hannover, DE &amp; Santiago, CL
-                    </span>
-                    <span>•</span>
-                    <span className="inline-flex items-center gap-1">
-                      <Languages className="w-3.5 h-3.5 text-[#1f4e37]" />
-                      ES (Nativo) · EN (C1) · DE (B1)
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Direct Contact Stamp Box */}
-              <div className="w-full md:w-auto p-3 rounded-lg bg-[#f2ece1] border border-[#cfc5b4] flex flex-col gap-1.5 shrink-0">
-                <div className="font-mono text-[9.5px] uppercase tracking-wider text-[#57534e]">
-                  {currentLang === 'es' ? 'CONTACTO DIRECTO' : 'DIRECT INQUIRIES'}
-                </div>
-                <div className="font-mono font-bold text-xs text-[#1c1917] select-all">
-                  {email}
-                </div>
-                <div className="flex items-center gap-2 pt-0.5">
-                  <button
-                    onClick={handleCopyEmail}
-                    className="flex-1 px-2.5 py-1 rounded bg-white hover:bg-[#1c1917] text-[#1c1917] hover:text-white border border-[#1c1917] font-mono font-bold text-[10.5px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                  >
-                    {copiedEmail ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                    <span>{copiedEmail ? (currentLang === 'es' ? 'Copiado' : 'Copied') : (currentLang === 'es' ? 'Copiar' : 'Copy')}</span>
-                  </button>
-                  <a
-                    href={`mailto:${email}?subject=Contacto%20Profesional%20-%20Daniel%20Santander`}
-                    className="flex-1 px-2.5 py-1 rounded bg-[#1f4e37] hover:bg-[#163a28] text-white font-mono font-bold text-[10.5px] transition-colors flex items-center justify-center gap-1.5"
-                  >
-                    <Send className="w-3.5 h-3.5" />
-                    <span>{currentLang === 'es' ? 'Escribir' : 'Email'}</span>
-                  </a>
-                  <a
-                    href={linkedinUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-1 rounded bg-white hover:bg-[#0a66c2] text-[#1c1917] hover:text-white border border-[#1c1917] transition-colors"
-                    title="LinkedIn"
-                  >
-                    <LinkedinIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-1 rounded bg-white hover:bg-[#1c1917] text-[#1c1917] hover:text-white border border-[#1c1917] transition-colors"
-                    title="GitHub"
-                  >
-                    <GithubIcon className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* 3 Consulting & Role Pillars in Clean Editorial Columns */}
-            <div>
-              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#78716c] mb-2">
-                {currentLang === 'es'
-                  ? 'ÁREAS DE PRÁCTICA, INVESTIGACIÓN APLICADA & CONSULTORÍA'
-                  : 'AREAS OF PRACTICE, APPLIED RESEARCH & CONSULTING'}
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                {mandates.map((m) => (
-                  <div
-                    key={m.num}
-                    className="p-3.5 rounded-lg bg-white border border-[#d6cebf] flex flex-col justify-between space-y-2"
-                  >
-                    <div className="space-y-1.5">
-                      <div className="flex items-center justify-between text-[#1f4e37] border-b border-[#efe9dd] pb-1.5">
-                        <span className="font-mono text-xs font-bold">{m.num}</span>
-                        {m.icon}
-                      </div>
-                      <h3 className="font-['Newsreader',Georgia,serif] font-bold text-base text-[#1c1917] leading-snug">
-                        {currentLang === 'es' ? m.titleEs : m.titleEn}
-                      </h3>
-                      <p className="text-[11.5px] text-[#57534e] leading-relaxed">
-                        {currentLang === 'es' ? m.descEs : m.descEn}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap gap-1 pt-0.5">
-                      {m.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="px-1.5 py-0.5 rounded bg-[#f5f0e6] text-[#44403c] font-mono text-[9px] font-medium"
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* 4-CV Repository Matrix (EN/ES x 1P/2P) */}
-            <div className="p-3.5 sm:p-4 rounded-xl bg-[#f2ece1] border border-[#cfc5b4] space-y-2.5">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <div>
-                  <h4 className="font-['Newsreader',Georgia,serif] font-bold text-base text-[#1c1917]">
-                    {currentLang === 'es'
-                      ? 'Descarga de Currículum Vitae por Formato e Idioma'
-                      : 'Curriculum Vitae Repository by Format & Language'}
-                  </h4>
-                  <p className="font-mono text-[10.5px] text-[#57534e]">
-                    {currentLang === 'es'
-                      ? 'Elige versión ejecutiva (1 página) o extendida (2 páginas) en inglés o español:'
-                      : 'Select the 1-page executive summary or 2-page comprehensive CV in English or Spanish:'}
-                  </p>
-                </div>
-                {onOpenCvSelector && (
-                  <button
-                    type="button"
-                    onClick={() => onOpenCvSelector(currentLang, '1p')}
-                    className="px-3 py-1 rounded-lg bg-[#1c1917] hover:bg-[#1f4e37] text-white font-mono text-[10.5px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer"
-                  >
-                    <Eye className="w-3.5 h-3.5" />
-                    <span>{currentLang === 'es' ? 'Abrir Visor de CV' : 'Open CV Previewer'}</span>
-                  </button>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
-                {CV_VARIANTS.map((cv) => (
-                  <a
-                    key={cv.id}
-                    href={resolveAsset(cv.path)}
-                    download={cv.filename}
-                    className="p-2.5 rounded-lg bg-white hover:bg-[#1c1917] text-[#1c1917] hover:text-white border border-[#cfc5b4] hover:border-[#1c1917] transition-all group flex flex-col justify-between gap-1"
-                  >
-                    <div>
-                      <div className="flex items-center justify-between font-mono text-[9.5px] font-bold text-[#1f4e37] group-hover:text-emerald-300">
-                        <span>{currentLang === 'es' ? cv.badgeEs : cv.badgeEn}</span>
-                        <Download className="w-3.5 h-3.5" />
-                      </div>
-                      <div className="font-['Newsreader',Georgia,serif] font-bold text-xs sm:text-sm mt-0.5">
-                        {currentLang === 'es' ? cv.titleEs : cv.titleEn}
-                      </div>
-                    </div>
-                    <div className="font-mono text-[9px] text-[#78716c] group-hover:text-neutral-300">
-                      {cv.length === '1p'
-                        ? currentLang === 'es'
-                          ? 'Síntesis ejecutiva • PDF'
-                          : 'Executive synthesis • PDF'
-                        : currentLang === 'es'
-                          ? 'Expediente completo • PDF'
-                          : 'Full technical record • PDF'}
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-lg bg-white/10 hover:bg-red-600 text-slate-300 hover:text-white transition-colors cursor-pointer"
+            title={currentLang === 'es' ? 'Cerrar' : 'Close'}
+          >
+            <X className="w-4 h-4" />
+          </button>
         </div>
-      )}
 
-      {/* =====================================================================
-          OPTION 2: NEO-BRUTALIST PASSPORT / CREDENTIAL (#fdfbf7 + Black & Gold)
-         ===================================================================== */}
-      {aesthetic === 'brutalist' && (
-        <div
-          className="relative w-full max-w-4xl bg-[#fdfbf7] text-black border-[3px] border-black rounded-2xl shadow-[10px_10px_0px_#facc15] overflow-hidden flex flex-col max-h-[88vh]"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Neo-Brutalist Top Stencil Header */}
-          <div className="px-5 py-3 bg-black text-white border-b-[3px] border-black flex items-center justify-between shrink-0">
-            <div className="flex items-center gap-2.5">
-              <span className="px-2 py-0.5 bg-[#facc15] text-black font-mono font-black text-[10px] uppercase border border-black">
-                FIELD &amp; POLICY CREDENTIAL
-              </span>
-              <span className="font-mono font-black text-xs sm:text-sm uppercase tracking-wider text-white">
-                {currentLang === 'es'
-                  ? 'CONTRATACIÓN DIRECTA & CONSULTORÍA CIENTÍFICA'
-                  : 'DIRECT HIRE & SCIENTIFIC CONSULTING DOSSIER'}
-              </span>
+        {/* Body */}
+        <div className="p-5 sm:p-6 overflow-y-auto space-y-4">
+          {/* Top Editorial Profile + High-Contrast Dark Contact Bar */}
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 pb-4 border-b border-slate-200">
+            <div className="flex items-center gap-4">
+              <img
+                src={resolveAsset('/profile.jpg')}
+                alt="Daniel Santander Urrutia"
+                className="w-16 h-20 sm:w-20 sm:h-24 object-cover object-top rounded-xl border-2 border-slate-900 shadow-sm shrink-0"
+              />
+              <div className="space-y-1">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-emerald-700 font-bold">
+                  U. DE CHILE (B.SC.) • CAU KIEL (M.SC.) • AMU POZNAŃ (M.SC.)
+                </div>
+                <h2 className="font-['Newsreader',Georgia,serif] font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight leading-none">
+                  Daniel Santander Urrutia
+                </h2>
+                <p className="font-['Newsreader',Georgia,serif] italic text-sm sm:text-base text-slate-700">
+                  {currentLang === 'es'
+                    ? '“Puente entre la ciencia de la Tierra, la decisión política y las personas.”'
+                    : '“Bridging Earth science, policy decisions, and people.”'}
+                </p>
+                <div className="flex flex-wrap items-center gap-3 pt-0.5 font-mono text-[10.5px] text-slate-600">
+                  <span className="inline-flex items-center gap-1 font-semibold text-slate-800">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-600" />
+                    Hannover, DE &amp; Santiago, CL
+                  </span>
+                  <span>•</span>
+                  <span className="inline-flex items-center gap-1">
+                    <Languages className="w-3.5 h-3.5 text-blue-600" />
+                    ES (Nativo) · EN (C1) · DE (B1)
+                  </span>
+                </div>
+              </div>
             </div>
-            <button
-              onClick={onClose}
-              className="p-1 bg-white text-black hover:bg-red-600 hover:text-white border-2 border-black transition-colors cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
+
+            {/* High-Contrast Dark Contact Box from Option 3 */}
+            <div className="w-full lg:w-auto p-3.5 rounded-xl bg-[#0f172a] text-white border border-slate-800 flex flex-col gap-2 shrink-0 shadow-sm">
+              <div className="flex items-center gap-2">
+                <Mail className="w-3.5 h-3.5 text-[#facc15]" />
+                <span className="font-mono text-[10px] uppercase tracking-wider text-slate-300">
+                  {currentLang === 'es' ? 'CONTACTO DIRECTO' : 'DIRECT INQUIRIES'}
+                </span>
+              </div>
+              <div className="font-mono font-bold text-xs text-white select-all">
+                {email}
+              </div>
+              <div className="flex items-center gap-2 pt-0.5">
+                <button
+                  onClick={handleCopyEmail}
+                  className="flex-1 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono font-bold text-[11px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copiedEmail ? (currentLang === 'es' ? 'Copiado' : 'Copied') : (currentLang === 'es' ? 'Copiar' : 'Copy')}</span>
+                </button>
+                <a
+                  href={`mailto:${email}?subject=Contacto%20Profesional%20-%20Daniel%20Santander`}
+                  className="flex-1 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-[11px] transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <Send className="w-3.5 h-3.5" />
+                  <span>{currentLang === 'es' ? 'Escribir' : 'Email'}</span>
+                </a>
+                <a
+                  href={linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 rounded-lg bg-white/10 hover:bg-[#0a66c2] text-white transition-colors"
+                  title="LinkedIn"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-1.5 rounded-lg bg-white/10 hover:bg-white/25 text-white transition-colors"
+                  title="GitHub"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* 2-Column Graphic Novel Layout */}
-          <div className="p-5 sm:p-6 overflow-y-auto grid grid-cols-1 lg:grid-cols-12 gap-5">
-            {/* Left Column (5 cols): Identity Card + Direct Contact + 4 CVs */}
-            <div className="lg:col-span-5 flex flex-col justify-between gap-4">
-              <div className="p-4 rounded-xl bg-[#f4efe4] border-2 border-black shadow-[5px_5px_0px_#000] space-y-3">
-                <div className="flex items-center gap-3.5">
-                  <div className="relative shrink-0">
-                    <img
-                      src={resolveAsset('/profile.jpg')}
-                      alt="Daniel Santander"
-                      className="w-20 h-24 object-cover object-top rounded-lg border-2 border-black shadow-[3px_3px_0px_#000]"
-                    />
-                    <div className="absolute -top-2 -left-2 -rotate-6">
-                      <GeofrecuenciaLogo variant="badge" className="w-7 h-7" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="inline-block bg-black text-[#facc15] font-mono font-black text-xs px-2 py-0.5 uppercase">
-                      [DANIEL SANTANDER]
-                    </div>
-                    <div className="font-mono font-bold text-[11px] text-neutral-800 mt-1 leading-snug">
-                      {currentLang === 'es'
-                        ? 'Geofísico (U. de Chile) • Doble M.Sc. Ambiental (CAU Kiel 🇩🇪 & AMU Poznań 🇵🇱)'
-                        : 'Geophysicist (U. of Chile) • Double M.Sc. Env. Mgmt (CAU Kiel 🇩🇪 & AMU Poznań 🇵🇱)'}
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 mt-1.5 px-2 py-0.5 bg-emerald-700 text-white font-mono font-black text-[9.5px] uppercase border border-black">
-                      <span>●</span>
-                      <span>Hannover, DE &amp; Chile</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Contact Box */}
-                <div className="pt-2 border-t-2 border-black/15 space-y-2">
-                  <div className="font-mono font-black text-[10px] uppercase text-neutral-600">
-                    {currentLang === 'es' ? 'CORREO & PERFILES OFICIALES' : 'DIRECT EMAIL & PROFILES'}
-                  </div>
-                  <div className="flex items-center justify-between px-2.5 py-1.5 bg-white border-2 border-black font-mono text-xs font-bold truncate">
-                    <span className="truncate">{email}</span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      onClick={handleCopyEmail}
-                      className="py-2 px-3 bg-white hover:bg-[#facc15] text-black font-mono font-black text-[11px] uppercase border-2 border-black shadow-[2px_2px_0px_#000] flex items-center justify-center gap-1.5 cursor-pointer"
-                    >
-                      {copiedEmail ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                      <span>{copiedEmail ? 'OK!' : currentLang === 'es' ? 'Copiar' : 'Copy'}</span>
-                    </button>
-                    <a
-                      href={`mailto:${email}?subject=Contacto%20Profesional%20-%20Daniel%20Santander`}
-                      className="py-2 px-3 bg-black hover:bg-emerald-700 text-white font-mono font-black text-[11px] uppercase border-2 border-black shadow-[2px_2px_0px_#facc15] flex items-center justify-center gap-1.5"
-                    >
-                      <Send className="w-3.5 h-3.5" />
-                      <span>{currentLang === 'es' ? 'Escribir' : 'Write'}</span>
-                    </a>
-                  </div>
-                  <div className="grid grid-cols-2 gap-2 pt-0.5">
-                    <a
-                      href={linkedinUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-1.5 px-2.5 bg-white hover:bg-[#0a66c2] hover:text-white text-black font-mono font-black text-[11px] uppercase border-2 border-black flex items-center justify-between"
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <LinkedinIcon className="w-3.5 h-3.5" /> LinkedIn
-                      </span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                    <a
-                      href={githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="py-1.5 px-2.5 bg-white hover:bg-black hover:text-white text-black font-mono font-black text-[11px] uppercase border-2 border-black flex items-center justify-between"
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <GithubIcon className="w-3.5 h-3.5" /> GitHub
-                      </span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              {/* 4-CV Matrix in Brutalist Box */}
-              <div className="p-4 rounded-xl bg-[#facc15] border-2 border-black shadow-[5px_5px_0px_#000] space-y-2.5">
-                <div className="flex items-center justify-between">
-                  <span className="font-mono font-black text-xs uppercase text-black">
-                    📄 {currentLang === 'es' ? 'DESCARGAR CV (4 FORMATOS)' : 'DOWNLOAD CV (4 FORMATS)'}
-                  </span>
-                  {onOpenCvSelector && (
-                    <button
-                      type="button"
-                      onClick={() => onOpenCvSelector(currentLang, '1p')}
-                      className="px-2 py-0.5 bg-black text-white font-mono font-bold text-[10px] uppercase cursor-pointer"
-                    >
-                      {currentLang === 'es' ? 'Visor PDF ➔' : 'Preview ➔'}
-                    </button>
-                  )}
-                </div>
-                <div className="grid grid-cols-2 gap-2">
-                  {CV_VARIANTS.map((cv) => (
-                    <a
-                      key={cv.id}
-                      href={resolveAsset(cv.path)}
-                      download={cv.filename}
-                      className="p-2 bg-white hover:bg-black text-black hover:text-[#facc15] border-2 border-black shadow-[2px_2px_0px_#000] transition-colors flex flex-col justify-between"
-                    >
-                      <div className="flex items-center justify-between font-mono font-black text-[10px]">
-                        <span>
-                          {cv.lang === 'en' ? '🇬🇧 EN' : '🇪🇸 ES'} • {cv.length.toUpperCase()}
-                        </span>
-                        <Download className="w-3 h-3" />
-                      </div>
-                      <div className="font-mono text-[9.5px] font-bold mt-0.5 truncate">
-                        {cv.length === '1p'
-                          ? currentLang === 'es'
-                            ? '1 Pág. Ejecutivo'
-                            : '1-Page Executive'
-                          : currentLang === 'es'
-                            ? '2 Págs. Completo'
-                            : '2-Pages Full CV'}
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </div>
+          {/* 3 Editorial Columns with Crisp Color Contrast */}
+          <div>
+            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
+              {currentLang === 'es'
+                ? 'ÁREAS DE PRÁCTICA, INVESTIGACIÓN APLICADA & CONSULTORÍA'
+                : 'AREAS OF PRACTICE, APPLIED RESEARCH & CONSULTING'}
             </div>
-
-            {/* Right Column (7 cols): 3 Numbered Mandate Slats */}
-            <div className="lg:col-span-7 flex flex-col justify-between space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {mandates.map((m) => (
                 <div
                   key={m.num}
-                  className="p-4 rounded-xl bg-white border-2 border-black shadow-[5px_5px_0px_#000] space-y-2"
+                  className="p-3.5 rounded-xl bg-slate-50/75 border border-slate-200 hover:border-slate-400 transition-colors flex flex-col justify-between space-y-2.5"
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 bg-black text-[#facc15] font-mono font-black text-xs">
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between border-b border-slate-200/80 pb-1.5">
+                      <span
+                        className={`px-2 py-0.5 rounded font-mono text-[10px] font-bold border ${m.accentBg}`}
+                      >
                         {m.num}
                       </span>
-                      <h3 className="font-mono font-black text-xs sm:text-sm uppercase text-black">
-                        {currentLang === 'es' ? m.titleEs : m.titleEn}
-                      </h3>
+                      {m.icon}
                     </div>
-                    <div className="text-black">{m.icon}</div>
+                    <h3 className="font-['Newsreader',Georgia,serif] font-bold text-base text-slate-900 leading-snug">
+                      {currentLang === 'es' ? m.titleEs : m.titleEn}
+                    </h3>
+                    <p className="text-[11.5px] text-slate-600 leading-relaxed">
+                      {currentLang === 'es' ? m.descEs : m.descEn}
+                    </p>
                   </div>
-                  <p className="text-xs text-neutral-800 leading-relaxed font-sans">
-                    {currentLang === 'es' ? m.descEs : m.descEn}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
+                  <div className="flex flex-wrap gap-1 pt-0.5">
                     {m.tags.map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 bg-[#f4efe4] border border-black font-mono font-bold text-[10px] text-black"
+                        className={`px-2 py-0.5 rounded border font-mono text-[9px] font-semibold ${m.tagBg}`}
                       >
                         {t}
                       </span>
@@ -568,158 +260,69 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
               ))}
             </div>
           </div>
-        </div>
-      )}
 
-      {/* =====================================================================
-          OPTION 3: EXECUTIVE MINIMAL (NO-SCROLL BUSINESS CARD)
-         ===================================================================== */}
-      {aesthetic === 'minimal' && (
-        <div
-          className="relative w-full max-w-2xl bg-white text-slate-900 border border-slate-200 rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.55)] overflow-hidden p-6 sm:p-8 space-y-6"
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Top Identity Row */}
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <img
-                src={resolveAsset('/profile.jpg')}
-                alt="Daniel Santander Urrutia"
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover object-top border border-slate-200 shadow-sm shrink-0"
-              />
+          {/* 4-CV Repository Matrix + Tailored CV Note */}
+          <div className="p-4 rounded-xl bg-slate-100/90 border border-slate-200 space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-mono text-[10px] font-bold uppercase">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+                <h4 className="font-['Newsreader',Georgia,serif] font-bold text-base sm:text-lg text-slate-900">
                   {currentLang === 'es'
-                    ? 'Disponible • Hannover (UE) & Chile'
-                    : 'Available • Hannover (EU) & Chile'}
-                </div>
-                <h2 className="font-['Newsreader',Georgia,serif] font-bold text-2xl sm:text-3xl text-slate-900 mt-1">
-                  Daniel Santander Urrutia
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                  {currentLang === 'es'
-                    ? 'Geofísico (U. de Chile) · Doble M.Sc. Gestión & Protección Ambiental (CAU Kiel & AMU Poznań)'
-                    : 'Geophysicist (U. of Chile) · Double M.Sc. Environmental Management & Protection (CAU Kiel & AMU Poznań)'}
-                </p>
-              </div>
-            </div>
-
-            <button
-              onClick={onClose}
-              className="p-1.5 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-800 transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* 3 Ultra-Concise Value Rows */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-100">
-            {mandates.map((m) => (
-              <div key={m.num} className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
-                <div className="flex items-center gap-1.5 text-slate-900 font-mono font-bold text-xs">
-                  <span className="shrink-0">{m.icon}</span>
-                  <span className="truncate">
+                    ? 'Descarga de Currículum Vitae por Formato e Idioma'
+                    : 'Curriculum Vitae Repository by Format & Language'}
+                </h4>
+                <p className="text-[11px] text-slate-600 leading-snug mt-0.5 flex items-start sm:items-center gap-1.5">
+                  <Info className="w-3.5 h-3.5 text-emerald-700 shrink-0 mt-0.5 sm:mt-0" />
+                  <span>
                     {currentLang === 'es'
-                      ? m.titleEs.split(/[,&]/)[0].trim()
-                      : m.titleEn.split(/[,&]/)[0].trim()}
+                      ? 'Los CVs son referencias generales ya que cada currículum se adapta a cada puesto (habilidades, cursos y formación). Para un perfil específico, escríbeme a danisantander.urrutia@gmail.com.'
+                      : 'These CVs serve as general references, as each resume is tailored to each role (selected skills, coursework & training). For a role-specific CV, contact danisantander.urrutia@gmail.com.'}
                   </span>
-                </div>
-                <p className="text-[11px] text-slate-600 leading-snug">
-                  {m.tags.join(' · ')}
                 </p>
               </div>
-            ))}
-          </div>
-
-          {/* Direct Contact Bar */}
-          <div className="p-3.5 rounded-xl bg-slate-900 text-white flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
-                <Mail className="w-4 h-4 text-amber-300" />
-              </div>
-              <div>
-                <div className="font-mono text-[10px] uppercase text-slate-400">
-                  {currentLang === 'es' ? 'Contacto Directo' : 'Direct Email'}
-                </div>
-                <div className="font-mono font-bold text-xs sm:text-sm select-all">{email}</div>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handleCopyEmail}
-                className="px-3 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold flex items-center gap-1.5 cursor-pointer"
-              >
-                {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copiedEmail ? 'OK' : currentLang === 'es' ? 'Copiar' : 'Copy'}</span>
-              </button>
-              <a
-                href={`mailto:${email}?subject=Contacto%20Profesional%20-%20Daniel%20Santander`}
-                className="px-3.5 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold flex items-center gap-1.5"
-              >
-                <Send className="w-3.5 h-3.5" />
-                <span>{currentLang === 'es' ? 'Escribir' : 'Email'}</span>
-              </a>
-              <a
-                href={linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/10 hover:bg-[#0a66c2] text-white transition-colors"
-                title="LinkedIn"
-              >
-                <LinkedinIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-white/10 hover:bg-white/25 text-white transition-colors"
-                title="GitHub"
-              >
-                <GithubIcon className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-
-          {/* Compact 4-CV Selector Strip */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
-                <FileText className="w-3.5 h-3.5 text-slate-700" />
-                {currentLang === 'es'
-                  ? 'Descargar Currículum Vitae (Inglés / Español • 1 o 2 Páginas)'
-                  : 'Download Curriculum Vitae (English / Spanish • 1 or 2 Pages)'}
-              </span>
               {onOpenCvSelector && (
                 <button
                   type="button"
                   onClick={() => onOpenCvSelector(currentLang, '1p')}
-                  className="font-mono text-[11px] font-bold text-emerald-700 hover:underline flex items-center gap-1 cursor-pointer"
+                  className="px-3 py-1.5 rounded-lg bg-[#0f172a] hover:bg-emerald-700 text-white font-mono text-[10.5px] font-bold flex items-center gap-1.5 transition-colors cursor-pointer shrink-0"
                 >
-                  <Eye className="w-3.5 h-3.5" />
-                  <span>{currentLang === 'es' ? 'Vista previa' : 'Preview'}</span>
+                  <Eye className="w-3.5 h-3.5 text-[#facc15]" />
+                  <span>{currentLang === 'es' ? 'Abrir Selector & Visor CV' : 'Open CV Selector & Preview'}</span>
                 </button>
               )}
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
               {CV_VARIANTS.map((cv) => (
                 <a
                   key={cv.id}
                   href={resolveAsset(cv.path)}
                   download={cv.filename}
-                  className="py-2 px-3 rounded-lg bg-slate-50 hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 transition-colors flex items-center justify-between font-mono text-[11px] font-bold"
+                  className="p-2.5 rounded-xl bg-white hover:bg-[#0f172a] text-slate-900 hover:text-white border border-slate-200 hover:border-[#0f172a] shadow-2xs transition-all group flex flex-col justify-between gap-1"
                 >
-                  <span>
-                    {cv.lang === 'en' ? '🇬🇧 EN' : '🇪🇸 ES'} · {cv.length.toUpperCase()}
-                  </span>
-                  <Download className="w-3.5 h-3.5 opacity-70" />
+                  <div>
+                    <div className="flex items-center justify-between font-mono text-[9.5px] font-bold text-emerald-700 group-hover:text-[#facc15]">
+                      <span>{currentLang === 'es' ? cv.badgeEs : cv.badgeEn}</span>
+                      <Download className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="font-['Newsreader',Georgia,serif] font-bold text-xs sm:text-sm mt-0.5">
+                      {currentLang === 'es' ? cv.titleEs : cv.titleEn}
+                    </div>
+                  </div>
+                  <div className="font-mono text-[9px] text-slate-500 group-hover:text-slate-300">
+                    {cv.length === '1p'
+                      ? currentLang === 'es'
+                        ? 'Síntesis ejecutiva • PDF'
+                        : 'Executive synthesis • PDF'
+                      : currentLang === 'es'
+                        ? 'Expediente completo • PDF'
+                        : 'Full technical record • PDF'}
+                  </div>
                 </a>
               ))}
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };
