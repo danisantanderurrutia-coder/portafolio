@@ -17,6 +17,9 @@ const CommsCultureView = lazy(() =>
 const HireMeModal = lazy(() =>
   import('./components/HireMeModal').then((m) => ({ default: m.HireMeModal }))
 );
+const CvSelectorModal = lazy(() =>
+  import('./components/CvSelectorModal').then((m) => ({ default: m.CvSelectorModal }))
+);
 const SkillsModal = lazy(() =>
   import('./components/SkillsModal').then((m) => ({ default: m.SkillsModal }))
 );
@@ -92,6 +95,7 @@ export function App() {
 
   // Modals state
   const [isHireMeOpen, setIsHireMeOpen] = useState(initial.modal === 'hire');
+  const [isCvSelectorOpen, setIsCvSelectorOpen] = useState(initial.modal === 'cv');
   const [isSkillsOpen, setIsSkillsOpen] = useState(initial.modal === 'skills');
   const [isPublicationsOpen, setIsPublicationsOpen] = useState(initial.modal === 'publications');
   const [isTitlesOpen, setIsTitlesOpen] = useState(initial.modal === 'titles');
@@ -115,6 +119,7 @@ export function App() {
       }
     }
     if (isHireMeOpen) params.set('modal', 'hire');
+    else if (isCvSelectorOpen) params.set('modal', 'cv');
     else if (isSkillsOpen) params.set('modal', 'skills');
     else if (isPublicationsOpen) params.set('modal', 'publications');
     else if (isTitlesOpen) params.set('modal', 'titles');
@@ -138,6 +143,7 @@ export function App() {
     selectedCategory,
     selectedMissionId,
     isHireMeOpen,
+    isCvSelectorOpen,
     isSkillsOpen,
     isPublicationsOpen,
     isTitlesOpen,
@@ -153,6 +159,7 @@ export function App() {
       setSelectedCategory(next.cat);
       setSelectedMissionId(next.mission);
       setIsHireMeOpen(next.modal === 'hire');
+      setIsCvSelectorOpen(next.modal === 'cv');
       setIsSkillsOpen(next.modal === 'skills');
       setIsPublicationsOpen(next.modal === 'publications');
       setIsTitlesOpen(next.modal === 'titles');
@@ -198,6 +205,7 @@ export function App() {
           onSelectCertifications={() => openGameCategory('certifications')}
           onSelectScienceDossier={() => setViewMode('dossier')}
           onOpenHireMe={() => setIsHireMeOpen(true)}
+          onOpenCvSelector={() => setIsCvSelectorOpen(true)}
           onOpenArtDirector={() => setIsArtDirectorOpen(true)}
           onOpenAdmin={() => setViewMode('admin')}
         />
@@ -275,6 +283,19 @@ export function App() {
         <HireMeModal
           isOpen={isHireMeOpen}
           onClose={() => setIsHireMeOpen(false)}
+          currentLang={currentLang}
+          onOpenCvSelector={() => {
+            setIsHireMeOpen(false);
+            setIsCvSelectorOpen(true);
+          }}
+        />
+      )}
+
+      {/* MODAL GLOBAL SELECTOR DE CURRÍCULUM VITAE (EN/ES • 1P/2P) */}
+      {isCvSelectorOpen && (
+        <CvSelectorModal
+          isOpen={isCvSelectorOpen}
+          onClose={() => setIsCvSelectorOpen(false)}
           currentLang={currentLang}
         />
       )}

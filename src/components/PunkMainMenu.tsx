@@ -36,6 +36,7 @@ interface PunkMainMenuProps {
   onSelectCertifications?: () => void;
   onSelectScienceDossier: () => void;
   onOpenHireMe?: () => void;
+  onOpenCvSelector?: () => void;
   onOpenSkills?: () => void;
   onOpenPublications?: () => void;
   onOpenTitles?: () => void;
@@ -218,6 +219,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
   onSelectCertifications,
   onSelectScienceDossier,
   onOpenHireMe,
+  onOpenCvSelector,
   onOpenArtDirector,
   onOpenAdmin
 }) => {
@@ -358,9 +360,14 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
               offsetClass="-translate-x-1.5"
               icon={<Download className="w-4 h-4 text-black" />}
               label={currentLang === 'es' ? 'CURRÍCULUM VITAE (PDF)' : 'CURRICULUM VITAE (PDF)'}
-              href={resolveAsset('/Daniel_Santander_CV.pdf')}
-              download="Daniel_Santander_CV.pdf"
-              title={currentLang === 'es' ? 'Descargar Currículum Vitae oficial (PDF)' : 'Download official Curriculum Vitae (PDF)'}
+              onClick={onOpenCvSelector}
+              href={onOpenCvSelector ? undefined : resolveAsset('/Daniel_Santander_CV.pdf')}
+              download={onOpenCvSelector ? undefined : 'Daniel_Santander_CV.pdf'}
+              title={
+                currentLang === 'es'
+                  ? 'Seleccionar formato e idioma de Currículum Vitae (EN/ES • 1 o 2 páginas)'
+                  : 'Select Curriculum Vitae format & language (EN/ES • 1 or 2 pages)'
+              }
               isSpecial={true}
             />
 
