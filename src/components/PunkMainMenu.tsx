@@ -256,8 +256,8 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
         </button>
       </div>
 
-      {/* 3. TOP-LEFT THIRD: HEROIC PORTRAIT (7X LARGER), NAME, LOGO STAMP & DETAILS */}
-      <div className="relative lg:absolute lg:top-8 lg:left-8 xl:left-12 z-30 max-w-sm sm:max-w-md pt-4 sm:pt-6 lg:pt-0 px-4 sm:px-6 lg:px-0 pointer-events-auto">
+      {/* 3. LEFT COLUMN: HEROIC PORTRAIT (7X LARGER), NAME, LOGO STAMP, DETAILS & SLOGAN */}
+      <div className="relative lg:absolute lg:top-[14%] xl:top-[15%] lg:left-10 xl:left-14 z-30 max-w-sm sm:max-w-md pt-8 sm:pt-10 lg:pt-0 px-4 sm:px-6 lg:px-0 pointer-events-auto">
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 bg-black/65 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border-2 sm:border-[2.5px] border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)] -rotate-1 hover:rotate-0 transition-transform duration-200">
           
           {/* Portrait Frame (7x larger than old thumbnail) */}
@@ -312,7 +312,7 @@ export const PunkMainMenu: React.FC<PunkMainMenuProps> = ({
         </div>
 
         {/* FLOATING SLOGAN: SLIGHTLY ABOVE THE MIDDLE, PURE WHITE LETTERS, EDITORIAL SLOGAN TYPOGRAPHY, NO CARD */}
-        <div className="mt-4 sm:mt-5 lg:mt-7 px-1 sm:px-2 text-center lg:text-left max-w-md pointer-events-none">
+        <div className="mt-5 sm:mt-6 lg:mt-8 px-1 sm:px-2 text-center lg:text-left max-w-md pointer-events-none">
           <p
             className="font-['Newsreader',Georgia,serif] italic font-semibold text-white text-lg sm:text-xl md:text-[23px] leading-[1.28] tracking-wide"
             style={{
