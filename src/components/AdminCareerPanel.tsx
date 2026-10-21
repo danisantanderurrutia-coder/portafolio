@@ -53,6 +53,9 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
     setTimeout(() => setCopiedId(null), 2200);
   };
 
+  const langSuffix = linkLang === 'es' ? '&lang=es' : '';
+  const langQueryOnly = linkLang === 'es' ? '?lang=es' : '';
+
   const DEEP_LINK_PROFILES = [
     {
       id: 'kiel-ghg',
@@ -61,7 +64,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       targetRoles: 'Hydrologist, Peatland Scientist, GHG Modeler, Environmental Consultant, PhD Candidate',
       Highlight:
         'Abre el Globo 3D directamente en Kiel mostrando tus resultados cuantitativos en Wallener Au (transición sumidero-fuente por metano CH₄, Eddy Covariance, paludicultura, compactación σp = 62.4 kPa y Wetland Monitor).',
-      query: `?lang=${linkLang}&view=game&cat=science&mission=kiel-cau`,
+      query: `science?mission=kiel-cau${langSuffix}`,
       view: 'game' as const,
       cat: 'science',
       mission: 'kiel-cau'
@@ -73,7 +76,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       targetRoles: 'Environmental Data Scientist, Scientific Software Engineer, GIS / Digital Twin Developer',
       Highlight:
         'Abre el Globo 3D directamente en la ficha dedicada a tu aplicación Wetland Monitor con su logotipo oficial, simulador diurno/estacional y enlace al repositorio en GitHub.',
-      query: `?lang=${linkLang}&view=game&cat=science&mission=wetland-monitor-app`,
+      query: `science?mission=wetland-monitor-app${langSuffix}`,
       view: 'game' as const,
       cat: 'science',
       mission: 'wetland-monitor-app'
@@ -85,7 +88,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       targetRoles: 'Water Quality Specialist, Freshwater Ecologist, Biodiversity & Conservation Officer',
       Highlight:
         'Abre el Globo 3D en Poznań destacando tus examinaciones en laboratorio e in situ en lagos y estanques (ponds) para su protección como refugios de biodiversidad.',
-      query: `?lang=${linkLang}&view=game&cat=science&mission=poznan-amu`,
+      query: `science?mission=poznan-amu${langSuffix}`,
       view: 'game' as const,
       cat: 'science',
       mission: 'poznan-amu'
@@ -97,7 +100,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       targetRoles: 'Ingeniero Geofísico, Especialista en Recursos Hídricos, Consultor Hidrogeológico / DGA / MMA',
       Highlight:
         'Abre el Globo 3D en la Cuenca del Maule mostrando el efecto cuantificado de la actividad agroforestal y el cambio climático sobre la resistividad del suelo y el nivel freático.',
-      query: `?lang=${linkLang}&view=game&cat=science&mission=science-geophysics-soils`,
+      query: `science?mission=science-geophysics-soils${langSuffix}`,
       view: 'game' as const,
       cat: 'science',
       mission: 'science-geophysics-soils'
@@ -109,7 +112,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       targetRoles: 'Climate Policy Advisor, Science-Policy Officer (GIZ, UNEP, SEI, Agora, Fundaciones)',
       Highlight:
         'Abre el Globo 3D filtrado en Asesoría en Políticas Públicas (intervención oficial en la Cámara de Diputadas/os, normas constitucionales y planes de ordenamiento de cuencas).',
-      query: `?lang=${linkLang}&view=game&cat=policy`,
+      query: `policy${langQueryOnly}`,
       view: 'game' as const,
       cat: 'policy',
       mission: 'congreso-valparaiso'
@@ -121,7 +124,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       targetRoles: 'Profesores titulares, Comités de Doctorado (UFZ, PIK, WSL), Directores de área conservadores',
       Highlight:
         'Ideal para académicos senior que prefieren leer un expediente editorial limpio en formato revista científica sin navegar un entorno 3D.',
-      query: `?lang=${linkLang}&view=dossier`,
+      query: `dossier${langQueryOnly}`,
       view: 'dossier' as const
     }
   ];
@@ -132,13 +135,13 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
         id: 'cl-en-science',
         title: '1. For Hydrology, Peatland / GHG Modeling, GIS & Environmental Engineering (Europe)',
         context: 'Insert this paragraph in the body of your Cover Letter when applying to research centers, engineering consultancies (Ramboll, DHI, Sweco), or climate agencies:',
-        text: `Across my Dual European M.Sc. (CAU Kiel & AMU Poznań) and my B.Sc. in Geophysics (Universidad de Chile), I have focused on turning complex field and micrometeorological data into actionable environmental models. In my Master’s research at CAU Kiel (Wallener Au Peatland), I quantified the ecosystem’s transition between carbon sink and source during managed rewetting driven by acute methane (CH4) spikes and seasonal N2O pulses under micrometeorological (Eddy Covariance) and soil physical controls—evaluating historical paludiculture legacies and agricultural machinery compaction (plow pan precompression stress σp = 62.4 kPa). To make these findings interactive, I developed the "Wetland Monitor" digital twin web application. In parallel, at AMU Poznań I verified freshwater quality across Polish lakes and ponds through laboratory and in-situ bioindicator examinations, building upon my geophysical fieldwork in Chile’s Maule Basin where I quantified the combined impact of agroforestry plantations and climate change on soil electrical resistivity (VES) and water table drawdown.\n\n👉 Interactive 3D Case Studies & Wetland Monitor App: ${baseUrl}?lang=en&view=game&cat=science&mission=kiel-cau`
+        text: `Across my Dual European M.Sc. (CAU Kiel & AMU Poznań) and my B.Sc. in Geophysics (Universidad de Chile), I have focused on turning complex field and micrometeorological data into actionable environmental models. In my Master’s research at CAU Kiel (Wallener Au Peatland), I quantified the ecosystem’s transition between carbon sink and source during managed rewetting driven by acute methane (CH4) spikes and seasonal N2O pulses under micrometeorological (Eddy Covariance) and soil physical controls—evaluating historical paludiculture legacies and agricultural machinery compaction (plow pan precompression stress σp = 62.4 kPa). To make these findings interactive, I developed the "Wetland Monitor" digital twin web application. In parallel, at AMU Poznań I verified freshwater quality across Polish lakes and ponds through laboratory and in-situ bioindicator examinations, building upon my geophysical fieldwork in Chile’s Maule Basin where I quantified the combined impact of agroforestry plantations and climate change on soil electrical resistivity (VES) and water table drawdown.\n\n👉 Interactive 3D Case Studies & Wetland Monitor App: ${baseUrl}science?mission=kiel-cau`
       },
       {
         id: 'cl-en-policy',
         title: '2. For Climate Policy, Think Tanks, International NGOs & ESG Advisory (EU / Global)',
         context: 'Use this when applying to organizations bridging science, policy, and communication (GIZ, SEI, Adelphi, UNEP, Greenpeace, European Climate Foundation):',
-        text: `What sets my profile apart is the ability to bridge rigorous biophysical modeling with high-level public policy and strategic communication. Combining a background in Geophysics (Universidad de Chile) and a Dual European M.Sc. in Environmental Management and Protection (CAU Kiel & AMU Poznań), I translate quantitative evidence—from peatland GHG balances and freshwater quality diagnostics to satellite wildfire risk and aquifer depletion—into legislative testimony, watershed transition plans, and large-scale public campaigns (+700k audience reach).\n\n👉 Explore my Science-Policy Portfolio on the 3D Globe: ${baseUrl}?lang=en&view=game&cat=policy`
+        text: `What sets my profile apart is the ability to bridge rigorous biophysical modeling with high-level public policy and strategic communication. Combining a background in Geophysics (Universidad de Chile) and a Dual European M.Sc. in Environmental Management and Protection (CAU Kiel & AMU Poznań), I translate quantitative evidence—from peatland GHG balances and freshwater quality diagnostics to satellite wildfire risk and aquifer depletion—into legislative testimony, watershed transition plans, and large-scale public campaigns (+700k audience reach).\n\n👉 Explore my Science-Policy Portfolio on the 3D Globe: ${baseUrl}policy`
       }
     ],
     de: [
@@ -146,7 +149,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
         id: 'cl-de-science',
         title: '1. Für Umweltmanagement, Moorforschung, Hydrologie & GIS-Ingenieurbüros (Deutschland / DACH)',
         context: 'Absatz für das Anschreiben bei Bewerbungen in Deutschland (Ingenieurbüros, Landesämter, UFZ, Thünen-Institut, Greifswald Mire Centre):',
-        text: `Durch mein europäisches Doppelmasterstudium in Environmental Management und Environmental Protection (CAU Kiel & AMU Poznań) sowie meinen Hintergrund als Geophysiker (Universidad de Chile) verbinde ich bodenphysikalische und ökohydrologische Labor- und Feldarbeit mit moderner Datenmodellierung (Python, R, QGIS). In meiner Masterarbeit an der CAU Kiel (Wallener Au) habe ich den Übergang wiedervernässter Niedermoore zwischen Kohlenstoffsenke und -quelle infolge akuter Methan-Impulse (CH4) sowie den Austausch von Treibhausgasen (CO2, CH4, N2O) unter mikrometeorologischen (Eddy-Kovarianz) und bodenphysikalischen Faktoren quantifiziert. Dabei untersuchte ich auch die Auswirkungen früherer Paludikultur- und Entwässerungsnutzungen sowie die Bodenverdichtung durch landwirtschaftliche Maschinen (Vorbelastungsspannung σp = 62,4 kPa) und entwickelte hierfür den interaktiven digitalen Zwilling „Wetland Monitor“. Ergänzend habe ich an der AMU Poznań die Wasserqualität verschiedener Seen und Kleingewässer im Labor und in situ zum Schutz der Biodiversität überprüft.\n\n👉 Interaktives 3D-Portfolio & Wetland Monitor App: ${baseUrl}?lang=en&view=game&cat=science&mission=kiel-cau`
+        text: `Durch mein europäisches Doppelmasterstudium in Environmental Management und Environmental Protection (CAU Kiel & AMU Poznań) sowie meinen Hintergrund als Geophysiker (Universidad de Chile) verbinde ich bodenphysikalische und ökohydrologische Labor- und Feldarbeit mit moderner Datenmodellierung (Python, R, QGIS). In meiner Masterarbeit an der CAU Kiel (Wallener Au) habe ich den Übergang wiedervernässter Niedermoore zwischen Kohlenstoffsenke und -quelle infolge akuter Methan-Impulse (CH4) sowie den Austausch von Treibhausgasen (CO2, CH4, N2O) unter mikrometeorologischen (Eddy-Kovarianz) und bodenphysikalischen Faktoren quantifiziert. Dabei untersuchte ich auch die Auswirkungen früherer Paludikultur- und Entwässerungsnutzungen sowie die Bodenverdichtung durch landwirtschaftliche Maschinen (Vorbelastungsspannung σp = 62,4 kPa) und entwickelte hierfür den interaktiven digitalen Zwilling „Wetland Monitor“. Ergänzend habe ich an der AMU Poznań die Wasserqualität verschiedener Seen und Kleingewässer im Labor und in situ zum Schutz der Biodiversität überprüft.\n\n👉 Interaktives 3D-Portfolio & Wetland Monitor App: ${baseUrl}science?mission=kiel-cau`
       }
     ],
     es: [
@@ -154,13 +157,13 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
         id: 'cl-es-science',
         title: '1. Para Consultoras Hidrogeológicas, Recursos Hídricos, Ministerios (MMA/DGA) y Centros en Chile',
         context: 'Párrafo de impacto para postulaciones técnicas, ambientales e hidrogeofísicas en Chile y Latinoamérica:',
-        text: `Mi trayectoria articula la geofísica aplicada y la hidrología de cuencas en Chile con la investigación avanzada en gestión y protección ambiental en Europa (Doble M.Sc. en CAU Kiel, Alemania y AMU Poznań, Polonia). En la cuenca del Maule (FCFM U. de Chile), cuantifiqué en terreno el efecto combinado de la actividad agroforestal y el cambio climático sobre la resistividad eléctrica de suelos (mediante Sondeos Eléctricos Verticales SEV) y el abatimiento del nivel freático. Posteriormente, en Alemania cuantifiqué la transición de turberas en rehumedecimiento entre sumidero y fuente de GEI (CO2, CH4, N2O) bajo forzantes micrometeorológicos y compactación mecánica por maquinaria agrícola (desarrollando la aplicación interactiva "Humedal Monitor / Wetland Monitor"), y en Polonia verifiqué en laboratorio e in situ la calidad ecológica del agua en diversos lagos y estanques para su conservación como áreas de biodiversidad.\n\n👉 Explorar casos de estudio en el Globo 3D: ${baseUrl}?lang=es&view=game&cat=science&mission=science-geophysics-soils`
+        text: `Mi trayectoria articula la geofísica aplicada y la hidrología de cuencas en Chile con la investigación avanzada en gestión y protección ambiental en Europa (Doble M.Sc. en CAU Kiel, Alemania y AMU Poznań, Polonia). En la cuenca del Maule (FCFM U. de Chile), cuantifiqué en terreno el efecto combinado de la actividad agroforestal y el cambio climático sobre la resistividad eléctrica de suelos (mediante Sondeos Eléctricos Verticales SEV) y el abatimiento del nivel freático. Posteriormente, en Alemania cuantifiqué la transición de turberas en rehumedecimiento entre sumidero y fuente de GEI (CO2, CH4, N2O) bajo forzantes micrometeorológicos y compactación mecánica por maquinaria agrícola (desarrollando la aplicación interactiva "Humedal Monitor / Wetland Monitor"), y en Polonia verifiqué en laboratorio e in situ la calidad ecológica del agua en diversos lagos y estanques para su conservación como áreas de biodiversidad.\n\n👉 Explorar casos de estudio en el Globo 3D: ${baseUrl}science?mission=science-geophysics-soils&lang=es`
       },
       {
         id: 'cl-es-policy',
         title: '2. Para Dirección de Comunicaciones, Incidencia Legislativa, ONGs y Fundaciones',
         context: 'Párrafo para cargos directivos en fundaciones ambientales, asesoría parlamentaria o dirección de proyectos:',
-        text: `Aporto un perfil puente poco frecuente en el sector socioambiental: la capacidad de traducir ciencia biofísica dura (física de suelos, hidrología y modelación numérica en Python/QGIS) en incidencia legislativa directa (exposición técnica ante el Congreso Nacional y propuestas de ordenamiento de cuencas) y dirección de medios y campañas masivas con más de 700.000 seguidores de alcance orgánico.\n\n👉 Ver portafolio de Políticas Públicas y Comunicaciones: ${baseUrl}?lang=es&view=game&cat=policy`
+        text: `Aporto un perfil puente poco frecuente en el sector socioambiental: la capacidad de traducir ciencia biofísica dura (física de suelos, hidrología y modelación numérica en Python/QGIS) en incidencia legislativa directa (exposición técnica ante el Congreso Nacional y propuestas de ordenamiento de cuencas) y dirección de medios y campañas masivas con más de 700.000 seguidores de alcance orgánico.\n\n👉 Ver portafolio de Políticas Públicas y Comunicaciones: ${baseUrl}policy?lang=es`
       }
     ]
   };

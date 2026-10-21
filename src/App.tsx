@@ -40,6 +40,7 @@ const OgBannerWebCanvas = lazy(() =>
 );
 
 export { resolveAsset } from './utils';
+import { getAppBasePath, ROUTE_SLUGS, RouteSlug } from './utils';
 
 type ViewMode = 'punk' | 'game' | 'dossier' | 'comms_culture' | 'admin' | 'og_render';
 
@@ -58,6 +59,34 @@ const VALID_CATEGORIES: ('all' | MissionType)[] = [
   'policy'
 ];
 
+const SLUG_TO_CATEGORY: Partial<Record<RouteSlug, 'all' | MissionType>> = {
+  science: 'science',
+  summits: 'global',
+  policy: 'policy',
+  media: 'culture',
+  grassroots: 'comms',
+  projects: 'rd',
+  publications: 'publications',
+  skills: 'skills',
+  degrees: 'titles',
+  certifications: 'certifications',
+  globe: 'all'
+};
+
+const CATEGORY_TO_SLUG: Record<'all' | MissionType, RouteSlug> = {
+  science: 'science',
+  global: 'summits',
+  policy: 'policy',
+  culture: 'media',
+  comms: 'grassroots',
+  rd: 'projects',
+  publications: 'publications',
+  skills: 'skills',
+  titles: 'degrees',
+  certifications: 'certifications',
+  all: 'globe'
+};
+
 function parseUrlState() {
   const params = new URLSearchParams(window.location.search);
   const langParam = params.get('lang');
@@ -65,23 +94,56 @@ function parseUrlState() {
   const catParam = params.get('cat') as ('all' | MissionType) | null;
   const missionParam = params.get('mission') || undefined;
   const modalParam = params.get('modal');
+  const routeParam = params.get('route')?.toLowerCase() as RouteSlug | null;
 
   const cleanPath = window.location.pathname.replace(/\/+$/, '');
-  const cleanHash = window.location.hash.replace(/^#\/?/, '').toLowerCase();
-  const isPathAdmin = cleanPath.endsWith('/admin') || cleanHash === 'admin';
+  const lastSegment = cleanPath.split('/').pop()?.toLowerCase() as RouteSlug | undefined;
+  const cleanHash = window.location.hash.replace(/^#\/?/, '').toLowerCase() as RouteSlug | undefined;
+
+  const activeSlug: RouteSlug | null =
+    routeParam && (ROUTE_SLUGS as readonly string[]).includes(routeParam)
+      ? routeParam
+      : lastSegment && (ROUTE_SLUGS as readonly string[]).includes(lastSegment)
+        ? lastSegment
+        : cleanHash && (ROUTE_SLUGS as readonly string[]).includes(cleanHash)
+          ? cleanHash
+          : null;
 
   const lang: Language = langParam === 'es' || langParam === 'en' ? langParam : 'en';
-  const view: ViewMode = isPathAdmin
-    ? 'admin'
-    : viewParam && VALID_VIEWS.includes(viewParam)
-      ? viewParam
-      : catParam || missionParam
-        ? 'game'
-        : 'punk';
-  const cat: 'all' | MissionType =
-    catParam && VALID_CATEGORIES.includes(catParam) ? catParam : 'all';
 
-  return { lang, view, cat, mission: missionParam, modal: modalParam };
+  let view: ViewMode = 'punk';
+  let cat: 'all' | MissionType = 'all';
+  let modal: string | null = modalParam;
+
+  if (activeSlug) {
+    if (activeSlug === 'admin') {
+      view = 'admin';
+    } else if (activeSlug === 'dossier') {
+      view = 'dossier';
+    } else if (activeSlug === 'hire') {
+      view = 'punk';
+      modal = 'hire';
+    } else if (activeSlug === 'cv') {
+      view = 'punk';
+      modal = 'cv';
+    } else if (activeSlug === 'art') {
+      view = 'punk';
+      modal = 'art';
+    } else if (SLUG_TO_CATEGORY[activeSlug]) {
+      view = 'game';
+      cat = SLUG_TO_CATEGORY[activeSlug]!;
+    }
+  } else {
+    view =
+      viewParam && VALID_VIEWS.includes(viewParam)
+        ? viewParam
+        : catParam || missionParam
+          ? 'game'
+          : 'punk';
+    cat = catParam && VALID_CATEGORIES.includes(catParam) ? catParam : 'all';
+  }
+
+  return { lang, view, cat, mission: missionParam, modal };
 }
 
 export function App() {
@@ -101,39 +163,51 @@ export function App() {
   const [isTitlesOpen, setIsTitlesOpen] = useState(initial.modal === 'titles');
   const [isArtDirectorOpen, setIsArtDirectorOpen] = useState(initial.modal === 'art');
 
-  // Synchronize URL query parameters when navigation state changes
+  // Synchronize clean English URL path (/dossier, /science, /cv, /hire, etc.) when navigation state changes
   useEffect(() => {
+    const basePath = getAppBasePath();
     const params = new URLSearchParams();
+
     if (currentLang !== 'en') {
       params.set('lang', currentLang);
     }
-    if (viewMode !== 'punk') {
-      params.set('view', viewMode);
-    }
-    if (viewMode === 'game') {
-      if (selectedCategory !== 'all') {
-        params.set('cat', selectedCategory);
-      }
-      if (selectedMissionId) {
-        params.set('mission', selectedMissionId);
-      }
-    }
-    if (isHireMeOpen) params.set('modal', 'hire');
-    else if (isCvSelectorOpen) params.set('modal', 'cv');
-    else if (isSkillsOpen) params.set('modal', 'skills');
-    else if (isPublicationsOpen) params.set('modal', 'publications');
-    else if (isTitlesOpen) params.set('modal', 'titles');
-    else if (isArtDirectorOpen) params.set('modal', 'art');
 
-    let basePath = window.location.pathname;
-    if (viewMode !== 'admin' && /\/admin\/?$/.test(basePath)) {
-      basePath = basePath.replace(/\/admin\/?$/, '/');
+    if (viewMode === 'og_render') {
+      params.set('view', 'og_render');
+      const searchStr = params.toString();
+      const newUrl = `${basePath}${searchStr ? `?${searchStr}` : ''}`;
+      if (newUrl !== `${window.location.pathname}${window.location.search}`) {
+        window.history.replaceState(null, '', newUrl);
+      }
+      return;
+    }
+
+    let slug = '';
+    if (isHireMeOpen) slug = 'hire';
+    else if (isCvSelectorOpen) slug = 'cv';
+    else if (isArtDirectorOpen) slug = 'art';
+    else if (isSkillsOpen) slug = 'skills';
+    else if (isPublicationsOpen) slug = 'publications';
+    else if (isTitlesOpen) slug = 'degrees';
+    else if (viewMode === 'dossier') slug = 'dossier';
+    else if (viewMode === 'admin') slug = 'admin';
+    else if (viewMode === 'comms_culture') slug = 'media';
+    else if (viewMode === 'game') slug = CATEGORY_TO_SLUG[selectedCategory] || 'globe';
+
+    if (viewMode === 'game' && selectedMissionId) {
+      params.set('mission', selectedMissionId);
     }
 
     const searchStr = params.toString();
-    const hashStr = viewMode !== 'admin' && /^#\/?admin$/i.test(window.location.hash) ? '' : window.location.hash;
-    const newUrl = `${basePath}${searchStr ? `?${searchStr}` : ''}${hashStr}`;
+    const hashStr =
+      viewMode === 'dossier' && window.location.hash && !/^#\/?(admin|dossier)$/i.test(window.location.hash)
+        ? window.location.hash
+        : '';
+
+    const targetPath = slug ? `${basePath}${slug}` : basePath;
+    const newUrl = `${targetPath}${searchStr ? `?${searchStr}` : ''}${hashStr}`;
     const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+
     if (newUrl !== currentUrl) {
       window.history.pushState(null, '', newUrl);
     }

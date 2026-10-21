@@ -1,3 +1,32 @@
+export const ROUTE_SLUGS = [
+  'dossier',
+  'cv',
+  'hire',
+  'science',
+  'summits',
+  'policy',
+  'media',
+  'grassroots',
+  'projects',
+  'publications',
+  'skills',
+  'degrees',
+  'certifications',
+  'art',
+  'admin',
+  'globe'
+] as const;
+
+export type RouteSlug = (typeof ROUTE_SLUGS)[number];
+
+export function getAppBasePath(): string {
+  if (typeof window === 'undefined') return '/';
+  const path = window.location.pathname;
+  const slugPattern = new RegExp(`/(${ROUTE_SLUGS.join('|')})/?$`, 'i');
+  const stripped = path.replace(slugPattern, '/');
+  return stripped.endsWith('/') ? stripped : `${stripped}/`;
+}
+
 export function resolveAsset(path?: string): string {
   if (!path) return '';
   if (path.startsWith('http://') || path.startsWith('https://') || path.startsWith('data:')) {
@@ -5,7 +34,7 @@ export function resolveAsset(path?: string): string {
   }
   // Strip leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  return `${import.meta.env.BASE_URL}${cleanPath}`;
+  return `${getAppBasePath()}${cleanPath}`;
 }
 
 /**
