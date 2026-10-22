@@ -17,8 +17,9 @@ import subprocess
 import tempfile
 
 CHROME_BIN = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-OUTPUT_DIR = "/Users/danielsantander/Documents/Portafolio/public/cv"
-FALLBACK_PDF = "/Users/danielsantander/Documents/Portafolio/public/Daniel_Santander_CV.pdf"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUTPUT_DIR = os.path.join(ROOT, "public", "cv")
+FALLBACK_PDF = os.path.join(ROOT, "public", "Daniel_Santander_CV.pdf")
 
 # Shared CSS for pixel-perfect A4 printing
 COMMON_CSS = """
@@ -37,8 +38,8 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     color: #1e293b;
     background: #ffffff;
-    font-size: 8.8pt;
-    line-height: 1.35;
+    font-size: 9.2pt;
+    line-height: 1.38;
 }
 .page {
     width: 210mm;
@@ -77,6 +78,9 @@ html, body {
     text-transform: uppercase;
 }
 .role-badge {
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 10px;
     font-size: 7pt;
     font-weight: 700;
     text-transform: uppercase;
@@ -166,7 +170,7 @@ html, body {
     white-space: nowrap;
 }
 .item-desc {
-    font-size: 7.7pt;
+    font-size: 8.1pt;
     color: #334155;
     margin-top: 1px;
     line-height: 1.3;
@@ -179,9 +183,9 @@ html, body {
     padding-left: 14px;
 }
 .bullet-list li {
-    font-size: 7.7pt;
+    font-size: 8.1pt;
     color: #334155;
-    margin-bottom: 1.5px;
+    margin-bottom: 2px;
     line-height: 1.3;
 }
 .bullet-list li strong {
@@ -273,18 +277,18 @@ def generate_en_1p():
         <div class="role-badge">Executive Resume (1-Page)</div>
       </div>
       <div class="contact-bar">
-        <span class="contact-item">📍 <strong>Kiel, Germany</strong> &amp; <strong>Santiago, Chile</strong></span>
-        <span class="contact-item">✉️ <a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
-        <span class="contact-item">🌐 <a href="https://danisantander.github.io/Portafolio">danisantander.github.io/Portafolio</a></span>
-        <span class="contact-item">🔗 <a href="https://linkedin.com/in/daniel-santander-urrutia">linkedin.com/in/daniel-santander-urrutia</a></span>
-        <span class="contact-item">💻 <a href="https://github.com/danisantander">github.com/danisantander</a></span>
+        <span class="contact-item"><strong>Kiel, Germany</strong> &amp; <strong>Santiago, Chile</strong></span>
+        <span class="contact-item"><a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
+        <span class="contact-item"><a href="https://danisantanderurrutia-coder.github.io/portafolio/">danisantanderurrutia-coder.github.io/portafolio</a></span>
+        <span class="contact-item"><a href="https://www.linkedin.com/in/santanderurrutia/">linkedin.com/in/santanderurrutia</a></span>
+        <span class="contact-item"><a href="https://github.com/danisantanderurrutia-coder">github.com/danisantanderurrutia-coder</a></span>
       </div>
     </div>
 
     <!-- Executive Summary -->
     <div class="item-block">
       <div class="item-desc" style="font-size: 7.8pt; line-height: 1.34; color: #1e293b; background: #f8fafc; padding: 4px 7px; border-left: 3px solid #0284c7; border-radius: 2px;">
-        <strong>Executive Profile:</strong> Quantitative environmental geophysicist with dual European Master of Science degrees (CAU Kiel, Germany &amp; AMU Poznań, Poland) and an Engineering Geophysics degree (awarded with Highest Distinction) from Universidad de Chile. Combines rigorous subsurface hydrogeophysical modeling (ERT, VES, piezometry) and atmospheric GHG flux quantification (Eddy Covariance towers, dynamic flux chambers) with full-stack scientific software engineering (Python, R, QGIS, PostGIS, Docker, React). Proven track record leading nationwide transmedia campaigns (+700k reach) and testifying before Chile's National Congress on wildfire disaster propagation and watershed resilience.
+        <strong>Executive Profile:</strong> Quantitative environmental geophysicist with dual European Master of Science degrees (CAU Kiel, Germany &amp; AMU Poznań, Poland) and a Geophysics degree (awarded with Highest Distinction) from Universidad de Chile. Combines rigorous subsurface hydrogeophysical modeling (ERT, VES, piezometry) and atmospheric GHG flux quantification (Eddy Covariance towers, dynamic flux chambers) with full-stack scientific software engineering (Python, R, QGIS, PostGIS, Docker, React). Proven track record leading nationwide transmedia campaigns (+700k reach) and testifying before Chile's National Congress on wildfire disaster propagation and watershed resilience.
       </div>
     </div>
 
@@ -316,11 +320,11 @@ def generate_en_1p():
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">Geophysicist &amp; B.Sc. in Geophysics</span> (6-year Engineering Degree) — <span class="item-inst">Universidad de Chile</span></div>
+        <div><span class="item-title">Geophysicist &amp; B.Sc. in Geophysics</span> — <span class="item-inst">Universidad de Chile</span></div>
         <div class="item-meta">Santiago, Chile | 2015 – 2021</div>
       </div>
       <div class="item-desc">
-        Faculty of Physical &amp; Mathematical Sciences (FCFM). <strong>Awarded with Highest Distinction</strong>. Applied geophysics, solid Earth physics, fluid mechanics, seismology, and groundwater modeling. Degree thesis on Vertical Electrical Sounding (VES/SEV) and aquifer depletion in the Maule Basin.
+        Faculty of Physical &amp; Mathematical Sciences (FCFM). <strong>Awarded with Highest Distinction</strong>. Applied geophysics, solid Earth physics, fluid mechanics, seismology, and groundwater modeling. Degree thesis on soil electrical resistivity (VES/SEV) and water table drawdown in the Maule Basin under agroforestry and climate change.
       </div>
     </div>
 
@@ -332,19 +336,18 @@ def generate_en_1p():
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">Lead Geospatial Modeler &amp; Full-Stack Architect</span> — <span class="item-inst">Wetland Monitor &amp; Digital Twins</span></div>
-        <div class="item-meta">Kiel, Germany | 2024 – Present</div>
+        <div><span class="item-title">Developer &amp; Author</span> — <span class="item-inst">Wetland Monitor (3D web application)</span></div>
+        <div class="item-meta">2026</div>
       </div>
       <ul class="bullet-list">
-        <li>Architected an interactive 3D digital twin and analytical dashboard for rewetted fen peatlands in Schleswig-Holstein, integrating micro-topographic DEMs, groundwater table sensors, and meteorological data.</li>
-        <li>Engineered automated Python/FastAPI pipelines processing Sentinel-2 satellite indices (NDVI, NDRE, NDWI) and calibrated soil hydro-physical parameters against Eddy Covariance gas towers.</li>
+        <li>Designed and built an interactive 3D web application presenting the quantitative results of the Wallener Au peatland rewetting study (CH<sub>4</sub> sink-to-source transition, Eddy Covariance, paludiculture, soil compaction), with a day/seasonal simulator.</li>
       </ul>
     </div>
 
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Lead Technical Author &amp; Policy Analyst</span> — <span class="item-inst">Environmental Paper Network (EPN)</span></div>
-        <div class="item-meta">International | 2023 – 2024</div>
+        <div class="item-meta">International | 2023</div>
       </div>
       <ul class="bullet-list">
         <li>Authored international case study <em>"Spotlight on Burning Biomass"</em> (Parral, Chile), exposing carbon accounting loopholes and auditing European renewable energy subsidies under EU RED III.</li>
@@ -354,7 +357,7 @@ def generate_en_1p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Parliamentary Expert Spokesperson</span> — <span class="item-inst">National Congress of Chile (Chamber of Deputies)</span></div>
-        <div class="item-meta">Valparaíso, Chile | 2023</div>
+        <div class="item-meta">Valparaíso, Chile</div>
       </div>
       <ul class="bullet-list">
         <li>Presented empirical hydrogeophysical data before the Special Commission on Disasters and Wildfires, demonstrating the causal link between pine/eucalyptus plantations, water drawdown, and fire speed.</li>
@@ -364,7 +367,7 @@ def generate_en_1p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Communications Director &amp; Campaign Coordinator</span> — <span class="item-inst">Apruebo Rural &amp; Tactical Media</span></div>
-        <div class="item-meta">Chile | 2021 – 2023</div>
+        <div class="item-meta">Chile | 2020 – 2023</div>
       </div>
       <ul class="bullet-list">
         <li>Directed a national public interest campaign reaching +700,000 citizens across digital networks and community assemblies, translating complex legal, ecological, and water policy proposals into accessible visual media.</li>
@@ -444,23 +447,23 @@ def generate_en_2p():
       <div class="masthead-row">
         <div>
           <h1 class="candidate-name">Daniel Santander Urrutia</h1>
-          <div class="candidate-subtitle">Environmental Geophysicist &amp; Catchment Modeler • Dual European M.Sc. Candidate</div>
+          <div class="candidate-subtitle">Environmental Geophysicist • Dual European M.Sc. Candidate</div>
         </div>
-        <div class="role-badge">Full Technical &amp; Policy CV (Page 1 of 2)</div>
+        <div class="role-badge">Technical &amp; Policy CV · 1/2</div>
       </div>
       <div class="contact-bar">
-        <span class="contact-item">📍 <strong>Kiel, Germany</strong> &amp; <strong>Santiago, Chile</strong></span>
-        <span class="contact-item">✉️ <a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
-        <span class="contact-item">🌐 <a href="https://danisantander.github.io/Portafolio">danisantander.github.io/Portafolio</a></span>
-        <span class="contact-item">🔗 <a href="https://linkedin.com/in/daniel-santander-urrutia">linkedin.com/in/daniel-santander-urrutia</a></span>
-        <span class="contact-item">💻 <a href="https://github.com/danisantander">github.com/danisantander</a></span>
+        <span class="contact-item"><strong>Kiel, Germany</strong> &amp; <strong>Santiago, Chile</strong></span>
+        <span class="contact-item"><a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
+        <span class="contact-item"><a href="https://danisantanderurrutia-coder.github.io/portafolio/">danisantanderurrutia-coder.github.io/portafolio</a></span>
+        <span class="contact-item"><a href="https://www.linkedin.com/in/santanderurrutia/">linkedin.com/in/santanderurrutia</a></span>
+        <span class="contact-item"><a href="https://github.com/danisantanderurrutia-coder">github.com/danisantanderurrutia-coder</a></span>
       </div>
     </div>
 
     <!-- Professional Summary -->
     <div class="item-block">
       <div class="item-desc" style="font-size: 7.7pt; line-height: 1.33; color: #1e293b; background: #f8fafc; padding: 4px 7px; border-left: 3px solid #0369a1; border-radius: 2px;">
-        <strong>Comprehensive Profile:</strong> Quantitative environmental scientist and geophysicist specializing in catchment water balance, subsurface electrical resistivity tomography (ERT), and greenhouse gas flux dynamics in rewetted peatlands. Holds a dual European Master of Science degree (CAU Kiel, Germany and AMU Poznań, Poland) alongside a 6-year engineering geophysics degree with Highest Distinction from Universidad de Chile. Combines rigorous experimental field campaigns with computational modeling (Python, R, QGIS, PostGIS, Docker), legislative policy advisory before Chile's National Congress, and large-scale public outreach (+700k reach).
+        <strong>Comprehensive Profile:</strong> Quantitative environmental scientist and geophysicist specializing in catchment water balance, subsurface electrical resistivity tomography (ERT), and greenhouse gas flux dynamics in rewetted peatlands. Holds a dual European Master of Science degree (CAU Kiel, Germany and AMU Poznań, Poland) alongside a Geophysicist degree (B.Sc. in Geophysics) with Highest Distinction from Universidad de Chile. Combines rigorous experimental field campaigns with computational modeling (Python, R, QGIS, PostGIS, Docker), legislative policy advisory before Chile's National Congress, and large-scale public outreach (+700k reach).
       </div>
     </div>
 
@@ -479,8 +482,8 @@ def generate_en_2p():
         <em>Faculty of Agricultural &amp; Nutritional Sciences.</em> Specialization: Catchment hydrology, soil hydro-physics, peatland rewetting mechanics, and atmospheric micrometeorology.
       </div>
       <ul class="bullet-list">
-        <li><strong>Master Thesis:</strong> Biophysical modeling and multi-sensor monitoring of the Wallener Au rewetted peatland. Calibrated soil precompression stress (σ<sub>p</sub> = 62.4 kPa), hydraulic conductivity (k<sub>f</sub>), and water retention curves (pF) against water table fluctuations.</li>
-        <li><strong>Digital Twin Innovation:</strong> Built the <em>Wetland Monitor</em> 3D spatial web application, coupling real-time piezometer sensor streams with Sentinel-2 spectral indices (NDVI, NDWI) and Eddy Covariance carbon flux models (CO<sub>2</sub>, CH<sub>4</sub>).</li>
+        <li><strong>Master Thesis:</strong> Biophysical modeling and multi-sensor monitoring of the Wallener Au rewetted peatland. Determined soil precompression stress (σ<sub>p</sub> = 62.4 kPa) against water table fluctuations.</li>
+        <li><strong>Digital Twin Innovation:</strong> Built the <em>Wetland Monitor</em> 3D web application presenting the Wallener Au results (CH<sub>4</sub> sink-to-source transition, Eddy Covariance, paludiculture, soil compaction).</li>
       </ul>
     </div>
 
@@ -493,13 +496,13 @@ def generate_en_2p():
         <em>Faculty of Geographical &amp; Geological Sciences.</em> Specialization: Freshwater ecology, limnology, aquatic ecosystem restoration, and EU environmental directives.
       </div>
       <ul class="bullet-list">
-        <li><strong>Research Focus:</strong> Carbon sequestration dynamics in post-glacial lake basins and degraded fen peatlands. Microscopic taxonomy of freshwater bioindicators (diatoms, macrophytes) for water quality classification under the EU Water Framework Directive (WFD).</li>
+        <li><strong>Research Focus:</strong> Carbon sequestration dynamics in post-glacial lake basins and degraded fen peatlands. Laboratory and in-situ freshwater bioindicators in lakes and ponds, in the context of the EU Water Framework Directive (WFD).</li>
       </ul>
     </div>
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">Geophysicist &amp; B.Sc. in Geophysics</span> (6-Year Engineering Degree) — <span class="item-inst">Universidad de Chile</span></div>
+        <div><span class="item-title">Geophysicist &amp; B.Sc. in Geophysics</span> — <span class="item-inst">Universidad de Chile</span></div>
         <div class="item-meta">Santiago, Chile | 2015 – 2021</div>
       </div>
       <div class="item-desc">
@@ -507,7 +510,7 @@ def generate_en_2p():
       </div>
       <ul class="bullet-list">
         <li>Rigorous curriculum in solid Earth physics, continuum mechanics, potential field methods (gravity/magnetics), seismology, and applied electromagnetic exploration.</li>
-        <li><strong>Engineering Thesis:</strong> 2D/3D numerical modeling of unconfined aquifer depletion in the Maule River Basin under intensive agro-industrial forestry and mega-drought, utilizing Vertical Electrical Sounding (VES/SEV) and regional piezometric records.</li>
+        <li><strong>Degree Thesis:</strong> Soil electrical resistivity (Vertical Electrical Sounding, VES/SEV) and water table drawdown in the Maule Basin under agroforestry systems and climate change.</li>
       </ul>
     </div>
 
@@ -553,7 +556,7 @@ def generate_en_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Wallener Au Peatland Rewetting &amp; Carbon Flux Dynamics</span></div>
-        <div class="item-meta">Schleswig-Holstein, Germany | 2023 – Present</div>
+        <div class="item-meta">Schleswig-Holstein, Germany</div>
       </div>
       <div class="item-desc">
         Integrated continuous Eddy Covariance tower telemetry (LI-COR LI-7500/7700) with dynamic soil closed chamber campaigns measuring net ecosystem exchange (NEE), ecosystem respiration (R<sub>eco</sub>), and biogenic methane fluxes. Analyzed soil precompression stress under heavy agricultural machinery vs. rewetted conditions.
@@ -562,11 +565,11 @@ def generate_en_2p():
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">AgriTwin IoT &amp; Satellite Vineyard Water Telemetry Platform</span></div>
-        <div class="item-meta">Maule Basin, Chile | 2022 – 2023</div>
+        <div><span class="item-title">AgriTwin: Agricultural Digital Twin</span></div>
+        <div class="item-meta">Maule, Chile | 2026</div>
       </div>
       <div class="item-desc">
-        Coupled LoRaWAN in-situ soil moisture and matric potential sensors with automated Sentinel-2 multispectral vegetation vigor pipelines (NDVI, NDRE) for precision deficit irrigation scheduling across Mediterranean viticultural catchments.
+        Integration of real-time soil moisture telemetry with Sentinel NDVI/NDRE satellite indices in Maule vineyards, Chile.
       </div>
     </div>
   </div>
@@ -592,9 +595,9 @@ def generate_en_2p():
       <div class="masthead-row">
         <div>
           <h2 class="candidate-name" style="font-size: 15pt;">Daniel Santander Urrutia</h2>
-          <div class="candidate-subtitle">Policy Advisory, Publications, Field Instrumentation &amp; Strategic Communications</div>
+          <div class="candidate-subtitle">Policy, Publications, Instrumentation &amp; Communications</div>
         </div>
-        <div class="role-badge">Full Technical &amp; Policy CV (Page 2 of 2)</div>
+        <div class="role-badge">Technical &amp; Policy CV · 2/2</div>
       </div>
     </div>
 
@@ -607,7 +610,7 @@ def generate_en_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Parliamentary Expert Testimony</span> — <span class="item-inst">Chamber of Deputies of Chile (National Congress)</span></div>
-        <div class="item-meta">Valparaíso, Chile | 2023</div>
+        <div class="item-meta">Valparaíso, Chile</div>
       </div>
       <div class="item-desc">
         Invited technical expert witness before the <em>Special Commission on Emergencies, Disasters and Firefighters</em>. Presented quantitative evidence linking industrial pine and eucalyptus monocultures to accelerated wildfire velocity, fuel connectivity, and severe groundwater depletion in rural catchments.
@@ -620,14 +623,14 @@ def generate_en_2p():
         <div class="item-meta">Kiel / Schleswig-Holstein | 2024</div>
       </div>
       <div class="item-desc">
-        Co-authored political ecology policy brief with Schleswig-Holstein Green MP Dirk Kock-Rohwer advocating for direct public subsidies for organic soil regeneration, non-chemical farming transitions, and legal protections for humic peat soils.
+        Co-authored political ecology column with Schleswig-Holstein Green MP Dirk Kock-Rohwer on soil organic fertility, agroecology, and direct public subsidies for non-chemical farming.
       </div>
     </div>
 
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">International Biomass &amp; Carbon Accounting Investigation</span> — <span class="item-inst">Environmental Paper Network (EPN)</span></div>
-        <div class="item-meta">International | 2023 – 2024</div>
+        <div class="item-meta">International | 2023</div>
       </div>
       <div class="item-desc">
         Authored international investigative monograph <em>"Spotlight on Burning Biomass"</em> (Parral, Chile), exposing regulatory loopholes under the European Union Renewable Energy Directive (RED III) and corporate greenwashing in forest biomass burning.
@@ -659,7 +662,7 @@ def generate_en_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Apruebo Rural &amp; Primera Línea Prensa</span> — <span class="item-inst">Executive Communications Lead</span></div>
-        <div class="item-meta">Chile | 2021 – 2023</div>
+        <div class="item-meta">Chile | 2020 – 2023</div>
       </div>
       <div class="item-desc">
         Conceived and coordinated a nationwide transmedia communication strategy with organic viral reach exceeding 700,000 citizens. Directed content production, live stage events, visual infographics, and decentralized rural assemblies.
@@ -669,7 +672,7 @@ def generate_en_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Cuarentena Rap &amp; Rap Beauchef</span> — <span class="item-inst">Founder, Artistic Director &amp; Community Architect</span></div>
-        <div class="item-meta">Santiago &amp; Global | 2020 – 2022</div>
+        <div class="item-meta">Chile &amp; Global | 2020</div>
       </div>
       <div class="item-desc">
         Engineered a global digital spoken-word and hip-hop league via Discord and streaming platforms during pandemic lockdowns, managing an active international community of +12,000 participants across 8 countries.
@@ -763,11 +766,11 @@ def generate_es_1p():
         <div class="role-badge">CV Ejecutivo (1 Página)</div>
       </div>
       <div class="contact-bar">
-        <span class="contact-item">📍 <strong>Kiel, Alemania</strong> &amp; <strong>Santiago, Chile</strong></span>
-        <span class="contact-item">✉️ <a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
-        <span class="contact-item">🌐 <a href="https://danisantander.github.io/Portafolio">danisantander.github.io/Portafolio</a></span>
-        <span class="contact-item">🔗 <a href="https://linkedin.com/in/daniel-santander-urrutia">linkedin.com/in/daniel-santander-urrutia</a></span>
-        <span class="contact-item">💻 <a href="https://github.com/danisantander">github.com/danisantander</a></span>
+        <span class="contact-item"><strong>Kiel, Alemania</strong> &amp; <strong>Santiago, Chile</strong></span>
+        <span class="contact-item"><a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
+        <span class="contact-item"><a href="https://danisantanderurrutia-coder.github.io/portafolio/">danisantanderurrutia-coder.github.io/portafolio</a></span>
+        <span class="contact-item"><a href="https://www.linkedin.com/in/santanderurrutia/">linkedin.com/in/santanderurrutia</a></span>
+        <span class="contact-item"><a href="https://github.com/danisantanderurrutia-coder">github.com/danisantanderurrutia-coder</a></span>
       </div>
     </div>
 
@@ -790,7 +793,7 @@ def generate_es_1p():
         <div class="item-meta">Kiel, Alemania | 2023 – 2026</div>
       </div>
       <div class="item-desc">
-        Faculty of Agricultural &amp; Nutritional Sciences. Especialización en balance hídrico de cuencas, hidrofísica y resistencia mecánica de suelos (tensión de preconsolidación σ<sub>p</sub> = 62,4 kPa), restauración de turberas (Wallener Au) y flujos turbulentos de GEI (CO<sub>2</sub>, CH<sub>4</sub>). Creador de la aplicación web 3D <strong>Wetland Monitor</strong>.
+        Facultad de Ciencias Agrícolas y Nutricionales. Especialización en balance hídrico de cuencas, hidrofísica y resistencia mecánica de suelos (tensión de preconsolidación σ<sub>p</sub> = 62,4 kPa), restauración de turberas (Wallener Au) y flujos turbulentos de GEI (CO<sub>2</sub>, CH<sub>4</sub>). Creador de la aplicación web 3D <strong>Wetland Monitor</strong>.
       </div>
     </div>
 
@@ -800,17 +803,17 @@ def generate_es_1p():
         <div class="item-meta">Poznań, Polonia | 2023 – 2026</div>
       </div>
       <div class="item-desc">
-        Faculty of Geographical &amp; Geological Sciences. Especialización en ecología acuática continental, dinámica de secuestro de carbono en cuencas lacustres, bioindicadores microscópicos y aplicación de la Directiva Marco del Agua de la Unión Europea.
+        Facultad de Ciencias Geográficas y Geológicas. Especialización en ecología acuática continental, dinámica de secuestro de carbono en cuencas lacustres, bioindicadores microscópicos y aplicación de la Directiva Marco del Agua de la Unión Europea.
       </div>
     </div>
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">Geofísico &amp; Licenciado en Ciencias mención Geofísica</span> (Ingeniería de 6 años) — <span class="item-inst">Universidad de Chile</span></div>
+        <div><span class="item-title">Geofísico &amp; Licenciado en Ciencias, mención Geofísica</span> — <span class="item-inst">Universidad de Chile</span></div>
         <div class="item-meta">Santiago, Chile | 2015 – 2021</div>
       </div>
       <div class="item-desc">
-        Facultad de Ciencias Físicas y Matemáticas (FCFM). <strong>Aprobado con Distinción Máxima</strong>. Formación de excelencia en física del interior de la Tierra, sismología, métodos electromagnéticos y modelación numérica. Memoria de título en Sondeo Eléctrico Vertical (SEV) y balance hidrogeológico del acuífero en la Cuenca del Maule.
+        Facultad de Ciencias Físicas y Matemáticas (FCFM). <strong>Aprobado con Distinción Máxima</strong>. Formación de excelencia en física del interior de la Tierra, sismología, métodos electromagnéticos y modelación numérica. Memoria de título sobre resistividad eléctrica de suelos (SEV) y descenso del nivel freático en la Cuenca del Maule bajo agroforestería y cambio climático.
       </div>
     </div>
 
@@ -822,19 +825,18 @@ def generate_es_1p():
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">Investigador Principal &amp; Desarrollador Geoespacial</span> — <span class="item-inst">Wetland Monitor &amp; Gemelos Digitales</span></div>
-        <div class="item-meta">Kiel, Alemania | 2024 – Presente</div>
+        <div><span class="item-title">Desarrollador y Autor</span> — <span class="item-inst">Wetland Monitor (aplicación web 3D)</span></div>
+        <div class="item-meta">2026</div>
       </div>
       <ul class="bullet-list">
-        <li>Diseño e implementación de un gemelo digital 3D interactivo para el monitoreo biofísico de la restauración de turberas en Wallener Au (Schleswig-Holstein), integrando modelos digitales de elevación y sensores freáticos en tiempo real.</li>
-        <li>Desarrollo de pipelines automatizados en Python/FastAPI para procesamiento de constelaciones satelitales Sentinel-2 (NDVI, NDRE, NDWI) y calibración con torres micrometeorológicas Eddy Covariance.</li>
+        <li>Diseño y desarrollo de una aplicación web 3D interactiva que presenta los resultados cuantitativos del estudio de rehumedecimiento de la turbera Wallener Au (transición sumidero-fuente de CH<sub>4</sub>, Eddy Covariance, paludicultura, compactación del suelo), con simulador diurno/estacional.</li>
       </ul>
     </div>
 
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Autor Técnico Principal &amp; Analista de Políticas</span> — <span class="item-inst">Environmental Paper Network (EPN)</span></div>
-        <div class="item-meta">Internacional | 2023 – 2024</div>
+        <div class="item-meta">Internacional | 2023</div>
       </div>
       <ul class="bullet-list">
         <li>Autor principal del informe de investigación <em>"Spotlight on Burning Biomass"</em> (Parral, Chile), auditando vacíos normativos en la contabilidad de carbono y subsidios de energía renovable bajo la directiva europea RED III.</li>
@@ -844,7 +846,7 @@ def generate_es_1p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Vocero Técnico &amp; Testigo Experto</span> — <span class="item-inst">Cámara de Diputadas y Diputados de Chile</span></div>
-        <div class="item-meta">Valparaíso, Chile | 2023</div>
+        <div class="item-meta">Valparaíso, Chile</div>
       </div>
       <ul class="bullet-list">
         <li>Presentación de evidencia empírica hidrogeofísica ante la Comisión Especial de Emergencias y Bomberos, demostrando la correlación entre monocultivo forestal de pino/eucalipto, estrés hídrico y velocidad de propagación de megaincendios.</li>
@@ -854,7 +856,7 @@ def generate_es_1p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Director de Comunicaciones &amp; Coordinador de Campaña</span> — <span class="item-inst">Apruebo Rural &amp; Medios Tácticos</span></div>
-        <div class="item-meta">Chile | 2021 – 2023</div>
+        <div class="item-meta">Chile | 2020 – 2023</div>
       </div>
       <ul class="bullet-list">
         <li>Dirección estratégica de campaña nacional con alcance orgánico superior a 700.000 personas en redes y asambleas, articulando divulgación técnica sobre derechos de agua, ecología de cuencas y transición justa.</li>
@@ -934,16 +936,16 @@ def generate_es_2p():
       <div class="masthead-row">
         <div>
           <h1 class="candidate-name">Daniel Santander Urrutia</h1>
-          <div class="candidate-subtitle">Geofísico Ambiental &amp; Modelador de Cuencas • Candidato a Doble Máster en Ciencias Europeo</div>
+          <div class="candidate-subtitle">Geofísico Ambiental • Candidato a Doble M.Sc. Europeo</div>
         </div>
-        <div class="role-badge">CV Extendido Científico &amp; Gestión (Pág. 1 de 2)</div>
+        <div class="role-badge">CV Extendido · 1/2</div>
       </div>
       <div class="contact-bar">
-        <span class="contact-item">📍 <strong>Kiel, Alemania</strong> &amp; <strong>Santiago, Chile</strong></span>
-        <span class="contact-item">✉️ <a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
-        <span class="contact-item">🌐 <a href="https://danisantander.github.io/Portafolio">danisantander.github.io/Portafolio</a></span>
-        <span class="contact-item">🔗 <a href="https://linkedin.com/in/daniel-santander-urrutia">linkedin.com/in/daniel-santander-urrutia</a></span>
-        <span class="contact-item">💻 <a href="https://github.com/danisantander">github.com/danisantander</a></span>
+        <span class="contact-item"><strong>Kiel, Alemania</strong> &amp; <strong>Santiago, Chile</strong></span>
+        <span class="contact-item"><a href="mailto:danisantander.urrutia@gmail.com">danisantander.urrutia@gmail.com</a></span>
+        <span class="contact-item"><a href="https://danisantanderurrutia-coder.github.io/portafolio/">danisantanderurrutia-coder.github.io/portafolio</a></span>
+        <span class="contact-item"><a href="https://www.linkedin.com/in/santanderurrutia/">linkedin.com/in/santanderurrutia</a></span>
+        <span class="contact-item"><a href="https://github.com/danisantanderurrutia-coder">github.com/danisantanderurrutia-coder</a></span>
       </div>
     </div>
 
@@ -966,11 +968,11 @@ def generate_es_2p():
         <div class="item-meta">Kiel, Alemania | 2023 – 2026</div>
       </div>
       <div class="item-desc">
-        <em>Faculty of Agricultural &amp; Nutritional Sciences.</em> Especialización en hidrología de cuencas, hidrofísica de suelos, restauración de turberas y micrometeorología.
+        <em>Facultad de Ciencias Agrícolas y Nutricionales.</em> Especialización en hidrología de cuencas, hidrofísica de suelos, restauración de turberas y micrometeorología.
       </div>
       <ul class="bullet-list">
-        <li><strong>Tesis de Maestría:</strong> Modelación biofísica y monitoreo multisensor de la turbera restaurada Wallener Au (Schleswig-Holstein). Determinación de tensión de preconsolidación de suelos (σ<sub>p</sub> = 62,4 kPa), conductividad hidráulica saturada (k<sub>f</sub>) y curvas de retención hídrica (pF).</li>
-        <li><strong>Innovación en Gemelos Digitales:</strong> Desarrollo de la plataforma <em>Wetland Monitor</em>, integrando telemetría freática en tiempo real, índices satelitales Sentinel-2 (NDVI, NDWI) y modelos de flujo de carbono (CO<sub>2</sub>, CH<sub>4</sub>) con torres Eddy Covariance.</li>
+        <li><strong>Tesis de Maestría:</strong> Modelación biofísica y monitoreo multisensor de la turbera restaurada Wallener Au (Schleswig-Holstein). Determinación de la tensión de preconsolidación de suelos (σ<sub>p</sub> = 62,4 kPa).</li>
+        <li><strong>Innovación en Gemelos Digitales:</strong> Desarrollo de la aplicación web 3D <em>Wetland Monitor</em> que presenta los resultados de Wallener Au (transición sumidero-fuente de CH<sub>4</sub>, Eddy Covariance, paludicultura, compactación del suelo).</li>
       </ul>
     </div>
 
@@ -980,16 +982,16 @@ def generate_es_2p():
         <div class="item-meta">Poznań, Polonia | 2023 – 2026</div>
       </div>
       <div class="item-desc">
-        <em>Faculty of Geographical &amp; Geological Sciences.</em> Especialización en limnología, restauración lacustre y gobernanza ambiental de la Unión Europea.
+        <em>Facultad de Ciencias Geográficas y Geológicas.</em> Especialización en limnología, restauración lacustre y gobernanza ambiental de la Unión Europea.
       </div>
       <ul class="bullet-list">
-        <li><strong>Investigación:</strong> Dinámica de secuestro de carbono en cuencas lacustres postglaciares. Taxonomía microscópica de bioindicadores dulceacuícolas (diatomeas, macrofitas) para la clasificación del estado ecológico bajo la Directiva Marco del Agua (DMA).</li>
+        <li><strong>Investigación:</strong> Dinámica de secuestro de carbono en cuencas lacustres postglaciares. Bioindicadores dulceacuícolas de laboratorio e in situ en lagos y estanques, en el marco de la Directiva Marco del Agua (DMA) de la UE.</li>
       </ul>
     </div>
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">Geofísico &amp; Licenciatura en Ciencias mención Geofísica</span> (Ingeniería de 6 años) — <span class="item-inst">Universidad de Chile</span></div>
+        <div><span class="item-title">Geofísico &amp; Licenciado en Ciencias, mención Geofísica</span> — <span class="item-inst">Universidad de Chile</span></div>
         <div class="item-meta">Santiago, Chile | 2015 – 2021</div>
       </div>
       <div class="item-desc">
@@ -997,7 +999,7 @@ def generate_es_2p():
       </div>
       <ul class="bullet-list">
         <li>Formación en mecánica de medios continuos, sismología, gravimetría, magnetometría y prospección electromagnética aplicada.</li>
-        <li><strong>Memoria de Título:</strong> Modelación hidrogeofísica 2D del abatimiento del acuífero no confinado en la Cuenca del Maule frente a la expansión forestal industrial y megasequía, mediante Sondeo Eléctrico Vertical (SEV) y balance hídrico regional.</li>
+        <li><strong>Memoria de Título:</strong> Resistividad eléctrica de suelos (Sondeo Eléctrico Vertical, SEV) y descenso del nivel freático en la Cuenca del Maule bajo sistemas agroforestales y cambio climático.</li>
       </ul>
     </div>
 
@@ -1043,7 +1045,7 @@ def generate_es_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Restauración de Turberas Wallener Au y Balance de Carbono</span></div>
-        <div class="item-meta">Schleswig-Holstein, Alemania | 2023 – Presente</div>
+        <div class="item-meta">Schleswig-Holstein, Alemania</div>
       </div>
       <div class="item-desc">
         Integración de telemetría continua de torre Eddy Covariance (LI-COR LI-7500/7700) con campañas de cámaras dinámicas cerradas midiendo intercambio neto ecosistémico (NEE), respiración del suelo y emisiones de metano. Evaluación de compactación bajo maquinaria agrícola.
@@ -1052,11 +1054,11 @@ def generate_es_2p():
 
     <div class="item-block">
       <div class="item-row">
-        <div><span class="item-title">Plataforma AgriTwin: Telemetría Hídrica e IoT en Viñedos</span></div>
-        <div class="item-meta">Cuenca del Maule, Chile | 2022 – 2023</div>
+        <div><span class="item-title">AgriTwin: Gemelo Digital Agrícola</span></div>
+        <div class="item-meta">Maule, Chile | 2026</div>
       </div>
       <div class="item-desc">
-        Acoplamiento de sensores de potencial mátrico en suelo (LoRaWAN) con procesamiento satelital automatizado Sentinel-2 (NDVI, NDRE) para gestión de riego deficitario controlado en viñedos mediterráneos bajo estrés hídrico severo.
+        Integración de telemetría de humedad de suelo en tiempo real con índices satelitales Sentinel (NDVI/NDRE) en viñedos del Maule, Chile.
       </div>
     </div>
   </div>
@@ -1082,9 +1084,9 @@ def generate_es_2p():
       <div class="masthead-row">
         <div>
           <h2 class="candidate-name" style="font-size: 15pt;">Daniel Santander Urrutia</h2>
-          <div class="candidate-subtitle">Políticas Públicas, Publicaciones, Instrumental de Campo &amp; Comunicaciones Estratégicas</div>
+          <div class="candidate-subtitle">Políticas Públicas, Publicaciones, Instrumental &amp; Comunicaciones</div>
         </div>
-        <div class="role-badge">CV Extendido Científico &amp; Gestión (Pág. 2 de 2)</div>
+        <div class="role-badge">CV Extendido · 2/2</div>
       </div>
     </div>
 
@@ -1097,7 +1099,7 @@ def generate_es_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Exposición Técnica ante el Congreso Nacional</span> — <span class="item-inst">Cámara de Diputadas y Diputados de Chile</span></div>
-        <div class="item-meta">Valparaíso, Chile | 2023</div>
+        <div class="item-meta">Valparaíso, Chile</div>
       </div>
       <div class="item-desc">
         Expositor técnico invitado ante la <em>Comisión Especial de Emergencia, Desastres y Bomberos</em>. Presentación de evidencia empírica que correlaciona el avance del monocultivo forestal con la voracidad de los megaincendios y la sequía en cuencas rurales del centro-sur de Chile.
@@ -1110,14 +1112,14 @@ def generate_es_2p():
         <div class="item-meta">Kiel / Schleswig-Holstein | 2024</div>
       </div>
       <div class="item-desc">
-        Análisis político-ecológico junto al diputado regional Dirk Kock-Rohwer sobre fertilidad orgánica de suelos, transición agroecológica y subsidios públicos directos para la regeneración de suelos húmedos y turberas sin agroquímicos.
+        Análisis político-ecológico junto al diputado regional Dirk Kock-Rohwer sobre fertilidad orgánica de suelos, agroecología y subsidios públicos directos para la agricultura sin agroquímicos.
       </div>
     </div>
 
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Auditoría Técnica Internacional de Biomasa Forestal</span> — <span class="item-inst">Environmental Paper Network (EPN)</span></div>
-        <div class="item-meta">Internacional | 2023 – 2024</div>
+        <div class="item-meta">Internacional | 2023</div>
       </div>
       <div class="item-desc">
         Investigación internacional <em>"Spotlight on Burning Biomass"</em> (Parral, Chile), fiscalizando la neutralidad de carbono y los subsidios europeos bajo las normativas RED III de la Unión Europea ante la oposición comunitaria.
@@ -1149,7 +1151,7 @@ def generate_es_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Apruebo Rural &amp; Primera Línea Prensa</span> — <span class="item-inst">Dirección de Comunicaciones &amp; Estrategia</span></div>
-        <div class="item-meta">Chile | 2021 – 2023</div>
+        <div class="item-meta">Chile | 2020 – 2023</div>
       </div>
       <div class="item-desc">
         Diseño y coordinación de campaña nacional transmedia con más de 700.000 visualizaciones orgánicas, liderando producción gráfica, transmisiones en vivo, diseño editorial y asambleas rurales por la justicia hídrica.
@@ -1159,7 +1161,7 @@ def generate_es_2p():
     <div class="item-block">
       <div class="item-row">
         <div><span class="item-title">Cuarentena Rap &amp; Rap Beauchef</span> — <span class="item-inst">Dirección Artística &amp; Arquitectura de Comunidad</span></div>
-        <div class="item-meta">Santiago &amp; Global | 2020 – 2022</div>
+        <div class="item-meta">Chile &amp; Global | 2020</div>
       </div>
       <div class="item-desc">
         Creación y dirección de una liga cultural y spoken-word digital durante la pandemia, administrando servidores Discord y streaming para una comunidad activa de +12.000 participantes en 8 países.
