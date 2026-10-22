@@ -1231,8 +1231,34 @@ def generate_es_2p():
 </html>
 """
 
+
+FIT_JS = """
+<script>
+// Auto-fit: scale typography uniformly so each page's content fills the A4 sheet
+// (leaving room for the footer). One shared zoom per document keeps pages consistent.
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  function fits(z) {
+    return pages.every(function (pg) {
+      var content = pg.children[0], footer = pg.children[1];
+      content.style.zoom = z;
+      var cs = getComputedStyle(pg);
+      var avail = pg.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom)
+                  - footer.offsetHeight - 10;
+      return content.getBoundingClientRect().height <= avail;
+    });
+  }
+  var lo = 1.0, hi = 1.45;
+  for (var i = 0; i < 14; i++) { var mid = (lo + hi) / 2; if (fits(mid)) lo = mid; else hi = mid; }
+  fits(lo);
+  document.body.setAttribute('data-fit-zoom', lo.toFixed(3));
+})();
+</script>
+"""
+
 def render_html_to_pdf(html_content, output_pdf_path):
     """Renders HTML content to PDF using headless Chrome with print-to-pdf"""
+    html_content = html_content.replace("</body>", FIT_JS + "</body>")
     with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False, encoding="utf-8") as f:
         f.write(html_content)
         temp_html_path = f.name
