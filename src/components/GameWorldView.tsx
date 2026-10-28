@@ -1531,69 +1531,135 @@ export const GAME_MISSIONS: GameMission[] = [
   {
     id: 'rd-agrotech-agritwin',
     type: 'rd',
-    titleEs: 'Agrotech & AgriTwin: Gemelo Digital Agrícola 3D & Telemetría IoT',
-    titleEn: 'Agrotech & AgriTwin: Agricultural Digital Twin & Soil IoT Telemetry',
-    subtitleEs: 'Arquitectura Principio Árbol: Fundo Meniel 3D, Sensores FDR, PRV y Satélites // Maule, Chile',
-    subtitleEn: 'Tree Principle Architecture: Fundo Meniel 3D, Soil Sensors, PRV & Satellites // Maule, Chile',
+    titleEs: 'AgroTech Chile & AgriTwin 3D: Gemelo Digital Agrícola & Telemetría KioT',
+    titleEn: 'AgroTech Chile & AgriTwin 3D: Agricultural Digital Twin & KioT Telemetry',
+    subtitleEs: 'Arquitectura Multiescala (Tronco & 6 Ramas): Fundo Meniels 3D, Cuenca Regional 122.000 ha y Sensores FDR // Maule, Chile',
+    subtitleEn: 'Multi-Scale Architecture (Trunk & 6 Branches): Fundo Meniels 3D, 122,000 ha Regional Basin & FDR Sensors // Maule, Chile',
     country: 'Chile',
-    city: 'Valle del Maule / Cuenca Longaví',
+    city: 'Valle del Maule / Parral, Retiro & Longaví',
     flag: '🇨🇱',
     lat: -35.96,
     lng: -71.68,
     date: '2023-2026',
-    roleEs: 'Arquitecto de Software & Diseñador de Gemelo Digital 3D',
-    roleEn: 'Lead Software Architect & Digital Twin Designer',
+    roleEs: 'Autor Ideológico, Arquitecto de Software & Modelador Biofísico',
+    roleEn: 'Lead Software Architect, Ideological Author & Biophysical Modeler',
     mediaType: 'plate',
-    src: '/agrotech/agritwin_3d_twin.jpg',
+    src: '/agrotech/logo_agrotech_chile.jpg',
     availablePages: [
       {
-        titleEs: 'Gemelo Digital 3D: Fundo Meniel & Simulación Espacial (CesiumJS / Three.js)',
-        titleEn: '3D Digital Twin: Fundo Meniel & Spatial Simulation (CesiumJS / Three.js)',
+        titleEs: 'Logotipo Oficial • AgroTech Chile (Peumo Quantum Emblem)',
+        titleEn: 'Official Logo • AgroTech Chile (Peumo Quantum Emblem)',
+        pageSrc: '/agrotech/logo_agrotech_chile.jpg'
+      },
+      {
+        titleEs: 'Insignia Oficial • AgriTwin 3D Digital Twin (Suite Predial)',
+        titleEn: 'Official Insignia • AgriTwin 3D Digital Twin (Farm Suite)',
+        pageSrc: '/agrotech/agritwin_logo.png'
+      },
+      {
+        titleEs: 'Emblema Oficial • AgroTwin Regional (Cartografía Macro 122.000 ha)',
+        titleEn: 'Official Crest • AgroTwin Regional (122,000 ha Macro Cartography)',
+        pageSrc: '/agrotech/logo_agritwin_regional.jpg'
+      },
+      {
+        titleEs: 'Gemelo Digital 3D & Campamento Regional: Simulación WebGL (Three.js / PBR Shaders)',
+        titleEn: '3D Digital Twin & Regional Hub: WebGL Simulation (Three.js / PBR Shaders)',
         pageSrc: '/agrotech/agritwin_3d_twin.jpg'
       },
       {
-        titleEs: 'Arquitectura del Principio Árbol: Suite AgroTwin y Telemetría Multirrama',
-        titleEn: 'Tree Principle Architecture: AgroTwin Suite & Multi-Branch Telemetry',
+        titleEs: 'Hardware de Terreno: Nodo KioT Anti-Heladas y Riego con Firmware C++ / ESP32',
+        titleEn: 'Field Hardware: KioT Anti-Frost & Irrigation Node with C++ / ESP32 Firmware',
+        pageSrc: '/agrotech/kiot_hardware.png'
+      },
+      {
+        titleEs: 'Arquitectura del Principio Árbol: Tronco Biofísico Central y 6 Ramas Especializadas',
+        titleEn: 'Tree Principle Architecture: Central Biophysical Trunk & 6 Specialized Branches',
         pageSrc: '/agrotech/agritwin_tree_principle.jpg'
       },
       {
-        titleEs: 'Monitoreo de Suelos: Sensores FDR, Telemetría IoT LoRaWAN y Microclima',
-        titleEn: 'Soil Monitoring: FDR Moisture Sensors, IoT LoRaWAN Telemetry & Microclimate',
+        titleEs: 'Monitoreo de Suelos: Sondas FDR, Balance FAO-56 Penman-Monteith en 3 Estratos y Microclima',
+        titleEn: 'Soil Monitoring: FDR Probes, 3-Layer FAO-56 Penman-Monteith Balance & Microclimate',
         pageSrc: '/agrotech/agritwin_iot_sensors.jpg'
-      },
-      {
-        titleEs: 'Zonificación de Paisaje y Manejo de Pastoreo Racional Voisin (PRV)',
-        titleEn: 'Landscape Zoning & Voisin Rational Grazing (PRV) Simulation',
-        pageSrc: '/agrotech/agritwin_landscape.jpg'
-      },
-      {
-        titleEs: 'Insignia & Logotipo Oficial • Agrotech & AgriTwin Platform',
-        titleEn: 'Official Logo & Insignia • Agrotech & AgriTwin Platform',
-        pageSrc: '/agrotech/agritwin_logo.png'
       }
     ],
-    url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
-    techStack: ['CesiumJS', 'Three.js', 'React', 'Python', 'FastAPI', 'IoT LoRaWAN', 'Copernicus Sentinel-2', 'QGIS'],
+    url: 'https://github.com/danisantanderurrutia-coder/agrotech',
+    techStack: ['TypeScript', 'React 19', 'JavaScript (ES6+)', 'Three.js (WebGL / Shaders)', 'HTML5 / CSS3', 'Tailwind CSS', 'Node.js', 'Python 3', 'C++ (ESP32 Firmware)'],
     code: 'OPS-RD-AGRO',
-    source: 'GitHub: danisantanderurrutia-coder/agritwin-app & agrotech',
-    impactEs: 'Desarrollo de una suite integral de gemelo digital agrícola (AgriTwin / AgroTech) construida bajo la arquitectura del "Principio Árbol". Integra modelación tridimensional interactiva (CesiumJS y shaders Three.js) del predio agrícola (Fundo Meniel en la cuenca del Maule), tranques de acumulación de 18.500 m³, potreros de pastoreo regenerativo (PRV), telemetría de suelo en tiempo real (sensores FDR de humedad, temperatura y potencial mátrico) e índices satelitales automáticos Sentinel-2 (NDVI/NDRE), logrando reducciones proyectadas de hasta 35% en consumo de agua de riego.',
-    impactEn: 'Engineered a comprehensive agricultural digital twin suite (AgriTwin / AgroTech) founded on the "Tree Principle" decoupled architecture. Integrates high-fidelity 3D spatial visualization (CesiumJS & Three.js shaders) of commercial farmland (Fundo Meniel in the Maule basin), 18,500 m³ retention reservoirs, regenerative Voisin grazing (PRV), real-time soil telemetry (FDR moisture, temperature, and matric potential sensors), and automated Sentinel-2 multispectral vegetation indices (NDVI/NDRE), yielding up to 35% irrigation water savings.',
+    source: 'GitHub: danisantanderurrutia-coder/agrotech & agritwin-app',
+    impactEs: 'Desarrollo del ecosistema AgroTech Chile y la suite de gemelos digitales AgriTwin 3D (escala predial en Fundo Meniels) y AgroTwin Regional (122.000 ha en las cuencas de Parral, Retiro y Longaví). Construido en TypeScript, React, JavaScript ES6+, Three.js (WebGL PBR Shaders), Node.js, Python y firmware C++ para microcontroladores ESP32 (nodos KioT). Modela balance hídrico Penman-Monteith (FAO-56) en 3 estratos de suelo, drenaje katabático de heladas, propagación de incendios (FWI con viento Puelche), riesgo de inundación (TWI) e índices satelitales Sentinel-2 (NDVI/NDRE).',
+    impactEn: 'Engineered the AgroTech Chile ecosystem and the AgriTwin 3D (farm-scale at Fundo Meniels) and AgroTwin Regional (122,000 ha across Parral, Retiro, and Longaví basins) digital twin suites. Built with TypeScript, React, ES6+ JavaScript, Three.js (WebGL PBR Shaders), Node.js, Python, and C++ firmware for ESP32 microcontrollers (KioT nodes). Models 3-layer Penman-Monteith (FAO-56) soil water balance, katabatic frost drainage, wildfire propagation (FWI with Puelche winds), flood risk (TWI), and Sentinel-2 multispectral indices (NDVI/NDRE).',
     methodologyEs: [
-      'Arquitectura Principio Árbol: Soberanía endógena desacoplada (Rama Predio, Rama Mesa Vecinal, Rama Cuenca Longaví)',
-      'Visualización 3D satelital de alta resolución en navegador sin tokens restrictivos (CesiumJS + Esri World Imagery)',
-      'Integración de telemetría IoT de suelo (sondas FDR) con pipeline satelital Sentinel-2 para prevención de estrés hídrico',
-      'Modelación de infraestructura regenerativa: zanjas de infiltración Keyline y tranques de bio-retención'
+      'Stack Full-Stack & Ciberfísico: TypeScript + React 19 + Tailwind CSS + Vite en el núcleo central, acoplado con motores Three.js WebGL, servidores Node.js (server.cjs), scripts Python y firmware C++ (.ino) en nodos ESP32',
+      'Arquitectura del Principio Árbol (Tronco y 6 Ramas): El Galpón IoT, Invernadero & Cultivos, Establo & Pastoreo Racional Voisin (PRV), Incursión Rewilding, Cumbre del Cerro (Cuenca 122k ha) y Mesa Vecinal',
+      'Modelación biofísica acoplada: ecuación de Penman-Monteith en 3 estratos de suelo, tranque Keyline de 18.500 m³ y simuladores regionales de incendios (FWI) e inundaciones (TWI)',
+      'AgriTwin Vision & Drones Autónomos: frustums volumétricos 3D, streaming WebRTC y proyección de ortomosaicos NDVI sobre la malla topográfica'
     ],
     methodologyEn: [
-      'Tree Principle Architecture: Decoupled endogenous sovereignty (Farm Twin, Community Board, Longaví Catchment)',
-      'High-resolution browser-based 3D satellite visualization without paywalled tokens (CesiumJS + Esri World Imagery)',
-      'Real-time IoT soil telemetry (FDR probes) coupled with Sentinel-2 satellite pipeline to prevent crop water stress',
-      'Regenerative engineering modeling: Keyline infiltration contours and bio-retention reservoirs'
+      'Full-Stack & Cyber-Physical Stack: TypeScript + React 19 + Tailwind CSS + Vite core, coupled with Three.js WebGL engines, Node.js servers (server.cjs), Python scripts, and C++ (.ino) firmware on ESP32 nodes',
+      'Tree Principle Architecture (Trunk & 6 Branches): IoT Barn, Greenhouse & Crops, Voisin Rational Grazing (PRV), Rewilding Corridor, Mountain Summit (122k ha Basin), and Community Board',
+      'Coupled biophysical modeling: 3-layer Penman-Monteith soil balance, 18,500 m³ Keyline reservoir, and regional wildfire (FWI) and flood (TWI) simulators',
+      'AgriTwin Vision & Autonomous Drones: 3D volumetric camera frustums, WebRTC streaming, and hot-reloaded NDVI orthomosaics over 3D terrain meshes'
     ],
-    tags: ['AgriTwin', 'Agrotech', 'Gemelo Digital 3D', 'CesiumJS', 'Three.js', 'IoT Suelos', 'Copernicus', 'Maule', 'Chile', 'GitHub']
+    tags: ['AgroTech Chile', 'AgriTwin 3D', 'TypeScript', 'JavaScript', 'React', 'Three.js', 'Python', 'C++ ESP32', 'Node.js', 'Maule']
   },
 
-  // 20. I+D & INNOVACIÓN: Ciencia i Territorio - Soberanía del Conocimiento & Ciencia Popular
+  // 20. I+D & INNOVACIÓN: ReWild Suite - Biomonitoreo de Bosque Nativo & PWA Offline
+  {
+    id: 'rd-rewild',
+    type: 'rd',
+    titleEs: 'ReWild Suite: Biomonitoreo de Bosque Nativo, Certificación ReNatura & PWA Offline',
+    titleEn: 'ReWild Suite: Native Forest Biomonitoring, ReNatura Certification & Offline PWA',
+    subtitleEs: 'Suite de Campo 100% Offline con 9 Protocolos Ecológicos, Edafología VESS y Cálculo de Carbono IPCC // Chile & Portugal',
+    subtitleEn: '100% Offline Field Survey PWA with 9 Ecological Protocols, VESS Soil Structure & IPCC Carbon // Chile & Portugal',
+    country: 'Chile / Portugal',
+    city: 'Maule (Los Ruiles), Nahuelbuta (Bío-Bío) & Aljezur (Portugal)',
+    flag: '🌲',
+    lat: -35.83,
+    lng: -72.63,
+    date: '2024-2026',
+    roleEs: 'Creador & Desarrollador Principal de Software Ecológico',
+    roleEn: 'Creator & Lead Ecological Software Developer',
+    mediaType: 'plate',
+    src: '/rewild/logo_rewild.png',
+    availablePages: [
+      {
+        titleEs: 'Logotipo e Identidad Oficial • ReWild Suite (Biomonitoreo & PWA Offline)',
+        titleEn: 'Official Logo & Identity • ReWild Suite (Biomonitoring & Offline PWA)',
+        pageSrc: '/rewild/logo_rewild.png'
+      },
+      {
+        titleEs: 'Monitoreo en Terreno: Restauración de Bosque Nativo, Suelos y Biomasa',
+        titleEn: 'Field Monitoring: Native Forest Restoration, Soil Recovery & Biomass HUD',
+        pageSrc: '/rewild/img_forest_rewild.jpg'
+      },
+      {
+        titleEs: 'Cartografía RewildMapper GIS: Densidad Vegetal (NDVI), Humedad de Suelo y Parcelas',
+        titleEn: 'RewildMapper GIS Cartography: Vegetation Density (NDVI), Soil Moisture & Plots',
+        pageSrc: '/rewild/rewildmapper_gis.png'
+      }
+    ],
+    url: 'https://github.com/danisantanderurrutia-coder/agrotech',
+    techStack: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'Python 3 (server.py)', 'IndexedDB API', 'Service Worker (PWA)', 'Canvas 2D', 'jsPDF & SheetJS (XLSX)'],
+    code: 'OPS-RD-REWILD',
+    source: 'GitHub: danisantanderurrutia-coder/agrotech/tree/main/rewild',
+    impactEs: 'Desarrollo de "ReWild Suite" (Rewilding Field Suite & GoWild Survey), una aplicación web progresiva (PWA) 100% offline diseñada para auditar, muestrear y certificar ecosistemas en quebradas y cordilleras sin cobertura celular. Integra 9 protocolos científicos multicapa (Certificación ReNatura, Perfiles Edafológicos, Calidad Estructural de Suelo VESS, Bosque Nativo Clímax, Plantaciones en Reconversión, Matorrales, Humedales, Turberas y Percepción Social), con casos de estudio precargados en Reserva Nacional Los Ruiles (Maule), Cordillera de Nahuelbuta (Bío-Bío) y Quinta de São Pedro (Aljezur, Portugal).',
+    impactEn: 'Developed "ReWild Suite" (Rewilding Field Suite & GoWild Survey), a 100% offline Progressive Web App (PWA) engineered to audit, sample, and certify ecosystems in remote ravines and mountain ranges without cellular signal. Integrates 9 multi-layer scientific protocols (ReNatura Certification, Soil Profiles, VESS Soil Structure, Climax Native Forest, Plantation Conversion, Shrublands, Wetlands, Peatlands, and Social Perception), featuring field case studies in Los Ruiles National Reserve (Maule), Nahuelbuta (Bío-Bío), and Aljezur (Portugal).',
+    methodologyEs: [
+      'Programación en JavaScript (ES6+) puro, HTML5, CSS3 y servidor autónomo en Python 3 (http.server / socketserver)',
+      'Motor de persistencia asíncrono en IndexedDB (RewildSuiteDB) con respaldo en localStorage, Service Worker (sw.js) para operación 100% offline y compresor de imágenes en terreno vía Canvas 2D',
+      '9 protocolos de muestreo estandarizados en 5 capas (fitosociología, edafología VESS Sq1-Sq5, hidrología/turberas y carbono IPCC Tier 2)',
+      'Generación automática en terreno de informes técnicos en PDF (jsPDF) y libros de datos georreferenciados en Excel (SheetJS / XLSX)'
+    ],
+    methodologyEn: [
+      'Engineered in vanilla ES6+ JavaScript, HTML5, CSS3, and an autonomous Python 3 local server (http.server / socketserver)',
+      'Asynchronous IndexedDB persistence engine (RewildSuiteDB) with localStorage fallback, Service Worker (sw.js) for 100% offline field use, and Canvas 2D image compression',
+      '9 standardized sampling protocols across 5 ecological layers (phytosociology, VESS Sq1-Sq5 soil structure, wetlands/peatlands, and IPCC Tier 2 carbon)',
+      'Automated in-field generation of technical PDF audit reports (jsPDF) and georeferenced Excel workbooks (SheetJS / XLSX)'
+    ],
+    tags: ['ReWild Suite', 'JavaScript', 'HTML5', 'CSS3', 'Python', 'PWA Offline', 'IndexedDB', 'Bosque Nativo', 'Aljezur', 'Maule']
+  },
+
+  // 21. I+D & INNOVACIÓN: Ciencia i Territorio - Soberanía del Conocimiento & Ciencia Popular
   {
     id: 'rd-ciencia-territorio',
     type: 'rd',
@@ -1607,8 +1673,8 @@ export const GAME_MISSIONS: GameMission[] = [
     lat: -39.81,
     lng: -73.24,
     date: '2023-2026',
-    roleEs: 'Fundador & Director de Plataforma',
-    roleEn: 'Founder & Platform Director',
+    roleEs: 'Fundador & Desarrollador Principal',
+    roleEn: 'Founder & Lead Developer',
     mediaType: 'plate',
     src: '/ciencia_territorio/earth_concept.jpg',
     availablePages: [
@@ -1616,6 +1682,11 @@ export const GAME_MISSIONS: GameMission[] = [
         titleEs: 'Manifiesto Conceptual: Tierra, Evolución y Soberanía Científica Popular',
         titleEn: 'Conceptual Manifesto: Earth, Evolution & Popular Scientific Sovereignty',
         pageSrc: '/ciencia_territorio/earth_concept.jpg'
+      },
+      {
+        titleEs: 'Emblema e Identidad Oficial • Ciencia i Territorio',
+        titleEn: 'Official Insignia & Visual Identity • Ciencia i Territorio',
+        pageSrc: '/ciencia_territorio/ciencia_territorio_logo.png'
       },
       {
         titleEs: 'Nodo Satelital & Tecnologías Ciborg para la Observación Terrestre',
@@ -1631,35 +1702,30 @@ export const GAME_MISSIONS: GameMission[] = [
         titleEs: 'Expedición Científica en Terreno: Ecosistemas Australes y Patagonia',
         titleEn: 'Field Scientific Expedition: Austral Ecosystems & Patagonia',
         pageSrc: '/ciencia_territorio/patagonia_expedition.jpg'
-      },
-      {
-        titleEs: 'Emblema e Identidad Oficial • Ciencia i Territorio',
-        titleEn: 'Official Insignia & Visual Identity • Ciencia i Territorio',
-        pageSrc: '/ciencia_territorio/ciencia_territorio_logo.png'
       }
     ],
     url: 'https://github.com/danisantanderurrutia-coder',
-    techStack: ['HTML5 / Modern JS', 'CSS Grid', 'GIS Cartography', 'Ciencia Abierta', 'Comms Estratégica'],
+    techStack: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'Python 3', 'Bash / Shell', 'SVG Vector Scripting'],
     code: 'OPS-RD-CIT',
     source: 'Ciencia i Territorio // Plataforma & Nodos Territoriales',
-    impactEs: 'Creación de "Ciencia i Territorio", una plataforma de divulgación científica, justicia ambiental y comunicación comunitaria inspirada en la ciencia abierta sin barreras ni paywalls (en tributo a Paulo Freire y Alexandra Elbakyan). Articula el conocimiento geofísico de cuencas, ecología de suelos, bioacústica y soberanía de datos directamente con asambleas vecinales, escuelas rurales y comités ambientales.',
-    impactEn: 'Founded "Ciencia i Territorio", an open-access scientific dissemination and environmental justice platform designed to break paywalls and bring high-level earth sciences to frontline communities (inspired by Paulo Freire & Alexandra Elbakyan). Connects catchment geophysics, soil ecology, bioacoustics, and data sovereignty directly with rural assemblies and grassroots water committees.',
+    impactEs: 'Creación y desarrollo íntegro de "Ciencia i Territorio", plataforma web de divulgación científica, justicia ambiental y comunicación comunitaria inspirada en la ciencia abierta sin barreras ni paywalls (en tributo a Paulo Freire y Alexandra Elbakyan). Programada en JavaScript (ES6+), HTML5, CSS3 y scripts en Python 3 para procesamiento gráfico, generación vectorial de isotipos y servidor local, articulando geofísica de cuencas, ecología, bioacústica y podcasts con comunidades rurales.',
+    impactEn: 'Founded and developed "Ciencia i Territorio", an open-access scientific dissemination and environmental justice web platform designed to eliminate paywalls and bring earth sciences to frontline communities (inspired by Paulo Freire & Alexandra Elbakyan). Built with ES6+ JavaScript, HTML5, CSS3, and Python 3 scripts for asset processing, programmatic SVG logo generation, and local serving, connecting catchment geophysics, ecology, and bioacoustics with local territories.',
     methodologyEs: [
-      'Divulgación popular y ciencia comunitaria: democratización de conceptos geofísicos y ecológicos complejos',
-      'Arquitectura de plataforma web abierta con identidad gráfica de vanguardia y recursos educativos libres',
-      'Nodos territoriales: vinculación de investigaciones en terreno (Patagonia, Maule, cuenca central) con movimientos sociales',
-      'Justicia ambiental y defensa del territorio: insumos técnicos para la participación ciudadana incidente'
+      'Desarrollo frontend en JavaScript (ES6+) modular (app.js y panel de gestión admin-sanctuary.js), HTML5 semántico bilingüe (sistema data-i18n) y hojas de estilo CSS3 a medida',
+      'Automatización y diseño algorítmico en Python 3 (run_local_server.py, generación programática de isotipos SVG y procesamiento de activos con Pillow)',
+      'Nodos territoriales: vinculación de investigaciones en terreno (Patagonia, Maule, Valdivia) y podcast de divulgación con organizaciones socioambientales',
+      'Justicia ambiental y defensa del territorio: insumos científicos abiertos para asambleas y comités de agua'
     ],
     methodologyEn: [
-      'Popular education and community science: translating complex geophysics and ecological data into accessible tools',
-      'Open-web digital architecture featuring vanguard visual identity and free educational assets',
-      'Territorial nodes: bridging empirical fieldwork (Patagonia, Maule, Central Chile) with social movements',
-      'Environmental justice and territorial defense: technical evidence supporting grassroots legal and water advocacy'
+      'Frontend engineered in modular ES6+ JavaScript (app.js and admin-sanctuary.js CMS), bilingual semantic HTML5 (data-i18n engine), and custom CSS3 stylesheets',
+      'Python 3 automation and algorithmic design (run_local_server.py, programmatic SVG isotype generation, and Pillow image pipelines)',
+      'Territorial nodes: bridging empirical fieldwork (Patagonia, Maule, Valdivia) and science podcasts with grassroots movements',
+      'Environmental justice and territorial defense: open scientific tools for rural water committees and local assemblies'
     ],
-    tags: ['Ciencia i Territorio', 'Ciencia Abierta', 'Soberanía del Conocimiento', 'Geofísica', 'Educación Popular', 'Chile', 'I+D']
+    tags: ['Ciencia i Territorio', 'JavaScript', 'HTML5', 'CSS3', 'Python', 'Ciencia Abierta', 'Chile', 'I+D']
   },
 
-  // 21. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
+  // 22. I+D & INNOVACIÓN: Bioacústica Vegetal & Geofísica en Bosques Nativos
   {
     id: 'rd-bioacustica',
     type: 'rd',
@@ -1695,6 +1761,7 @@ export const GAME_MISSIONS: GameMission[] = [
       }
     ],
     url: 'https://github.com/danisantanderurrutia-coder',
+    techStack: ['Python', 'R', 'MATLAB', 'QGIS', 'Procesamiento de Señales Acústicas', 'Geofísica SEV'],
     code: 'OPS-RD-01',
     source: 'Proyectos de I+D en Desarrollo',
     impactEs: 'Proyecto de I+D en desarrollo (concursos de innovación): Integración de geofísica y bioacústica vegetal para la evaluación de la salud de los ecosistemas, orientado a cuantificar el estado biofísico, la resistividad radicular y el estrés hídrico en bosques nativos y cuencas del centro-sur de Chile.',
@@ -1709,15 +1776,15 @@ export const GAME_MISSIONS: GameMission[] = [
       'Quantitative ecosystem health and water stress assessment in native forests of central-southern Chile',
       'Technical formulation for international innovation grants and competitions'
     ],
-    tags: ['Chile', 'Bosques Nativos', 'Centro-Sur', 'Geofísica', 'Bioacústica', 'I+D']
+    tags: ['Chile', 'Bosques Nativos', 'Centro-Sur', 'Geofísica', 'Bioacústica', 'Python', 'R', 'I+D']
   },
 
-  // 20. I+D & INNOVACIÓN: Smart Food Parks, AgriTwin 3D & Permacultura para Ciudades Europeas ODS
+  // 23. I+D & INNOVACIÓN: Smart Food Parks & Permacultura para Ciudades Europeas ODS
   {
     id: 'rd-smart-food-parks',
     type: 'rd',
-    titleEs: 'Smart Food Parks & AgriTwin 3D: Ciudades ODS y Gemelo Digital Agrícola',
-    titleEn: 'Smart Food Parks & AgriTwin 3D: SDG Cities & Agricultural Digital Twin',
+    titleEs: 'Smart Food Parks: Ciudades Europeas ODS & Diseño en Permacultura (EPAC)',
+    titleEn: 'Smart Food Parks: European SDG Cities & Permaculture Design (EPAC)',
     subtitleEs: 'Uniendo Naturaleza, Simulación Hidrológica y Tecnología para Ciudades ODS // Permacultura (EPAC)',
     subtitleEn: 'Uniting Nature, Hydrological Simulation & Technology for SDG Cities // Permaculture Design (EPAC)',
     country: 'Alemania / Europa',
@@ -1732,8 +1799,8 @@ export const GAME_MISSIONS: GameMission[] = [
     src: '/expeditions/smart_food_parks_ui.jpg',
     availablePages: [
       {
-        titleEs: 'Gemelo Digital y Telemetría IoT en Smart Food Parks / AgriTwin 3D',
-        titleEn: 'Digital Twin & IoT Telemetry in Smart Food Parks / AgriTwin 3D',
+        titleEs: 'Gemelo Digital y Telemetría IoT en Smart Food Parks',
+        titleEn: 'Digital Twin & IoT Telemetry in Smart Food Parks',
         pageSrc: '/expeditions/smart_food_parks_ui.jpg'
       },
       {
@@ -1743,42 +1810,53 @@ export const GAME_MISSIONS: GameMission[] = [
       }
     ],
     url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
+    techStack: ['JavaScript (ES6+)', 'Three.js', 'CesiumJS', 'HTML5 / CSS3', 'Python', 'QGIS'],
     code: 'OPS-RD-02',
-    source: 'GitHub: danisantanderurrutia-coder/agritwin-app • EPAC',
-    impactEs: 'Desarrollo del ecosistema "Smart Food Parks" para ciudades europeas en el marco de los ODS y del repositorio abierto "AgriTwin 3D" (Gemelo Digital Agrícola, Simulación Hidrológica y Manejo Regenerativo), articulando diseño permacultural certificado (CDP EPAC) con telemetría IoT y visualización 3D interactiva.',
-    impactEn: 'Development of the "Smart Food Parks" initiative for European SDG cities and the open-source "AgriTwin 3D" platform (Agricultural Digital Twin, Hydrological Simulation & Regenerative Management), combining certified permaculture design (CDP EPAC) with IoT telemetry and interactive 3D visualization.',
+    source: 'Proyectos en Desarrollo & Certificación EPAC (CV)',
+    impactEs: 'Desarrollo del concepto "Smart Food Parks: Uniendo naturaleza y tecnología para ciudades europeas ODS", articulando diseño permacultural certificado (CDP EPAC) con sensores ambientales, soberanía alimentaria urbana y visualización 3D interactiva.',
+    impactEn: 'Development of the "Smart Food Parks: Uniting nature and technology for European SDG cities" initiative, combining certified permaculture design (CDP EPAC) with environmental telemetry, urban food sovereignty, and interactive 3D visualization.',
     methodologyEs: [
       'Smart Food Parks: integración de infraestructura verde y tecnología abierta para ciudades europeas ODS',
-      'AgriTwin 3D (GitHub): Gemelo digital agrícola, simulación hidrológica y manejo regenerativo',
+      'Modelación espacial de parques agroecológicos urbanos y cosecha de aguas lluvias',
       'Diseño en Permacultura Certificado (CDP) por la Escuela Chilena de Permacultura y Agroecología (EPAC)'
     ],
     methodologyEn: [
       'Smart Food Parks: uniting green infrastructure and open-source technology for European SDG cities',
-      'AgriTwin 3D (GitHub): Agricultural digital twin, hydrological simulation, and regenerative management',
+      'Spatial modeling of urban agroecological parks and rainwater harvesting',
       'Certified Permaculture Designer (CDP), Chilean School of Permaculture and Agroecology (EPAC)'
     ],
-    tags: ['AgriTwin 3D', 'Smart Food Parks', 'Ciudades Europeas ODS', 'Permacultura', 'GitHub', 'I+D']
+    tags: ['Smart Food Parks', 'Ciudades Europeas ODS', 'Permacultura', 'EPAC', 'Three.js', 'I+D']
   },
 
-  // 21. I+D & INVESTIGACIÓN: Modelación de Impacto de Incendios en Cuencas (CV)
+  // 24. I+D, PUBLICACIÓN COLECTIVA & MODELACIÓN: Libro de Incendios & Modelo Forestal + Cuencas
   {
     id: 'rd-incendios-cuencas',
     type: 'rd',
-    titleEs: 'Modelación del Impacto de Incendios en Ecosistemas de Cuencas',
-    titleEn: 'Modeling Forest Fire Impacts on Watershed Ecosystems',
-    subtitleEs: 'Investigación Científica en Cuencas del Centro-Sur // Balance Hídrico y Suelos',
-    subtitleEn: 'Scientific Research on Central-Southern Watersheds // Water Balance & Soil Dynamics',
+    titleEs: 'Libro de Incendios & Modelo Forestal: Coordinación Editorial y Modelación de Cuencas',
+    titleEn: 'Wildfire Book & Forestry Model: Editorial Coordination & Watershed Fire Modeling',
+    subtitleEs: 'Coordinador y Co-editor Principal junto a la Red por la Superación del Modelo Forestal (RESUMOF) // Balance Hídrico y Suelos',
+    subtitleEn: 'Coordinator & Lead Co-Editor with the Network to Overcome the Forestry Model (RESUMOF) // Water Balance & Soils',
     country: 'Chile',
-    city: 'Centro-Sur',
+    city: 'Centro-Sur (Maule, Ñuble, Biobío, Araucanía, Los Ríos)',
     flag: '🇨🇱',
     lat: -36.20,
     lng: -71.90,
-    date: '2023-2025',
-    roleEs: 'Investigador Principal (Modelación de Cuencas)',
-    roleEn: 'Lead Researcher (Watershed Modeling)',
+    date: '2023-2026',
+    roleEs: 'Coordinador del Libro, Co-editor Principal & Investigador de Cuencas',
+    roleEn: 'Book Coordinator, Lead Co-Editor & Watershed Researcher',
     mediaType: 'plate',
-    src: '/expeditions/longavi_biodiversity_survey.jpg',
+    src: '/logos/logo_resumof.png',
     availablePages: [
+      {
+        titleEs: 'Emblema Oficial • Red por la Superación del Modelo Forestal (RESUMOF)',
+        titleEn: 'Official Emblem • Network to Overcome the Forestry Model (RESUMOF)',
+        pageSrc: '/logos/logo_resumof.png'
+      },
+      {
+        titleEs: 'Restauración de Bosque Nativo y Monitoreo Ecológico Post-Incendio',
+        titleEn: 'Native Forest Restoration & Post-Fire Ecological Monitoring',
+        pageSrc: '/rewild/img_forest_rewild.jpg'
+      },
       {
         titleEs: 'Catastro Ecológico y Parches de Bosque Nativo en Cerro Longaví',
         titleEn: 'Ecological Survey & Native Forest Patches at Cerro Longaví',
@@ -1792,21 +1870,23 @@ export const GAME_MISSIONS: GameMission[] = [
     ],
     url: 'https://github.com/danisantanderurrutia-coder/resumof',
     code: 'OPS-RD-03',
-    source: 'Investigación de Cuencas Hidrográficas & Balance Hídrico',
-    impactEs: 'Investigación orientada a modelar cuantitativamente el impacto de los incendios forestales en ecosistemas de cuencas, integrando física de suelos, escorrentía post-fuego y balance hídrico entre sistemas acuáticos y terrestres en el centro-sur de Chile.',
-    impactEn: 'Research focused on quantitatively modeling forest fire impacts on watershed ecosystems, integrating soil physics, post-fire runoff, and water balance between aquatic and terrestrial systems in central-southern Chile.',
+    source: 'Red por la Superación del Modelo Forestal (RESUMOF) • GitHub: resumof',
+    impactEs: 'Coordinador y co-editor principal (junto a 2 co-editores principales y múltiples autores colaboradores de la Red por la Superación del Modelo Forestal) del "Libro de Incendios & Modelo Forestal": obra colectiva de análisis ecológico, reconversión del monocultivo forestal y restauración de bosques nativos en Chile. Paralelamente, lidera la modelación físico-hidrológica del impacto de los megaincendios en cuencas hidrográficas y el desarrollo de la plataforma web interactiva y cartográfica de la Red (RESUMOF).',
+    impactEn: 'Coordinator and lead co-editor (alongside 2 principal co-editors and multiple contributing authors from the Network to Overcome the Forestry Model) of the "Wildfire & Forestry Model Book": a collective work of ecological analysis, forestry monoculture transition, and native forest restoration in Chile. Simultaneously leads the hydrological and soil-physics modeling of megafire impacts on watersheds and the development of the Network\'s interactive cartographic web platform (RESUMOF).',
     methodologyEs: [
-      'Modelación del impacto de incendios forestales sobre el balance hídrico de cuencas hidrográficas',
-      'Acoplamiento de la dinámica física de suelos entre sistemas acuáticos y terrestres',
-      'Evaluación de severidad post-fuego, erosión y resiliencia hidrológica en cabeceras de cuenca'
+      'Coordinación editorial, convocatoria y edición de capítulos, y redacción de prólogo e introducción junto a los 2 co-editores principales y la Red por la Superación del Modelo Forestal',
+      'Modelación del impacto de incendios forestales sobre el balance hídrico, hidrofobicidad de suelos y escorrentía entre sistemas acuáticos y terrestres',
+      'Diseño de mapas cartográficos de zonas afectadas por megaincendios (2017, 2023, 2024-2026) y restauración activa vs. pasiva de bosque esclerófilo y templado',
+      'Desarrollo de la plataforma digital RESUMOF en HTML5, CSS3, JavaScript (ES6+) y cartografía interactiva con Leaflet.js (incluyendo mapa de conflictos y bot jurídico ambiental)'
     ],
     methodologyEn: [
-      'Modeling of forest fire impacts on watershed hydrological balances',
-      'Coupled soil physical dynamics across aquatic and terrestrial ecosystem boundaries',
-      'Post-fire burn severity, erosion, and headwater catchment resilience assessment'
+      'Editorial coordination, chapter curation and editing, and co-authoring of the prologue and introduction with 2 principal co-editors and the Network to Overcome the Forestry Model',
+      'Quantitative modeling of wildfire impacts on catchment water balances, post-fire soil hydrophobicity, and runoff across aquatic-terrestrial interfaces',
+      'Cartographic mapping of megafire-affected basins (2017, 2023, 2024-2026) and active vs. passive restoration of sclerophyllous and temperate native forests',
+      'Development of the RESUMOF digital platform using HTML5, CSS3, vanilla ES6+ JavaScript, and Leaflet.js interactive GIS cartography (including conflict mapping and legal assistant bot)'
     ],
-    techStack: ['QGIS', 'R Modeling', 'Python', 'Balance Hídrico'],
-    tags: ['Incendios', 'Cuencas', 'Balance Hídrico', 'Suelos', 'Chile', 'I+D']
+    techStack: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'Leaflet.js', 'QGIS', 'R', 'Python'],
+    tags: ['Libro de Incendios', 'Coordinador Editorial', 'RESUMOF', 'Incendios Forestales', 'Cuencas', 'JavaScript', 'Leaflet.js', 'QGIS', 'R', 'Python']
   },
 
   // 22. ASESORÍA EN POLÍTICAS PÚBLICAS: Ordenamiento de Cuencas & Transición Productiva (CV)
@@ -2445,8 +2525,8 @@ export const GAME_MISSIONS: GameMission[] = [
     lng: 0,
     isStatic: true,
     date: 'Actualizado 2026',
-    roleEs: 'Ingeniero de Software Científico & Modelador',
-    roleEn: 'Scientific Software Engineer & Modeler',
+    roleEs: 'Desarrollador de Software Científico & Modelador',
+    roleEn: 'Scientific Software Developer & Modeler',
     mediaType: 'plate',
     src: '/expeditions/smart_food_parks_architecture.jpg',
     availablePages: [
