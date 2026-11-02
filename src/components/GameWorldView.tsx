@@ -479,22 +479,17 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/plp/plp_logo.jpg'
       },
       {
-        titleEs: 'Cabecera Editorial & Consigna Popular',
-        titleEn: 'Editorial Header & Popular Slogan',
+        titleEs: 'Cabecera Editorial & Identidad de Medio Digital',
+        titleEn: 'Editorial Header & Digital Media Identity',
         pageSrc: '/plp/plp_header_consigna.png'
       },
       {
-        titleEs: 'Lanzamiento del Libro Impreso "Relatos de la Revuelta"',
-        titleEn: 'Print Book Release "Relatos de la Revuelta"',
-        pageSrc: '/plp/plp_articulo_revuelta.png'
-      },
-      {
-        titleEs: 'Afiche de Contra-Información y Agitación Gráfica',
-        titleEn: 'Counter-Information Poster & Graphic Agitation',
+        titleEs: 'Afiche de Contra-Información y Divulgación Territorial',
+        titleEn: 'Counter-Information Poster & Community Outreach',
         pageSrc: '/plp/plp_afiche_inflacion.jpg'
       }
     ],
-    url: 'https://www.primeralineaprensa.cl',
+    url: 'https://www.instagram.com/primeralineaprensa/',
     code: 'OPS-COM-02',
     source: 'Archivo Histórico Primera Línea Prensa',
     impactEs: 'Fundación y dirección de medio digital independiente durante el ciclo cívico 2019-2022 en Chile, alcanzando más de 700.000 seguidores orgánicos en redes sociales.',
@@ -1087,7 +1082,7 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/certificates/instituto_ambiental_gis_r_qgis.png'
       }
     ],
-    url: 'https://escuelaambiental.com',
+    url: '/certificates/instituto_ambiental_gis_r_qgis.png',
     code: 'OPS-CERT-07',
     source: 'Instituto Ambiental GIS (Diploma Oficial)',
     impactEs: 'Diploma de culminación satisfactoria del Desafío en Biodiversidad y Medio Ambiente: modelado de nicho ecológico, descarga de datos de biodiversidad GBIF, teledetección y clasificación satelital con QGIS y ArcGIS PRO, análisis EDA en R y procesamiento de imágenes Radar con Google Earth Engine (20 horas académicas).',
@@ -2290,52 +2285,47 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['ClimateCC', 'Falsas Soluciones', 'Carbon Credits', 'Bosques', 'Internacional']
   },
 
-  // 33. PUBLICACIONES: Libro Impreso "Relatos de la revuelta popular" (PLP)
+  // 33. PUBLICACIONES: Libro Científico Internacional: Incendios & Monocultivos Forestales
   {
-    id: 'pub-plp-libro',
+    id: 'pub-libro-incendios',
     type: 'publications',
-    titleEs: 'Libro Impreso: "Relatos de la revuelta popular" (Editorial PLP)',
-    titleEn: 'Print Book Release: "Relatos de la revuelta popular" (PLP Publishing)',
-    subtitleEs: 'Publicación física y distribución autogestionada de 44 crónicas y testimonios',
-    subtitleEn: 'Physical publication and street distribution of 44 grassroots micro-narratives',
+    titleEs: 'Libro Científico: "Dinámica de Incendios y Monocultivos Forestales"',
+    titleEn: 'Scientific Book: "Wildfire Dynamics & Forestry Monocultures"',
+    subtitleEs: 'Editor Principal & Coordinación Internacional Multiautor sobre Dinámica de Biomasa',
+    subtitleEn: 'Lead Editor & Multi-Author International Coordination on Biomass Dynamics',
     country: 'Chile',
-    city: 'Santiago',
+    city: 'Maule / Santiago',
     flag: '🇨🇱',
-    lat: -33.44,
-    lng: -70.65,
-    date: '2020',
-    roleEs: 'Editor General & Diseñador',
-    roleEn: 'Editor-in-Chief & Book Designer',
+    lat: -35.43,
+    lng: -71.66,
+    date: '2024-2026',
+    roleEs: 'Editor Principal & Coordinador Científico',
+    roleEn: 'Lead Scientific Editor & Coordinator',
     mediaType: 'press',
-    src: '/plp/plp_articulo_revuelta.png',
+    src: '/portfolio_pages_en/page_7.png',
     availablePages: [
       {
-        titleEs: 'Página de Lanzamiento del Libro en Primera Línea Prensa',
-        titleEn: 'Book Release Feature on Primera Línea Prensa',
-        pageSrc: '/plp/plp_articulo_revuelta.png'
-      },
-      {
-        titleEs: 'Logotipo Oficial • Primera Línea Prensa',
-        titleEn: 'Official Logo • Primera Línea Prensa',
-        pageSrc: '/plp/plp_logo.jpg'
+        titleEs: 'Ficha Editorial y Coordinación del Libro Científico',
+        titleEn: 'Editorial Record & Scientific Book Coordination',
+        pageSrc: '/portfolio_pages_en/page_7.png'
       }
     ],
-    url: 'https://www.primeralineaprensa.cl/?p=5542',
+    url: 'https://danisantanderurrutia-coder.github.io/portafolio/dossier',
     code: 'OPS-PUB-08',
-    source: 'Editorial Primera Línea Prensa',
-    impactEs: 'Publicación física y distribución autogestionada del libro «Relatos de la revuelta popular», antología con 44 microtextos y crónicas sobre el estallido social en Chile.',
-    impactEn: 'Physical publication and street distribution of "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising.',
+    source: 'Coordinación Científica Internacional (Geofísica Libre & Red Maule)',
+    impactEs: 'Coordinación y edición del libro científico internacional sobre física de propagación de megaincendios, vulnerabilidad de cuencas y transición del modelo forestal.',
+    impactEn: 'Coordination and editing of the international scientific book on wildfire propagation physics, watershed vulnerability, and forestry model transition.',
     methodologyEs: [
-      'Curaduría editorial y compilación de relatos ciudadanos en primera persona',
-      'Diseño tipográfico, maquetación editorial y diagramación para imprenta',
-      'Distribución autogestionada mano a mano en ferias del libro y plazas públicas'
+      'Modelación física acoplada de combustibles forestales y balances hídricos',
+      'Articulación de investigadores de Chile, Europa y Latinoamérica',
+      'Análisis de datos satelitales y mediciones de resistividad eléctrica en terreno'
     ],
     methodologyEn: [
-      'Editorial curation and compilation of first-person grassroots chronicles',
-      'Typography design, print layout, and prepress production',
-      'Self-managed independent distribution at street book fairs and public squares'
+      'Coupled physical modeling of forest fuels and watershed hydrological budgets',
+      'Multi-author network of researchers across Chile, Europe, and Latin America',
+      'Satellite Earth Observation data analysis and in-situ electrical resistivity surveys'
     ],
-    tags: ['Libro', 'Estallido Social', 'PLP', 'Editorial', 'Crónicas']
+    tags: ['Libro Científico', 'Megaincendios', 'Monocultivo Forestal', 'Hidrología', 'Biomasa']
   },
 
   // ==============================================================
@@ -3095,8 +3085,8 @@ const TOOLS_COMMS: SkillToolDetail[] = [
     tagsEn: 'Textile & Paper Screenprinting • Editorial Typography • Scenography • Murals',
     descEs: 'Diseño integral de campañas visuales, cartelería callejera, portadas editoriales y dirección de arte.',
     descEn: 'Comprehensive visual campaign branding, street flyposting, editorial covers, and stage art direction.',
-    applicationEs: 'Libro impreso "Relatos de la revuelta popular", estética de brigadas y afiches políticos.',
-    applicationEn: 'Print book "Relatos de la revuelta popular", silkscreen posters, and cultural movement branding.',
+    applicationEs: 'Diseño editorial, infografías técnicas, afiches de divulgación y cartografía científica.',
+    applicationEn: 'Editorial design, technical infographics, scientific outreach posters, and field cartography.',
     color: '#facc15'
   }
 ];

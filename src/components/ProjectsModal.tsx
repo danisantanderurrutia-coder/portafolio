@@ -106,6 +106,7 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     notesEn: 'Scalable to orchards, vineyards, and cooperative water user associations (WUA).',
     notesEs: 'Escalable a viñedos, huertos comerciales y asociaciones de canalistas (Juntas de Vigilancia).',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
+    liveUrl: 'https://danisantanderurrutia-coder.github.io/agritwin-app/',
     imageSrc: '/expeditions/cauquenes_rain_gauge.jpg',
     imageGallery: [
       {
@@ -150,7 +151,6 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Delft3D', 'Python Hydro', 'LiDAR DEM', 'QGIS', 'Copernicus Marine', 'NetCDF'],
     notesEn: 'Grounding European coastal resilience frameworks for international ports and estuaries.',
     notesEs: 'Articulación de metodologías de resiliencia costera europea para puertos y estuarios.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
     imageSrc: '/expeditions/wadden_sea_birding.jpg',
     imageGallery: [
       {
@@ -240,7 +240,6 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Unity 3D', 'IoT Telemetry', 'MQTT', 'Python AI', 'Digital Twin', 'Cloud Pipelines', 'Permaculture CDP'],
     notesEn: 'Developed through CAU Kiel Environmental Management & Chilean Permaculture School (EPAC) research.',
     notesEs: 'Desarrollado a partir de investigación en CAU Kiel y diseño permacultural certificado (EPAC).',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder',
     imageSrc: '/expeditions/smart_food_parks_ui.jpg',
     imageGallery: [
       {
@@ -289,8 +288,7 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     impactMetricEs: 'Modelación de Física No Lineal • Marco Estocástico Analítico',
     techStack: ['Python NumPy', 'SciPy', 'SymPy', 'LaTeX / Typst', 'Differential Equations'],
     notesEn: 'Intellectual engine powering all physical transport and environmental modeling algorithms.',
-    notesEs: 'Motor intelectual que sustenta todos los algoritmos de modelación física y transporte ambiental.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder'
+    notesEs: 'Motor intelectual que sustenta todos los algoritmos de modelación física y transporte ambiental.'
   },
 
   // ==========================================
@@ -331,7 +329,7 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['WordPress Enterprise', 'Next.js', '4K Audiovisual', 'Social Syndication', 'Open Journalism'],
     notesEn: 'Benchmark in independent citizen journalism and verified grassroots documentation.',
     notesEs: 'Referente de periodismo independiente, verificación técnica y memoria histórica popular.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/primera-linea-prensa'
+    liveUrl: 'https://www.instagram.com/primeralineaprensa/'
   },
   {
     id: 'apruebo-rural',
@@ -368,7 +366,8 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Premiere Pro', 'DaVinci Resolve', 'Radio Broadcasting', 'Meta/TikTok Ads', 'Community Strategy'],
     notesEn: 'Demonstrated ability to move mass audiences and build trusted grassroots coalitions.',
     notesEs: 'Demostrada capacidad de movilización de audiencias masivas y construcción de confianza territorial.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/campana-maule-sur'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/MauleRed',
+    liveUrl: 'https://danisantanderurrutia-coder.github.io/MauleRed/'
   },
   {
     id: 'rap-beauchef',
@@ -405,10 +404,10 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['OBS Studio Broadcast', 'Discord Infrastructure', 'Sony 4K Production', 'Audio Engineering'],
     notesEn: 'Unites engineering rigor with youth subculture authenticity and audiovisual mastery.',
     notesEs: 'Unión única entre rigor ingenieril de producción, autenticidad urbana y dominio audiovisual.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder'
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/Dossier-Rap'
   },
   {
-    id: 'incel',
+    id: 'los-manejadores',
     emoji: '🤖',
     titleEn: 'Los Manejadores: Generative AI & Digital Media Strategy',
     titleEs: 'Los Manejadores: Estrategia de Medios & IA Generativa',
@@ -441,8 +440,7 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     impactMetricEs: 'Motor de Contenidos Automatizado • Arquitectura de Alta Retención',
     techStack: ['Generative AI', 'ElevenLabs', 'RunwayML', 'Python Automation', 'Next.js', 'Tailwind CSS'],
     notesEn: 'Pioneering ethical, high-quality AI storytelling for the modern knowledge economy.',
-    notesEs: 'Pioneros en storytelling con IA de alta calidad para la economía del conocimiento.',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder'
+    notesEs: 'Pioneros en storytelling con IA de alta calidad para la economía del conocimiento.'
   }
 ];
 
@@ -610,6 +608,26 @@ export const ProjectsModal: React.FC<ProjectsModalProps> = ({
 
                 {/* External Links Bar */}
                 <div className="flex items-center space-x-2">
+                  {currentProj.liveUrl && (
+                    <a
+                      href={currentProj.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`px-3 py-1.5 ${
+                        currentProj.liveUrl.includes('instagram.com')
+                          ? 'bg-gradient-to-r from-[#e1306c] to-[#c13584] hover:opacity-90'
+                          : 'bg-emerald-600 hover:bg-emerald-500'
+                      } text-white font-mono font-black text-xs rounded border border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition-all cursor-pointer`}
+                    >
+                      <Globe2 className="w-3.5 h-3.5" />
+                      <span>
+                        {currentProj.liveUrl.includes('instagram.com')
+                          ? (currentLang === 'es' ? 'Ver Instagram' : 'View Instagram')
+                          : (currentLang === 'es' ? 'Ver Plataforma' : 'Live Platform')}
+                      </span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                   {currentProj.githubUrl && (
                     <a
                       href={currentProj.githubUrl}

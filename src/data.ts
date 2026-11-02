@@ -45,8 +45,8 @@ export const communicationsSections: SectionData[] = [
         subtitleEn: 'Environmental Geophysicist & Strategic Communications Director',
         subtitleEs: 'Geofísico Ambiental & Director de Comunicaciones Estratégicas',
         src: '/profile.jpg',
-        captionEn: 'Daniel Santander Urrutia holds an Engineering Geophysics degree from Universidad de Chile and a double European Master of Science in Environmental Management and Integrated Catchment Management (Kiel, Germany and Poznań, Poland). Combines scientific fieldwork with public interest communications.',
-        captionEs: 'Daniel Santander Urrutia es Ingeniero Geofísico de la Universidad de Chile y posee un doble Máster Europeo en Gestión Ambiental y Manejo Integrado de Cuencas (Kiel, Alemania y Poznań, Polonia). Integra investigación biofísica de campo con comunicaciones estratégicas de interés público.',
+        captionEn: 'Daniel Santander Urrutia is a Geophysicist (Bachelor of Science in Geophysics from Universidad de Chile) and holds a double European Master of Science in Environmental Management and Integrated Catchment Management (Kiel, Germany and Poznań, Poland). Combines scientific fieldwork with public interest communications.',
+        captionEs: 'Daniel Santander Urrutia es Geofísico y Licenciado en Ciencias con mención en Geofísica de la Universidad de Chile, y posee un doble Máster Europeo en Gestión Ambiental y Manejo Integrado de Cuencas (Kiel, Alemania y Poznań, Polonia). Integra investigación biofísica de campo con comunicaciones estratégicas de interés público.',
         authorOrSource: 'Perfil Oficial // Archivo Personal',
         date: '2026',
         tags: ['Geofísica', 'Comunicaciones', 'Kiel', 'Poznań', 'Chile']
@@ -218,22 +218,7 @@ export const communicationsSections: SectionData[] = [
             captionEs: 'Header oficial y lema editorial fundacional de Primera Línea Prensa: "Informando desde las trincheras del pueblo". Sintetiza la línea editorial de reportería directa, independiente y comprometida con las comunidades en resistencia y los territorios.',
             authorOrSource: 'Primera Línea Prensa // Cabecera Oficial',
             date: '2019-2022',
-            tags: ['Consigna Editorial', 'Trincheras del Pueblo', 'Identidad', 'primeralineaprensa.cl']
-          },
-          {
-            id: 'plp-articulo-revuelta',
-            type: 'press',
-            titleEn: 'PLP News Article: Independent Press & Street Literature',
-            titleEs: 'Noticia PLP: Prensa Independiente y Literatura Callejera',
-            subtitleEn: '"Relatos de la revuelta popular" // Book Release & Editorial Milestone',
-            subtitleEs: '“Relatos de la revuelta popular” // Lanzamiento Editorial y Éxito de Ventas',
-            url: 'https://www.primeralineaprensa.cl/?p=5542',
-            src: '/plp/plp_articulo_revuelta.png',
-            captionEn: 'Featured coverage and editorial milestone of Primera Línea Prensa: publishing and distributing the physical book "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising, self-distributed across Santiago public plazas and cultural centers.',
-            captionEs: 'Cuerpo y titular de la noticia en la plataforma oficial de Primera Línea Prensa: publicación y distribución del libro físico “Relatos de la revuelta popular”, una antología autogestionada de 44 microtextos sobre el estallido social en Chile, difundida directamente en las calles y centros culturales.',
-            authorOrSource: 'Primera Línea Prensa // primeralineaprensa.cl',
-            date: 'Noviembre 2020',
-            tags: ['Prensa Independiente', 'Relatos de la Revuelta', 'Editorial Popular', 'Estallido Social']
+            tags: ['Consigna Editorial', 'Prensa Independiente', 'Identidad', 'primeralineaprensa.cl']
           }
         ]
       },
@@ -382,22 +367,7 @@ export const communicationsSections: SectionData[] = [
         captionEs: 'Header oficial y lema editorial fundacional de Primera Línea Prensa: "Informando desde las trincheras del pueblo". Sintetiza la línea editorial de reportería directa, independiente y comprometida con las comunidades en resistencia y los territorios.',
         authorOrSource: 'Primera Línea Prensa // Cabecera Oficial',
         date: '2019-2022',
-        tags: ['Consigna Editorial', 'Trincheras del Pueblo', 'Identidad', 'primeralineaprensa.cl']
-      },
-      {
-        id: 'plp-articulo-revuelta',
-        type: 'press',
-        titleEn: 'PLP News Article: Independent Press & Street Literature',
-        titleEs: 'Noticia PLP: Prensa Independiente y Literatura Callejera',
-        subtitleEn: '"Relatos de la revuelta popular" // Book Release & Editorial Milestone',
-        subtitleEs: '“Relatos de la revuelta popular” // Lanzamiento Editorial y Éxito de Ventas',
-        url: 'https://www.primeralineaprensa.cl/?p=5542',
-        src: '/plp/plp_articulo_revuelta.png',
-        captionEn: 'Featured coverage and editorial milestone of Primera Línea Prensa: publishing and distributing the physical book "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising, self-distributed across Santiago public plazas and cultural centers.',
-        captionEs: 'Cuerpo y titular de la noticia en la plataforma oficial de Primera Línea Prensa: publicación y distribución del libro físico “Relatos de la revuelta popular”, una antología autogestionada de 44 microtextos sobre el estallido social en Chile, difundida directamente en las calles y centros culturales.',
-        authorOrSource: 'Primera Línea Prensa // primeralineaprensa.cl',
-        date: 'Noviembre 2020',
-        tags: ['Prensa Independiente', 'Relatos de la Revuelta', 'Editorial Popular', 'Estallido Social']
+        tags: ['Consigna Editorial', 'Prensa Independiente', 'Identidad', 'primeralineaprensa.cl']
       }
     ]
   },

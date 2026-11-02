@@ -73,7 +73,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       id: 'wetland-monitor',
       badge: '🌿 GEMELO DIGITAL & SOFTWARE CIENTÍFICO',
       title: 'App Humedal Monitor (Wetland Monitor) • Full-Stack Scientific Modeler',
-      targetRoles: 'Environmental Data Scientist, Scientific Software Engineer, GIS / Digital Twin Developer',
+      targetRoles: 'Environmental Data Scientist, Scientific Software Developer, GIS / Digital Twin Developer',
       Highlight:
         'Abre el Globo 3D directamente en la ficha dedicada a tu aplicación Wetland Monitor con su logotipo oficial, simulador diurno/estacional y enlace al repositorio en GitHub.',
       query: `science?mission=wetland-monitor-app${langSuffix}`,
@@ -97,7 +97,7 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       id: 'maule-geophysics',
       badge: '🇨🇱 CHILE / LATAM • HIDROGEOFÍSICA & CUENCAS',
       title: 'Resistividad de Suelos (SEV/VES), Nivel Freático & Cambio Climático (U. de Chile)',
-      targetRoles: 'Ingeniero Geofísico, Especialista en Recursos Hídricos, Consultor Hidrogeológico / DGA / MMA',
+      targetRoles: 'Geofísico, Especialista en Recursos Hídricos, Consultor Hidrogeológico / DGA / MMA',
       Highlight:
         'Abre el Globo 3D en la Cuenca del Maule mostrando el efecto cuantificado de la actividad agroforestal y el cambio climático sobre la resistividad del suelo y el nivel freático.',
       query: `science?mission=science-geophysics-soils${langSuffix}`,

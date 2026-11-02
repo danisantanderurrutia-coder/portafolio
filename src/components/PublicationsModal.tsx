@@ -193,23 +193,23 @@ export const PUBLICATIONS_DATA: PublicationItem[] = [
     tags: ['ClimateCC', 'Falsas Soluciones', 'Carbon Credits', 'Bosques']
   },
 
-  // 9. RELATOS DE LA REVUELTA (LIBRO IMPRESO)
+  // 9. LIBRO CIENTÍFICO INTERNACIONAL (INCENDIOS Y MONOCULTIVOS)
   {
-    id: 'plp-libro-revuelta',
-    category: 'press',
-    titleEn: 'Relatos de la revuelta popular (Anthology Book Release)',
-    titleEs: 'Relatos de la revuelta popular (Lanzamiento de Libro Impreso)',
-    outletEn: 'Primera Línea Prensa // Independent Publishing House',
-    outletEs: 'Primera Línea Prensa // Editorial Popular Autogestionada',
-    date: '2020',
-    url: 'https://www.primeralineaprensa.cl/?p=5542',
-    src: '/plp/plp_articulo_revuelta.png',
-    badgeEn: 'PRINT BOOK ANTHOLOGY',
-    badgeEs: 'LIBRO IMPRESO',
-    badgeColor: 'bg-yellow-400 text-black',
-    summaryEn: 'Physical publication and street distribution of "Relatos de la revuelta popular", an anthology gathering 44 grassroots micro-narratives from the Chilean social uprising.',
-    summaryEs: 'Publicación física y distribución autogestionada del libro «Relatos de la revuelta popular», antología con 44 microtextos y crónicas sobre el estallido social en Chile.',
-    tags: ['Libro', 'Estallido Social', 'PLP', 'Editorial']
+    id: 'libro-cientifico-incendios',
+    category: 'essays',
+    titleEn: 'International Scientific Book: Wildfire Dynamics & Forestry Monocultures',
+    titleEs: 'Libro Científico Internacional: Dinámica de Incendios y Monocultivos Forestales',
+    outletEn: 'Lead Editor & Multi-Author International Coordination',
+    outletEs: 'Editor Principal & Coordinación Internacional Multiautor',
+    date: '2024-2026',
+    url: 'https://danisantanderurrutia-coder.github.io/portafolio/dossier',
+    src: '/portfolio_pages_en/page_7.png',
+    badgeEn: 'SCIENTIFIC BOOK (IN PROGRESS)',
+    badgeEs: 'LIBRO CIENTÍFICO (EN CURSO)',
+    badgeColor: 'bg-emerald-600 text-white',
+    summaryEn: 'International multi-author scientific book investigating wildfire propagation physics, soil-fuel interactions, and watershed vulnerability under industrial timber monocultures in South America and Mediterranean ecosystems.',
+    summaryEs: 'Libro científico internacional multiautor que investiga la física de propagación de megaincendios, interacción suelo-combustible y vulnerabilidad de cuencas frente a monocultivos forestales industriales en Sudamérica y ecosistemas mediterráneos.',
+    tags: ['Libro Científico', 'Megaincendios', 'Monocultivo Forestal', 'Hidrología de Cuencas']
   }
 ];
 

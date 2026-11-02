@@ -23,10 +23,10 @@ export const GEO_LOCATIONS: Record<string, GeoLocation> = {
     flag: '🇨🇱',
     lat: -35.6,
     lng: -71.5,
-    roleEs: 'Ingeniería Geofísica (FCFM U. de Chile), Prensa +700k, Congreso & Cuencas',
-    roleEn: 'Geophysics Engineering (U. of Chile), Media +700k, Congress & Catchments',
+    roleEs: 'Geofísica (FCFM U. de Chile), Prensa +700k, Congreso & Cuencas',
+    roleEn: 'Geophysics (U. of Chile), Media +700k, Congress & Catchments',
     highlightsEs: [
-      'Ingeniero Geofísico con Distinción Máxima (Universidad de Chile, 2021)',
+      'Geofísico • Licenciado en Ciencias mención Geofísica con Distinción Máxima (Universidad de Chile, 2021)',
       'Fundador & Director de Prensa (+700.000 seguidores en estallido social)',
       'Exposición oficial en Comisión de Megaincendios de la Cámara de Diputadas/os',
       'Asesoría técnica ambiental en Convención Constitucional (agua, minería, transición)',
@@ -34,7 +34,7 @@ export const GEO_LOCATIONS: Record<string, GeoLocation> = {
       'Monitoreo in-situ y red de telemetría de cuencas en el Maule'
     ],
     highlightsEn: [
-      'Geophysicist with Distinction (Universidad de Chile, 2021)',
+      'Geophysicist • Bachelor of Science in Geophysics with Distinction (Universidad de Chile, 2021)',
       'Founder & Newsroom Director (+700,000 followers citizen newsroom)',
       'Official testimony at Chamber of Deputies Wildfire & Disaster Commission',
       'Environmental policy advisory for Constitutional Convention (water, forestry)',

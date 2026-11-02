@@ -1069,7 +1069,7 @@ def generate_es_2p():
       <span class="tag">PÁGINA 1 DE 2</span> Daniel Santander Urrutia — CV Extendido Científico &amp; Gestión
     </div>
     <div>
-      Continúa en Página 2 (Políticas Públicas, Publicaciones, Instrumental y Comunicaciones) →
+      Continúa en Página 2 (Políticas, Publicaciones e Instrumental) →
     </div>
   </div>
 </div>
