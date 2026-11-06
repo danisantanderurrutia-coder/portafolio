@@ -118,6 +118,30 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       mission: 'congreso-valparaiso'
     },
     {
+      id: 'agritwin-agrotech',
+      badge: '🌾 AGROTECH • GEMELO DIGITAL 3D & IOT',
+      title: 'Plataforma AgriTwin 3D & AgroTech Chile • Telemetría KioT',
+      targetRoles: 'Agtech Founder, Digital Twin Architect, Precision Agriculture Modeler, IoT Engineer',
+      Highlight:
+        'Abre el Globo 3D directamente en la misión de AgroTech Chile y AgriTwin 3D (balance hídrico Penman-Monteith FAO-56 en 3 estratos, sondas FDR, microclima y gemelo digital predial/regional).',
+      query: `projects?mission=rd-agrotech-agritwin${langSuffix}`,
+      view: 'game' as const,
+      cat: 'rd',
+      mission: 'rd-agrotech-agritwin'
+    },
+    {
+      id: 'resumof-wildfires',
+      badge: '🌲 RESUMOF • RED SUPERACIÓN MODELO FORESTAL',
+      title: 'Libro de Incendios & Plataforma RESUMOF • Modelación de Cuencas',
+      targetRoles: 'Lead Editor, Forest Hydrologist, Wildfire Risk Analyst, Environmental Campaign Director',
+      Highlight:
+        'Abre el Globo 3D en la misión de RESUMOF y el Libro de Incendios (coordinación editorial colectiva, cartografía interactiva de cuencas afectadas y reconversión de monocultivos).',
+      query: `publications?mission=pub-libro-incendios${langSuffix}`,
+      view: 'game' as const,
+      cat: 'publications',
+      mission: 'pub-libro-incendios'
+    },
+    {
       id: 'dossier-paper',
       badge: '📄 COMITÉS ACADÉMICOS & LECTURA RÁPIDA',
       title: 'Dossier Científico Ejecutivo en Formato Papel (Sin 3D)',

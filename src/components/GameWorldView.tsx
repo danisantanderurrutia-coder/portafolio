@@ -43,6 +43,7 @@ export interface GameMission {
   srcEn?: string;
   embedUrl?: string;
   url?: string;
+  githubUrl?: string;
   code: string;
   source: string;
   impactEs: string;
@@ -143,6 +144,7 @@ export const GAME_MISSIONS: GameMission[] = [
       }
     ],
     url: 'https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
     code: 'OPS-SCI-01',
     source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel) • App: Wetland Monitor',
     impactEs: 'Tesis de Maestría en Manejo Ambiental (CAU Kiel) en la turbera Wallener Au (Schleswig-Holstein) junto al desarrollo de la aplicación interactiva "Wetland Monitor" (Humedal Monitor). Observamos y cuantificamos la transición del humedal entre sumidero y fuente de carbono durante la etapa de rehumedecimiento (rewetting) debido al pulso agudo de metano (CH₄ hasta +145 nmol m⁻² s⁻¹ por chimeneas de aerénquima en inundación invernal) y picos otoñales de N₂O (>50% del total anual), analizando el intercambio de GEI (CO₂, CH₄, N₂O) bajo efectos micrometeorológicos y edáficos (Eddy Covariance R² = 0.94 y cámaras cerradas). Asimismo, cuantificamos el legado de antiguos usos de paludicultura y drenaje previo sobre la estructura ecosistémica y evaluamos la compactación mecánica por maquinaria agrícola (horizonte de arado con tensión de precompresión σp = 62.4 kPa).',
@@ -209,6 +211,7 @@ export const GAME_MISSIONS: GameMission[] = [
       }
     ],
     url: 'https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
     code: 'OPS-SCI-01B',
     source: 'GitHub: danisantanderurrutia-coder/wetland-monitor • CAU Kiel',
     impactEs: 'Aplicación web científica e interactiva ("Humedal Monitor / Wetland Monitor") desarrollada para la defensa de tesis de maestría en CAU Kiel. Simula en tiempo real el ciclo diurno de 24 horas y la evolución estacional de 365 días en la turbera Wallener Au, visualizando cómo el rehumedecimiento, las fluctuaciones del nivel freático (-44 cm en sequía estival a +2 cm en invierno) y el horizonte compactado por maquinaria agrícola (σp = 62.4 kPa) gobiernan la transición entre sumidero y emisor de CO₂, CH₄ y N₂O.',
@@ -436,7 +439,8 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/longavi_biodiversity_survey.jpg'
       }
     ],
-    url: 'https://tomaterojo.cl',
+    url: 'https://danisantanderurrutia-coder.github.io/resumof/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof',
     code: 'OPS-SCI-05',
     source: 'Red Plurinacional de Humedales en Chile & Red de Superación al Modelo Forestal',
     impactEs: 'Modelación de riesgos climáticos extremos enfocada en la dinámica de megaincendios forestales y su impacto crítico sobre humedales, cuencas abastecedoras de agua y comunidades en Chile. Realizado en estrecha articulación con la Red Plurinacional de Humedales en Chile y la Red de Superación al Modelo Forestal, integrando teledetección satelital de severidad de fuego, pirogeomorfología y propuestas normativas de cortafuegos y restauración ecológica.',
@@ -1325,6 +1329,7 @@ export const GAME_MISSIONS: GameMission[] = [
     mediaType: 'plate',
     src: '/expeditions/memoria_dignidad_maule.png',
     url: 'https://danisantanderurrutia-coder.github.io/memoria-y-dignidad-maule/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/memoria-y-dignidad-maule',
     availablePages: [
       {
         titleEs: 'Plataforma Oficial Memoria y Dignidad Maule (Museo Digital)',
@@ -1577,7 +1582,8 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/agrotech/agritwin_iot_sensors.jpg'
       }
     ],
-    url: 'https://github.com/danisantanderurrutia-coder/agrotech',
+    url: 'https://danisantanderurrutia-coder.github.io/agritwin-app/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
     techStack: ['TypeScript', 'React 19', 'JavaScript (ES6+)', 'Three.js (WebGL / Shaders)', 'HTML5 / CSS3', 'Tailwind CSS', 'Node.js', 'Python 3', 'C++ (ESP32 Firmware)'],
     code: 'OPS-RD-AGRO',
     source: 'GitHub: danisantanderurrutia-coder/agrotech & agritwin-app',
@@ -1804,7 +1810,8 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/smart_food_parks_architecture.jpg'
       }
     ],
-    url: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
+    url: 'https://danisantanderurrutia-coder.github.io/agritwin-app/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
     techStack: ['JavaScript (ES6+)', 'Three.js', 'CesiumJS', 'HTML5 / CSS3', 'Python', 'QGIS'],
     code: 'OPS-RD-02',
     source: 'Proyectos en Desarrollo & Certificación EPAC (CV)',
@@ -1863,7 +1870,8 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/ong_raiz_wetland_group.jpg'
       }
     ],
-    url: 'https://github.com/danisantanderurrutia-coder/resumof',
+    url: 'https://danisantanderurrutia-coder.github.io/resumof/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof',
     code: 'OPS-RD-03',
     source: 'Red por la Superación del Modelo Forestal (RESUMOF) • GitHub: resumof',
     impactEs: 'Coordinador y co-editor principal (junto a 2 co-editores principales y múltiples autores colaboradores de la Red por la Superación del Modelo Forestal) del "Libro de Incendios & Modelo Forestal": obra colectiva de análisis ecológico, reconversión del monocultivo forestal y restauración de bosques nativos en Chile. Paralelamente, lidera la modelación físico-hidrológica del impacto de los megaincendios en cuencas hidrográficas y el desarrollo de la plataforma web interactiva y cartográfica de la Red (RESUMOF).',
@@ -5091,17 +5099,37 @@ export const GameWorldView: React.FC<GameWorldViewProps> = ({
                 ))}
               </div>
 
-              {currentMission.url && (
-                <a
-                  href={currentMission.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1 transition active:scale-95"
-                >
-                  <span>{currentLang === 'es' ? 'ABRIR FUENTE' : 'OPEN SOURCE'}</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
-                </a>
-              )}
+              <div className="flex items-center space-x-2">
+                {currentMission.url && (
+                  <a
+                    href={currentMission.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-1 bg-[#facc15] hover:bg-white text-black font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition active:scale-95"
+                  >
+                    <Globe2 className="w-3.5 h-3.5" />
+                    <span>
+                      {currentMission.url.includes('github.com')
+                        ? (currentLang === 'es' ? 'VER CÓDIGO' : 'VIEW CODE')
+                        : (currentLang === 'es' ? 'VER EN VIVO' : 'LIVE PLATFORM')}
+                    </span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+
+                {currentMission.githubUrl && (
+                  <a
+                    href={currentMission.githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="px-3 py-1 bg-purple-600 hover:bg-purple-500 text-white font-mono font-black text-xs border-2 border-black shadow-[2px_2px_0px_#000] flex items-center space-x-1.5 transition active:scale-95"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>{currentLang === 'es' ? 'CÓDIGO GITHUB' : 'GITHUB REPO'}</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>

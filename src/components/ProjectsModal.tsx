@@ -161,6 +161,45 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     ]
   },
   {
+    id: 'wetland-monitor',
+    emoji: '🌿',
+    titleEn: 'Wetland Monitor: Peatland Ecohydrological Digital Twin',
+    titleEs: 'Wetland Monitor: Gemelo Digital Ecohidrológico de Turberas',
+    subtitleEn: '24h/365d interactive peatland GHG dynamics, water table fluctuations & soil compaction simulator — CAU Kiel',
+    subtitleEs: 'Simulador 24h/365d de dinámicas de GEI (CO₂, CH₄, N₂O), nivel freático y compactación de suelos en turberas — CAU Kiel',
+    categoryEn: 'Ecohydrology & Digital Twins',
+    categoryEs: 'Ecohidrología & Gemelos Digitales',
+    categoryColor: 'bg-emerald-700 text-white',
+    branch: 'science',
+    statusBadgeEn: 'PRODUCTION SCIENTIFIC APP',
+    statusBadgeEs: 'APLICACIÓN CIENTÍFICA EN VIVO',
+    statusBadgeColor: 'bg-emerald-400 text-black',
+    clientEn: 'CAU Kiel Peatland Research Group, Wetland Consortia & Environmental Agencies',
+    clientEs: 'Grupo de Investigación en Turberas CAU Kiel, Consorcios de Humedales & Agencias Ambientales',
+    valuePropEn: 'Full-stack scientific digital twin modeling the transition of managed peatlands between carbon sink and source during rewetting, driven by acute methane spikes, seasonal N₂O pulses, and agricultural machinery compaction (plow pan σp = 62.4 kPa).',
+    valuePropEs: 'Gemelo digital científico full-stack que modela la transición de turberas en rehumedecimiento entre sumidero y emisor de carbono, gobernada por pulsos de metano, N₂O y compactación por maquinaria agrícola (horizonte de arado σp = 62.4 kPa).',
+    deliverablesEn: [
+      '24h diurnal cycle & 365-day seasonal evolution WebGL simulator',
+      'Multi-gas eddy covariance exchange curves (CO₂, CH₄, N₂O) with soil physical controls',
+      'Interactive water table fluctuation modeling (-44 cm summer drawdown to +2 cm winter ponding)',
+      'Open-source scientific repository and interactive defense studio on GitHub Pages'
+    ],
+    deliverablesEs: [
+      'Simulador interactivo del ciclo diurno de 24h y evolución estacional de 365 días',
+      'Curvas de intercambio de gases GEI (CO₂, CH₄, N₂O) calibradas con torres Eddy Covariance',
+      'Modelación interactiva de fluctuaciones del nivel freático (-44 cm en estiaje a +2 cm en invierno)',
+      'Repositorio científico abierto y aplicación interactiva desplegada en GitHub Pages'
+    ],
+    impactMetricEn: 'R² = 0.94 Eddy Covariance Model Fit • Wallener Au Peatland 24h/365d Twin',
+    impactMetricEs: 'R² = 0.94 Ajuste Eddy Covariance • Gemelo Digital 24h/365d Turbera Wallener Au',
+    techStack: ['TypeScript', 'JavaScript ES6+', 'HTML5 Canvas', 'Python', 'Eddy Covariance', 'Soil Physics'],
+    notesEn: 'Developed for the M.Sc. thesis defense in Environmental Management at Christian-Albrechts-Universität zu Kiel.',
+    notesEs: 'Desarrollada para la defensa de tesis de Maestría en Manejo Ambiental en la Universidad de Kiel (CAU Kiel).',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
+    liveUrl: 'https://danisantanderurrutia-coder.github.io/wetland-monitor/',
+    imageSrc: '/logos/wetland_monitor_logo.png'
+  },
+  {
     id: 'rewild',
     emoji: '🔥',
     titleEn: 'ReWild: Forestry Model & Megafire Overhaul',
@@ -196,6 +235,7 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     notesEn: 'Empirical decision tool for public policy and territorial risk management.',
     notesEs: 'Herramienta de soporte técnico para políticas públicas de ordenamiento territorial.',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof',
+    liveUrl: 'https://danisantanderurrutia-coder.github.io/resumof/',
     imageSrc: '/expeditions/longavi_biodiversity_survey.jpg',
     imageGallery: [
       {
@@ -240,6 +280,8 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Unity 3D', 'IoT Telemetry', 'MQTT', 'Python AI', 'Digital Twin', 'Cloud Pipelines', 'Permaculture CDP'],
     notesEn: 'Developed through CAU Kiel Environmental Management & Chilean Permaculture School (EPAC) research.',
     notesEs: 'Desarrollado a partir de investigación en CAU Kiel y diseño permacultural certificado (EPAC).',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
+    liveUrl: 'https://danisantanderurrutia-coder.github.io/agritwin-app/',
     imageSrc: '/expeditions/smart_food_parks_ui.jpg',
     imageGallery: [
       {

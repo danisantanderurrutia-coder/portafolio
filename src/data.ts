@@ -1696,7 +1696,8 @@ export const scientificSections: SectionData[] = [
         captionEs: 'Cuantificación empírica, dinámica de gases de efecto invernadero (GEI) con torres eddy covariance en turberas rehumedecidas, y balance hidrogeofísico de cuencas en zonas de monocultivo forestal.',
         authorOrSource: 'Expedición CAU Kiel & AMU Poznań (2020-2025)',
         date: '2020-2025',
-        tags: ['EddyCovariance', 'Hidrogeofísica', 'Turberas', 'Biomasa']
+        tags: ['EddyCovariance', 'Hidrogeofísica', 'Turberas', 'Biomasa'],
+        url: 'https://danisantanderurrutia-coder.github.io/wetland-monitor/'
       }
     ]
   },
@@ -1746,7 +1747,8 @@ export const scientificSections: SectionData[] = [
         captionEs: 'Arquitectura de Smart Food Parks (semifinalista ONU), análisis fisicoquímico de suelos en CAU Kiel y sondeos electromagnéticos transitorios en cuencas de Chile.',
         authorOrSource: 'UN Citiverse & CAU Kiel Soil Lab (2021-2025)',
         date: '2021-2025',
-        tags: ['Gemelo Digital', 'IoT', 'Laboratorio Kiel', 'Python/R']
+        tags: ['Gemelo Digital', 'IoT', 'Laboratorio Kiel', 'Python/R'],
+        url: 'https://danisantanderurrutia-coder.github.io/agritwin-app/'
       }
     ]
   },
@@ -1846,7 +1848,8 @@ export const scientificSections: SectionData[] = [
         captionEs: 'Seis publicaciones clave: Informe EPN 2024, revisión para Global Forest Coalition (2025), columna con el diputado alemán Dirk Kock-Rohwer, El Desconcierto (rehumectación de humedales), Tomaterojo y policy brief para Aljezur (Portugal).',
         authorOrSource: 'EPN, Global Forest Coalition, Aljezur (2024-2026)',
         date: '2024-2026',
-        tags: ['EPN Report', 'Rewilding', 'El Desconcierto', 'Dirk Kock-Rohwer']
+        tags: ['EPN Report', 'Rewilding', 'El Desconcierto', 'Dirk Kock-Rohwer'],
+        url: 'https://danisantanderurrutia-coder.github.io/resumof/'
       }
     ]
   },
@@ -1948,7 +1951,8 @@ export const scientificSections: SectionData[] = [
         captionEs: 'Modelado de riesgos geoespaciales satelitales, coordinación de libro científico internacional, plataforma Geofísica Libre y jornadas de restauración ecológica con ONG Raíz EcoAcción.',
         authorOrSource: 'Geofísica Libre, Raíz EcoAcción & CAU Kiel (2021-2025)',
         date: '2021-2025',
-        tags: ['Modelado Satelital', 'Geofísica Libre', 'Raíz EcoAcción', 'Libro Científico']
+        tags: ['Modelado Satelital', 'Geofísica Libre', 'Raíz EcoAcción', 'Libro Científico'],
+        url: 'https://danisantanderurrutia-coder.github.io/resumof/'
       }
     ]
   },

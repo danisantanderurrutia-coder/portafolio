@@ -202,7 +202,7 @@ export const PUBLICATIONS_DATA: PublicationItem[] = [
     outletEn: 'Lead Editor & Multi-Author International Coordination',
     outletEs: 'Editor Principal & Coordinación Internacional Multiautor',
     date: '2024-2026',
-    url: 'https://danisantanderurrutia-coder.github.io/portafolio/dossier',
+    url: 'https://danisantanderurrutia-coder.github.io/resumof/',
     src: '/portfolio_pages_en/page_7.png',
     badgeEn: 'SCIENTIFIC BOOK (IN PROGRESS)',
     badgeEs: 'LIBRO CIENTÍFICO (EN CURSO)',
