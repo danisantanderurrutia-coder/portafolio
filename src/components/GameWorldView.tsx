@@ -1810,8 +1810,6 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/expeditions/smart_food_parks_architecture.jpg'
       }
     ],
-    url: 'https://danisantanderurrutia-coder.github.io/agritwin-app/',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
     techStack: ['JavaScript (ES6+)', 'Three.js', 'CesiumJS', 'HTML5 / CSS3', 'Python', 'QGIS'],
     code: 'OPS-RD-02',
     source: 'Proyectos en Desarrollo & Certificación EPAC (CV)',

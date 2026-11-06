@@ -1747,8 +1747,7 @@ export const scientificSections: SectionData[] = [
         captionEs: 'Arquitectura de Smart Food Parks (semifinalista ONU), análisis fisicoquímico de suelos en CAU Kiel y sondeos electromagnéticos transitorios en cuencas de Chile.',
         authorOrSource: 'UN Citiverse & CAU Kiel Soil Lab (2021-2025)',
         date: '2021-2025',
-        tags: ['Gemelo Digital', 'IoT', 'Laboratorio Kiel', 'Python/R'],
-        url: 'https://danisantanderurrutia-coder.github.io/agritwin-app/'
+        tags: ['Gemelo Digital', 'IoT', 'Laboratorio Kiel', 'Python/R']
       }
     ]
   },

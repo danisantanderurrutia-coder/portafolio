@@ -280,8 +280,6 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     techStack: ['Unity 3D', 'IoT Telemetry', 'MQTT', 'Python AI', 'Digital Twin', 'Cloud Pipelines', 'Permaculture CDP'],
     notesEn: 'Developed through CAU Kiel Environmental Management & Chilean Permaculture School (EPAC) research.',
     notesEs: 'Desarrollado a partir de investigación en CAU Kiel y diseño permacultural certificado (EPAC).',
-    githubUrl: 'https://github.com/danisantanderurrutia-coder/agritwin-app',
-    liveUrl: 'https://danisantanderurrutia-coder.github.io/agritwin-app/',
     imageSrc: '/expeditions/smart_food_parks_ui.jpg',
     imageGallery: [
       {
