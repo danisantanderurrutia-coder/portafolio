@@ -272,7 +272,7 @@ def generate_en_1p():
       <div class="masthead-row">
         <div>
           <h1 class="candidate-name">Daniel Santander Urrutia</h1>
-          <div class="candidate-subtitle">Environmental Geophysicist &amp; Catchment Modeler • Dual M.Sc. Candidate</div>
+          <div class="candidate-subtitle">Environmental Geophysicist &amp; Catchment Modeler • Dual European M.Sc.</div>
         </div>
         <div class="role-badge">Executive Resume (1-Page)</div>
       </div>
@@ -304,7 +304,7 @@ def generate_en_1p():
         <div class="item-meta">Kiel, Germany | 2023 – 2026</div>
       </div>
       <div class="item-desc">
-        Faculty of Agricultural &amp; Nutritional Sciences. Research on peatland rewetting biophysics (Wallener Au), catchment water balance, soil precompression stress (σ<sub>p</sub> = 62.4 kPa), and Eddy Covariance GHG flux dynamics (CO<sub>2</sub>, CH<sub>4</sub>). Developed the <strong>Wetland Monitor</strong> 3D digital twin.
+        Faculty of Agricultural &amp; Nutritional Sciences. Research on peatland rewetting biophysics (Wallener Au), catchment water balance, soil physics, and Eddy Covariance GHG flux dynamics (CO<sub>2</sub>, CH<sub>4</sub>). Developed the <strong>Wetland Monitor</strong> 3D digital twin.
       </div>
     </div>
 
@@ -447,7 +447,7 @@ def generate_en_2p():
       <div class="masthead-row">
         <div>
           <h1 class="candidate-name">Daniel Santander Urrutia</h1>
-          <div class="candidate-subtitle">Environmental Geophysicist • Dual European M.Sc. Candidate</div>
+          <div class="candidate-subtitle">Environmental Geophysicist • Dual European M.Sc.</div>
         </div>
         <div class="role-badge">Technical &amp; Policy CV · 1/2</div>
       </div>
@@ -482,7 +482,7 @@ def generate_en_2p():
         <em>Faculty of Agricultural &amp; Nutritional Sciences.</em> Specialization: Catchment hydrology, soil hydro-physics, peatland rewetting mechanics, and atmospheric micrometeorology.
       </div>
       <ul class="bullet-list">
-        <li><strong>Master Thesis:</strong> Biophysical modeling and multi-sensor monitoring of the Wallener Au rewetted peatland. Determined soil precompression stress (σ<sub>p</sub> = 62.4 kPa) against water table fluctuations.</li>
+        <li><strong>Master Thesis:</strong> Biophysical modeling and multi-sensor monitoring of the Wallener Au rewetted peatland, evaluating soil physical structure and water table fluctuations.</li>
         <li><strong>Digital Twin Innovation:</strong> Built the <em>Wetland Monitor</em> 3D web application presenting the Wallener Au results (CH<sub>4</sub> sink-to-source transition, Eddy Covariance, paludiculture, soil compaction).</li>
       </ul>
     </div>
@@ -559,7 +559,7 @@ def generate_en_2p():
         <div class="item-meta">Schleswig-Holstein, Germany</div>
       </div>
       <div class="item-desc">
-        Integrated continuous Eddy Covariance tower telemetry (LI-COR LI-7500/7700) with dynamic soil closed chamber campaigns measuring net ecosystem exchange (NEE), ecosystem respiration (R<sub>eco</sub>), and biogenic methane fluxes. Analyzed soil precompression stress under heavy agricultural machinery vs. rewetted conditions.
+        Integrated continuous Eddy Covariance tower telemetry (LI-COR LI-7500/7700) with dynamic soil closed chamber campaigns measuring net ecosystem exchange (NEE), ecosystem respiration (R<sub>eco</sub>), and biogenic methane fluxes. Analyzed soil compaction under agricultural machinery vs. rewetted conditions.
       </div>
     </div>
 
@@ -761,7 +761,7 @@ def generate_es_1p():
       <div class="masthead-row">
         <div>
           <h1 class="candidate-name">Daniel Santander Urrutia</h1>
-          <div class="candidate-subtitle">Geofísico Ambiental &amp; Modelador de Cuencas • Candidato a Doble M.Sc. Europeo</div>
+          <div class="candidate-subtitle">Geofísico Ambiental &amp; Modelador de Cuencas • Doble M.Sc. Europeo</div>
         </div>
         <div class="role-badge">CV Ejecutivo (1 Página)</div>
       </div>
@@ -777,7 +777,7 @@ def generate_es_1p():
     <!-- Perfil Ejecutivo -->
     <div class="item-block">
       <div class="item-desc" style="font-size: 7.8pt; line-height: 1.34; color: #1e293b; background: #f8fafc; padding: 4px 7px; border-left: 3px solid #0284c7; border-radius: 2px;">
-        <strong>Perfil Profesional:</strong> Geofísico de la Universidad de Chile (graduado con Distinción Máxima) y candidato a doble Máster en Ciencias Europeo en Gestión y Protección Ambiental (CAU Kiel, Alemania y AMU Poznań, Polonia). Integra sólida experiencia cuantitativa en modelación hidrogeofísica del subsuelo (ERT, SEV, piezometría), balances hídricos de cuencas y monitoreo de gases de efecto invernadero (Eddy Covariance, cámaras cerradas), con desarrollo de software geoespacial avanzado (Python, R, QGIS, PostGIS, Docker, React). Destacada trayectoria en vocería legislativa ante el Congreso Nacional de Chile y liderazgo de campañas de comunicación pública (+700k personas alcanzadas).
+        <strong>Perfil Profesional:</strong> Geofísico de la Universidad de Chile (graduado con Distinción Máxima) y Doble Máster en Ciencias Europeo en Gestión y Protección Ambiental (CAU Kiel, Alemania y AMU Poznań, Polonia). Integra sólida experiencia cuantitativa en modelación hidrogeofísica del subsuelo (ERT, SEV, piezometría), balances hídricos de cuencas y monitoreo de gases de efecto invernadero (Eddy Covariance, cámaras cerradas), con desarrollo de software geoespacial avanzado (Python, R, QGIS, PostGIS, Docker, React). Destacada trayectoria en vocería legislativa ante el Congreso Nacional de Chile y liderazgo de campañas de comunicación pública (+700k personas alcanzadas).
       </div>
     </div>
 
@@ -793,7 +793,7 @@ def generate_es_1p():
         <div class="item-meta">Kiel, Alemania | 2023 – 2026</div>
       </div>
       <div class="item-desc">
-        Facultad de Ciencias Agrícolas y Nutricionales. Especialización en balance hídrico de cuencas, hidrofísica y resistencia mecánica de suelos (tensión de preconsolidación σ<sub>p</sub> = 62,4 kPa), restauración de turberas (Wallener Au) y flujos turbulentos de GEI (CO<sub>2</sub>, CH<sub>4</sub>). Creador de la aplicación web 3D <strong>Wetland Monitor</strong>.
+        Facultad de Ciencias Agrícolas y Nutricionales. Especialización en balance hídrico de cuencas, hidrofísica y física de suelos, restauración de turberas (Wallener Au) y flujos turbulentos de GEI (CO<sub>2</sub>, CH<sub>4</sub>). Creador de la aplicación web 3D <strong>Wetland Monitor</strong>.
       </div>
     </div>
 
@@ -936,7 +936,7 @@ def generate_es_2p():
       <div class="masthead-row">
         <div>
           <h1 class="candidate-name">Daniel Santander Urrutia</h1>
-          <div class="candidate-subtitle">Geofísico Ambiental • Candidato a Doble M.Sc. Europeo</div>
+          <div class="candidate-subtitle">Geofísico Ambiental • Doble M.Sc. Europeo</div>
         </div>
         <div class="role-badge">CV Extendido · 1/2</div>
       </div>
@@ -952,7 +952,7 @@ def generate_es_2p():
     <!-- Perfil Profesional Integral -->
     <div class="item-block">
       <div class="item-desc" style="font-size: 7.7pt; line-height: 1.33; color: #1e293b; background: #f8fafc; padding: 4px 7px; border-left: 3px solid #0369a1; border-radius: 2px;">
-        <strong>Perfil Profesional Integral:</strong> Científico ambiental y geofísico cuantitativo especializado en balance hídrico de cuencas, tomografía de resistividad eléctrica del subsuelo (ERT/SEV) y dinámicas de intercambio de gases de efecto invernadero en humedales y turberas restauradas. Cursa un doble Máster en Ciencias Europeo (CAU Kiel, Alemania y AMU Poznań, Polonia), tras titularse como Geofísico con Distinción Máxima en la Universidad de Chile. Articula campañas experimentales de terreno de alta precisión con modelación numérica avanzada (Python, R, QGIS, PostGIS, Docker), asesoría legislativa en el Congreso Nacional y dirección de proyectos de comunicación pública masiva (+700k alcance).
+        <strong>Perfil Profesional Integral:</strong> Científico ambiental y geofísico cuantitativo especializado en balance hídrico de cuencas, tomografía de resistividad eléctrica del subsuelo (ERT/SEV) y dinámicas de intercambio de gases de efecto invernadero en humedales y turberas restauradas. Titulado de un doble Máster en Ciencias Europeo (CAU Kiel, Alemania y AMU Poznań, Polonia), tras graduarse como Geofísico con Distinción Máxima en la Universidad de Chile. Articula campañas experimentales de terreno de alta precisión con modelación numérica avanzada (Python, R, QGIS, PostGIS, Docker), asesoría legislativa en el Congreso Nacional y dirección de proyectos de comunicación pública masiva (+700k alcance).
       </div>
     </div>
 
@@ -971,7 +971,7 @@ def generate_es_2p():
         <em>Facultad de Ciencias Agrícolas y Nutricionales.</em> Especialización en hidrología de cuencas, hidrofísica de suelos, restauración de turberas y micrometeorología.
       </div>
       <ul class="bullet-list">
-        <li><strong>Tesis de Maestría:</strong> Modelación biofísica y monitoreo multisensor de la turbera restaurada Wallener Au (Schleswig-Holstein). Determinación de la tensión de preconsolidación de suelos (σ<sub>p</sub> = 62,4 kPa).</li>
+        <li><strong>Tesis de Maestría:</strong> Modelación biofísica y monitoreo multisensor de la turbera restaurada Wallener Au (Schleswig-Holstein), evaluando la física de suelos frente a fluctuaciones freáticas.</li>
         <li><strong>Innovación en Gemelos Digitales:</strong> Desarrollo de la aplicación web 3D <em>Wetland Monitor</em> que presenta los resultados de Wallener Au (transición sumidero-fuente de CH<sub>4</sub>, Eddy Covariance, paludicultura, compactación del suelo).</li>
       </ul>
     </div>

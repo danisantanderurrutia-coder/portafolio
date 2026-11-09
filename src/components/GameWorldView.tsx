@@ -147,18 +147,18 @@ export const GAME_MISSIONS: GameMission[] = [
     githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
     code: 'OPS-SCI-01',
     source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel) • App: Wetland Monitor',
-    impactEs: 'Tesis de Maestría en Manejo Ambiental (CAU Kiel) en la turbera Wallener Au (Schleswig-Holstein) junto al desarrollo de la aplicación interactiva "Wetland Monitor" (Humedal Monitor). Observamos y cuantificamos la transición del humedal entre sumidero y fuente de carbono durante la etapa de rehumedecimiento (rewetting) debido al pulso agudo de metano (CH₄ hasta +145 nmol m⁻² s⁻¹ por chimeneas de aerénquima en inundación invernal) y picos otoñales de N₂O (>50% del total anual), analizando el intercambio de GEI (CO₂, CH₄, N₂O) bajo efectos micrometeorológicos y edáficos (Eddy Covariance R² = 0.94 y cámaras cerradas). Asimismo, cuantificamos el legado de antiguos usos de paludicultura y drenaje previo sobre la estructura ecosistémica y evaluamos la compactación mecánica por maquinaria agrícola (horizonte de arado con tensión de precompresión σp = 62.4 kPa).',
-    impactEn: 'Master’s thesis in Environmental Management (CAU Kiel) at Wallener Au Peatland alongside the interactive web app "Wetland Monitor". We observed and quantified the peatland’s transition between carbon sink and source during managed rewetting driven by acute methane spikes (CH₄ up to +145 nmol m⁻² s⁻¹ via open aerenchyma chimneys) and autumn N₂O pulses (>50% of annual budget), analyzing GHG exchange (CO₂, CH₄, N₂O) under micrometeorological and soil controls (Eddy Covariance R² = 0.94 & closed chambers). We also quantified the legacy of historical drainage and paludiculture land uses on ecosystem structure and evaluated soil compaction from agricultural machinery (plow pan precompression stress σp = 62.4 kPa).',
+    impactEs: 'Tesis de Maestría en Manejo Ambiental (CAU Kiel) en la turbera Wallener Au (Schleswig-Holstein) junto al desarrollo de la aplicación interactiva "Wetland Monitor" (Humedal Monitor). Observamos y cuantificamos la transición del humedal entre sumidero y fuente de carbono durante la etapa de rehumedecimiento (rewetting) debido al pulso agudo de metano (CH₄ hasta +145 nmol m⁻² s⁻¹ por chimeneas de aerénquima en inundación invernal) y picos otoñales de N₂O (>50% del total anual), analizando el intercambio de GEI (CO₂, CH₄, N₂O) bajo efectos micrometeorológicos y edáficos (Eddy Covariance R² = 0.94 y cámaras cerradas). Asimismo, cuantificamos el legado de antiguos usos de paludicultura y drenaje previo sobre la estructura ecosistémica y evaluamos la compactación mecánica por maquinaria agrícola en horizontes de arado.',
+    impactEn: 'Master’s thesis in Environmental Management (CAU Kiel) at Wallener Au Peatland alongside the interactive web app "Wetland Monitor". We observed and quantified the peatland’s transition between carbon sink and source during managed rewetting driven by acute methane spikes (CH₄ up to +145 nmol m⁻² s⁻¹ via open aerenchyma chimneys) and autumn N₂O pulses (>50% of annual budget), analyzing GHG exchange (CO₂, CH₄, N₂O) under micrometeorological and soil controls (Eddy Covariance R² = 0.94 & closed chambers). We also quantified the legacy of historical drainage and paludiculture land uses on ecosystem structure and evaluated soil compaction from agricultural machinery in plow pan horizons.',
     methodologyEs: [
       'Cuantificación de la transición sumidero-fuente en rehumedecimiento por pulsos de metano (CH₄) y balance radiativo GWP₂₀/GWP₁₀₀',
       'Análisis del intercambio de gases (CO₂, CH₄, N₂O) bajo forzantes micrometeorológicos (Eddy Covariance) y de suelo (cámaras cerradas)',
-      'Evaluación de antiguos usos de suelo (drenaje previo y paludicultura) y compactación por maquinaria agrícola (edómetro σp = 62.4 kPa, permeámetro de aire)',
-      'Desarrollo de la app "Wetland Monitor" (Humedal Monitor): Gemelo Digital interactivo 24h/365d y estudio de defensa en GitHub'
+      'Evaluación de antiguos usos de suelo (drenaje previo y paludicultura) y compactación por maquinaria agrícola (ensayos de edómetro y permeametría de aire)',
+      'Desarrollo de la app "Wetland Monitor" (Humedal Monitor): Gemelo Digital interactivo 24h/365d y tesis de maestría en GitHub'
     ],
     methodologyEn: [
       'Quantified sink-to-source transitions during rewetting driven by methane (CH₄) spikes and GWP₂₀/GWP₁₀₀ radiative balances',
       'Analyzed gas exchange (CO₂, CH₄, N₂O) under micrometeorological (Eddy Covariance) and soil physical controls (closed chambers)',
-      'Assessed legacy drainage, paludiculture land-use history, and agricultural machinery compaction (oedometer σp = 62.4 kPa, air permeametry)',
+      'Assessed legacy drainage, paludiculture land-use history, and agricultural machinery compaction (oedometer testing and air permeametry)',
       'Built the "Wetland Monitor" web application: 24h/365d interactive peatland digital twin and thesis defense studio on GitHub'
     ],
     deliverablesEs: [
@@ -214,18 +214,18 @@ export const GAME_MISSIONS: GameMission[] = [
     githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
     code: 'OPS-SCI-01B',
     source: 'GitHub: danisantanderurrutia-coder/wetland-monitor • CAU Kiel',
-    impactEs: 'Aplicación web científica e interactiva ("Humedal Monitor / Wetland Monitor") desarrollada para la defensa de tesis de maestría en CAU Kiel. Simula en tiempo real el ciclo diurno de 24 horas y la evolución estacional de 365 días en la turbera Wallener Au, visualizando cómo el rehumedecimiento, las fluctuaciones del nivel freático (-44 cm en sequía estival a +2 cm en invierno) y el horizonte compactado por maquinaria agrícola (σp = 62.4 kPa) gobiernan la transición entre sumidero y emisor de CO₂, CH₄ y N₂O.',
-    impactEn: 'Interactive scientific web application ("Wetland Monitor") built for the Master’s thesis defense at CAU Kiel. Simulates in real time the 24-hour diurnal cycle and 365-day seasonal evolution at Wallener Au Peatland, visualizing how managed rewetting, water table fluctuations (-44 cm summer drawdown to +2 cm winter ponding), and the machinery-compacted plow pan (σp = 62.4 kPa) govern the net sink-to-source transition of CO₂, CH₄, and N₂O.',
+    impactEs: 'Aplicación web científica e interactiva ("Humedal Monitor / Wetland Monitor") desarrollada para la tesis de maestría en CAU Kiel. Simula en tiempo real el ciclo diurno de 24 horas y la evolución estacional de 365 días en la turbera Wallener Au, visualizando cómo el rehumedecimiento, las fluctuaciones del nivel freático (-44 cm en sequía estival a +2 cm en invierno) y el horizonte compactado por maquinaria agrícola gobiernan la transición entre sumidero y emisor de CO₂, CH₄ y N₂O.',
+    impactEn: 'Interactive scientific web application ("Wetland Monitor") built for the Master’s thesis at CAU Kiel. Simulates in real time the 24-hour diurnal cycle and 365-day seasonal evolution at Wallener Au Peatland, visualizing how managed rewetting, water table fluctuations (-44 cm summer drawdown to +2 cm winter ponding), and the machinery-compacted plow pan govern the net sink-to-source transition of CO₂, CH₄, and N₂O.',
     methodologyEs: [
       'Motor de simulación ecohidrológica de 24 horas (cierre estomático por VPD > 1.2 kPa e inversión térmica nocturna u* < 0.12 m/s)',
       'Evolución anual de 365 días calibrada empíricamente con datos de torre Eddy Covariance y cámaras estáticas',
-      'Visualización interactiva de mecánica de suelos (precompresión por maquinaria agrícola y antiguos usos de paludicultura)',
+      'Visualización interactiva de mecánica de suelos (compactación por maquinaria agrícola y antiguos usos de paludicultura)',
       'Repositorio y demo pública en vivo en GitHub Pages (danisantanderurrutia-coder/wetland-monitor)'
     ],
     methodologyEn: [
       '24-hour diurnal ecohydrological simulation engine (midday VPD > 1.2 kPa stomatal closure & nocturnal decoupling u* < 0.12 m/s)',
       '365-day seasonal evolution empirically calibrated to Eddy Covariance tower and closed-chamber datasets',
-      'Interactive soil mechanics visualizer (agricultural machinery precompression & historical paludiculture legacy)',
+      'Interactive soil mechanics visualizer (agricultural machinery compaction & historical paludiculture legacy)',
       'Open-source repository and live web app hosted on GitHub Pages (danisantanderurrutia-coder/wetland-monitor)'
     ],
     deliverablesEs: [

@@ -176,8 +176,8 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     statusBadgeColor: 'bg-emerald-400 text-black',
     clientEn: 'CAU Kiel Peatland Research Group, Wetland Consortia & Environmental Agencies',
     clientEs: 'Grupo de Investigación en Turberas CAU Kiel, Consorcios de Humedales & Agencias Ambientales',
-    valuePropEn: 'Full-stack scientific digital twin modeling the transition of managed peatlands between carbon sink and source during rewetting, driven by acute methane spikes, seasonal N₂O pulses, and agricultural machinery compaction (plow pan σp = 62.4 kPa).',
-    valuePropEs: 'Gemelo digital científico full-stack que modela la transición de turberas en rehumedecimiento entre sumidero y emisor de carbono, gobernada por pulsos de metano, N₂O y compactación por maquinaria agrícola (horizonte de arado σp = 62.4 kPa).',
+    valuePropEn: 'Full-stack scientific digital twin modeling the transition of managed peatlands between carbon sink and source during rewetting, driven by acute methane spikes, seasonal N₂O pulses, and agricultural machinery compaction in plow pan layers.',
+    valuePropEs: 'Gemelo digital científico full-stack que modela la transición de turberas en rehumedecimiento entre sumidero y emisor de carbono, gobernada por pulsos de metano, N₂O y compactación por maquinaria agrícola en horizontes de arado.',
     deliverablesEn: [
       '24h diurnal cycle & 365-day seasonal evolution WebGL simulator',
       'Multi-gas eddy covariance exchange curves (CO₂, CH₄, N₂O) with soil physical controls',
@@ -193,8 +193,8 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     impactMetricEn: 'R² = 0.94 Eddy Covariance Model Fit • Wallener Au Peatland 24h/365d Twin',
     impactMetricEs: 'R² = 0.94 Ajuste Eddy Covariance • Gemelo Digital 24h/365d Turbera Wallener Au',
     techStack: ['TypeScript', 'JavaScript ES6+', 'HTML5 Canvas', 'Python', 'Eddy Covariance', 'Soil Physics'],
-    notesEn: 'Developed for the M.Sc. thesis defense in Environmental Management at Christian-Albrechts-Universität zu Kiel.',
-    notesEs: 'Desarrollada para la defensa de tesis de Maestría en Manejo Ambiental en la Universidad de Kiel (CAU Kiel).',
+    notesEn: 'Developed for the M.Sc. thesis in Environmental Management at Christian-Albrechts-Universität zu Kiel.',
+    notesEs: 'Desarrollada para la tesis de Maestría en Manejo Ambiental en la Universidad de Kiel (CAU Kiel).',
     githubUrl: 'https://github.com/danisantanderurrutia-coder/wetland-monitor',
     liveUrl: 'https://danisantanderurrutia-coder.github.io/wetland-monitor/',
     imageSrc: '/logos/wetland_monitor_logo.png'
