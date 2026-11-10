@@ -1639,7 +1639,8 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/rewild/rewildmapper_gis.png'
       }
     ],
-    url: 'https://github.com/danisantanderurrutia-coder/agrotech',
+    url: 'https://danisantanderurrutia-coder.github.io/agrotech/rewild/rewilding-field-suite.html',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/agrotech/tree/main/rewild',
     techStack: ['JavaScript (ES6+)', 'HTML5', 'CSS3', 'Python 3 (server.py)', 'IndexedDB API', 'Service Worker (PWA)', 'Canvas 2D', 'jsPDF & SheetJS (XLSX)'],
     code: 'OPS-RD-REWILD',
     source: 'GitHub: danisantanderurrutia-coder/agrotech/tree/main/rewild',
