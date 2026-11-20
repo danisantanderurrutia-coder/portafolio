@@ -73,8 +73,8 @@ export const GAME_MISSIONS: GameMission[] = [
     lat: -33.05,
     lng: -71.61,
     date: '2023',
-    roleEs: 'Asesor Técnico Parlamentario & Vocero',
-    roleEn: 'Parliamentary Technical Advisor & Spokesperson',
+    roleEs: 'Incidencia Legislativa, Asesor de Alta Política Pública & Vocero Técnico',
+    roleEn: 'Legislative Advocacy, Senior Public Policy Advisor & Technical Spokesperson',
     mediaType: 'plate',
     src: '/congreso_valparaiso.jpg',
     availablePages: [
@@ -88,19 +88,19 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://www.youtube.com/watch?v=7eJ-pQ3qe8o',
     code: 'OPS-COM-01',
     source: 'Cámara de Diputadas y Diputados de Chile',
-    impactEs: 'Asesoría técnica parlamentaria para coordinar políticas públicas sobre incendios, bosques y gestión del agua (según CV), exponiendo ante la Comisión Especial de Emergencia, Desastres y Bomberos.',
-    impactEn: 'Parliamentary technical advice to coordinate public policies on fires, forests, and water management (CV), presenting before the Special Emergency Commission.',
+    impactEs: 'Incidencia legislativa y asesoría técnica parlamentaria de alta política pública para coordinar marcos regulatorios sobre incendios, bosques y gestión del agua (según CV), exponiendo ante la Comisión Especial de Emergencia, Desastres y Bomberos.',
+    impactEn: 'Legislative advocacy and high-level parliamentary technical advisory to coordinate public policies on wildfires, forestry, and water governance (CV), testifying before the Special Emergency Commission.',
     methodologyEs: [
-      'Asesoría técnica parlamentaria en políticas de incendios, bosques y agua (CV)',
-      'Correlación empírica entre monocultivos forestales y avance de incendios',
-      'Propuesta de zonas de amortiguación y prevención civil'
+      'Incidencia legislativa y asesoría parlamentaria en políticas de incendios, bosques y agua (CV)',
+      'Correlación empírica entre monocultivos forestales, riesgo físico climático y avance de incendios',
+      'Propuesta legislativa de zonas de amortiguación, ordenamiento de cuencas y prevención civil'
     ],
     methodologyEn: [
-      'Parliamentary technical advice on wildfire, forestry, and water policy (CV)',
-      'Empirical correlation between timber monocultures and wildfire progression',
-      'Civil protection and mandatory buffer zone proposals'
+      'Legislative advocacy and parliamentary technical advice on wildfire, forestry, and water policy (CV)',
+      'Empirical correlation between timber monocultures, physical climate risk, and wildfire progression',
+      'Legislative proposals for civil protection, watershed zoning, and mandatory buffer zones'
     ],
-    tags: ['Congreso Nacional', 'Fiscalización', 'Megaincendios', 'Políticas Públicas']
+    tags: ['Incidencia Legislativa', 'Alta Política Pública', 'Congreso Nacional', 'Fiscalización', 'Megaincendios']
   },
 
   // 1. CIENCIA 01: Rewetting wetlands and Greenhouse gas analysis (CAU Kiel - Master en Manejo Ambiental)
@@ -109,16 +109,16 @@ export const GAME_MISSIONS: GameMission[] = [
     type: 'science',
     titleEs: 'Rehumedecimiento de humedales y análisis de gases de efecto invernadero (GEI)',
     titleEn: 'Rewetting Wetlands & Greenhouse Gas (GHG) Exchange Analysis',
-    subtitleEs: 'Tesis de Maestría en Manejo Ambiental & App Wetland Monitor | CAU Kiel (Alemania) | 2023-2026',
-    subtitleEn: 'Master’s Thesis in Environmental Management & Wetland Monitor App | CAU Kiel (Germany) | 2023-2026',
+    subtitleEs: 'Tesis de Maestría en Manejo Ambiental, Auditoría de Carbono (dMRV) & App Wetland Monitor | CAU Kiel (Alemania)',
+    subtitleEn: 'Master’s Thesis in Environmental Management, Carbon Auditing (dMRV) & Wetland Monitor App | CAU Kiel (Germany)',
     country: 'Alemania',
     city: 'Kiel (Wallener Au)',
     flag: '🇩🇪',
     lat: 54.32,
     lng: 10.13,
     date: '2023-2026',
-    roleEs: 'Investigador de Tesis de Maestría & Creador de Wetland Monitor (CAU Kiel)',
-    roleEn: 'Master’s Thesis Researcher & Wetland Monitor Creator (CAU Kiel)',
+    roleEs: 'Investigador de Gemelos Digitales (Digital Twins), Auditor de Carbono (dMRV) & Tesista M.Sc. (CAU Kiel)',
+    roleEn: 'Digital Twins Researcher, Carbon & GHG Flux Auditor (dMRV) & M.Sc. Thesis Researcher (CAU Kiel)',
     mediaType: 'plate',
     src: '/expeditions/kiel_soil_lab.png',
     availablePages: [
@@ -171,8 +171,8 @@ export const GAME_MISSIONS: GameMission[] = [
       'Open-source repository & scientific pipelines: https://github.com/danisantanderurrutia-coder/wetland-monitor',
       'Empirical annual CO₂, CH₄, and N₂O budgets and peat soil mechanical stratigraphy'
     ],
-    techStack: ['Python', 'Eddy Covariance', 'Wetland Monitor App', 'Soil Physics', 'GHG Chambers', 'CAU Kiel'],
-    tags: ['Wetland Monitor', 'Humedal Monitor', 'Rehumedecimiento', 'Metano CH4', 'Paludicultura', 'CAU Kiel', 'Alemania']
+    techStack: ['Python', 'Eddy Covariance', 'dMRV & Carbon Audit', 'Wetland Monitor App', 'Soil Physics', 'GHG Chambers', 'CAU Kiel'],
+    tags: ['Wetland Monitor', 'dMRV', 'Auditoría de Carbono', 'Gemelo Digital', 'Rehumedecimiento', 'Metano CH4', 'CAU Kiel']
   },
 
   // 1B. CIENCIA 01B: App Wetland Monitor (Humedal Monitor - Gemelo Digital en Tesis CAU Kiel)
@@ -181,16 +181,16 @@ export const GAME_MISSIONS: GameMission[] = [
     type: 'science',
     titleEs: 'App Humedal Monitor (Wetland Monitor): Gemelo Digital de Turberas',
     titleEn: 'Wetland Monitor App: Peatland Ecohydrological Digital Twin',
-    subtitleEs: 'Plataforma Interactiva de Simulación Diurna/Anual de GEI y Estratigrafía | Tesis CAU Kiel',
-    subtitleEn: 'Interactive Diurnal/Seasonal GHG Simulation & Soil Stratigraphy Platform | CAU Kiel Thesis',
+    subtitleEs: 'Investigación de Gemelos Digitales (Digital Twins), Simulación GEI & dMRV | Tesis CAU Kiel',
+    subtitleEn: 'Digital Twins Research, Interactive Diurnal/Seasonal GHG Simulation & dMRV | CAU Kiel Thesis',
     country: 'Alemania',
     city: 'Wallener Au / Kiel',
     flag: '🇩🇪',
     lat: 54.28,
     lng: 9.38,
     date: '2025-2026',
-    roleEs: 'Autor Científico & Desarrollador Full-Stack (Wetland Monitor)',
-    roleEn: 'Scientific Author & Full-Stack Developer (Wetland Monitor)',
+    roleEs: 'Investigador de Gemelos Digitales (Digital Twins) & AI Product Owner / Tech Lead Ambiental',
+    roleEn: 'Digital Twins Researcher & Environmental AI Product Owner / Technical Lead',
     mediaType: 'plate',
     src: '/logos/wetland_monitor_logo.png',
     availablePages: [
@@ -350,18 +350,18 @@ export const GAME_MISSIONS: GameMission[] = [
   {
     id: 'science-biomass-risk',
     type: 'science',
-    titleEs: 'Evaluación de riesgos y cadenas de suministro de biomasa, celulosa y papel',
-    titleEn: 'Biomass, Pulp and Paper Risk Assessment & Supply Chains',
-    subtitleEs: 'Investigación Internacional con BAN, EPN y Global Forest Coalition (GFC)',
-    subtitleEn: 'International Research with BAN, EPN & Global Forest Coalition (GFC)',
+    titleEs: 'Fiscalización de Políticas Europeas (RED III), Auditoría de Carbono y Cadenas de Biomasa',
+    titleEn: 'EU Policy Oversight (RED III), Carbon Accounting Audits & Biomass Supply Chains',
+    subtitleEs: 'Auditoría de Carbono con Think Tanks & ONGs Globales: BAN, EPN y Global Forest Coalition (GFC)',
+    subtitleEn: 'Carbon Accounting Audit with Global Think Tanks & NGOs: BAN, EPN & Global Forest Coalition (GFC)',
     country: 'Chile',
     city: 'Biobío / Parral',
     flag: '🇨🇱',
     lat: -36.82,
     lng: -73.05,
     date: '2022-2025',
-    roleEs: 'Investigador de Cadenas de Suministro & Riesgo Biofísico',
-    roleEn: 'Supply Chain & Biophysical Risk Researcher',
+    roleEs: 'Auditor de Contabilidad de Carbono, Fiscalizador de Políticas UE (RED III) & Investigador (EPN/BAN/GFC)',
+    roleEn: 'Carbon Accounting Auditor, EU Policy Oversight Analyst (RED III) & Supply-Chain Researcher',
     mediaType: 'plate',
     src: '/expeditions/epn_parral_biomass.jpg',
     availablePages: [
@@ -389,37 +389,37 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://environmentalpaper.org',
     code: 'OPS-SCI-04',
     source: 'Biomass Action Network (BAN), EPN & Global Forest Coalition (GFC)',
-    impactEs: 'Investigación científica y auditoría de cadenas de suministro globales de biomasa leñosa, pulpa de celulosa y papel en el Cono Sur y los mercados de exportación globales. Desarrollada en estrecha colaboración con Biomass Action Network (BAN), Environmental Paper Network (EPN) y Global Forest Coalition (GFC), evaluando la contabilidad real de emisiones de carbono, degradación de suelos, estrés hídrico y las falsas soluciones bioenergéticas.',
-    impactEn: 'Scientific research and international supply chain audit of woody biomass, pulp, and paper flows across the Southern Cone and export markets. Developed in collaboration with Biomass Action Network (BAN), Environmental Paper Network (EPN), and Global Forest Coalition (GFC), evaluating true carbon accounting balances, soil degradation, watershed water stress, and bioenergy false solutions.',
+    impactEs: 'Fiscalización de políticas europeas (directiva RED III / LULUCF) y auditoría científica de contabilidad de carbono sobre cadenas de suministro globales de biomasa leñosa, pulpa de celulosa y papel en el Cono Sur y mercados de exportación europeos. Desarrollada junto a Think Tanks y coaliciones internacionales (Biomass Action Network BAN, Environmental Paper Network EPN y Global Forest Coalition GFC), exponiendo vacíos contables de carbono, deuda de emisiones, degradación edáfica y estrés hídrico.',
+    impactEn: 'European policy oversight (EU RED III / LULUCF directives) and scientific carbon accounting audit across global woody biomass, pulp, and paper supply chains linking the Southern Cone to EU energy/commodity markets. Conducted with international coalitions and Think Tanks (BAN, EPN, Global Forest Coalition), exposing carbon accounting loopholes, carbon debt, soil degradation, and watershed stress.',
     methodologyEs: [
-      'Auditoría y trazabilidad en terreno de aserraderos, acopios y plantas de biomasa en Chile',
-      'Evaluación de riesgos ecológicos y cadenas globales junto a BAN, EPN y Global Forest Coalition',
-      'Modelación de balances de carbono y flujos biofísicos de exportación de biomasa y celulosa'
+      'Fiscalización de directivas europeas (RED III / LULUCF) y auditoría de neutralidad de carbono en bioenergía',
+      'Trazabilidad en terreno de aserraderos, acopios y plantas de biomasa junto a Think Tanks y ONGs (BAN, EPN, GFC)',
+      'Modelación de balances de carbono (deuda y tiempo de retorno de carbono) y riesgo físico en cuencas exportadoras'
     ],
     methodologyEn: [
-      'Field auditing and supply chain tracing of sawmills, stockyards, and biomass facilities in Chile',
-      'Ecological risk evaluation and international trade mapping alongside BAN, EPN, and Global Forest Coalition',
-      'Biophysical flow modeling, carbon balance accounting, and pulp export lifecycle analysis'
+      'Regulatory oversight of EU directives (RED III / LULUCF) and critical carbon neutrality auditing in bioenergy',
+      'Field supply-chain auditing of sawmills, stockyards, and biomass plants with international NGOs/Think Tanks (BAN, EPN, GFC)',
+      'Carbon debt / payback period modeling and biophysical watershed risk evaluation across export corridors'
     ],
-    tags: ['Biomass Action Network', 'EPN', 'Global Forest Coalition', 'Cadenas de Suministro', 'Riesgo Biofísico', 'Celulosa']
+    tags: ['Fiscalización Políticas UE', 'Auditoría de Carbono', 'RED III', 'Think Tanks / ONGs', 'BAN', 'EPN', 'GFC']
   },
 
   // 5. CIENCIA 05: Riesgos climáticos: Megaincendios forestales y humedales
   {
     id: 'science-wildfires-risks',
     type: 'science',
-    titleEs: 'Riesgos climáticos: Megaincendios forestales e impacto en humedales',
-    titleEn: 'Climate Risks: Wildfires & Impacts on Wetland Catchments',
-    subtitleEs: 'Red Plurinacional de Humedales & Red de Superación al Modelo Forestal | Chile',
-    subtitleEn: 'Plurinational Wetland Network & Network Overcoming the Forestry Model | Chile',
+    titleEs: 'Modelación de Riesgo Climático Físico (NatCat): Megaincendios e Impacto en Cuencas',
+    titleEn: 'Physical Climate Risk & Catastrophe Modeling (NatCat): Wildfires & Wetland Catchments',
+    subtitleEs: 'Catastrophe Risk Modeling, Teledetección Satelital ML & Vulnerabilidad | Red Plurinacional de Humedales & RESUMOF',
+    subtitleEn: 'Catastrophe Risk Modeling, Satellite Remote Sensing ML & Vulnerability | Plurinational Wetland Network & RESUMOF',
     country: 'Chile',
     city: 'Maule / Biobío',
     flag: '🇨🇱',
     lat: -36.20,
     lng: -72.10,
     date: '2021-2025',
-    roleEs: 'Modelador Geoespacial & Asesor Científico de Riesgo',
-    roleEn: 'Geospatial Modeler & Scientific Risk Advisor',
+    roleEs: 'Catastrophe Risk Modeler (NatCat), Physical Climate Risk Analyst & Geospatial Data Scientist',
+    roleEn: 'Catastrophe Risk Modeler (NatCat), Physical Climate Risk Analyst & Geospatial Data Scientist',
     mediaType: 'plate',
     src: '/press_covers/tomaterojo_humedales_fuego.jpg',
     availablePages: [
@@ -443,19 +443,19 @@ export const GAME_MISSIONS: GameMission[] = [
     githubUrl: 'https://github.com/danisantanderurrutia-coder/resumof',
     code: 'OPS-SCI-05',
     source: 'Red Plurinacional de Humedales en Chile & Red de Superación al Modelo Forestal',
-    impactEs: 'Modelación de riesgos climáticos extremos enfocada en la dinámica de megaincendios forestales y su impacto crítico sobre humedales, cuencas abastecedoras de agua y comunidades en Chile. Realizado en estrecha articulación con la Red Plurinacional de Humedales en Chile y la Red de Superación al Modelo Forestal, integrando teledetección satelital de severidad de fuego, pirogeomorfología y propuestas normativas de cortafuegos y restauración ecológica.',
-    impactEn: 'Extreme climate risk modeling focused on forest wildfire dynamics and their severe downstream impacts on wetlands, drinking water catchments, and communities across Chile. Conducted in partnership with Red Plurinacional de Humedales en Chile and Red de Superación al Modelo Forestal, combining satellite burn severity analysis, pyrogeomorphology, and evidence-based ecological buffer zone proposals.',
+    impactEs: 'Modelación de riesgo catastrófico (NatCat: Amenaza × Exposición × Vulnerabilidad) y análisis de riesgo climático físico enfocado en megaincendios forestales, estrés hídrico e impactos sobre humedales, infraestructura rural y cuencas abastecedoras de agua. Integra ciencia de datos geoespaciales, teledetección satelital (severidad espectral NBR/NDVI, índice FWI), pirogeomorfología y diseño de zonas de amortiguación junto a la Red Plurinacional de Humedales y RESUMOF.',
+    impactEn: 'Catastrophe risk modeling (NatCat: Hazard × Exposure × Vulnerability) and physical climate risk analysis focused on extreme forest wildfires, hydrological stress, and downstream impacts on wetlands, rural assets, and drinking water catchments. Integrates geospatial data science, satellite remote sensing (burn severity NBR/NDVI, FWI), pyrogeomorphology, and buffer-zone mitigation alongside Red Plurinacional de Humedales and RESUMOF.',
     methodologyEs: [
-      'Modelación de severidad espectral y propagación de megaincendios sobre cuencas y humedales',
-      'Articulación técnica con la Red Plurinacional de Humedales y la Red de Superación al Modelo Forestal',
-      'Desarrollo de propuestas científicas de ordenamiento territorial, amortiguamiento y cortafuegos biológicos'
+      'Modelación de riesgo físico y catastrófico (NatCat: Amenaza × Exposición × Vulnerabilidad) para eventos de megaincendios y sequía',
+      'Teledetección satelital multiespectral (Sentinel-2 / Landsat / GEE) de severidad de fuego y carga de combustible',
+      'Diseño de medidas de mitigación de riesgo físico, cortafuegos biológicos y ordenamiento territorial de cuencas'
     ],
     methodologyEn: [
-      'Satellite burn severity modeling and wildfire propagation dynamics across watersheds and wetlands',
-      'Technical partnership with Red Plurinacional de Humedales and Red de Superación al Modelo Forestal',
-      'Development of science-based land use zoning, ecological buffer zones, and biological firebreaks'
+      'Physical climate risk and catastrophe modeling (NatCat: Hazard × Exposure × Vulnerability) for extreme wildfire and drought perils',
+      'Multi-spectral satellite remote sensing (Sentinel-2 / Landsat / GEE) for burn severity and fuel-load exposure mapping',
+      'Physical risk mitigation frameworks, biological firebreaks, and catchment resilience zoning'
     ],
-    tags: ['Riesgo Climático', 'Megaincendios', 'Red Plurinacional de Humedales', 'Modelo Forestal', 'Chile', 'Incendios']
+    tags: ['Catastrophe Risk Modeler', 'Physical Climate Risk', 'NatCat', 'Geospatial Data Scientist', 'Megaincendios', 'Humedales']
   },
 
   // 3. COMUNICACIONES: Primera Línea Prensa (+700k) - Santiago
@@ -551,18 +551,18 @@ export const GAME_MISSIONS: GameMission[] = [
   {
     id: 'oslo-degrowth',
     type: 'global',
-    titleEs: 'Degrowth Conference (Oslo, 2025): Alternativas a la Crisis',
-    titleEn: 'Degrowth Conference (Oslo, 2025): Alternatives to the Crisis',
-    subtitleEs: 'Conferencia Internacional de Decrecimiento // Presentación Oficial',
-    subtitleEn: 'International Degrowth Conference // Official Presentation',
+    titleEs: 'Degrowth Conference (Oslo, 2025): Ecología Política, Decrecimiento y Economía Ecológica',
+    titleEn: 'Degrowth Conference (Oslo, 2025): Political Ecology, Degrowth & Ecological Economics',
+    subtitleEs: 'Conferencia Internacional de Decrecimiento // Economía Ecológica y Límites Planetarios',
+    subtitleEn: 'International Degrowth Conference // Ecological Economics & Planetary Boundaries',
     country: 'Noruega',
     city: 'Oslo',
     flag: '🇳🇴',
     lat: 59.91,
     lng: 10.75,
     date: '2025',
-    roleEs: 'Ponente Oficial',
-    roleEn: 'Official Speaker',
+    roleEs: 'Investigador en Ecología Política, Decrecimiento & Economía Ecológica (Ponente Oficial)',
+    roleEn: 'Political Ecology, Degrowth & Ecological Economics Researcher (Official Speaker)',
     mediaType: 'press',
     src: '/expeditions/oslo_degrowth_logo.png',
     availablePages: [
@@ -580,19 +580,19 @@ export const GAME_MISSIONS: GameMission[] = [
     url: 'https://eldesconcierto.cl/2025/07/06/paises-tan-ricos-que-no-quieren-crecer-mas-noruega-acoge-mayor-debate-mundial-sobre-alternativas-al-crecimiento-economico-infinito',
     code: 'OPS-GLO-01',
     source: 'Degrowth Conference Oslo 2025 (CV)',
-    impactEs: 'Presentación en la Conferencia de Decrecimiento (Oslo, 2025) sobre alternativas a la crisis (Environment and Economy, según CV).',
-    impactEn: 'Presentation at the Degrowth Conference (Oslo, 2025) on alternatives to the crisis (Environment and Economy, from CV).',
+    impactEs: 'Presentación en la 10ª Conferencia Internacional de Decrecimiento (Oslo, 2025) sobre Ecología Política, Decrecimiento y Economía Ecológica (Environment and Economy, según CV), articulando límites biofísicos planetarios con alternativas poscrecimiento.',
+    impactEn: 'Presentation at the 10th International Degrowth Conference (Oslo, 2025) on Political Ecology, Degrowth, and Ecological Economics (Environment and Economy, from CV), bridging planetary biophysical boundaries with post-growth policy pathways.',
     methodologyEs: [
-      'Presentación en la Conferencia de Decrecimiento sobre alternativas a la crisis (CV)',
-      'Análisis de economía y medio ambiente (CV)',
-      'Debate internacional sobre modelos poscrecimiento'
+      'Investigación y ponencia en Ecología Política, Decrecimiento y Economía Ecológica en Oslo 2025 (CV)',
+      'Análisis de metabolismo socioecológico, límites planetarios y transición poscrecimiento',
+      'Articulación con Doughnut Economics (DEAL Copenhague) y justicia socioambiental Sur-Norte'
     ],
     methodologyEn: [
-      'Presentation at the Degrowth Conference on alternatives to the crisis (CV)',
-      'Environment and Economy research (CV)',
-      'International post-growth debate'
+      'Research and presentation on Political Ecology, Degrowth, and Ecological Economics at Oslo 2025 (CV)',
+      'Socio-ecological metabolism, planetary boundaries, and post-growth policy analysis',
+      'Integration with Doughnut Economics (DEAL Copenhagen) and Global South-North environmental justice'
     ],
-    tags: ['Oslo', 'Noruega', 'Decrecimiento', 'Conferencia 2025', 'Economía']
+    tags: ['Ecología Política', 'Decrecimiento', 'Economía Ecológica', 'Oslo', 'Noruega', 'Conferencia 2025']
   },
 
   // 7. CUMBRES & POLÍTICA: Environmental Justice Conference - Bonn, Alemania
@@ -1541,8 +1541,8 @@ export const GAME_MISSIONS: GameMission[] = [
     lat: -35.96,
     lng: -71.68,
     date: '2023-2026',
-    roleEs: 'Autor Ideológico, Arquitecto de Software & Modelador Biofísico',
-    roleEn: 'Lead Software Architect, Ideological Author & Biophysical Modeler',
+    roleEs: 'Investigador de Gemelos Digitales (Digital Twins), AI Product Owner & Technical Lead Ambiental',
+    roleEn: 'Digital Twins Researcher, Environmental AI Product Owner & Technical Lead',
     mediaType: 'plate',
     src: '/agrotech/logo_agrotech_chile.jpg',
     availablePages: [
@@ -1587,39 +1587,39 @@ export const GAME_MISSIONS: GameMission[] = [
     techStack: ['TypeScript', 'React 19', 'JavaScript (ES6+)', 'Three.js (WebGL / Shaders)', 'HTML5 / CSS3', 'Tailwind CSS', 'Node.js', 'Python 3', 'C++ (ESP32 Firmware)'],
     code: 'OPS-RD-AGRO',
     source: 'GitHub: danisantanderurrutia-coder/agrotech & agritwin-app',
-    impactEs: 'Desarrollo del ecosistema AgroTech Chile y la suite de gemelos digitales AgriTwin 3D (escala predial en Fundo Meniels) y AgroTwin Regional (122.000 ha en las cuencas de Parral, Retiro y Longaví). Construido en TypeScript, React, JavaScript ES6+, Three.js (WebGL PBR Shaders), Node.js, Python y firmware C++ para microcontroladores ESP32 (nodos KioT). Modela balance hídrico Penman-Monteith (FAO-56) en 3 estratos de suelo, drenaje katabático de heladas, propagación de incendios (FWI con viento Puelche), riesgo de inundación (TWI) e índices satelitales Sentinel-2 (NDVI/NDRE).',
-    impactEn: 'Engineered the AgroTech Chile ecosystem and the AgriTwin 3D (farm-scale at Fundo Meniels) and AgroTwin Regional (122,000 ha across Parral, Retiro, and Longaví basins) digital twin suites. Built with TypeScript, React, ES6+ JavaScript, Three.js (WebGL PBR Shaders), Node.js, Python, and C++ firmware for ESP32 microcontrollers (KioT nodes). Models 3-layer Penman-Monteith (FAO-56) soil water balance, katabatic frost drainage, wildfire propagation (FWI with Puelche winds), flood risk (TWI), and Sentinel-2 multispectral indices (NDVI/NDRE).',
+    impactEs: 'Investigación de Gemelos Digitales (Digital Twins) y liderazgo técnico de producto (AI Product Owner / Technical Lead en Administración Ambiental) para el ecosistema AgroTech Chile, AgriTwin 3D (escala predial en Fundo Meniels) y AgroTwin Regional (122.000 ha en las cuencas de Parral, Retiro y Longaví). Construido en TypeScript, React 19, JavaScript ES6+, Three.js (WebGL PBR Shaders), Node.js, Python y firmware C++ para microcontroladores ESP32 (nodos KioT). Integra modelación de riesgo climático físico y catastrófico (propagación de incendios FWI con viento Puelche, inundación TWI y heladas katabáticas), balance hídrico FAO-56 Penman-Monteith en 3 estratos y teledetección satelital Sentinel-2 (NDVI/NDRE).',
+    impactEn: 'Digital Twins Research and end-to-end product leadership (Environmental AI Product Owner / Technical Lead) for the AgroTech Chile ecosystem, AgriTwin 3D (farm-scale at Fundo Meniels), and AgroTwin Regional (122,000 ha across Parral, Retiro, and Longaví basins). Built with TypeScript, React 19, ES6+ JavaScript, Three.js (WebGL PBR Shaders), Node.js, Python, and C++ firmware for ESP32 microcontrollers (KioT nodes). Couples physical climate & catastrophe risk modeling (wildfire FWI propagation under Puelche winds, TWI flood risk, and katabatic frost drainage), 3-layer Penman-Monteith (FAO-56) soil water balance, and Sentinel-2 remote sensing (NDVI/NDRE).',
     methodologyEs: [
       'Stack Full-Stack & Ciberfísico: TypeScript + React 19 + Tailwind CSS + Vite en el núcleo central, acoplado con motores Three.js WebGL, servidores Node.js (server.cjs), scripts Python y firmware C++ (.ino) en nodos ESP32',
       'Arquitectura del Principio Árbol (Tronco y 6 Ramas): El Galpón IoT, Invernadero & Cultivos, Establo & Pastoreo Racional Voisin (PRV), Incursión Rewilding, Cumbre del Cerro (Cuenca 122k ha) y Mesa Vecinal',
-      'Modelación biofísica acoplada: ecuación de Penman-Monteith en 3 estratos de suelo, tranque Keyline de 18.500 m³ y simuladores regionales de incendios (FWI) e inundaciones (TWI)',
+      'Modelación biofísica y de riesgo climático físico (NatCat): ecuación de Penman-Monteith en 3 estratos, tranque Keyline de 18.500 m³ y simuladores regionales de incendios (FWI) e inundaciones (TWI)',
       'AgriTwin Vision & Drones Autónomos: frustums volumétricos 3D, streaming WebRTC y proyección de ortomosaicos NDVI sobre la malla topográfica'
     ],
     methodologyEn: [
       'Full-Stack & Cyber-Physical Stack: TypeScript + React 19 + Tailwind CSS + Vite core, coupled with Three.js WebGL engines, Node.js servers (server.cjs), Python scripts, and C++ (.ino) firmware on ESP32 nodes',
       'Tree Principle Architecture (Trunk & 6 Branches): IoT Barn, Greenhouse & Crops, Voisin Rational Grazing (PRV), Rewilding Corridor, Mountain Summit (122k ha Basin), and Community Board',
-      'Coupled biophysical modeling: 3-layer Penman-Monteith soil balance, 18,500 m³ Keyline reservoir, and regional wildfire (FWI) and flood (TWI) simulators',
+      'Coupled biophysical & physical climate risk (NatCat) modeling: 3-layer Penman-Monteith soil balance, 18,500 m³ Keyline reservoir, and regional wildfire (FWI) and flood (TWI) simulators',
       'AgriTwin Vision & Autonomous Drones: 3D volumetric camera frustums, WebRTC streaming, and hot-reloaded NDVI orthomosaics over 3D terrain meshes'
     ],
-    tags: ['AgroTech Chile', 'AgriTwin 3D', 'TypeScript', 'JavaScript', 'React', 'Three.js', 'Python', 'C++ ESP32', 'Node.js', 'Maule']
+    tags: ['Digital Twins', 'AI Product Owner / Tech Lead', 'AgroTech Chile', 'AgriTwin 3D', 'Physical Climate Risk', 'TypeScript', 'React', 'Three.js', 'Python', 'C++ ESP32']
   },
 
   // 20. I+D & INNOVACIÓN: ReWild Suite - Biomonitoreo de Bosque Nativo & PWA Offline
   {
     id: 'rd-rewild',
     type: 'rd',
-    titleEs: 'ReWild Suite: Biomonitoreo de Bosque Nativo, Certificación ReNatura & PWA Offline',
-    titleEn: 'ReWild Suite: Native Forest Biomonitoring, ReNatura Certification & Offline PWA',
-    subtitleEs: 'Suite de Campo 100% Offline con 9 Protocolos Ecológicos, Edafología VESS y Cálculo de Carbono IPCC // Chile & Portugal',
-    subtitleEn: '100% Offline Field Survey PWA with 9 Ecological Protocols, VESS Soil Structure & IPCC Carbon // Chile & Portugal',
+    titleEs: 'ReWild Suite: Biomonitoreo de Bosque Nativo, Certificación ReNatura & Sistema dMRV (PWA Offline)',
+    titleEn: 'ReWild Suite: Native Forest Biomonitoring, ReNatura Certification & dMRV System (Offline PWA)',
+    subtitleEs: 'Climate-Tech & dMRV 100% Offline: 9 Protocolos Ecológicos, Edafología VESS y Carbono IPCC Tier 2 // Chile & Portugal',
+    subtitleEn: '100% Offline Climate-Tech & dMRV PWA: 9 Ecological Protocols, VESS Soil Structure & IPCC Tier 2 Carbon // Chile & Portugal',
     country: 'Chile / Portugal',
     city: 'Maule (Los Ruiles), Nahuelbuta (Bío-Bío) & Aljezur (Portugal)',
     flag: '🌲',
     lat: -35.83,
     lng: -72.63,
     date: '2024-2026',
-    roleEs: 'Creador & Desarrollador Principal de Software Ecológico',
-    roleEn: 'Creator & Lead Ecological Software Developer',
+    roleEs: 'AI Product Owner / Technical Lead Ambiental & Geospatial Data Scientist (Climate-Tech & dMRV)',
+    roleEn: 'Environmental AI Product Owner / Technical Lead & Geospatial Data Scientist (Climate-Tech & dMRV)',
     mediaType: 'plate',
     src: '/rewild/logo_rewild.png',
     availablePages: [

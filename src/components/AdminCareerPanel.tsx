@@ -58,12 +58,84 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
 
   const DEEP_LINK_PROFILES = [
     {
-      id: 'kiel-ghg',
-      badge: '🇩🇪 ALEMANIA / UE • CIENCIA & TURBERAS',
-      title: 'Hidrogeofísica, Rehumedecimiento de Turberas & Gases GEI (CAU Kiel)',
-      targetRoles: 'Hydrologist, Peatland Scientist, GHG Modeler, Environmental Consultant, PhD Candidate',
+      id: 'policy-advisory',
+      badge: '🏛️ PERFIL 1 • INCIDENCIA LEGISLATIVA & ALTA POLÍTICA PÚBLICA',
+      title: 'Incidencia Legislativa, Asesoría Parlamentaria & Gobernanza Hídrica',
+      targetRoles: 'Senior Public Policy Advisor, Legislative Affairs Lead, Science-Policy Officer (Ministerios, Parlamentos, ONU, GIZ)',
       Highlight:
-        'Abre el Globo 3D directamente en Kiel mostrando tus resultados cuantitativos en Wallener Au (transición sumidero-fuente por metano CH₄, Eddy Covariance, paludicultura, compactación por maquinaria agrícola y Wetland Monitor).',
+        'Abre el Globo 3D directamente en tu intervención oficial ante la Cámara de Diputadas/os, asesoría a la Convención Constitucional y planes de ordenamiento de cuencas.',
+      query: `policy${langQueryOnly}`,
+      view: 'game' as const,
+      cat: 'policy',
+      mission: 'congreso-valparaiso'
+    },
+    {
+      id: 'eu-carbon-audit',
+      badge: '🇪🇺 PERFIL 2 • FISCALIZACIÓN UE & AUDITORÍA DE CARBONO (THINK TANKS / ONGs)',
+      title: 'Fiscalización de Políticas Europeas (RED III / LULUCF) & Auditoría de Carbono',
+      targetRoles: 'EU Climate Policy Officer, Carbon Accounting Auditor, Biomass & Supply-Chain Analyst (Carbon Market Watch, Agora, SEI, EPN, Adelphi)',
+      Highlight:
+        'Abre el Globo 3D en tu auditoría científica de contabilidad de carbono y cadenas globales de biomasa bajo la directiva europea RED III junto a EPN, BAN y Global Forest Coalition.',
+      query: `science?mission=science-biomass-risk${langSuffix}`,
+      view: 'game' as const,
+      cat: 'science',
+      mission: 'science-biomass-risk'
+    },
+    {
+      id: 'degrowth-ecological-econ',
+      badge: '🌍 PERFIL 3 • ECOLOGÍA POLÍTICA, DECRECIMIENTO & ECONOMÍA ECOLÓGICA',
+      title: 'Ecología Política, Decrecimiento (Oslo 2025) & Doughnut Economics (DEAL)',
+      targetRoles: 'Political Ecology Researcher, Post-Growth / Ecological Economist, Environmental Justice Fellow (ICTA-UAB, DEAL, Heinrich Böll, TNI)',
+      Highlight:
+        'Abre el Globo 3D en tu ponencia oficial en la 10ª Conferencia Internacional de Decrecimiento en Oslo (2025), articulada con DEAL Copenhague, ENJUST Bonn y tu tetralogía en OLCA.',
+      query: `policy?mission=oslo-degrowth${langSuffix}`,
+      view: 'game' as const,
+      cat: 'policy',
+      mission: 'oslo-degrowth'
+    },
+    {
+      id: 'agritwin-agrotech',
+      badge: '🤖 PERFIL 4 & 7 • AI PRODUCT OWNER / TECH LEAD & GEMELOS DIGITALES 3D',
+      title: 'AgroTech Chile & AgriTwin 3D (122.000 ha) • AI Product Owner & Digital Twins Lead',
+      targetRoles: 'AI Product Owner, Environmental Technical Lead, Digital Twins Researcher (Fraunhofer, Helmholtz UFZ, Deltares, AgTech / GovTech)',
+      Highlight:
+        'Abre el Globo 3D en tu suite de Gemelos Digitales AgriTwin 3D y AgroTwin Regional (TypeScript, React 19, Three.js WebGL, Python y nodos ESP32 en C++ con balance FAO-56 e incendios/inundaciones).',
+      query: `projects?mission=rd-agrotech-agritwin${langSuffix}`,
+      view: 'game' as const,
+      cat: 'rd',
+      mission: 'rd-agrotech-agritwin'
+    },
+    {
+      id: 'rewild-dmrv',
+      badge: '🛰️ PERFIL 5 • GEOSPATIAL DATA SCIENTIST & REMOTE SENSING ML (CLIMATE-TECH & dMRV)',
+      title: 'ReWild Suite (PWA Offline dMRV) • Carbono IPCC Tier 2, GEE, Sentinel-2 & GEDI LiDAR',
+      targetRoles: 'Geospatial Data Scientist, Remote Sensing ML Engineer, dMRV Carbon Specialist (Sylvera, Pachama, Planet, OroraTech, Kayrros)',
+      Highlight:
+        'Abre el Globo 3D en ReWild Suite: sistema dMRV 100% offline con 9 protocolos ecológicos, carbono IPCC Tier 2, edafología VESS y cartografía satelital NDVI/LiDAR en Chile y Portugal.',
+      query: `projects?mission=rd-rewild${langSuffix}`,
+      view: 'game' as const,
+      cat: 'rd',
+      mission: 'rd-rewild'
+    },
+    {
+      id: 'natcat-risk',
+      badge: '🏦 PERFIL 6 • CATASTROPHE RISK MODELER & PHYSICAL CLIMATE RISK (FINANZAS & SEGUROS)',
+      title: 'Modelación de Riesgo Catastrófico (NatCat) & Riesgo Climático Físico (Incendios, Inundaciones, Sequía)',
+      targetRoles: 'Catastrophe Risk Modeler (NatCat), Physical Climate Risk Analyst, ESG / TCFD Risk Specialist (Hannover Re, Munich Re, Swiss Re, Allianz, Moody’s RMS)',
+      Highlight:
+        'Abre el Globo 3D en tu modelación de riesgo físico y catastrófico (Amenaza × Exposición × Vulnerabilidad) para megaincendios, inundaciones (Delft3D/TWI) y sequía hidrogeológica.',
+      query: `science?mission=science-wildfires-risks${langSuffix}`,
+      view: 'game' as const,
+      cat: 'science',
+      mission: 'science-wildfires-risks'
+    },
+    {
+      id: 'kiel-ghg',
+      badge: '🇩🇪 PERFIL 2, 5 & 7 • TURBERAS, FLUJOS GEI (EDDY COVARIANCE) & WETLAND MONITOR',
+      title: 'Hidrogeofísica, Rehumedecimiento de Turberas, Flujos GEI & Gemelo Digital (CAU Kiel)',
+      targetRoles: 'Peatland / GHG Modeler, Ecohydrological Digital Twin Researcher, dMRV Scientist (Greifswald Mire Centre, Thünen, UFZ, Ramboll, DHI)',
+      Highlight:
+        'Abre el Globo 3D directamente en Kiel mostrando tus resultados cuantitativos en Wallener Au (transición sumidero-fuente por metano CH₄, Eddy Covariance, paludicultura, compactación y Wetland Monitor).',
       query: `science?mission=kiel-cau${langSuffix}`,
       view: 'game' as const,
       cat: 'science',
@@ -71,11 +143,11 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
     },
     {
       id: 'wetland-monitor',
-      badge: '🌿 GEMELO DIGITAL & SOFTWARE CIENTÍFICO',
-      title: 'App Humedal Monitor (Wetland Monitor) • Full-Stack Scientific Modeler',
-      targetRoles: 'Environmental Data Scientist, Scientific Software Developer, GIS / Digital Twin Developer',
+      badge: '🌿 PERFIL 7 • INVESTIGADOR DE GEMELOS DIGITALES EN CENTROS TECNOLÓGICOS',
+      title: 'App Humedal Monitor (Wetland Monitor) • Peatland Ecohydrological Digital Twin',
+      targetRoles: 'Digital Twin Researcher, Scientific Software Architect, Environmental Modeling Engineer',
       Highlight:
-        'Abre el Globo 3D directamente en la ficha dedicada a tu aplicación Wetland Monitor con su logotipo oficial, simulador diurno/estacional y enlace al repositorio en GitHub.',
+        'Abre el Globo 3D directamente en la ficha dedicada a tu aplicación Wetland Monitor con su logotipo oficial, simulador diurno/estacional 24h/365d y repositorio en GitHub.',
       query: `science?mission=wetland-monitor-app${langSuffix}`,
       view: 'game' as const,
       cat: 'science',
@@ -83,63 +155,15 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
     },
     {
       id: 'poznan-water',
-      badge: '🇵🇱 POLONIA / UE • CALIDAD DEL AGUA & BIODIVERSIDAD',
+      badge: '🇵🇱 POLONIA / UE • CALIDAD DEL AGUA & DIRECTIVA MARCO DEL AGUA',
       title: 'Limnología, Bioindicadores Acuáticos & Directiva Marco del Agua (AMU Poznań)',
-      targetRoles: 'Water Quality Specialist, Freshwater Ecologist, Biodiversity & Conservation Officer',
+      targetRoles: 'Water Quality Specialist, Freshwater Ecologist, EU Water Framework Directive Officer',
       Highlight:
         'Abre el Globo 3D en Poznań destacando tus examinaciones en laboratorio e in situ en lagos y estanques (ponds) para su protección como refugios de biodiversidad.',
       query: `science?mission=poznan-amu${langSuffix}`,
       view: 'game' as const,
       cat: 'science',
       mission: 'poznan-amu'
-    },
-    {
-      id: 'maule-geophysics',
-      badge: '🇨🇱 CHILE / LATAM • HIDROGEOFÍSICA & CUENCAS',
-      title: 'Resistividad de Suelos (SEV/VES), Nivel Freático & Cambio Climático (U. de Chile)',
-      targetRoles: 'Geofísico, Especialista en Recursos Hídricos, Consultor Hidrogeológico / DGA / MMA',
-      Highlight:
-        'Abre el Globo 3D en la Cuenca del Maule mostrando el efecto cuantificado de la actividad agroforestal y el cambio climático sobre la resistividad del suelo y el nivel freático.',
-      query: `science?mission=science-geophysics-soils${langSuffix}`,
-      view: 'game' as const,
-      cat: 'science',
-      mission: 'science-geophysics-soils'
-    },
-    {
-      id: 'policy-advisory',
-      badge: '⚖️ THINK TANKS, ONU & POLÍTICAS PÚBLICAS',
-      title: 'Asesoría Parlamentaria, Gobernanza Hídrica & Transición Agroecológica',
-      targetRoles: 'Climate Policy Advisor, Science-Policy Officer (GIZ, UNEP, SEI, Agora, Fundaciones)',
-      Highlight:
-        'Abre el Globo 3D filtrado en Asesoría en Políticas Públicas (intervención oficial en la Cámara de Diputadas/os, normas constitucionales y planes de ordenamiento de cuencas).',
-      query: `policy${langQueryOnly}`,
-      view: 'game' as const,
-      cat: 'policy',
-      mission: 'congreso-valparaiso'
-    },
-    {
-      id: 'agritwin-agrotech',
-      badge: '🌾 AGROTECH • GEMELO DIGITAL 3D & IOT',
-      title: 'Plataforma AgriTwin 3D & AgroTech Chile • Telemetría KioT',
-      targetRoles: 'Agtech Founder, Digital Twin Architect, Precision Agriculture Modeler, IoT Engineer',
-      Highlight:
-        'Abre el Globo 3D directamente en la misión de AgroTech Chile y AgriTwin 3D (balance hídrico Penman-Monteith FAO-56 en 3 estratos, sondas FDR, microclima y gemelo digital predial/regional).',
-      query: `projects?mission=rd-agrotech-agritwin${langSuffix}`,
-      view: 'game' as const,
-      cat: 'rd',
-      mission: 'rd-agrotech-agritwin'
-    },
-    {
-      id: 'resumof-wildfires',
-      badge: '🌲 RESUMOF • RED SUPERACIÓN MODELO FORESTAL',
-      title: 'Libro de Incendios & Plataforma RESUMOF • Modelación de Cuencas',
-      targetRoles: 'Lead Editor, Forest Hydrologist, Wildfire Risk Analyst, Environmental Campaign Director',
-      Highlight:
-        'Abre el Globo 3D en la misión de RESUMOF y el Libro de Incendios (coordinación editorial colectiva, cartografía interactiva de cuencas afectadas y reconversión de monocultivos).',
-      query: `publications?mission=pub-libro-incendios${langSuffix}`,
-      view: 'game' as const,
-      cat: 'publications',
-      mission: 'pub-libro-incendios'
     },
     {
       id: 'dossier-paper',
@@ -163,9 +187,15 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       },
       {
         id: 'cl-en-policy',
-        title: '2. For Climate Policy, Think Tanks, International NGOs & ESG Advisory (EU / Global)',
-        context: 'Use this when applying to organizations bridging science, policy, and communication (GIZ, SEI, Adelphi, UNEP, Greenpeace, European Climate Foundation):',
-        text: `What sets my profile apart is the ability to bridge rigorous biophysical modeling with high-level public policy and strategic communication. Combining a background in Geophysics (Universidad de Chile) and a Dual European M.Sc. in Environmental Management and Protection (CAU Kiel & AMU Poznań), I translate quantitative evidence—from peatland GHG balances and freshwater quality diagnostics to satellite wildfire risk and aquifer depletion—into legislative testimony, watershed transition plans, and large-scale public campaigns (+700k audience reach).\n\n👉 Explore my Science-Policy Portfolio on the 3D Globe: ${baseUrl}policy`
+        title: '2. For EU Policy Oversight, Carbon Accounting Audits, Legislative Advocacy & Ecological Economics (Think Tanks / NGOs)',
+        context: 'Use this when applying to organizations bridging EU policy oversight, carbon auditing, political ecology, and advocacy (Carbon Market Watch, Agora, SEI, Adelphi, GIZ, EPN, DEAL):',
+        text: `What sets my profile apart is the ability to bridge rigorous biophysical modeling with European policy oversight, carbon accounting audits, and legislative advocacy. Combining a background in Geophysics (Universidad de Chile) and a Dual European M.Sc. in Environmental Management and Protection (CAU Kiel & AMU Poznań), I translate quantitative evidence—from peatland GHG radiative balances (GWP20/GWP100 via Eddy Covariance) and EU RED III woody biomass supply-chain carbon audits (with EPN, BAN, and Global Forest Coalition) to Ecological Economics and Degrowth (Official Speaker at Oslo Degrowth Conference 2025 & DEAL Doughnut Economics)—into parliamentary testimony, watershed transition plans, and large-scale public campaigns (+700k audience reach).\n\n👉 Explore my EU Carbon Audit & Policy Portfolio on the 3D Globe: ${baseUrl}science?mission=science-biomass-risk`
+      },
+      {
+        id: 'cl-en-tech-risk',
+        title: '3. For Digital Twins, AI Product Owner / Tech Lead, Geospatial ML (dMRV) & Catastrophe Risk Modeling (NatCat / Finance)',
+        context: 'Use this for Reinsurance & Physical Climate Risk (Hannover Re, Munich Re, Swiss Re), Climate-Tech & dMRV (Sylvera, Pachama, Planet), or Technological Centers (Fraunhofer, Helmholtz UFZ, Deltares):',
+        text: `As a Geophysicist (B.Sc.) holding a Dual European M.Sc. (CAU Kiel & AMU Poznań), I operate at the intersection of biophysical hazard modeling, geospatial data science, and full-stack software leadership (AI Product Owner / Technical Lead). I have architected and deployed multiple operational environmental Digital Twins and dMRV platforms: "Wetland Monitor" (24h/365d peatland GHG simulation calibrated to Eddy Covariance at CAU Kiel), "AgriTwin 3D & AgroTwin Regional" (122,000 ha WebGL/Three.js + React/TypeScript + C++ ESP32 digital twin modeling wildfire FWI propagation, TWI flood risk, and 3-layer FAO-56 soil water balance), and "ReWild Suite" (100% offline PWA for IPCC Tier 2 carbon dMRV and Sentinel-2 / GEDI LiDAR cartography). Combining Delft3D coastal storm-surge modeling, ERT/VES aquifer drought profiling, and multi-spectral Remote Sensing ML (Python, GEE, R, PostGIS), I deliver end-to-end physical climate risk (NatCat: Hazard × Exposure × Vulnerability) and environmental decision systems.\n\n👉 Interactive 3D Digital Twins & dMRV Suite: ${baseUrl}projects?mission=rd-agrotech-agritwin`
       }
     ],
     de: [
@@ -482,23 +512,52 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
                 <span>PALABRAS CLAVE ATS (PARA TU TITULAR DE LINKEDIN Y CV EN ALEMANIA/UE Y CHILE)</span>
               </h2>
               <p className="text-xs text-neutral-300">
-                Los sistemas de filtrado automático (Workday, Personio, SAP SuccessFactors en Alemania) buscan coincidencias exactas. Copia este titular sugerido para LinkedIn:
+                Los sistemas de filtrado automático (Workday, Personio, SAP SuccessFactors en Alemania) buscan coincidencias exactas. Copia el titular según la familia de cargos a la que apuntes:
               </p>
-              <div className="p-3.5 rounded-xl bg-black border border-white/10 flex items-center justify-between gap-3">
-                <code className="text-xs text-emerald-300 font-mono">
-                  Geophysicist (B.Sc.) &amp; Dual European M.Sc. Environmental Management (CAU Kiel &amp; AMU Poznań) | Hydrology, Peatland GHG Fluxes (Eddy Covariance), GIS/Python &amp; Climate Policy | Creator of Wetland Monitor
-                </code>
-                <button
-                  onClick={() =>
-                    copyText(
-                      'li-headline',
-                      'Geophysicist (B.Sc.) & Dual European M.Sc. Environmental Management (CAU Kiel & AMU Poznań) | Hydrology, Peatland GHG Fluxes (Eddy Covariance), GIS/Python & Climate Policy | Creator of Wetland Monitor'
-                    )
-                  }
-                  className="px-3 py-1.5 rounded-lg bg-[#facc15] text-black font-mono font-black text-xs shrink-0 cursor-pointer"
-                >
-                  {copiedId === 'li-headline' ? '¡Copiado!' : 'Copiar Titular'}
-                </button>
+              <div className="space-y-2.5">
+                <div className="p-3.5 rounded-xl bg-black border border-white/10 flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-[10px] font-mono text-[#facc15] uppercase font-bold mb-1">
+                      Opción A • Tech, Digital Twins, Geospatial ML (dMRV) &amp; NatCat Risk
+                    </div>
+                    <code className="text-xs text-emerald-300 font-mono">
+                      Geophysicist (B.Sc.) &amp; Dual European M.Sc. (CAU Kiel &amp; AMU Poznań) | 3D Digital Twins, Geospatial ML &amp; dMRV, Physical Climate Risk (NatCat) &amp; Environmental AI Product Owner
+                    </code>
+                  </div>
+                  <button
+                    onClick={() =>
+                      copyText(
+                        'li-headline-a',
+                        'Geophysicist (B.Sc.) & Dual European M.Sc. (CAU Kiel & AMU Poznań) | 3D Digital Twins, Geospatial ML & dMRV, Physical Climate Risk (NatCat) & Environmental AI Product Owner'
+                      )
+                    }
+                    className="px-3 py-1.5 rounded-lg bg-[#facc15] text-black font-mono font-black text-xs shrink-0 cursor-pointer"
+                  >
+                    {copiedId === 'li-headline-a' ? '¡Copiado!' : 'Copiar Titular A'}
+                  </button>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-black border border-white/10 flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-[10px] font-mono text-cyan-400 uppercase font-bold mb-1">
+                      Opción B • Política Pública, Auditoría de Carbono UE (RED III) &amp; Economía Ecológica
+                    </div>
+                    <code className="text-xs text-emerald-300 font-mono">
+                      Geophysicist (B.Sc.) &amp; Dual European M.Sc. (CAU Kiel &amp; AMU Poznań) | EU Climate Policy Oversight, Carbon Accounting Audits (RED III / dMRV), Legislative Advocacy &amp; Ecological Economics
+                    </code>
+                  </div>
+                  <button
+                    onClick={() =>
+                      copyText(
+                        'li-headline-b',
+                        'Geophysicist (B.Sc.) & Dual European M.Sc. (CAU Kiel & AMU Poznań) | EU Climate Policy Oversight, Carbon Accounting Audits (RED III / dMRV), Legislative Advocacy & Ecological Economics'
+                      )
+                    }
+                    className="px-3 py-1.5 rounded-lg bg-[#facc15] text-black font-mono font-black text-xs shrink-0 cursor-pointer"
+                  >
+                    {copiedId === 'li-headline-b' ? '¡Copiado!' : 'Copiar Titular B'}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -507,17 +566,23 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
               <div className="p-5 rounded-2xl bg-[#111622] border border-blue-500/30 space-y-3">
                 <h3 className="font-mono font-black text-sm text-blue-400 flex items-center gap-2">
                   <Building2 className="w-4 h-4" />
-                  <span>EMPLEADORES OBJETIVO EN ALEMANIA &amp; EUROPA</span>
+                  <span>EMPLEADORES OBJETIVO EN ALEMANIA &amp; EUROPA (POR PERFIL)</span>
                 </h3>
                 <ul className="space-y-2 text-xs text-neutral-300">
                   <li>
-                    <strong className="text-white">• Centros de Turberas, Hidrología y Clima:</strong> Greifswald Mire Centre (GMC), Helmholtz UFZ (Leipzig/Halle), Thünen-Institut (Braunschweig), PIK Potsdam, WSL (Suiza), Deltares (Países Bajos).
+                    <strong className="text-white">• Reaseguros, Finanzas &amp; Riesgo Catastrófico (NatCat):</strong> Hannover Re (sede central en Hannover), Munich Re, Swiss Re, Allianz Climate Solutions, Moody’s RMS, Verisk, AXA Climate.
                   </li>
                   <li>
-                    <strong className="text-white">• Consultoras de Ingeniería, Agua y Medio Ambiente:</strong> Ramboll, DHI Group, Sweco, COWI, Golder/WSP, Mull und Partner (Hannover), Pöyry/AFRY, Fichtner Water &amp; Transportation.
+                    <strong className="text-white">• Centros Tecnológicos, Gemelos Digitales &amp; Turberas:</strong> Fraunhofer (IOSB / IGD), Helmholtz UFZ (Leipzig), Greifswald Mire Centre (GMC), Thünen-Institut, PIK Potsdam, WSL (Suiza), Deltares (Países Bajos).
                   </li>
                   <li>
-                    <strong className="text-white">• Cooperación Internacional, Think Tanks &amp; Mercados de Carbono:</strong> GIZ, Adelphi (Berlín), Agora Agrar / Agora Energiewende, Stockholm Environment Institute (SEI), Climate Analytics, NABU / Wetlands International Europe.
+                    <strong className="text-white">• Climate-Tech, Geospatial ML &amp; Sistemas dMRV:</strong> Sylvera, Pachama, Planet Labs (Berlín), OroraTech (Múnich - incendios satelitales), Kayrros, Puro.earth, South Pole.
+                  </li>
+                  <li>
+                    <strong className="text-white">• Fiscalización Políticas UE, Auditoría Carbono &amp; Economía Ecológica:</strong> Carbon Market Watch (Bruselas), Agora Agrar / Agora Energiewende (Berlín), SEI, Adelphi, Climate Analytics, GIZ, DEAL (Doughnut Economics), EPN / Fern.
+                  </li>
+                  <li>
+                    <strong className="text-white">• Consultoras de Ingeniería &amp; AI Product Ownership Ambiental:</strong> Ramboll, DHI Group, Sweco, COWI, WSP, Mull und Partner (Hannover), AFRY.
                   </li>
                 </ul>
               </div>

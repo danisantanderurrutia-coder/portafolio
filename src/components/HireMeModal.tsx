@@ -63,39 +63,52 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
       accentBg: 'bg-blue-50 text-blue-700 border-blue-200',
       tagBg: 'bg-blue-50/80 text-blue-900 border-blue-200/80',
       icon: <Microscope className="w-4 h-4 text-blue-600" />,
-      titleEs: 'Hidrogeofísica, Turberas & Gemelos Digitales',
-      titleEn: 'Hydro-Geophysics, Peatlands & Digital Twins',
+      titleEs: 'Investigador de Gemelos Digitales (Digital Twins) & AI Product Owner / Tech Lead Ambiental',
+      titleEn: 'Digital Twins Researcher & Environmental AI Product Owner / Technical Lead',
       descEs:
-        'Monitoreo de flujos GEI (CO₂ / CH₄) en rehumedecimiento de turberas, tomografía eléctrica (ERT/VES), física de suelos, limnología y plataformas interactivas en Python/R/QGIS/Three.js.',
+        'Arquitectura y liderazgo técnico (Product Owner / Tech Lead) de gemelos digitales 3D y plataformas ambientales (Wetland Monitor, AgriTwin 122.000 ha, ReWild PWA, Smart Food Parks) integrando telemetría IoT/Eddy Covariance, motores WebGL/Three.js y asistentes IA para administración ambiental y centros tecnológicos.',
       descEn:
-        'Peatland rewetting GHG flux analytics (CO₂ / CH₄), electrical resistivity (ERT/VES), soil hydro-physics, limnology & interactive 3D monitoring platforms (Python/R/QGIS/Three.js).',
-      tags: ['VES / ERT', 'CH₄ / CO₂ Fluxes', 'Python • R • QGIS', 'Wetland Monitor 3D']
+        'Architecture and technical leadership (AI Product Owner / Tech Lead) of 3D digital twins and environmental decision systems (Wetland Monitor, AgriTwin 122,000 ha, ReWild PWA, Smart Food Parks) coupling IoT/Eddy Covariance telemetry, WebGL/Three.js engines, and AI agents for environmental agencies and R&D centers.',
+      tags: ['3D Digital Twins', 'AI Product Owner / Tech Lead', 'Wetland Monitor & AgriTwin', 'Three.js • React • Python']
     },
     {
       num: '02',
-      accentBg: 'bg-emerald-50 text-emerald-800 border-emerald-200',
-      tagBg: 'bg-emerald-50/80 text-emerald-900 border-emerald-200/80',
-      icon: <Scale className="w-4 h-4 text-emerald-600" />,
-      titleEs: 'Política Climática, Agua & Asesoría ESG (UE / LATAM)',
-      titleEn: 'Climate Policy, Water Governance & ESG Advisory',
+      accentBg: 'bg-cyan-50 text-cyan-800 border-cyan-200',
+      tagBg: 'bg-cyan-50/80 text-cyan-950 border-cyan-200/80',
+      icon: <Microscope className="w-4 h-4 text-cyan-600" />,
+      titleEs: 'Geospatial Data Scientist, Remote Sensing ML Engineer (Climate-Tech & dMRV) & Hidrogeofísica',
+      titleEn: 'Geospatial Data Scientist, Remote Sensing ML Engineer (Climate-Tech & dMRV) & Hydrogeophysics',
       descEs:
-        'Traducción de evidencia biofísica a normativa pública, Directiva Marco del Agua UE, restauración ecológica, informes técnicos parlamentarios y evaluación de riesgos hídricos.',
+        'Ciencia de datos geoespaciales, Machine Learning satelital (Sentinel-1/2 SAR/Óptico, Landsat, GEDI LiDAR, Google Earth Engine) y monitoreo digital de carbono y biodiversidad (dMRV IPCC Tier 2, flujos GEI CO₂/CH₄/N₂O y tomografía geoeléctrica ERT/VES).',
       descEn:
-        'Translating biophysical evidence into regulatory policy, EU Water Framework Directive, ecological restoration, parliamentary technical briefs, and catchment risk assessment.',
-      tags: ['EU Water Directive', 'Policy Briefs', 'Carbon & Peatland', 'Parliamentary Advisory']
+        'Geospatial data science, satellite Machine Learning (Sentinel-1/2 SAR/Optical, Landsat, GEDI LiDAR, Google Earth Engine), and digital carbon/biodiversity monitoring (dMRV IPCC Tier 2, Eddy Covariance CO₂/CH₄/N₂O fluxes, and ERT/VES hydrogeophysics).',
+      tags: ['Geospatial ML & dMRV', 'GEE • Sentinel • GEDI LiDAR', 'CO₂ / CH₄ / N₂O Fluxes', 'Python • R • PostGIS • ERT']
     },
     {
       num: '03',
       accentBg: 'bg-amber-50 text-amber-800 border-amber-200',
       tagBg: 'bg-amber-50/80 text-amber-950 border-amber-200/80',
-      icon: <Radio className="w-4 h-4 text-amber-600" />,
-      titleEs: 'Comunicación Científica & Dirección Estratégica',
-      titleEn: 'Science Communication & Strategic Direction',
+      icon: <Scale className="w-4 h-4 text-amber-600" />,
+      titleEs: 'Catastrophe Risk Modeler (NatCat) & Physical Climate Risk Analyst (Finanzas & Seguros)',
+      titleEn: 'Catastrophe Risk Modeler (NatCat) & Physical Climate Risk Analyst (Finance & Reinsurance)',
       descEs:
-        'Vocería científica bilingüe, dirección de campañas ambientales de alto alcance (+700k audiencia), narrativa transmedia y articulación entre ciencia, instituciones y ciudadanía.',
+        'Modelación cuantitativa de riesgos catastróficos (Hazard × Exposure × Vulnerability) y estrés climático físico (TCFD / CSRD): propagación de megaincendios forestales (FWI), inundaciones costeras y fluviales (Delft3D, TWI) y sequía/abatimiento de acuíferos.',
       descEn:
-        'Bilingual scientific spokesperson, high-reach environmental campaign direction (+700k audience), transmedia storytelling, and multi-stakeholder engagement.',
-      tags: ['+700k Audience Reach', 'Executive Briefings', 'Data Storytelling', 'ES • EN • DE']
+        'Quantitative natural catastrophe modeling (Hazard × Exposure × Vulnerability) and physical climate risk analytics (TCFD / CSRD): wildfire spread (FWI), coastal storm-surge and fluvial flooding (Delft3D, TWI), and aquifer drought vulnerability.',
+      tags: ['NatCat Risk Modeling', 'Physical Climate Risk', 'Wildfire • Flood • Drought', 'Delft3D • FWI • TCFD/CSRD']
+    },
+    {
+      num: '04',
+      accentBg: 'bg-emerald-50 text-emerald-800 border-emerald-200',
+      tagBg: 'bg-emerald-50/80 text-emerald-900 border-emerald-200/80',
+      icon: <Radio className="w-4 h-4 text-emerald-600" />,
+      titleEs: 'Incidencia Legislativa, Fiscalización de Políticas UE / Auditoría de Carbono & Economía Ecológica',
+      titleEn: 'Legislative Advocacy, EU Policy Oversight / Carbon Auditing & Ecological Economics',
+      descEs:
+        'Asesoría parlamentaria y alta política pública, fiscalización de directivas europeas (RED III, LULUCF, Directiva Marco del Agua) y auditoría de contabilidad de carbono para Think Tanks y ONGs, articulando Ecología Política, Decrecimiento (Oslo 2025), Doughnut Economics (DEAL) y campañas masivas (+700k alcance).',
+      descEn:
+        'Parliamentary advisory and high-level public policy, EU regulatory oversight (RED III, LULUCF, Water Framework Directive) and carbon accounting audits for Think Tanks and NGOs, integrating Political Ecology, Degrowth (Oslo 2025), Doughnut Economics (DEAL), and +700k audience campaigns.',
+      tags: ['EU RED III & Carbon Audit', 'Legislative & Public Policy', 'Degrowth & Doughnut Econ', 'Think Tanks / NGOs (+700k)']
     }
   ];
 
@@ -221,10 +234,10 @@ export const HireMeModal: React.FC<HireMeModalProps> = ({
           <div>
             <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
               {currentLang === 'es'
-                ? 'ÁREAS DE PRÁCTICA, INVESTIGACIÓN APLICADA & CONSULTORÍA'
-                : 'AREAS OF PRACTICE, APPLIED RESEARCH & CONSULTING'}
+                ? 'PERFILES ESTRATÉGICOS, INVESTIGACIÓN APLICADA & LIDERAZGO TÉCNICO'
+                : 'STRATEGIC PROFILES, APPLIED RESEARCH & TECHNICAL LEADERSHIP'}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               {mandates.map((m) => (
                 <div
                   key={m.num}

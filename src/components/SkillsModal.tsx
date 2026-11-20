@@ -73,12 +73,12 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
             <Binary className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
             <span className="font-bold text-white">
               {currentLang === 'es' 
-                ? 'GEOFÍSICA & MODELACIÓN DE CUENCAS • ESTRATEGIA DE COMUNICACIONES • I+D AGTECH' 
-                : 'HYDROGEOPHYSICS & WATERSHEDS • STRATEGIC COMMS • AGTECH R&D'}
+                ? 'GEMELOS DIGITALES 3D • GEOSPATIAL ML & dMRV • RIESGO NATCAT • AUDITORÍA UE & POLÍTICA PÚBLICA' 
+                : '3D DIGITAL TWINS • GEOSPATIAL ML & dMRV • NATCAT RISK • EU POLICY & CARBON AUDITING'}
             </span>
           </div>
           <span className="text-emerald-400 font-bold shrink-0">
-            ● {currentLang === 'es' ? 'ENTREGABLES DE ALTO VALOR // TIEMPO DE RESPUESTA < 24H' : 'HIGH-VALUE DELIVERABLES // < 24H RESPONSE'}
+            ● {currentLang === 'es' ? 'AI PRODUCT OWNER / TECH LEAD // TIEMPO DE RESPUESTA < 24H' : 'AI PRODUCT OWNER / TECH LEAD // < 24H RESPONSE'}
           </span>
         </div>
 
@@ -149,15 +149,15 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                     { 
                       name: 'Python', 
                       level: 95, 
-                      tagsEn: 'GeoPandas, NumPy, SciPy, Rasterio, GDAL, Matplotlib, Automated pipelines',
-                      tagsEs: 'GeoPandas, NumPy, SciPy, Rasterio, GDAL, Matplotlib, Pipelines automáticos',
+                      tagsEn: 'GeoPandas, Rasterio, GDAL, scikit-learn, XGBoost, xarray, Remote Sensing ML & dMRV pipelines',
+                      tagsEs: 'GeoPandas, Rasterio, GDAL, scikit-learn, XGBoost, xarray, Remote Sensing ML y pipelines dMRV',
                       meter: '[██████████████░] 95%'
                     },
                     { 
                       name: 'QGIS & ArcGIS Pro', 
                       level: 95, 
-                      tagsEn: 'Catchment delineation, LiDAR DEMs, hydrogeological mapping, raster calc',
-                      tagsEs: 'Delimitación de cuencas, DEMs LiDAR, mapeo hidrogeológico, cálculo raster',
+                      tagsEn: 'Catchment delineation, LiDAR DEMs, hydrogeological mapping, NatCat hazard & exposure rasters',
+                      tagsEs: 'Delimitación de cuencas, DEMs LiDAR, mapeo hidrogeológico, rasters de amenaza y exposición NatCat',
                       meter: '[██████████████░] 95%'
                     },
                     { 
@@ -177,22 +177,22 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                     { 
                       name: 'Google Earth Engine (GEE)', 
                       level: 85, 
-                      tagsEn: 'Cloud planetary data, Sentinel-2 & Landsat constellations processing',
-                      tagsEs: 'Datos planetarios en la nube, procesamiento de constelaciones Sentinel-2 y Landsat',
+                      tagsEn: 'Sentinel-1/2 (SAR & Optical), Landsat, GEDI LiDAR, ML land-cover classification & carbon dMRV',
+                      tagsEs: 'Sentinel-1/2 (Radar SAR y Óptico), Landsat, GEDI LiDAR, clasificación ML y carbono dMRV',
                       meter: '[████████████░░░] 85%'
                     },
                     { 
                       name: 'Delft3D / Hydro Models', 
                       level: 80, 
-                      tagsEn: 'Storm surge dynamics, estuarine transport, sea-level rise (Lauwersmeer)',
-                      tagsEs: 'Dinámica de marejadas, transporte estuarino, aumento del nivel del mar (Lauwersmeer)',
+                      tagsEn: 'Storm surge dynamics, coastal flood catastrophe risk (NatCat), sea-level rise (Lauwersmeer)',
+                      tagsEs: 'Dinámica de marejadas, riesgo catastrófico de inundación (NatCat) y nivel del mar (Lauwersmeer)',
                       meter: '[███████████░░░░] 80%'
                     },
                     { 
                       name: 'Unity 3D', 
                       level: 85, 
-                      tagsEn: 'Real-time spatial digital twins, UN Citiverse simulation environments',
-                      tagsEs: 'Gemelos digitales espaciales, simulación en tiempo real (ONU Citiverse)',
+                      tagsEn: 'Real-time spatial digital twins, UN Citiverse simulation & 3D environmental R&D centers',
+                      tagsEs: 'Gemelos digitales espaciales 3D en tiempo real, simulación ONU Citiverse y centros tecnológicos',
                       meter: '[████████████░░░] 85%'
                     },
                     { 
@@ -278,36 +278,52 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
                     {
-                      badgeEn: 'HYDROGEOPHYSICS',
-                      badgeEs: 'GEOFÍSICA & HIDROLOGÍA',
-                      titleEn: 'Electrical Resistivity Tomography (ERT)',
-                      titleEs: 'Tomografía de Resistividad Eléctrica (ERT)',
-                      descEn: 'Non-invasive aquifer characterization, saline intrusion dynamics and 2D/3D soil profiles using Syscal Pro.',
-                      descEs: 'Caracterización no invasiva de acuíferos, intrusión salina y mapeo de perfiles de suelo 2D/3D con Syscal Pro.'
+                      badgeEn: '3D DIGITAL TWINS & R&D CENTERS',
+                      badgeEs: 'GEMELOS DIGITALES 3D & CENTROS TECNOLÓGICOS',
+                      titleEn: 'Multi-Scale Environmental & Agricultural Digital Twins',
+                      titleEs: 'Investigación y Arquitectura de Gemelos Digitales (Digital Twins)',
+                      descEn: 'Development of 3D & 24h/365d ecohydrological digital twins (Wetland Monitor at CAU Kiel, AgriTwin 122,000 ha in Three.js/React/ESP32, and Smart Food Parks) for technological centers.',
+                      descEs: 'Investigación y desarrollo de gemelos digitales 3D y simuladores ecohidrológicos (Wetland Monitor en CAU Kiel, AgriTwin 122.000 ha en Three.js/React/ESP32 y Smart Food Parks).'
                     },
                     {
-                      badgeEn: 'ATMOSPHERE & GHG FLUXES',
-                      badgeEs: 'ATMÓSFERA & FLUJOS GEI',
-                      titleEn: 'Eddy Covariance & Micro-meteorology',
-                      titleEs: 'Eddy Covariance & Micro-meteorología',
-                      descEn: 'High-frequency turbulent flux quantification of CO2, CH4 and water vapor in peatlands using LI-COR towers.',
-                      descEs: 'Cuantificación de flujos turbulentos de CO2, CH4 y vapor de agua en turberas y agroecosistemas con torres LI-COR.'
+                      badgeEn: 'CLIMATE-TECH, CARBON & dMRV',
+                      badgeEs: 'CLIMATE-TECH, AUDITORÍA DE CARBONO & dMRV',
+                      titleEn: 'Eddy Covariance GHG Fluxes & Digital MRV (IPCC Tier 2)',
+                      titleEs: 'Flujos GEI (Eddy Covariance) & Sistemas Digitales dMRV',
+                      descEn: 'High-frequency turbulent flux quantification of CO₂, CH₄ and N₂O (LI-COR towers, GWP20/GWP100) coupled with offline PWA field protocols (ReWild Suite) for carbon & biodiversity dMRV.',
+                      descEs: 'Cuantificación de flujos turbulentos de CO₂, CH₄ y N₂O en turberas (torres LI-COR, balances GWP20/GWP100) acoplada a protocolos digitales de carbono IPCC Tier 2 y biodiversidad (dMRV).'
                     },
                     {
-                      badgeEn: 'COASTAL RISK MODELING',
-                      badgeEs: 'RIESGO CLIMÁTICO COSTERO',
-                      titleEn: 'Sea Level Rise & Storm Surge Simulations',
-                      titleEs: 'Modelación de Ascenso del Nivel del Mar',
-                      descEn: 'Hydrodynamic flood simulations, climate vulnerability and dike overtopping risk at Lauwersmeer (Netherlands).',
-                      descEs: 'Simulaciones de inundación costera y vulnerabilidad hidrodinámica en la cuenca de Lauwersmeer (Países Bajos).'
+                      badgeEn: 'GEOSPATIAL DATA SCIENCE & REMOTE SENSING ML',
+                      badgeEs: 'GEOSPATIAL DATA SCIENCE & REMOTE SENSING ML',
+                      titleEn: 'Multi-Spectral, SAR Radar & GEDI LiDAR Machine Learning',
+                      titleEs: 'Teledetección Satelital, Radar/LiDAR & Machine Learning Espacial',
+                      descEn: 'Supervised/unsupervised classification, burn severity, canopy biomass (GEDI LiDAR) and NDVI/NDRE pipelines in Google Earth Engine, Python (GeoPandas/Rasterio/scikit-learn), R and PostGIS.',
+                      descEs: 'Clasificación supervisada/no supervisada, severidad de fuego, estructura de dosel (LiDAR GEDI) y pipelines NDVI/NDRE en Google Earth Engine, Python, R y PostGIS.'
                     },
                     {
-                      badgeEn: 'IOT & AGROTECH',
-                      badgeEs: 'IOT & AGROTECNOLOGÍA',
-                      titleEn: 'Agricultural Digital Twins (AgriTwin)',
-                      titleEs: 'Gemelos Digitales Agrícolas (AgriTwin)',
-                      descEn: 'Integration of real-time soil telemetry with Sentinel NDVI/NDRE satellite indexes in Maule vineyards, Chile.',
-                      descEs: 'Integración de telemetría de humedad en tiempo real con índices satelitales Sentinel (NDVI/NDRE) en el Maule.'
+                      badgeEn: 'NATCAT & PHYSICAL CLIMATE RISK (FINANCE / REINSURANCE)',
+                      badgeEs: 'RIESGO CATASTRÓFICO (NATCAT) & CLIMÁTICO FÍSICO',
+                      titleEn: 'Wildfire, Flood & Drought Catastrophe Risk Modeling',
+                      titleEs: 'Modelación de Catástrofes (Incendios, Inundaciones & Sequía)',
+                      descEn: 'Quantitative physical climate risk assessment (Hazard × Exposure × Vulnerability, TCFD/CSRD): coastal storm surge (Delft3D Lauwersmeer), wildfire propagation (FWI) and aquifer drought (VES).',
+                      descEs: 'Análisis cuantitativo de riesgo climático físico para finanzas y seguros (Amenaza × Exposición × Vulnerabilidad): inundaciones (Delft3D/TWI), megaincendios (FWI) y sequía hidrogeológica.'
+                    },
+                    {
+                      badgeEn: 'AI PRODUCT OWNER & ENV TECH LEAD',
+                      badgeEs: 'AI PRODUCT OWNER & LÍDER TÉCNICO AMBIENTAL',
+                      titleEn: 'Environmental Decision Systems & AI Product Ownership',
+                      titleEs: 'Dirección de Productos de IA y Software en Administración Ambiental',
+                      descEn: 'End-to-end product leadership translating environmental regulation and biophysical science into software roadmaps, C++ IoT sensor networks, full-stack web apps and legal/ecological AI assistants.',
+                      descEs: 'Liderazgo técnico y de producto (Product Owner / Tech Lead) desde sensores C++ ESP32 y modelos biofísicos hasta aplicaciones web progresivas y asistentes de IA para gestión ambiental.'
+                    },
+                    {
+                      badgeEn: 'HYDROGEOPHYSICS & SOIL MECHANICS',
+                      badgeEs: 'HIDROGEOFÍSICA & FÍSICA DE SUELOS',
+                      titleEn: 'Electrical Resistivity Tomography (ERT / VES) & Soil Physics',
+                      titleEs: 'Tomografía de Resistividad Eléctrica (ERT / SEV) y Mecánica Edáfica',
+                      descEn: 'Non-invasive aquifer profiling (Syscal Pro), water table drawdown under agroforestry/climate stress, oedometer precompression stress and air permeability in peatlands.',
+                      descEs: 'Caracterización no invasiva de acuíferos (Syscal Pro), abatimiento del nivel freático bajo presión agroforestal y ensayos de compactación mecánica y permeabilidad en suelos.'
                     }
                   ].map((m, idx) => (
                     <div key={idx} className="p-3 bg-[#0d141e] border-2 border-black rounded-lg space-y-1 shadow-[2px_2px_0px_#000]">
@@ -338,51 +354,51 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                 <div className="border-b border-orange-500/20 pb-1.5">
                   <h4 className="font-mono font-black text-xs uppercase tracking-wider text-orange-400 flex items-center gap-1.5">
                     <Radio className="w-4 h-4" />
-                    <span>{currentLang === 'es' ? 'CAPACIDADES EN COMUNICACIÓN ESTRATÉGICA & PRODUCCIÓN' : 'STRATEGIC COMMS & PRODUCTION CAPABILITIES'}</span>
+                    <span>{currentLang === 'es' ? 'ALTA POLÍTICA PÚBLICA, AUDITORÍA UE, ECONOMÍA ECOLÓGICA & COMUNICACIÓN ESTRATÉGICA' : 'PUBLIC POLICY, EU CARBON OVERSIGHT, ECOLOGICAL ECONOMICS & STRATEGIC COMMS'}</span>
                   </h4>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
                     {
-                      titleEn: 'High-Impact Mass Campaigns',
-                      titleEs: 'Campañas Masivas de Alto Impacto',
+                      titleEn: 'Legislative Advocacy & High-Level Public Policy',
+                      titleEs: 'Incidencia Legislativa & Alta Política Pública',
+                      metricEn: 'Congress & Constitutional Advisory',
+                      metricEs: 'Congreso & Convención',
+                      descEn: 'Official technical testimony before Chile’s Chamber of Deputies, constitutional environmental norm drafting, and watershed transition policy.',
+                      descEs: 'Alegatos técnicos oficiales ante la Cámara de Diputadas y Diputados, redacción de normas constitucionales y planes de ordenamiento de cuencas.'
+                    },
+                    {
+                      titleEn: 'EU Policy Oversight & Carbon Accounting Audits',
+                      titleEs: 'Fiscalización de Políticas UE & Auditoría de Carbono',
+                      metricEn: 'EU RED III • EPN / BAN / GFC',
+                      metricEs: 'UE RED III • Think Tanks / ONGs',
+                      descEn: 'Transnational carbon accounting and supply-chain audits exposing biomass loopholes under EU RED III / LULUCF directives with EPN, BAN and GFC.',
+                      descEs: 'Auditoría científica de contabilidad de carbono y cadenas de biomasa bajo normativas europeas RED III / LULUCF junto a Think Tanks y redes globales (EPN, BAN, GFC).'
+                    },
+                    {
+                      titleEn: 'Political Ecology, Degrowth & Ecological Economics',
+                      titleEs: 'Ecología Política, Decrecimiento & Economía Ecológica',
+                      metricEn: 'Oslo 2025 • DEAL Copenhagen',
+                      metricEs: 'Oslo 2025 • DEAL Copenhague',
+                      descEn: 'Speaker at the 10th International Degrowth Conference (Oslo), DEAL Doughnut Economics (Copenhagen), ENJUST (Bonn) and author of the 4-part OLCA treatise.',
+                      descEs: 'Ponente en la Conferencia Internacional de Decrecimiento (Oslo 2025), certificado en Doughnut Economics (Copenhague), ENJUST Bonn y autor de la tetralogía en OLCA.'
+                    },
+                    {
+                      titleEn: 'High-Impact Mass Campaigns & Media Direction',
+                      titleEs: 'Campañas Masivas de Alto Impacto (+700K)',
                       metricEn: '+700K Audience',
                       metricEs: '+700K Audiencia',
-                      descEn: 'Campaign direction for national initiatives (Apruebo Rural, Primera Línea Prensa) with massive organic reach.',
-                      descEs: 'Diseño y dirección de la campaña nacional Apruebo Rural y de Primera Línea Prensa con amplia cobertura orgánica y viral.'
+                      descEn: 'Campaign direction for national initiatives (Apruebo Rural, Primera Línea Prensa, Red Maule Sur) with massive organic reach and territorial correspondents.',
+                      descEs: 'Diseño y dirección de la campaña nacional Apruebo Rural, Primera Línea Prensa (+700k seguidores) y Red Comunitaria del Maule con corresponsales rurales.'
                     },
                     {
                       titleEn: 'Art Direction & Cultural Production',
                       titleEs: 'Dirección de Arte & Producción Cultural',
                       metricEn: 'Rap Beauchef & Cuarentena Rap',
                       metricEs: 'Rap Beauchef & Cuarentena Rap',
-                      descEn: 'Executive stage production, live amphitheater audio engineering, and digital streaming league architecture.',
-                      descEs: 'Producción ejecutiva de escenarios en vivo, rigging de sonido en anfiteatros universitarios y ligas de streaming digital.'
-                    },
-                    {
-                      titleEn: 'Parliamentary Spokesperson & Advocacy',
-                      titleEs: 'Vocería Parlamentaria & Incidencia',
-                      metricEn: 'National Congress of Chile',
-                      metricEs: 'Congreso Nacional',
-                      descEn: 'Technical testimonies before the Chamber of Deputies investigating megafires and forestry monoculture regulation.',
-                      descEs: 'Alegatos técnicos ante comisiones de la Cámara de Diputadas y Diputados sobre megaincendios e impacto del monocultivo forestal.'
-                    },
-                    {
-                      titleEn: 'Investigative & Data Journalism',
-                      titleEs: 'Periodismo de Investigación & Datos',
-                      metricEn: 'EPN 2024 Report',
-                      metricEs: 'Informe EPN 2024',
-                      descEn: 'International investigation exposing carbon accounting loopholes under European Union RED III regulations.',
-                      descEs: 'Investigación transnacional sobre contabilidad de carbono en biomasa forestal bajo las normativas RED III de la Unión Europea.'
-                    },
-                    {
-                      titleEn: 'Digital Community Architecture',
-                      titleEs: 'Arquitectura de Comunidades Digitales',
-                      metricEn: '+12,000 Active Members',
-                      metricEs: '+12.000 Miembros',
-                      descEn: 'Discord server engineering with automated matchmaking bots, low-latency audio rooms, and 8-country connectivity.',
-                      descEs: 'Administración de servidores Discord de alto rendimiento con bots de matchmaking, baja latencia y alcance en 8 países.'
+                      descEn: 'Executive stage production, live amphitheater audio engineering, and pan-American digital streaming league architecture across 5+ countries.',
+                      descEs: 'Producción ejecutiva de escenarios en vivo, rigging de sonido en anfiteatros universitarios y ligas federales de streaming en Latinoamérica.'
                     },
                     {
                       titleEn: 'Graphic Agitprop & Relief Printmaking',
@@ -390,7 +406,7 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                       metricEn: 'Paulina Aguirre Brigade',
                       metricEs: 'Brigada Paulina Aguirre',
                       descEn: 'Street murals, linocut, and woodcut poster art for historical memory, peasant water rights, and human rights.',
-                      descEs: 'Muralismo callejero, grabado en linóleo y xilografía para defensa de derechos humanos y memoria histórica.'
+                      descEs: 'Muralismo callejero, grabado en linóleo y xilografía para defensa de derechos humanos, agua campesina y memoria histórica.'
                     }
                   ].map((c, idx) => (
                     <div key={idx} className="p-3 bg-[#19120d] border-2 border-black rounded-lg shadow-[3px_3px_0px_#000] space-y-1">
