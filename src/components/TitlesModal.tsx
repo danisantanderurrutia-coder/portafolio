@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   X, 
   Award, 
@@ -6,7 +6,10 @@ import {
   CheckCircle2,
   Calendar,
   MapPin,
-  ExternalLink
+  ExternalLink,
+  FileText,
+  Download,
+  Eye
 } from 'lucide-react';
 import { Language } from '../types';
 import { resolveAsset } from '../utils';
@@ -24,19 +27,23 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
   currentLang,
   onOpenCertificationsGlobe
 }) => {
+  const [activeTranscriptView, setActiveTranscriptView] = useState<'none' | 'msc-pdf' | 'uchile-specialty'>('none');
+
   if (!isOpen) return null;
+
+  const mscTranscriptUrl = resolveAsset('/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf');
 
   const degrees = [
     {
       id: 'uchile',
       institutionEs: 'Universidad de Chile',
       institutionEn: 'University of Chile',
-      facultyEs: 'Facultad de Ciencias Físicas y Matemáticas (FCFM)',
-      facultyEn: 'Faculty of Physical & Mathematical Sciences (FCFM)',
+      facultyEs: 'Facultad de Ciencias Físicas y Matemáticas (FCFM - Beauchef)',
+      facultyEn: 'Faculty of Physical & Mathematical Sciences (FCFM - Beauchef)',
       titleEs: 'Geofísico. Licenciatura en Ciencias, mención Geofísica',
       titleEn: 'Geophysicist. Bachelor of Science in Geophysics',
-      statusEs: 'Aprobado con distinción (2021)',
-      statusEn: 'Awarded with distinction (2021)',
+      statusEs: 'Distinción (2021) • Ciclo Especialidad: 5.9–6.0 / 7.0',
+      statusEn: 'With Distinction (2021) • Specialty GPA: 5.9–6.0 / 7.0',
       statusBadge: 'bg-emerald-600 text-white',
       year: '2015 - 2021',
       locationEs: 'Santiago, Chile 🇨🇱',
@@ -44,8 +51,25 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       logo: '/logos/universidad_de_chile_logo.png',
       logoAlt: 'Logo Universidad de Chile',
       url: 'https://uchile.cl',
-      descEs: 'Formación de excelencia en física de la Tierra, sismología, prospección electromagnética y gravimétrica (SEV/TEM), fluidodinámica y modelación computacional avanzada.',
-      descEn: 'Rigorous foundation in solid Earth physics, seismology, applied electromagnetic exploration (VES/TEM), fluid mechanics, and computational modeling.'
+      descEs: 'Formación cuantitativa de alta exigencia en física de la Tierra, sismología, electromagnetismo, prospección geoeléctrica (SEV/TEM), dinámica de la atmósfera y modelación numérica. Curva ascendente sobresaliente en el ciclo de especialidad en Geofísica (promedios semestrales de 5.9 y 6.0 / 7.0).',
+      descEn: 'Rigorous foundation in solid Earth physics, seismology, electromagnetism, geoelectrical prospecting (VES/TEM), atmospheric dynamics, and numerical modeling at FCFM Beauchef. Strong upward trajectory across the final Geophysics specialization cycle (5.9 – 6.0 / 7.0 semester averages).',
+      topCoursesEs: [
+        'Sismología Aplicada: 6.0 / 7.0',
+        'Meteorología Avanzada: 5.9 (Top 5/8)',
+        'Sistema Climático: 5.8 (Top 5/12)',
+        'Vibraciones y Ondas: 5.7 / 7.0',
+        'Electromagnetismo: Top 13% (10/79)',
+        'Práctica Profesional: 7.0 (Top 1/5)'
+      ],
+      topCoursesEn: [
+        'Applied Seismology: 6.0 / 7.0',
+        'Advanced Meteorology: 5.9 (Top 5/8)',
+        'Climate System: 5.8 (Top 5/12)',
+        'Vibrations & Waves: 5.7 / 7.0',
+        'Electromagnetism: Top 13% (10/79)',
+        'Professional Internship: 7.0 (Top 1/5)'
+      ],
+      transcriptType: 'uchile-specialty' as const
     },
     {
       id: 'kiel',
@@ -55,8 +79,8 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       facultyEn: 'Faculty of Agricultural & Nutritional Sciences',
       titleEs: 'Master en Ciencias en Manejo Ambiental',
       titleEn: 'Master of Science in Environmental Management',
-      statusEs: 'Master en Ciencias (2026)',
-      statusEn: 'Master of Science (2026)',
+      statusEs: 'Nota Final: 1.5 (EXCELLENT / SEHR GUT) • 120 ECTS',
+      statusEn: 'Final Grade: 1.5 (EXCELLENT / SEHR GUT) • 120 ECTS',
       statusBadge: 'bg-blue-600 text-white',
       year: '2023 - 2026',
       locationEs: 'Kiel, Alemania 🇩🇪',
@@ -64,8 +88,25 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       logo: '/logos/kiel_university_logo.png',
       logoAlt: 'Logo Universidad de Kiel (CAU Kiel)',
       url: 'https://www.uni-kiel.de',
-      descEs: 'Especialización en balance hídrico de cuencas, hidrofísica de suelos y curvas de retención en laboratorio, y modelación de degradación ecosistémica.',
-      descEn: 'Specialization in catchment water budget, soil hydro-physical laboratory diagnostics, and post-fire ecosystem degradation modeling.'
+      descEs: 'Graduado en el tramo oficial de Excelencia en Alemania (1.5 = Excellent, 120/120 ECTS). Calificación máxima (1.0) en todos los módulos de ciencia de datos espaciales, teledetección satelital, ecohidrología de humedales y proyectos científicos, con tesis en flujos de carbono y GEI en turberas del norte de Alemania.',
+      descEn: 'Graduated in Germany’s official "Excellent" tier (Overall Grade: 1.5 = Excellent, 120/120 ECTS). Achieved the highest possible grade (1.0) across all geospatial data science, remote sensing, wetland ecohydrology, and scientific project modules, with Master’s thesis on carbon and GHG exchange in transitioning northern German wetlands.',
+      topCoursesEs: [
+        'Spatial Data Handling (GIS): 1.0 (Máx)',
+        'Remote Sensing Principles: 1.0 (Máx)',
+        'Integrated Mgmt of Wetlands: 1.0 (Máx)',
+        'Science Project 2: 1.0 (Máx)',
+        'Science Project 1: 1.3',
+        'Wadden Sea Interactions: 1.3'
+      ],
+      topCoursesEn: [
+        'Spatial Data Handling (GIS): 1.0 (Max)',
+        'Remote Sensing Principles: 1.0 (Max)',
+        'Integrated Mgmt of Wetlands: 1.0 (Max)',
+        'Science Project 2: 1.0 (Max)',
+        'Science Project 1: 1.3',
+        'Wadden Sea Interactions: 1.3'
+      ],
+      transcriptType: 'msc-pdf' as const
     },
     {
       id: 'amu-poznan',
@@ -75,8 +116,8 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       facultyEn: 'Faculty of Geographical & Geological Sciences',
       titleEs: 'Master en Ciencias en Protección Ambiental',
       titleEn: 'Master of Science in Environmental Protection',
-      statusEs: 'Master en Ciencias (2026)',
-      statusEn: 'Master of Science (2026)',
+      statusEs: 'Módulos UAM: 1.4 • Global M.Sc.: 1.5 (EXCELLENT)',
+      statusEn: 'UAM Modules: 1.4 • Overall M.Sc.: 1.5 (EXCELLENT)',
       statusBadge: 'bg-blue-600 text-white',
       year: '2023 - 2026',
       locationEs: 'Poznań, Polonia 🇵🇱',
@@ -84,8 +125,25 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
       logo: '/logos/amu_poznan_logo.png',
       logoAlt: 'Logo Universidad de Poznań (AMU)',
       url: 'https://amu.edu.pl',
-      descEs: 'Especialización en secuestro de carbono en humedales lacustres y turberas, taxonomía microscópica de bioindicadores dulceacuícolas y gestión de calidad de agua.',
-      descEn: 'Specialization in wetland carbon sequestration dynamics, freshwater bioindicator taxonomy, and aquatic catchment quality management.'
+      descEs: 'Programa conjunto de Doble Máster Europeo (Section X: Environmental Protection, promedio 1.4 = Excellent). Calificación máxima (1.0) en monitoreo ambiental aplicado, ecología de comunidades acuáticas, restauración lacustre, biodiversidad urbana (pondscape), políticas ambientales y financiamiento de protección ambiental.',
+      descEn: 'European Dual Master’s track (Section X: Environmental Protection, 1.4 = Excellent module average). Top possible score (1.0) in environmental monitoring in practice, aquatic community ecology, lake restoration diagnostics, urban pondscape biodiversity, environmental policies, and environmental protection financing.',
+      topCoursesEs: [
+        'Environmental Monitoring: 1.0 (Máx)',
+        'Aquatic Community Ecology: 1.0 (Máx)',
+        'Lake Restoration State: 1.0 (Máx)',
+        'Environmental Policies: 1.0 (Máx)',
+        'Financing Env. Protection: 1.0 (Máx)',
+        'Urban Pondscape Biodiversity: 1.0 (Máx)'
+      ],
+      topCoursesEn: [
+        'Environmental Monitoring: 1.0 (Max)',
+        'Aquatic Community Ecology: 1.0 (Max)',
+        'Lake Restoration State: 1.0 (Max)',
+        'Environmental Policies: 1.0 (Max)',
+        'Financing Env. Protection: 1.0 (Max)',
+        'Urban Pondscape Biodiversity: 1.0 (Max)'
+      ],
+      transcriptType: 'msc-pdf' as const
     }
   ];
 
@@ -278,28 +336,229 @@ export const TitlesModal: React.FC<TitlesModalProps> = ({
                     <p className="mt-2.5 text-[11px] text-neutral-300 font-sans leading-relaxed border-t border-white/10 pt-2">
                       {currentLang === 'es' ? deg.descEs : deg.descEn}
                     </p>
+
+                    {/* Highlighted Top Modules / Grades */}
+                    <div className="mt-2.5 pt-2 border-t border-white/10">
+                      <div className="font-mono text-[9.5px] uppercase font-bold text-[#facc15] mb-1.5 flex items-center gap-1">
+                        <FileText className="w-3 h-3" />
+                        <span>
+                          {deg.id === 'uchile'
+                            ? currentLang === 'es'
+                              ? 'Ramos Especialidad & Ranking FCFM:'
+                              : 'Specialty Modules & Cohort Rank:'
+                            : currentLang === 'es'
+                              ? 'Módulos con Nota Máxima (1.0):'
+                              : 'Top Modules (1.0 = Maximum Grade):'}
+                        </span>
+                      </div>
+                      <div className="flex flex-wrap gap-1">
+                        {(currentLang === 'es' ? deg.topCoursesEs : deg.topCoursesEn).map((course) => (
+                          <span
+                            key={course}
+                            className="px-1.5 py-0.5 rounded bg-black/70 border border-white/15 font-mono text-[9.5px] text-emerald-300 font-semibold"
+                          >
+                            {course}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Card Footer */}
-                  <div className="mt-3.5 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                    <span className="flex items-center space-x-1">
-                      <MapPin className="w-3 h-3 text-[#facc15]" />
-                      <span>{currentLang === 'es' ? deg.locationEs : deg.locationEn}</span>
-                    </span>
-                    <a
-                      href={deg.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-emerald-400 hover:text-white font-bold flex items-center space-x-1 cursor-pointer"
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      <span>{currentLang === 'es' ? 'OFICIAL' : 'OFFICIAL'}</span>
-                      <ExternalLink className="w-2.5 h-2.5" />
-                    </a>
+                  {/* Transcript of Records Action Bar */}
+                  <div className="mt-3 pt-2.5 border-t border-white/10 space-y-2">
+                    {deg.transcriptType === 'msc-pdf' ? (
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setActiveTranscriptView((prev) => (prev === 'msc-pdf' ? 'none' : 'msc-pdf'))
+                          }
+                          className={`py-1.5 px-2 rounded-lg font-mono font-black text-[10px] uppercase border transition-all flex items-center justify-center gap-1 cursor-pointer ${
+                            activeTranscriptView === 'msc-pdf'
+                              ? 'bg-[#facc15] text-black border-black'
+                              : 'bg-blue-600/25 hover:bg-blue-600/40 text-blue-200 border-blue-400/40'
+                          }`}
+                        >
+                          <Eye className="w-3 h-3" />
+                          <span>
+                            {activeTranscriptView === 'msc-pdf'
+                              ? currentLang === 'es'
+                                ? 'Ocultar Notas'
+                                : 'Hide Record'
+                              : currentLang === 'es'
+                                ? 'Ver Notas PDF'
+                                : 'View Transcript'}
+                          </span>
+                        </button>
+                        <a
+                          href={mscTranscriptUrl}
+                          download="Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="py-1.5 px-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-black text-[10px] uppercase border border-black flex items-center justify-center gap-1 transition-all"
+                        >
+                          <Download className="w-3 h-3" />
+                          <span>{currentLang === 'es' ? 'PDF (1.5 Exc.)' : 'PDF (1.5 Exc.)'}</span>
+                        </a>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setActiveTranscriptView((prev) =>
+                            prev === 'uchile-specialty' ? 'none' : 'uchile-specialty'
+                          )
+                        }
+                        className={`w-full py-1.5 px-2.5 rounded-lg font-mono font-black text-[10px] uppercase border transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                          activeTranscriptView === 'uchile-specialty'
+                            ? 'bg-[#facc15] text-black border-black'
+                            : 'bg-emerald-600/25 hover:bg-emerald-600/40 text-emerald-200 border-emerald-400/40'
+                        }`}
+                      >
+                        <Eye className="w-3.5 h-3.5" />
+                        <span>
+                          {activeTranscriptView === 'uchile-specialty'
+                            ? currentLang === 'es'
+                              ? 'Ocultar Ficha de Especialidad & Ranking'
+                              : 'Hide Specialty Record & Cohort Ranking'
+                            : currentLang === 'es'
+                              ? 'Ver Ficha de Especialidad & Ranking FCFM'
+                              : 'View Specialty Record & Cohort Ranking'}
+                        </span>
+                      </button>
+                    )}
+
+                    {/* Card Footer */}
+                    <div className="pt-1 flex items-center justify-between text-[10px] font-mono text-neutral-400">
+                      <span className="flex items-center space-x-1">
+                        <MapPin className="w-3 h-3 text-[#facc15]" />
+                        <span>{currentLang === 'es' ? deg.locationEs : deg.locationEn}</span>
+                      </span>
+                      <a
+                        href={deg.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-400 hover:text-white font-bold flex items-center space-x-1 cursor-pointer"
+                      >
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        <span>{currentLang === 'es' ? 'OFICIAL' : 'OFFICIAL'}</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
+
+            {/* EXPANDABLE INLINE TRANSCRIPT VIEWER (M.Sc. PDF OR U. DE CHILE SPECIALTY RECORD) */}
+            {activeTranscriptView === 'msc-pdf' && (
+              <div className="mt-4 rounded-2xl overflow-hidden border-3 border-[#facc15] bg-[#0a0e16] shadow-[6px_6px_0px_#000] animate-fadeIn">
+                <div className="px-4 py-2.5 bg-black border-b border-white/15 flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded bg-blue-600 text-white font-mono font-black text-[10px] uppercase">
+                      OFFICIAL TRANSCRIPT OF RECORDS • 1.5 (EXCELLENT)
+                    </span>
+                    <span className="font-mono text-xs text-white font-bold">
+                      CAU Kiel &amp; AMU Poznań (120 / 120 ECTS)
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={mscTranscriptUrl}
+                      download="Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf"
+                      className="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-[10.5px] uppercase flex items-center gap-1"
+                    >
+                      <Download className="w-3 h-3" />
+                      <span>{currentLang === 'es' ? 'Descargar PDF' : 'Download PDF'}</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => setActiveTranscriptView('none')}
+                      className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-red-600 text-white font-mono font-bold text-[10.5px] uppercase cursor-pointer"
+                    >
+                      {currentLang === 'es' ? 'Cerrar Visor' : 'Close'}
+                    </button>
+                  </div>
+                </div>
+                <iframe
+                  src={mscTranscriptUrl}
+                  title="Official M.Sc. Transcript of Records - CAU Kiel & AMU Poznan"
+                  className="w-full h-[500px] bg-white"
+                />
+              </div>
+            )}
+
+            {activeTranscriptView === 'uchile-specialty' && (
+              <div className="mt-4 rounded-2xl overflow-hidden border-3 border-emerald-500 bg-[#0d141e] p-4 sm:p-5 shadow-[6px_6px_0px_#000] space-y-4 animate-fadeIn">
+                <div className="flex flex-wrap items-start justify-between gap-3 border-b border-white/15 pb-3">
+                  <div>
+                    <span className="px-2 py-0.5 rounded bg-emerald-600 text-white font-mono font-black text-[10px] uppercase">
+                      {currentLang === 'es'
+                        ? 'EXPEDIENTE VERIFICADO FCFM (BEAUCHEF) • UNIVERSIDAD DE CHILE'
+                        : 'VERIFIED FCFM (BEAUCHEF) RECORD • UNIVERSITY OF CHILE'}
+                    </span>
+                    <h4 className="font-mono font-black text-sm sm:text-base text-white mt-1.5">
+                      {currentLang === 'es'
+                        ? 'Licenciatura en Ciencias, Mención Geofísica — Desempeño de Especialidad & Ranking de Cohorte'
+                        : 'B.Sc. in Geophysics — Specialization Performance & Cohort Percentile Ranking'}
+                    </h4>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setActiveTranscriptView('none')}
+                    className="px-3 py-1 rounded-lg bg-white/10 hover:bg-red-600 text-white font-mono font-bold text-[10.5px] uppercase cursor-pointer"
+                  >
+                    {currentLang === 'es' ? 'Cerrar Ficha' : 'Close'}
+                  </button>
+                </div>
+
+                {/* Context Note on FCFM Beauchef Grading Scale */}
+                <div className="p-3 rounded-xl bg-black/60 border border-emerald-500/30 text-xs text-neutral-200 leading-relaxed">
+                  {currentLang === 'es' ? (
+                    <>
+                      <strong className="text-[#facc15]">Contexto de Escala FCFM (Beauchef):</strong> La Facultad de Ciencias Físicas y Matemáticas de la Universidad de Chile posee la escala de evaluación más exigente y deflacionaria del país (escala 1.0 a 7.0, mínimo aprobación 4.0; rango <strong className="text-white">5.0 a 5.9 = Distinción</strong>). Por ejemplo, en <strong className="text-emerald-300">FI2002 Electromagnetismo</strong> una calificación de 4.8 ubicó a Daniel en el <strong className="text-emerald-300">puesto 10 de 79 estudiantes (Top 13% de la cohorte)</strong>. Al ingresar al ciclo superior de especialidad en Geofísica (2018–2020), su promedio semestral ascendió sostenidamente de <strong className="text-white">5.3</strong> a <strong className="text-emerald-300">5.9 y 6.0 / 7.0</strong>, consolidándose luego con un <strong className="text-[#facc15]">1.5 (Excellent / Sehr gut)</strong> en su Doble Máster Europeo en Alemania y Polonia.
+                    </>
+                  ) : (
+                    <>
+                      <strong className="text-[#facc15]">FCFM (Beauchef) Grading Context:</strong> The Faculty of Physical and Mathematical Sciences (FCFM) at Universidad de Chile is renowned for one of Latin America’s strictest deflationary grading scales (1.0 to 7.0 scale, passing grade 4.0; <strong className="text-white">5.0 to 5.9 = Awarded with Distinction</strong>). For instance, in <strong className="text-emerald-300">FI2002 Electromagnetism</strong>, a numerical score of 4.8 ranked <strong className="text-emerald-300">10th out of 79 students (Top 13% of cohort)</strong>. Upon entering the advanced Geophysics specialization cycle (2018–2020), semester averages rose steadily from <strong className="text-white">5.3</strong> to <strong className="text-emerald-300">5.9 and 6.0 / 7.0</strong>, directly paving the way for his <strong className="text-[#facc15]">1.5 (Excellent / Sehr gut)</strong> overall grade in the European Dual M.Sc. at CAU Kiel and AMU Poznań.
+                    </>
+                  )}
+                </div>
+
+                {/* Verified Specialty Courses Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                  {[
+                    { code: 'GF4901', nameEs: 'Práctica Profesional I', nameEn: 'Professional Geophysics Internship', grade: '7.0 / 7.0', rank: 'Top 1 / 5 (Top 20%)' },
+                    { code: 'EH2405', nameEs: 'Socioeconomía Latinoamericana', nameEn: 'Latin American Socioeconomics', grade: '7.0 / 7.0', rank: 'Top 1 / 40 (Top 2.5%)' },
+                    { code: 'GF4101', nameEs: 'Sismología Aplicada', nameEn: 'Applied Seismology', grade: '6.0 / 7.0', rank: 'Rank 6 / 12 (Distinción Máx.)' },
+                    { code: 'GF78A', nameEs: 'Seminario Meteorología Avanzada I', nameEn: 'Advanced Meteorology Seminar I', grade: '5.9 / 7.0', rank: 'Rank 5 / 8 (Ciclo Final)' },
+                    { code: 'GF3004', nameEs: 'Sistema Climático', nameEn: 'Climate System Dynamics', grade: '5.8 / 7.0', rank: 'Top 5 / 12 (Top 40%)' },
+                    { code: 'FI3001', nameEs: 'Vibraciones y Ondas', nameEn: 'Vibrations and Wave Physics', grade: '5.7 / 7.0', rank: 'Top 13 / 27' },
+                    { code: 'FI2003E', nameEs: 'Experimental Methods in Physics', nameEn: 'Experimental Methods in Physics', grade: '5.7 / 7.0', rank: 'Física Experimental' },
+                    { code: 'GL3004', nameEs: 'Estratigrafía y Paleontología', nameEn: 'Stratigraphy & Earth History', grade: '5.6 / 7.0', rank: 'Geociencias FCFM' },
+                    { code: 'GL3402', nameEs: 'Geomorfología', nameEn: 'Geomorphology & Surface Processes', grade: '5.5 / 7.0', rank: 'Ciclo Especialidad' },
+                    { code: 'GF4001', nameEs: 'Sismología', nameEn: 'Theoretical Seismology', grade: '5.4 / 7.0', rank: 'Rank 15 / 27' },
+                    { code: 'GF4006', nameEs: 'Métodos de Exploración Geofísica', nameEn: 'Geophysical Exploration Methods (VES/ERT)', grade: '5.2 / 7.0', rank: 'Top 5 / 24 (Top 21%)' },
+                    { code: 'FI2002', nameEs: 'Electromagnetismo', nameEn: 'Electromagnetism', grade: 'Top 13% Cohorte', rank: 'Puesto 10 de 79 alumnos' }
+                  ].map((item) => (
+                    <div key={item.code} className="p-2.5 rounded-xl bg-[#141c2b] border border-white/10 flex flex-col justify-between">
+                      <div className="flex items-center justify-between text-[10px] font-mono">
+                        <span className="text-[#facc15] font-bold">{item.code}</span>
+                        <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-black">
+                          {item.grade}
+                        </span>
+                      </div>
+                      <div className="font-mono font-bold text-xs text-white mt-1">
+                        {currentLang === 'es' ? item.nameEs : item.nameEn}
+                      </div>
+                      <div className="text-[10px] font-mono text-neutral-400 mt-1">
+                        {item.rank}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* 2. POSTGRADUATE CERTIFICATIONS (DAVOS, DRESDEN, COPENHAGUE) */}

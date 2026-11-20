@@ -135,11 +135,13 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
   const [selectedLang, setSelectedLang] = useState<Language>(initialCvLang || currentLang);
   const [selectedLength, setSelectedLength] = useState<CvLength>(initialCvLength);
   const [showPreview, setShowPreview] = useState<boolean>(false);
+  const [transcriptPreview, setTranscriptPreview] = useState<'none' | 'msc' | 'bsc'>('none');
   const [copiedEmail, setCopiedEmail] = useState<boolean>(false);
 
   if (!isOpen) return null;
 
   const email = 'danisantander.urrutia@gmail.com';
+  const mscTranscriptUrl = resolveAsset('/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(email);
@@ -477,6 +479,177 @@ export const CvSelectorModal: React.FC<CvSelectorModalProps> = ({
                 );
               })}
             </div>
+          </div>
+
+          {/* OFFICIAL ACADEMIC TRANSCRIPTS OF RECORDS SECTION (BEWERBUNGSMAPPE) */}
+          <div className="pt-3 border-t border-slate-200 space-y-3">
+            <div className="font-mono font-bold text-[10px] uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
+              <FileText className="w-3.5 h-3.5 text-blue-600" />
+              <span>
+                {currentLang === 'es'
+                  ? 'ANEXO ACADÉMICO OFICIAL: TRANSCRIPT OF RECORDS (NOTAS DE POSTGRADO & PREGRADO):'
+                  : 'OFFICIAL ACADEMIC ANNEX: TRANSCRIPTS OF RECORDS (M.SC. & B.SC. GRADES):'}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {/* 1. Dual European M.Sc. Transcript (CAU Kiel & AMU Poznań - 1.5 Excellent) */}
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between gap-2.5">
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="px-2 py-0.5 rounded bg-blue-600 text-white font-mono font-bold text-[10px] uppercase">
+                      🇩🇪 🇵🇱 DUAL M.SC. • 1.5 (EXCELLENT)
+                    </span>
+                    <span className="font-mono text-[10px] text-slate-500 font-bold">120 / 120 ECTS</span>
+                  </div>
+                  <h4 className="font-['Newsreader',Georgia,serif] font-bold text-base text-slate-900 mt-1.5 leading-snug">
+                    {currentLang === 'es'
+                      ? 'Transcript of Records Oficial • Doble Máster Europeo (CAU Kiel & AMU Poznań)'
+                      : 'Official Transcript of Records • Dual European M.Sc. (CAU Kiel & AMU Poznań)'}
+                  </h4>
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                    {currentLang === 'es'
+                      ? 'Calificación final 1.5 ("Excellent / Sehr gut"). Nota máxima (1.0) en Spatial Data Handling (GIS), Remote Sensing Principles, Integrated Management of Wetlands, Science Project 2, Environmental Monitoring y Environmental Policies.'
+                      : 'Overall grade 1.5 ("Excellent / Sehr gut"). Maximum possible score (1.0) in Spatial Data Handling (GIS), Remote Sensing Principles, Integrated Management of Wetlands, Science Project 2, Environmental Monitoring, and Environmental Policies.'}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => setTranscriptPreview((prev) => (prev === 'msc' ? 'none' : 'msc'))}
+                    className="flex-1 py-1.5 px-3 rounded-lg bg-[#0f172a] hover:bg-slate-800 text-white font-mono font-bold text-[10.5px] uppercase flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                  >
+                    <Eye className="w-3.5 h-3.5 text-[#facc15]" />
+                    <span>
+                      {transcriptPreview === 'msc'
+                        ? currentLang === 'es'
+                          ? 'Ocultar PDF'
+                          : 'Hide PDF'
+                        : currentLang === 'es'
+                          ? 'Ver Transcript PDF'
+                          : 'Preview Transcript'}
+                    </span>
+                  </button>
+                  <a
+                    href={mscTranscriptUrl}
+                    download="Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-1.5 px-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono font-bold text-[10.5px] uppercase flex items-center justify-center gap-1.5 transition-colors"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                    <span>{currentLang === 'es' ? 'Descargar PDF' : 'Download PDF'}</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* 2. B.Sc. Geophysics FCFM U. de Chile Specialty Record & Cohort Ranking */}
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between gap-2.5">
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="px-2 py-0.5 rounded bg-emerald-700 text-white font-mono font-bold text-[10px] uppercase">
+                      🇨🇱 B.SC. GEOFÍSICA (FCFM) • DISTINCIÓN
+                    </span>
+                    <span className="font-mono text-[10px] text-emerald-700 font-bold">
+                      {currentLang === 'es' ? 'Especialidad: 5.9–6.0 / 7.0' : 'Specialty: 5.9–6.0 / 7.0'}
+                    </span>
+                  </div>
+                  <h4 className="font-['Newsreader',Georgia,serif] font-bold text-base text-slate-900 mt-1.5 leading-snug">
+                    {currentLang === 'es'
+                      ? 'Ficha de Especialidad & Ranking de Cohorte • FCFM Universidad de Chile'
+                      : 'Geophysics Specialization Record & Cohort Rankings • FCFM U. of Chile'}
+                  </h4>
+                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                    {currentLang === 'es'
+                      ? 'Graduado con Distinción (2021). Promedio 5.9–6.0 en el ciclo final de especialidad: Sismología Aplicada (6.0), Meteorología Avanzada (5.9, Top 5/8), Sistema Climático (5.8, Top 5/12), Electromagnetismo (Top 13%, 10/79) y Práctica Profesional (7.0, Top 1/5).'
+                      : 'Awarded with Distinction (2021). 5.9–6.0 GPA across final Geophysics specialization semesters: Applied Seismology (6.0), Advanced Meteorology (5.9, Top 5/8), Climate System (5.8, Top 5/12), Electromagnetism (Top 13%, 10/79), and Internship (7.0, Top 1/5).'}
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-2 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => setTranscriptPreview((prev) => (prev === 'bsc' ? 'none' : 'bsc'))}
+                    className="w-full py-1.5 px-3 rounded-lg bg-[#0f172a] hover:bg-slate-800 text-white font-mono font-bold text-[10.5px] uppercase flex items-center justify-center gap-1.5 cursor-pointer transition-colors"
+                  >
+                    <Eye className="w-3.5 h-3.5 text-[#facc15]" />
+                    <span>
+                      {transcriptPreview === 'bsc'
+                        ? currentLang === 'es'
+                          ? 'Ocultar Desglose de Especialidad & Ranking'
+                          : 'Hide Specialty Breakdown & Cohort Ranking'
+                        : currentLang === 'es'
+                          ? 'Ver Desglose de Especialidad & Ranking FCFM'
+                          : 'View FCFM Specialty Grades & Cohort Ranking'}
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Expandable Inline Preview for M.Sc. PDF or B.Sc. Specialty Table */}
+            {transcriptPreview === 'msc' && (
+              <div className="rounded-xl overflow-hidden border-2 border-slate-900 bg-slate-900">
+                <div className="px-4 py-2 bg-[#0f172a] text-white font-mono text-[11px] flex items-center justify-between">
+                  <span>📄 Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf (1.5 — Excellent)</span>
+                  <button
+                    type="button"
+                    onClick={() => setTranscriptPreview('none')}
+                    className="text-[#facc15] hover:underline cursor-pointer"
+                  >
+                    {currentLang === 'es' ? 'Cerrar ✕' : 'Close ✕'}
+                  </button>
+                </div>
+                <iframe
+                  src={mscTranscriptUrl}
+                  title="Official M.Sc. Transcript of Records"
+                  className="w-full h-[460px] bg-white"
+                />
+              </div>
+            )}
+
+            {transcriptPreview === 'bsc' && (
+              <div className="p-4 rounded-xl bg-[#0f172a] text-white border-2 border-slate-900 space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-800 pb-2">
+                  <span className="font-mono font-bold text-xs text-[#facc15] uppercase">
+                    {currentLang === 'es'
+                      ? 'FCFM UNIVERSIDAD DE CHILE • ASIGNATURAS DE ESPECIALIDAD Y POSICIÓN RELATIVA'
+                      : 'FCFM UNIVERSITY OF CHILE • SPECIALTY MODULES & COHORT RANKING'}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setTranscriptPreview('none')}
+                    className="font-mono text-xs text-slate-300 hover:text-white cursor-pointer"
+                  >
+                    {currentLang === 'es' ? 'Cerrar ✕' : 'Close ✕'}
+                  </button>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                  {[
+                    { code: 'GF4901', nameEs: 'Práctica Profesional I', nameEn: 'Professional Geophysics Internship', grade: '7.0 / 7.0', rank: 'Top 1 / 5' },
+                    { code: 'EH2405', nameEs: 'Socioeconomía Latinoamericana', nameEn: 'Latin American Socioeconomics', grade: '7.0 / 7.0', rank: 'Top 1 / 40' },
+                    { code: 'GF4101', nameEs: 'Sismología Aplicada', nameEn: 'Applied Seismology', grade: '6.0 / 7.0', rank: 'Rank 6 / 12' },
+                    { code: 'GF78A', nameEs: 'Seminario Meteorología Avanzada I', nameEn: 'Advanced Meteorology Seminar I', grade: '5.9 / 7.0', rank: 'Rank 5 / 8' },
+                    { code: 'GF3004', nameEs: 'Sistema Climático', nameEn: 'Climate System Dynamics', grade: '5.8 / 7.0', rank: 'Top 5 / 12' },
+                    { code: 'FI3001', nameEs: 'Vibraciones y Ondas', nameEn: 'Vibrations & Wave Physics', grade: '5.7 / 7.0', rank: 'Top 13 / 27' },
+                    { code: 'FI2003E', nameEs: 'Experimental Methods in Physics', nameEn: 'Experimental Methods in Physics', grade: '5.7 / 7.0', rank: 'FCFM Lab' },
+                    { code: 'GL3004', nameEs: 'Estratigrafía y Paleontología', nameEn: 'Stratigraphy & Earth History', grade: '5.6 / 7.0', rank: 'Geociencias' },
+                    { code: 'FI2002', nameEs: 'Electromagnetismo', nameEn: 'Electromagnetism', grade: 'Top 13%', rank: 'Rank 10 / 79' }
+                  ].map((c) => (
+                    <div key={c.code} className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between gap-2">
+                      <div>
+                        <div className="font-mono text-[10px] text-[#facc15] font-bold">{c.code} • {c.rank}</div>
+                        <div className="text-xs font-semibold text-white">{currentLang === 'es' ? c.nameEs : c.nameEn}</div>
+                      </div>
+                      <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono text-xs font-bold shrink-0">
+                        {c.grade}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
