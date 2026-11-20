@@ -2343,18 +2343,18 @@ export const GAME_MISSIONS: GameMission[] = [
   {
     id: 'titulo-uchile',
     type: 'titles',
-    titleEs: 'Geofísico. Licenciatura en Ciencias, mención Geofísica',
-    titleEn: 'Geophysicist. Bachelor of Science in Geophysics',
-    subtitleEs: 'Universidad de Chile • Aprobado con distinción (2021)',
-    subtitleEn: 'University of Chile • Awarded with distinction (2021)',
+    titleEs: 'Geofísico. Licenciatura en Ciencias, mención Geofísica (Distinción • Especialidad 5.9–6.0 / 7.0)',
+    titleEn: 'Geophysicist. Bachelor of Science in Geophysics (With Distinction • Specialty GPA 5.9–6.0 / 7.0)',
+    subtitleEs: 'Facultad de Ciencias Físicas y Matemáticas (FCFM - Beauchef) • Universidad de Chile (2021)',
+    subtitleEn: 'Faculty of Physical & Mathematical Sciences (FCFM - Beauchef) • University of Chile (2021)',
     country: 'Chile',
     city: 'Santiago',
     flag: '🇨🇱',
     lat: -33.45,
     lng: -70.66,
     date: '2021',
-    roleEs: 'Geofísico (Aprobado con Distinción)',
-    roleEn: 'Geophysicist (Awarded with Distinction)',
+    roleEs: 'Geofísico (Aprobado con Distinción • Promedio Ciclo Especialidad: 5.9–6.0 / 7.0)',
+    roleEn: 'Geophysicist (Awarded with Distinction • Final Specialization Cycle: 5.9–6.0 / 7.0)',
     mediaType: 'plate',
     src: '/logos/universidad_de_chile_logo.png',
     availablePages: [
@@ -2364,8 +2364,8 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/logos/universidad_de_chile_logo.png'
       },
       {
-        titleEs: 'Facultad de Ciencias Físicas y Matemáticas (FCFM)',
-        titleEn: 'Faculty of Physical & Mathematical Sciences (FCFM)',
+        titleEs: 'Facultad de Ciencias Físicas y Matemáticas (FCFM - Beauchef)',
+        titleEn: 'Faculty of Physical & Mathematical Sciences (FCFM - Beauchef)',
         pageSrc: '/logos/fcfm_uchile_logo.jpg'
       },
       {
@@ -2376,38 +2376,38 @@ export const GAME_MISSIONS: GameMission[] = [
     ],
     url: 'https://uchile.cl',
     code: 'OPS-TIT-01',
-    source: 'Universidad de Chile (FCFM)',
-    impactEs: 'Geofísico. Licenciatura en Ciencias, mención Geofísica, aprobado con distinción por la Universidad de Chile (2021). Formación rigurosa en física de la Tierra, sismología, prospección electromagnética y gravimétrica (SEV/TEM) y modelación computacional avanzada.',
-    impactEn: 'Geophysicist. Bachelor of Science in Geophysics, awarded with distinction by the University of Chile (2021). Rigorous foundation in Earth physics, applied electromagnetic geophysics (VES/TEM), seismology, and advanced computational modeling.',
+    source: 'Universidad de Chile (FCFM - Beauchef)',
+    impactEs: 'Geofísico y Licenciado en Ciencias con mención en Geofísica, aprobado con distinción por la FCFM (Beauchef) de la Universidad de Chile (2021). En una de las escalas más exigentes y deflacionarias de Latinoamérica (donde 4.8 en Electromagnetismo FI2002 ubicó a Daniel en el puesto 10 de 79 estudiantes — Top 13% de la cohorte), su desempeño en el ciclo superior de especialidad en Geofísica alcanzó promedios semestrales de 5.9 y 6.0 / 7.0, destacando Sismología Aplicada (6.0), Seminario de Meteorología Avanzada (5.9, Top 5/8), Sistema Climático (5.8, Top 5/12), Vibraciones y Ondas (5.7), Métodos de Exploración Geofísica (5.2, Top 5/24), Socioeconomía Latinoamericana (7.0, Top 1/40) y Práctica Profesional (7.0, Top 1/5).',
+    impactEn: 'Geophysicist and Bachelor of Science in Geophysics, awarded with distinction at FCFM (Beauchef), Universidad de Chile (2021). Tested under Latin America’s strictest deflationary engineering grading system (where a 4.8 in FI2002 Electromagnetism ranked 10th out of 79 students — Top 13% of cohort), his final Geophysics specialization cycle reached 5.9 and 6.0 / 7.0 semester averages, highlighted by Applied Seismology (6.0), Advanced Meteorology Seminar (5.9, Top 5/8), Climate System (5.8, Top 5/12), Vibrations & Waves (5.7), Geophysical Exploration Methods (5.2, Top 5/24), Latin American Socioeconomics (7.0, Top 1/40), and Professional Internship (7.0, Top 1/5).',
     methodologyEs: [
-      'Licenciatura en Ciencias, mención Geofísica (2021)',
-      'Aprobado con distinción en la FCFM Universidad de Chile',
-      'Prospección electromagnética, balance hídrico y modelación computacional'
+      'Ciclo de Especialidad en Geofísica (2018-2020) con promedios semestrales de 5.9 y 6.0 / 7.0 (Distinción FCFM)',
+      'Sismología Aplicada (6.0), Meteorología Avanzada (5.9, Top 5/8), Sistema Climático (5.8, Top 5/12) y Práctica Profesional (7.0, Top 1/5)',
+      'Electromagnetismo FI2002: Puesto 10 de 79 alumnos (Top 13% de la cohorte de Beauchef) y Métodos de Exploración Geofísica (Top 5/24)'
     ],
     methodologyEn: [
-      'Bachelor of Science in Geophysics (2021)',
-      'Awarded with distinction at FCFM University of Chile',
-      'Applied electromagnetic exploration, water balance, and computational physics'
+      'Geophysics Specialization Cycle (2018-2020) achieving 5.9 and 6.0 / 7.0 semester averages (FCFM Distinction)',
+      'Applied Seismology (6.0), Advanced Meteorology (5.9, Top 5/8), Climate System (5.8, Top 5/12) & Professional Internship (7.0, Top 1/5)',
+      'Electromagnetism FI2002: Ranked 10th out of 79 students (Top 13% of cohort) & Geophysical Exploration Methods (Top 5/24)'
     ],
-    tags: ['Universidad de Chile', 'Geofísico', 'Licenciatura en Ciencias', 'Distinción', '2021', 'FCFM']
+    tags: ['Universidad de Chile', 'FCFM Beauchef', 'Geofísico', 'Distinción', 'Top 13% Electromagnetismo', 'Especialidad 6.0']
   },
 
   // 35. TÍTULOS ACADÉMICOS: Universidad de Kiel (Alemania) - Manejo Ambiental
   {
     id: 'titulo-kiel',
     type: 'titles',
-    titleEs: 'Master en Ciencias en Manejo Ambiental',
-    titleEn: 'Master of Science in Environmental Management',
-    subtitleEs: 'Christian-Albrechts-Universität zu Kiel (Alemania) • 2026',
-    subtitleEn: 'Christian-Albrechts-Universität zu Kiel (Germany) • 2026',
+    titleEs: 'Master en Ciencias en Manejo Ambiental (Nota Final: 1.5 — Excellent / Sehr gut)',
+    titleEn: 'Master of Science in Environmental Management (Final Grade: 1.5 — Excellent / Sehr gut)',
+    subtitleEs: 'Christian-Albrechts-Universität zu Kiel (Alemania) • 120 / 120 ECTS • Transcript Oficial Adjunto',
+    subtitleEn: 'Christian-Albrechts-Universität zu Kiel (Germany) • 120 / 120 ECTS • Official Transcript Attached',
     country: 'Alemania',
     city: 'Kiel',
     flag: '🇩🇪',
     lat: 54.32,
     lng: 10.13,
-    date: '2026',
-    roleEs: 'Master en Ciencias (M.Sc.)',
-    roleEn: 'Master of Science (M.Sc.)',
+    date: '2023-2026',
+    roleEs: 'Master of Science (M.Sc.) • Calificación 1.5 (EXCELLENT / SEHR GUT • 120 ECTS)',
+    roleEn: 'Master of Science (M.Sc.) • Final Grade 1.5 (EXCELLENT / SEHR GUT • 120 ECTS)',
     mediaType: 'plate',
     src: '/logos/kiel_university_logo.png',
     availablePages: [
@@ -2417,50 +2417,61 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/logos/kiel_university_logo.png'
       },
       {
-        titleEs: 'Sello Histórico CAU Kiel',
-        titleEn: 'Historical Seal of CAU Kiel',
-        pageSrc: '/logos/cau_kiel_seal.svg'
+        titleEs: 'Transcript of Records Oficial (Página 1/2) • CAU Kiel & AMU Poznań (Grade 1.5 — Excellent)',
+        titleEn: 'Official Transcript of Records (Page 1/2) • CAU Kiel & AMU Poznań (Grade 1.5 — Excellent)',
+        pageSrc: '/cv/transcript_msc_page_1.png'
       },
       {
-        titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo',
-        titleEn: 'Soil Physics Laboratory & Column Diagnostics',
+        titleEs: 'Transcript of Records Oficial (Página 2/2) • 120/120 ECTS Completados (Grade 1.5 — Excellent)',
+        titleEn: 'Official Transcript of Records (Page 2/2) • 120/120 ECTS Completed (Grade 1.5 — Excellent)',
+        pageSrc: '/cv/transcript_msc_page_2.png'
+      },
+      {
+        titleEs: 'Laboratorio de Física de Suelos y Columnas de Flujo (CAU Kiel)',
+        titleEn: 'Soil Physics Laboratory & Column Diagnostics (CAU Kiel)',
         pageSrc: '/expeditions/kiel_soil_lab.png'
       }
     ],
-    url: 'https://www.uni-kiel.de',
+    url: 'https://danisantanderurrutia-coder.github.io/portafolio/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf',
     code: 'OPS-TIT-02',
-    source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel)',
-    impactEs: 'Master en Ciencias en Manejo Ambiental (M.Sc. in Environmental Management) por la Universidad de Kiel (Alemania), 2026. Especialización en balance hídrico de cuencas, hidrofísica de suelos y modelación ambiental de degradación.',
-    impactEn: 'Master of Science in Environmental Management from Kiel University (Germany), 2026. Specialization in catchment water balance, soil hydro-physical laboratory diagnostics, and environmental modeling.',
+    source: 'Christian-Albrechts-Universität zu Kiel (CAU Kiel) • Official Transcript of Records',
+    impactEs: 'Master en Ciencias en Manejo Ambiental (M.Sc. in Environmental Management) por la Universidad de Kiel (Alemania), completando los 120 de 120 créditos ECTS con calificación general 1.5 ("Excellent / Sehr gut", el tramo más alto de la escala universitaria alemana). Obtuvo la nota máxima absoluta (1.0) en todos los módulos cuantitativos, geoespaciales y ecohidrológicos: Spatial Data Handling (1.0), Remote Sensing Principles (1.0), Integrated Management of Wetlands (1.0), Science Project 2 (1.0) y Section C: Scientific Methods (1.0), con tesis sobre flujos de carbono e intercambio de gases de efecto invernadero en humedales en transición del norte de Alemania.',
+    impactEn: 'Master of Science in Environmental Management from Christian-Albrechts-Universität zu Kiel (Germany), completing 120 out of 120 ECTS credits with an overall grade of 1.5 ("Excellent / Sehr gut", the highest tier in the German grading scale). Achieved the maximum possible grade (1.0) across all quantitative, geospatial, and ecohydrological modules: Spatial Data Handling (1.0), Remote Sensing Principles (1.0), Integrated Management of Wetlands (1.0), Science Project 2 (1.0), and Section C: Scientific Methods (1.0), with Master’s Thesis on Carbon Fluxes and Greenhouse Gases Exchange in Transitioning Wetlands of Northern Germany.',
     methodologyEs: [
-      'Master en Ciencias en Manejo Ambiental (2026)',
-      'Christian-Albrechts-Universität zu Kiel (Alemania)',
-      'Dinámica de suelos, hidrofísica y balance hídrico de cuencas'
+      'Calificación Final Oficial: 1.5 (Excellent / Sehr gut) con 120 / 120 créditos ECTS aprobados',
+      'Nota máxima (1.0) en Spatial Data Handling (GIS), Remote Sensing Principles, Integrated Management of Wetlands y Science Project 2',
+      'Tesis de Maestría (30 ECTS): Carbon Fluxes and Greenhouse Gases Exchange in Transitioning Wetlands of Northern Germany'
     ],
     methodologyEn: [
-      'Master of Science in Environmental Management (2026)',
-      'Christian-Albrechts-Universität zu Kiel (Germany)',
-      'Soil dynamics, hydro-physics, and catchment water balance'
+      'Official Overall Grade: 1.5 (Excellent / Sehr gut) with 120 / 120 ECTS credits completed',
+      'Maximum grade (1.0) in Spatial Data Handling (GIS), Remote Sensing Principles, Integrated Management of Wetlands & Science Project 2',
+      'Master’s Thesis (30 ECTS): Carbon Fluxes and Greenhouse Gases Exchange in Transitioning Wetlands of Northern Germany'
     ],
-    tags: ['CAU Kiel', 'Alemania', 'Master en Ciencias', 'Manejo Ambiental', '2026']
+    deliverablesEs: [
+      'Descargar Transcript of Records Oficial (PDF): https://danisantanderurrutia-coder.github.io/portafolio/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf'
+    ],
+    deliverablesEn: [
+      'Download Official Transcript of Records (PDF): https://danisantanderurrutia-coder.github.io/portafolio/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf'
+    ],
+    tags: ['CAU Kiel', '1.5 Excellent', 'Transcript of Records', '120 ECTS', 'Spatial Data 1.0', 'Remote Sensing 1.0', 'Alemania']
   },
 
   // 36. TÍTULOS ACADÉMICOS: Universidad de Poznań (Polonia) - Protección Ambiental
   {
     id: 'titulo-amu-poznan',
     type: 'titles',
-    titleEs: 'Master en Ciencias en Protección Ambiental',
-    titleEn: 'Master of Science in Environmental Protection',
-    subtitleEs: 'Adam Mickiewicz University (AMU Poznań, Polonia) • 2026',
-    subtitleEn: 'Adam Mickiewicz University (AMU Poznań, Poland) • 2026',
+    titleEs: 'Master en Ciencias en Protección Ambiental (Módulos UAM: 1.4 • Global: 1.5 Excellent)',
+    titleEn: 'Master of Science in Environmental Protection (UAM Modules: 1.4 • Overall: 1.5 Excellent)',
+    subtitleEs: 'Adam Mickiewicz University (AMU Poznań, Polonia) • Doble Máster Europeo • Transcript Oficial',
+    subtitleEn: 'Adam Mickiewicz University (AMU Poznań, Poland) • European Dual M.Sc. • Official Transcript',
     country: 'Polonia',
     city: 'Poznań',
     flag: '🇵🇱',
     lat: 52.41,
     lng: 16.93,
-    date: '2026',
-    roleEs: 'Master en Ciencias (M.Sc.)',
-    roleEn: 'Master of Science (M.Sc.)',
+    date: '2023-2026',
+    roleEs: 'Master of Science (M.Sc.) • Promedio Módulos UAM: 1.4 (EXCELLENT)',
+    roleEn: 'Master of Science (M.Sc.) • UAM Track Grade: 1.4 (EXCELLENT)',
     mediaType: 'plate',
     src: '/logos/amu_poznan_logo.png',
     availablePages: [
@@ -2470,37 +2481,43 @@ export const GAME_MISSIONS: GameMission[] = [
         pageSrc: '/logos/amu_poznan_logo.png'
       },
       {
-        titleEs: 'Muestreo Limnológico de Perifiton en Lago',
-        titleEn: 'Limnological Periphyton Lake Sampling',
-        pageSrc: '/expeditions/poland_lake_sampling.jpg'
+        titleEs: 'Transcript of Records Oficial (Página 1/2) • Section X: UAM Environmental Protection (1.4 Excellent)',
+        titleEn: 'Official Transcript of Records (Page 1/2) • Section X: UAM Environmental Protection (1.4 Excellent)',
+        pageSrc: '/cv/transcript_msc_page_1.png'
       },
       {
-        titleEs: 'Microscopía Óptica Zeiss e Identificación de Protozoos',
-        titleEn: 'Zeiss Optical Microscopy & Protozoa Taxonomy',
+        titleEs: 'Transcript of Records Oficial (Página 2/2) • Módulos con Nota Máxima 1.0 en AMU Poznań',
+        titleEn: 'Official Transcript of Records (Page 2/2) • 1.0 Top-Scored Modules at AMU Poznań',
+        pageSrc: '/cv/transcript_msc_page_2.png'
+      },
+      {
+        titleEs: 'Microscopía Óptica Zeiss e Identificación de Protozoos (AMU Poznań)',
+        titleEn: 'Zeiss Optical Microscopy & Protozoa Taxonomy (AMU Poznań)',
         pageSrc: '/expeditions/poland_microscope_zeiss.jpg'
-      },
-      {
-        titleEs: 'Clasificación de Bentos y Macroinvertebrados',
-        titleEn: 'Benthic Macroinvertebrate Sorting & Biodiversity',
-        pageSrc: '/expeditions/poznan_lake_benthos.jpg'
       }
     ],
-    url: 'https://amu.edu.pl',
+    url: 'https://danisantanderurrutia-coder.github.io/portafolio/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf',
     code: 'OPS-TIT-03',
-    source: 'Adam Mickiewicz University (AMU Poznań)',
-    impactEs: 'Master en Ciencias en Protección Ambiental (M.Sc. in Environmental Protection) por la Universidad Adam Mickiewicz de Poznań (Polonia), 2026. Especialización en dinámicas de secuestro de carbono en humedales y calidad ecológica dulceacuícola.',
-    impactEn: 'Master of Science in Environmental Protection from Adam Mickiewicz University in Poznań (Poland), 2026. Specialization in carbon sequestration in wetlands and freshwater ecological quality.',
+    source: 'Adam Mickiewicz University (AMU Poznań) • Official Transcript of Records',
+    impactEs: 'Master en Ciencias en Protección Ambiental (M.Sc. in Environmental Protection) en la Universidad Adam Mickiewicz de Poznań (Polonia), dentro del programa de Doble Máster Europeo con CAU Kiel. Obtuvo un promedio de 1.4 ("Excellent") en el bloque de 30 ECTS en AMU Poznań (Section X), logrando la calificación máxima absoluta (1.0) en 6 asignaturas clave: Aquatic Community Ecology (1.0), Ecological State of the Lake During Restoration (1.0), Environmental Monitoring in Practice (1.0), Environmental Policies (1.0), Financing of Environment Protection (1.0) y Urban Aquatic Biodiversity: Pondscape (1.0).',
+    impactEn: 'Master of Science in Environmental Protection at Adam Mickiewicz University in Poznań (Poland), as part of the European Dual M.Sc. with CAU Kiel. Achieved a 1.4 ("Excellent") grade across the 30 ECTS Section X track at AMU Poznań, earning the highest possible score (1.0) in 6 core modules: Aquatic Community Ecology (1.0), Ecological State of the Lake During Restoration (1.0), Environmental Monitoring in Practice (1.0), Environmental Policies (1.0), Financing of Environment Protection (1.0), and Urban Aquatic Biodiversity: Pondscape (1.0).',
     methodologyEs: [
-      'Master en Ciencias en Protección Ambiental (2026)',
-      'Adam Mickiewicz University (AMU Poznań, Polonia)',
-      'Secuestro de carbono en humedales e indicadores limnológicos'
+      'Promedio Oficial en Módulos UAM "Environmental Protection" (Section X): 1.4 (Excellent) y Global Doble M.Sc.: 1.5 (Excellent)',
+      '6 módulos con nota máxima (1.0): Environmental Monitoring in Practice, Environmental Policies, Financing of Environment Protection, Aquatic Community Ecology, Lake Restoration y Urban Pondscape',
+      'Verificación en laboratorio e in situ de calidad ecológica del agua y bioindicadores en lagos y estanques de Polonia'
     ],
     methodologyEn: [
-      'Master of Science in Environmental Protection (2026)',
-      'Adam Mickiewicz University (AMU Poznań, Poland)',
-      'Carbon sequestration in wetlands and limnological indicators'
+      'Official Grade in UAM "Environmental Protection" Modules (Section X): 1.4 (Excellent) & Dual M.Sc. Overall: 1.5 (Excellent)',
+      '6 modules with maximum score (1.0): Environmental Monitoring in Practice, Environmental Policies, Financing of Environment Protection, Aquatic Community Ecology, Lake Restoration & Urban Pondscape',
+      'Laboratory and in-situ verification of freshwater ecological status and bioindicators across Polish lakes and ponds'
     ],
-    tags: ['AMU Poznań', 'Polonia', 'Master en Ciencias', 'Protección Ambiental', '2026']
+    deliverablesEs: [
+      'Descargar Transcript of Records Oficial (PDF): https://danisantanderurrutia-coder.github.io/portafolio/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf'
+    ],
+    deliverablesEn: [
+      'Download Official Transcript of Records (PDF): https://danisantanderurrutia-coder.github.io/portafolio/cv/Daniel_Santander_Transcript_MSc_Kiel_Poznan.pdf'
+    ],
+    tags: ['AMU Poznań', '1.4 Excellent', 'Transcript of Records', 'Polonia', 'Environmental Policies 1.0', 'Monitoring 1.0']
   },
 
   // ==============================================================
