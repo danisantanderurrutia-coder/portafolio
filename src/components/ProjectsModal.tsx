@@ -246,6 +246,52 @@ export const ACTIVE_INNOVATION_PROJECTS: SideProject[] = [
     ]
   },
   {
+    id: 'hombros',
+    emoji: '⚖️',
+    titleEn: 'HOMBROS: Territorial Metabolic System & Carrying Capacity',
+    titleEs: 'HOMBROS: Sistema Metabólico Territorial & Capacidad Portante',
+    subtitleEn: 'Non-compensatory carrying capacity H = (S·E·K)^(1/3), continuum mechanics & biophysical stress across 8 territories in Chile & Europe',
+    subtitleEs: 'Modelación de capacidad portante no compensatoria H = (S·E·K)^(1/3), mecánica de medios continuos y tensión biofísica en 8 territorios (Chile y Europa)',
+    categoryEn: 'Biophysical Modeling & Territorial Metabolism',
+    categoryEs: 'Modelación Biofísica & Metabolismo Territorial',
+    categoryColor: 'bg-emerald-800 text-white',
+    branch: 'science',
+    statusBadgeEn: 'PRODUCTION METABOLIC PLATFORM',
+    statusBadgeEs: 'PLATAFORMA METABÓLICA EN VIVO',
+    statusBadgeColor: 'bg-emerald-400 text-black',
+    clientEn: 'Regional Governments, Watershed Coalitions, Agroecological Consortia & Territorial Planners',
+    clientEs: 'Gobiernos Regionales, Juntas de Vigilancia de Cuencas, Consorcios Agroecológicos & Planificadores Territoriales',
+    valuePropEn: 'Territorial systemic auditing and carrying capacity modeling platform applying continuum mechanics (Cauchy stress tensor, yield criteria) to eco-social systems. Replaces compensatory ESG accounting with non-substitutable biophysical limits H = (S·E·K)^(1/3) and biophysical stress σ = D/H across 8 audited territories in Chile and Europe.',
+    valuePropEs: 'Plataforma de auditoría metabólica y modelación de capacidad portante territorial que aplica mecánica de medios continuos (tensor de esfuerzos de Cauchy, criterios de fluencia) a sistemas eco-sociales. Reemplaza la contabilidad ESG compensatoria por límites biofísicos no sustituibles H = (S·E·K)^(1/3) y tensión σ = D/H en 8 territorios auditados en Chile y Europa.',
+    deliverablesEn: [
+      'Interactive 3D biophysical tripod and CORE territorial metabolism dashboard',
+      'Non-compensatory carrying capacity solver H = (S·E·K)^(1/3) with Liebig minimum principle',
+      'Full territorial metabolic audit (Scope 1, 2, 3 footprint, biophysical stress σ = D/H)',
+      'Operational validation across 8 territories in Chile and Europe (Maule, Biobío, Araucanía, Magallanes, Schleswig-Holstein, Wadden Sea, Andalusia, Po Valley)'
+    ],
+    deliverablesEs: [
+      'Trípode biofísico interactivo y panel CORE de metabolismo territorial en tiempo real',
+      'Solucionador de capacidad portante no compensatoria H = (S·E·K)^(1/3) bajo principio del mínimo de Liebig',
+      'Auditoría metabólica territorial integral (huella alcances 1, 2 y 3, tensión biofísica σ = D/H)',
+      'Validación operacional en 8 territorios de Chile y Europa (Maule, Biobío, Araucanía, Magallanes, Schleswig-Holstein, Mar de Wadden, Andalucía, Valle del Po)'
+    ],
+    impactMetricEn: '8 Audited Territories (Chile & Europe) • Non-Compensatory Liebig Threshold Engine',
+    impactMetricEs: '8 Territorios Auditados (Chile y Europa) • Motor de Umbrales No Compensatorios de Liebig',
+    techStack: ['TypeScript', 'React 18', 'TailwindCSS', 'Continuum Mechanics', 'Vite', 'Recharts', 'Metabolic Auditing'],
+    notesEn: 'Dual-regional operational validation spanning 8 territories across Chile and Europe.',
+    notesEs: 'Validación operativa birregional que abarca 8 territorios en Chile y Europa.',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/hombros',
+    liveUrl: 'https://danisantanderurrutia-coder.github.io/hombros/',
+    imageSrc: '/logos/logo_hombros.png',
+    imageGallery: [
+      {
+        src: '/logos/logo_hombros.png',
+        captionEs: 'Logotipo Oficial • HOMBROS: Sistema Metabólico Territorial',
+        captionEn: 'Official Logo • HOMBROS: Territorial Metabolic System'
+      }
+    ]
+  },
+  {
     id: 'smart-food-parks',
     emoji: '🌱',
     titleEn: 'Smart Food Parks: Urban IoT & Digital Twin',

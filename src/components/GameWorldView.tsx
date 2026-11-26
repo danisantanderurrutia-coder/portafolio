@@ -1891,6 +1891,53 @@ export const GAME_MISSIONS: GameMission[] = [
     tags: ['Libro de Incendios', 'Coordinador Editorial', 'RESUMOF', 'Incendios Forestales', 'Cuencas', 'JavaScript', 'Leaflet.js', 'QGIS', 'R', 'Python']
   },
 
+  // 24.5 I+D & INNOVACIÓN: HOMBROS - Sistema Metabólico Territorial & Capacidad Portante
+  {
+    id: 'rd-hombros',
+    type: 'rd',
+    titleEs: 'HOMBROS: Sistema Metabólico Territorial & Capacidad Portante H = (S·E·K)^(1/3)',
+    titleEn: 'HOMBROS: Territorial Metabolic System & Carrying Capacity H = (S·E·K)^(1/3)',
+    subtitleEs: 'Mecánica de Medios Continuos, Auditoría Metabólica y Trípode Biofísico // Chile & Europa',
+    subtitleEn: 'Continuum Mechanics, Territorial Metabolic Auditing & Biophysical Tripod // Chile & Europe',
+    country: 'Chile / Europa',
+    city: 'Multiterritorial: Todo Chile & Toda Europa (8 Territorios)',
+    flag: '🌐',
+    lat: 50.11,
+    lng: 8.68,
+    date: '2024-2026',
+    roleEs: 'Arquitecto de Sistemas Metabólicos, Modelador Biofísico & AI Product Owner',
+    roleEn: 'Metabolic Systems Architect, Biophysical Modeler & AI Product Owner',
+    mediaType: 'plate',
+    src: '/logos/logo_hombros.png',
+    availablePages: [
+      {
+        titleEs: 'Logotipo Oficial • HOMBROS: Sistema Metabólico Territorial',
+        titleEn: 'Official Logo • HOMBROS: Territorial Metabolic System',
+        pageSrc: '/logos/logo_hombros.png'
+      }
+    ],
+    url: 'https://danisantanderurrutia-coder.github.io/hombros/',
+    githubUrl: 'https://github.com/danisantanderurrutia-coder/hombros',
+    techStack: ['TypeScript', 'React 18', 'Tailwind CSS', 'Mecánica de Medios Continuos', 'Tensor de Esfuerzos', 'Vite', 'Recharts'],
+    code: 'OPS-RD-HOMBROS',
+    source: 'GitHub: danisantanderurrutia-coder/hombros • hombros',
+    impactEs: 'Desarrollo de "HOMBROS: Sistema Metabólico Territorial", una plataforma de modelación biofísica avanzada y auditoría metabólica territorial. Sustituye la contabilidad ESG compensatoria por un marco no compensatorio riguroso fundamentado en el principio del mínimo de Liebig y la mecánica de medios continuos (criterios de fluencia, tensor de esfuerzos de Cauchy). Modela la capacidad portante territorial H = (S·E·K)^(1/3) integrando soporte biótico (S), energía neta (E) y conocimiento/capital ecológico (K), evaluando la tensión biofísica σ = D/H y el trípode biofísico a lo largo de 8 territorios auditados en Chile (Maule, Biobío, Araucanía, Magallanes) y Europa (Schleswig-Holstein, Mar de Wadden, Andalucía, Valle del Po).',
+    impactEn: 'Development of "HOMBROS: Territorial Metabolic System", an advanced biophysical modeling and territorial metabolic auditing platform. Replaces compensatory ESG accounting with a strict non-compensatory framework grounded in Liebig\'s law of the minimum and continuum mechanics (yield criteria, Cauchy stress tensor). Models territorial carrying capacity H = (S·E·K)^(1/3) integrating biotic support (S), net energy (E), and ecological capital/knowledge (K), evaluating biophysical stress σ = D/H across 8 audited territories in Chile (Maule, Biobío, Araucanía, Magallanes) and Europe (Schleswig-Holstein, Wadden Sea, Andalusia, Po Valley).',
+    methodologyEs: [
+      'Modelación matemática de capacidad portante no compensatoria H = (S·E·K)^(1/3) bajo principio del mínimo de Liebig: ningún flujo financiero sustituye un límite biofísico agotado',
+      'Aplicación de mecánica de medios continuos (tensores de esfuerzo y deformación, umbrales de falla elasto-plástica) a la resiliencia metabólica de cuencas y territorios',
+      'Auditoría metabólica integral: huella alcances 1, 2 y 3, vector de demanda metabólica D y cálculo de tensión biofísica regional σ = D/H',
+      'Despliegue interactivo full-stack en TypeScript, React 18, Tailwind CSS y visualización reactiva con Recharts validada en 8 territorios de Chile y Europa'
+    ],
+    methodologyEn: [
+      'Non-compensatory carrying capacity modeling H = (S·E·K)^(1/3) under Liebig\'s law of the minimum: no monetary capital substitutes for exhausted biophysical thresholds',
+      'Application of continuum mechanics (stress-strain tensors, elastoplastic yield criteria) to eco-social metabolic resilience across watersheds',
+      'Comprehensive territorial metabolic audit: Scope 1, 2, 3 footprint, metabolic demand vector D, and regional biophysical stress σ = D/H calculation',
+      'Full-stack interactive deployment in TypeScript, React 18, Tailwind CSS, and reactive Recharts visualization validated across 8 territories in Chile and Europe'
+    ],
+    tags: ['HOMBROS', 'Metabolismo Territorial', 'Capacidad Portante', 'Mecánica de Medios Continuos', 'Chile', 'Europa', 'TypeScript', 'React', 'Liebig']
+  },
+
   // 22. ASESORÍA EN POLÍTICAS PÚBLICAS: Ordenamiento de Cuencas & Transición Productiva (CV)
   {
     id: 'rd-transicion-cuencas',

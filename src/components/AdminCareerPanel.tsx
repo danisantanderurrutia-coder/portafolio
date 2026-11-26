@@ -154,6 +154,18 @@ export const AdminCareerPanel: React.FC<AdminCareerPanelProps> = ({
       mission: 'wetland-monitor-app'
     },
     {
+      id: 'hombros-metabolismo',
+      badge: '⚖️ CHILE & EUROPA • METABOLISMO TERRITORIAL & CAPACIDAD PORTANTE',
+      title: 'HOMBROS: Sistema Metabólico Territorial & Capacidad Portante H = (S·E·K)^(1/3)',
+      targetRoles: 'Territorial Systems Modeler, Biophysical Economist, ESG & Carrying Capacity Auditor, Environmental Tech Lead',
+      Highlight:
+        'Abre el Globo 3D en la plataforma HOMBROS para modelación de capacidad portante no compensatoria y auditoría metabólica birregional en 8 territorios de Chile y Europa.',
+      query: `science?mission=rd-hombros${langSuffix}`,
+      view: 'game' as const,
+      cat: 'rd',
+      mission: 'rd-hombros'
+    },
+    {
       id: 'poznan-water',
       badge: '🇵🇱 POLONIA / UE • CALIDAD DEL AGUA & DIRECTIVA MARCO DEL AGUA',
       title: 'Limnología, Bioindicadores Acuáticos & Directiva Marco del Agua (AMU Poznań)',

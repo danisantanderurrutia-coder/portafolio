@@ -286,6 +286,14 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({
                       descEs: 'Investigación y desarrollo de gemelos digitales 3D y simuladores ecohidrológicos (Wetland Monitor en CAU Kiel, AgriTwin 122.000 ha en Three.js/React/ESP32 y Smart Food Parks).'
                     },
                     {
+                      badgeEn: 'TERRITORIAL METABOLISM & CARRYING CAPACITY',
+                      badgeEs: 'METABOLISMO TERRITORIAL & CAPACIDAD PORTANTE',
+                      titleEn: 'Non-Compensatory Carrying Capacity H = (S·E·K)^(1/3) & Continuum Mechanics',
+                      titleEs: 'Capacidad Portante H = (S·E·K)^(1/3), Mecánica de Medios Continuos & Auditoría Metabólica',
+                      descEn: 'Platform engineering (HOMBROS) applying continuum mechanics (Cauchy stress tensor, yield criteria) and Liebig non-compensatory thresholds to territorial carrying capacity across 8 audited regions in Chile and Europe.',
+                      descEs: 'Ingeniería de plataformas (HOMBROS) aplicando mecánica de medios continuos (tensor de esfuerzos de Cauchy, criterios de fluencia) y umbrales no compensatorios de Liebig a la capacidad portante territorial en 8 regiones de Chile y Europa.'
+                    },
+                    {
                       badgeEn: 'CLIMATE-TECH, CARBON & dMRV',
                       badgeEs: 'CLIMATE-TECH, AUDITORÍA DE CARBONO & dMRV',
                       titleEn: 'Eddy Covariance GHG Fluxes & Digital MRV (IPCC Tier 2)',
